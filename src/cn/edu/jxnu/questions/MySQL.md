@@ -2,7 +2,7 @@
 
 ### 1.常用基础SQL
 
-[数据库常用语句](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/sql/SQL%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF.txt)
+[数据库常用语句](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sql/SQL%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF.txt)
 
 ### 2.优化事项
 
@@ -132,7 +132,7 @@ SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定�
 这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。
 这四种隔离级别采取不同的锁类型来实现，若读取的是同一个数据的话，就容易发生问题。
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB.png)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB.png)
 
 * 脏读(Drity Read)：某个事务已更新一份数据，另一个事务在此时读取了同一份数据，由于某些原因，前一个RollBack了操作，则后一个事务所读取的数据就会是不正确的。
 * 不可重复读(Non-repeatable read):在一个事务的两次查询之中数据不一致，这可能是两次查询过程中间插入了一个事务更新的原有的数据。
@@ -297,7 +297,7 @@ InnoDB主要特性
 
 倒排索引基本概念示意图
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95.jpg)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95.jpg)
 
 4.倒排索引和正排索引
 
@@ -368,7 +368,7 @@ InnoDB主要特性
 7. 第五步，从MYSQL后台一个线程专门用于从relay-log中读取同步回来的SQL，并写入到从MYSQL中，完成同步;
 8. MYSQL的主从同步是经过高度优化的，性能非常高;
 
-这里东西太多，更多请参考[mysql优化的课程笔记](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/sql/%E7%AC%94%E8%AE%B0.xls)
+这里东西太多，更多请参考[mysql优化的课程笔记](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sql/%E7%AC%94%E8%AE%B0.xls)
 
 ### 13、explain和join
 

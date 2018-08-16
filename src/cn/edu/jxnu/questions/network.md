@@ -371,9 +371,9 @@ Vary: Content-Encoding那么 Cache 服务器会分析后续请求消息的头部
 * 物理层 中继器、集线器、还有我们通常说的双绞线也工作在物理层
 * 对于只有四层的教科书，物理+链路=网络接口层
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE2.png)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE2.png)
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.png)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.png)
 
 ### 7.session机制、cookie机制 
 
@@ -410,7 +410,7 @@ Vary: Content-Encoding那么 Cache 服务器会分析后续请求消息的头部
 * 第二次：发回确认包(ACK)应答。即SYN标志位和ACK标志位均为1同时，将确认序号(Acknowledgement Number)设置为客户的ISN加1（初始序列号ISN是客户端随机产生的一个值），即x+1。并发送一个自己的ISN（y）。
 * 第三次：客户端发送确认包(ACK) SYN标志位为0，ACK标志位为1，并且把服务器发来的ISN+1（y+1）作为确认号发送给对方，且序列号设置为第二次的确认号x+1
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg)
 
 2、SYN攻击
 
@@ -435,7 +435,7 @@ netstat -n -p TCP | grep SYN_RECV 一般较新的TCP/IP协议栈都对这一过�
 确认号表示下次需要响应端发送的数据的起始位置，因为确认号变成下次的起始序列号，以此来推断连接有效，当然这也是因为seq在被收到后会加1。
 收到seq=w，应该响应并返回ack=w+1，收到ack=u+1，则表示下次发送序列号为seq=ack=u+1，应该响应并返回seq=u+1。
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/TCP.JPG)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/TCP.JPG)
 
 4、为什么建立连接协议是三次握手，而关闭连接却是四次握手呢
 
@@ -557,7 +557,7 @@ HTTPS要比HTTP更加安全一些，也就是说HTTPS协议是由SSL+HTTP协议�
 因为安全问题太重要了，有很多的网站都被攻破了，用户数据被泄露。全站HTTPS将是以后网络发展的趋势，国外很多站点都是实行的全站HTTPS<br>
 HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。同时由于加密解密需要消耗CPU等系统资源，所以HTTPS会更慢<br>
 HTTPS协议需要到CA申请证书，一般需要额外支出，此外还有一点需要注意的是，无论HTTPS、HTTP、等其他协议，它们的端口虽然推荐标准有默认值且众所周知，但是也带来了被攻击的危险性，实际上很多时候不会使用该端口，这在RFC2817有说明，实际也是这样的<br>
-[SSL与TLS最简洁概括](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/questions/SSL%E4%B8%8ETls%E6%A6%82%E8%BF%B0.txt)<br>
+[SSL与TLS最简洁概括](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/SSL%E4%B8%8ETls%E6%A6%82%E8%BF%B0.txt)<br>
 [RFC2818 - HTTP Over TLS](http://www.cnpaf.net/rfc/rfc2818.txt)<br>
 [RFC2817 - Upgrading to TLS Within HTTP/1.1 注意区别，此时还不是HTTPS](http://www.cnpaf.net/rfc/rfc2817.txt)<br>
 

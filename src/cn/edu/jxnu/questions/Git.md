@@ -31,7 +31,7 @@ id_rsa.pub文件添加到Git的秘钥管理处，实际任何遵守Git协议的�
 
 上面的暂存区，分支，工作区的存储模型[借鉴自CyC2018](https://github.com/CyC2018/Interview-Notebook/blob/master/notes/Git.md)
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/git%20%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B.png)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/git%20%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B.png)
 
 ### 3、从远程开始
 
@@ -100,7 +100,7 @@ git checkout 暂存区回滚到工作区（回滚最后一次add操作，--files
 
 而 git merge的合并会出现痕迹，造成菱形依赖，看起来很困惑，所以推荐使用 git fetch + git rebase。
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/practice/picture/git%20rebase.png)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/git%20rebase.png)
 
 git rebase --abort参数来终止rebase的行动，并且"mywork" 分支会回到rebase开始前的状态。
 
