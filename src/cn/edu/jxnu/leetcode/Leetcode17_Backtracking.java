@@ -16,7 +16,6 @@ Leetcode : 17. Letter Combinations of a Phone Number (Medium)
  * @time. 2018年4月12日
  */
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

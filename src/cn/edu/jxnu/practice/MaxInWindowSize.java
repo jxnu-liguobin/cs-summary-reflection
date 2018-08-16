@@ -1,7 +1,6 @@
 package cn.edu.jxnu.practice;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 
 /**
  * @description 给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}

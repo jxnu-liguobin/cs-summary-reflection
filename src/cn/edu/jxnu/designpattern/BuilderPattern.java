@@ -1,6 +1,5 @@
 package cn.edu.jxnu.designpattern;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

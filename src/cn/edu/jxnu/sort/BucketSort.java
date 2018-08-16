@@ -1,6 +1,5 @@
 package cn.edu.jxnu.sort;
 
-import java.util.ArrayList;
 import java.util.Collections;
 
 /**

@@ -1,7 +1,5 @@
 package cn.edu.jxnu.practice;
 
-import java.util.ArrayList;
-
 /**
  * @description 小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。但是他并不满足于此,
  *              他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。没多久,他就得到另一组连续正数

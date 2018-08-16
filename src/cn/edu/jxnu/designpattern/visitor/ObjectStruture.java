@@ -1,6 +1,5 @@
 package cn.edu.jxnu.designpattern.visitor;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

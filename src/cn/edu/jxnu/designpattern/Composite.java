@@ -1,7 +1,6 @@
 package cn.edu.jxnu.designpattern;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 /**   
  * Copyright © 2018 梦境迷离. All rights reserved.

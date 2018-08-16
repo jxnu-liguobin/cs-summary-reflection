@@ -1,7 +1,5 @@
 package cn.edu.jxnu.practice;
 
-import java.util.ArrayList;
-
 /**
  * @description 每年六一儿童节,牛客都会准备一些小礼物去看望孤儿院的小朋友,今年亦是如此。
  *              HF作为牛客的资深元老,自然也准备了一些小游戏。其中,有个游戏是这样的:
