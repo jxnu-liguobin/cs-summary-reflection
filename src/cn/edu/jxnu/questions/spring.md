@@ -147,7 +147,7 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
       4、指定主库 @Primary
       5、AOP拦截注解+注解标记方法
      
-### Spring Aop说明时候会失效？
+### Spring Aop什么时候会失效？
 
 在对象内部的方法中调用该对象的其他使用aop机制的方法，被调用方法的aop注解失效。
 
@@ -164,7 +164,25 @@ newProxyInstance 产生一个代理对象 ，三个参数
         
 (接口中有什么方法，代理中就有什么方法 代理中的每个方法在调用的时候都会把方法自身传给 handel， 并把代理对象和参数都传递过去 )   
 
-代理设计模式类图
+### 静态代理与动态代理
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/proxy.jpg)
+静态代理：由程序员或者自动生成工具生成代理类，然后进行代理类的编译和运行。在代理类、委托类运行之前，代理类已经以.class的格式存在。
+
+动态代理：在程序运行时，由反射机制动态创建而成。（各种字节码操纵工具以及框架可以实现）
+
+### CGLib与JDK代理的区别
+
+     . JDK动态代理只能对实现了接口的类生成代理，而不能针对没有实现接口的类
+     . CGLIB是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法，因为是继承，所以该类或方法最好不要声明成final 
+
+
+动态代理设计模式类图
+
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/dproxy.png)
+
+动态代理宏观图
+
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/proxy2.jpg)
+
+[ASM](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ASM.md)
 
