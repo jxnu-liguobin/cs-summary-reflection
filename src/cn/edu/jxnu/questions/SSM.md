@@ -211,7 +211,7 @@ SQL注入漏洞测试:原文：http://www.cnblogs.com/leftshine/p/SQLInjection.h
 
 ### 17. Xml映射文件中，除了常见的select|insert|updae|delete标签之外，还有哪些标签？
 
-还有很多其他的标签，<resultMap>、<parameterMap>、<sql>、<include>、<selectKey>，加上动态sql的9个标签，trim|where|set|foreach|if|choose|when|otherwise|bind等，其中<sql>为sql片段标签，
+还有很多其他的标签，\<resultMap>、\<parameterMap>、\<sql>、\<include>、\<selectKey>，加上动态sql的9个标签，trim|where|set|foreach|if|choose|when|otherwise|bind等，其中<sql>为sql片段标签，
 通过<include>标签引入sql片段，<selectKey>为不支持自增的主键生成策略标签。
 
 ### 18. 最佳实践中，通常一个Xml映射文件，都会写一个Dao接口与之对应，请问，这个Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？
@@ -267,4 +267,4 @@ Mybatis仅支持association关联对象和collection关联集合对象的延迟�
 根据key自动找到对应Map集合的value
  
  
- PS:由于一直使用SpringBoot、SpringCloud，对于SSM没有过多研究。
+ PS:由于一直使用SpringBoot、SpringCloud，对于SSM没有过多研究,主要是根据网络和自己的经历整理的。
