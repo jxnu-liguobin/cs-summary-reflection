@@ -25,7 +25,7 @@
 
    12. [Redis相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/redis.md)
    
-   13. [Spring相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/spring.md)
+   13. [Spring | Mybatis](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/SSM.md)
    
    其他知识的代码。不使用md文件是希望可以直接运行，说明在包中
 
