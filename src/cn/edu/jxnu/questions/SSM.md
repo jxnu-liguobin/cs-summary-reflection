@@ -11,7 +11,7 @@
 1. AOP： Aspect Oriented Program， 面向(方面)切面的编程；Filter(过滤器)
 也是一种 AOP。 AOP 是一种新的方法论， 是对传统 OOP(Object-Oriented
 Programming， 面向对象编程) 的补充。 AOP 的主要编程对象是切面(aspect)，
-而切面模块化横切关注点.可以举例通过事务说明。
+而切面模块化横切关注点，可以举例通过事务说明。
 2. IOC： Invert Of Control， 控制反转。 也称为 DI(依赖注入)，其思想是反转
 资源获取的方向。 传统的资源查找方式要求组件向容器发起请求查找资源。作为
 回应， 容器适时的返回资源。 而应用了 IOC 之后， 则是容器主动地将资源推送
