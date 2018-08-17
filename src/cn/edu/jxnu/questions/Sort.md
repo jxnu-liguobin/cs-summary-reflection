@@ -746,6 +746,31 @@ public class BucketSort extends Constant {
 4. 当临时数组存满时，将数组写至磁盘，并清空数组内容。
 5. 重复过程（3）、（4），直至所有文件块读取完毕。
 
+### 12. Collections.sort使用哪种排序算法？Arrays.sort()？
+
+1、Arrays.sort()
+
+底层调用DualPivotQuicksort.sort(a, 0, a.length - 1, null, 0, 0)，翻译过来就是双轴快速排序。
+
+数组的长度小于QUICKSORT_THRESHOLD（286），使用双轴快速排序
+数组长度小于INSERTION_SORT_THRESHOLD(值为47)的话，使用插入排序。
+那如果大于286，它就会检测数组的连续升序和连续降序性好不好，如果好的话就用归并排序，不好的话就用快速排序
+
+总结一下Arrays.sort()方法，如果数组长度大于等于286且连续性好的话，就用归并排序，如果大于等于286且连续性不好的话就用双轴快速排序。
+如果长度小于286且大于等于47的话就用双轴快速排序，如果长度小于47的话就用插入排序。
+
+2、Collections.sort()
+
+底层调用归并排序legacyMergeSort(a, c)和TimSort()。
+
+Timsort是结合了归并排序（merge sort）和插入排序（insertion sort）而得出的排序算法，它在现实中有很好的效率。
+大体是说，Timsort是稳定的算法，当待排序的数组中已经有排序好的数，它的时间复杂度会小于n logn。与其他合并排序一样，Timesrot是稳定的排序算法，最坏时间复杂度是O（n log n）。
+在最坏情况下，Timsort算法需要的临时空间是n/2，在最好情况下，它只需要一个很小的临时存储空间
+
+
+
+
+
 
 
 以上的gif图片来自[博客园](https://www.cnblogs.com/RainyBear/p/5258483.html)
