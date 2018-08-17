@@ -17,7 +17,7 @@ ReentrantLock没有使用更“高级”的机器指令，不是关键字，也�
 
 ReentrantLock，使用过的同学应该都知道，通常是这么用它的：
 
-```
+```java
 reentrantLock.lock()
         //do something
         reentrantLock.unlock()//finally中
@@ -47,13 +47,13 @@ PV操作的意义：我们用信号量及PV操作来实现进程的同步和互�
 
 ReentrantLock的定义：
 
-```
+```java
 public class ReentrantLock implements Lock, java.io.Serializable { }
 ```
 
 ReentrantLock的lock方法：
 
-```
+```java
   	public void lock() {
         sync.acquire(1);//身边只有Java9源码，sync.lock已经被acquire替换，没什么差别
         //从这里也可看出现在的ReentrantLock就是信号量为1的互斥
@@ -61,7 +61,7 @@ ReentrantLock的lock方法：
 ```
 如FutureTask（JDK1.6）一样，ReentrantLock内部有代理类完成具体操作，ReentrantLock只是封装了统一的一套API而已。值得注意的是，使用过ReentrantLock的同学应该知道，ReentrantLock又分为公平锁和非公平锁，所以，ReentrantLock内部只有两个sync[abstract static class Sync]的实现NonfairSync和FairSync[NonfairSync和FairSync都是static final class]。
 
-```
+```java
  static final class NonfairSync extends Sync {}
  static final class FairSync extends Sync {}
 ```
@@ -72,7 +72,7 @@ ReentrantLock的lock方法：
 到这里，通过ReentrantLock的功能和锁的所谓排不排队的方式，我们是否可以这么猜测ReentrantLock或者AQS的实现（现在不清楚谁去实现这些功能）：有那么一个被volatile修饰的标志位叫做key，用来表示有没有线程拿走了锁，或者说，锁还存不存在，还需要一个线程安全的队列，维护一堆被挂起的线程，以至于当锁被归还时，能通知到这些被挂起的线程，可以来竞争获取锁了。
 公平锁和非公平锁，唯一的区别是在获取锁的时候是直接去获取锁，还是进入队列排队的问题了。
 
-```
+```java
     public void lock() {
         sync.acquire(1);
     }
@@ -80,7 +80,7 @@ ReentrantLock的lock方法：
 
 调用到了AQS的acquire方法，最终由AQS的acquire进行处理
 
-```
+```java
   public final void acquire(int arg) {
         if (!tryAcquire(arg) &&
             acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
@@ -92,7 +92,7 @@ ReentrantLock的lock方法：
 
 看下AQS的tryAcquire方法:
 
-```
+```java
     protected boolean tryAcquire(int arg) {
         throw new UnsupportedOperationException();
     }
@@ -103,30 +103,30 @@ ReentrantLock的lock方法：
 
 看下FairSync的tryAcquire方法：
 
-```
-        protected final boolean tryAcquire(int acquires) {
-            final Thread current = Thread.currentThread();
-            int c = getState();
-            if (c == 0) {
-                if (!hasQueuedPredecessors() &&
-                    compareAndSetState(0, acquires)) {
-                    setExclusiveOwnerThread(current);
-                    return true;
-                }
-            }
-            else if (current == getExclusiveOwnerThread()) {
-                int nextc = c + acquires;
-                if (nextc < 0)
-                    throw new Error("Maximum lock count exceeded");
-                setState(nextc);
+```java
+    protected final boolean tryAcquire(int acquires) {
+        final Thread current = Thread.currentThread();
+        int c = getState();
+        if (c == 0) {
+            if (!hasQueuedPredecessors() &&
+                compareAndSetState(0, acquires)) {
+                setExclusiveOwnerThread(current);
                 return true;
             }
-            return false;
         }
+        else if (current == getExclusiveOwnerThread()) {
+            int nextc = c + acquires;
+            if (nextc < 0)
+                throw new Error("Maximum lock count exceeded");
+            setState(nextc);
+            return true;
+        }
+        return false;
+    }
 ```
 getState方法是AQS的方法，因为在AQS里面有个叫state的标志位 :
 
-```
+```java
   	protected final int getState() {
         return state;
     }
@@ -135,7 +135,7 @@ getState方法是AQS的方法，因为在AQS里面有个叫state的标志位 :
 
 FairSync的tryAcquire方法：
 
-```
+```java
 	protected final boolean tryAcquire(int acquires) {
         final Thread current = Thread.currentThread();//获取当前线程
         int c = getState();  //获取父类AQS中的标志位
@@ -167,7 +167,7 @@ FairSync的tryAcquire方法：
 
 AQS的addWaiter方法：
 
-```
+```java
     private Node addWaiter(Node mode) {
         Node node = new Node(mode);
         for (;;) {
@@ -189,7 +189,7 @@ Node类型定义在
 这里lock调用的是AQS独占的API，当然，可以写死是独占状态的节点。
 创建好节点后，将节点加入到队列尾部，此处，在队列不为空的时候，先尝试通过cas方式修改尾节点为最新的节点，如果修改失败，意味着有并发，这个时候才会进入AQS的initializeSyncQueue方法中,下面是initializeSyncQueue方法：
 
-```
+```java
     private final void initializeSyncQueue() {
         Node h;
         if (HEAD.compareAndSet(this, null, (h = new Node())))
@@ -206,7 +206,7 @@ Node类型定义在
 
 再回来看看AQS的acquireQueued方法：
 
-```
+```java
     final boolean acquireQueued(final Node node, int arg) {
         try {
             boolean interrupted = false;
@@ -236,7 +236,7 @@ Node节点中，除了存储当前线程，节点类型，队列中前后元素�
 
 原因是：AQS的队列中，在有并发时，肯定会存取一定数量的节点，每个节点[代表了一个线程的状态，有的线程可能“等不及”获取锁了，需要放弃竞争，退出队列，有的线程在等待一些条件满足，满足后才恢复执行（这里的描述很像某个J.U.C包下的工具类，ReentrankLock的Condition，事实上，Condition同样也是AQS的子类）等等，总之，各个线程有各个线程的状态，但总需要一个变量来描述它，这个变量就叫waitStatus，在AQS的Node[static final class Node]中定义了它的四种状态：
 
-```
+```java
      /** waitStatus value to indicate thread has cancelled. */
         static final int CANCELLED =  1;
         /** waitStatus value to indicate successor's thread needs unparking. */
@@ -269,14 +269,14 @@ Node节点中，除了存储当前线程，节点类型，队列中前后元素�
 是不是这样呢?我们继续来看下，同样我们用ReentrantLock的FairSync来说明：
 (FairSync继承自AQS，直接调用的父类的release方法，而NonfairSync和FairSync则继承了Sync，不同的就是公平锁重写了tryAcquire方法)
 
-```
+```java
   public void unlock() {
         sync.release(1);
     }
 ```
 查看AQS的release
 
-```
+```java
     public final boolean release(int arg) {
         if (tryRelease(arg)) {
             Node h = head;
@@ -294,7 +294,7 @@ unlock方法调用了AQS的release方法，同样传入了参数1，和获取锁
 	
 ReentranLock的tryRelease方法
 
-```
+```java
 	protected final boolean tryRelease(int releases) {
         int c = getState() - releases; 
         if (Thread.currentThread() != getExclusiveOwnerThread()) 
@@ -316,7 +316,7 @@ ReentranLock的tryRelease方法
 AQS的unparkSuccessor方法负责唤醒：
 
 
-```
+```java
     private void unparkSuccessor(Node node) {
         /*
          * If status is negative (i.e., possibly needing signal) try
@@ -348,7 +348,7 @@ AQS的unparkSuccessor方法负责唤醒：
 
 到此，ReentrantLock的lock和unlock方法已经基本解析完毕了，唯独还剩下一个非公平锁NonfairSync没说，其实，它和公平锁的唯一区别就是获取锁的方式不同，一个是按前后顺序一次获取锁，一个是抢占式的获取锁，那ReentrantLock是怎么实现的呢？再看两段代码：
 
-```
+```java
   	final boolean nonfairTryAcquire(int acquires) {
         final Thread current = Thread.currentThread();
         int c = getState();
@@ -369,7 +369,7 @@ AQS的unparkSuccessor方法负责唤醒：
     }
         
 ```
-```
+```java
    static final class NonfairSync extends Sync {
         private static final long serialVersionUID = 7316153563782823691L;
         protected final boolean tryAcquire(int acquires) {
@@ -381,7 +381,7 @@ AQS的unparkSuccessor方法负责唤醒：
 
 而对于公平锁是这样的：
 
-```
+```java
 	protected final boolean tryAcquire(int acquires) {
 	    final Thread current = Thread.currentThread();
 	    int c = getState();
@@ -411,7 +411,7 @@ AQS的unparkSuccessor方法负责唤醒：
 
 CountDownLatch为java.util.concurrent包下的计数器工具类，常被用在多线程环境下，它在初始时需要指定一个计数器的大小，然后可被多个线程并发的实现减1操作，并在计数器为0后调用await方法的线程被唤醒，从而实现多线程间的协作。它在多线程环境下的基本使用方式为：
 
-```
+```java
 	  //main thread
 	  // 新建一个CountDownLatch，并指制定一个初始大小
 	  CountDownLatch countDownLatch = new CountDownLatch(3);
@@ -445,7 +445,7 @@ CountDownLatch为java.util.concurrent包下的计数器工具类，常被用在�
 
 CountDownLatch的构造方法：
 
-```
+```java
   public CountDownLatch(int count) {
         if (count < 0) throw new IllegalArgumentException("count < 0");
         this.sync = new Sync(count);
@@ -453,14 +453,14 @@ CountDownLatch的构造方法：
 ```
 CountDownLatch的定义：
 
-```
+```java
 public class CountDownLatch { }
 ```
 和ReentrantLock类似，CountDownLatch内部也有一个叫做Sync的内部类，同样也是用它继承了AQS。
 
 再看下Sync类：
 
-```
+```java
     private static final class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = 4982264981922014374L;
 
@@ -493,14 +493,14 @@ public class CountDownLatch { }
 
 设置完计数器大小后CountDownLatch的构造方法返回，下面我们再看下CountDownLatch的await()方法：
 
-```
+```java
   public void await() throws InterruptedException {
         sync.acquireSharedInterruptibly(1);
     }
 ```
 调用了Sync的acquireSharedInterruptibly方法，因为Sync是AQS子类的原因，这里其实是直接调用了AQS的acquireSharedInterruptibly方法：
 
-```
+```java
     public final void acquireSharedInterruptibly(int arg)
             throws InterruptedException {
         if (Thread.interrupted())
@@ -513,14 +513,14 @@ public class CountDownLatch { }
 
 我们知道AQS在获取锁的思路是，先尝试直接获取锁，如果失败会将当前线程放在队列中，按照FIFO的原则等待锁。而对于共享锁也是这个思路，和独占锁一致，这里的tryAcquireShared也是个空方法，留给子类去判断，AQS的tryAcquireShared：
 
-```
+```java
   protected int tryAcquireShared(int arg) {
         throw new UnsupportedOperationException();
     }
 ```
 而在CountDownLatch的内部类Sync中实现了tryAcquireShared方法：
 
-```
+```java
  protected int tryAcquireShared(int acquires) {
             return (getState() == 0) ? 1 : -1;
         }
@@ -535,7 +535,7 @@ public class CountDownLatch { }
 
 AQS的doAcquireSharedInterruptibly方法：
 
-```
+```java
 	private void doAcquireSharedInterruptibly(int arg)
 		throws InterruptedException {
         final Node node = addWaiter(Node.SHARED);
@@ -568,7 +568,7 @@ AQS的doAcquireSharedInterruptibly方法：
 这里有几点需要说明的：
 1. setHeadAndPropagate方法：
 
-```
+```java
    private void setHeadAndPropagate(Node node, int propagate) {
         Node h = head; // Record old head for check below
         setHead(node);
@@ -582,7 +582,7 @@ AQS的doAcquireSharedInterruptibly方法：
 首先，使用了CAS更换了头节点，然后，将当前节点的下一个节点取出来，如果同样是“shared”类型的，再做一个"releaseShared"操作。
 看下doReleaseShared方法：
 
-```
+```java
     private void doReleaseShared() {
         for (;;) {
             Node h = head;
@@ -623,26 +623,26 @@ AQS的doAcquireSharedInterruptibly方法：
 
 注意这行代码：
 
-```
+```java
 nanosTimeout > SPIN_FOR_TIMEOUT_THRESHOLD
 ```
 其中SPIN_FOR_TIMEOUT_THRESHOLD是AQS中的一个常量：
 
-```
+```java
 static final long SPIN_FOR_TIMEOUT_THRESHOLD = 1000L;
 ```
 从变量的字面意思可知，这是拿超时时间和超时自旋的最小作比较，在这里Doug Lea把超时自旋的阈值设置成了1000ns,即只有超时时间大于1000ns才会去挂起线程，否则，再次循环，以实现“自旋”操作。这是“自旋”在AQS中的应用之处。
 
 看完await方法，再来看下countDown()方法：
 
-```
+```java
   public void countDown() {
         sync.releaseShared(1);
     }
 ```
 调用了AQS的releaseShared方法,并传入了参数1:
 
-```
+```java
     public final boolean releaseShared(int arg) {
         if (tryReleaseShared(arg)) {
             doReleaseShared();
@@ -653,7 +653,7 @@ static final long SPIN_FOR_TIMEOUT_THRESHOLD = 1000L;
 ```
 同样先尝试去释放锁，tryReleaseShared同样为空方法，留给子类自己去实现，以下是CountDownLatch的内部类Sync的实现：
 
-```
+```java
      protected boolean tryReleaseShared(int releases) {
             // Decrement count; signal when transition to zero
             for (;;) {
@@ -671,7 +671,7 @@ static final long SPIN_FOR_TIMEOUT_THRESHOLD = 1000L;
 所以下一步应该去唤醒AQS队列中的头节点了（AQS的队列为FIFO队列），然后由头节点去依次唤醒AQS队列中的其他共享节点。
 如果tryReleaseShared返回true,进入AQS的doReleaseShared()方法：
 
-```
+```java
     private void doReleaseShared() {
         for (;;) {
             Node h = head;
