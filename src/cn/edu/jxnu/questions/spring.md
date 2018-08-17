@@ -8,22 +8,22 @@
         
 ### 2. 简述 AOP 和 IOC 概念
 
-1. AOP: Aspect Oriented Program, 面向(方面)切面的编程;Filter(过滤器)
-也是一种 AOP. AOP 是一种新的方法论, 是对传统 OOP(Object-Oriented
-Programming, 面向对象编程) 的补充. AOP 的主要编程对象是切面(aspect),
+1. AOP： Aspect Oriented Program， 面向(方面)切面的编程；Filter(过滤器)
+也是一种 AOP. AOP 是一种新的方法论， 是对传统 OOP(Object-Oriented
+Programming， 面向对象编程) 的补充。 AOP 的主要编程对象是切面(aspect)，
 而切面模块化横切关注点.可以举例通过事务说明。
-2. IOC: Invert Of Control, 控制反转. 也成为 DI(依赖注入)其思想是反转
-资源获取的方向. 传统的资源查找方式要求组件向容器发起请求查找资源.作为
-回应, 容器适时的返回资源. 而应用了 IOC 之后, 则是容器主动地将资源推送
-给它所管理的组件,组件所要做的仅是选择一种合适的方式来接受资源. 这种行
+2. IOC： Invert Of Control， 控制反转。 也成为 DI(依赖注入)其思想是反转
+资源获取的方向。 传统的资源查找方式要求组件向容器发起请求查找资源。作为
+回应， 容器适时的返回资源. 而应用了 IOC 之后， 则是容器主动地将资源推送
+给它所管理的组件，组件所要做的仅是选择一种合适的方式来接受资源。这种行
 为也被称为查找的被动形式。
 
 ## 3. 在 Spring 中如何配置 Bean ?
 	
-1.Bean 的配置方式: 通过全类名（反射）、通过工厂方法（静态工厂方法 & 实
+1.Bean 的配置方式： 通过全类名（反射）、通过工厂方法（静态工厂方法 & 实
 例工厂方法）、FactoryBean
 
-### 4. IOC 容器对 Bean 的生命周期:
+### 4. IOC 容器对 Bean 的生命周期：
 
 	. 通过构造器或工厂方法创建 Bean 实例
 	. 为 Bean 的属性设置值和对其他 Bean 的引用
@@ -31,26 +31,26 @@ Programming, 面向对象编程) 的补充. AOP 的主要编程对象是切面(a
     . 调用 Bean 的初始化方法(init-method)
     . 将 Bean 实例传递给 Bean 后置处理器的postProcessAfterInitialization 方法
 	. Bean 可以使用了
-	. 当容器关闭时, 调用 Bean 的销毁方法(destroy-method)
+	. 当容器关闭时， 调用 Bean 的销毁方法(destroy-method)
 	
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
+![](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 	
 ### 5. Spring MVC 的运行流程
 	
 1. 在整个 Spring MVC 框架中， DispatcherServlet 处于核心位置，负
 责协调和组织不同组件以完成请求处理并返回响应的工作。
+
 2. SpringMVC 处理请求过程：
+
 	* 若一个请求匹配 DispatcherServlet 的请求映射路径(在 web.xml
-中指定), WEB 容器将该请求转交给 DispatcherServlet 处理。
-	* DispatcherServlet 接收到请求后, 将根据请求信息(包括 URL、HTTP
-方法、请求头、请求参数、Cookie 等)及 HandlerMapping 的配置找到处理请求
-的处理器(Handler). 可将 HandlerMapping 看成路由控制器，将 Handler 看成目标主机。
-	* 当 DispatcherServlet 根据 HandlerMapping 得到对应当前请求的
-Handler 后，通过 HandlerAdapter 对 Handler 进行封装，再以统一的适配器接口调用 Handler。
-	* 处理器完成业务逻辑的处理后将返回一个 ModelAndView 给DispatcherServlet, ModelAndView 包含了视图逻辑名和模型数据信息。
-	* DispatcherServlet 借助 ViewResoler 完成逻辑视图名到真实视图对象的解析， 得到真实视图对象 View 后, DispatcherServlet 使用这个 View 对ModelAndView 中的模型数据进行视图渲染。
+中指定)， WEB 容器将该请求转交给 DispatcherServlet 处理。
+	* DispatcherServlet 接收到请求后， 将根据请求信息(包括 URL、HTTP
+方法、请求头、请求参数、Cookie 等)及 HandlerMapping 的配置找到处理请求的处理器(Handler)。可将 HandlerMapping 看成路由控制器，将 Handler 看成目标主机。
+	* 当 DispatcherServlet 根据 HandlerMapping 得到对应当前请求的Handler 后，通过 HandlerAdapter 对 Handler 进行封装，再以统一的适配器接口调用 Handler。
+	* 处理器完成业务逻辑的处理后将返回一个 ModelAndView 给DispatcherServlet， ModelAndView 包含了视图逻辑名和模型数据信息。
+	* DispatcherServlet 借助 ViewResoler 完成逻辑视图名到真实视图对象的解析， 得到真实视图对象 View 后， DispatcherServlet 使用这个 View 对ModelAndView 中的模型数据进行视图渲染。
 	
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringMVC%E6%B5%81%E7%A8%8B.png)
+![](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringMVC%E6%B5%81%E7%A8%8B.png)
 
 ### 6. 说出 Spring MVC 常用的 5 个注解
 
@@ -69,7 +69,7 @@ Handler 后，通过 HandlerAdapter 对 Handler 进行封装，再以统一的�
 
 @RequestBody
 
-处理HttpEntity传递过来的数据，一般用来处理非Content-Type: application/x-www-form-urlencoded编码格式的数据。
+处理HttpEntity传递过来的数据，一般用来处理非Content-Type： application/x-www-form-urlencoded编码格式的数据。
 GET请求中，因为没有HttpEntity，所以@RequestBody并不适用。
 POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明数据的类型Content-Type，SpringMVC通过使用HandlerAdapter 配置的HttpMessageConverters来解析HttpEntity中的数据，然后绑定到相应的bean上。
 
@@ -84,8 +84,8 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 
 主要区别
 
-1. @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。
-2. @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false
+1. @Autowired与@Resource都可以用来装配bean. 都可以写在字段上，或写在setter方法上。
+2. @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false。
 3. @Resource（这个注解属于J2EE的，是JSR规范定义的注解），默认按照名称进行装配，名称可以通过name属性进行指定，如果没有指定name属性，当注解写在字段上时，默认取字段名进行按照名称查找，如果注解写在setter方法上默认取属性名进行装配。
 当找不到与名称匹配的bean时才按照类型进行装配。但是需要注意的是，如果name属性一旦指定，就只会按照名称进行装配。
 4. 推荐使用：@Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。
@@ -95,19 +95,19 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 
 SpringBoot自动配置原理
 
-[参考](https://www.cnblogs.com/leihuazhe/p/7743479.html)
+[参考](https：//www.cnblogs.com/leihuazhe/p/7743479.html)
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86.png)
+![](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86.png)
 
 SpringCloud Config properties属性加载分析
 
-[上](https://blog.csdn.net/qq_34446485/article/details/81004369)
+[上](https：//blog.csdn.net/qq_34446485/article/details/81004369)
 
-[下](https://blog.csdn.net/qq_34446485/article/details/81011553)
+[下](https：//blog.csdn.net/qq_34446485/article/details/81011553)
 
 SpringBoot解决循环依赖
 
-[循环依赖的解决](https://blog.csdn.net/qq_34446485/article/details/81259618)
+[循环依赖的解决](https：//blog.csdn.net/qq_34446485/article/details/81259618)
 
 ### Spring主要的几个原生接口
 
@@ -142,9 +142,9 @@ newProxyInstance 产生一个代理对象 ，三个参数
         2.接口产生的代理对象应该实现哪些接口
         3.handel 执行代理对象方法时，应用哪个handel 处理。
         
-(接口中有什么方法，代理中就有什么方法 代理中的每个方法在调用的时候都会把方法自身传给 handel, 并把代理对象和参数都传递过去 )   
+(接口中有什么方法，代理中就有什么方法 代理中的每个方法在调用的时候都会把方法自身传给 handel， 并把代理对象和参数都传递过去 )   
 
 代理设计模式类图
 
-[](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/%E4%BB%A3%E7%90%86.jpg)
+[](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/%E4%BB%A3%E7%90%86.jpg)
 
