@@ -247,25 +247,23 @@ Mybatis仅支持association关联对象和collection关联集合对象的延迟�
 通过LAST_INSERT_ID()获取刚插入记录的自增主键值，在insert语句执行后，执行select LAST_INSERT_ID()就可以获取自增主键。
 
 ```
- <insert id="insertUser" parameterType="cn.itcast.mybatis.po.User">
+    <insert id="insertUser" parameterType="cn.itcast.mybatis.po.User">
         <selectKey keyProperty="id" order="AFTER" resultType="int">
             select LAST_INSERT_ID()
         </selectKey>
         INSERT INTO USER(username,birthday,sex,address) VALUES(#{username},#{birthday},#{sex},#{address})
     </insert>
-
 ```
 
 ### 23. 在mapper中如何传递多个参数？
 
 第一种：使用占位符的思想
 
-在映射文件中使用#{0},#{1}代表传递进来的第几个参数
-使用@param注解：来命名参数\#{0},#{1}方式
+在映射文件中使用#{0},#{1}代表传递进来的第几个参数,使用@param注解：来命名参数
 
-第二种：使用Map集合作为参数来装载
-
-根据key自动找到对应Map集合的value
+第二种：使用Map集合作为参数来装载，根据key自动找到对应Map集合的value
  
  
-PS:由于一直使用SpringBoot、SpringCloud，对于SSM没有过多研究,主要是根据网络和自己的经历整理的。
+ 
+ 
+PS:由于一直使用SpringBoot、SpringCloud，对于SSM没有过多研究,主要是根据网络和自己的经历整理的。仅供参考
