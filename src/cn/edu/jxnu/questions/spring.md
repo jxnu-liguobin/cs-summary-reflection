@@ -54,7 +54,7 @@ FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xm
 	. Bean 可以使用了
 	. 当容器关闭时， 调用 Bean 的销毁方法(destroy-method)
 	
-![](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg)
 	
 ### 5. Spring MVC 的运行流程
 	
@@ -71,7 +71,7 @@ FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xm
 	* 处理器完成业务逻辑的处理后将返回一个 ModelAndView 给DispatcherServlet， ModelAndView 包含了视图逻辑名和模型数据信息。
 	* DispatcherServlet 借助 ViewResoler 完成逻辑视图名到真实视图对象的解析， 得到真实视图对象 View 后， DispatcherServlet 使用这个 View 对ModelAndView 中的模型数据进行视图渲染。
 	
-![](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringMVC%E6%B5%81%E7%A8%8B.jpg)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringMVC%E6%B5%81%E7%A8%8B.jpg)
 
 ### 6. 说出 Spring MVC 常用的 5 个注解
 
@@ -116,18 +116,18 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 
 SpringBoot自动配置原理
 
-[参考](https：//www.cnblogs.com/leihuazhe/p/7743479.html)
+[参考](https://www.cnblogs.com/leihuazhe/p/7743479.html)
 
-![](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86.jpg)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86.jpg)
 
 SpringCloud Config properties属性加载分析
 
-[上](https：//blog.csdn.net/qq_34446485/article/details/81004369)
-[下](https：//blog.csdn.net/qq_34446485/article/details/81011553)
+[上](https://blog.csdn.net/qq_34446485/article/details/81004369)
+[下](https://blog.csdn.net/qq_34446485/article/details/81011553)
 
 SpringBoot解决循环依赖
 
-[循环依赖的解决](https：//blog.csdn.net/qq_34446485/article/details/81259618)
+[循环依赖的解决](https://blog.csdn.net/qq_34446485/article/details/81259618)
 
 ### Spring主要的几个原生接口
 
@@ -166,5 +166,5 @@ newProxyInstance 产生一个代理对象 ，三个参数
 
 代理设计模式类图
 
-[](https：//github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/%E4%BB%A3%E7%90%86.jpg)
+[](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/%E4%BB%A3%E7%90%86.jpg)
 
