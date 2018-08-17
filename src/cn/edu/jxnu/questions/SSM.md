@@ -246,7 +246,7 @@ Mybatis仅支持association关联对象和collection关联集合对象的延迟�
 如果我们一般插入数据的话，如果我们想要知道刚刚插入的数据的主键是多少，我们可以通过以下的方式来获取
 通过LAST_INSERT_ID()获取刚插入记录的自增主键值，在insert语句执行后，执行select LAST_INSERT_ID()就可以获取自增主键。
 
-```
+```xml
 <insert id="insertUser" parameterType="cn.itcast.mybatis.po.User">
     <selectKey keyProperty="id" order="AFTER" resultType="int">
         select LAST_INSERT_ID()

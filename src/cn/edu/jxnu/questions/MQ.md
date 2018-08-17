@@ -139,18 +139,18 @@ RabbitMQ 特点与优势 ：
 
 发送：
 
-```
+```java
 channel.basicPublish
 ```
 
 poll:
 
-```
+```java
 channel.basicGet
 ```
 订阅：
 
-```
+```java
 channel.basicConsume
 ```
 

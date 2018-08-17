@@ -174,7 +174,7 @@ class VolatileExample {
 * 臭名昭著的双重锁检查（也叫多线程单例模式）是一个骗人的把戏，它用来支持lazy初始化，同时避免过度使用同步。
 在非常早的JVM中，同步非常慢，开发人员非常希望删掉它。双重锁检查代码如下：
 	
-```
+```java
 // double-checked-locking - don't do this!
 private static Something instance = null;
 
@@ -194,7 +194,7 @@ public Something getInstance() {
 * 然后，对于喜欢使用双重锁检查的人来说（我们真的希望没有人这样做），仍然不是好消息。双重锁检查的重点是为了避免过度使用同步导致性能问题。从java1.0开始，不仅同步会有昂贵的性能开销，而且在新的内存模型下，使用volatile的性能开销也有所上升，几乎达到了和同步一样的性能开销。因此，使用双重锁检查来实现单例模式仍然不是一个好的选择。（修订—在大多数平台下，volatile性能开销还是比较低的）。
 使用IODH来实现多线程模式下的单例会更易读:
 
-```
+```java
 // 还可以使用枚举，静态内部类实现
 private static class LazySomethingHolder {
   public static Something something = new Something();
