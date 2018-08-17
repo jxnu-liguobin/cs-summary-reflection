@@ -471,7 +471,8 @@ public class HeapSort extends Constant {
 	});
 
 	/**
-	 * 另外堆排序的比较次数和序列的初始状态有关，但只是在序列初始状态为堆的情况下比较次数显著减少，在序列有序或逆序的情况下比较次数不会发生明显变化。
+	 * 另外堆排序的比较次数和序列的初始状态有关，但只是在序列初始状态为堆的情况下比较次数显著减少，
+	 * 在序列有序或逆序的情况下比较次数不会发生明显变化。
 	 */
 	@Override
 	public Object[] sort(Object[] array, int len) {
@@ -508,7 +509,8 @@ public class HeapSort extends Constant {
 		int e = (int) arr[k];// 记录首个下沉的节点的值
 		while (2 * k + 1 <= n - 1) {// 保证需要进行操作的节点至少有左孩子
 			int maxindex = 2 * k + 1;// 假设最大的子节点为左孩子
-			if (2 * k + 2 <= n - 1 && (int) arr[2 * k + 2] > (int) arr[maxindex]) {// 如果存在右孩子并且右孩子比左孩子大
+			if (2 * k + 2 <= n - 1 && (int) arr[2 * k + 2] > (int) arr[maxindex]) {
+			// 如果存在右孩子并且右孩子比左孩子大
 				maxindex = 2 * k + 2;// 最大的子节点指向右孩子
 			}
 			if (e < (int) arr[maxindex]) {// 下沉节点的值要小于他的孩子节点
