@@ -15,19 +15,17 @@
  
    7. [Java多线程 | 并发](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/concurrent/%E5%A4%9A%E7%BA%BF%E7%A8%8B.md)
 
-   8. [总结图片](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture)
+   8. [JDK8常用类源码解析](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/sourcecode.md)
 
-   9. [JDK8常用类源码解析](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/sourcecode.md)
+   9. [Java虚拟机相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/jvm/classloader)
 
-   10. [Java虚拟机相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/jvm/classloader)
-
-   11. [反射 | ASM](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ASM.md)
+   10. [反射 | ASM](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ASM.md)
    
-   12. [Git简单总结](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/Git.md)
+   11. [Git简单总结](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/Git.md)
 
-   13. [Redis：几乎都来自网络，有问题别找我QAQ](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/redis.md)
+   12. [Redis相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/redis.md)
    
-   14. [Spring相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/spring.md)
+   13. [Spring相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/spring.md)
    
    其他知识的代码。不使用md文件是希望可以直接运行，说明在包中
 
