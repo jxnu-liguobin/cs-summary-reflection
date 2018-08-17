@@ -86,7 +86,7 @@ FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xm
     . 使用@RestController修饰控制器（Spring 4 MVC）
 	
 
-### 相关注解
+### 8. 相关注解
 
 @RequestBody
 
@@ -112,7 +112,7 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 4. 推荐使用：@Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。
 5. @Qualifier一般作为@Autowired()的修饰用，当使用@Autowired注入出现多个Bean的注入异常时，则需要指定注入的Bean的名称。
 
-### SpringBoot & SpringCloud
+### 9. SpringBoot & SpringCloud
 
 1、SpringBoot自动配置原理
 
@@ -129,7 +129,7 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 
 [循环依赖的解决](https://blog.csdn.net/qq_34446485/article/details/81259618)
 
-### Spring主要的几个原生接口
+### 10. Spring主要的几个原生接口
 
     Resource　　　　　　　　//资源文件的抽象，xml 、 properties ...
     BeanDefinition　　　　 //bean的抽象定义 (bean的一些基本信息是否是 抽象、单例、懒加载、作用域...)基本信息
@@ -137,7 +137,7 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
     BeanFactory　　　　　　//bean工厂的顶层抽象定义了几个基础的方法 getBean() contanisBean() .... 
     ApplicationContext　　//应用程序上下文
 
-### SpringBoot的多数据具体怎么配置的？
+### 11. SpringBoot的多数据具体怎么配置的？
 
 步骤：
 
@@ -147,14 +147,14 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
       4、指定主库 @Primary
       5、AOP拦截注解+注解标记方法
      
-### Spring Aop什么时候会失效？
+### 12. Spring AOP什么时候会失效？
 
-在对象内部的方法中调用该对象的其他使用aop机制的方法，被调用方法的aop注解失效。
+在对象内部的方法中调用该对象的其他使用AOP机制的方法，被调用方法的AOP注解失效。
 
 在一个类的A方法中调用同类的B方法，实际上使用的是使用实例调用方式this.B()，而代理对象是$开头的一个对象，此时的调用并不会走代理，注解会无效。
 因为在被代理对象的方法中调用被代理对象的其他方法时。其实是没有用代理调用，是用了被代理对象本身调用的。     
    
-### AOP的JDK动态代理
+### 13. AOP的JDK动态代理
 
 newProxyInstance 产生一个代理对象 ，三个参数
 
@@ -164,13 +164,13 @@ newProxyInstance 产生一个代理对象 ，三个参数
         
 (接口中有什么方法，代理中就有什么方法 代理中的每个方法在调用的时候都会把方法自身传给 handel， 并把代理对象和参数都传递过去 )   
 
-### 静态代理与动态代理
+### 14. 静态代理与动态代理
 
 静态代理：由程序员或者自动生成工具生成代理类，然后进行代理类的编译和运行。在代理类、委托类运行之前，代理类已经以.class的格式存在。
 
 动态代理：在程序运行时，由反射机制动态创建而成。（各种字节码操纵工具以及框架可以实现）
 
-### CGLib与JDK代理的区别
+### 15. CGLib与JDK代理的区别
 
      . JDK动态代理只能对实现了接口的类生成代理，而不能针对没有实现接口的类
      . CGLIB是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法，因为是继承，所以该类或方法最好不要声明成final 
@@ -184,5 +184,5 @@ newProxyInstance 产生一个代理对象 ，三个参数
 
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/proxy2.jpg)
 
-[ASM](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ASM.md)
+[连接ASM部分](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ASM.md)
 
