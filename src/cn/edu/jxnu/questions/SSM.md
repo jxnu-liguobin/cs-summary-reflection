@@ -211,7 +211,7 @@ SQL注入漏洞测试:原文：http://www.cnblogs.com/leftshine/p/SQLInjection.h
 
 ### 17. Xml映射文件中，除了常见的select|insert|updae|delete标签之外，还有哪些标签？
 
-还有很多其他的标签，\<resultMap\>、\<parameterMap\>、\<sql\>、\<include\>、\<selectKey\>，加上动态sql的9个标签，trim|where|set|foreach|if|choose|when|otherwise|bind等，其中<sql>为sql片段标签，
+还有很多其他的标签，``` <resultMap>、<parameterMap>、<sql>、<include>、<selectKey> ```，加上动态sql的9个标签，trim|where|set|foreach|if|choose|when|otherwise|bind等，其中<sql>为sql片段标签，
 通过<include>标签引入sql片段，<selectKey>为不支持自增的主键生成策略标签。
 
 ### 18. 最佳实践中，通常一个Xml映射文件，都会写一个Dao接口与之对应，请问，这个Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？
@@ -237,7 +237,8 @@ Mybatis动态sql可以让我们在Xml映射文件内，以标签的形式编写�
 ### 21. Mybatis是否支持延迟加载？如果支持，它的实现原理是什么？
 
 Mybatis仅支持association关联对象和collection关联集合对象的延迟加载，association指的就是一对一，collection指的就是一对多查询。在Mybatis配置文件中，可以配置是否启用延迟加载lazyLoadingEnabled=true|false。
-它的原理是，使用CGLIB创建目标对象的代理对象，当调用目标方法时，进入拦截器方法，比如调用a.getB().getName()，拦截器invoke()方法发现a.getB()是null值，那么就会单独发送事先保存好的查询关联B对象的sql，把B查询上来，然后调用a.setB(b)，于是a的对象b属性就有值了，接着完成a.getB().getName()方法的调用。这就是延迟加载的基本原理。
+它的原理是，使用CGLIB创建目标对象的代理对象，当调用目标方法时，进入拦截器方法，比如调用a.getB().getName()，拦截器invoke()方法发现a.getB()是null值，那么就会单独发送事先保存好的查询关联B对象的sql，把B查询上来，
+然后调用a.setB(b)，于是a的对象b属性就有值了，接着完成a.getB().getName()方法的调用。这就是延迟加载的基本原理。
 当然了，不光是Mybatis，几乎所有的包括Hibernate，支持延迟加载的原理都是一样的。
 
 ### 22. 如何获取自动生成的(主)键值？
