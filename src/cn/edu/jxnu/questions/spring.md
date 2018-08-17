@@ -63,13 +63,13 @@ FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xm
 
 2. SpringMVC 处理请求过程：
 
-	* 若一个请求匹配 DispatcherServlet 的请求映射路径(在 web.xml
+	* 1、若一个请求匹配 DispatcherServlet 的请求映射路径(在 web.xml
 中指定)， WEB 容器将该请求转交给 DispatcherServlet 处理。
-	* DispatcherServlet 接收到请求后， 将根据请求信息(包括 URL、HTTP
+	* 2、DispatcherServlet 接收到请求后， 将根据请求信息(包括 URL、HTTP
 方法、请求头、请求参数、Cookie 等)及 HandlerMapping 的配置找到处理请求的处理器(Handler)。可将 HandlerMapping 看成路由控制器，将 Handler 看成目标主机。
-	* 当 DispatcherServlet 根据 HandlerMapping 得到对应当前请求的Handler 后，通过 HandlerAdapter 对 Handler 进行封装，再以统一的适配器接口调用 Handler。
-	* 处理器完成业务逻辑的处理后将返回一个 ModelAndView 给DispatcherServlet， ModelAndView 包含了视图逻辑名和模型数据信息。
-	* DispatcherServlet 借助 ViewResoler 完成逻辑视图名到真实视图对象的解析， 得到真实视图对象 View 后， DispatcherServlet 使用这个 View 对ModelAndView 中的模型数据进行视图渲染。
+	* 3、当 DispatcherServlet 根据 HandlerMapping 得到对应当前请求的Handler 后，通过 HandlerAdapter 对 Handler 进行封装，再以统一的适配器接口调用 Handler。
+	* 4、处理器完成业务逻辑的处理后将返回一个 ModelAndView 给DispatcherServlet， ModelAndView 包含了视图逻辑名和模型数据信息。
+	* 5、DispatcherServlet 借助 ViewResoler 完成逻辑视图名到真实视图对象的解析， 得到真实视图对象 View 后， DispatcherServlet 使用这个 View 对ModelAndView 中的模型数据进行视图渲染。
 	
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringMVC%E6%B5%81%E7%A8%8B.jpg)
 
@@ -114,18 +114,18 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 
 ### SpringBoot & SpringCloud
 
-SpringBoot自动配置原理
+1、SpringBoot自动配置原理
 
 [参考](https://www.cnblogs.com/leihuazhe/p/7743479.html)
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86.jpg)
+![自动配置](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86.jpg)
 
-SpringCloud Config properties属性加载分析
+2、SpringCloud Config properties属性加载分析
 
 [上](https://blog.csdn.net/qq_34446485/article/details/81004369)
 [下](https://blog.csdn.net/qq_34446485/article/details/81011553)
 
-SpringBoot解决循环依赖
+3、SpringBoot解决循环依赖
 
 [循环依赖的解决](https://blog.csdn.net/qq_34446485/article/details/81259618)
 
@@ -166,5 +166,5 @@ newProxyInstance 产生一个代理对象 ，三个参数
 
 代理设计模式类图
 
-[](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/%E4%BB%A3%E7%90%86.jpg)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/designpattern/%E4%BB%A3%E7%90%86.jpg)
 
