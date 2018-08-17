@@ -1,9 +1,8 @@
 package cn.edu.jxnu.other;
 
-import org.junit.Test;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.junit.Test;
 
 public class TestgetConfigInfo {
 	private static String RESOURCEURL = "https://cmc.stu.126.net/u/json/cms/moocUrlRoutingConfigurationInfo.json";

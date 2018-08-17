@@ -1,9 +1,8 @@
 package cn.edu.jxnu.leetcode.scala
 
 import cn.edu.jxnu.leetcode.TreeNode
-import scala.collection.mutable.Stack
-import scala.collection.mutable.Seq
-import scala.reflect.internal.util.Collections
+
+import scala.collection.mutable.{Seq, Stack}
 
 /**
  * 树的遍历

@@ -1,6 +1,7 @@
 package cn.edu.jxnu.leetcode.scala
 
 import cn.edu.jxnu.leetcode.TreeNode
+
 import scala.collection.mutable.Queue
 
 /**

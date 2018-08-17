@@ -1,7 +1,6 @@
 package cn.edu.jxnu.leetcode.scala
 
 import cn.edu.jxnu.leetcode.TreeNode
-import cn.edu.jxnu.leetcode.ListNodeConstants
 
 /**
  * 间隔遍历

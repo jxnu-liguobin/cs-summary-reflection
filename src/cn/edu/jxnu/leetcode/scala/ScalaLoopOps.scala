@@ -1,5 +1,5 @@
 package cn.edu.jxnu.leetcode.scala
-import util.control.Breaks._
+import scala.util.control.Breaks._
 
 /**
  * Java是指令式风格，Scala是函数式风格。

@@ -1,7 +1,7 @@
 package cn.edu.jxnu.leetcode.scala
 
-import cn.edu.jxnu.leetcode.ListNode
-import cn.edu.jxnu.leetcode.ListNodeConstants
+import cn.edu.jxnu.leetcode.{ListNode, ListNodeConstants}
+
 import scala.language.implicitConversions
 
 /**

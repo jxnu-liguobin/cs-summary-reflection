@@ -1,7 +1,6 @@
 package cn.edu.jxnu.leetcode.scala
 
 import cn.edu.jxnu.leetcode.TreeNode
-import scala.annotation.tailrec
 
 /**
  * 判断平衡树
