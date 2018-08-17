@@ -104,28 +104,28 @@ JSR 133的目标包含了
 
 * 对一个对象来说，被正确的构造是什么意思呢？简单来说，它意味着这个正在构造的对象的引用在构造期间没有被允许逸出。（参见安全构造技术）。换句话说，不要让其他线程在其他地方能够看见一个构造期间的对象引用。不要指派给一个静态字段，不要作为一个listener注册给其他对象等等。这些操作应该在构造方法之后完成，而不是构造方法中来完成。
 	
-	```
-	class FinalFieldExample {
-	  final int x;
-	  int y;
-	  static FinalFieldExample f;
-	  public FinalFieldExample() {
-	    x = 3;
-	    y = 4;
-	  }
-	
-	  static void writer() {
-	    f = new FinalFieldExample();
-	  }
-	
-	  static void reader() {
-	    if (f != null) {
-	      int i = f.x;
-	      int j = f.y;
-	    }
-	  }
-	}
-	```
+```java
+class FinalFieldExample {
+  final int x;
+  int y;
+  static FinalFieldExample f;
+  public FinalFieldExample() {
+    x = 3;
+y = 4;
+  }
+
+  static void writer() {
+    f = new FinalFieldExample();
+  }
+
+  static void reader() {
+    if (f != null) {
+      int i = f.x;
+      int j = f.y;
+    }
+  }
+}
+```
 	
 上面的类展示了final字段应该如何使用。一个正在执行reader方法的线程保证看到f.x的值为3，因为它是final字段。它不保证看到f.y的值为4，因为f.y不是final字段。如果FinalFieldExample的构造方法像这样:
 
@@ -149,22 +149,22 @@ JSR 133的目标包含了
 * 在新的内存模型下，volatile变量仍然不能彼此重排序。和旧模型不同的时候，volatile周围的普通字段的也不再能够随便的重排序了。写入一个volatile字段和释放监视器有相同的内存影响，而且读取volatile字段和获取监视器也有相同的内存影响。事实上，因为新的内存模型在重排序volatile字段访问上面和其他字段（volatile或者非volatile）访问上面有了更严格的约束。当线程A写入一个volatile字段f的时候，如果线程B读取f的话 ，那么对线程A可见的任何东西都变得对线程B可见了。
 如下例子展示了volatile字段应该如何使用:
 
-	```
-	class VolatileExample {
-	  int x = 0;
-	  volatile boolean v = false;
-	  public void writer() {
-	    x = 42;
-	    v = true;
-	  }
-	
-	  public void reader() {
-	    if (v == true) {
-	      //uses x - guaranteed to see 42.
-	    }
-	  }
-	}
-	```
+```java
+class VolatileExample {
+  int x = 0;
+  volatile boolean v = false;
+  public void writer() {
+    x = 42;
+    v = true;
+  }
+
+  public void reader() {
+    if (v == true) {
+      //uses x - guaranteed to see 42.
+    }
+  }
+}
+```
 * 假设一个线程叫做“writer”，另外一个线程叫做“reader”。对变量v的写操作会等到变量x写入到内存之后，然后读线程就可以看见v的值。因此，如果reader线程看到了v的值为true，那么，它也保证能够看到在之前发生的写入42这个操作。而这在旧的内存模型中却未必是这样的。如果v不是volatile变量，那么，编译器可以在writer线程中重排序写入操作，那么reader线程中的读取x变量的操作可能会看到0。
 * 实际上，volatile的语义已经被加强了，已经快达到同步的级别了。为了可见性的原因，每次读取和写入一个volatile字段已经像一个半同步操作了
 * 重点注意：对两个线程来说，为了正确的设置happens-before关系，访问相同的volatile变量是很重要的。以下的结论是不正确的：当线程A写volatile字段f的时候，线程A可见的所有东西，在线程B读取volatile的字段g之后，变得对线程B可见了。释放操作和获取操作必须匹配（也就是在同一个volatile字段上面完成）。
@@ -174,35 +174,36 @@ JSR 133的目标包含了
 * 臭名昭著的双重锁检查（也叫多线程单例模式）是一个骗人的把戏，它用来支持lazy初始化，同时避免过度使用同步。
 在非常早的JVM中，同步非常慢，开发人员非常希望删掉它。双重锁检查代码如下：
 	
-	```
-	// double-checked-locking - don't do this!
-	private static Something instance = null;
-	
-	public Something getInstance() {
-	  if (instance == null) {
-	    synchronized (this) {
-	      if (instance == null)
-	        instance = new Something();
-	    }
-	  }
-	  return instance;
-	}
-	```
+```
+// double-checked-locking - don't do this!
+private static Something instance = null;
+
+public Something getInstance() {
+  if (instance == null) {
+    synchronized (this) {
+      if (instance == null)
+        instance = new Something();
+    }
+  }
+  return instance;
+}
+
+```
 * 这看起来好像非常聪明——在公用代码中避免了同步。这段代码只有一个问题 —— 它不能正常工作。为什么呢？最明显的原因是，初始化实例的写入操作和实例字段的写入操作能够被编译器或者缓冲区重排序，重排序可能会导致返回部分构造的一些东西。就是我们读取到了一个没有初始化的对象。这段代码还有很多其他的错误，以及为什么对这段代码的算法修正是错误的。在旧的java内存模型下没有办法修复它。更多深入的信息可参见：Double-checkedlocking: Clever but broken and The “DoubleChecked Locking is broken” declaration
 * 许多人认为使用volatile关键字能够消除双重锁检查模式的问题。在1.5的JVM之前，volatile并不能保证这段代码能够正常工作（因环境而定）。在新的内存模型下，实例字段使用volatile可以解决双重锁检查的问题，因为在构造线程来初始化一些东西和读取线程返回它的值之间有happens-before关系。
 * 然后，对于喜欢使用双重锁检查的人来说（我们真的希望没有人这样做），仍然不是好消息。双重锁检查的重点是为了避免过度使用同步导致性能问题。从java1.0开始，不仅同步会有昂贵的性能开销，而且在新的内存模型下，使用volatile的性能开销也有所上升，几乎达到了和同步一样的性能开销。因此，使用双重锁检查来实现单例模式仍然不是一个好的选择。（修订—在大多数平台下，volatile性能开销还是比较低的）。
 使用IODH来实现多线程模式下的单例会更易读:
 
-	```
-	// 还可以使用枚举，静态内部类实现
-	private static class LazySomethingHolder {
-	  public static Something something = new Something();
-	}
-	
-	public static Something getInstance() {
-	  return LazySomethingHolder.something;
-	}
-	```
+```
+// 还可以使用枚举，静态内部类实现
+private static class LazySomethingHolder {
+  public static Something something = new Something();
+}
+
+public static Something getInstance() {
+  return LazySomethingHolder.something;
+}
+```
 	
 这段代码是正确的，因为初始化是由static字段来保证的。如果一个字段设置在static初始化中，对其他访问这个类的线程来说是能正确的保证它的可见性的。
 

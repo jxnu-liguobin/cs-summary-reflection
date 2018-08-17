@@ -5,7 +5,7 @@
 
 通用测试数据
 
-```$xslt
+```java
 public abstract class Constant {
 
 	public static final Object[] array = { 8, 34, 64, 51, 33, 22, 44, 55, 88, 1, 0, 2, 2 };
@@ -57,7 +57,7 @@ public abstract class Constant {
 1. 将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。
 2. 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）
 
-```
+```java
 public class InsertionSort extends Constant {
 	public static void main(String[] args) throws Exception {
 		Constant.printResult(new InsertionSort().sort(Constant.array, Constant.len));
@@ -95,7 +95,7 @@ public class InsertionSort extends Constant {
 2. 按增量序列个数k，对序列进行k 趟排序；
 3. 每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
 
-```
+```java
 public class ShellSort extends Constant {
 
 	public static void main(String[] args) throws Exception {
@@ -141,7 +141,7 @@ public class ShellSort extends Constant {
 2. 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
 3. 重复第二步，直到所有元素均排序完毕。
 
-```
+```java
 public class SelectSort extends Constant {
 
 	public static void main(String[] args) throws Exception {
@@ -197,7 +197,7 @@ public class SelectSort extends Constant {
 3. 针对所有的元素重复以上的步骤，除了最后一个。
 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 
-```
+```java
 public class BubbleSort extends Constant {
 
 	private static long time = 0l;
@@ -278,7 +278,7 @@ public class BubbleSort extends Constant {
 4. 重复步骤3直到某一指针达到序列尾
 5. 将另一序列剩下的所有元素直接复制到合并序列尾
 
-```
+```java
 public class MergeSort extends Constant {
 
 	public static void main(String[] args) throws Exception {
@@ -349,7 +349,7 @@ public class MergeSort extends Constant {
 3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
 递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会退出，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。
 
-```
+```java
 public class QuickSort extends Constant {
 	public static void main(String[] args) throws Exception {
 		Constant.printResult(new QuickSort().sort(Constant.array, Constant.len));
@@ -444,7 +444,7 @@ public class QuickSort extends Constant {
 3. 把堆的尺寸缩小1，并调用shift_down(0),目的是把新的数组顶端数据调整到相应位置
 4. 重复步骤2，直到堆的尺寸为1
 
-```
+```java
 public class HeapSort extends Constant {
 
 	private static long time = 0l;
@@ -558,7 +558,7 @@ O(n   +   m   *   n/m*log(n/m))   =   O(n   +   nlogn   –   nlogm)
 
 计数排序
 
-```
+```java
 /**
  * @author 梦境迷离
  * @description 计数排序
@@ -627,7 +627,7 @@ public class CountSort extends Constant {
 
 桶排序
 
-```
+```java
 /**
  * @author 梦境迷离
  * @description 桶排序

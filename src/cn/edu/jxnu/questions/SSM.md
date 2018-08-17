@@ -30,7 +30,7 @@ Bean 的配置方式：
 
 FactoryBean定义
 
-```
+```java
 package org.springframework.beans.factory;
 
 public interface FactoryBean<T> {
@@ -247,12 +247,12 @@ Mybatis仅支持association关联对象和collection关联集合对象的延迟�
 通过LAST_INSERT_ID()获取刚插入记录的自增主键值，在insert语句执行后，执行select LAST_INSERT_ID()就可以获取自增主键。
 
 ```
-    <insert id="insertUser" parameterType="cn.itcast.mybatis.po.User">
-        <selectKey keyProperty="id" order="AFTER" resultType="int">
-            select LAST_INSERT_ID()
-        </selectKey>
-        INSERT INTO USER(username,birthday,sex,address) VALUES(#{username},#{birthday},#{sex},#{address})
-    </insert>
+<insert id="insertUser" parameterType="cn.itcast.mybatis.po.User">
+    <selectKey keyProperty="id" order="AFTER" resultType="int">
+        select LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO USER(username,birthday,sex,address) VALUES(#{username},#{birthday},#{sex},#{address})
+</insert>
 ```
 
 ### 23. 在mapper中如何传递多个参数？
