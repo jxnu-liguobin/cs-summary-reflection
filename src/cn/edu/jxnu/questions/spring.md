@@ -1,4 +1,4 @@
-## Sring相关
+## Sring相关问题
 
 ### 1. 开发中主要使用 Spring 的什么技术 ?
 
@@ -9,7 +9,7 @@
 ### 2. 简述 AOP 和 IOC 概念
 
 1. AOP： Aspect Oriented Program， 面向(方面)切面的编程；Filter(过滤器)
-也是一种 AOP. AOP 是一种新的方法论， 是对传统 OOP(Object-Oriented
+也是一种 AOP。 AOP 是一种新的方法论， 是对传统 OOP(Object-Oriented
 Programming， 面向对象编程) 的补充。 AOP 的主要编程对象是切面(aspect)，
 而切面模块化横切关注点.可以举例通过事务说明。
 2. IOC： Invert Of Control， 控制反转。 也成为 DI(依赖注入)其思想是反转
@@ -18,10 +18,31 @@ Programming， 面向对象编程) 的补充。 AOP 的主要编程对象是切�
 给它所管理的组件，组件所要做的仅是选择一种合适的方式来接受资源。这种行
 为也被称为查找的被动形式。
 
-## 3. 在 Spring 中如何配置 Bean ?
+## 3. 在 Spring 中如何配置 Bean ？
 	
-1.Bean 的配置方式： 通过全类名（反射）、通过工厂方法（静态工厂方法 & 实
-例工厂方法）、FactoryBean
+Bean 的配置方式： 
+
+    通过全类名（反射）
+    通过工厂方法（静态工厂方法 & 实例工厂方法）
+    FactoryBean
+    
+
+
+FactoryBean定义
+```
+package org.springframework.beans.factory;
+
+public interface FactoryBean<T> {
+    T getObject() throws Exception;
+
+    Class<?> getObjectType();
+
+    boolean isSingleton();
+}
+
+```   
+FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xml配置即可，
+但如果一个bean的创建过程中涉及到很多其他的bean 和复杂的逻辑，用xml配置比较困难，这时可以考虑用FactoryBean。
 
 ### 4. IOC 容器对 Bean 的生命周期：
 
@@ -111,11 +132,11 @@ SpringBoot解决循环依赖
 
 ### Spring主要的几个原生接口
 
-Resource　　　　　　　　//资源文件的抽象，xml 、 properties ...
-BeanDefinition　　　　 //bean的抽象定义 (bean的一些基本信息是否是 抽象、单例、懒加载、作用域...)基本信息
-BeanDefinitionReader  //不同的资源文件的bean的解析 
-BeanFactory　　　　　　//bean工厂的顶层抽象定义了几个基础的方法 getBean() contanisBean() .... 
-ApplicationContext　　//应用程序上下文
+    Resource　　　　　　　　//资源文件的抽象，xml 、 properties ...
+    BeanDefinition　　　　 //bean的抽象定义 (bean的一些基本信息是否是 抽象、单例、懒加载、作用域...)基本信息
+    BeanDefinitionReader  //不同的资源文件的bean的解析 
+    BeanFactory　　　　　　//bean工厂的顶层抽象定义了几个基础的方法 getBean() contanisBean() .... 
+    ApplicationContext　　//应用程序上下文
 
 ### SpringBoot的多数据具体怎么配置的？
 
