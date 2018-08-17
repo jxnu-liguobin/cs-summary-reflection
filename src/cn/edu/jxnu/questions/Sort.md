@@ -1,7 +1,7 @@
 ## 排序算法
 
 排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
-常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序、计数等。
+常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序（不讨论细节）、计数等。
 
 通用测试数据
 
@@ -17,7 +17,8 @@ public abstract class Constant {
 		if (array == null || array.length == 0)
 			throw new Exception("no element or invalid element in array");
 		// java 8 lambda
-		System.out.println(Arrays.stream(array).map(x -> x.toString()).collect(Collectors.joining(",", "[", "]")));
+		System.out.println(Arrays.stream(array).map(x -> x.toString())
+		.collect(Collectors.joining(",", "[", "]")));
 	}
 
 	/**
@@ -203,8 +204,10 @@ public class BubbleSort extends Constant {
 	private static long time2 = 0l;
 
 	public static void main(String[] args) throws Exception {
-		Constant.printResult(new BubbleSort().sort(Constant.array2, Constant.len));// array:13474,array2:12832 相差明显
-		Constant.printResult(new BubbleSort().sort2(Constant.array2, Constant.len));// array:1284,array2:1283
+	    // array:13474,array2:12832 相差明显
+		Constant.printResult(new BubbleSort().sort(Constant.array2, Constant.len));
+		// array:1284,array2:1283
+		Constant.printResult(new BubbleSort().sort2(Constant.array2, Constant.len));
 		System.out.println("没有优化：" + time);
 		System.out.println("优化：" + time2);
 	}
@@ -450,8 +453,10 @@ public class HeapSort extends Constant {
 	public static void main(String[] args) throws Exception {
 		Constant.printResult(new HeapSort().sort(Constant.array, Constant.len));
 		Constant.printResult(new HeapSort().sort2(Constant.array, Constant.len));
-		System.out.println("耗费时间：" + time);// array1：48441,array2：46517 几乎相同
-		System.out.println("优化耗费：" + time2);// array1：23739,array2：27589 几乎相同，比未优化快，但偶尔出现很慢，未知原因
+		// array1：48441,array2：46517 几乎相同
+		System.out.println("耗费时间：" + time);
+		// array1：23739,array2：27589 几乎相同，比未优化快，但偶尔出现很慢，未知原因
+		System.out.println("优化耗费：" + time2);
 
 	}
 
