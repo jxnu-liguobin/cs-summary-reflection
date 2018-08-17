@@ -716,7 +716,7 @@ public class BucketSort extends Constant {
 
 ### 9. 排序算法比较：
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/sort_table)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/sort_table.jpg)
 
 ### 10. 排序算法的下界和上界
 
