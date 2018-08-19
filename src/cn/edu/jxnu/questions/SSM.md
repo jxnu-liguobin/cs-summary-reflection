@@ -138,7 +138,7 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
     BeanFactory　　　　　　//bean工厂的顶层抽象定义了几个基础的方法 getBean() contanisBean() .... 
     ApplicationContext　　//应用程序上下文
 
-### 11. SpringBoot的多数据具体怎么配置的？
+### 11. SpringBoot的多数据源具体怎么配置的？
 
 步骤：
 
