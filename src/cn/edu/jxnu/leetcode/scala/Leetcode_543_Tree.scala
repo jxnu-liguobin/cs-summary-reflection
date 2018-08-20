@@ -22,6 +22,7 @@ object Leetcode_543_Tree extends App {
 
     private var max = 0
 
+    //编程之美解法参见GetMaximumDistance
     def diameterOfBinaryTree(root: TreeNode): Int = {
         depth(root)
         max
@@ -32,7 +33,7 @@ object Leetcode_543_Tree extends App {
             return 0
         val leftDepth = depth(root.left)
         val rightDepth = depth(root.right)
-        max = Math.max(max, leftDepth + rightDepth)
+        max = math.max(max, leftDepth + rightDepth)
         return math.max(leftDepth, rightDepth) + 1
     }
 
