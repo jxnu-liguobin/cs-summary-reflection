@@ -43,8 +43,6 @@ Redis 是一个基于内存的高性能key-value数据库。
 
 ![memcache Slab Allocation](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/hash.png)
 
-[具体细节参见memcached全面剖析](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/memcached%E5%85%A8%E9%9D%A2%E5%89%96%E6%9E%90.pdf)
-	
 ### 6.redis常见性能问题和解决方案　　
 
 1. Master写内存快照，save命令调度rdbSave函数，会阻塞主线程的工作，当快照比较大时对性能影响是非常大的，会间断性暂停服务，所以Master最好不要写内存快照。
