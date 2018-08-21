@@ -1,4 +1,4 @@
-## JDK1.9 AbstractQueuedSynchronizer[AQS]
+## AbstractQueuedSynchronizer[AQS]
 
 
     
