@@ -1,5 +1,11 @@
 ## JDK1.9 AbstractQueuedSynchronizer[AQS]
 
+
+    
+    ReentrantLock
+    CountDownLatch
+    ReentrantReadWriteLock
+
 Java中的FutureTask作为可异步执行任务并可获取执行结果而被大家所熟知。通常可以使用future.get()来获取线程的执行结果，在线程执行结束之前，get方法会一直阻塞状态，直到call()返回，其优点是使用线程异步执行任务的情况下还可以获取到线程的执行结果，但是FutureTask的以上功能却是依靠通过一个叫AbstractQueuedSynchronizer的类来实现，至少在JDK 1.5、JDK1.6版本是这样的（从1.7开始FutureTask已经被其作者Doug Lea修改为不再依赖AbstractQueuedSynchronizer实现了，这是JDK1.7的变化之一）。但是AbstractQueuedSynchronizer在JDK1.8中还有众多子类，原文是JDK1.8，部分有差异。
 
 这些JDK中的工具类或多或少都被大家用过不止一次，比如ReentrantLock，ReentrantLock的功能是实现代码段的并发访问控制，也就是通常意义上所说的锁,
@@ -62,8 +68,8 @@ ReentrantLock的lock方法：
 如FutureTask（JDK1.6）一样，ReentrantLock内部有代理类完成具体操作，ReentrantLock只是封装了统一的一套API而已。值得注意的是，使用过ReentrantLock的同学应该知道，ReentrantLock又分为公平锁和非公平锁，所以，ReentrantLock内部只有两个sync[abstract static class Sync]的实现NonfairSync和FairSync[NonfairSync和FairSync都是static final class]。
 
 ```java
- static final class NonfairSync extends Sync {}
- static final class FairSync extends Sync {}
+    static final class NonfairSync extends Sync {}
+    static final class FairSync extends Sync {}
 ```
 
 * 公平锁：每个线程抢占锁的顺序为先后调用lock方法的顺序依次获取锁，类似于排队吃饭。
@@ -238,16 +244,16 @@ Node节点中，除了存储当前线程，节点类型，队列中前后元素�
 
 ```java
      /** waitStatus value to indicate thread has cancelled. */
-        static final int CANCELLED =  1;
-        /** waitStatus value to indicate successor's thread needs unparking. */
-        static final int SIGNAL    = -1;
-        /** waitStatus value to indicate thread is waiting on condition. */
-        static final int CONDITION = -2;
-        /**
-         * waitStatus value to indicate the next acquireShared should
-         * unconditionally propagate.
-         */
-        static final int PROPAGATE = -3;
+    static final int CANCELLED =  1;
+    /** waitStatus value to indicate successor's thread needs unparking. */
+    static final int SIGNAL    = -1;
+    /** waitStatus value to indicate thread is waiting on condition. */
+    static final int CONDITION = -2;
+    /**
+     * waitStatus value to indicate the next acquireShared should
+     * unconditionally propagate.
+     */
+    static final int PROPAGATE = -3;
 ```
 
 	分别表示：
@@ -270,7 +276,7 @@ Node节点中，除了存储当前线程，节点类型，队列中前后元素�
 (FairSync继承自AQS，直接调用的父类的release方法，而NonfairSync和FairSync则继承了Sync，不同的就是公平锁重写了tryAcquire方法)
 
 ```java
-  public void unlock() {
+    public void unlock() {
         sync.release(1);
     }
 ```
@@ -521,9 +527,9 @@ public class CountDownLatch { }
 而在CountDownLatch的内部类Sync中实现了tryAcquireShared方法：
 
 ```java
- protected int tryAcquireShared(int acquires) {
-            return (getState() == 0) ? 1 : -1;
-        }
+    protected int tryAcquireShared(int acquires) {
+        return (getState() == 0) ? 1 : -1;
+    }
 ```
 如果state变成0了，则返回1，表示获取成功，否则返回-1则表示获取失败。
 看到这里，读者可能会发现， await方法的获取方式更像是在获取一个独占锁，那为什么这里还会用tryAcquireShared呢？
@@ -721,4 +727,289 @@ AQS关于共享锁方面的实现方式：
 文章上半部分提到的FutureTask，其实思路也是：封装一个存放线程执行结果的变量A,使用AQS的独占API实现线程对变量A的独占访问，判断规则是，线程没有执行完毕：call()方法没有返回前，不能访问变量A，或者是超时时间没到前不能访问变量A(这就是FutureTask的get方法可以实现获取线程执行结果时，设置超时时间的原因)。
 
 
+### AQS共享与独占均实现 
+
+AQS支持独占式同步状态获取/释放、共享式同步状态获取/释放两种模式，对应的典型应用分别是ReentrantLock和Semaphore，AQS还可以混合两种模式使用，
+读写锁ReentrantReadWriteLock就是如此。
+
+设想以下情景：我们在系统中有一个多线程访问的缓存，多个线程都可以对缓存进行读或写操作，但是读操作远远多于写操作，要求写操作要线程安全，
+且写操作执行完成要求对当前的所有读操作马上可见。
+
+分析上面的需求：因为有多个线程可能会执行写操作，因此多个线程的写操作必须同步串行执行；而写操作执行完成要求对当前的所有读操作马上可见，这就意味着当有线程正在读的时候，要阻塞写操作，当正在执行写操作时，要阻塞读操作。一个简单的实现就是将数据直接加上互斥锁，同一时刻不管是读还是写线程，都只能有一个线程操作数据。但是这样的问题就是如果当前只有N个读线程，没有写线程，这N个读线程也要傻呵呵的排队读，尽管其实是可以安全并发提高效率的。因此理想的实现是：
+
+当有写线程时，则写线程独占同步状态。
+当没有写线程时只有读线程时，则多个读线程可以共享同步状态。
+读写锁就是为了实现这种效果而生。
+
+ReentrantReadWriteLock 类的整体结构：
+
+```java
+
+public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable {
+    private final ReentrantReadWriteLock.ReadLock readerLock;
+    /** Inner class providing writelock */
+    private final ReentrantReadWriteLock.WriteLock writerLock;
+    /** Performs all synchronization mechanics */
+    final Sync sync;
+
+    public ReentrantReadWriteLock(boolean fair) {
+        sync = fair ? new FairSync() : new NonfairSync();
+        readerLock = new ReadLock(this);
+        writerLock = new WriteLock(this);
+    }
+
+    public ReentrantReadWriteLock.WriteLock writeLock() { return writerLock; }
+    public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
+
+
+    abstract static class Sync extends AbstractQueuedSynchronizer {}
+
+    static final class NonfairSync extends Sync {}
+
+    static final class FairSync extends Sync {}
+
+    public static class ReadLock implements Lock, java.io.Serializable {}
+
+    public static class WriteLock implements Lock, java.io.Serializable {}
+}
+
+```
+可以看到，在公平锁与非公平锁的实现上，与ReentrantLock一样，也是有一个继承AQS的内部类Sync，然后NonfairSync和FairSync都继承Sync，通过构造函数传入的布尔值决定要构造哪一种Sync实例。
+读写锁比ReentrantLock多出了两个内部类：ReadLock和WriteLock， 用来定义读锁和写锁，然后在构造函数中，会构造一个读锁和一个写锁实例保存到成员变量 readerLock 和 writerLock。
+
+Sync类中：
+
+```java
+    static final int SHARED_SHIFT   = 16;
+    static final int SHARED_UNIT    = (1 << SHARED_SHIFT); //每次要让共享锁+1，就应该让state加 1<<16
+    static final int MAX_COUNT      = (1 << SHARED_SHIFT) - 1;  //每种锁的最大重入数量
+    static final int EXCLUSIVE_MASK = (1 << SHARED_SHIFT) - 1;
+
+    /** Returns the number of shared holds represented in count  */
+    static int sharedCount(int c)    { return c >>> SHARED_SHIFT; }
+    /** Returns the number of exclusive holds represented in count  */
+    static int exclusiveCount(int c) { return c & EXCLUSIVE_MASK; }
+
+```
+可以看到主要是几个位移操作，通过上面的整体结构，我们知道了在读写锁内保存了读锁和写锁的两个实例。之前在ReentrantLock中，我们知道锁的状态是保存在Sync实例的state字段中的(继承自父类AQS)，现在有了读写两把锁，然而可以看到还是只有一个Sync实例，那么一个Sync实例的state是如何同时保存两把锁的状态的呢？答案就是用了位分隔：
+state字段是32位的int，读写锁用state的低16位保存写锁(独占锁)的状态；高16位保存读锁(共享锁)的状态。
+因此要获取独占锁当前的重入数量，就是 state & ((1 << 16) -1) (即 exclusiveCount 方法)
+要获取共享锁当前的重入数量，就是 state >>> 16 (即 sharedCount 方法)
+
+写锁和读锁的实现，WriteLock类中的lock和unlock方法：
+
+```java
+    public void lock() {
+        sync.acquire(1);
+    }
+
+    public void unlock() {
+        sync.release(1);
+    }
+```
+
+### 写锁
+
+acquire方法来自父类AQS：
+
+```java
+    public final void acquire(int arg) {
+        if (!tryAcquire(arg) &&
+            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+            selfInterrupt();
+    }
+```
+
+可以看到就是调用的独占式同步状态的获取与释放，因此真实的实现就是Sync的 tryAcquire和 tryRelease。
+
+写锁的获取tryAcquire:
+
+```java
+    protected final boolean tryAcquire(int acquires) {
+        Thread current = Thread.currentThread();
+        int c = getState();
+        int w = exclusiveCount(c); //获取独占锁的重入数
+        if (c != 0)
+      // 当前state不为0，此时：如果写锁状态为0说明读锁此时被占用返回false；
+      // 如果写锁状态不为0且写锁没有被当前线程持有返回false
+            if (w == 0 || current != getExclusiveOwnerThread())
+                return false;
+            if (w + exclusiveCount(acquires) > MAX_COUNT)
+                throw new Error("Maximum lock count exceeded"); //写锁重入数溢出
+            // Reentrant acquire
+            setState(c + acquires);
+            return true;
+        }
+        //到这里了说明state为0，尝试直接cas。writerShouldBlock是为了实现公平或非公平策略的
+        if (writerShouldBlock() ||
+            !compareAndSetState(c, c + acquires))
+            return false;
+        setExclusiveOwnerThread(current);
+        return true;
+    }
+```
+
+写锁的释放tryRelease:
+
+```java
+    protected final boolean tryRelease(int releases) {
+        if (!isHeldExclusively())
+            throw new IllegalMonitorStateException();  //非独占模式直接抛异常
+        int nextc = getState() - releases;
+        boolean free = exclusiveCount(nextc) == 0;
+        if (free) 
+            setExclusiveOwnerThread(null); //如果独占模式重入数为0了，说明独占模式被释放
+        setState(nextc);  //不管独占模式是否被释放，更新独占重入数
+        return free;
+    }
+```
+
+### 读锁
+
+类似于写锁，读锁的lock和unlock的实际实现对应Sync的 tryAcquireShared 和 tryReleaseShared方法。
+
+读锁的获取tryAcquireShared：
+
+```java
+    protected final int tryAcquireShared(int unused) {
+        Thread current = Thread.currentThread();
+        int c = getState();
+        if (exclusiveCount(c) != 0 &&
+            getExclusiveOwnerThread() != current)
+            return -1; //如果独占模式被占且不是当前线程持有，则获取失败
+        int r = sharedCount(c);
+        //如果公平策略没有要求阻塞且重入数没有到达最大值，则直接尝试CAS更新state
+        if (!readerShouldBlock() &&
+            r < MAX_COUNT &&
+            compareAndSetState(c, c + SHARED_UNIT)) {
+        //更新成功后会在firstReaderHoldCount中或readHolds(ThreadLocal类型的)的本线程副本中记录当前线程重入数，
+        // 这是为了实现jdk1.6中加入的getReadHoldCount()方法的，这个方法能获取当前线程重入共享锁的次数
+        //(state中记录的是多个线程的总重入次数)
+        // 加入了这个方法让代码复杂了不少，但是其原理还是很简单的：如果当前只有一个线程的话，还不需要动用ThreadLocal，
+        // 直接往firstReaderHoldCount这个成员变量里存重入数，当有第二个线程来的时候，就要动用ThreadLocal变量readHolds了
+        // 每个线程拥有自己的副本，用来保存自己的重入数。
+            if (r == 0) {//记录当前线程重入数
+                firstReader = current;
+                firstReaderHoldCount = 1;
+            } else if (firstReader == current) {
+                firstReaderHoldCount++;
+            } else {
+                HoldCounter rh = cachedHoldCounter;
+                if (rh == null || rh.tid != getThreadId(current))
+                    cachedHoldCounter = rh = readHolds.get();
+                else if (rh.count == 0)
+                    readHolds.set(rh);
+                rh.count++;
+            }
+            return 1;
+        }
+        return fullTryAcquireShared(current); //用来处理CAS没成功的情况，逻辑和上面的逻辑是类似的，就是加了无限循环
+    }
+```
+fullTryAcquireShared方法:
+
+```java
+    final int fullTryAcquireShared(Thread current) {
+        HoldCounter rh = null;
+        for (;;) {
+            int c = getState();
+            if (exclusiveCount(c) != 0) {
+                if (getExclusiveOwnerThread() != current)
+                    return -1;
+                // else we hold the exclusive lock; blocking here
+                // would cause deadlock.
+            } else if (readerShouldBlock()) {
+                // Make sure we're not acquiring read lock reentrantly
+                if (firstReader == current) {
+                    // assert firstReaderHoldCount > 0;
+                } else {
+                    if (rh == null) {
+                        rh = cachedHoldCounter;
+                        if (rh == null || rh.tid != getThreadId(current)) {
+                            rh = readHolds.get();
+                            if (rh.count == 0)
+                                readHolds.remove();
+                        }
+                    }
+                    if (rh.count == 0)
+                        return -1;
+                }
+            }
+            if (sharedCount(c) == MAX_COUNT)
+                throw new Error("Maximum lock count exceeded");
+            if (compareAndSetState(c, c + SHARED_UNIT)) {
+                if (sharedCount(c) == 0) {
+                    firstReader = current;
+                    firstReaderHoldCount = 1;
+                } else if (firstReader == current) {
+                    firstReaderHoldCount++;
+                } else {
+                    if (rh == null)
+                        rh = cachedHoldCounter;
+                    if (rh == null || rh.tid != getThreadId(current))
+                        rh = readHolds.get();
+                    else if (rh.count == 0)
+                        readHolds.set(rh);
+                    rh.count++;
+                    cachedHoldCounter = rh; // cache for release
+                }
+                return 1;
+            }
+        }
+    }
+```
+
+读锁的释放tryReleaseShared：
+
+```java
+    protected final boolean tryReleaseShared(int unused) {
+        Thread current = Thread.currentThread();
+        //下面代码也是为了实现jdk1.6中加入的getReadHoldCount()方法，在更新当前线程的重入数。
+        if (firstReader == current) {
+            // assert firstReaderHoldCount > 0;
+            if (firstReaderHoldCount == 1)
+                firstReader = null;
+            else
+                firstReaderHoldCount--;
+        } else {
+            HoldCounter rh = cachedHoldCounter;
+            if (rh == null || rh.tid != getThreadId(current))
+                rh = readHolds.get();
+            int count = rh.count;
+            if (count <= 1) {
+                readHolds.remove();
+                if (count <= 0)
+                    throw unmatchedUnlockException();
+            }
+            --rh.count;
+        }
+        //这里是真正的释放同步状态的逻辑，就是直接同步状态-SHARED_UNIT，然后CAS更新，没啥好说的
+        for (;;) {
+            int c = getState();
+            int nextc = c - SHARED_UNIT;
+            if (compareAndSetState(c, nextc))
+                // Releasing the read lock has no effect on readers,
+                // but it may allow waiting writers to proceed if
+                // both read and write locks are now free.
+                return nextc == 0;
+        }
+    }
+```
+总结：
+
+在线程持有读锁的情况下，该线程不能取得写锁(因为获取写锁的时候，如果发现当前的读锁被占用，就马上获取失败，不管读锁是不是被当前线程持有)
+
+在线程持有写锁的情况下，该线程可以继续获取读锁（获取读锁时如果发现写锁被占用，只有写锁没有被当前线程占用的情况才会获取失败）
+
+当线程获取读锁的时候，可能有其他线程同时也在持有读锁，因此不能把获取读锁的线程“升级”为写锁；而对于获得写锁的线程，它一定独占了读写锁，因此可以继续让它获取读锁，当它同时获取了写锁和读锁后，
+还可以先释放写锁继续持有读锁，这样一个写锁就“降级”为了读锁。
+
+    一个线程要想同时持有写锁和读锁，必须先获取写锁再获取读锁
+    写锁可以“降级”为读锁
+    读锁不能“升级”为写锁
+
+[博客园原文](https://www.cnblogs.com/sheeva/p/6480116.html)
+
+
 修改|补充|转载| [infoq](http://www.infoq.com/cn/articles/java8-abstractqueuedsynchronizer)
+转载| [博客园](https://www.cnblogs.com/sheeva/p/6480116.html)

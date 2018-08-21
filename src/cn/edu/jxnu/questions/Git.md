@@ -129,8 +129,8 @@ git rebase --continue  git 便会自动继续合并
 更加具体的对比： git diff HEAD -- filename
 
 可以查看工作区和版本库里面最新版本的区别	
-		HEAD 表示当前版本，也就是最新的提交。上一个版本就是 HEAD^ ，上上一个版本就是 HEAD^^ ，
-往上100个版本写100个 “ ^ ” 比较容易数不过来，所以写成 HEAD~100 。HEAD~2 相当于 HEAD^^
+		HEAD 表示当前版本，也就是最新的提交。上一个版本就是 ```HEAD^ ```，上上一个版本就是``` HEAD^^ ```，
+往上100个版本写100个 “ ^ ” 比较容易数不过来，所以写成````` HEAD~100 `````。```HEAD~2``` 相当于 ```HEAD^^```
 
 
 如果你需要取回远程的某些分支你可以这样： git fetch origin master 取回origin主机的master分支
