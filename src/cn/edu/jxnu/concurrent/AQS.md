@@ -25,9 +25,9 @@ ReentrantLock没有使用更“高级”的机器指令，不是关键字，也�
 ReentrantLock，使用过的同学应该都知道，通常是这么用它的：
 
 ```java
-reentrantLock.lock()
-        //do something
-        reentrantLock.unlock()//finally中
+    reentrantLock.lock()
+    //do something
+    reentrantLock.unlock()//finally中
 ```
 ReentrantLock就是使用AQS的独占API来实现的。
 ReentrantLock会保证 do something在同一时间只有一个线程在执行这段代码，或者说，同一时刻只有一个线程的lock方法会返回。其余线程会被挂起，直到获取锁。从这里可以看出，其实ReentrantLock实现的就是一个独占锁的功能：有且只有一个线程获取到锁，其余线程全部挂起，直到该拥有锁的线程释放锁，被挂起的线程被唤醒重新开始竞争锁。
@@ -55,7 +55,7 @@ PV操作的意义：我们用信号量及PV操作来实现进程的同步和互�
 ReentrantLock的定义：
 
 ```java
-public class ReentrantLock implements Lock, java.io.Serializable { }
+    public class ReentrantLock implements Lock, java.io.Serializable { }
 ```
 
 ReentrantLock的lock方法：
@@ -356,7 +356,7 @@ AQS的unparkSuccessor方法负责唤醒：
 到此，ReentrantLock的lock和unlock方法已经基本解析完毕了，唯独还剩下一个非公平锁NonfairSync没说，其实，它和公平锁的唯一区别就是获取锁的方式不同，一个是按前后顺序一次获取锁，一个是抢占式的获取锁，那ReentrantLock是怎么实现的呢？再看两段代码：
 
 ```java
-  	final boolean nonfairTryAcquire(int acquires) {
+    final boolean nonfairTryAcquire(int acquires) {
         final Thread current = Thread.currentThread();
         int c = getState();
         if (c == 0) {
@@ -453,7 +453,7 @@ CountDownLatch为java.util.concurrent包下的计数器工具类，常被用在�
 CountDownLatch的构造方法：
 
 ```java
-  public CountDownLatch(int count) {
+    public CountDownLatch(int count) {
         if (count < 0) throw new IllegalArgumentException("count < 0");
         this.sync = new Sync(count);
     }
@@ -461,7 +461,7 @@ CountDownLatch的构造方法：
 CountDownLatch的定义：
 
 ```java
-public class CountDownLatch { }
+    public class CountDownLatch { }
 ```
 和ReentrantLock类似，CountDownLatch内部也有一个叫做Sync的内部类，同样也是用它继承了AQS。
 
@@ -501,7 +501,7 @@ public class CountDownLatch { }
 设置完计数器大小后CountDownLatch的构造方法返回，下面我们再看下CountDownLatch的await()方法：
 
 ```java
-  public void await() throws InterruptedException {
+    public void await() throws InterruptedException {
         sync.acquireSharedInterruptibly(1);
     }
 ```
@@ -521,7 +521,7 @@ public class CountDownLatch { }
 我们知道AQS在获取锁的思路是，先尝试直接获取锁，如果失败会将当前线程放在队列中，按照FIFO的原则等待锁。而对于共享锁也是这个思路，和独占锁一致，这里的tryAcquireShared也是个空方法，留给子类去判断，AQS的tryAcquireShared：
 
 ```java
-  protected int tryAcquireShared(int arg) {
+    protected int tryAcquireShared(int arg) {
         throw new UnsupportedOperationException();
     }
 ```
@@ -631,12 +631,12 @@ AQS的doAcquireSharedInterruptibly方法：
 注意这行代码：
 
 ```java
-nanosTimeout > SPIN_FOR_TIMEOUT_THRESHOLD
+    nanosTimeout > SPIN_FOR_TIMEOUT_THRESHOLD
 ```
 其中SPIN_FOR_TIMEOUT_THRESHOLD是AQS中的一个常量：
 
 ```java
-static final long SPIN_FOR_TIMEOUT_THRESHOLD = 1000L;
+    static final long SPIN_FOR_TIMEOUT_THRESHOLD = 1000L;
 ```
 从变量的字面意思可知，这是拿超时时间和超时自旋的最小作比较，在这里Doug Lea把超时自旋的阈值设置成了1000ns,即只有超时时间大于1000ns才会去挂起线程，否则，再次循环，以实现“自旋”操作。这是“自旋”在AQS中的应用之处。
 
@@ -661,7 +661,7 @@ static final long SPIN_FOR_TIMEOUT_THRESHOLD = 1000L;
 同样先尝试去释放锁，tryReleaseShared同样为空方法，留给子类自己去实现，以下是CountDownLatch的内部类Sync的实现：
 
 ```java
-     protected boolean tryReleaseShared(int releases) {
+    protected boolean tryReleaseShared(int releases) {
             // Decrement count; signal when transition to zero
             for (;;) {
                 int c = getState();
@@ -746,33 +746,33 @@ ReentrantReadWriteLock 类的整体结构：
 
 ```java
 
-public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable {
-    private final ReentrantReadWriteLock.ReadLock readerLock;
-    /** Inner class providing writelock */
-    private final ReentrantReadWriteLock.WriteLock writerLock;
-    /** Performs all synchronization mechanics */
-    final Sync sync;
-
-    public ReentrantReadWriteLock(boolean fair) {
-        sync = fair ? new FairSync() : new NonfairSync();
-        readerLock = new ReadLock(this);
-        writerLock = new WriteLock(this);
+    public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable {
+        private final ReentrantReadWriteLock.ReadLock readerLock;
+        /** Inner class providing writelock */
+        private final ReentrantReadWriteLock.WriteLock writerLock;
+        /** Performs all synchronization mechanics */
+        final Sync sync;
+    
+        public ReentrantReadWriteLock(boolean fair) {
+            sync = fair ? new FairSync() : new NonfairSync();
+            readerLock = new ReadLock(this);
+            writerLock = new WriteLock(this);
+        }
+    
+        public ReentrantReadWriteLock.WriteLock writeLock() { return writerLock; }
+        public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
+    
+    
+        abstract static class Sync extends AbstractQueuedSynchronizer {}
+    
+        static final class NonfairSync extends Sync {}
+    
+        static final class FairSync extends Sync {}
+    
+        public static class ReadLock implements Lock, java.io.Serializable {}
+    
+        public static class WriteLock implements Lock, java.io.Serializable {}
     }
-
-    public ReentrantReadWriteLock.WriteLock writeLock() { return writerLock; }
-    public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
-
-
-    abstract static class Sync extends AbstractQueuedSynchronizer {}
-
-    static final class NonfairSync extends Sync {}
-
-    static final class FairSync extends Sync {}
-
-    public static class ReadLock implements Lock, java.io.Serializable {}
-
-    public static class WriteLock implements Lock, java.io.Serializable {}
-}
 
 ```
 可以看到，在公平锁与非公平锁的实现上，与ReentrantLock一样，也是有一个继承AQS的内部类Sync，然后NonfairSync和FairSync都继承Sync，通过构造函数传入的布尔值决定要构造哪一种Sync实例。
@@ -1013,4 +1013,5 @@ fullTryAcquireShared方法:
 
 
 修改|补充|转载| [infoq](http://www.infoq.com/cn/articles/java8-abstractqueuedsynchronizer)
+
 转载| [博客园](https://www.cnblogs.com/sheeva/p/6480116.html)
