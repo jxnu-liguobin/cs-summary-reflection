@@ -6,7 +6,8 @@
     CountDownLatch
     ReentrantReadWriteLock
 
-Java中的FutureTask作为可异步执行任务并可获取执行结果而被大家所熟知。通常可以使用future.get()来获取线程的执行结果，在线程执行结束之前，get方法会一直阻塞状态，直到call()返回，其优点是使用线程异步执行任务的情况下还可以获取到线程的执行结果，但是FutureTask的以上功能却是依靠通过一个叫AbstractQueuedSynchronizer的类来实现，至少在JDK 1.5、JDK1.6版本是这样的（从1.7开始FutureTask已经被其作者Doug Lea修改为不再依赖AbstractQueuedSynchronizer实现了，这是JDK1.7的变化之一）。但是AbstractQueuedSynchronizer在JDK1.8中还有众多子类，原文是JDK1.8，部分有差异。
+Java中的FutureTask作为可异步执行任务并可获取执行结果而被大家所熟知。通常可以使用future.get()来获取线程的执行结果，在线程执行结束之前，get方法会一直阻塞状态，直到call()返回，其优点是使用线程异步执行任务的情况下还可以获取到线程的执行结果，但是FutureTask的以上功能却是依靠通过一个叫AbstractQueuedSynchronizer的类来实现，至少在JDK 1.5、JDK1.6版本是这样的（从1.7开始FutureTask已经被其作者Doug Lea修改为不再依赖AbstractQueuedSynchronizer实现了，这是JDK1.7的变化之一）。
+但是AbstractQueuedSynchronizer在JDK1.8中还有众多子类，原文是JDK1.8，下面是JDK9，部分有差异，区别不大可以忽略。
 
 这些JDK中的工具类或多或少都被大家用过不止一次，比如ReentrantLock，ReentrantLock的功能是实现代码段的并发访问控制，也就是通常意义上所说的锁,
 synchronized通过对monitor对象加锁来实现的。但ReentrantLock事实上它仅仅是一个工具类。[更多详情请查阅甲骨文支持网站](https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html)
