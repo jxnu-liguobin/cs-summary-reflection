@@ -136,6 +136,8 @@ git rebase --continue  git 便会自动继续合并
 如果你需要取回远程的某些分支你可以这样： git fetch origin master 取回origin主机的master分支
 
 如果你需要取回所有分支你可以这样： git fetch 
+
+你只有将远程分支fetch下来后才可以checkout切换分支
 	
 	git checkout master     #//取出master版本的head。
 	git checkout tag_name    #//在当前分支上 取出 tag_name 的版本
