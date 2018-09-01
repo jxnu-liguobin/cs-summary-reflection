@@ -15,5 +15,5 @@ package cn.edu.jxnu.concurrent;
  * License for the specific language governing permissions and limitations under
  * the License.
  * 
- * 本人仅是收集
+ * 部分源码版权
  */

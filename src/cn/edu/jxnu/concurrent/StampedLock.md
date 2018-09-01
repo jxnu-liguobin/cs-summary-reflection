@@ -133,8 +133,6 @@ public class StampedLockDemo1 {
 
 前情提要
 
-一、
-
 1、SMP(Symmetric Multi-Processor)
 
       SMP（Symmetric Multi-Processing）对称多处理器结构，指服务器中多个CPU对称工作，每个CPU访问内存地址所需时间相同。其主要特征是共享，包含对CPU，内存，I/O等进行共享。
@@ -148,8 +146,6 @@ public class StampedLockDemo1 {
       非一致存储访问，将CPU分为CPU模块，每个CPU模块由多个CPU组成，并且具有独立的本地内存、I/O槽口等，模块之间可以通过互联模块相互访问，访问本地内存的速度将远远高于访问远地内存(系统内其它节点的内存)的速度，这也是非一致存储访问的由来。NUMA较好地解决SMP的扩展问题，
 
       当CPU数量增加时，因为访问远地内存的延时远远超过本地内存，系统性能无法线性增加。
-
-二、
 
 CLH(Craig, Landin, and Hagersten  locks): 是一个自旋锁，能确保无饥饿性，提供先来先服务的公平性。
 
@@ -167,9 +163,6 @@ CLH锁也是一种基于链表的可扩展、高性能、公平的自旋锁，�
  明显线程A的myPred locked域为false，此时线程A获取到了锁。
  
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/concurrent/CLH.png)
-
-
-三、
 
 实现
 
@@ -218,8 +211,6 @@ public class CLHLock implements Lock {
 
 ### MCS是什么？怎么实现
 
-一、
-
  MSC与CLH最大的不同并不是链表是显示还是隐式，而是线程自旋的规则不同:CLH是在前趋结点的locked域上自旋等待，而MSC是在自己的结点的locked域上自旋等待。正因为如此，它解决了CLH在NUMA系统架构中获取locked域状态内存过远的问题。
 
       MCS队列锁的具体实现如下：
@@ -231,8 +222,6 @@ public class CLHLock implements Lock {
       
  ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/concurrent/MCS.png)
 
- 二、
- 
  实现
  
 ```java
@@ -278,17 +267,12 @@ public class MCSLock implements Lock {
 
 ### StampedLock 源码
 
-后转[StampedLock](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/StampedLock.md)
+后转[StampedLock源码解析](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/StampedLock.md)
 
 
 
 
 
 
-
-[参考1](https://www.cnblogs.com/llkmst/p/4895478.html)
-
-[参考2](http://ifeve.com/lock-based-vs-lock-free-concurren/#more-8038)
-
-[参考3](http://ifeve.com/jdk8%e4%b8%adstampedlock%e5%8e%9f%e7%90%86%e6%8e%a2%e7%a9%b6/#more-34646)
+[参考1](https://www.cnblogs.com/llkmst/p/4895478.html) [参考2](http://ifeve.com/lock-based-vs-lock-free-concurren/#more-8038) [参考3](http://ifeve.com/jdk8%e4%b8%adstampedlock%e5%8e%9f%e7%90%86%e6%8e%a2%e7%a9%b6/#more-34646)
 
