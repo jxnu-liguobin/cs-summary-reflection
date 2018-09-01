@@ -20,16 +20,16 @@ public class StampedLock implements java.io.Serializable {
     /** 队列头结点自旋获取锁最大失败次数后再次进入队列 */
     private static final int HEAD_SPINS = (NCPU > 1) ? 1 << 10 : 0;
 
-    /** Maximum number of retries before re-blocking */
+    /** 重新阻塞之前的最大重试次数 */
     private static final int MAX_HEAD_SPINS = (NCPU > 1) ? 1 << 16 : 0;
 
     /** The period for yielding when waiting for overflow spinlock */
     private static final int OVERFLOW_YIELD_RATE = 7; // must be power 2 - 1
 
-    /** The number of bits to use for reader count before overflowing */
+    /** 溢出之前用于阅读器计数的位数 */
     private static final int LG_READERS = 7;
 
-    // Values for lock state and stamp operations
+    // 锁定状态和stamp操作的值
     private static final long RUNIT = 1L;
     private static final long WBIT  = 1L << LG_READERS;
     private static final long RBITS = WBIT - 1L;
@@ -40,7 +40,7 @@ public class StampedLock implements java.io.Serializable {
     //锁state初始值，第9位为1，避免算术时和0冲突
     private static final long ORIGIN = WBIT << 1;
 
-    // Special value from cancelled acquire methods so caller can throw IE
+    // 来自取消获取方法的特殊值，因此调用者可以抛出IE
     private static final long INTERRUPTED = 1L;
 
     // WNode节点的status值
@@ -62,10 +62,18 @@ public class StampedLock implements java.io.Serializable {
     WNode(int m, WNode p) { mode = m; prev = p; }
 }
 
-/** Head of CLH queue */
+/** CLH队头节点 */
 private transient volatile WNode whead;
-/** Tail (last) of CLH queue */
+/** CLH队尾节点 */
 private transient volatile WNode wtail;
+/**
+* StampedLockd源码中的WNote就是等待链表队列，每一个WNode标识一个等待线程，whead为CLH队列头，wtail为CLH队列尾，state为锁的状态。long型即64位，倒数第八位标识写锁状态，如果为1，标识写锁占用！下面围绕这个state来讲述锁操作。
+  首先是常量标识：
+  WBIT=1000 0000（即-128）
+  RBIT =0111 1111（即127） 
+  SBIT =1000 0000（后7位表示当前正在读取的线程数量，清0）
+   
+*/
 
 // views
 transient ReadLockView readLockView;
@@ -348,8 +356,8 @@ public long tryConvertToWriteLock(long stamp) {
 /**
  *   state匹配stamp时, 执行下列操作之一.
  1、stamp 表示持有写锁，释放写锁，并持有读锁
- 2 stamp 表示持有读锁 ，返回该读锁
- 3 有一个乐观读锁，只在即时可用的前提下返回一个读锁stamp
+ 2、stamp 表示持有读锁 ，返回该读锁
+ 3、有一个乐观读锁，只在即时可用的前提下返回一个读锁stamp
  4、其他情况都返回0，表示失败
  *
  */
@@ -433,7 +441,7 @@ public long tryConvertToOptimisticRead(long stamp) {
 }
 
 /**
- * 如果持有写锁，释放写锁。该方法可以对发生错误后的恢复
+ * 如果持有写锁，释放写锁。该方法可以对发生错误后进行恢复
  * @return {@code true} if the lock was held, else false
  */
 public boolean tryUnlockWrite() {
@@ -449,7 +457,7 @@ public boolean tryUnlockWrite() {
 }
 
 /**
- * 如果持有读锁，释放一个读锁。该方法可以对发生错误后的恢复
+ * 如果持有读锁，释放一个读锁。该方法可以对发生错误后进行恢复
  *
  * @return {@code true} if the read lock was held, else false
  */
@@ -809,7 +817,7 @@ private long acquireWrite(boolean interruptible, long deadline) {
 
 /**
  * @param interruptible 是否允许中断
- * @param 标识超时限时（0代表不限时），然后进入循环。
+ * @param deadline 标识超时限时（0代表不限时），然后进入循环。
  * @return next state, or INTERRUPTED
  */
 private long acquireRead(boolean interruptible, long deadline) {
