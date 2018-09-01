@@ -1,4 +1,4 @@
-package cn.edu.jxnu.reflect.asm;
+package cn.edu.jxnu.reflect;
 
 /**
  * 至多两个变量的整数或布尔表达式。

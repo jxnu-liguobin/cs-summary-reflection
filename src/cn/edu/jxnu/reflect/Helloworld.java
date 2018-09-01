@@ -1,4 +1,4 @@
-package cn.edu.jxnu.reflect.asm;
+package cn.edu.jxnu.reflect;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;

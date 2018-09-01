@@ -1,4 +1,4 @@
-package cn.edu.jxnu.reflect.asm;
+package cn.edu.jxnu.reflect;
 
 /**
  * asm字节码框架

@@ -1,4 +1,4 @@
-package cn.edu.jxnu.reflect.asm;
+package cn.edu.jxnu.reflect;
 
 import java.lang.invoke.*;
 import java.lang.invoke.MethodHandles.Lookup;

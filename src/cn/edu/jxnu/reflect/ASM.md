@@ -52,7 +52,7 @@ package com.sun.xml.internal.ws.org.objectweb.asm;
 
 ClassReader解析过程 - 经典的访问者设计模式应用之处
 
-![ClassReader解析过程](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/Java-Learning-Summary/src/cn/edu/jxnu/reflect/asm/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
+![ClassReader解析过程](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
 
 ### 3.ASM的优劣
 
@@ -66,7 +66,7 @@ ClassReader解析过程 - 经典的访问者设计模式应用之处
 
 ### 4.ASM的使用
 
-```
+```java
 package cn.edu.jxnu.reflect.asm;
 
 import org.objectweb.asm.ClassWriter;
@@ -172,6 +172,104 @@ public class Helloworld extends ClassLoader implements Opcodes {
 	}
 }
 
+```
+
+```java
+/**
+ * 反射
+ */
+public class ReflectTest {
+	private String name;
+	private String age;
+
+	public ReflectTest(String name, String age) {
+		this.setName(name);
+		this.setAge(age);
+	}
+
+	public static void main(String[] args) {
+		try {
+			ReflectTest rt = new ReflectTest("李四", "24");
+			fun(rt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void fun(Object obj) throws Exception {
+		Field[] fields = obj.getClass().getDeclaredFields();
+		System.out.println("替换之前的:");
+		for (Field field : fields) {
+			System.out.println(field.getName() + "=" + field.get(obj));
+			if (field.getType().equals(java.lang.String.class)) {
+				field.setAccessible(true); // 必须设置为true才可以修改成员变量
+				String org = (String) field.get(obj);
+				field.set(obj, org.replace("李", "b"));
+			}
+
+		}
+		System.out.println("替换之后的：");
+		for (Field field : fields) {
+			System.out.println(field.getName() + "=" + field.get(obj));
+		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+}
+
+public class DumpMethods {
+
+    public DumpMethods(String s) {
+        System.out.println(s + "这是构造方法");
+    }
+
+    public DumpMethods() {
+        // 自定义的构造将屏蔽默认无参构造
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
+            InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+        System.out.println(DumpMethods.class.getName());
+        System.out.println("请输入完整的类名：");
+        Scanner scanner = new Scanner(System.in);
+        String className = scanner.nextLine();
+
+        Class strClass = Class.forName(className);
+        // 检索带有指定参数的构造方法
+        Class[] strArgsClass = new Class[]{};
+        Constructor constructor = strClass.getConstructor(strArgsClass);
+        // Constructor:public cn.edu.jxnu.reflect.DumpMethods()
+        System.out.println("Constructor:" + constructor.toString());
+        // 调用默认的构造方法创建实例对象object
+        Object object = constructor.newInstance();
+        System.out.println("Object" + object.toString());// Objectcn.edu.jxnu.reflect.DumpMethods@16d3586
+        // 调用有参构造
+        String string = "JavaEE";
+        Class[] strArgsClass2 = new Class[]{String.class};
+        Constructor constructor2 = strClass.getConstructor(strArgsClass2);
+        //JavaEE这是构造方法
+        //constructor2:public cn.edu.jxnu.reflect.DumpMethods(java.lang.String)cn.edu.jxnu.reflect.DumpMethods@154617c
+        System.out.println("constructor2:" + constructor2.toString() + constructor2.newInstance(string));
+        scanner.close();
+    }
+}
 ```
 
 ### 5.ASM与反射、CGLib、JDK代理、Spring
