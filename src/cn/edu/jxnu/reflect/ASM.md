@@ -1,6 +1,6 @@
 ## ASM字节码操纵框架
 
-这里只是简单使用，具体看asm包下的官方例子
+这里只是简单使用，具体看本包下的官方例子
 
 ### 1.最为流行的字节码操纵框架包括：
 	
@@ -52,7 +52,7 @@ package com.sun.xml.internal.ws.org.objectweb.asm;
 
 ClassReader解析过程 - 经典的访问者设计模式应用之处
 
-![ClassReader解析过程](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/asm/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
+![ClassReader解析过程](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
 
 ### 3.ASM的优劣
 
