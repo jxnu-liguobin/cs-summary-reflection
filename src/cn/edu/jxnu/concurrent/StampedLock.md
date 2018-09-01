@@ -278,7 +278,7 @@ public class MCSLock implements Lock {
 
 ### StampedLock 源码
 
-
+后转[StampedLock](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/StampedLock.md)
 
 
 
