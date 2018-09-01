@@ -30,8 +30,8 @@
    14. [八大排序算法](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/Sort.md)
    
    
-   其他知识的代码。不使用md文件是希望可以直接运行，说明在包中
-
-   部分收集于网络，知晓原作者以及版权的则在package-info类中说明
- 
-   仅供参考...
+   >其他知识的代码。不使用md文件是希望可以直接运行，说明在包中
+   
+   >部分收集于网络，知晓原作者以及版权的则在package-info类中说明
+   
+   >仅供参考...
