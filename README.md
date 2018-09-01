@@ -1,8 +1,8 @@
 #### 主要包含  【长期更新-Java/Scala实现】
 
-   1. [剑指offer多种解法 | 编程之美 | 笔试题](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice)
+>[剑指offer多种解法 | 编程之美 | 笔试题](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice)
 
-   2. [Java For Leetcode](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/leetcode) |
+>[Java For Leetcode](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/leetcode) |
     [Scala For Leetcode](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/leetcode/scala) 
 
    3. [计算机网络](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/network.md)
