@@ -17,3 +17,5 @@
 8. [Runtime](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/Runtime.md)
 
 9. [ThreadLocal](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/ThreadLocal.md)
+
+10. [StampedLock](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/StampedLock.md)
