@@ -1,3 +1,4 @@
+```java
 package java.util;
 
 import sun.misc.SharedSecrets;
@@ -1413,3 +1414,4 @@ public class ArrayList<E> extends AbstractList<E>
         modCount++;
     }
 }
+```

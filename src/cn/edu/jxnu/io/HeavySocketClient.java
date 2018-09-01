@@ -1,5 +1,5 @@
 
-package cn.edu.jxnu.nio;
+package cn.edu.jxnu.io;
 
 import java.io.BufferedReader;
 import java.io.IOException;

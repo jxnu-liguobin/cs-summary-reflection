@@ -1,3 +1,4 @@
+```java
 package java.util.concurrent;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -901,3 +902,5 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 }
+```
+

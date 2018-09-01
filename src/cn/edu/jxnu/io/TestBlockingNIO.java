@@ -1,4 +1,4 @@
-package cn.edu.jxnu.nio;
+package cn.edu.jxnu.io;
 
 import org.junit.Test;
 

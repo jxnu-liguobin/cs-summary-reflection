@@ -1,5 +1,5 @@
 
-package cn.edu.jxnu.nio;
+package cn.edu.jxnu.io;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;

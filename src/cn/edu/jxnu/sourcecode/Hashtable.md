@@ -1,3 +1,4 @@
+```java
 package java.util;
 
 import java.io.*;
@@ -1306,3 +1307,4 @@ public class Hashtable<K, V>
         }
     }
 }
+```

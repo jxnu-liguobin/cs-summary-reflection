@@ -1,3 +1,4 @@
+```java
 package java.lang;
 
 import sun.reflect.CallerSensitive;
@@ -272,3 +273,4 @@ public class Runtime {
     }
 
 }
+```

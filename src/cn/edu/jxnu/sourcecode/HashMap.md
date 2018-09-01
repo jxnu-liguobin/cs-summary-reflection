@@ -1,3 +1,4 @@
+```java
 package java.util;
 
 import sun.misc.SharedSecrets;
@@ -2430,3 +2431,4 @@ public class HashMap<K, V> extends AbstractMap<K, V>
     }
 
 }
+```
