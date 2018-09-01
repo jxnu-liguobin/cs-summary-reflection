@@ -36,6 +36,9 @@ import java.util.concurrent.locks.ReadWriteLock;
 */
 public class StampedLock implements java.io.Serializable {
 
+    /**
+    * 如果没有显示指定序列号，则JVM生成默认序列号，修改类将导致每次生成的序列号不同，类在未来无法完成反序列操作，而显示指定的序列号可以在未来修改类，不影响
+    */
     private static final long serialVersionUID = -6001602636862214147L;
 
     /** 获取服务器CPU核数 */
