@@ -335,12 +335,34 @@ public class UseFinalField {
 
 结果：
 
-    CONSTSTR
-    
- 特别注意这个
+    CONSTSTR         PS:特别注意这个
  
- 
- 
+```java
+/**
+ * 实现自己的类加载器
+ */
+public class PathClassLoader extends URLClassLoader {
+	private String packageName = "cn.edu.jxnu.classloader";
+
+	PathClassLoader(URL[] classPath, ClassLoader parent) {
+		super(classPath, parent);
+	}
+
+	@Override
+	protected Class<?> findClass(String name) throws ClassNotFoundException {
+		Class<?> aClass = findLoadedClass(name);
+		if (aClass != null) {
+			return aClass;
+		}
+		if (!packageName.startsWith(name)) {
+			return super.loadClass(name);
+		} else {
+			return findClass(name);
+		}
+	}
+}
+```
+
  参考【Jeff Lee】
 
 
