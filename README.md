@@ -21,7 +21,7 @@
    
    10. [JDK8常用类源码解析](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/sourcecode/sourcecode.md)
 
-   11. [Java虚拟机相关](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/jvm/classloader)
+   11. [Java虚拟机相关代码](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/JVM.md)
 
    12. [Git简单总结](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/Git.md)
 
