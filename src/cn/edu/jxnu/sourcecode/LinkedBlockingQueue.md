@@ -42,7 +42,8 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /**
-	 * LinkedBlockingQueue构造的时候若没有指定大小，则默认大小为Integer.MAX_VALUE，当然也可以在构造函数的参数中指定大小。LinkedBlockingQueue不接受null。
+	 * LinkedBlockingQueue构造的时候若没有指定大小，则默认大小为Integer.MAX_VALUE，当然也可以在构造函数的参数中指定大小。
+	 * LinkedBlockingQueue不接受null。
 	 */
     private final int capacity;
 

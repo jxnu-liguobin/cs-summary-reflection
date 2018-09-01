@@ -5,22 +5,25 @@ import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReadWriteLock;
 
 /**
-* 1 如果读取执行情况很多，写入很少的情况下，使用 ReentrantReadWriteLock 可能会使写入线程遭遇饥饿（Starvation）问题，也就是写入线程迟迟无法竞争到锁定而一直处于等待状态。
+* 1 如果读取执行情况很多，写入很少的情况下，使用 ReentrantReadWriteLock 可能会使写入线程遭遇饥饿（Starvation）问题
+* 也就是写入线程迟迟无法竞争到锁定而一直处于等待状态。
 * 
-  2 StampedLock控制锁有三种模式（写，读，乐观读），一个StampedLock状态是由版本和模式两个部分组成，锁获取方法返回一个数字作为票据stamp，它用相应的锁状态表示并控制访问，数字0表示没有写锁被授权访问。在读锁上分为悲观锁和乐观锁 
+  2 StampedLock控制锁有三种模式（写，读，乐观读），一个StampedLock状态是由版本和模式两个部分组成，锁获取方法返回一个数字作为票据stamp
+  它用相应的锁状态表示并控制访问，数字0表示没有写锁被授权访问。在读锁上分为悲观锁和乐观锁 
   
   3 该类是一个读写锁的改进，它的思想是读写锁中读不仅不阻塞读，同时也不应该阻塞写。 
   
   乐观读不阻塞写的实现思路：
    
   在乐观读的时候如果发生了写，则应当重读而不是在读的时候直接阻塞写！ 
-  因为在读线程非常多而写线程比较少的情况下，写线程可能发生饥饿现象，也就是因为大量的读线程存在并且读线程都阻塞写线程， 
-  因此写线程可能几乎很少被调度成功！当读执行的时候另一个线程执行了写，则读线程发现数据不一致则执行重读即可。所以读写都存在的情况下， 
+  因为在读线程非常多而写线程比较少的情况下，写线程可能发生饥饿现象，也就是因为大量的读线程存在并且读线程都阻塞写线程，
+  因此写线程可能几乎很少被调度成功！当读执行的时候另一个线程执行了写，则读线程发现数据不一致则执行重读即可。所以读写都存在的情况下
   使用StampedLock就可以实现一种无障碍操作，即读写之间不会阻塞对方，但是写和写之间还是阻塞的！
   
   4 适用场景： 
   
-  乐观读取模式仅用于短时间读取操作时经常能够降低竞争和提高吞吐量。当然，它的使用在本质上是脆弱的。乐观读取的区域应该只包括字段，并且在validation之后用局部变量持有它们从而在后续使用。 
+  乐观读取模式仅用于短时间读取操作时经常能够降低竞争和提高吞吐量。当然，它的使用在本质上是脆弱的。乐观读取的区域应该只包括字段
+  并且在validation之后用局部变量持有它们从而在后续使用。 
   乐观模式下读取的字段值很可能是非常不一致的，所以它应该只用于那些你熟悉如何展示数据，从而你可以不断检查一致性和调用方法validate
   
   5 优化点： 
@@ -29,7 +32,8 @@ import java.util.concurrent.locks.ReadWriteLock;
   
   b 队列头结点采用有限次数SPINS次自旋（增加开销），增加获得锁几率（因为闯入的线程会竞争锁），有效够降低上下文切换 
   
-  c 读模式的集合通过一个公共节点被聚集在一起（cowait链），当队列尾节点为RMODE,通过CAS方法将该节点node添加至尾节点的cowait链中，node成为cowait中的顶元素，cowait构成了一个LIFO队列。 
+  c 读模式的集合通过一个公共节点被聚集在一起（cowait链），当队列尾节点为RMODE,通过CAS方法将该节点node添加至尾节点的cowait链中
+  node成为cowait中的顶元素，cowait构成了一个LIFO队列。 
   当队列尾节点为WMODE，当前节点直接拼接到尾节点后面，保证了相对较公平的锁。 
   
   d 不支持锁重入，如果只悲观读锁和写锁，效率没有ReentrantReadWriteLock高。
@@ -37,7 +41,8 @@ import java.util.concurrent.locks.ReadWriteLock;
 public class StampedLock implements java.io.Serializable {
 
     /**
-    * 如果没有显示指定序列号，则JVM生成默认序列号，修改类将导致每次生成的序列号不同，类在未来无法完成反序列操作，而显示指定的序列号可以在未来修改类，不影响
+    * 如果没有显示指定序列号，则JVM生成默认序列号，修改类将导致每次生成的序列号不同，类在未来无法完成反序列操作，
+    * 而显示指定的序列号可以在未来修改类，不影响
     */
     private static final long serialVersionUID = -6001602636862214147L;
 
@@ -97,7 +102,8 @@ private transient volatile WNode whead;
 /** CLH队尾节点 */
 private transient volatile WNode wtail;
 /**
-* StampedLockd源码中的WNote就是等待链表队列，每一个WNode标识一个等待线程，whead为CLH队列头，wtail为CLH队列尾，state为锁的状态。long型即64位，倒数第八位标识写锁状态，如果为1，标识写锁占用！下面围绕这个state来讲述锁操作。
+* StampedLockd源码中的WNote就是等待链表队列，每一个WNode标识一个等待线程，whead为CLH队列头，wtail为CLH队列尾，state为锁的状态。
+* long型即64位，倒数第八位标识写锁状态，如果为1，标识写锁占用！下面围绕这个state来讲述锁操作。
   首先是常量标识：
   WBIT=1000 0000（即-128）
   RBIT =0111 1111（即127） 
@@ -893,7 +899,8 @@ private long acquireRead(boolean interruptible, long deadline) {
         //当前节点为空则构建当前节点，模式为RMODE，前驱节点为p即尾节点。
         else if (node == null)
             node = new WNode(RMODE, p);
-        //当前队列为空即只有一个节点（whead=wtail）或者当前尾节点的模式不是RMODE，那么我们会尝试在尾节点后面添加该节点作为尾节点，然后跳出外层循环
+        //当前队列为空即只有一个节点（whead=wtail）或者当前尾节点的模式不是RMODE，那么我们会尝试在尾节点后面添加该节点作为尾节点
+        // 然后跳出外层循环
         else if (h == p || p.mode != RMODE) {
             if (node.prev != p)
                 node.prev = p;
@@ -1035,8 +1042,10 @@ private long acquireRead(boolean interruptible, long deadline) {
  详情如下：
  首先设置node的状态为CANCELLED，可以向其他线程传递这个节点是删除了的信息。
  然后再聚合节点gruop上清理所有状态为CANCELLED的节点（即删除节点）
- 接下来假如当期node节点本身就是聚合节点，那么首先唤醒cowait链中的所有节点（读者），寻找到node后面的第一个非CANCELLED节点，直接拼接到pred上（从而删除当前节点），然后再检查前驱节点状态，假如为CANCELLED则需也需要重置前驱节点。
- 最后，在队列中不为空，并且头结点的状态为0即队列中的节点还未设置WAITING信号&当前没有持有写入锁模式&（当前没有锁或者只有乐观锁 | 队列中第一个等待者为读模式），那么就从队列头唤醒一次。
+ 接下来假如当期node节点本身就是聚合节点，那么首先唤醒cowait链中的所有节点（读者），寻找到node后面的第一个非CANCELLED节点
+ 直接拼接到pred上（从而删除当前节点），然后再检查前驱节点状态，假如为CANCELLED则需也需要重置前驱节点。
+ 最后，在队列中不为空，并且头结点的状态为0即队列中的节点还未设置WAITING信号&当前没有持有写入锁模式&（当前没有锁或者只有乐观锁 | 
+ 队列中第一个等待者为读模式），那么就从队列头唤醒一次。
  */
 private long cancelWaiter(WNode node, WNode group, boolean interrupted) {
     if (node != null && group != null) {

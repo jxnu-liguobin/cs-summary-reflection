@@ -327,7 +327,8 @@ public class ThreadLocal<T> {
                 }
                // 和HashMap不一样，由于Entry
 			   // key继承了软引用，会出现k是null的情况！所以会接着在replaceStaleEntry重新循环寻找相同的key
-              // 当出现null时，会调用replaceStaleEntry()方法接着循环寻找相同的key，如果存在，直接替换旧值。如果不存在，则在当前位置上重新创建新的Entry.
+              // 当出现null时，会调用replaceStaleEntry()方法接着循环寻找相同的key，如果存在，直接替换旧值。如果不存在，
+              // 则在当前位置上重新创建新的Entry.
                 if (k == null) {
                     replaceStaleEntry(key, value, i);
                     return;
@@ -371,7 +372,8 @@ public class ThreadLocal<T> {
             Entry e;
 
           /**
-			 * 备份以检查在当前运行中是否存在以前的陈旧条目。一次清除整个运行，以避免由于垃圾收集器释放引用而导致的连续增量重新哈希(即每当收集器运行时)。
+			 * 备份以检查在当前运行中是否存在以前的陈旧条目。一次清除整个运行，以避免由于垃圾收集器释放引用而导致的连续增量重新哈希
+			 * (即每当收集器运行时)。
 			 */
             int slotToExpunge = staleSlot;
             for (int i = prevIndex(staleSlot, len);

@@ -64,7 +64,8 @@ public class Object {
     public final native void notifyAll();
 
     /**
-     * 不能被重写，用于在线程调用中，导致当前线程进入等待状态（time_waiting)，timeout单位为毫秒,该方法只能同步方法或同步块中调用,超过设置时间后线程重新进入可运行状态
+     * 不能被重写，用于在线程调用中，导致当前线程进入等待状态（time_waiting)，timeout单位为毫秒,该方法只能同步方法或同步块中调用
+     * 超过设置时间后线程重新进入可运行状态
      * 注意该方法可能抛出线程中断异常
      */
     public final native void wait(long timeout) throws InterruptedException;
@@ -98,7 +99,8 @@ public class Object {
     }
 
     /**
-     * 这个方法用于当对象被回收时调用，这个由JVM支持，Object的finalize方法默认是什么都没有做，如果子类需要在对象被回收时执行一些逻辑处理，则可以重写finalize方法。
+     * 这个方法用于当对象被回收时调用，这个由JVM支持，Object的finalize方法默认是什么都没有做，如果子类需要在对象被回收时执行一些逻辑处理，
+     * 则可以重写finalize方法。
      * 但是JVM也不能保证该方法执行的时间，与System.gc()类似
      */
     protected void finalize() throws Throwable {

@@ -37,7 +37,8 @@ import java.util.function.UnaryOperator;
  * 如果某个实现不希望提供快速失败迭代器，则可以忽略此字段。
  *  
  * transient：
- * 默认情况下,对象的所有成员变量都将被持久化.在某些情况下,如果你想避免持久化对象的一些成员变量,你可以使用transient关键字来标记他们,transient也是java中的保留字(JDK
+ * 默认情况下,对象的所有成员变量都将被持久化.在某些情况下,如果你想避免持久化对象的一些成员变量,你可以使用transient关键字来标记他们,
+ * transient也是java中的保留字(JDK
  * 1.8)
  */
 

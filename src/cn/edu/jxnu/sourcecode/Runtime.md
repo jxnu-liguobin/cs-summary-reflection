@@ -11,7 +11,8 @@ import java.io.OutputStream;
 import java.util.StringTokenizer;
 
 /**
- * Runtime类，里面可以获得应用运行时的一些状态（主要包括使用的内存和cpu个数）和在应用运行时执行一些操作（程序退出、执行gc、设置退出时的钩子函数）。
+ * Runtime类，里面可以获得应用运行时的一些状态（主要包括使用的内存和cpu个数）和在应用运行时执行一些操作（程序退出、执行gc、
+ * 设置退出时的钩子函数）。
  * 用到了单例模式：确保一个类最多只有一个实例，并提供一个全局访问点。
  */
 public class Runtime {
@@ -32,11 +33,14 @@ public class Runtime {
     }
 
     /**
-     * 通过启动虚拟机的关闭序列，终止当前正在运行的 Java 虚拟机。此方法从不正常返回。可以将变量作为一个状态码；根据惯例，非零的状态码表示非正常终止。
-     * 虚拟机的关闭序列包含两个阶段。在第一个阶段中，会以某种未指定的顺序启动所有已注册的关闭钩子(hook)（如果有的话），并且允许它们同时运行直至结束。
+     * 通过启动虚拟机的关闭序列，终止当前正在运行的 Java 虚拟机。此方法从不正常返回。可以将变量作为一个状态码；根据惯例，
+     * 非零的状态码表示非正常终止。
+     * 虚拟机的关闭序列包含两个阶段。在第一个阶段中，会以某种未指定的顺序启动所有已注册的关闭钩子(hook)（如果有的话），
+     * 并且允许它们同时运行直至结束。
      * 在第二个阶段中，如果已启用退出终结，则运行所有未调用的终结方法。一旦完成这个阶段，虚拟机就会暂停。
      * 如果在虚拟机已开始其关闭序列后才调用此方法，那么若正在运行关闭钩子，则将无限期地阻断此方法。
-     * 如果已经运行完关闭钩子，并且已启用退出终结 (on-exitfinalization)，那么此方法将利用给定的状态码（如果状态码是非零值）暂停虚拟机；否则将无限期地阻断虚拟机。
+     * 如果已经运行完关闭钩子，并且已启用退出终结 (on-exitfinalization)，那么此方法将利用给定的状态码（如果状态码是非零值）暂停虚拟机；
+     * 否则将无限期地阻断虚拟机。
      */
     public void exit(int status) {
         SecurityManager security = System.getSecurityManager();
@@ -83,7 +87,8 @@ public class Runtime {
     }
 
     /**
-     * 在退出时启用或禁用终结；这样做可指定拥有未被自动调用终结方法的所有对象的终结方法，并将在退出 Java 运行时前运行此终结方法。默认情况下，禁用退出终结。
+     * 在退出时启用或禁用终结；这样做可指定拥有未被自动调用终结方法的所有对象的终结方法，并将在退出 Java 运行时前运行此终结方法。
+     * 默认情况下，禁用退出终结。
      * 如果有安全管理器，则首先使用 0 作为变量来调用其 checkExit 方法，以确保允许退出。这可能会导致 SecurityException。
      */
     @Deprecated
@@ -117,8 +122,10 @@ public class Runtime {
 
     /**
      * 在有指定环境和工作目录的独立进程中执行指定的字符串命令。
-     * 对于 exec(command, envp, dir) 形式的调用而言，其行为与调用 exec(cmdarray, envp, dir) 完全相同，其中 cmdarray 是 command 中所有标记的数组。
-     * 更准确地说，可以使用通过调用 new StringTokenizer(command) 创建的 StringTokenizer 将 command 字符串拆解成标记，调用时不对字符类别做进一步的修改。
+     * 对于 exec(command, envp, dir) 形式的调用而言，其行为与调用 exec(cmdarray, envp, dir) 完全相同，
+     * 其中 cmdarray 是 command 中所有标记的数组。
+     * 更准确地说，可以使用通过调用 new StringTokenizer(command) 创建的 StringTokenizer 将 command 字符串拆解成标记，
+     * 调用时不对字符类别做进一步的修改。
      * 然后将标记生成器所生成的标记以相同的顺序放入新的字符串数组 cmdarray 中。
      */
     public Process exec(String command, String[] envp, File dir)
@@ -256,7 +263,8 @@ public class Runtime {
     }
 
     /**
-     * 创建输入流的本地化版本。此方法获取 InputStream，并返回除本地化外其他所有方面都和变量等效的 InputStream，这些方面包括：作为本地字符集中的字符从流中被读取，并将它们从本地字符集自动转换为 Unicode。
+     * 创建输入流的本地化版本。此方法获取 InputStream，并返回除本地化外其他所有方面都和变量等效的 InputStream，
+     * 这些方面包括：作为本地字符集中的字符从流中被读取，并将它们从本地字符集自动转换为 Unicode。
      */
     @Deprecated
     public InputStream getLocalizedInputStream(InputStream in) {
@@ -264,7 +272,8 @@ public class Runtime {
     }
 
     /**
-     * 创建输出流的本地化版本。此方法获取 OutputStream，并返回除本地化外其他所有方面都和变量等效的 OutputStream，这些方面包括：作为 Unicode 字符被写入流中，并被自动转换为本地字符集。
+     * 创建输出流的本地化版本。此方法获取 OutputStream，并返回除本地化外其他所有方面都和变量等效的 OutputStream，
+     * 这些方面包括：作为 Unicode 字符被写入流中，并被自动转换为本地字符集。
      * 如果参数已经是本地流，则可作为结果返回。
      */
     @Deprecated
