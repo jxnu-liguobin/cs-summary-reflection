@@ -116,7 +116,7 @@ transient ReadLockView readLockView;
 transient WriteLockView writeLockView;
 transient ReadWriteLockView readWriteLockView;
 
-/** 锁队列状态， 当处于写模式时第8位为1，读模式时前7为为1-126（附加的readerOverflow用于当读者超过126时） */
+/** 锁队列状态， 当处于写模式时第8位为1，读模式时前7位为1-126（附加的readerOverflow用于当读者超过126时） */
 private transient volatile long state;
 /** 将state超过 RFULL=126的值放到readerOverflow字段中 */
 private transient int readerOverflow;
@@ -353,8 +353,8 @@ public void unlock(long stamp) {
  * state匹配stamp时, 执行下列操作之一.
  1、stamp 已经持有写锁，直接返回.
  2、读模式，但是没有更多的读取者，并返回一个写锁stamp.
- *  3、有一个乐观读锁，只在即时可用的前提下返回一个写锁stamp
- *  4、其他情况都返回0
+ 3、有一个乐观读锁，只在即时可用的前提下返回一个写锁stamp
+ 4、其他情况都返回0
  */
 public long tryConvertToWriteLock(long stamp) {
     long a = stamp & ABITS, m, s, next;
