@@ -84,7 +84,7 @@ FactoryBean 通常是用来创建比较复杂的bean，一般的bean 直接用xm
 	. 配置MappingJacksonHttpMessageConverter
 	. 使用 @ResponseBody 注解或 ResponseEntity 作为返回值
     . ResponseEntity 可以定义返回的HttpHeaders和HttpStatus
-    . 使用@RestController修饰控制器（Spring 4 MVC）
+    . 使用@RestController修饰控制器（Spring MVC 4）
 	
 
 ### 8. 相关注解
@@ -107,7 +107,7 @@ POST请求中，通过HttpEntity传递的参数，必须要在请求头中声明
 主要区别
 
 1. @Autowired与@Resource都可以用来装配bean. 都可以写在字段上，或写在setter方法上。
-2. @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false。
+2. @Autowired默认按类型装配（这个注解是属于spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false。
 3. @Resource（这个注解属于J2EE的，是JSR规范定义的注解），默认按照名称进行装配，名称可以通过name属性进行指定，如果没有指定name属性，当注解写在字段上时，默认取字段名进行按照名称查找，如果注解写在setter方法上默认取属性名进行装配。
 当找不到与名称匹配的bean时才按照类型进行装配。但是需要注意的是，如果name属性一旦指定，就只会按照名称进行装配。
 4. 推荐使用：@Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。
@@ -190,9 +190,9 @@ newProxyInstance 产生一个代理对象 ，三个参数
 ### 16. Mybatis #和$ 的区别？
 
 1. \#{}  将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。
-如：order by #user_id#，如果传入的值是111,那么解析成sql时的值为order by "111", 
+如：order by #{user_id}，如果传入的值是111,那么解析成sql时的值为order by "111", 
 如果传入的值是id，则解析成的sql为order by "id"。
-2. $将传入的数据直接显示生成在sql中。如：order by $user_id$，如果传入的值是111,那么解析成sql时的值为order by user_id,  
+2. $将传入的数据直接显示生成在sql中。如：order by ${user_id}，如果传入的值是111,那么解析成sql时的值为order by user_id,  
 如果传入的值是id，则解析成的sql为order by id。
 3. \#{}方式能够很大程度防止sql注入。
 4. $方式无法防止Sql注入。
