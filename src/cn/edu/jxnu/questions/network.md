@@ -564,7 +564,7 @@ OICQ底层是UDP
 2. 需要保证较高的效率、速度，且允许丢包，使用UDP
 3. 需要效率、速度、一定的安全性，在上层对UDP数据报进行加密处理，使用自己的加密算法。
 
-![wireshark](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/QQ protocol.png)
+![wireshark](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/QQ%20protocol.png)
 
 对UDP进行封装、传输层以上使用自己的高层协议。
 
