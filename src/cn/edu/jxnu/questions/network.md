@@ -552,6 +552,22 @@ SO_LINGER涉及到linger结构体，如果设置结构体中l_onoff为非0，l_l
 这个算不上断开连接时的意外，当TCP连接发生一些物理上的意外情况时，例如网线断开，linux上的TCP实现会依然认为该连接有效，而windows则会在一定时间后返回错误信息。
 这似乎可以通过设置SO_KEEPALIVE选项来解决，不过不知道这个选项是否对于所有平台都有效。
 
+12、 QQ使用什么协议？
+
+UDP、TCP、OICQ (可能还有P2P。。不讨论了)
+
+OICQ底层是UDP
+
+主要区分点：
+
+1. 需要保证可靠性，较高的安全性、且对效率要求不是非常大，使用TCP、【HTTP、HTTPS】
+2. 需要保证较高的效率、速度，且允许丢包，使用UDP
+3. 需要效率、速度、一定的安全性，在上层对UDP数据报进行加密处理，使用自己的加密算法。
+
+![wireshark](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/QQ protocol.png)
+
+对UDP进行封装、传输层以上使用自己的高层协议。
+
 ### 9.打开网页到页面显示之间的过程
 
 1、DNS解析
