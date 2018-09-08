@@ -89,6 +89,8 @@ git reset 分支回滚到暂存区 （--hard 版本号，即回滚最后一次�
 
 git checkout 暂存区回滚到工作区（回滚最后一次add操作，--files） -b branch  在本地创建并切换到branch分支，前面以前提到到，-d是删除，切记
 
+如果需要删除索引中的myfile文件但不删除文件本身，你可以：git rm --cached myfile 然后提交即可
+
 ### 6、git rebase 和 git merge的区别
 
 * git pull = git fetch + git merge
