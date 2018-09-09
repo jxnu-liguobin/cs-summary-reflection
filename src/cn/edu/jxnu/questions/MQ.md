@@ -17,8 +17,10 @@
 	来源：知乎
 	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 	
-补充1：
+补充：
     
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E5%90%84%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png)    
+
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/rpc%E6%A1%86%E6%9E%B6.png)
 
 ### 2.什么是AMQP？
