@@ -30,11 +30,11 @@ JMS是早期消息中间件进行标准化的一个尝试，它仅仅是在API�
 与JMS不同，AMQP是一个Wire级的协议，它描述了在网络上传输的数据的格式，以字节为流。因此任何遵守此数据格式的工具，其创建和解释消息，都能与其他兼容工具进行互操作。<br>
 AMQP规范的版本：<br>
 
-0-8        是2006年6月发布<br>
-0-9        于2006年12月发布<br>
-0-9-1     于2008年11月发布<br>
-0-10      于2009年下半年发布<br>
-1.0 draft  （文档还是草案）<br>
+* 0-8        是2006年6月发布
+* 0-9        于2006年12月发布
+* 0-9-1     于2008年11月发布
+* 0-10      于2009年下半年发布
+* 1.0 draft  （文档还是草案）
 
 ### 3.AMQP 与 JMS对比 ？
 
@@ -43,16 +43,16 @@ AMQP规范的版本：<br>
 
 JMS定义了Java层面的标准，在Java体系中，多client均可以通过JMS进行交互，不需要应用修改代码，但是对跨平台的支持较差，提供两种消息模型:
 
-(1)peer-2-peer<br>
-(2)pub/sub
+* (1)peer-2-peer
+* (2)pub/sub
 
 AMQP定义了wire-level（链接）层的协议标准；具有跨平台，跨语言特性，有复杂的消息，可以将消息序列化后发送提供五中消息模型:
 
-(1)direct exchange<br>
-(2)fanout exchange<br>
-(3)topic exchange<br>
-(4)headers exchange<br>
-(5)system exchange
+* (1)direct exchange
+* (2)fanout exchange
+* (3)topic exchange
+* (4)headers exchange
+* (5)system exchange
 
 本质来讲，后四种和JMS的pub/sub模型没有太大的差别，仅是在路由机制上做了跟详细的划分
 
