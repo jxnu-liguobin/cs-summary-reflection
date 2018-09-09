@@ -17,11 +17,32 @@
 	来源：知乎
 	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 	
-补充：
+补充1：
     
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/%E5%90%84%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png)    
 
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/rpc%E6%A1%86%E6%9E%B6.png)
+
+补充2：
+
+* Kryo：专为 JAVA 定制的序列化协议，序列化后字节数少，利于网络传输。但不支持跨语言（或支持的代价比较大）。
+dubbox 扩展中支持了 kryo 序列化协议。
+
+* Hessian：支持跨语言，序列化后字节数适中，API 易用。是国内主流 rpc 框架：dubbo，motan 的默认序列化协议。
+
+* Protostuff：提起 Protostuff 不得不说到 Protobuf。Protobuf可能更出名一些，因为其是google的亲儿子，grpc框架便是使用protobuf作为序列化协议，
+虽然protobuf与语言无关平台无关，但需要使用特定的语法编写 .prpto 文件，然后静态编译，这带了一些复杂性。而 protostuff 实际是对 protobuf 的扩展，
+protostuff-runtime 模块继承了protobuf 性能，且不需要预编译文件，但与此同时，也失去了跨语言的特性。所以 protostuff 的定位是一个 JAVA 序列化框架，
+其性能略优于 Hessian。tip ：protostuff 反序列化时需用户自己初始化序列化后的对象，其只负责将该对象进行赋值。
+
+* Fastjson：作为一个 json 工具，被拉到 RPC 的序列化方案中似乎有点不妥，但 motan 该 RPC 框架除了支持 hessian 之外，还支持了 fastjson 的序列化。
+可以将其作为一个跨语言序列化的简易实现方案。
+
+* Avro：一种强调高效的序列化方式，标准性的云计算的数据交换和存储的Protocol，Avro的创新之处在于融合了显式，declarative的Schema和高效二进制的数据表达，强调数据的自我描述，克服了以往单纯XML或二进制系统的缺陷。
+
+* Thrift：一个跨语言的轻量级RPC消息和数据交换框架，Thrift能生成的语言有: C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk, and OCaml。
+
+thrift和avro都提供rpc服务和序列化，而protocol buffer只是提供序列化功能。
 
 ### 2.什么是AMQP？
 
