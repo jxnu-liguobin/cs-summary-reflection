@@ -42,7 +42,7 @@ protostuff-runtime 模块继承了protobuf 性能，且不需要预编译文件�
 
 * Thrift：一个跨语言的轻量级RPC消息和数据交换框架，Thrift能生成的语言有: C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk, and OCaml。
 
-thrift和avro都提供rpc服务和序列化，而protocol buffer只是提供序列化功能。
+thrift和avro、hessian都提供RPC服务和序列化，而protobuf只是提供序列化功能。
 
 ### 2.什么是AMQP？
 
