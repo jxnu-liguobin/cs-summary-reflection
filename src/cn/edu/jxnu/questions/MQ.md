@@ -12,17 +12,14 @@
 而任务队列可以通过MQ实现，也可以利用RPC实现，底层可能都是相同的东西，但是因为暴露出了不同性质的接口所以也换了不同的名字。
 以上的区分也不绝对，很多情况下只是怎么方便就怎么叫。
 
-补充1：
-
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/rpc%E6%A1%86%E6%9E%B6.png)
-
-
-
 	作者：灵剑
 	链接：https://www.zhihu.com/question/265988880/answer/301580895
 	来源：知乎
 	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 	
+补充1：
+    
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/rpc%E6%A1%86%E6%9E%B6.png)
 
 ### 2.什么是AMQP？
 
