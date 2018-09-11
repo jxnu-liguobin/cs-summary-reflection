@@ -47,7 +47,7 @@ public class ReverseLinkedList {
 
 	/**
 	 * @description 循环法
-	 * @param pHead
+	 * @param head
 	 * @return
 	 */
 	public static ListNode reverseList2(ListNode head) {

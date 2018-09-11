@@ -18,7 +18,7 @@ public class FibonacciDemo3 {
 	 */
 	/**
 	 * @description 移位
-	 * @param target
+	 * @param number
 	 * @return
 	 */
 	public int jumpFloorII(int number) {

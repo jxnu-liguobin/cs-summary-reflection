@@ -49,7 +49,7 @@ public class Leetcode417_DFS {
 			dfs(i, n - 1, canReachA);
 		}
 		for (int i = 0; i < n; i++) {
-			// 在列上对第1行和最后1行进行变量
+			// 在列上对第1行和最后1行进行遍历
 			dfs(0, i, canReachP);
 			dfs(m - 1, i, canReachA);
 		}
