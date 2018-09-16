@@ -23,7 +23,7 @@ object MaxSubArray extends App {
 
   /**
     *
-    * 子数组最之和的最大值
+    * 子数之和的最大值
     */
   def maxSubArray(nums: Array[Int]): Int = {
 

@@ -59,8 +59,8 @@ public class IsHasSubtree {
 
 	/**
 	 * @description 第二种：不使用标记 
-	 * @param pRootA
-	 * @param pRootB
+	 * @param node1
+	 * @param node2
 	 * @return
 	 */
 	private boolean isSubtree(TreeNode node1, TreeNode node2) {
