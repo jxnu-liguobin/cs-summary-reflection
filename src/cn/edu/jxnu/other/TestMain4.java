@@ -18,6 +18,13 @@ public class TestMain4 {
 
     }
 
+    /**
+     * 字符串反转
+     *
+     * @param str
+     * @param length
+     * @return
+     */
     private static String util(char[] str, int length) {
         for (int i = 0; i <= length / 2; i++) {
             char temp = str[i];
