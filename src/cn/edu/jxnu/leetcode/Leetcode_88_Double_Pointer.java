@@ -5,7 +5,7 @@ package cn.edu.jxnu.leetcode;
  * @description 归并两个有序数组，把归并结果存到第一个数组上。
  * @time 2018年4月7日
  */
-public class Leetcode_88 {
+public class Leetcode_88_Double_Pointer {
 
 	public void merge(int[] nums1, int m, int[] nums2, int n) {
 		int i = m - 1, j = n - 1; // 需要从尾开始遍历，否则在 nums1 上归并得到的值会覆盖还未进行归并比较的值
