@@ -295,7 +295,11 @@ InnoDB主要特性
 * MyISAM和InnoDB都使用了B+树作为索引存储结构，但是叶子上数据的存储方式不同。前者索引文件和数据文件是分离的，索引文件仅保存记录所在页的指针（物理位置），
 而后者直接存储数据，或者存储主键值（存储主键值并检索辅助索引，此时实际上进行了二次查询，增加IO次数）。
 
+InnoDB:
+
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/Innodb.png)
+
+MyISAM:
 
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/myisam.png)
 
