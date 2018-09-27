@@ -481,3 +481,6 @@ Proactor设计模式（前摄器）
 ![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/Proactor%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.jpg)
 
   Proactor模式的读写socket操作是交由内核处理，即异步IO模式，但是编程使用的IO复用技术是同步IO，我们可以利用同步IO方式模拟出Proactor模式，其原理为：主线程执行数据的读写操作(和监听listen_socket)，读写完成后主线程向工作通知这一“完成事件”，那么从工作线程的角度看，和异步IO实现的Proactor模式的工作线程一样，它们直接获得了数据的读写结果，接下来要做的只是对读写结果进行逻辑处理。
+
+
+参考[CSDN](https://blog.csdn.net/ty497122758/article/details/78979302)
