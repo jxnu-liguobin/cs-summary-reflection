@@ -2,7 +2,7 @@ package cn.edu.jxnu.other;
 
 import java.util.List;
 
-public class GenericsTest {
+public class TestJava6 {
 
 	public static void main(String[] args) {
 
