@@ -217,7 +217,7 @@ MyISAM
 * 不支持事务，但是每次查询都是原子的；
 * 支持表级锁，即每次操作是对整个表加锁；
 * 存储表的总行数；
-* 一个MYISAM表有三个文件：索引文件、表结构文件、数据文件；
+* 一个MyISAM表有三个文件：索引文件、表结构文件、数据文件；
 * 采用非聚集索引，索引文件的数据域存储指向数据文件的指针。辅索引与主索引基本一致，但是辅索引不用保证唯一性。
 * 适用OLAP 
 
@@ -301,7 +301,7 @@ InnoDB:
 
 MyISAM:
 
-![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/myisam.png)
+![](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice/picture/MyISAM.png)
 
 ### 9、索引的分类（主键索引、唯一索引），最左前缀原则，哪些情况索引会失效？
 
