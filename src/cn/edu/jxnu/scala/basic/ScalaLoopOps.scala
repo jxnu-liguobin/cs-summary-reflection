@@ -16,14 +16,22 @@ object ScalaLoopOps {
     def main(args: Array[String]) = {
         val list = List(21, 214, -4352, 65436, 7534)
         val list2 = List(212, 2134, -43522, 651436, 7534)
-        for (i <- list.diff(list2)) {
-            //差集
+
+        println("//差集")
+        for (i <- list.diff(list2)) { //--
             print(i + " ")
         }
         println()
 
-        for (i <- list.intersect(list2)) {
-            //交集
+        println("//交集")
+        for (i <- list.intersect(list2)) { //&
+            print(i + " ")
+        }
+        println()
+
+        println("//并集")
+        for (i <- list.union(list2).distinct) {
+            //  ++  | distinct去重
             print(i + " ")
         }
         println()
