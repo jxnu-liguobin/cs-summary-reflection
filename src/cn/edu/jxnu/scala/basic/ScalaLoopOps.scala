@@ -36,6 +36,8 @@ object ScalaLoopOps {
         }
         println()
 
+        println("=======================================")
+        loopTest(list)
 
         breakTest1(list)
         breakTest2(list)
@@ -43,6 +45,14 @@ object ScalaLoopOps {
         continueTest2(list)
         continueTest3(list)
 
+    }
+
+    def loopTest(list: List[Int]): Unit = {
+        println("函数式遍历")
+        //list.foreach(args => print(args + " "))
+        list.foreach(println)
+        println()
+        println("================================")
     }
 
     def breakTest1(list: List[Int]) = {
@@ -86,6 +96,6 @@ object ScalaLoopOps {
         }
 
         next(0)
-
     }
+
 }
