@@ -10,8 +10,10 @@ import scala.util.control.Breaks._
   * 2. 使用嵌套函数，从函数当中return
   * 3. 使用Breaks对象中的break方法(这里的控制权转移是通过抛出和捕获异常完成的，尽量避免使用这套机制)
   * 4. 递归函数重写循环
+  * 5. Scala的for是for表达式，更接近函数式
+  * 6. 纯函数式for：list.foreach(println) @see loopTest.scala
   */
-object ScalaLoopOps {
+object LoopExamples {
 
     def main(args: Array[String]) = {
         val list = List(21, 214, -4352, 65436, 7534)

@@ -3,12 +3,14 @@ package cn.edu.jxnu.scala
 /**
   * 本包存放scala学习笔记
   *
-  * 因为我不是零基础，所以不再列举简单的。只记录稍微重点的。因为能帮助到你们
+  * 因为我不是零基础，所以不再列举简单的。只记录稍微重点的。希望能帮助到你们，也当是自己的复习，学习的记录。
   *
-  * 目前主要做自动化测试、测试平台开发，测试框架开发、测试工具开发
+  * 目前主要做自动化测试、测试平台开发（Java），测试框架开发（Python）
   *
   * 本人未来的目标不出意外也是做类似的框架或工具开发。
   * 学习scala的初衷并不是为了大数据，而是学习函数式的思想。
+  *
+  * 注意：为了方便 使用@see 标记相关的代码类名，而具体代码放在本包对象外面，方便运行
   *
   * @author 梦境迷离
   * @time 2018-11-24
@@ -106,6 +108,8 @@ package object basic {
       * 方法参数始终是不可变的，由val关键字定义。（这里有坑，val是隐式定义的，自己写的时候没有写val也是不可变）
       * 可变变量用var定义。应该尽量使用val
       *
+      * 不能对数值进行++ --操作，Scala不支持
+      *
       */
     //需要特别注意scala的访问权限
     //    1、访问控制符
@@ -157,7 +161,7 @@ package object basic {
     //    高阶函数（Higher-Order Function）就是操作其他函数的函数。
     //    Scala 中允许使用高阶函数, 高阶函数可以使用其他函数作为参数，或者使用函数作为输出结果。
     //    以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
-    //@see    Test1
+    //@see    Test1.scala
     //函数式编程核心理念：
     //函数是一等的值
     //不可变数据结构、无副作用
@@ -179,7 +183,7 @@ object Test1 {
 
 object Test2 extends App {
     val string: String = "ABCabc"
-    val hasUpper = string.exists(_.isUpper)
+    val hasUpper = string.exists(_.isUpper) //_.isUpper是函数字面量，其中_占位符(args:type)=> func body
     println(hasUpper)
 
     var i = 0 //scala不能用i++ ++i --i i--

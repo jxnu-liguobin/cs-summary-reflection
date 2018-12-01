@@ -5,6 +5,8 @@
 >[Java For Leetcode](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/leetcode) |
     [Scala For Leetcode](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/leetcode/scala) 
 
+>[Scala基础语法笔记](https://github.com/jxnu-liguobin/Java-Learning-Summary/tree/master/src/cn/edu/jxnu/scala/basic)
+
 >[计算机网络](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/network.md)
    
 >[AMQP | RabbitMQ](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/MQ.md)
