@@ -15,6 +15,7 @@ import scala.util.control.Breaks._
   */
 object LoopExamples {
 
+    //普通遍历整形数组@see Test4.scala
     def main(args: Array[String]) = {
         val list = List(21, 214, -4352, 65436, 7534)
         val list2 = List(212, 2134, -43522, 651436, 7534)

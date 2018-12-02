@@ -1,5 +1,7 @@
 package cn.edu.jxnu.scala
 
+import scala.collection.mutable._
+
 /**
   * 本包存放scala学习笔记
   *
@@ -106,12 +108,12 @@ package object basic {
       * 方法参数方法参数是在调用该方法时用于传递方法中的值的变量。
       * 方法参数只能从方法内部访问，但是如果从方法外部引用了对象，则可以从外部访问传入的对象。
       * 方法参数始终是不可变的，由val关键字定义。（这里有坑，val是隐式定义的，自己写的时候没有写val也是不可变）
-      * 可变变量用var定义。应该尽量使用val
+      * 可变变量用var定义。应该尽量使用val @see Test3.scala
       *
       * 不能对数值进行++ --操作，Scala不支持
       *
       */
-    //需要特别注意scala的访问权限
+    //    需要特别注意scala的访问权限
     //    1、访问控制符
     //    Scala 访问修饰符基本和Java的一样，分别有：private，protected，public。
     //    如果没有指定访问修饰符符，默认情况下，Scala 对象的访问级别都是 public。
@@ -147,9 +149,9 @@ package object basic {
     //            function body
     //            return [expr]
     //        }
-    //      如果函数没有返回值，可以返回为 Unit，这个类似于 Java 的 void
+    //    如果函数没有返回值，可以返回为 Unit，这个类似于 Java 的 void
 
-    //    6、函数调用
+    //    6、函数调用 @see Test3.scala
     //    Scala 提供了多种不同的函数调用方式：
     //    以下是调用方法的标准格式：
     //    functionName( 参数列表 )
@@ -161,16 +163,23 @@ package object basic {
     //    高阶函数（Higher-Order Function）就是操作其他函数的函数。
     //    Scala 中允许使用高阶函数, 高阶函数可以使用其他函数作为参数，或者使用函数作为输出结果。
     //    以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
-    //@see    Test1.scala
-    //函数式编程核心理念：
-    //函数是一等的值
-    //不可变数据结构、无副作用
+    //    @see    Test1.scala
+
+    //    函数式编程核心理念：
+    //    函数是一等的值
+    //    不可变数据结构、无副作用
+
+    //    Scala中的所有操作都是方法调用 @see Test4.scala
+    //    Scala的列表 @see Test6.scala
 
 
 }
 
+/**
+  * 以下开始都是代码实例（基础语法部分）
+  */
 object Test1 {
-    // scala 数组下标用(),泛型用[]
+    // scala 数组下标用(),泛型用[]，@see Test3.scala
     def main(args: Array[String]) {
         println(apply(layout, 10))
     }
@@ -182,6 +191,7 @@ object Test1 {
 }
 
 object Test2 extends App {
+    // 继承App 默认有main方法，自己也可以重写main。或者不继承App，自己写main方法，签名需一致
     val string: String = "ABCabc"
     val hasUpper = string.exists(_.isUpper) //_.isUpper是函数字面量，其中_占位符(args:type)=> func body
     println(hasUpper)
@@ -191,4 +201,61 @@ object Test2 extends App {
     println(i)
 
     // string.chars().anyMatch((int ch)-> Character.isUpperCase((char)ch)) //java 8
+}
+
+object Test3 extends App {
+    val arr = new Array[String](3) //这种方式不是函数式编程推荐的，推荐方法@see Test5.scala
+    // arr=new Array(2) val不能被重新赋值，但是本身指向的对象可能发生改变比如：改变arr数组内容
+    arr(0) = "hello1" //实际上，Scala数组赋值也是函数调用，arr(i)底层调用了apply(i)方法，这是与其他方法调用一致的通用规则
+    arr(1) = "hello2" //arr(i) = "hello" 实际上底层调用了update方法 arr.update(0,"hello")
+    arr(2) = "hello3"
+    arr.foreach(println)
+}
+
+//循环中断@see LoopExamples.scala
+object Test4 extends App {
+
+    for (i <- 0 to 2) //to包含了右边界  to实际是(0).to(2)的缩写，to返回一种包含了0、1、2的序列。对于单参数方法的调用时  () . 可以被省略
+        println(i)
+    println("==========================")
+    for (i <- 0 until 2) //until不包含右边界 其他同
+    // println(i)
+        Console println i //省略括号需要显示的给出方法调用的目标对象才有效
+}
+
+object Test5 extends App {
+    val arr = Array("hello", "world")
+    arr.foreach(print)
+}
+
+object Test6 extends App {
+    val list = List(1, 2, 3) //不需要new，使用函数风格的调用，底层调用了List的伴生对象的工厂方法List.apply()
+    //val list = 1::2::3::4::Nil 更麻烦的初始化方法，必须用Nil，因为4是整形没有::方法
+    list.foreach(print)
+    println()
+
+    val list1 = List(1, 2, 3)
+    println("列表拼接")
+    val list2 = list ::: list1
+    list2.foreach(print)
+    println()
+
+    println("向列表头部追加元素")
+    val list3 = 2 :: list //以冒号结尾的操作符，方法调用发生在右边，其他的都发生在左边
+    //list3.:+(2)//效率低，每次都需要从头部移动到尾部，可以使用ListBuffer可变列表或者使用头部追加再反转列表
+    list3.foreach(print)
+    println()
+
+    println("=================列表操作================")
+    val list4 = List("hello", "world", "12344")
+    val ret = list4.count(s => s.length == 5)
+    println("列表中字符串长度为5的个数：" + ret)
+
+    println("按照首字母排序")//不改变原列表
+    val list5 = ListBuffer("hello","world", "hello")
+    val list6 = list5.sortWith((s, t) => s.charAt(0).toUpper < t.charAt(0).toUpper)
+    list6.foreach(print)
+    println()
+
+
 }
