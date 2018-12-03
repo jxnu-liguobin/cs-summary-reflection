@@ -110,7 +110,7 @@ package object basic {
       * 方法参数始终是不可变的，由val关键字定义。（这里有坑，val是隐式定义的，自己写的时候没有写val也是不可变）
       * 可变变量用var定义。应该尽量使用val @see Test3.scala
       *
-      * 不能对数值进行++ --操作，Scala不支持
+      * 不能对数值进行++ --操作，Scala不支持 @see Test2.scala
       *
       */
     //    需要特别注意scala的访问权限
@@ -169,8 +169,17 @@ package object basic {
     //    函数是一等的值
     //    不可变数据结构、无副作用
 
+    /**
+      * =================小目录============
+      **/
+    //    Scala的main方法执行 @see SingletonObject.scala、Test2.scala
+    //    Scala的for循环中断和List的交并差 @see LoopExamples.scala
+    //    Scala的数组 @see Test3.scala、Test4.scala
     //    Scala中的所有操作都是方法调用 @see Test4.scala
     //    Scala的列表 @see Test6.scala
+    //    Scala的元组 @see Test7.scala
+    //    Scala的集合和映射(map) @see Test8.scala
+    //    Scala的可变集合主要用于命令式传统编程（当Java用），不可变主要用于函数式编程，推荐使用不可变，减少副作用，也更加安全 @see immutable.png、mutable.png
 
 
 }
@@ -251,11 +260,18 @@ object Test6 extends App {
     val ret = list4.count(s => s.length == 5)
     println("列表中字符串长度为5的个数：" + ret)
 
-    println("按照首字母排序")//不改变原列表
-    val list5 = ListBuffer("hello","world", "hello")
-    val list6 = list5.sortWith((s, t) => s.charAt(0).toUpper < t.charAt(0).toUpper)
+    println("按照首字母排序")
+    //不改变原列表
+    val list5 = ListBuffer("hello", "world", "hello")
+    val list6 = list5.sortWith((s, t) => s.charAt(0).toUpper < t.charAt(0).toUpper) //与元组不同，List从0开始
     list6.foreach(print)
     println()
+}
 
+object Test7 extends App {
+    val tuple1 = (11, "hello") //可见，类型可以不同。同样元组也是不可变
+    print(tuple1._1) //打印第一个，从1开始，跟随Haskell、ML等静态类型元组设定的语言传统
+    print(tuple1._2) //打印第一个，标准库最大22个元组
+    // print(tuple1(1))//不能使用下标，因为apply是只能返回同种类型
 
 }
