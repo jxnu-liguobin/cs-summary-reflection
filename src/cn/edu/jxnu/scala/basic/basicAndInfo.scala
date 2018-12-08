@@ -73,16 +73,16 @@ package object basic {
     /** 闭包 - 闭包是一个函数，其返回值取决于在此函数之外声明的一个或多个变量的值。
      *
      * Scala中的保留字(关键字)，这些保留字不能用作常量或变量或任何其他标识符名称。
-     * abstract	case	 catch	    class
-     * def         do	     else	    extends
-     * false       final	 finally	for
-     * forSome	    if	     implicit	import
-     * lazy	    match	 new	    null
+     * abstract	   case	    catch	     class
+     * def         do	      else	     extends
+     * false       final	  finally	   for
+     * forSome	   if	      implicit	 import
+     * lazy	       match	  new	       null
      * object      override package    private
-     * protected   return   sealed	    super
-     * this	    throw	 trait	    try
-     * true	    type	 val	    var
-     * while	    with	 yield
+     * protected   return   sealed	   super
+     * this	       throw	  trait	     try
+     * true	       type	    val	       var
+     * while	     with	    yield
      * -	         :	      =	         =>
      * <-	         <:	     <%	         >:
      * #	         @
@@ -175,7 +175,7 @@ package object basic {
      * 以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
      *
      * @see Test1.scala
-     * */
+     **/
 
     /** 函数式编程核心理念：
      * 函数是一等的值
