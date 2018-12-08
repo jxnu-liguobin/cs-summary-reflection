@@ -1,4 +1,6 @@
-#### 主要包含  【长期更新-Java/Scala实现】
+#### 主要包含  【长期更新-Java/Scala实现】####
+
+#### 我乃大自然的搬运工 【摸鱼鱼】 ####
 
 >[剑指offer多种解法 | 编程之美 | 笔试题](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/practice)
 
@@ -32,8 +34,10 @@
 >[八大排序算法](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/questions/Sort.md)
    
    
-       其他知识的代码。不使用md文件是希望可以直接运行，说明在包中
-       部分收集于网络，知晓原作者以及版权的则在package-info类中说明，仅供参考...
+       其他知识的代码。不使用md文件是希望可以直接运行，说明在包中，部分收集于网络。
+       知晓原作者以及版权的则在package-info类或者包对象中说明，侵删。
+       
+       仅供参考 QAQ
        
        2018.12.1开始，本人主要维护本仓库Scala部分 。 
        

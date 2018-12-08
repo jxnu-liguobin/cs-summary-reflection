@@ -14,6 +14,8 @@ import scala.collection.mutable.ListBuffer
   *
   * 注意：为了方便 使用@see 标记相关的代码类名，而具体代码放在本包对象外面，方便运行
   *
+  * 实践部分参考Scala User Group的csug库 -> https://github.com/CSUG/csug，尽量说明
+  *
   * @author 梦境迷离
   * @time 2018-11-24
   */
@@ -53,6 +55,7 @@ package object basic {
       * 嵌套函数
       * 函数是对象
       * 域特定语言(DSL)支持
+      * 模式匹配
       * 性状
       * 闭包
       * 并发支持
