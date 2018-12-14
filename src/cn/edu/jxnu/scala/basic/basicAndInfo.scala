@@ -157,7 +157,8 @@ package object basic {
      * function body
      * return [expr]
      * }
-     * 如果函数没有返回值，可以返回为 Unit，这个类似于 Java 的 void
+     * 如果函数没有返回值，可以返回为 Unit，这个类似于 Java 的 void，return可以省略，默认返回最后一个表达式（计算）的值，
+     * 返回为空的称作过程，我们只是使用它的副作用，如打印
      * */
 
     /** 6、函数调用 @see Test3.scala
@@ -184,7 +185,8 @@ package object basic {
     /**
      * =================小目录============
      **/
-    /** Scala的main方法执行 @see SingletonObject.scala、Test2.scala
+    /**
+     * Scala的main方法执行 @see SingletonObject.scala、Test2.scala
      * Scala的for循环中断和List的交并差 @see LoopExamples.scala
      * Scala的数组 @see Test3.scala、Test4.scala
      * Scala中的所有操作都是方法调用 @see Test4.scala
@@ -193,7 +195,8 @@ package object basic {
      * Scala的集合和映射(map) @see Test8.scala
      * Scala的可变集合主要用于命令式传统编程（当Java用），不可变主要用于函数式编程，推荐使用不可变，减少副作用，也更加安全 @see immutable.png、mutable.png
      * Scala从文件读取 @see IOExamples.scala、Test10.scala、Test11.scala
-     * */
+     * Scala 面向对象的类、单例对象、构造函数、序列化、注解使用等  @see CompanionClass.scala
+     **/
 
 }
 
@@ -221,6 +224,11 @@ object Test2 extends App {
     var i = 0 //scala不能用i++ ++i --i i--
     i += 1
     println(i)
+
+    val str = "hello" +
+      "world"; //+操作符放在末尾，而不是java那样推荐在前面
+    Console println str
+
 
     // string.chars().anyMatch((int ch)-> Character.isUpperCase((char)ch)) //java 8
 }

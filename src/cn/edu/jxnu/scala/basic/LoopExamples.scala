@@ -3,17 +3,18 @@ package cn.edu.jxnu.scala.basic
 import scala.util.control.Breaks._
 
 /**
-  * Java是指令式风格，Scala是函数式风格。
-  * 在Scala中，应该尽量适用循环，而是应用函数的方式来处理。
-  * Scala并没有提供break和continue语句来退出循环，那么如果我们又确实要怎么办呢，有如下几个选项：
-  * 1. 使用Boolean型的控制变量。
-  * 2. 使用嵌套函数，从函数当中return
-  * 3. 使用Breaks对象中的break方法(这里的控制权转移是通过抛出和捕获异常完成的，尽量避免使用这套机制)
-  * 4. 递归函数重写循环
-  * 5. Scala的for是for表达式，更接近函数式
-  * 6. 纯函数式for：list.foreach(println) @see loopTest.scala
-  */
+ * Java是指令式风格，Scala是函数式风格。
+ * 在Scala中，应该尽量适用循环，而是应用函数的方式来处理。
+ * Scala并没有提供break和continue语句来退出循环，那么如果我们又确实要怎么办呢，有如下几个选项：
+ * 1. 使用Boolean型的控制变量。
+ * 2. 使用嵌套函数，从函数当中return
+ * 3. 使用Breaks对象中的break方法(这里的控制权转移是通过抛出和捕获异常完成的，尽量避免使用这套机制)
+ * 4. 递归函数重写循环
+ * 5. Scala的for是for表达式，更接近函数式
+ * 6. 纯函数式for：list.foreach(println) @see loopTest.scala
+ */
 object LoopExamples {
+    //这种是独立对象
 
     //普通遍历整形数组@see Test4.scala
     def main(args: Array[String]) = {
