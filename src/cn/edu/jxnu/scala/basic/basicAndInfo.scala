@@ -18,7 +18,7 @@ import scala.collection.mutable.ListBuffer
  *
  * 书籍《Scala编程第三版》《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
  *
- * 《快学Scala》入门不是友好
+ * 《快学Scala》入门  不是友好
  *
  * @author 梦境迷离
  * @time 2018-11-24
