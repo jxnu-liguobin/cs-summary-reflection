@@ -65,7 +65,7 @@ class Construction3(val var1: String, val var2: String) {
 //在scala中，若有继承，那么，只有主构造函数才能将参数的值传递到父类的构造函数中去。
 //继承父类时，必须用父类的主构造函数，并且传入参数，与上一句一个意思
 class Construction4 @SerialVersionUID(1L)(override val var1: String, override val var2: String) extends Construction3(
-    String, String) {
+    var1, var1) {
 
     //1.java的super是静态绑定的
     //在java（单一继承）里面，假设有一个对象a，它既是类型X，又是类型Y，那么X和Y必定具有“父子关系”，也就是说，其中一个是另一个的父类。

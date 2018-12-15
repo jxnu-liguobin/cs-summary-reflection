@@ -176,7 +176,7 @@ package object basic {
      * 以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
      *
      * @see Test1.scala
-     **/
+     * */
 
     /** 函数式编程核心理念：
      * 函数是一等的值
@@ -189,7 +189,7 @@ package object basic {
      * Scala的main方法执行 @see SingletonObject.scala、Test2.scala
      * Scala的for循环中断和List的交并差 @see LoopExamples.scala
      * Scala的数组 @see Test3.scala、Test4.scala
-     * Scala中的所有操作都是方法调用 @see Test4.scala
+     * Scala中的方法调用 操作符表示法 @see Test4.scala
      * Scala的列表 @see Test6.scala
      * Scala的元组 @see Test7.scala
      * Scala的集合和映射(map) @see Test8.scala
@@ -250,7 +250,30 @@ object Test4 extends App {
     println("==========================")
     for (i <- 0 until 2) //until不包含右边界 其他同
     // println(i)
-        Console println i //省略括号需要显示的给出方法调用的目标对象才有效
+        Console println i //省略括号需要显示的给出方法调用的目标对象才有效，此时println是操作符
+    //实际上在Scala中任何操作符都是一种方法调用，而任何方法也可以是操作符，但是在多参数的情况下，操作符表示法必须用括号:strings indexOf ('a',startIndex)
+    val s = "hello"
+    s toLowerCase; //无参，无副作用不用括号,使用后缀需要隔断，用分号
+    println() //有副作用用括号
+    var num = -1 //-是前缀操作符，实际也是方法调用 可用的前缀操作符：！ + - ~  都是一元的
+    var num2 = 1.unary_-
+    if (num == num2) println(true) //true 都是-1，Scala的==比较的是值的相等性，不同于Java的==（比较引用的地址或者基本类型的值）
+    //若想要比较引用地址可用eq/ne方法，不过这只对Scala对象直接映射到Java对象的对象有效。比如String
+    println("======================new eq=====================")
+    val str1 = new String("hello")
+    val str2 = new String("hello")
+    var str3 = "hello"
+    var str4 = "hello"
+    if (str1 eq str2) println("比较地址") //无输出
+    if (str1 == str2) println("==比较内容") //输出
+    if (str1 equals str2) println("equals比较内容") //输出
+    println("======================常量 eq=====================")
+
+    if (str3 eq str4) println("比较地址") //输出，指向同一个常量池的引用
+    if (str3 == str4) println("==比较内容") //输出
+    if (str3 equals str4) println("equals比较内容") //输出
+
+
 }
 
 object Test5 extends App {
