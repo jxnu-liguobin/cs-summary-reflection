@@ -16,6 +16,10 @@ import scala.collection.mutable.ListBuffer
  *
  * 实践部分参考Scala User Group的csug库 -> https://github.com/CSUG/csug，尽量说明
  *
+ * 书籍《Scala编程第三版》《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
+ *
+ * 《快学Scala》入门不是友好
+ *
  * @author 梦境迷离
  * @time 2018-11-24
  */
@@ -176,7 +180,7 @@ package object basic {
      * 以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
      *
      * @see Test1.scala
-     * */
+     **/
 
     /** 函数式编程核心理念：
      * 函数是一等的值
