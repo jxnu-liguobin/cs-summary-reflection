@@ -200,6 +200,7 @@ package object basic {
      * Scala的可变集合主要用于命令式传统编程（当Java用），不可变主要用于函数式编程，推荐使用不可变，减少副作用，也更加安全 @see immutable.png、mutable.png
      * Scala从文件读取 @see IOExamples.scala、Test10.scala、Test11.scala
      * Scala 面向对象的类、单例对象、构造函数、序列化、注解使用等  @see CompanionClass.scala
+     * Scala基础语法图解 @see Scala语法图解.png  （已经取得作者本人同意）
      **/
 
 }
@@ -211,12 +212,21 @@ object Test1 {
     // scala 数组下标用(),泛型用[]，@see Test3.scala
     def main(args: Array[String]) {
         println(apply(layout, 10))
+        useLambda()
     }
 
     // 函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v
     def apply(f: Int => String, v: Int) = f(v)
 
     def layout[A](x: A) = "[" + x.toString() + "]"
+
+    //声明一个lambda
+    //实现对传入的两个参数进行凭借,lambda可以当做def使用
+    val lambda = (param1: String, param2: String) => param1 + param2
+
+    def useLambda(): Unit = {
+        println(lambda("hello", "world"))
+    }
 }
 
 object Test2 extends App {
@@ -261,7 +271,8 @@ object Test4 extends App {
     println() //有副作用用括号
     var num = -1 //-是前缀操作符，实际也是方法调用 可用的前缀操作符：！ + - ~  都是一元的
     var num2 = 1.unary_-
-    if (num == num2) println(true) //true 都是-1，Scala的==比较的是值的相等性，不同于Java的==（比较引用的地址或者基本类型的值）
+    if (num == num2) println(true) //true 都是-1，Scala的==比较的是值的相等性，不同于Java的==（比较引用的地址或者基本类型的值），但是Scala的值比较自动处理null
+    //且样例类可以直接使用值比较（==），因为样例类实现了很多譬如：equals、toString等方法 @T
     //若想要比较引用地址可用eq/ne方法，不过这只对Scala对象直接映射到Java对象的对象有效。比如String
     println("======================new eq=====================")
     val str1 = new String("hello")
@@ -272,7 +283,6 @@ object Test4 extends App {
     if (str1 == str2) println("==比较内容") //输出
     if (str1 equals str2) println("equals比较内容") //输出
     println("======================常量 eq=====================")
-
     if (str3 eq str4) println("比较地址") //输出，指向同一个常量池的引用
     if (str3 == str4) println("==比较内容") //输出
     if (str3 equals str4) println("equals比较内容") //输出

@@ -88,3 +88,20 @@ class Construction4 @SerialVersionUID(1L)(override val var1: String, override va
 
 }
 
+//样例类的主构造必须得有参数
+//初始化可以省略new
+//因为默认自带equals、toString等。可以使用==比较，也可以使用println直接打印内容
+//match模式匹配时用的比较多
+case class Construction5(name: String, pws: String = "pass")
+
+object TestcaseClass extends App {
+
+    val jack = Construction5("name", "password")
+    val rese = Construction5("name")
+    println(jack, rese)
+    val name = jack.name //样例类的实例内容可以直接打印
+    println(jack.name == "name", rese == Construction5("name"))
+
+}
+
+
