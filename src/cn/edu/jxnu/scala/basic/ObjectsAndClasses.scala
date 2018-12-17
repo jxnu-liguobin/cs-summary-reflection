@@ -18,6 +18,9 @@ class CompanionClass {
 
 }
 
+/**
+ * ============================构造函数、实例化规则==============================================
+ */
 //伴生对象与伴生类同名，同一源文件中
 //注意单例对象是一等的，是特殊的class
 object CompanionClass extends App {
@@ -104,4 +107,66 @@ object TestcaseClass extends App {
 
 }
 
+/**
+ * ==============================内部类，访问权限============================
+ **/
+object OutPrivateClass extends App {
 
+    private val name: String = "hello";
+
+    object InnerPrivateClass {
+        def test() = print(name)
+    }
+
+    InnerPrivateClass.test() //内部单例，可以读取外部单例的私有属性
+
+}
+
+class OutPrivateClass {
+    //外部类别名，这之间不能有任何代码
+    outer =>
+
+    class InnerPrivateClass2 {
+        //访问内部类的私有，拒绝访问
+        // private val innerName = "world"//
+        //可以访问
+        val innerName = "world"
+
+        def info() = println("访问外部类的私有属性试试：" + name)
+
+        // 在内部类通过【外部类.this.成员名称】 访问外部类成员
+        def info1 = println("Outer name :" + OutPrivateClass.this.name + ",Inner Name :" + name)
+
+        //在内部类通过【外部类别名】 访问外部类成员
+        def info2 = println("Outer name :" + outer.name + ",Inner Name :" + name)
+
+    }
+
+    // 访问内部类的私有，拒绝访问（即使你new了这个对象，你也无法得到私有属性，是非常严格的判定，与Java不同）
+    // def getInnerName = new InnerPrivateClass2().innerName
+    //可以访问
+    def getInnerName = println("外部类访问内部类的属性：" + new InnerPrivateClass2().innerName)
+
+    // private val name: String = "hello" //下面方法均正常输出
+    // val name: String = "hello" //下面方法均正常输出
+    //限定具体的包的权限
+    private[basic] val name: String = "hello" //下面方法均正常输出
+
+
+}
+
+object TestInnerPrivateClass extends App {
+
+    val out1 = new OutPrivateClass()
+    out1.getInnerName
+    val inner1 = new out1.InnerPrivateClass2() //注意：Scala内部类是从属于外部类对象的。类似Java的static内部类的实例方式
+    inner1.info()
+    inner1.info1
+    inner1.info2 //定义的时候不加括号，调用的时候就不能加
+
+
+}
+
+/**
+ * ============================函数重载、重写、前置条件检查==============================
+ */

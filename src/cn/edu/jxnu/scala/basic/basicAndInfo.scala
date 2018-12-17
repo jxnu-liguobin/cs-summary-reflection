@@ -124,7 +124,9 @@ package object basic {
      * 1、访问控制符
      * Scala 访问修饰符基本和Java的一样，分别有：private，protected，public。
      * 如果没有指定访问修饰符符，默认情况下，Scala 对象的访问级别都是 public。
-     * Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类不能访问被嵌套类的私有成员。
+     * Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类不能访问被嵌套类的私有成员。（单例对象除外，单例是静态的，允许）
+     *
+     * @see ObjectsAndClasses.scala->OutPrivateClass.scala | TestInnerPrivateClass.scala
      * */
 
     /** 在 scala 中，对保护（Protected）成员的访问比 java 更严格一些。因为它只允许保护成员在定义了该成员的的类的子类中被访问。
@@ -180,7 +182,7 @@ package object basic {
      * 以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
      *
      * @see Test1.scala
-     **/
+     * */
 
     /** 函数式编程核心理念：
      * 函数是一等的值
@@ -199,7 +201,7 @@ package object basic {
      * Scala的集合和映射(map) @see Test8.scala
      * Scala的可变集合主要用于命令式传统编程（当Java用），不可变主要用于函数式编程，推荐使用不可变，减少副作用，也更加安全 @see immutable.png、mutable.png
      * Scala从文件读取 @see IOExamples.scala、Test10.scala、Test11.scala
-     * Scala 面向对象的类、单例对象、构造函数、序列化、注解使用等  @see CompanionClass.scala
+     * Scala 面向对象的类、单例对象、构造函数、序列化、注解、重写、重载等  @see ObjectsAndClasses.scala
      * Scala基础语法图解 @see Scala语法图解.png  （已经取得作者本人同意）
      **/
 
