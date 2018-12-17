@@ -124,7 +124,7 @@ package object basic {
      * 1、访问控制符
      * Scala 访问修饰符基本和Java的一样，分别有：private，protected，public。
      * 如果没有指定访问修饰符符，默认情况下，Scala 对象的访问级别都是 public。
-     * Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类不能访问被嵌套类的私有成员。（单例对象除外，单例是静态的，允许）
+     * Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类不能访问被嵌套类的私有成员。（内部可以访问外层的私有，不如内部/层就没意义了。。。）
      *
      * @see ObjectsAndClasses.scala->OutPrivateClass.scala | TestInnerPrivateClass.scala
      * */
