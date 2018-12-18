@@ -114,9 +114,8 @@ package object basic {
     /**
      * 方法参数方法参数是在调用该方法时用于传递方法中的值的变量。
      * 方法参数只能从方法内部访问，但是如果从方法外部引用了对象，则可以从外部访问传入的对象。
-     * 方法参数始终是不可变的，由val关键字定义。（这里有坑，val是隐式定义的，自己写的时候没有写val也是不可变）
+     * 方法参数始终是不可变的，由val关键字定义。（这里有坑，val是隐式定义的，自己写的时候没有写val也是不可变，函数每次调用的时候val有重写的值，所以val不能说是常量，绝对的常量应该加final）@see scala.math.Pi
      * 可变变量用var定义。应该尽量使用val @see Test3.scala
-     *
      * 不能对数值进行++ --操作，Scala不支持 @see Test2.scala
      *
      */
@@ -125,9 +124,8 @@ package object basic {
      * Scala 访问修饰符基本和Java的一样，分别有：private，protected，public。
      * 如果没有指定访问修饰符符，默认情况下，Scala 对象的访问级别都是 public。
      * Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类不能访问被嵌套类的私有成员。（内部可以访问外层的私有，不如内部/层就没意义了。。。）
-     *
      * @see ObjectsAndClasses.scala->OutPrivateClass.scala | TestInnerPrivateClass.scala
-     * */
+     **/
 
     /** 在 scala 中，对保护（Protected）成员的访问比 java 更严格一些。因为它只允许保护成员在定义了该成员的的类的子类中被访问。
      * 而在java中，用protected关键字修饰的成员，除了定义了该成员的类的子类可以访问，同一个包里的其他类也可以进行访问。
@@ -182,7 +180,7 @@ package object basic {
      * 以下实例中，apply() 函数使用了另外一个函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v：
      *
      * @see Test1.scala
-     * */
+     **/
 
     /** 函数式编程核心理念：
      * 函数是一等的值
@@ -201,7 +199,7 @@ package object basic {
      * Scala的集合和映射(map) @see Test8.scala
      * Scala的可变集合主要用于命令式传统编程（当Java用），不可变主要用于函数式编程，推荐使用不可变，减少副作用，也更加安全 @see immutable.png、mutable.png
      * Scala从文件读取 @see IOExamples.scala、Test10.scala、Test11.scala
-     * Scala 面向对象的类、单例对象、构造函数、序列化、注解、重写、重载等  @see ObjectsAndClasses.scala
+     * Scala 面向对象的类、单例对象、构造函数、序列化、注解、重写、重载等  @see ObjectsAndClasses.scala FunctionObjects.scala
      * Scala基础语法图解 @see Scala语法图解.png  （已经取得作者本人同意）
      **/
 
@@ -272,7 +270,7 @@ object Test4 extends App {
     s toLowerCase; //无参，无副作用不用括号,使用后缀需要隔断，用分号
     println() //有副作用用括号
     var num = -1 //-是前缀操作符，实际也是方法调用 可用的前缀操作符：！ + - ~  都是一元的
-    var num2 = 1.unary_-
+    var num2 = 1.unary_- // unary_是混合操作符 yield在Scala是关键字，需要使用反引号`yield`，其他如match类似
     if (num == num2) println(true) //true 都是-1，Scala的==比较的是值的相等性，不同于Java的==（比较引用的地址或者基本类型的值），但是Scala的值比较自动处理null
     //且样例类可以直接使用值比较（==），因为样例类实现了很多譬如：equals、toString等方法 @T
     //若想要比较引用地址可用eq/ne方法，不过这只对Scala对象直接映射到Java对象的对象有效。比如String

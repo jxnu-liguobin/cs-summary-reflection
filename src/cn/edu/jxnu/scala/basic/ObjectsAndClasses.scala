@@ -15,7 +15,7 @@ class CompanionClass {
         println(CompanionClass.str2)
     }
 
-
+    // 源文件名称可以和类名不同
 }
 
 /**
@@ -38,7 +38,7 @@ object CompanionClass extends App {
 }
 
 class Construction {
-    //class有主构造器和辅助构造器，辅助构造器第一行代码必须用调用主构造器
+    //class有主构造器和辅助构造器，辅助构造器第一行代码须用调用主构造器（例外可以是：另一个调用了主构造的辅助构造）
     def this(var1: String) = {
         //无返回值类型
         this() //因为此时默认的主构造就是无参
@@ -51,7 +51,7 @@ class Construction2(var1: String, var2: String) {
     //类结构可以嵌入主构造，此时主构造就是2个参数
     //定义一个参数的辅助构造
     def this(var1: String) = {
-        this(null, "hello") //同样需要第一行调用主构造
+        this(null, "hello") //同样需要第一行调用主构造，或者是调用另一个出现在发起调用的构造方法之前的另一个辅助构造
     }
 }
 
@@ -171,7 +171,3 @@ object TestInnerPrivateClass extends App {
 
     //PS:内部==内层==被嵌套类，外部==外层==嵌套类
 }
-
-/**
- * ============================函数重载、重写、前置条件检查==============================
- */
