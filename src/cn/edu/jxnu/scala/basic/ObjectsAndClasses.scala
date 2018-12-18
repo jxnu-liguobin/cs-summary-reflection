@@ -95,6 +95,7 @@ class Construction4 @SerialVersionUID(1L)(override val var1: String, override va
 //初始化可以省略new
 //因为默认自带equals、toString等。可以使用==比较，也可以使用println直接打印内容
 //match模式匹配时用的比较多
+//默认生成自己的伴生对象
 case class Construction5(name: String, pws: String = "pass")
 
 object TestcaseClass extends App {
