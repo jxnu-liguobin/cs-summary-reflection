@@ -9,15 +9,18 @@ package cn.edu.jxnu.scala.basic
 class CompanionClass {
 
 
-    private val str1 = "hello";
+    private val str1 = "hello"
 
     def print(): Unit = {
         println(CompanionClass.str2)
     }
 
-
+    // 源文件名称可以和类名不同
 }
 
+/**
+ * ============================构造函数、实例化规则==============================================
+ */
 //伴生对象与伴生类同名，同一源文件中
 //注意单例对象是一等的，是特殊的class
 object CompanionClass extends App {
@@ -27,7 +30,7 @@ object CompanionClass extends App {
     //3.混入特质并重写main
     //继承/混入APP特质
     //单例可以混入特质
-    private val str2 = "world";
+    private val str2 = "world"
     val companionClass = new CompanionClass() //new只能实例化类
     println(companionClass.str1) //单例对象类似Java的static方法调用
     companionClass.print() //可以互相访问对方的私有属性，方法
@@ -35,20 +38,20 @@ object CompanionClass extends App {
 }
 
 class Construction {
-    //class有主构造器和辅助构造器，辅助构造器第一行代码必须用调用主构造器
+    //class有主构造器和辅助构造器，辅助构造器第一行代码须用调用主构造器（例外可以是：另一个调用了主构造的辅助构造）
     def this(var1: String) = {
         //无返回值类型
         this() //因为此时默认的主构造就是无参
     }
 }
 
-//使用var表示在类的内部和外部均可以修改（因为生成字段var1，和var1的set方法）
+//使用var表示在类的内层和外层均可以修改（因为生成字段var1，和var1的set方法）
 //var1不使用val、var修饰则Scala不会为其生成字段以及访问器，只能暂时使用该变量
 class Construction2(var1: String, var2: String) {
     //类结构可以嵌入主构造，此时主构造就是2个参数
     //定义一个参数的辅助构造
     def this(var1: String) = {
-        this(null, "hello") //同样需要第一行调用主构造
+        this(null, "hello") //同样需要第一行调用主构造，或者是调用另一个出现在发起调用的构造方法之前的另一个辅助构造
     }
 }
 
@@ -69,7 +72,7 @@ class Construction4 @SerialVersionUID(1L)(override val var1: String, override va
 
     //1.java的super是静态绑定的
     //在java（单一继承）里面，假设有一个对象a，它既是类型X，又是类型Y，那么X和Y必定具有“父子关系”，也就是说，其中一个是另一个的父类。
-    //因为java的继承是单一继承，不管实际类型是什么，一个对象的“继承链”，从super所在类开始往左的部分，都是在编译时期就可以确定下来的。
+    //因为java的继承是单一继承，不管实际类型是什么，一个对象的“继承链”，从super所在类开始往左的层分，都是在编译时期就可以确定下来的。
     //2.scala的super是动态绑定的
     //在scala（多重继承）里面，假设有一个对象a，它既是trait X，又是trait Y， X和Y可能具有父子关系，也可能是共享同一个祖先的“兄弟”，反正，它们的关系不再限定在“父子”上。
     //因为scala允许多重继承，父亲类和trait们的优先顺序，是由对象的实际类型的线性化结果决定的，所以需要动态绑定。
@@ -88,3 +91,84 @@ class Construction4 @SerialVersionUID(1L)(override val var1: String, override va
 
 }
 
+//样例类的主构造必须得有参数
+//初始化可以省略new
+//因为默认自带equals、toString等。可以使用==比较，也可以使用println直接打印内容
+//match模式匹配时用的比较多
+//默认生成自己的伴生对象
+case class Construction5(name: String, pws: String = "pass")
+
+object TestcaseClass extends App {
+
+    val jack = Construction5("name", "password")
+    val rese = Construction5("name")
+    println(jack, rese)
+    val name = jack.name //样例类的实例内容可以直接打印
+    println(jack.name == "name", rese == Construction5("name"))
+
+}
+
+/**
+ * ==============================内层类，访问权限============================
+ **/
+object OutPrivateClass extends App {
+
+    private val name: String = "hello"
+
+    //    def getInnerName = println(InnerPrivateClass.innerName) //编译出差，禁止访问内层单例的私有
+
+    object InnerPrivateClass {
+
+        private val innerName: String = "hello"
+
+        def test() = print(name)
+    }
+
+    InnerPrivateClass.test() //内层单例，可以读取外层单例的私有属性
+
+}
+
+class OutPrivateClass {
+    //外层类别名，这之间不能有任何代码
+    outer =>
+
+    class InnerPrivateClass2 {
+        //访问内层类的私有，拒绝访问
+        // private val innerName = "world"//
+        //可以访问
+        val innerName = "world"
+
+        def info() = println("访问外层类的私有属性试试：" + name)
+
+        // 在内层类通过【外层类.this.成员名称】 访问外层类成员
+        def info1 = println("Outer name :" + OutPrivateClass.this.name + ",Inner Name :" + name)
+
+        //在内层类通过【外层类别名】 访问外层类成员
+        def info2 = println("Outer name :" + outer.name + ",Inner Name :" + name)
+
+    }
+
+    // 访问内层类的私有，拒绝访问（即使你new了这个对象，你也无法得到私有属性，是非常严格的判定，与Java不同）
+    // def getInnerName = new InnerPrivateClass2().innerName
+    //可以访问
+    def getInnerName = println("外层类访问内层类的属性：" + new InnerPrivateClass2().innerName)
+
+    // private val name: String = "hello" //下面方法均正常输出
+    // val name: String = "hello" //下面方法均正常输出
+    //限定具体的包的权限
+    private[basic] val name: String = "hello" //下面方法均正常输出
+
+
+}
+
+object TestInnerPrivateClass extends App {
+
+    val out1 = new OutPrivateClass()
+    out1.getInnerName
+    val inner1 = new out1.InnerPrivateClass2() //注意：Scala内层类是从属于外层类对象的。类似Java的static内部类的实例方式
+    inner1.info()
+    inner1.info1
+    inner1.info2 //定义的时候不加括号，调用的时候就不能加
+
+    //PS:内部==内层==被嵌套类，外部==外层==嵌套类
+}
