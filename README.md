@@ -1,5 +1,7 @@
 ## 大自然的搬运工 - dreamylost
 
+- 如非特殊指明版本，一律默认Java 8、Scala 2.12
+
 ### 编程基础
 
 - [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Network.md)
