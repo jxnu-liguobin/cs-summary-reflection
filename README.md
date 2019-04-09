@@ -73,6 +73,7 @@
 * 2018.12.1开始，本人主要维护本仓库Scala部分。 
 * 任何对“新手”有帮助的知识点欢迎补充到本库。
 * 已简化仓库结构方便使用，仍需要依赖Scala SDK、Java SDK。
+* 已转化为标准Maven结构
 * 长期更新 - Java/Scala实现。
 ---
 
@@ -80,4 +81,3 @@
 
 1. 新建文件夹cs-summary-reflection，进入并执行命令```git clone git@github.com:jxnu-liguobin/cs-summary-reflection.git```
 2. 使用IDEA Import
-3. 导入后若未能识别Gradle项目，在src/main/java目录上右键执行 Make Directory as Sources Root
