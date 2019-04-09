@@ -2,49 +2,49 @@
 
 ### 编程基础
 
-- [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Network.md)
-- [SQL、MySQL](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/MySQL.md)
-- [操作系统](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/OS.md)
-- [Java线程基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Threads.md)
-- [八大排序算法](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Sort.md)
+- [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Network.md)
+- [SQL、MySQL](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MySQL.md)
+- [操作系统](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/OS.md)
+- [Java线程基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Threads.md)
+- [八大排序算法](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Sort.md)
 ---
 
 ### 试题
 
-- [剑指offer多种解法、编程之美、笔试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/practice)
-- [Java For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/leetcode)
-- [Scala For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/leetcode/scala) 
-- [AMQP、RabbitMQ](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/MQ.md)
-- [Spring、Mybatis](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/SSM.md)
-- [Redis相关](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Redis.md)
+- [剑指offer多种解法、编程之美、笔试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice)
+- [Java For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode)
+- [Scala For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode/scala) 
+- [AMQP、RabbitMQ](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MQ.md)
+- [Spring、Mybatis](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/SSM.md)
+- [Redis相关](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Redis.md)
 ---
 
 ### 编程附加
 
-- [反射、ASM](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/reflect/ASM.md)
-- [JDK8常用类源码解析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/sourcecode/sourcecode.md)
-- [Java虚拟机相关代码](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/JVM.md)
-- [Java内存模型](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/JMM.md)
-- [AbstractQueuedSynchronizer分析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/AQS.md)
-- [StampedLock分析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/StampedLock.md)
+- [反射、ASM](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/reflect/ASM.md)
+- [JDK8常用类源码解析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/sourcecode/sourcecode.md)
+- [Java虚拟机相关代码](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JVM.md)
+- [Java内存模型](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JMM.md)
+- [AbstractQueuedSynchronizer分析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/AQS.md)
+- [StampedLock分析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/StampedLock.md)
 ---
 
 ### 常用命令
 
-- [Git简单总结](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Git.md)
-- [Linux常用命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Linux.md)
-- [常用ADB命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/autoTest/ADB.md)
-- [常用Postman命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/autoTest/Postman.md)
-- [常用Docker命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/questions/Docker.md)
+- [Git简单总结](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Git.md)
+- [Linux常用命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Linux.md)
+- [常用ADB命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/autoTest/ADB.md)
+- [常用Postman命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/autoTest/Postman.md)
+- [常用Docker命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Docker.md)
 ---
 
 ### Scala大法
 
 > 编程基础
  
-- [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/scala/ScalaBasic.md)
-- [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/scala/ScalaUtil.md)
-- [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
+- [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
+- [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
+- [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
 - [Scala Playframework 学习例子全](https://github.com/jxnu-liguobin/scala-play-learn)
 
 > 应用实践
@@ -80,4 +80,4 @@
 
 1. 新建文件夹cs-summary-reflection，进入并执行命令```git clone git@github.com:jxnu-liguobin/cs-summary-reflection.git```
 2. 使用IDEA Import
-3. 导入后若未能识别Gradle项目，在src目录上右键执行 Make Directory as Sources Root
+3. 导入后若未能识别Gradle项目，在src/main/java目录上右键执行 Make Directory as Sources Root

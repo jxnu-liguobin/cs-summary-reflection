@@ -5,5 +5,4 @@
 package object picture {
 
     //这里主要放图片
-} //这里主要放图片
 }

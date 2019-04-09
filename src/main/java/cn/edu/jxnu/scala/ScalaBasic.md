@@ -125,7 +125,7 @@ PS:本人已转Scala服务端后台开发
      */
 
 Scala类型系统继承结构图
-![Scala类型系统继承结构图](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.jpg)
+![Scala类型系统继承结构图](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/main/java/cn/edu/jxnu/scala/scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.jpg)
 
     /**
      * 方法参数方法参数是在调用该方法时用于传递方法中的值的变量。
@@ -781,7 +781,7 @@ import scala.io.Source
  */
 object IOBasic {
 
-    val file = "D:\\git_project\\cs-summary-reflection\\src/main/java\\cn\\edu\\jxnu\\scala\\basic\\IOExamples.scala"
+    val file = "D:\\git_project\\cs-summary-reflection\\src\\cn\\edu\\jxnu\\scala\\basic\\IOExamples.scala"
     val liness = Source.fromFile(file).getLines().toList
 
     def main(args: Array[String]): Unit = {
