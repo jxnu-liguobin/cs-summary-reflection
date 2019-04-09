@@ -1,6 +1,6 @@
-## 大自然的搬运工 - dreamylost
+### 大自然的搬运工 - dreamylost
 
-- 如非特殊指明版本，一律默认Java 8、Scala 2.12
+- 如非特意指明版本，一律默认Java 8、Scala 2.12
 
 ### 编程基础
 
