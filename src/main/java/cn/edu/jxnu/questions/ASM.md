@@ -52,7 +52,7 @@ package com.sun.xml.internal.ws.org.objectweb.asm;
 
 ClassReader解析过程 - 经典的访问者设计模式应用之处
 
-![ClassReader解析过程](https://github.com/jxnu-liguobin/Java-Learning-Summary/blob/master/src/cn/edu/jxnu/reflect/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
+![ClassReader解析过程](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/reflect/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
 
 ### 3.ASM的优劣
 
@@ -126,9 +126,7 @@ public class Helloworld extends ClassLoader implements Opcodes {
 		// 获取示例类的字节码，并动态加载它。
 		byte[] code = cw.toByteArray();
 		// 保存到文件
-		FileOutputStream fos = new FileOutputStream(
-				"D:\\Scala\\scala_project\\Java-Learning-Summary\\Java-Learning-Summary
-				\\Java-Learning-Summary\\src\\cn\\edu\\jxnu\\reflect\\asm\\Example.class");
+		FileOutputStream fos = new FileOutputStream("D:\\cs-summary-reflection\\src\\main\\java\\cn\\edu\\jxnu\\reflect\\asm\\Example.class");
 		fos.write(code);
 		fos.close();
 		Helloworld loader = new Helloworld();
