@@ -31,7 +31,7 @@ ASM最初是一个博士研究项目，在2002年开源。它的更新非常活�
 
 一个Java类是由很多组件组成的，包括超类、接口、属性、域和方法。在使用ASM时，我们可以将其均视为事件。我们会提供一个ClassVisitor实现，通过它来解析类，当解析器遇到每个组件时，ClassVisitor上对应的“visitor”事件处理器方法会被调用（始终按照上述的顺序）。
 
-```
+```java
 package com.sun.xml.internal.ws.org.objectweb.asm; 
    public interface ClassVisitor { 
        void visit(int version, int access, String name, String signature, 
