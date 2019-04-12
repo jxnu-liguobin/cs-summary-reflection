@@ -122,12 +122,13 @@ public class StampedLockDemo1 {
 }
 ```
 
-1. StampedLock 对现存的锁实现有巨大的改进，特别是在读线程越来越多的场景下：
-2. StampedLock有一个复杂的API，对于加锁操作，很容易误用其他方法;
-3. 当只有2个竞争者的时候，Synchronized是一个很好的通用的锁实现;
-4. 当线程增长能够预估，ReentrantLock是一个很好的通用的锁实现;
-5. 选择使用ReentrantReadWriteLock时，必须经过小心的适度的测试;所有重大的决定，必须在基于测试数据的基础上做决定;
-6. 无锁的实现比基于锁的算法有更好短吞吐量;
+StampedLock 对现存的锁实现有巨大的改进，特别是在读线程越来越多的场景下：
+    
+    1. StampedLock有一个复杂的API，对于加锁操作，很容易误用其他方法;
+    2. 当只有2个竞争者的时候，Synchronized是一个很好的通用的锁实现;
+    3. 当线程增长能够预估，ReentrantLock是一个很好的通用的锁实现;
+    4. 选择使用ReentrantReadWriteLock时，必须经过小心的适度的测试;所有重大的决定，必须在基于测试数据的基础上做决定;
+    5. 无锁的实现比基于锁的算法有更好短吞吐量;
 
 ### CLH是什么？怎么实现
 
