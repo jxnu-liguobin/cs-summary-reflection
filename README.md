@@ -47,7 +47,7 @@
 - [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
 - [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
 - [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
-- [Scala Playframework 学习例子全](https://github.com/jxnu-liguobin/scala-play-learn)
+- [Scala Playframework 学习例子](https://github.com/jxnu-liguobin/scala-play-learn)
 
 > Scala 函数式编程
 
