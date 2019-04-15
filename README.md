@@ -51,7 +51,7 @@
 
 > Scala 函数式编程
 
-- [Scala 函数式编程例子](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb)
+- [Scala-函数式编程 学习例子](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb)
 
 > 应用实践
 
