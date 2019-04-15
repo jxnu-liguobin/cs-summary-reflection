@@ -15,6 +15,13 @@ object fb2u2 extends App {
     //升序
     Console println isSorted[Int](Array(1, 2, 3, 4, 5, 6, 7), (n, m) => n < m)
 
+    /**
+     *
+     * @param as      数组
+     * @param ordered 排序需要的比较方式，是个函数
+     * @tparam A 泛型类型，测试一律使用Int
+     * @return
+     */
     def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
         @tailrec
         def loop(n: Int): Boolean = {
