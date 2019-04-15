@@ -8,16 +8,17 @@ package cn.edu.jxnu.leetcode.scala
  * [10, 11, 13],
  * [12, 13, 15]
  * ]
+ *
  * @author 梦境迷离
  * @time 2018年7月17日
  * @version v1.0
  */
-object Leetcode_240_ArrayMatrix {
+object Leetcode_240_Array {
 
     def main(args: Array[String]) {
         val nmatrix = Array(Array(1, 5, 9), Array(10, 11, 13), Array(12, 13, 15))
         val target = 16
-        val ret = Leetcode_240_ArrayMatrix.searchMatrix(nmatrix, target)
+        val ret = Leetcode_240_Array.searchMatrix(nmatrix, target)
         print(ret)
     }
 
