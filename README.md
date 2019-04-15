@@ -71,6 +71,7 @@
 * Github:guodongxiaren
 * Java并发编程网
 * 伟大的网友
+* 各种书籍
 ---
 
 ### 其他说明
