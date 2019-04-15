@@ -32,5 +32,4 @@ object fb2u2 extends App {
         //启动调用，数组第一个下标是0
         loop(0)
     }
-
 }
