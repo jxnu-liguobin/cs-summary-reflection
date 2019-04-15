@@ -29,7 +29,7 @@ object fb2u2 extends App {
             else if (as.length - 1 == n) true
             else false
         }
-
+        //启动调用，数组第一个下标是0
         loop(0)
     }
 
