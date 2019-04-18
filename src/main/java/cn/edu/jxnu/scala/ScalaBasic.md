@@ -90,18 +90,18 @@ PS:本人已转Scala服务端后台开发
     /** 闭包 - 闭包是一个函数，其返回值取决于在此函数之外声明的一个或多个变量的值。
      *
      * Scala中的保留字(关键字)，这些保留字不能用作常量或变量或任何其他标识符名称。
-     * abstract	   case	      catch	     class
-     * def         do	      else	     extends
-     * false       final	  finally	 for
-     * forSome	   if	      implicit	 import
+     * abstract    case       catch      class
+     * def         do         else	     extends
+     * false       final      finally    for
+     * forSome     if         implicit   import
      * lazy	       match	  new	     null
      * object      override   package    private
-     * protected   return     sealed	 super
+     * protected   return     sealed     super
      * this	       throw	  trait	     try
-     * true	       type	      val	     var
-     * while	   with	      yield
-     * -	         :	      =	         =>
-     * <-	         <:	     <%	         >:
+     * true	       type       val	     var
+     * while       with       yield
+     * -	         :         =          =>
+     * <-	         <:        <%         >:
      * #	         @
      *
      */
@@ -109,8 +109,8 @@ PS:本人已转Scala服务端后台开发
     /**
      * scala的数据类型 - 全部是类，不存在基础类型
      * 1	Byte	8位有符号值，范围从-128至127    java-byte
-     * 2	Short	16位有符号值，范围从-32768至32767 -java-short
-     * 3	Int	    32位有符号值，范围从-2147483648至2147483647  java-int
+     * 2	Short   16位有符号值，范围从-32768至32767 -java-short
+     * 3	Int     32位有符号值，范围从-2147483648至2147483647  java-int
      * 4	Long	64位有符号值，范围从-9223372036854775808至9223372036854775807  java-long
      * 5	Float	32位IEEE 754单精度浮点值  java-float
      * 6	Double	64位IEEE 754双精度浮点值  java-double
@@ -120,7 +120,7 @@ PS:本人已转Scala服务端后台开发
      * 10	Unit	对应于无值  类似java-void 执行无返回值方法完全是为了副作用：如打印
      * 11	Null	null或空引用  java-null
      * 12	Nothing	每种其他类型的亚型; 不包括无值
-     * 13	Any	    任何类型的超类型; 任何对象的类型为Any
+     * 13	Any     任何类型的超类型; 任何对象的类型为Any
      * 14	AnyRef	任何引用类型的超类型
      */
 
