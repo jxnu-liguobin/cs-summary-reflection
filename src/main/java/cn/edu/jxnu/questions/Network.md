@@ -761,13 +761,13 @@ MAC地址一共有48bit，分为两部分，前24bit是厂商代码，后24bit�
  * 本机向local dns请求www.baidu.com
  * local dns向根域请求www.baidu.com，根域返回com.域的服务器IP
  * 向com.域请求www.baidu.com，com.域返回baidu.com域的服务器IP
- * 向baidu.com请求www.baidu.com，返回cname www.a.shifen.com和a.shifen.com域的服务器IP
+ * 向baidu.com请求www.baidu.com，返回cname ```www.a.shifen.com```和```a.shifen.com```域的服务器IP
  * 向root域请求www.a.shifen.com
  * 向com.域请求www.a.shife.com
  * 向shifen.com请求
  * 向a.shifen.com域请求
  * 拿到www.a.shifen.com的IP
- * localdns返回本机www.baidu.com cname www.a.shifen.com 以及 www.a.shifen.com的IP
+ * localdns返回本机www.baidu.com cname ```www.a.shifen.com``` 以及 ```www.a.shifen.com```的IP
 
 实际步骤：
 
@@ -838,7 +838,7 @@ ARQ 自动重传请求（Automatic Repeat-reQuest，ARQ）是OSI模型中运输�
 为了避免这样的错误，在接收方就必须先将A发过来的信息保存起来，直到所有信息均到达后再对其进行组装，组装完成后再往上传，这样就浪费了存储空间
 
 滑动窗口协议，也称为回退N步协议（Go-Back-N，GBN）中，允许发送方发送多个分组（当有多个分组可用时）而不需等待确认，但它受限于在流水线 中为未确认的分组数不能超过某个最大允许数N。
-滑动窗口协议是TCP使用的一种流量控制方法，此协议能够加速数据的传输。是连续ARQ协议
+滑动窗口协议是TCP使用的一种流量控制方法，此协议能够加速数据的传输，是连续ARQ协议。
 
 	 1.只有在接收窗口向前滑动时（与此同时也发送了确认），发送窗口才有可能向前滑动。
 	 2.收发两端的窗口按照以上规律不断地向前滑动，因此这种协议又称为滑动窗口协议。
@@ -858,9 +858,9 @@ ARQ 自动重传请求（Automatic Repeat-reQuest，ARQ）是OSI模型中运输�
 
 在没有fast retransmit（快速重传） / recovery（恢复） 算法之前，重传依靠发送方的retransmit timeout（超时重传），就是在timeout内如果没有接收到对方的ACK，默认包丢了，发送方就重传，包的丢失原因
         
-        1包checksum（校检和） 出错 
-        2网络拥塞 
-        3网络断开，包括路由收敛
+        1)包checksum（校检和） 出错 
+        2)网络拥塞 
+        3)网络断开，包括路由收敛
         
 但是发送方无法判断是哪一种情况，于是采用最笨的办法，就是将自己的发送速率减半，即CWND 减为1/2，这样的方法对2是有效的，可以缓解网络拥塞，3则无所谓，反正网络断了，无论发
 快发慢都会被丢；但对于1来说，丢包是因为偶尔的出错引起，一丢包就对半减速不合理。于是有了fast retransmit 算法，基于在反向还可以接收到ACK，可以认为网络并没
