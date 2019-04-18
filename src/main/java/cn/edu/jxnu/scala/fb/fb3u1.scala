@@ -9,9 +9,8 @@ package cn.edu.jxnu.scala.fb
  */
 object fb3u1 extends App {
 
-
     /**
-     * 注意是右结合，调用顺序是反的
+     * 注意是右结合，调用顺序是反的。目前使用的Scala2.12未发现Cons
      * ::  {{{1 :: List(2, 3) = List(2, 3).::(1) = List(1, 2, 3)}}}
      *
      * ::: {{{List(1, 2) ::: List(3, 4) = List(3, 4).:::(List(1, 2)) = List(1, 2, 3, 4)}}}
