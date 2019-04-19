@@ -1,34 +1,5 @@
-## 《Scala 函数式编程》习题实现
+package cn.edu.jxnu.scala.fb
 
-- 《Scala函数式编程》（小红书）练习题的个人实现，仅供参考
-
-- object命名格式 fb2u1 表示函数式练习题第二章第一个，以此类推
-
-- 源代码在 fb 包，此处不含包名
-
-- 目前只含习题部分
-
-### 章节内容
-
-* 原书章节: 习题内容: 完成状态
-* Chapter 2: gettingstarted:  √
-* Chapter 3: datastructures:
-* Chapter 4: errorhandling:
-* Chapter 5: laziness:
-* Chapter 6: state:
-* Chapter 7: parallelism:
-* Chapter 8: testing: 
-* Chapter 9: parsing: 
-* Chapter 10: monoids:
-* Chapter 11: monads:
-* Chapter 12: applicative:
-* Chapter 13: iomonad:
-* Chapter 14: localeffects:
-* Chapter 15: streamingio:
-
-### 第二章
-
-```scala
 import scala.annotation.tailrec
 
 /**
@@ -133,5 +104,3 @@ object gettingstarted extends App {
      */
     def compose[A, B, C](f: B => C, g: A => B): A => C = (a: A) => f(g(a))
 }
-```
-
