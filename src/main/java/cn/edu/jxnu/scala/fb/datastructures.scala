@@ -80,11 +80,12 @@ object datastructures extends App {
          * @tparam A
          * @return
          */
-        def tail[A](list: List[A]): List[A] =
+        def tail[A](list: List[A]): List[A] = {
             list match {
                 case Nil => sys.error("空列表的尾无法获取")
                 case Cons(_, t) => t
             }
+        }
     }
 
 }
