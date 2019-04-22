@@ -1,5 +1,7 @@
 package cn.edu.jxnu.scala.fb
 
+import cn.edu.jxnu.scala.fb.datastructures.List.foldRight
+
 /**
  * 第三章
  *
@@ -25,6 +27,23 @@ object datastructures extends App {
     Console println List.append(List(1, 4), List(2, 3))
     //删除最后一个元素
     Console println List.init(List(1, 2, 3, 4, 5, 6))
+    //对foldRight传入Nil和Cons
+    Console println foldRight(Cons(1, Cons(2, Cons(3, Nil))), Nil: List[Int])(Cons(_, _))
+    Console println Cons(1, foldRight(Cons(2, Cons(3, Nil)), Nil: List[Int])(Cons(_, _)))
+    Console println Cons(1, Cons(2, foldRight(Cons(3, Nil), Nil: List[Int])(Cons(_, _))))
+    //计算List的长度
+    Console println List.length(List(1, 2, 3, 4, 5, 6))
+
+    Console println List.sum3(List(1, 2, 3, 4, 5, 6))
+    Console println List.product3(List(1, 2, 3, 4, 5, 6))
+    Console println List.length3(List(1, 2, 3, 4, 5, 6))
+    //反转列表
+    Console println List.reverse(List(1, 2, 3, 4, 5, 6))
+    //使用右折叠实现append
+    Console println List.appendViaFoldRight(List(1, 4), List(2, 3))
+    //拼接列表
+    Console println List.concat(List(List(1, 2), List(3, 4), List(2, 3)))
+
 
     //sealed表面本接口的实现类必须在当前文件中，且限定A是协变的，即List[A]是List[B]的子类，当且仅当A是B的子类
     sealed trait List[+A]
@@ -174,7 +193,7 @@ object datastructures extends App {
         /**
          * 书上原定义方法
          *
-         * @param a1
+         * @param a1 被解开，并放在a2的前面
          * @param a2
          * @tparam A
          * @return
@@ -220,14 +239,136 @@ object datastructures extends App {
             }
         }
 
-        //泛化的类型不必一定与List中的元素类型相同
         def sum2(ns: List[Int]): Int = {
+            //foldRight函数不是面向特定的元素类型，泛化的类型不必一定与List中的元素类型相同
             foldRight(ns, 0)((x, y) => x + y)
         }
 
-        //
         def product2(ns: List[Double]): Double = {
             foldRight(ns, 1.0)(_ * _) //(_ * _)是(x,y) => x*y的简写
+        }
+
+        //3.7：问题有点难，第五章再来回顾
+
+        //3.8：对foldRight传入Nil和Cons
+        foldRight(Cons(1, Cons(2, Cons(3, Nil))), Nil: List[Int])(Cons(_, _))
+        Cons(1, foldRight(Cons(2, Cons(3, Nil)), Nil: List[Int])(Cons(_, _)))
+        Cons(1, Cons(2, foldRight(Cons(3, Nil), Nil: List[Int])(Cons(_, _))))
+        Cons(1, Cons(2, Cons(3, foldRight(Nil, Nil: List[Int])(Cons(_, _)))))
+        Cons(1, Cons(2, Cons(3, Nil)))
+
+        /**
+         * 3.9：使用foldRight计算LIst的长度
+         *
+         * @param as
+         * @tparam A
+         * @return
+         */
+        def length[A](as: List[A]): Int = {
+            //每存在一个元素对acc进行加1，右折叠从1开始
+            foldRight(as, 1)((_, acc) => acc + 1)
+        }
+
+        /**
+         * 3.10：使用尾递归实现，防止List太大造成StackOverflow
+         *
+         * @param as
+         * @param z
+         * @param f
+         * @tparam A
+         * @tparam B
+         * @return
+         */
+        def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = {
+            as match {
+                case Nil => z
+                case Cons(h, t) => foldLeft(t, f(z, h))(f)
+            }
+        }
+
+        /**
+         * 3.11-1：使用foldLeft实现
+         *
+         * @param ns
+         * @return
+         */
+        def sum3(ns: List[Int]): Int = {
+            foldLeft(ns, 0)(_ + _)
+        }
+
+        /**
+         * 3.11-2：使用foldLeft实现
+         *
+         * @param ns
+         * @return
+         */
+        def product3(ns: List[Double]): Double = {
+            foldLeft(ns, 1.0)(_ * _)
+        }
+
+        /**
+         * 3.11-3：使用foldLeft实现
+         *
+         * @param as
+         * @tparam A
+         * @return
+         */
+        def length3[A](as: List[A]): Int = {
+            //左折叠从0开始，第一个参数是B，第二个才是A，acc是长度计算，_是元素
+            foldLeft(as, 0)((acc, _) => acc + 1)
+        }
+
+        /**
+         * 3.12：反转列表。使用一个折叠实现
+         *
+         * @param list
+         * @tparam A
+         * @return
+         */
+        def reverse[A](list: List[A]): List[A] = {
+            //默认传入空列表，elements参数是返回类型，h参数是A元素。相当于每次做链接的头插入操作
+            foldLeft(list, List[A]())((elements, h) => Cons(h, elements))
+        }
+
+        //3.13：使用foldRight实现foldLeft。（使用foldLeft实现foldRight，避免栈溢出）
+        def foldRightViaFoldLeft[A, B](l: List[A], z: B)(f: (A, B) => B): B = {
+            foldLeft(reverse(l), z)((b, a) => f(a, b))
+        }
+
+        def foldRightViaFoldLeft_1[A, B](l: List[A], z: B)(f: (A, B) => B): B = {
+            foldLeft(l, (b: B) => b)((g, a) => b => g(f(a, b)))(z)
+        }
+
+        //我们正在调用“foldright”，将“b”类型实例化为“b=>b”，然后
+        //使用'z'参数调用生成的函数。尝试用等号替换等号来扩展定义。
+        //使用一个简单的例子，比如“foldLeft（list（1,2,3），0）”注意，这些实现更重要的是理论上的兴趣——它们不安全，也不适用于大的列表
+        def foldLeftViaFoldRight[A, B](l: List[A], z: B)(f: (B, A) => B): B = {
+            foldRight(l, (b: B) => b)((a, g) => b => g(f(b, a)))(z)
+        }
+
+        /**
+         * 3.14：根据foldLeft或者foldRight实现append函数
+         *
+         * @param l
+         * @param r
+         * @tparam A
+         * @return
+         */
+        def appendViaFoldRight[A](l: List[A], r: List[A]): List[A] = {
+            //列表，初始值r，拼接方法是构造函数
+            foldRight(l, r)(Cons(_, _))
+        }
+
+        /**
+         * 3.15：写一个函数将一组列表连接成一个单个列表。它的运行效率应该随着所有列表的总长度线性增长，试着用我们定义过的函数。
+         *
+         * @param l
+         * @tparam A
+         * @return
+         */
+        def concat[A](l: List[List[A]]): List[A] = {
+            //列表集，初始值列表Nil，拼接函数append
+            foldRight(l, Nil: List[A])(append)
         }
     }
 
