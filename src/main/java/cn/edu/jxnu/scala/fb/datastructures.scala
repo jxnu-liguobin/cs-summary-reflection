@@ -2,6 +2,8 @@ package cn.edu.jxnu.scala.fb
 
 import cn.edu.jxnu.scala.fb.datastructures.List.foldRight
 
+import scala.annotation.tailrec
+
 /**
  * 第三章
  *
@@ -33,7 +35,7 @@ object datastructures extends App {
     Console println Cons(1, Cons(2, foldRight(Cons(3, Nil), Nil: List[Int])(Cons(_, _))))
     //计算List的长度
     Console println List.length(List(1, 2, 3, 4, 5, 6))
-
+    //左折叠实现
     Console println List.sum3(List(1, 2, 3, 4, 5, 6))
     Console println List.product3(List(1, 2, 3, 4, 5, 6))
     Console println List.length3(List(1, 2, 3, 4, 5, 6))
@@ -43,6 +45,18 @@ object datastructures extends App {
     Console println List.appendViaFoldRight(List(1, 4), List(2, 3))
     //拼接列表
     Console println List.concat(List(List(1, 2), List(3, 4), List(2, 3)))
+    //每个元素加1
+    Console println List.add1(List(1, 2))
+    //使用过滤，删除奇数
+    Console println List.filter(List(1, 2, 3, 4, 5, 6))(_ % 2 == 1)
+    //使用map（每个元素都变成List），与concat拼接
+    Console println List.flatMap(List(1, 2, 3, 4, 5, 6))(i => List(i, i))
+    //过滤
+    Console println List.filterByFlatMap(List(1, 2, 3, 4, 5, 6))(_ % 2 == 1)
+    //列表对应位相加
+    Console println List.addPairwise(List(1, 2, 3, 4, 5, 6), List(1, 2, 3, 4, 5, 6))
+    //判断子集合
+    Console println List.hasSubsequence(List(1, 2, 3, 4, 5, 6), List(1, 2))
 
 
     //sealed表面本接口的实现类必须在当前文件中，且限定A是协变的，即List[A]是List[B]的子类，当且仅当A是B的子类
@@ -54,6 +68,7 @@ object datastructures extends App {
     //非空的List必然是head+子集合
     case class Cons[+A](head: A, tail: List[A]) extends List[A]
 
+    //列表操作
     object List {
 
         /**
@@ -370,6 +385,243 @@ object datastructures extends App {
             //列表集，初始值列表Nil，拼接函数append
             foldRight(l, Nil: List[A])(append)
         }
+
+        /**
+         * 3.16：对列表中每个元素进行加1操作
+         *
+         * @param list
+         * @return
+         */
+        def add1(list: List[Int]): List[Int] = {
+            //列表、初始值Nil、操作函数（List的尾部一定是Nil，用右折叠，第一个元素是已知）
+            foldRight(list, Nil: List[Int])((h, t) => Cons(h + 1, t))
+        }
+
+        /**
+         * 3.17：将列表的每个元素改为String类型
+         *
+         * @param list
+         * @return
+         */
+        def doubleToString(list: List[Double]): List[String] = {
+            foldRight(list, Nil: List[String])((h, t) => Cons(h.toString, t))
+        }
+
+        /**
+         * 3.18：对列表中的每个元素进行修改，并维持列表结构
+         *
+         * @param as
+         * @param f
+         * @tparam A
+         * @tparam B
+         * @return
+         */
+        def map[A, B](as: List[A])(f: A => B): List[B] = {
+            //            foldRightViaFoldLeft(as, Nil:List[B])((h,t) => Cons(f(h),t))
+            foldRight(as, Nil: List[B])((h, t) => Cons(f(h), t))
+        }
+
+        /**
+         * 3.19：从列表中删除不满足断言的元素，并用它删除一个List[Int]中所有奇数
+         *
+         * @param as
+         * @param f
+         * @tparam A
+         * @return
+         */
+        def filter[A](as: List[A])(f: A => Boolean): List[A] = {
+            foldRight(as, Nil: List[A])((h, t) => if (f(h)) Cons(h, t) else t)
+        }
+
+        /**
+         * 3.20：与map相似，但是传入的f函数是返回列表，这个f返回的列表会被塞到flatMap最终返回的列表中
+         *
+         * @param as
+         * @param f
+         * @tparam A
+         * @tparam B
+         * @return
+         */
+        def flatMap[A, B](as: List[A])(f: A => List[B]): List[B] = {
+            concat(map(as)(f))
+        }
+
+        /**
+         * 3.21：使用flatMap实现filter
+         *
+         * @param as
+         * @param f
+         * @tparam A
+         * @return
+         */
+        def filterByFlatMap[A](as: List[A])(f: A => Boolean): List[A] = {
+            flatMap(as)(a => if (f(a)) List(a) else Nil)
+        }
+
+        /**
+         * 3.22： 接收两个列表，对相应元素相加构造出新的列表
+         *
+         * @param a
+         * @param b
+         * @return
+         */
+        def addPairwise(a: List[Int], b: List[Int]): List[Int] = {
+            (a, b) match {
+                case (Nil, _) => Nil
+                case (_, Nil) => Nil
+                case (Cons(h1, t1), Cons(h2, t2)) => Cons(h1 + h2, addPairwise(t1, t2))
+            }
+        }
+
+        /**
+         * 3.23：与上面相同，进行泛化
+         *
+         * @param a
+         * @param f
+         * @tparam A
+         * @return
+         */
+        def zipWith[A, B, C](a: List[A], b: List[B])(f: (A, B) => C): List[C] = (a, b) match {
+            case (Nil, _) => Nil
+            case (_, Nil) => Nil
+            case (Cons(h1, t1), Cons(h2, t2)) => Cons(f(h1, h2), zipWith(t1, t2)(f))
+        }
+
+        /**
+         * 3.24：检查一个List子序列是否包含另一个List
+         *
+         * @param sup
+         * @param sub
+         * @tparam A
+         * @return
+         */
+        @tailrec
+        def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = sup match {
+            //sup是空集时，当且仅当sub是空集，集合相等
+            case Nil => sub == Nil
+            case _ if startsWith(sup, sub) => true
+            case Cons(h, t) => hasSubsequence(t, sub)
+        }
+
+        /**
+         * 判断sub的元素是否均存在于sup
+         *
+         * @param sup
+         * @param sub
+         * @tparam A
+         * @return
+         */
+        @tailrec
+        def startsWith[A](sup: List[A], sub: List[A]): Boolean = {
+            (sup, sub) match {
+                //空集是任何集合的子集，此时sup还有元素
+                case (_, Nil) => true
+                //均是非空集
+                case (Cons(h, t), Cons(h2, t2)) if h == h2 => startsWith(t, t2)
+                case _ => false
+            }
+        }
+    }
+
+
+    /*=============未测试=========================*/
+    //定义树结构
+    sealed trait Tree[+A]
+
+    //叶子
+    case class Leaf[A](value: A) extends Tree[A]
+
+    //非叶子
+    case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
+
+    //树（二叉树）
+    //与List类似，Tree也只有两种情况，叶子与非叶子（非空树）
+    object Tree {
+
+        /**
+         * 3.25：统计树的节点数
+         *
+         * @param t
+         * @tparam A
+         * @return
+         */
+        def size[A](t: Tree[A]): Int = t match {
+            case Leaf(_) => 1
+            //左右子树个数+1（root）
+            case Branch(l, r) => 1 + size(l) + size(r)
+        }
+
+        /**
+         * 3.26：获取Tree中最大的元素值
+         *
+         * @param t
+         * @return
+         */
+        def maximum(t: Tree[Int]): Int = t match {
+            case Leaf(l) => l
+            case Branch(l, r) => maximum(l) max maximum(r)
+        }
+
+        /**
+         * 3.27：计算根节点到叶子的最大深度
+         *
+         * @param t
+         * @tparam A
+         * @return
+         */
+        def depth[A](t: Tree[A]): Int = t match {
+            //叶子深度为-
+            case Leaf(l) => 0
+            //左边最大深度+右边最大深度+1
+            case Branch(l, r) => 1 + (depth(l) max depth(r))
+        }
+
+        /**
+         * 3.28：类似List中map
+         *
+         * @param t
+         * @tparam A
+         * @tparam B
+         * @return
+         */
+        def map[A, B](t: Tree[A])(f: A => B): Tree[B] = t match {
+            case Leaf(n) => Leaf(f(n))
+            case Branch(l, r) => Branch(map(l)(f), map(r)(f))
+        }
+
+
+        /**
+         * 3.29 泛化上面三个函数，进一步抽象三个函数
+         *
+         * 与List类似，使用折叠
+         *
+         * @param t 需要操作的二叉树
+         * @param f 入参是树的元素类型A，返回参数是具体操作函数g的参数类型B
+         * @param g 具体操作函数
+         * @tparam A
+         * @tparam B
+         * @return
+         */
+        def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B = t match {
+            case Leaf(a) => f(a)
+            case Branch(l, r) => g(fold(l)(f)(g), fold(r)(f)(g))
+        }
+
+        def sizeViaFold[A](t: Tree[A]): Int = {
+            //对左右子树进行size操作，从1开始
+            fold(t)(_ => 1)(1 + _ + _)
+        }
+
+        def maximumViaFold(t: Tree[Int]): Int = {
+            //对左右子树进行max操作，从任意元素开始
+            fold(t)(a => a)(_ max _)
+        }
+
+        def depthViaFold[A](t: Tree[A]): Int = {
+            //对左右子树进行depth操作，从0开始
+            fold(t)(_ => 0)((d1, d2) => 1 + (d1 max d2))
+        }
+
     }
 
 }
