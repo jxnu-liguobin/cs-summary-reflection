@@ -136,8 +136,6 @@ object gettingstarted extends App {
 ### 第三章
 
 ```scala
-package cn.edu.jxnu.scala.fb
-
 import cn.edu.jxnu.scala.fb.datastructures.List.foldRight
 
 import scala.annotation.tailrec
