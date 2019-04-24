@@ -740,6 +740,7 @@ object datastructures extends App {
          */
         def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B = t match {
             case Leaf(a) => f(a)
+            //对左子树应用操作函数且对右子树应用操作函数
             case Branch(l, r) => g(fold(l)(f)(g), fold(r)(f)(g))
         }
 
