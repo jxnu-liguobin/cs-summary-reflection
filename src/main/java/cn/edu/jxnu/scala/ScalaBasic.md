@@ -304,7 +304,7 @@ object Test4 extends App {
         Console println i //省略括号需要显示的给出方法调用的目标对象才有效，此时println是操作符
     //实际上在Scala中任何操作符都是一种方法调用，而任何方法也可以是操作符，但是在多参数的情况下，操作符表示法必须用括号:strings indexOf ('a',startIndex)
     val s = "hello"
-    s toLowerCase; //无参，无副作用不用括号,使用后缀需要隔断，用分号
+    s toLowerCase //无参，无副作用不用括号,使用后缀需要隔断，用分号
     println() //有副作用用括号
     var num = -1 //-是前缀操作符，实际也是方法调用 可用的前缀操作符：！ + - ~  都是一元的
     var num2 = 1.unary_- // unary_是混合操作符 yield在Scala是关键字，需要使用反引号`yield`，其他如match类似
@@ -348,6 +348,7 @@ object Test5 extends App {
 ```
 ```scala
 object Test6 extends App {
+    //List是具体实现，函数式不可变集合，相当于Java的LinkedList，但是Java没有不可变对象，它们不完全相同。Sequence相当于Java的List
     val list = List(1, 2, 3) //不需要new，使用函数风格的调用，底层调用了List的伴生对象的工厂方法List.apply()
     //val list = 1::2::3::4::Nil 更麻烦的初始化方法，必须用Nil，因为4是整形没有::方法
     list.foreach(print)
@@ -749,7 +750,7 @@ object LoopBasic {
         def next(i: Int): Unit = {
             if (i >= list.size) Unit
             else if (list(i) < 0) next(i + 1)
-            else println(list(i));
+            else println(list(i))
             next(i + 1)
         }
 
@@ -993,7 +994,7 @@ object Function extends App {
  */
 object Function2 extends App {
 
-    val m = 1;
+    val m = 1
     //引用外部变量
     // 因为闭包实际捕获的是变量本身，所以m被修改后会体现到fun中，即闭包里面仍可以观察到闭包外面的m被修改后的值
     //反过来闭包中对变量的修改，在闭包外也能看到
