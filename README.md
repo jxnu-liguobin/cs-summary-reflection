@@ -52,7 +52,7 @@
 2.Scala 函数式编程
 
 - [Scala-函数式编程 学习例子](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md)
-- [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/ScalaQuestons.md)
+- [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestons.md)
 
 3.应用实践
 
