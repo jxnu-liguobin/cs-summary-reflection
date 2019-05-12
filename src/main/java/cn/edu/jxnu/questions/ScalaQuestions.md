@@ -1,6 +1,6 @@
 ## Scala面试问题（Scala interview questions）
 
-搬运并补充[www.playscala.cn](https://www.playscala.cn/article/view?_id=10-5cd54475eeab56146a538620)
+搬运并补充 [www.playscala.cn](https://www.playscala.cn/article/view?_id=10-5cd54475eeab56146a538620)
 
 ### Q1 var，val和def三个关键字之间的区别？
 
