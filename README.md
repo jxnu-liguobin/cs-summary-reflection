@@ -42,19 +42,19 @@
 
 ### Scala 编程
 
-1.编程基础
+1\. 编程基础
  
 - [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
 - [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
 - [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
 - [Scala-Playframework 学习例子](https://github.com/jxnu-liguobin/scala-play-learn)
 
-2.Scala 函数式编程
+2\. Scala 函数式编程
 
 - [Scala-函数式编程 学习例子](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md)
 - [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md)
 
-3.应用实践
+3\. 应用实践
 
 - [Scala User Group](https://github.com/CSUG/csug)
 - [Scala-秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala)
