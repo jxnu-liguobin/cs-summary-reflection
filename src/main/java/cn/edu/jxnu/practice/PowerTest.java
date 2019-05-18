@@ -26,7 +26,7 @@ public class PowerTest {
 	/**
 	 * @description 移位
 	 * @param base
-	 * @param exponent
+	 * @param n
 	 * @return
 	 */
 	public double Power2(double base, int n) {
