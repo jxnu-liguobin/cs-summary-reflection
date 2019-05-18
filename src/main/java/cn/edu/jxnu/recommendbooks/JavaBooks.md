@@ -6,8 +6,8 @@ Java 推荐书籍 （乱推荐）
 ---
 
 
-| 基础 | 深入 | Scala |
-| ------ | ------- |
+| Java基础 | 深入了解 | Scala相关 |
+| ------ | ------- | ------- |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java1.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java21.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/scala1.jpg) |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java2.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java23.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/scala2.jpg) |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java3.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java24.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/scala3.jpg) |
