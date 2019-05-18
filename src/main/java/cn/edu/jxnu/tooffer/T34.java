@@ -24,8 +24,4 @@ public class T34 {
         }
         return -1;
     }
-
-    public static void main(String[] args) {
-        new T34().FirstNotRepeatingChar("google");
-    }
 }

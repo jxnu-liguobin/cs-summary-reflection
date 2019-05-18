@@ -52,7 +52,7 @@ public class T19 {
     }
 
     public ArrayList<Integer> printMatrix2(int[][] array) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
         if (array.length == 0) return result;
         int n = array.length, m = array[0].length;
         if (m == 0) return result;

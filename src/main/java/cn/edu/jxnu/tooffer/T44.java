@@ -53,8 +53,4 @@ public class T44 {
             high--;
         }
     }
-
-    public static void main(String[] args) {
-        new T44().ReverseSentence("student. a am I");
-    }
 }

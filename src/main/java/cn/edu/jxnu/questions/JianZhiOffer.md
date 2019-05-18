@@ -73,4 +73,7 @@
 |65|[矩阵中的路径](https://www.nowcoder.com/practice/c61c6999eecb4b8f88a98f66b273a3cc?tpId=13&tqId=11218&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)| [Java](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/tooffer/T65.java)|回溯法|
 |66|[机器人的运动范围](https://www.nowcoder.com/practice/6e5207314b5241fb83f2329e89fdecc8?tpId=13&tqId=11219&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)| [Java](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/tooffer/T66.java)|回溯法|
 
-参考牛客网讨论区以及[GoOffer](https://github.com/liuenci/GoOffer)
+参考牛客网讨论区以及[GoOffer](https://github.com/liuenci/GoOffer)的漂亮排版
+
+
+如有歧义和Bug，提交PR即可
