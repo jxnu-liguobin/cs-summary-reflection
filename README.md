@@ -10,7 +10,7 @@
 - [操作系统](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/OS.md)
 - [Java线程基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Threads.md)
 - [八大排序算法](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Sort.md)
-- [推荐书籍]()
+- [推荐书籍](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/JavaBooks.md)
 
 试题
 ---
