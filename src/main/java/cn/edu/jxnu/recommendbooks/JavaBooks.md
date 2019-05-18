@@ -20,7 +20,7 @@ Java 推荐书籍 （乱推荐）
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java17.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java28.jpg) |  |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java18.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java16.jpg) |  |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java19.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java41.jpg) |  |
-| ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java20.jpg) |   |  |
+| ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java20.jpg) | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java48.jpg) |  |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java22.jpg) |   |  | 
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java25.jpg) |   |  |
 | ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/java26.jpg) |   |  |
