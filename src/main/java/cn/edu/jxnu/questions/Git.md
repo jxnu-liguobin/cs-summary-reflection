@@ -236,6 +236,28 @@ git revert 和 git reset的主要区别：
     3.git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。          
 
 
+### 11、git在MAC的terminator(命令行)下自动显示当前分支
+
+1.修改的文件（任选其一）：.bash_profile、bashrc （全局 ~/.bash_profile）<br>
+2.在最后一行新增以下代码：
+```
+function git_branch {
+   branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
+   if [ "${branch}" != "" ];then
+       if [ "${branch}" = "(no branch)" ];then
+           branch="(`git rev-parse --short HEAD`...)"
+       fi
+       echo " ($branch)"
+   fi
+}
+
+export PS1='\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ '
+
+```
+3.执行命令：source .bash_profile
+ 
+
+
 欢迎指出提出建议和意见
 
 
