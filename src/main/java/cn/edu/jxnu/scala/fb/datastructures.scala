@@ -345,7 +345,7 @@ object datastructures extends App {
             foldLeft(list, List[A]())((elements, h) => Cons(h, elements))
         }
 
-        //3.13：使用foldRight实现foldLeft。（使用foldLeft实现foldRight，避免栈溢出）
+        //3.13：（使用foldLeft实现foldRight，避免栈溢出）
         def foldRightViaFoldLeft[A, B](l: List[A], z: B)(f: (A, B) => B): B = {
             foldLeft(reverse(l), z)((b, a) => f(a, b))
         }
