@@ -1,7 +1,6 @@
-大自然的搬运工 - 梦境迷离
+梦境迷离
 ===
 
-[Flag Counter](http://s04.flagcounter.com/more/blcV)<br>
 ![](https://s04.flagcounter.com/count2/blcV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/")
 
 编程基础 
