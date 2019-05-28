@@ -82,5 +82,5 @@ Scala 编程
 1. 新建文件夹cs-summary-reflection，进入并执行命令```git clone git@github.com:jxnu-liguobin/cs-summary-reflection.git```
 2. 使用IDEA Import
 
-[Flag Counter](href="http://s04.flagcounter.com/more/blcV">)
+[Flag Counter](http://s04.flagcounter.com/more/blcV)
 ![](https://s04.flagcounter.com/count2/blcV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/")
