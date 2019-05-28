@@ -36,7 +36,7 @@ id_rsa.pub文件添加到Git的秘钥管理处，实际任何遵守Git协议的�
 
 详细的Git流程
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/git-1.png)
+![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/git-1.jpg)
 
 ### 3、从远程开始
 
