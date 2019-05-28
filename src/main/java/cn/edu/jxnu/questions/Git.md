@@ -34,6 +34,10 @@ id_rsa.pub文件添加到Git的秘钥管理处，实际任何遵守Git协议的�
 
 ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/git%20%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B.png)
 
+详细的Git流程
+
+![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/git-1.png)
+
 ### 3、从远程开始
 
 当然你也可以从远处拉下一个项目，就像这样
@@ -63,7 +67,6 @@ git checkout -b newBrach origin/master  在origin/master的基础上创建newBra
 
 像这样 git push -u origin master --force 但并不建议使用，慎用。
 
-
 ### 4、其他分支处理命令
 
 分支修改
@@ -80,6 +83,12 @@ git checkout -b newBrach origin/master  在origin/master的基础上创建newBra
 2. git branch --set-upstream-to=origin/分支名称 分支名称
 3. git config --global push.default matching
 以上建议忽略，实际开发这里每个月都需要修改开发的迭代分支，还不如别设置了。
+
+Arcanist 命令
+
+1. arc diff master --preview 创建diff语句
+2. arc patch D11973 将pha上的revision变更patch到本地工作拷贝上
+3. arc land --revision D10653 --onto master pha上评审完毕后，将本地分支做git push
 
 ### 5、解决提交错误
 
