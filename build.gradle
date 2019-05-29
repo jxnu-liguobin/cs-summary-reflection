@@ -1,14 +1,14 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'scala'
 
 group = 'cs-summary-reflection'
 version = '1.0.0-SNAPSHOT'
 
-description = "cs-summary-reflection"
+description = "Recording Learning, Work, Interview, Summary and Reflection"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-
 
 
 repositories {
