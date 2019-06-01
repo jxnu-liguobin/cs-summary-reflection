@@ -6,19 +6,19 @@ Linux基础命令
 
 环境设置文件有两种：系统环境设置文件和个人环境设置文件
 
-> *系统中的用户工作环境设置文件：
+> * 系统中的用户工作环境设置文件：
 
 1. 登录环境设置文件：```/etc/profile ```   
 2. 非登录环境设置文件：```/etc/bashrc```
 
-> *用户个人设置的环境设置文件：
+> * 用户个人设置的环境设置文件：
  
 1. 登录环境设置文件: ```$HOME/.bash_profile```   指用户登录系统后的工作环境  //这个是环境变量设置的地方
 2. 非登录环境设置文件：```$HOME/.bashrc```       指用户再调用子shell时所使用的用户环境  //这个是定义别名的地方
 
 ```vi ~/.bash_profile``` 修改PATH行，把环境变量添加进去，这种方法是针对用户起作用的
 
-> *命令行执行 vi ~/.bash_profile 
+> * 命令行执行 vi ~/.bash_profile 
 
     export M2_HOME=/Users/yourName/soft/maven
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
@@ -29,7 +29,7 @@ Linux基础命令
 
 冒号隔开；```$M2_HOME```表示引用变量；查看环境变量：```echo $PATH```；修改完刷新：```source ~/.bash_profile```，不报错则成功。
 
-> *快捷设置环境变量（命令行）
+> * 快捷设置环境变量（命令行）
 
 1. 临时设置```export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles```    
 2. 永久生效```echo -e 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles\nexport PATH=$PATH:$HOMEBREW_BOTTLE_DOMAIN' >  ~/.bash_profile```   
