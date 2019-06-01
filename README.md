@@ -9,7 +9,7 @@
 
 编程基础 
 ---
-```doing```
+``` doing ```
 - [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Network.md)
 - [SQL、MySQL](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MySQL.md)
 - [操作系统](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/OS.md)
@@ -19,7 +19,7 @@
 
 Scala 编程
 ---
-```doing```
+``` doing ```
 - [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
 - [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
 - [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
@@ -40,7 +40,7 @@ Scala 编程
 
 试题
 ---
-```waiting```
+``` wating ```
 - [牛客网剑指Offer题解整理](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JianZhiOffer.md)
 - [Java For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode)
 - [Scala For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode/scala) 
@@ -50,7 +50,7 @@ Scala 编程
 
 编程附加
 ---
-```waiting```
+``` wating ```
 - [反射、ASM](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ASM.md)
 - [JDK8常用类源码解析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/sourcecode/sourcecode.md)
 - [Java虚拟机相关代码](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JVM.md)
@@ -60,7 +60,7 @@ Scala 编程
 
 常用命令
 ---
-```waiting```
+``` wating ```
 - [Git简单总结](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Git.md)
 - [Linux常用命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Linux.md)
 - [常用ADB命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/autoTest/ADB.md)
@@ -86,6 +86,6 @@ Scala 编程
 
 使用
 ---
-1. 新建文件夹cs-summary-reflection，进入并执行命令```git clone git@github.com:jxnu-liguobin/cs-summary-reflection.git```
+1. 新建文件夹cs-summary-reflection，进入并执行命令``` git clone git@github.com:jxnu-liguobin/cs-summary-reflection.git ```
 2. 使用IDEA Import
 
