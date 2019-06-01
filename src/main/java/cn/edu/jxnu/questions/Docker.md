@@ -160,6 +160,10 @@ docker cp 本地路径 容器ID:容器路径
 
 ```curl 192.168.x.x:5000/v2/_catalog```
 
+* 35.搜索镜像
+
+```docker search consul``` //consul 服务注册发现框架
+
 
 
 PS:镜像可以理解是已经打包的开放包，容器是包的一次执行，与运行时相关的一般都使用容器CONTAINER_ID
