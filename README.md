@@ -2,6 +2,7 @@
 ---
 
 ![](https://s04.flagcounter.com/count2/blcV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/")
+[![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 ![GitHub stars](https://img.shields.io/github/stars/jxnu-liguobin/cs-summary-reflection.svg)
 ![GitHub forks](https://img.shields.io/github/forks/jxnu-liguobin/cs-summary-reflection.svg)
