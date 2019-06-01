@@ -110,6 +110,8 @@ select num from a where exists(select 1 from b where num=a.num)
 	springcloud eureka [hystrix] 主要实现AP 
 	以上与服务注册细节相关
 	
+![cap](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/cap.png)
+	
 3.BASE 是基本可用（Basically Available）、软状态（Soft State）和最终一致性（Eventually Consistent）三个短语的缩写。
 BASE 理论是对 CAP 中一致性和可用性权衡的结果，它的理论的核心思想是：即使无法做到强一致性，但每个应用都可以根据自身业务特点，采用适当的方式来使系统达到最终一致性。
 
