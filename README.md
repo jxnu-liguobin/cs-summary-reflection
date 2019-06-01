@@ -34,7 +34,8 @@ Scala 编程
 - [Scala-Akka 分布式通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler)
 - [Scala-一个基于 Play Framework 开发的开源社区系统](https://github.com/playcommunity/play-community)
 - [Scala-基于AKKA的分布式实时消息交换系统](https://github.com/goodrain/realtime-message-system)
-- [Scala-配置管理、服务发现与注册框架](https://github.com/growingio/dryad)
+- [Scala-Config Management & Service Registration and Discovery](https://github.com/growingio/dryad)
+- [Scala-Message Central](https://github.com/aiyanbo/metral)
 
 试题
 ---
@@ -79,7 +80,7 @@ Scala 编程
 * 说明在包中，部分收集于网络；知晓原作者以及版权的则在package-info类或者包对象中说明，侵删；能力与经验均有限，仅供参考。
 * 任何对“新手”有帮助的知识点欢迎补充到本库。
 * 已简化仓库结构方便使用，仍需要依赖Scala SDK、Java SDK。
-* 长期更新Java/Scala实现，如非特意指明版本，默认Java 8、Scala 2.12。
+* 长期更新Java/Scala实现，如非特意指明版本，默认Java 8、Scala 2.12.x 。
 * 2018.12.1开始，本人主要维护本仓库Scala部分。 
 
 使用
