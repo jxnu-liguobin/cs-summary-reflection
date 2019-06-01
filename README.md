@@ -24,7 +24,7 @@ Scala 编程
 - [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
 - [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
 - [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
-- [Scala-Playframework 学习例子](https://github.com/jxnu-liguobin/scala-play-learn)
+- [Scala-Playframework与微服务 学习例子](https://github.com/jxnu-liguobin/scala_micro_service)
 - [Scala-BloomFilter](https://github.com/jxnu-liguobin/Scala-BloomFilter)
 - [Scala-函数式编程 学习例子](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md)
 - [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md)
