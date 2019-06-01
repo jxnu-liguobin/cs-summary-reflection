@@ -80,4 +80,8 @@ Scala 编程
 
 [@GoOffer](https://github.com/liuenci/GoOffer) [@infoq](https://www.infoq.cn) [@ifeve](http://ifeve.com/) 
 
-[@Locutus of Blog](http://blog.locut.us/2008/01/12/a-decent-stand-alone-java-bloom-filter-implementation/)
+[@Locutus of Blog](http://blog.locut.us/2008/01/12/a-decent-stand-alone-java-bloom-filter-implementation/)[@作业部落](https://www.zybuluo.com)
+
+[@shields](https://shields.io/) [@travis](https://travis-ci.org/)
+
+[@playframework](https://www.playframework.com)
