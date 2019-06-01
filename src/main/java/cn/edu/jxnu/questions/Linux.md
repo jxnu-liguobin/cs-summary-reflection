@@ -21,11 +21,11 @@
 
 打开 vi ~/.bash_profile 
 
-    export M2_HOME=/Users/liguobin/soft/maven
+    export M2_HOME=/Users/yourName/soft/maven
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
-    export GRADLE_HOME=/Users/liguobin/soft/gradle
-    export TOMCAT_HOME=/Users/liguobin/soft/tomcat
-    export ANDROID_HOME=/Users/liguobin/soft/android-sdk-macosx
+    export GRADLE_HOME=/Users/yourName/soft/gradle
+    export TOMCAT_HOME=/Users/yourName/soft/tomcat
+    export ANDROID_HOME=/Users/yourName/soft/android-sdk-macosx
     export PATH=$PATH:$GRADLE_HOME/bin:$JAVA_HOME/bin:$M2_HOME/bin:$TOMCAT_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 冒号隔开；```$M2_HOME```表示引用变量；
@@ -121,6 +121,10 @@
 * 查看文件头10行
 
 ```head -n 10 example.txt```
+
+* 统计指定文件中的字节数、字数、行数
+
+```wc -l 文件 或 echo "xx" | wc -l``` // -c 统计字节数，-l 统计行数， -m 统计字符数（不能与 -c 标志一起使用），-w 统计字数，-L 打印最长行的长度。
 
 * 查看文件尾10行
 
