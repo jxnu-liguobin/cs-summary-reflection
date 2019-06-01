@@ -67,25 +67,17 @@ Scala 编程
 - [常用Postman命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/autoTest/Postman.md)
 - [常用Docker命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Docker.md)
 
-鸣谢
+说明
 ---
-* 以上Fork的原作者
-* playscala.cn社区
-* Github:guodongxiaren
-* Java并发编程网
-* 伟大的网友
-* 各种书籍
+> * 侵删，仅供参考
+> * 环境 Java 8、Scala 2.12.x
+> * 2018.12.1开始，本人主要维护本仓库Scala部分
+> * 欢迎 Scala/Java 选手参与维护
 
-其他说明
----
-* 说明在包中，部分收集于网络；知晓原作者以及版权的则在package-info类或者包对象中说明，侵删；能力与经验均有限，仅供参考。
-* 任何对“新手”有帮助的知识点欢迎补充到本库。
-* 已简化仓库结构方便使用，仍需要依赖Scala SDK、Java SDK。
-* 长期更新Java/Scala实现，如非特意指明版本，默认Java 8、Scala 2.12.x 。
-* 2018.12.1开始，本人主要维护本仓库Scala部分。 
+[@guodongxiaren](https://github.com/guodongxiaren/README) [@fhopf](https://github.com/fhopf/akka-crawler-example)
 
-使用
----
-1. 新建文件夹cs-summary-reflection，进入并执行命令``` git clone git@github.com:jxnu-liguobin/cs-summary-reflection.git ```
-2. 使用IDEA Import
+[@fengzhizi715](https://github.com/fengzhizi715/ProxyPool) [@joymufeng](https://github.com/joymufeng)
 
+[@GoOffer](https://github.com/liuenci/GoOffer) [@infoq](https://www.infoq.cn) [@ifeve](http://ifeve.com/) 
+
+[@Locutus of Blog](http://blog.locut.us/2008/01/12/a-decent-stand-alone-java-bloom-filter-implementation/)
