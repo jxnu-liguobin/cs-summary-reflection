@@ -36,6 +36,7 @@ Scala 编程
 - [Scala-基于AKKA的分布式实时消息交换系统](https://github.com/goodrain/realtime-message-system)
 - [Scala-Config Management & Service Registration and Discovery](https://github.com/growingio/dryad)
 - [Scala-Message Central](https://github.com/aiyanbo/metral)
+- [Spark 编程指南简体中文版 ](https://github.com/aiyanbo/spark-programming-guide-zh-cn)
 
 试题
 ---
