@@ -164,6 +164,12 @@ docker cp 本地路径 容器ID:容器路径
 
 ```docker search consul``` //consul 服务注册发现框架
 
+* 36.一个已经终止的容器启动运行起来
 
+```docker start```
+
+* 37.提交容器修改
+
+```docker commit CONTAINER_ID IMAGE``` //不提交下次启动就是新的，里面修改都没有
 
 PS:镜像可以理解是已经打包的开放包，容器是包的一次执行，与运行时相关的一般都使用容器CONTAINER_ID
