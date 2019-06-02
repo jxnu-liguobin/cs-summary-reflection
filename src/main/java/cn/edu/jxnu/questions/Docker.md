@@ -178,4 +178,5 @@ docker cp 本地路径 容器ID:容器路径
 
 
 [最详细的 在Windows上 使用docker 搭建 consul 集群](https://blog.csdn.net/qq_34446485/article/details/90738092)
+
 PS:镜像可以理解是已经打包的开放包，容器是包的一次执行，与运行时相关的一般都使用容器CONTAINER_ID
