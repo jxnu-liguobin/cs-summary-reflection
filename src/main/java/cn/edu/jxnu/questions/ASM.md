@@ -327,10 +327,11 @@ CGLIB 在客户端的使用本质是继承被代理类，不能代理final修饰
 * 反射只能读取类信息，而 ASM 除了读还能写。
 * 反射读取类信息时需要进行类加载处理，而 ASM 则不需要将类加载到内存中。
 * 反射相对于 ASM 来说使用方便，想直接操纵 ASM 的话需要有 JVM 指令基础。（想熟练掌握极难，况且普通开发者也用不着。。。）
-* CGLib 是一个开源项目，底层依赖ASM API操纵字节码 [CGLib](https://github.com/cglib/cglib)
+* CGLib 是一个开源项目，底层依赖 ASM API 操纵字节码 [CGLib](https://github.com/cglib/cglib)
 * Spring 的 AO P动态代理分为 JDK 和 CGLib （只在有必要的时候才开启CGLIB）
 
 
 
 
-[参考infoq](http://www.infoq.com/cn/articles/Living-Matrix-Bytecode-Manipulation)
+[@infoq](http://www.infoq.com/cn/articles/Living-Matrix-Bytecode-Manipulation)
+[@Cglib及其基本使用](https://www.cnblogs.com/xrq730/p/6661692.html)
