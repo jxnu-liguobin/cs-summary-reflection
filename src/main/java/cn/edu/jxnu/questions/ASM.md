@@ -1,8 +1,9 @@
-## ASM字节码操纵框架
+字节码操纵框架
+---
 
 这里只是简单使用，具体看本包下的官方例子
 
-### 1.最为流行的字节码操纵框架包括：
+### 最为流行的字节码操纵框架包括：
 	
 	ASM
 	AspectJ
@@ -14,22 +15,22 @@
 	Serp
 
 
-### 2.我们为什么应该关注字节码操纵呢？
+### 我们为什么应该关注字节码操纵呢？
 
-很多常用的Java库，如Spring和Hibernate，以及大多数的JVM语言甚至我们的IDE，都用到了字节码操纵框架。另外，它也确实非常有趣，所以这是一项很有价值的技术，掌握它之后，我们就能完成一些靠其他技术很难实现或无法完成的任务。
+很多常用的 Java 库，如 Spring 和 Hibernate，以及大多数的 JVM 语言甚至我们的 IDE，都用到了字节码操纵框架。另外，它也确实非常有趣，所以这是一项很有价值的技术，掌握它之后，我们就能完成一些靠其他技术很难实现或无法完成的任务。
 
-一个很重要的使用场景就是程序分析。例如，流行的bug定位工具FindBugs在底层就使用了ASM来分析字节码并定位bug。有一些软件商店会有一定的代码复杂性规则，比如方法中if/else语句的最大数量以及方法的最大长度。静态分析工具会分析我们的字节码来确定代码的复杂性。
+一个很重要的使用场景就是程序分析。例如，流行的 bug 定位工具 FindBugs 在底层就使用了 ASM 来分析字节码并定位 bug。有一些软件商店会有一定的代码复杂性规则，比如方法中 if/else 语句的最大数量以及方法的最大长度。静态分析工具会分析我们的字节码来确定代码的复杂性。
 
-另外一个常见的使用场景就是类生成功能。例如，ORM框架一般都会基于我们的类定义使用代理的机制。或者，在考虑实现应用的安全性时，可能会提供一种语法来添加授权的注解。在这样的场景下，都能很好地运用字节码操纵技术。
+另外一个常见的使用场景就是类生成功能。例如，ORM 框架一般都会基于我们的类定义使用代理的机制。或者，在考虑实现应用的安全性时，可能会提供一种语法来添加授权的注解。在这样的场景下，都能很好地运用字节码操纵技术。
 
-像Scala、Groovy和Grails这样的JVM语言都使用了字节码操纵框架。
-考虑这样一种场景，我们需要转换库中的类，这些类我们并没有源码，这样的任务通常会由Java profiler来执行。例如，在New Relic，采用了字节码instrumentation技术实现了对方法执行的计时。
+像 Scala、Groovy和 Grails 这样的 JVM 语言都使用了字节码操纵框架。
+考虑这样一种场景，我们需要转换库中的类，这些类我们并没有源码，这样的任务通常会由 Java profiler 来执行。例如，在 New Relic，采用了字节码 instrumentation 技术实现了对方法执行的计时。
 
 借助字节码操纵，我们可以优化或混淆代码，甚至可以引入一些功能，比如为应用添加重要的日志。本文将会关注一个日志样例，这个样例提供使用这些字节码操纵框架的基本工具。
 
-ASM最初是一个博士研究项目，在2002年开源。它的更新非常活跃，从5.x版本开始支持Java 8。ASM包含了一个基于事件的库和一个基于对象的库，分别类似于SAX和DOM XML解析器。
+ASM 最初是一个博士研究项目，在2002年开源。它的更新非常活跃，从5.x版本开始支持 Java 8。ASM 包含了一个基于事件的库和一个基于对象的库，分别类似于 SAX 和 DOM XML 解析器。
 
-一个Java类是由很多组件组成的，包括超类、接口、属性、域和方法。在使用ASM时，我们可以将其均视为事件。我们会提供一个ClassVisitor实现，通过它来解析类，当解析器遇到每个组件时，ClassVisitor上对应的“visitor”事件处理器方法会被调用（始终按照上述的顺序）。
+一个Java类是由很多组件组成的，包括超类、接口、属性、域和方法。在使用ASM时，我们可以将其均视为事件。我们会提供一个 ClassVisitor 实现，通过它来解析类，当解析器遇到每个组件时，ClassVisitor 上对应的 “visitor” 事件处理器方法会被调用（始终按照上述的顺序）。
 
 ```java
 package com.sun.xml.internal.ws.org.objectweb.asm; 
@@ -54,7 +55,7 @@ ClassReader解析过程 - 经典的访问者设计模式应用之处
 
 ![ClassReader解析过程](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/reflect/ClassReader%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.gif)
 
-### 3.ASM的优劣
+### ASM 优劣
 
 	它的内存占用很小；
 	它的运行通常会非常快；
@@ -64,7 +65,7 @@ ClassReader解析过程 - 经典的访问者设计模式应用之处
 	它只有一个不足之处，但这是很大的不足：
 	我们编写的是字节码，所以需要理解在幕后是如何运行的，这样的话，开发人员学习的成本就会增加。
 
-### 4.ASM的使用
+### ASM 使用
 
 ```java
 package cn.edu.jxnu.reflect.asm;
@@ -269,15 +270,60 @@ public class DumpMethods {
     }
 }
 ```
+### CGLib 使用场景案例
 
-### 5.ASM与反射、CGLib、JDK代理、Spring
+在写 RPC 的时候想到了顺便使用一下CGLib并比较一下 JDK 代理和 CGLIB 的性能。很久不写 Java 了，所以只能贴 Scala 代码了。
+
+- 基于Java 8、Scala 2.12.7、cglib-nodep 3.2.10
+
+- RPC分客户端和服务端，客户端使用大致分下面两步
+
+1.创建代理类并实现需要拦截的接口，一般是方法级拦截 MethodInterceptor
+```scala
+ private[this] var clientClass: Class[T] = ??? //假设现在有一个类需要被代理
+
+ private[this] class ClientCglibProxy extends MethodInterceptor {
+    //Scala实现第一个接口或类均使用extends，第二个开始使用with。并且整个extends后面是一个整体
+    //执行方法时，实际是去调用远程的方法并获取结果
+    @throws[Throwable]
+    override def intercept(o: scala.AnyRef, method: Method, objects: Array[AnyRef], methodProxy: MethodProxy): AnyRef = {
+      messageHandler.sendProcessor(request) //RPC中这里请求服务端，但是本地使用的时候若仅做拦截作用，可加调用需要拦截的方法
+      //pre invoke
+      //methodProxy. invokeSuper(o, objects)
+      //after invoke
+    }
+  }
+```
+2.实例化代理类，设置被代理类的类型
+```scala
+  //cglib代理构造代理对象
+  @throws[Exception]
+  private[client] def cglibProxy[T]: T = {
+    val daoProxy = new ClientCglibProxy //使用代理类
+    val enhancer = new Enhancer
+    enhancer.setCallback(daoProxy) //设置回调的类型为上面的代理类
+    enhancer.setSuperclass(clientClass) //设置需要被代理的类
+    enhancer.create.asInstanceOf[T] //创建并返回，得到代理后的对象
+  }
+```
+3.服务端调用可以使用CGLIB也可以不使用
+
+* 服务端比较简单，使用 FastClass.create 构造 Class 并获取类的 Method 再执行 invoke 方法进行调用。
+* 获取方法时需要所调用方法的参数类型数组以确定调用哪个方法，调用时需要参数数组，表示传入方法参数。这点对于JDK代理也是一样的。
+
+- 总结
+
+CGLIB 在客户端的使用本质是继承被代理类，不能代理final修饰的类和方法，但是 CGLIB 不用有实现的接口是最大的优点。
+至于性能，基于 NIO RPC 测试，目前发现差距几乎可以忽略，当然测试是粗略的。不过现在高版本 Java 对 JDK 代理的支持是足够好的也是毋庸置疑的。
+
+### ASM与反射、CGLib、JDK代理、Spring
 
 * 反射是读取持久堆上存储的类信息。而 ASM 是直接处理 .class 字节码的小工具（工具虽小，但是功能非常强大！）
 * 反射只能读取类信息，而 ASM 除了读还能写。
 * 反射读取类信息时需要进行类加载处理，而 ASM 则不需要将类加载到内存中。
 * 反射相对于 ASM 来说使用方便，想直接操纵 ASM 的话需要有 JVM 指令基础。（想熟练掌握极难，况且普通开发者也用不着。。。）
-* CGLib是一个开源项目，底层依赖ASM API操纵字节码 [CGLib](https://github.com/cglib/cglib)
-* Spring的AOP动态代理分为JDK和CGLib
+* CGLib 是一个开源项目，底层依赖ASM API操纵字节码 [CGLib](https://github.com/cglib/cglib)
+* Spring 的 AO P动态代理分为 JDK 和 CGLib （只在有必要的时候才开启CGLIB）
 
 
 
