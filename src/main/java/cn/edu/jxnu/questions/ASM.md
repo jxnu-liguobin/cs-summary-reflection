@@ -280,7 +280,7 @@ public class DumpMethods {
 
 - 基于Java 8、Scala 2.12.7、cglib-nodep 3.2.10
 
-- RPC分客户端和服务端，客户端使用大致分下面两步
+- RPC分客户端和服务端，只贴客户端构建代理对象的代码，服务端比较简单
 
 1.创建代理类并实现需要拦截的接口，一般是方法级拦截 MethodInterceptor
 ```scala
@@ -312,7 +312,7 @@ public class DumpMethods {
 ```
 3.服务端调用可以使用CGLIB也可以不使用
 
-* 服务端比较简单，使用 FastClass.create 构造 Class 并获取类的 Method 再执行 invoke 方法进行调用。
+* 使用 FastClass.create 构造 Class 并获取类的 Method 再执行 invoke 方法进行调用。
 * 获取方法时需要所调用方法的参数类型数组以确定调用哪个方法，调用时需要参数数组，表示传入方法参数。这点对于JDK代理也是一样的。
 
 4.总结
