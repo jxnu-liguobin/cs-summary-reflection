@@ -1,7 +1,7 @@
 字节码操纵框架
 ---
 
-这里只是简单使用，具体看本包下的官方例子
+这里只是简单使用，具体看本包下的官方例子或 dlsRpc 仓库的具体应用
 
 ### 最为流行的字节码操纵框架包括：
 	
@@ -311,10 +311,11 @@ public class DumpMethods {
 * 服务端比较简单，使用 FastClass.create 构造 Class 并获取类的 Method 再执行 invoke 方法进行调用。
 * 获取方法时需要所调用方法的参数类型数组以确定调用哪个方法，调用时需要参数数组，表示传入方法参数。这点对于JDK代理也是一样的。
 
-- 总结
+4.总结
 
 CGLIB 在客户端的使用本质是继承被代理类，不能代理final修饰的类和方法，但是 CGLIB 不用有实现的接口是最大的优点。
 至于性能，基于 NIO RPC 测试，目前发现差距几乎可以忽略，当然测试是粗略的。不过现在高版本 Java 对 JDK 代理的支持是足够好的也是毋庸置疑的。
+感兴趣的可以使用 [dlsRpc](https://github.com/jxnu-liguobin/dlsRpc) 项目下的 benchmark 模块中的 [JmhClientCglib](https://github.com/jxnu-liguobin/dlsRpc/blob/master/dls-benchmark/src/main/java/io/growing/dlsrpc/benchmark/JmhClientCglib.java) 进行测试。
 
 ### ASM与反射、CGLib、JDK代理、Spring
 
