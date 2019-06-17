@@ -1,11 +1,8 @@
 梦境迷离
 ---
 
-![](https://s04.flagcounter.com/count2/blcV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/")
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
-![GitHub stars](https://img.shields.io/github/stars/jxnu-liguobin/cs-summary-reflection.svg)
-![GitHub forks](https://img.shields.io/github/forks/jxnu-liguobin/cs-summary-reflection.svg)
 
 编程基础 
 ---
@@ -21,23 +18,16 @@ Scala 编程
 ---
 ``` doing ```
 - [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
-- [Scala-常用工具、配置类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
-- [Scala-Akka基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
-- [Scala-Playframework与微服务 学习例子](https://github.com/jxnu-liguobin/scala_micro_service)
-- [Scala-一个简单的RPC](https://github.com/jxnu-liguobin/dlsRpc)
-- [Scala-BloomFilter](https://github.com/jxnu-liguobin/Scala-BloomFilter)
-- [Scala-函数式编程 学习例子](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md)
+- [Scala-Sring开发常用类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
+- [Scala-Akka基础介绍](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
+- [Scala-Playframework相关微服务 例子](https://github.com/jxnu-liguobin/scala_micro_service)
+- [Scala-基于Netty、Consul的RPC](https://github.com/jxnu-liguobin/dlsRpc)
+- [Scala-布隆过滤器](https://github.com/jxnu-liguobin/Scala-BloomFilter)
+- [Scala-函数式编程 小红书习题实现](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md)
 - [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md)
-- [Scala-China User Group](https://github.com/CSUG/csug)
-- [Scala-秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala)
-- [Scala-自動化測試平台](https://github.com/LightSwordSpringBoot/lightsword)
-- [Scala-Circumflex — lightweight Scala-based Web framework and ORM](https://github.com/inca/circumflex)
-- [Scala-Akka 分布式通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler)
-- [Scala-一个基于 Play Framework 开发的开源社区系统](https://github.com/playcommunity/play-community)
-- [Scala-基于AKKA的分布式实时消息交换系统](https://github.com/goodrain/realtime-message-system)
-- [Scala-Config Management & Service Registration and Discovery](https://github.com/growingio/dryad)
-- [Scala-Message Central](https://github.com/aiyanbo/metral)
-- [Spark 编程指南简体中文版 ](https://github.com/aiyanbo/spark-programming-guide-zh-cn)
+- [Scala-慕课秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala)
+- [Scala-Akka通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler)
+- [其他Scala资源](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/Other.md)
 
 试题
 ---
