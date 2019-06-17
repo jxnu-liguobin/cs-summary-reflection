@@ -1,7 +1,6 @@
-Scala Coder & Functional programming enthusiasts
+### Scala Coder & Functional programming enthusiasts
 
 :pencil2: :memo:  Recording Learning  Interview   Summary and Reflection
-
 
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
