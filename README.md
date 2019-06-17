@@ -1,24 +1,23 @@
 梦境迷离
 ---
+<center>
+<a href=https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master></a>
+<a href=https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg></a>
+</center>
 
-[![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
-![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
-
-语言基础
----
+* 语言基础
 
 | Java | Scala 
 | :--- | :--- |
 | [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Network.md) |  [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md) |  
 | [SQL、MySQL](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MySQL.md) | [Scala-Sring开发常用类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md) |
 | [操作系统](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/OS.md) | [Scala-Akka基础介绍](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md) |
-| [Java线程基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Threads.md) | [Scala-Playf例子](https://github.com/jxnu-liguobin/scala_micro_service) |
+| [Java线程基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Threads.md) | [Scala-Play例子](https://github.com/jxnu-liguobin/scala_micro_service) |
 | [八大排序算法](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Sort.md) | [Scala-布隆过滤器](https://github.com/jxnu-liguobin/Scala-BloomFilter) |
 |  | [Scala-慕课秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala) |
  
-编程补充
----
+* 编程补充
 
 | 编程附加 | 命令脚本 |
 | :--- | :--- |
@@ -30,8 +29,7 @@
 | [StampedLock分析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/StampedLock.md) |
 | [推荐书籍](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/recommendbooks/JavaBooks.md) |
 
-其他
----
+* 其他
 
 | 试题 | 其他 |
 | :--- | :--- |
@@ -42,6 +40,8 @@
 | [Spring、Mybatis](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/SSM.md) | |
 | [Redis相关](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Redis.md) | |
 | [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md) | |
+
+* 来源
 
 | 参考 | 贡献 |
 | :--- | :--- |
@@ -56,11 +56,14 @@
 | [@作业部落](https://www.zybuluo.com) | |
 | [@travis](https://travis-ci.org/) |  |
 | [@shields](https://shields.io/) |  |
-[@playframework](https://www.playframework.com) | |
+| [@playframework](https://www.playframework.com) | |
 
-说明
----
-> * 侵删，仅供参考
-> * 环境 Java 8、Scala 2.12.x
-> * 2018.12.1开始，本人主要维护本仓库Scala部分
-> * 欢迎 Scala/Java 选手参与维护
+* 说明
+
+> 侵删，仅供参考
+
+> 环境 Java 8、Scala 2.12.x
+
+> 2018.12.1开始，本人主要维护本仓库Scala部分
+
+> 欢迎 Scala/Java 选手参与维护
