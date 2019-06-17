@@ -8,9 +8,9 @@
 语言基础
 ---
 
-| Java | Scala |
-| --- | --- |
-| [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Network.md) |  [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md) | 
+| Java | Scala 
+| :---: | :---: |
+| [计算机网络](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Network.md) |  [Scala-语法基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaBasic.md) |  
 | [SQL、MySQL](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MySQL.md) | [Scala-Sring开发常用类](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaUtil.md) |
 | [操作系统](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/OS.md) | [Scala-Akka基础介绍](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md) |
 | [Java线程基础](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Threads.md) | [Scala-Playframework相关微服务 例子](https://github.com/jxnu-liguobin/scala_micro_service) |
@@ -22,7 +22,7 @@
 ---
 
 | 编程附加 | 命令脚本 |
-| --- | --- |
+| :---: | :---: |
 | [反射、ASM、CGLib](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ASM.md) | [Git简单总结](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Git.md) |
 | [JDK8常用类源码解析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/sourcecode/sourcecode.md) | [Linux常用命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Linux.md) |
 | [Java虚拟机相关代码](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JVM.md) | [常用ADB命令](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/autoTest/ADB.md) |
@@ -35,8 +35,8 @@
 ---
 
 | 试题 | 其他 |
-| --- | --- |
-| [牛客网剑指Offer题解整理](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JianZhiOffer.md) | [其他Scala资源](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/Other.md) |
+| :---: | :---: |
+| [牛客网剑指题解整理](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JianZhiOffer.md) | [其他Scala资源](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/Other.md) |
 | [Java For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode) | [Scala-基于Netty、Consul的RPC](https://github.com/jxnu-liguobin/dlsRpc) |
 | [Scala For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode/scala)  | [Scala-函数式编程 小红书习题实现](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md) |
 | [AMQP、RabbitMQ](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MQ.md) | [Scala-Akka通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler) |
@@ -45,7 +45,7 @@
 | [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md) | |
 
 | 参考 | 贡献 |
-| --- | --- |
+| :---: | :---: |
 | [@guodongxiaren](https://github.com/guodongxiaren/README) | 梦境迷离 |
 | [@fhopf](https://github.com/fhopf/akka-crawler-example) |  |
 | [@fengzhizi715](https://github.com/fengzhizi715/ProxyPool) |  |
