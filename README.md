@@ -5,7 +5,6 @@
 
 
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
-
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
 一位 Scala Coder & 函数式编程爱好者 & 时间
@@ -30,13 +29,3 @@
 | [@travis](https://travis-ci.org/) |  |
 | [@shields](https://shields.io/) |  |
 | [@playframework](https://www.playframework.com) | |
-
-### 说明
-
-> 侵删，仅供参考
-
-> 环境 Java 8、Scala 2.12.x
-
-> 2018.12.1开始，本人主要维护本仓库Scala部分
-
-> 欢迎 Scala/Java 选手参与维护
