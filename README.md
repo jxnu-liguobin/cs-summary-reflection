@@ -3,15 +3,14 @@
 
 :pencil2: :memo:  Recording Learning  Interview   Summary and Reflection
 
+一位 Scala Coder & 函数式编程爱好者
 
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
-一位 Scala Coder & 函数式编程爱好者 & 时间
+### 左转进门 
 
-### 左转进入
-
-[dreamylost's](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection/cn.edu.jxnu)
+[dreamylost's](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu)
 
 ### 来源
 
