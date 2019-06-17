@@ -33,8 +33,8 @@
 | 试题 | 其他 |
 | :--- | :--- |
 | [牛客网剑指题解整理](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/JianZhiOffer.md) | [其他Scala资源](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/Other.md) |
-| [Java For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode) | [Scala-基于Netty、Consul的RPC](https://github.com/jxnu-liguobin/dlsRpc) |
-| [Scala For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode/scala)  | [Scala-函数式编程 小红书习题实现](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md) |
+| [Java For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode) | [Scala-简单的RPC](https://github.com/jxnu-liguobin/dlsRpc) |
+| [Scala For Leetcode](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/leetcode/scala)  | [Scala-小红书习题实现](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu/scala/fb/Scalafb.md) |
 | [AMQP、RabbitMQ](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/MQ.md) | [Scala-Akka通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler) |
 | [Spring、Mybatis](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/SSM.md) | |
 | [Redis相关](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Redis.md) | |
