@@ -1,9 +1,8 @@
 梦境迷离
 ---
-<center>
-<a href=https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master></a>
-<a href=https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg></a>
-</center>
+
+[![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
+![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
 
 * 语言基础
