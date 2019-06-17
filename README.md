@@ -1,20 +1,18 @@
-梦境迷离
----
+Scala Coder & Functional programming enthusiasts
 
 :pencil2: :memo:  Recording Learning  Interview   Summary and Reflection
 
-一位 Scala Coder & 函数式编程爱好者
 
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
-### 左转进门 
+### Into
 
 [dreamylost's](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/src/main/java/cn/edu/jxnu)
 
-### 来源
+### Referencing
 
-| 参考 | 贡献 |
+| Reference | contribution |
 | :--- | :--- |
 | [@guodongxiaren](https://github.com/guodongxiaren/README) | 梦境迷离 |
 | [@fhopf](https://github.com/fhopf/akka-crawler-example) |  |
