@@ -32,3 +32,13 @@
 | [Spring、Mybatis](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/SSM.md) | |
 | [Redis相关](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/Redis.md) | |
 | [Scala-面试题](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md) | |
+
+### 说明
+
+> 侵删，仅供参考
+
+> 环境 Java 8、Scala 2.12.x
+
+> 2018.12.1开始，本人主要维护本仓库Scala部分
+
+> 欢迎 Scala/Java 选手参与维护
