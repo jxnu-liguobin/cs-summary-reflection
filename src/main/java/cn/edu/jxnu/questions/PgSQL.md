@@ -88,5 +88,5 @@ dump数据库
 
 1.```\i /Users/userName/dump_backoup``` //需要先创建对应的数据库并登陆到pgsql
  
-2.```pg_restore -h localhost -p 5432 -U user_name -W -d testdb -v "dump_backoup"```
+2.```pg_restore -h localhost -p 5432 -U userName -W -d testdb -v "dump_backoup"```
 
