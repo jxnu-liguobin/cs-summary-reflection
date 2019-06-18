@@ -75,6 +75,7 @@ PostgreSQL常用命令
 * 迁移数据库
 
 dump数据库
+
 ```pg_dump --file "/Users/userName/dump_backoup" --host "域名" --port "7531" --username "apps" testdb ```
           
           --file: dump文件生成到本地到文件地址
@@ -84,5 +85,8 @@ dump数据库
 
 
 使用dump文件
- ```\i /Users/userName/dump_backoup``` //需要先创建对应的数据库并登陆到pgsql
+
+1.```\i /Users/userName/dump_backoup``` //需要先创建对应的数据库并登陆到pgsql
+ 
+2.```pg_restore -h localhost -p 5432 -U user_name -W -d testdb -v "dump_backoup"```
 
