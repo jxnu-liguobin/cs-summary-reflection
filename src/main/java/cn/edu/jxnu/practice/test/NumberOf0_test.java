@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.NumberOf0;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class NumberOf0Test {
+public class NumberOf0_test {
 
     @Test
     public void testNumberOf0_1() {

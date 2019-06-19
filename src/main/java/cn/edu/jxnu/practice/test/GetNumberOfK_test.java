@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.GetNumberOfK;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class GetNumberOfKTest {
+public class GetNumberOfK_test {
 
 	@Test
 	public void testGetNumberOfK() {

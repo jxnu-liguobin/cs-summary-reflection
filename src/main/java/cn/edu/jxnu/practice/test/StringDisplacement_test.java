@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.StringDisplacement;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class StringDisplacementTest {
+public class StringDisplacement_test {
 
 	@Test
 	public void testStringDisplacement2() {

@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.RightShift;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class RightShiftTest {
+public class RightShift_test {
 
 	@Test
 	public void testRightShift() {

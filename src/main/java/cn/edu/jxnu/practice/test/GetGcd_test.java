@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.GetGcd;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class GetGcdTest {
+public class GetGcd_test {
 
 	@Test
 	public void testGcd() {

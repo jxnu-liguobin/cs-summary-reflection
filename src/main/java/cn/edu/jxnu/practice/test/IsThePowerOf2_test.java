@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.IsThePowerOf2;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class IsThePowerOf2Test {
+public class IsThePowerOf2_test {
 
 	@Test
 	public void testPowerOf2() {

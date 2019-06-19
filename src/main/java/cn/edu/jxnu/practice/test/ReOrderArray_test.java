@@ -1,9 +1,10 @@
-package cn.edu.jxnu.practice;
+package cn.edu.jxnu.practice.test;
 
+import cn.edu.jxnu.practice.ReOrderArray;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ReOrderArrayTest {
+public class ReOrderArray_test {
 
 	@Test
 	public void testReOrderArray3() {
@@ -16,12 +17,6 @@ public class ReOrderArrayTest {
 		new ReOrderArray().reOrderArray3(array);
 
 		Assert.assertNull(array);
-	}
-
-	@Test
-	public void testIsEven() {
-		Assert.assertFalse(new ReOrderArray().isEven(1));
-		Assert.assertTrue(new ReOrderArray().isEven(2));
 	}
 
 	@Test
