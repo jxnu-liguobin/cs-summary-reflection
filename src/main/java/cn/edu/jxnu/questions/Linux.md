@@ -314,6 +314,7 @@ mongo --port 27001
 # rs.initiate(config)
 # rs.status()
 ```
+以上启动脚本会启动两个MongoDB节点，分别是`127.0.0.1:27001`和`127.0.0.1:27002`，数据库文件位置为`C:/mongo/data`，日志路径为：`C:/mongo/logs/log1.log`、`C:/mongo/logs/log2.log`。
 
 
 
