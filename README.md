@@ -13,8 +13,8 @@
 
 | Reference | contribution |
 | :--- | :--- |
-| [@guodongxiaren](https://github.com/guodongxiaren/README) | 梦境迷离 |
-| [@fhopf](https://github.com/fhopf/akka-crawler-example) |  |
+| [@guodongxiaren](https://github.com/guodongxiaren/README) | [梦境迷离](https://github.com/jxnu-liguobin) |
+| [@fhopf](https://github.com/fhopf/akka-crawler-example) | [ThomasPerkins1123](https://github.com/ThomasPerkins1123) |
 | [@fengzhizi715](https://github.com/fengzhizi715/ProxyPool) |  |
 | [@joymufeng](https://github.com/joymufeng) |  |
 | [@GoOffer](https://github.com/liuenci/GoOffer) |  |
