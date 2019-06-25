@@ -46,7 +46,7 @@ PostgreSQL常用命令
 
 * 退出数据库
   
-`exit`
+` exit `
 
 * 修改监听
   

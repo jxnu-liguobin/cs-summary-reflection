@@ -100,8 +100,9 @@ sudo apt-get install  docker-registry
 
 * 23.给容器安装vim命令
 
-1.```apt-get update``` //同步 ```/etc/apt/sources.list``` 和 ```/etc/apt/sources.list.d```中列出的源的索引 
-2.```apt-get install vim``` //安装命令，其他类似（先登录进运行的容器，关闭容器则失效）
+```apt-get update``` //同步 ```/etc/apt/sources.list``` 和 ```/etc/apt/sources.list.d```中列出的源的索引 
+
+```apt-get install vim``` //安装命令，其他类似（先登录进运行的容器，关闭容器则失效）
 
 * 24.查看squid代理的链接访问日志
 
