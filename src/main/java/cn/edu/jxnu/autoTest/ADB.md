@@ -41,7 +41,6 @@ PS:远程设备 adb -s ip:port shell
 
 * 安装app
 ```adb install``` //覆盖安装是使用 -r 选项，目标 apk 存放于 PC 端，请用 adb install 安装
-
 ```pm install``` //adb shell 命令，目标 apk 存放于 Android 设备上，请用 pm install 安装
 
 * 卸载应用
@@ -64,7 +63,6 @@ PS:远程设备 adb -s ip:port shell
 #### adb shell 命令
 
 ```adb shell``` 命令则是调用的 Android 系统中的命令，这些 Android 特有的命令都放在了 Android 设备的 system/bin 目录下
-
 
 *  列出安装在设备上的应用
 ```adb shell pm list package``` //显示的是 package:包名

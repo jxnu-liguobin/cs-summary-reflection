@@ -1,6 +1,7 @@
 Linux基础命令
 ---
-```//后面是追加注释```
+
+//后面是追加注释
 
 #### 工作环境设置文件与环境变量
 
@@ -8,13 +9,13 @@ Linux基础命令
 
 > * 系统中的用户工作环境设置文件
 
-1. 登录环境设置文件：```/etc/profile ```   
-2. 非登录环境设置文件：```/etc/bashrc```
+1. 登录环境设置文件：``` /etc/profile ```   
+2. 非登录环境设置文件：``` /etc/bashrc ```
 
 > * 用户个人设置的环境设置文件
  
-1. 登录环境设置文件: ```$HOME/.bash_profile```   指用户登录系统后的工作环境  //这个是环境变量设置的地方
-2. 非登录环境设置文件：```$HOME/.bashrc```       指用户再调用子shell时所使用的用户环境  //这个是定义别名的地方
+1. 登录环境设置文件: ``` $HOME/.bash_profile ```   指用户登录系统后的工作环境  //这个是环境变量设置的地方
+2. 非登录环境设置文件：``` $HOME/.bashrc ```       指用户再调用子shell时所使用的用户环境  //这个是定义别名的地方
 
 ```vi ~/.bash_profile``` 修改PATH行，把环境变量添加进去，这种方法是针对用户起作用的
 
@@ -69,14 +70,16 @@ Linux基础命令
 
 * 当前工作目录
 
-```pwd```
+```
+pwd
+```
 
 * 复制文件
 
-```cp source dest``` //复制文件<br>
-```cp -r sourceFolder targetFolder``` //递归复制整个文件夹<br>
-```scp sourecFile romoteUserName@remoteIp:remoteAddr``` //从本地拷贝到远程<br>
-```scp remote_username@remote_ip:remote_folder  local_folder``` //从远处复制到本地<br>
+``` cp source dest ``` //复制文件<br>
+``` cp -r sourceFolder targetFolder ``` //递归复制整个文件夹<br>
+``` scp sourecFile romoteUserName@remoteIp:remoteAddr``` //从本地拷贝到远程<br>
+``` scp remote_username@remote_ip:remote_folder  local_folder ``` //从远处复制到本地<br>
 
 * 创建目录
 
