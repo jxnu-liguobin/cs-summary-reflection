@@ -76,10 +76,13 @@ pwd
 
 * 复制文件
 
-``` cp source dest ``` //复制文件<br>
-``` cp -r sourceFolder targetFolder ``` //递归复制整个文件夹<br>
-``` scp sourecFile romoteUserName@remoteIp:remoteAddr``` //从本地拷贝到远程<br>
-``` scp remote_username@remote_ip:remote_folder  local_folder ``` //从远处复制到本地<br>
+``` cp source dest ``` //复制文件
+
+``` cp -r sourceFolder targetFolder ``` //递归复制整个文件夹
+
+``` scp sourecFile romoteUserName@remoteIp:remoteAddr``` //从本地拷贝到远程
+
+``` scp remote_username@remote_ip:remote_folder  local_folder ``` //从远处复制到本地
 
 * 创建目录
 
@@ -87,8 +90,9 @@ pwd
 
 * 删除目录
 
-```rmdir deleteEmptyFolder``` //删除空目录<br>
-```rm -rf deleteFile``` //递归删除目录中所有内容<br>
+```rmdir deleteEmptyFolder``` //删除空目录
+
+```rm -rf deleteFile``` //递归删除目录中所有内容
 
 * 移动文件
 
@@ -168,8 +172,9 @@ pwd
 
 * 文件下载
 
-```wget http://file.tgz```  //mac下安装wget命令<br>
-```curl http://file.tgz```<br>
+``` wget http://file.tgz ```  //mac下安装wget命令
+
+``` curl http://file.tgz ``` //一般都有curl
 
 * 网络检测
 

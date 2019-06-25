@@ -54,7 +54,11 @@ exit
 
 * 修改监听
   
-``` vim /var/lib/pgsql/data/postgresql.conf ```  //将这句注释打开并修改 ``` listen_addresses = '*' ``` 
+``` vim /var/lib/pgsql/data/postgresql.conf ```  //将这句注释打开
+```
+listen_addresses = '*' 
+``` 
+//并修改
 
 * 修改验证方式
   
