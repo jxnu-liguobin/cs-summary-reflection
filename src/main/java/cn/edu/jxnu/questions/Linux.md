@@ -57,8 +57,9 @@ Linux基础命令
 
 * 查看一个程序是否运行
 
-```ps –ef|grep tomcat``` //查看所有有关tomcat的进程<br>
-```ps -ef|grep --color java``` //高亮要查询的关键字<br>
+```ps –ef|grep tomcat``` //查看所有有关tomcat的进程
+
+```ps -ef|grep --color java``` //高亮要查询的关键字
 
 * 终止线程
 
@@ -158,16 +159,18 @@ pwd
 
 * 查看进程
 
-```ps aux|grep java``` //查看java进程<br>
-```ps aux``` //查看所有进程<br>
+```ps aux|grep java``` //查看java进程
+
+```ps aux``` //查看所有进程
 
 * 以树状图列出目录的内容
 
 ```tree a```
 
-在Mac OSX 系统默认是没有类似windows中的 tree命令，找到一条比较有意思的命令可以实现：<br>
-```find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'```<br>
-为了方便使用，写一个alias 到~/.profile里:<br>
+在Mac OSX 系统默认是没有类似windows中的 tree命令，找到一条比较有意思的命令可以实现：
+```find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'```
+
+为了方便使用，写一个alias 到~/.profile里:
 ```alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"```写完记得```source ~/.profile```
 
 * 文件下载
@@ -220,8 +223,9 @@ java, javac, [jps](http://www.hollischuang.com/archives/105), [jstat](http://www
 
 * 输出
 
-```var=$(echo 1)``` //获取echo输出的值，并赋值给变量；或使用``` `` ```<br>
-```awk '{print $2}' $fileName ``` //一行一行的读取指定的文件， 以空格作为分隔符，打印第二个（列）字段<br>
+```var=$(echo 1)``` //获取echo输出的值，并赋值给变量；或使用``` `` ```
+
+```awk '{print $2}' $fileName ``` //一行一行的读取指定的文件， 以空格作为分隔符，打印第二个（列）字段
 
 * 发送curl，并判断返回值是否为空
 
