@@ -1,6 +1,6 @@
 ### Docker基础命令
 
-```//```是附加注释
+//是附加注释
 
 * 1.安装docker
 
@@ -13,15 +13,11 @@ sudo apt-get install  docker-registry
   
 * 2.安装linux 
 
-```
-docker pull centos:6  //6是版本号
-```
+``` docker pull centos:6  ``` //6是版本号
 
 * 3.查看所有的镜像，也包括tag在里面 
 
-```
-docker images
-```
+``` docker images ```
 
 * 4.使用仓库的Dockerfile文件，创建一个镜像 
 
