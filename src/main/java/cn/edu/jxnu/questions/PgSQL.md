@@ -42,23 +42,17 @@ PostgreSQL常用命令
 
 * 退出查询分析器
   
-```
- \q（不需要分号结束）
-``` 
+``` \q（不需要分号结束）``` 
 
 * 退出数据库
   
-```
-exit
-``` 
+``` exit ``` 
 
 * 修改监听
   
 ``` vim /var/lib/pgsql/data/postgresql.conf ```  //将这句注释打开
-```
-listen_addresses = '*' 
-``` 
-//并修改
+
+``` listen_addresses = '*' ``` //并修改
 
 * 修改验证方式
   
