@@ -4,11 +4,11 @@
 
 * 1.安装docker
 
-```
-  sudo apt-get update
-  sudo apt-get install  docker
-  sudo apt-get install  docker.io
-  sudo apt-get install  docker-registry
+```jshelllanguage
+sudo apt-get update
+sudo apt-get install  docker
+sudo apt-get install  docker.io
+sudo apt-get install  docker-registry
 ```
   
 * 2.安装linux 
