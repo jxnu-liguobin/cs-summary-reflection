@@ -128,7 +128,7 @@ sudo apt-get install  docker-registry
 
 * 29.本地文件拷贝到docker
 
-docker cp 本地路径 容器ID:容器路径
+```docker cp 本地路径 容器ID:容器路径 ```
 
 * 30.使用本地配置文件启动squid代理
 
