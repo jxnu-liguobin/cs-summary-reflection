@@ -26,8 +26,8 @@
 * 2.2 命令脚本
     * [2.2.1 Git简单总结](src/main/java/cn/edu/jxnu/questions/Git.md)
     * [2.2.2 Linux常用命令](src/main/java/cn/edu/jxnu/questions/Linux.md)
-    * [2.2.3 常用ADB命令](src/main/java/cn/edu/jxnu/autotest/ADB.md)
-    * [2.2.4 常用Postman命令](src/main/java/cn/edu/jxnu/autotest/Postman.md)
+    * [2.2.3 常用ADB命令](src/main/java/cn/edu/jxnu/autoTest/ADB.md)
+    * [2.2.4 常用Postman命令](src/main/java/cn/edu/jxnu/autoTest/Postman.md)
     * [2.2.5 常用Docker命令](src/main/java/cn/edu/jxnu/questions/Docker.md)
     * [2.2.6 PostgreSQL常用命令](src/main/java/cn/edu/jxnu/questions/PgSQL.md)
     
