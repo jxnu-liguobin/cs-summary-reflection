@@ -34,7 +34,7 @@ PostgreSQL常用命令
 
 * 进入查询分析器
 
-``` psql``` 
+``` psql ``` 
 
 * 设置密码
   
@@ -46,19 +46,19 @@ PostgreSQL常用命令
 
 * 退出数据库
   
-``` exit``` 
+``` exit ``` 
 
 * 修改监听
   
-``` vim /var/lib/pgsql/data/postgresql.conf```  //将这句注释打开并修改``` listen_addresses = '*'``` 
+``` vim /var/lib/pgsql/data/postgresql.conf ```  //将这句注释打开并修改 ``` listen_addresses = '*' ``` 
 
 * 修改验证方式
   
-``` vim /var/lib/pgsql/data/pg_hba.conf```  //host  all  all  127.0.0.1/32（允许哪个IP访问，如果允许全部，则写成0.0.0.0/0）  md5（md5为密码验证）  
+``` vim /var/lib/pgsql/data/pg_hba.conf ```  //host  all  all  127.0.0.1/32（允许哪个IP访问，如果允许全部，则写成0.0.0.0/0）  md5（md5为密码验证）  
 
 * 重启数据库
   
-``` systemctl restart postgresql``` 
+``` systemctl restart postgresql ``` 
 
 * 使用密码登录数据库
   
@@ -70,13 +70,13 @@ PostgreSQL常用命令
 
 * 查看apps的所有表名 
 
-``` select * from pg_tables where tableowner='apps'```  //apps是用户
+``` select * from pg_tables where tableowner='apps' ```  //apps是用户
 
 * 迁移数据库
 
 dump数据库
 
-``` pg_dump --file "/Users/userName/dump_backoup" --host "域名" --port "7531" --username "apps" testdb```
+``` pg_dump --file "/Users/userName/dump_backoup" --host "域名" --port "7531" --username "apps" testdb ```
           
     --file: dump文件生成到本地到文件地址
     --host: 要dump文件到服务器地址
@@ -86,7 +86,7 @@ dump数据库
 
 使用dump文件
 
-1.``` \i /Users/userName/dump_backoup```  //需要先创建对应的数据库并登陆到pgsql
+1.``` \i /Users/userName/dump_backoup ```  //需要先创建对应的数据库并登陆到pgsql
  
-2.``` pg_restore -h localhost -p 5432 -U userName -W -d testdb -v "dump_backoup"``` 
+2.``` pg_restore -h localhost -p 5432 -U userName -W -d testdb -v "dump_backoup" ``` 
 

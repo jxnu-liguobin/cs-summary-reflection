@@ -2,7 +2,7 @@
 
 经常需要使用的命令记录下。
 
-```//后面是追加注释```
+//后面是追加注释
 
 
 #### adb 命令
@@ -11,7 +11,7 @@ adb 命令是 adb 这个程序自带的一些命令
 
 
 * 显示都有哪些设备连接
-```adb devices```
+```adb devices ```
 
 * 清空日志
 ```adb logcat  -c```
@@ -46,7 +46,6 @@ PS:远程设备 adb -s ip:port shell
 
 * 卸载应用
 ```adb uninstall``` //后面跟的参数是应用的包名（特别注意），-k 选项，卸载时保存数据和缓存目录
-
 ```pm uninstall``` //同上安装
 
 * 重启 Android 设备
@@ -54,7 +53,6 @@ PS:远程设备 adb -s ip:port shell
 
 * 进入 fastboot 模式
 ```bootloader、adb reboot-bootloader``` //进入 fastboot 模式
-
 ```recovery``` //进入 recovery 模式
 
 * 将宿主机上的某个端口重定向到设备的某个端口
@@ -62,7 +60,6 @@ PS:远程设备 adb -s ip:port shell
                                 
 * 远程连接 Android 设备
 ```adb connect ip:port``` //一般5555
-
 
 #### adb shell 命令
 
