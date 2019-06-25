@@ -9,7 +9,7 @@ Recording Learning  Interview  Summary and Reflection
 
 ### Enter Reading
 
-[dreamylost's Summary in github](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/allmd/README.MD)
+[dreamylost's Summary in github](/src/main/java/cn/edu/jxnu/allmd/README.MD)
 
 ### Referencing
 

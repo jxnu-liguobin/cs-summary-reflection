@@ -14,7 +14,7 @@
     进行多线程编程时，如何选择合适的工具进行线程控制和同步？
     线程池使用该注意些什么？
 
- ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/1.png)
+ ![](../concurrent/1.png)
 
 ## 进程与线程
 
@@ -55,7 +55,7 @@
 
     一个是在临界点外面等待进入，一个是在临界点里面wait，等待其他线程notify。参见ThreadStateDemo。
     （线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束）
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/2.png)
+![](../concurrent/2.png)
 
 ## 了解线程状态的意义？
 
@@ -63,7 +63,7 @@
         当我们看到一个线程状态经常处于WAITING 或者 BLOCKED的时候, 要小心了, 它可能在等待的资源经常没有得到释放。
 	当然, 线程池的调度用的可能是各种队列、各种锁, 但线程状态是统一的。 
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/3.png) 
+![](../concurrent/3.png) 
 
 ## 如何分析并发问题
 
@@ -122,7 +122,7 @@
 			会抛出InterruptedException，同时会把中断状态置回为true。
 			但调用Thread.interrupted()会对中断状态进行复位。
 	
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/4.png)
+![](../concurrent/4.png)
 
 ## 能不能中断处于非阻塞状态的线程呢？
 
@@ -139,7 +139,7 @@
 
 wait()、notify()和notifyAll()等方法的描述：
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/5.png)
+![](../concurrent/5.png)
 
 	如果调用某个对象的wait()方法，当前线程必须拥有这个对象的monitor
 	因此调用wait()方法必须在同步块或者同步方法中进行。
@@ -190,7 +190,7 @@ wait()、notify()和notifyAll()等方法的描述：
 
 ## 线程状态和线程控制的关系
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/6.jpg)
+![](../concurrent/6.jpg)
    
 ## 线程安全
 
@@ -208,11 +208,11 @@ wait()、notify()和notifyAll()等方法的描述：
 
 ## JUC概览 JUC.LOCKS
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/7.png)
+![](../concurrent/7.png)
 
 ## ReentrantLock与Synchronize的区别？
       
- ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/8.png)
+ ![](../concurrent/8.png)
  
 ## ReentrantLock和ReentrantReadWriteLock的区别和联系？
  

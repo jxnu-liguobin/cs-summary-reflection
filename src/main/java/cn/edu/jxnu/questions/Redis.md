@@ -32,7 +32,7 @@ Redis 是一个基于内存的高性能key-value数据库。
 * 使用底层模型不同：它们之间底层实现方式以及与客户端之间通信的应用协议不一样。 Redis直接自己构建了VM 机制 ，因为一般的系统调用系统函数的话，会浪费一定的时间去移动和请求。
 * value大小不同：redis最大可以达到1GB，而memcache只有1MB。PS:实际上可以修改，但是无论怎样在使用时都会造成内存碎片，可以估算数据的大小并且通过Growth Factor进行调优来减少内存浪费。
 
-![memcache Slab Allocation](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/Slab.png)
+![memcache Slab Allocation](../practice/picture/Slab.png)
 
 	Slab Allocation
 	Page：分配给 Slab 的内存空间，默认是 1MB。分配给 Slab 之后根据 slab 的大小切分成 chunk。
@@ -41,7 +41,7 @@ Redis 是一个基于内存的高性能key-value数据库。
 	
 * 数据的备份：redis支持master-slave模式的数据备份，而memcache不需要memcached服务端之间进行通信，分布式方案使用客户端一致性hash算法
 
-![memcache Slab Allocation](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/hash.png)
+![memcache Slab Allocation](../practice/picture/hash.png)
 
 ### 6.redis常见性能问题和解决方案　　
 

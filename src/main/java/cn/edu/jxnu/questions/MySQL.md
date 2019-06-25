@@ -2,7 +2,7 @@
 
 ### 1.常用基础SQL
 
-[数据库常用语句](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/sql/SQL%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF.txt)
+[数据库常用语句](../sql/SQL%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF.txt)
 
 ### 2.优化事项
 
@@ -110,7 +110,7 @@ select num from a where exists(select 1 from b where num=a.num)
 	springcloud eureka [hystrix] 主要实现AP 
 	以上与服务注册细节相关
 	
-![cap](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/cap.png)
+![cap](../practice/picture/cap.png)
 	
 3.BASE 是基本可用（Basically Available）、软状态（Soft State）和最终一致性（Eventually Consistent）三个短语的缩写。
 BASE 理论是对 CAP 中一致性和可用性权衡的结果，它的理论的核心思想是：即使无法做到强一致性，但每个应用都可以根据自身业务特点，采用适当的方式来使系统达到最终一致性。
@@ -138,7 +138,7 @@ SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定�
 这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。
 这四种隔离级别采取不同的锁类型来实现，若读取的是同一个数据的话，就容易发生问题。
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB.png)
+![](../practice/picture/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB.png)
 
 * 脏读(Drity Read)：某个事务已更新一份数据，另一个事务在此时读取了同一份数据，由于某些原因，前一个RollBack了操作，则后一个事务所读取的数据就会是不正确的。
 * 不可重复读(Non-repeatable read):在一个事务的两次查询之中数据不一致，这可能是两次查询过程中间插入了一个事务，更新了原有的数据。
@@ -299,11 +299,11 @@ InnoDB主要特性
 
 InnoDB:
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/Innodb.jpg)
+![](../practice/picture/Innodb.jpg)
 
 MyISAM:
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/myisam.jpg)
+![](../practice/picture/myisam.jpg)
 
 ### 9、索引的分类（主键索引、唯一索引），最左前缀原则，哪些情况索引会失效？
 
@@ -330,7 +330,7 @@ MyISAM:
 
 倒排索引基本概念示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95.jpg)
+![](../practice/picture/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95.jpg)
 
 4.倒排索引和正排索引
 
@@ -399,7 +399,7 @@ MyISAM:
 7. 第五步，从MySQL后台一个线程专门用于从relay-log中读取同步回来的SQL，并写入到从MySQL中，完成同步;
 8. MySQL的主从同步是经过高度优化的，性能非常高;
 
-这里东西太多，更多请参考[MySQL优化的课程笔记](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/sql/%E7%AC%94%E8%AE%B0.xls)
+这里东西太多，更多请参考[MySQL优化的课程笔记](../sql/%E7%AC%94%E8%AE%B0.xls)
 
 ### 13、explain和join
 

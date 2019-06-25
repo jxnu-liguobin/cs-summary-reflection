@@ -44,7 +44,6 @@ if(!lock.validate(stamp)){ // 校验
 useThreadMemoryVarables();//使用线程本地堆栈里面的数据进行操作
 ```
 
-
 ### StampedLock如何使用
 
 ```java
@@ -163,7 +162,7 @@ CLH锁也是一种基于链表的可扩展、高性能、公平的自旋锁，�
  然后线程A和B都在其myPred域上旋转，一旦它的myPred结点的locked字段变为false，它就可以获取锁。
  明显线程A的myPred locked域为false，此时线程A获取到了锁。
  
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/CLH.png)
+![](../concurrent/CLH.png)
 
 实现
 
@@ -221,7 +220,7 @@ public class CLHLock implements Lock {
       c. 线程B和C相继加入队列，a->next=b,b->next=c。且B和C现在没有获取锁，处于等待状态，所以它们的locked域为true，尾指针指向线程C对应的结点
       d. 线程A释放锁后，顺着它的next指针找到了线程B，并把B的locked域设置为false。这一动作会触发线程B获取锁
       
- ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/MCS.jpg)
+ ![](../concurrent/MCS.jpg)
 
  实现
  
@@ -268,7 +267,7 @@ public class MCSLock implements Lock {
 
 ### StampedLock 源码
 
-后转[StampedLock源码解析](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/sourcecode/StampedLock.md)
+后转[StampedLock源码解析](../sourcecode/StampedLock.md)
 
 
 

@@ -126,7 +126,7 @@ PS:本人已转Scala服务端后台开发
 
 Scala类型系统继承结构图
 
-![Scala类型系统继承结构图](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.jpg?raw=true)
+![Scala类型系统继承结构图](scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.jpg)
 
     /**
      * 方法参数方法参数是在调用该方法时用于传递方法中的值的变量。
@@ -231,7 +231,7 @@ Scala类型系统继承结构图
 此图由playscala.cn作者作，并授权使用
 
 Scala基本语法图解
-![Scala基本语法图解](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/Scala%E8%AF%AD%E6%B3%95%E5%9B%BE%E8%A7%A3.png)
+![Scala基本语法图解](Scala%E8%AF%AD%E6%B3%95%E5%9B%BE%E8%A7%A3.png)
 
 PS:每个markdown的Scala代码块原本是一个class，但是这样文件太多不方便查看，现已经被直接放到本md中。
 
@@ -462,10 +462,10 @@ object PrintMultiTable extends App {
 }
 ```
 不可变集合继承结构
-![不可变集合继承结构](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/immutable.png)
+![不可变集合继承结构](immutable.png)
 
 可变集合继承结构
-![可变集合继承结构](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/mutable.png)
+![可变集合继承结构](mutable.png)
 
 #### Scala 面向对象 ####
 

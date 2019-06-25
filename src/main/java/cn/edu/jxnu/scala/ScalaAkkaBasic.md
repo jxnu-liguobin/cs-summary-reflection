@@ -147,6 +147,6 @@ sender ! (content, self)
 //回复者携带了自己的ref，此时消息是一个二元组
 case (content: PageContent, _) 
 ```
-![生命周期](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/scala/actor1.png)
+![生命周期](../scala/actor1.png)
 
 [超详细Java版Actor的讲解](http://ifeve.com/akka-doc-java-untyped-actors/)

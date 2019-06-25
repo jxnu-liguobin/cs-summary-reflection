@@ -50,7 +50,7 @@ public abstract class Constant {
 
 插入排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/insert-sort.gif)
+![](../practice/picture/insert-sort.gif)
 
 算法步骤：
 
@@ -87,7 +87,7 @@ public class InsertionSort extends Constant {
 
 希尔排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/shellsort_anim.gif)
+![](../practice/picture/shellsort_anim.gif)
 
 算法步骤：
 
@@ -133,7 +133,7 @@ public class ShellSort extends Constant {
 
 选择排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/selection_sort_animation.gif)
+![](../practice/picture/selection_sort_animation.gif)
 
 算法步骤：
 
@@ -188,7 +188,7 @@ public class SelectSort extends Constant {
 
 冒泡排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/bubble_sort_animation.gif)
+![](../practice/picture/bubble_sort_animation.gif)
 
 算法步骤：
 
@@ -268,7 +268,7 @@ public class BubbleSort extends Constant {
 
 归并排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/merge_sort_animation2.gif)
+![](../practice/picture/merge_sort_animation2.gif)
 
 算法步骤：
 
@@ -340,7 +340,7 @@ public class MergeSort extends Constant {
 
 快速排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/Sorting_quicksort_anim.gif)
+![](../practice/picture/Sorting_quicksort_anim.gif)
 
 算法步骤：
 
@@ -435,7 +435,7 @@ public class QuickSort extends Constant {
 
 堆排序示意图
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/Sorting_heapsort_anim.gif)
+![](../practice/picture/Sorting_heapsort_anim.gif)
 
 算法步骤：
 
@@ -716,7 +716,7 @@ public class BucketSort extends Constant {
 
 ### 9. 排序算法比较：
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/sort_table.jpg)
+![](../practice/picture/sort_table.jpg)
 
 ### 10. 排序算法的下界和上界
 
