@@ -637,20 +637,21 @@ OICQ底层是UDP
 
 4、负载均衡
 
-什么是负载均衡？当一台服务器无法支持大量的用户访问时，将用户分摊到两个或多个服务器上的方法叫负载均衡。<br>
-　　什么是Nginx？Nginx是一款面向性能设计的HTTP服务器，相较于Apache、lighttpd具有占有内存少，稳定性高等优势。<br>
-　　负载均衡的方法很多，Nginx负载均衡、LVS-NAT、LVS-DR等。这里，我们以简单的Nginx负载均衡为例。关于负载均衡的多种方法详情大家可以Google一下。<br>
-　　Nginx有4种类型的模块：core、handlers、filters、load-balancers。<br>
-　　我们这里讨论其中的2种，分别是负责负载均衡的模块load-balancers和负责执行一系列过滤操作的filters模块。<br>
-　　 1） 一般，如果我们的平台配备了负载均衡的话，前一步DNS解析获得的IP地址应该是我们Nginx负载均衡服务器的IP地址。所以，我们的浏览器将我们的网页请求发送到了Nginx负载均衡服务器上。<br>
-　　 2） Nginx根据我们设定的分配算法和规则，选择一台后端的真实Web服务器，与之建立TCP连接、并转发我们浏览器发出去的网页请求。<br>
+什么是负载均衡？当一台服务器无法支持大量的用户访问时，将用户分摊到两个或多个服务器上的方法叫负载均衡。
+什么是Nginx？Nginx是一款面向性能设计的HTTP服务器，相较于Apache、lighttpd具有占有内存少，稳定性高等优势。
+负载均衡的方法很多，Nginx负载均衡、LVS-NAT、LVS-DR等。关于负载均衡的多种方法详情大家可以Google一下。
+Nginx有4种类型的模块：core、handlers、filters、load-balancers。
+我们这里讨论其中的2种，分别是负责负载均衡的模块load-balancers和负责执行一系列过滤操作的filters模块。
+
+　　 1）一般，如果我们的平台配备了负载均衡的话，前一步DNS解析获得的IP地址应该是我们Nginx负载均衡服务器的IP地址。所以，我们的浏览器将我们的网页请求发送到了Nginx负载均衡服务器上。<br>
+　　 2）Nginx根据我们设定的分配算法和规则，选择一台后端的真实Web服务器，与之建立TCP连接、并转发我们浏览器发出去的网页请求。<br>
 　　　　Nginx默认支持 RR轮转法 和 ip_hash法 这2种分配算法。<br>
 　　　　前者会从头到尾一个个轮询所有Web服务器，而后者则对源IP使用hash函数确定应该转发到哪个Web服务器上，也能保证同一个IP的请求能发送到同一个Web服务器上实现会话粘连。<br>
-　　　　也有其他扩展分配算法，如：<br>
-　　　　fair：这种算法会选择相应时间最短的Web服务器<br>
+　　　　也有其他扩展分配算法，如：fair：这种算法会选择相应时间最短的Web服务器<br>
 　　　　url_hash：这种算法会使得相同的url发送到同一个Web服务器<br>
 　　 3）Web服务器收到请求，产生响应，并将网页发送给Nginx负载均衡服务器。<br>
 　　 4）Nginx负载均衡服务器将网页传递给filters链处理，之后发回给我们的浏览器。
+
 　　而Filter的功能可以理解成先把前一步生成的结果处理一遍，再返回给浏览器。比如可以将前面没有压缩的网页用gzip压缩后再返回给浏览器。
 
 5、浏览器渲染
@@ -663,14 +664,19 @@ OICQ底层是UDP
 
 ### 10.HTTP和HTTPS区别，HTTPS在请求时额外的过程，HTTPS是如何保证数据安全的 
 
-SSL位于应用层于传输层TCP之间，原本数据由应用层直接交由传输层处理，现在会经过SSL加密再进行传输<br>
-HTTPS要比HTTP更加安全一些，也就是说HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份验证的网络协议要比HTTP协议安全，现在大多数的网站都逐渐用HTTPS<br>
-因为安全问题太重要了，有很多的网站都被攻破了，用户数据被泄露。全站HTTPS将是以后网络发展的趋势，国外很多站点都是实行的全站HTTPS<br>
-HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。同时由于加密解密需要消耗CPU等系统资源，所以HTTPS会更慢<br>
-HTTPS协议需要到CA申请证书，一般需要额外支出，此外还有一点需要注意的是，无论HTTPS、HTTP、等其他协议，它们的端口虽然推荐标准有默认值且众所周知，但是也带来了被攻击的危险性，实际上很多时候不会使用该端口，这在RFC2817有说明，实际也是这样的<br>
-[SSL与TLS最简洁概括](../questions/SSL%E4%B8%8ETls%E6%A6%82%E8%BF%B0.txt)<br>
-[RFC2818 - HTTP Over TLS](http://www.cnpaf.net/rfc/rfc2818.txt)<br>
-[RFC2817 - Upgrading to TLS Within HTTP/1.1 注意区别，此时还不是HTTPS](http://www.cnpaf.net/rfc/rfc2817.txt)<br>
+* SSL位于应用层于传输层TCP之间，原本数据由应用层直接交由传输层处理，现在会经过SSL加密再进行传输
+* HTTPS要比HTTP更加安全一些，也就是说HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份验证的网络协议要比HTTP协议安全，现在大多数的网站都逐渐用HTTPS
+* 因为安全问题太重要了，有很多的网站都被攻破了，用户数据被泄露。全站HTTPS将是以后网络发展的趋势，国外很多站点都是实行的全站HTTPS
+* HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。同时由于加密解密需要消耗CPU等系统资源，所以HTTPS会更慢
+* HTTPS协议需要到CA申请证书，一般需要额外支出，此外还有一点需要注意的是，无论HTTPS、HTTP、等其他协议，它们的端口虽然推荐标准有默认值且众所周知，
+但是也带来了被攻击的危险性，实际上很多时候不会使用该端口，这在RFC2817有说明，实际也是这样的
+
+[SSL与TLS最简洁概括](../questions/SSL%E4%B8%8ETls%E6%A6%82%E8%BF%B0.txt)
+
+[RFC2818 - HTTP Over TLS](http://www.cnpaf.net/rfc/rfc2818.txt)
+
+[RFC2817 - Upgrading to TLS Within HTTP/1.1 注意区别，此时还不是HTTPS](http://www.cnpaf.net/rfc/rfc2817.txt)
+
 
 Sunyandong-CS补充：
 
