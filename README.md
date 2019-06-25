@@ -1,13 +1,15 @@
 ### Scala Coder & Functional programming enthusiasts
 
-:pencil2: :memo:  Recording Learning  Interview  Summary and Reflection
+Recording Learning  Interview  Summary and Reflection
+
+工作 & 学习 & 面试 & 反思
 
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
 ### Enter Reading
 
-[dreamylost's Summary](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/allmd/README.MD)
+[dreamylost's Summary in github](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/allmd/README.MD)
 
 ### Referencing
 
