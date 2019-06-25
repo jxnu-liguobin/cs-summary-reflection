@@ -2,17 +2,17 @@
 
 ## 主要内容
 
-	* 线程概念
-	* 特性、上下文切换、线程状态
-	* 线程控制
-	* Thread方法，线程安全，线程同步
-	* J.U.C Locks、Tools、Collections、Atomic、Executors（线程池）
-	* 一些问题：
+* 线程概念
+* 特性、上下文切换、线程状态
+* 线程控制
+* Thread方法，线程安全，线程同步
+* J.U.C Locks、Tools、Collections、Atomic、Executors（线程池）
+* 一些问题：
 
-		当应用服务器出问题，使用Jstack导出线程栈信息时，从线程角度该怎么分析？
-		什么场景选择多线程编程是合适的？
-		进行多线程编程时，如何选择合适的工具进行线程控制和同步？
-		线程池使用该注意些什么？
+    当应用服务器出问题，使用Jstack导出线程栈信息时，从线程角度该怎么分析？
+    什么场景选择多线程编程是合适的？
+    进行多线程编程时，如何选择合适的工具进行线程控制和同步？
+    线程池使用该注意些什么？
 
  ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/1.png)
 
@@ -23,8 +23,8 @@
 	
 ## 线程的概念
 
-      一个线程是进程的一个顺序执行流。  同进程的多个线程共享一块内存地址空间和一组系统资源，线程本身的数据通常只有CPU的寄存器数据
-      以及一个供程序执行时的堆栈。
+    一个线程是进程的一个顺序执行流。  同进程的多个线程共享一块内存地址空间和一组系统资源，线程本身的数据通常只有CPU的寄存器数据
+    以及一个供程序执行时的堆栈。
       
 ## 上下文切换
 
@@ -34,9 +34,7 @@
 
 ## 记录线程的运行状态，那么会记录哪些数据呢？
 
-    	 程序计数器的值、CPU寄存器的状态，过多的线程切换同样会带来较大的系统开销。
-
-
+     程序计数器的值、CPU寄存器的状态，过多的线程切换同样会带来较大的系统开销。
 
 ## 线程状态
 
@@ -59,7 +57,6 @@
     （线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束）
 ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/2.png)
 
-
 ## 了解线程状态的意义？
 
 	找到系统中的潜在性能瓶颈。
@@ -70,7 +67,7 @@
 
 ## 如何分析并发问题
 
-	 跟踪线程
+	跟踪线程
     	 通过jps –lmv命令查找java 进程id，然后使用jstack输出线程列表，跟踪tid, nid 可以找到问题线程。
 	 jps参数
 	-q 只输出LVMID
@@ -84,7 +81,6 @@
 	发现有线程进入WAITING, 而且持续好久, 说明性能瓶颈存在于触发notify的那部分逻辑。往往是产生WAIT的速度大于NOTIFY消耗的速度。
  
 	线程进入TIME_WAITING 状态且持续好久的, 跟WAITING的排查方式一样。
-
 
 ## Thread控制与协作
 
@@ -135,9 +131,9 @@
 
 ## setDaemon和isDaemon方法
 
-      守护线程和用户线程的区别在于：守护线程依赖于创建它的线程，而用户线程则不依赖。
-      例子：如果在main线程中创建了一个守护线程，当main方法运行完毕之后，守护线程也会随着消亡。
-      而用户线程则不会，用户线程会一直运行直到其运行完毕。在JVM中，像垃圾收集器线程就是守护线程。
+     守护线程和用户线程的区别在于：守护线程依赖于创建它的线程，而用户线程则不依赖。
+     例子：如果在main线程中创建了一个守护线程，当main方法运行完毕之后，守护线程也会随着消亡。
+     而用户线程则不会，用户线程会一直运行直到其运行完毕。在JVM中，像垃圾收集器线程就是守护线程。
 
 ## Object支持的线程协作
 
@@ -179,14 +175,14 @@ wait()、notify()和notifyAll()等方法的描述：
 
 ## 需要注意的概念是： 
 
-	   1.调用obj的wait()， notify()方法前，必须获得obj锁，也就是必须写在synchronized(obj) {……} 代码段内。  
-	   2.调用obj.wait()后，线程A就释放了obj的锁，否则线程B无法获得obj锁，也就无法在synchronized(obj) {……} 代码段内唤醒A.  
-	   3.当obj.wait()方法返回后，线程A需要再次获得obj锁，才能继续执行。  
-	   4.如果A1，A2，A3都在obj.wait()，则B调用obj.notify()只能唤醒A1，A2，A3中的一个（具体哪一个由JVM决定）。  
-	   5.obj.notifyAll()则能全部唤醒A1，A2，A3，但是要继续执行obj.wait()的下一条语句，
-	     必须获得obj锁，因此，A1，A2，A3只有一个有机会获得锁继续执行，例如A1，其余的需要等待A1释放obj锁之后才能继续执行。
-	   6.当B调用obj.notify/notifyAll的时候，B正持有obj锁，因此，A1，A2，A3虽被唤醒，但是仍无法获得obj锁。
-	     直到B退出synchronized块，释放obj锁后，A1，A2，A3中的一个才有机会获得锁继续执行。
+    1.调用obj的wait()， notify()方法前，必须获得obj锁，也就是必须写在synchronized(obj) {……} 代码段内。  
+    2.调用obj.wait()后，线程A就释放了obj的锁，否则线程B无法获得obj锁，也就无法在synchronized(obj) {……} 代码段内唤醒A.  
+    3.当obj.wait()方法返回后，线程A需要再次获得obj锁，才能继续执行。  
+    4.如果A1，A2，A3都在obj.wait()，则B调用obj.notify()只能唤醒A1，A2，A3中的一个（具体哪一个由JVM决定）。  
+    5.obj.notifyAll()则能全部唤醒A1，A2，A3，但是要继续执行obj.wait()的下一条语句，
+     必须获得obj锁，因此，A1，A2，A3只有一个有机会获得锁继续执行，例如A1，其余的需要等待A1释放obj锁之后才能继续执行。
+    6.当B调用obj.notify/notifyAll的时候，B正持有obj锁，因此，A1，A2，A3虽被唤醒，但是仍无法获得obj锁。
+     直到B退出synchronized块，释放obj锁后，A1，A2，A3中的一个才有机会获得锁继续执行。
 
 ## 为何不是Thread类声明中的方法，而是Object类中声明的方法？
 
@@ -207,7 +203,7 @@ wait()、notify()和notifyAll()等方法的描述：
 [使用拦截器设置对应的线程的用户](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala/blob/master/src/main/java/main/scala/cn/edu/jxnu/seckill/config/UserArgumentResolver.scala)
 并继承HandlerMethodArgumentResolver，重写resolveArgument参数解析方法，得到对应的用户对象
 	
-        2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
+    2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
 
 
 ## JUC概览 JUC.LOCKS
@@ -219,7 +215,8 @@ wait()、notify()和notifyAll()等方法的描述：
  ![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/concurrent/8.png)
  
 ## ReentrantLock和ReentrantReadWriteLock的区别和联系？
-           
+ 
+ ```java
 	ReentrantReadWriteLock.writeLock()/ readLock()
 
 	public ReentrantReadWriteLock(boolean fair) {
@@ -239,8 +236,7 @@ wait()、notify()和notifyAll()等方法的描述：
 		public void lock() {
 		    sync.acquire(1);
 		}
-
-
+```          
 ## JUC.TOOLS AQS
 
 	各种TOOLS之间的区别？
@@ -294,7 +290,6 @@ wait()、notify()和notifyAll()等方法的描述：
 	submit 返回信息 异常被Future.get封装在ExecutionException重新抛出 客户端可以得到详细堆栈，无论是否检查型异常
 	execute 任务抛出的异常会交给未捕获异常处理器，也就是setUncaughtExceptionHandler设置的处理器
 	
-	
 ##	JVM关闭
 	
 	正常关闭：System.exit(),最后一个普通线程结束，sigint信号，键入ctrl+c
@@ -322,7 +317,6 @@ wait()、notify()和notifyAll()等方法的描述：
 	
         注：Executors下cached，fixed，single只是在corePoolSize和maximumPoolSize上做了调整。
           
-
 ## RejectedExecutionHandler策略
 
 	AbortPolicy:executor抛出RejectedExecutionException，调用者捕获这个异常，然后自己编写能满足自己需求的处理代码。
@@ -333,7 +327,6 @@ wait()、notify()和notifyAll()等方法的描述：
 
 	CallerRunsPolicy：交由调用者运行，既不会丢弃哪个任务，也不会抛出任何异常，把一些任务推回到调用者那里，以此减缓新任务流。
 	它不会在线程池中执行最新提交的任务，但它会在一个调用了execute的线程中执行。
-
 
 ## ScheduledThreadPoolExecutor
 
