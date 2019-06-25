@@ -116,7 +116,7 @@ PS:使用IDEA时，在未进行add时，执行IDEA提供的revert菜单也可以
 
 而 git merge的合并会出现痕迹，造成菱形依赖，看起来很困惑，所以推荐使用 git fetch + git rebase。
 
-![](../../practice/picture/git%20rebase.png)
+![](../.././practice/./picture/git%20rebase.png)
 
 git rebase --abort参数来终止rebase的行动，并且"mywork" 分支会回到rebase开始前的状态。
 
