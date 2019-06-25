@@ -43,17 +43,27 @@ Linux基础命令
 
 * 查找文件
 
-```find / -name filename.txt``` //根据名称查找/目录下的filename.txt文件<br>
-```find . -name "*.xml"``` //递归查找所有的xml文件<br>
-```find . -name "*.xml" |xargs grep "hello world"``` //递归查找所有文件内容中包含hello world的xml文件<br>
-```grep -H 'spring' *.xml``` //查找所以有的包含spring的xml文件<br>
-```find ./ -size 0 | xargs rm -f & ``` //删除文件大小为零的文件<br>
-```ls -l | grep '.jar'``` //查找当前目录中的所有jar文件<br>
-``` ls -all```  //输出所有文件，并显示文件权限、用户、大小等<br>
-```grep 'test' d*``` //显示所有以d开头的文件中包含test的行<br>
-```grep 'test' aa bb cc``` //显示在aa，bb，cc文件中匹配test的行<br>
-```grep '[a-z]\{5\}' aa``` //显示所有包含每个字符串至少有5个连续小写字符的字符串的行<br>
-```lesss fileName``` //  / 向下搜索 ？向上搜索 &/ 只显示匹配模式的行<br>
+```find / -name filename.txt``` //根据名称查找/目录下的filename.txt文件
+
+```find . -name "*.xml"``` //递归查找所有的xml文件
+
+```find . -name "*.xml" |xargs grep "hello world"``` //递归查找所有文件内容中包含hello world的xml文件
+
+```grep -H 'spring' *.xml``` //查找所以有的包含spring的xml文件
+
+```find ./ -size 0 | xargs rm -f & ``` //删除文件大小为零的文件
+
+```ls -l | grep '.jar'``` //查找当前目录中的所有jar文件
+
+``` ls -all```  //输出所有文件，并显示文件权限、用户、大小等
+
+```grep 'test' d*``` //显示所有以d开头的文件中包含test的行
+
+```grep 'test' aa bb cc``` //显示在aa，bb，cc文件中匹配test的行
+
+```grep '[a-z]\{5\}' aa``` //显示所有包含每个字符串至少有5个连续小写字符的字符串的行
+
+```lesss fileName``` //  / 向下搜索 ？向上搜索 &/ 只显示匹配模式的行
 
 * 查看一个程序是否运行
 
