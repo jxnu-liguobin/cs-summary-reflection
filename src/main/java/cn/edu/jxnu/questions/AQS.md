@@ -37,17 +37,19 @@ ReentrantLock会保证 do something在同一时间只有一个线程在执行这
 
 PV操作由P操作原语和V操作原语组成（原语是不可中断的过程），对信号量进行操作，具体定义如下：
 
-	P（S）：①将信号量S的值减1，即S=S-1；
-	                      ②如果S>=0，则该进程继续执行；否则该进程置为等待状态，排入等待队列。
-	V（S）：①将信号量S的值加1，即S=S+1；
-	                      ②如果S>0，则该进程继续执行；否则释放队列中第一个等待信号量的进程。
+	P（S）：
+	①将信号量S的值减1，即S=S-1；
+	②如果S>=0，则该进程继续执行；否则该进程置为等待状态，排入等待队列。
+	V（S）：
+	①将信号量S的值加1，即S=S+1；
+	②如果S>0，则该进程继续执行；否则释放队列中第一个等待信号量的进程。
 	                      
 PV操作的意义：我们用信号量及PV操作来实现进程的同步和互斥。PV操作属于进程的低级通信。
 交互的并发进程因为他们共享资源，一个进程运行时，经常会由于自身或外界的原因而被中端，且断点是不固定的。也就是说进程执行的相对速度不能由进程自己来控制，于是就会导致并发进程在共享资源的时出现与时间有关的错误。
 
-	  临界区 :    我们把并发进程中与共享变量有关的程序段称为临界区。
-	  信号量S :  信号量的值与相应资源的使用情况有关。当它的值大于0时，表示当前可用资源的数量；
-	  当它的值小于0时，其绝对值表示等待使用该资源的进程个数。
+	临界区 我们把并发进程中与共享变量有关的程序段称为临界区。
+	信号量S 信号量的值与相应资源的使用情况有关。当它的值大于0时，表示当前可用资源的数量；
+	当它的值小于0时，其绝对值表示等待使用该资源的进程个数。
 	  
 进程的互斥是指当有若干个进程都要使用某一共享资源时，任何时刻最多只允许一个进程去使用该资源，其他要使用它的进程必须等待，直到该资源的占用着释放了该资源。
 进程的同步是指在并发进程之间存在这一种制约关系，一个进程依赖另一个进程的消息，当一个进程没有得到另一个进程的消息时应等待，直到消息到达才被唤醒
@@ -61,9 +63,9 @@ ReentrantLock的定义：
 ReentrantLock的lock方法：
 
 ```java
-  	public void lock() {
-        sync.acquire(1);//身边只有Java9源码，sync.lock已经被acquire替换，没什么差别
-        //从这里也可看出现在的ReentrantLock就是信号量为1的互斥
+    public void lock() {
+      sync.acquire(1);//身边只有Java9源码，sync.lock已经被acquire替换，没什么差别
+      //从这里也可看出现在的ReentrantLock就是信号量为1的互斥
     }
 ```
 如FutureTask（JDK1.6）一样，ReentrantLock内部有代理类完成具体操作，ReentrantLock只是封装了统一的一套API而已。值得注意的是，使用过ReentrantLock的同学应该知道，ReentrantLock又分为公平锁和非公平锁，所以，ReentrantLock内部只有两个sync[abstract static class Sync]的实现NonfairSync和FairSync[NonfairSync和FairSync都是static final class]。
@@ -88,7 +90,7 @@ ReentrantLock的lock方法：
 调用到了AQS的acquire方法，最终由AQS的acquire进行处理
 
 ```java
-  public final void acquire(int arg) {
+    public final void acquire(int arg) {
         if (!tryAcquire(arg) &&
             acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
             selfInterrupt();
@@ -134,7 +136,7 @@ ReentrantLock的lock方法：
 getState方法是AQS的方法，因为在AQS里面有个叫state的标志位 :
 
 ```java
-  	protected final int getState() {
+    protected final int getState() {
         return state;
     }
 ```
@@ -143,7 +145,7 @@ getState方法是AQS的方法，因为在AQS里面有个叫state的标志位 :
 FairSync的tryAcquire方法：
 
 ```java
-	protected final boolean tryAcquire(int acquires) {
+    protected final boolean tryAcquire(int acquires) {
         final Thread current = Thread.currentThread();//获取当前线程
         int c = getState();  //获取父类AQS中的标志位
         if (c == 0) {
@@ -258,7 +260,6 @@ Node节点中，除了存储当前线程，节点类型，队列中前后元素�
 ```
 
 	分别表示：
-	
 	1. 节点取消
 	2. 节点等待触发
 	3. 节点等待条件
@@ -302,7 +303,7 @@ unlock方法调用了AQS的release方法，同样传入了参数1，和获取锁
 ReentranLock的tryRelease方法
 
 ```java
-	protected final boolean tryRelease(int releases) {
+    protected final boolean tryRelease(int releases) {
         int c = getState() - releases; 
         if (Thread.currentThread() != getExclusiveOwnerThread()) 
         //如果释放的线程和获取锁的线程不是同一个，抛出非法监视器状态异常。
@@ -389,25 +390,25 @@ AQS的unparkSuccessor方法负责唤醒：
 而对于公平锁是这样的：
 
 ```java
-	protected final boolean tryAcquire(int acquires) {
-	    final Thread current = Thread.currentThread();
-	    int c = getState();
-	    if (c == 0) {
-	        if (!hasQueuedPredecessors() &&
-	            compareAndSetState(0, acquires)) {
-	            setExclusiveOwnerThread(current);
-	            return true;
-	        }
-	    }
-	    else if (current == getExclusiveOwnerThread()) {
-	        int nextc = c + acquires;
-	        if (nextc < 0)
-	            throw new Error("Maximum lock count exceeded");
-	        setState(nextc);
-	        return true;
-	    }
-	    return false;
-	}
+    protected final boolean tryAcquire(int acquires) {
+	  final Thread current = Thread.currentThread();
+	  int c = getState();
+	  if (c == 0) {
+	      if (!hasQueuedPredecessors() &&
+	          compareAndSetState(0, acquires)) {
+	          setExclusiveOwnerThread(current);
+	          return true;
+	       }
+	   }
+	  else if (current == getExclusiveOwnerThread()) {
+	      int nextc = c + acquires;
+	      if (nextc < 0)
+	          throw new Error("Maximum lock count exceeded");
+	      setState(nextc);
+	      return true;
+	   }
+	  return false;
+    }
 ```
 显然，它会老老实实的开始就走AQS的流程排队获取锁。如果前面有人调用过其lock方法，则排在队列中前面，也就更有机会更早的获取锁，从而达到“公平”的目的。
 
@@ -425,20 +426,20 @@ CountDownLatch为java.util.concurrent包下的计数器工具类，常被用在�
 	  // 调用await方法后，main线程将阻塞在这里，直到countDownLatch 中的计数为0 
 	  countDownLatch.await();
 	  System.out.println("over");
-	
+
 	 //thread1
 	 // do something 
 	 //...........
 	 //调用countDown方法，将计数减1
 	  countDownLatch.countDown();
-	
-	
+
+
 	 //thread2
 	 // do something 
 	 //...........
 	 //调用countDown方法，将计数减1
 	  countDownLatch.countDown();
-	
+
 	   //thread3
 	 // do something 
 	 //...........
@@ -543,7 +544,7 @@ CountDownLatch的定义：
 AQS的doAcquireSharedInterruptibly方法：
 
 ```java
-	private void doAcquireSharedInterruptibly(int arg)
+    private void doAcquireSharedInterruptibly(int arg)
 		throws InterruptedException {
         final Node node = addWaiter(Node.SHARED);
         //将当前线程包装为类型为Node.SHARED的节点，标示这是一个共享节点。
@@ -623,6 +624,7 @@ AQS的doAcquireSharedInterruptibly方法：
 	带参数请求共享锁。 （忽略中断）
 	带参数请求共享锁，且响应中断。（每次循环时，会检查当前线程的中断状态，以实现对线程中断的响应）
 	带参数请求共享锁但是限制等待时间。（第二个参数设置超时时间，超出时间后，方法返回。）
+	
 比较特别的为最后一个doAcquireSharedNanos方法，我们一起看下它怎么实现超时时间的控制的。
 因为该方法和其余获取共享锁的方法逻辑是类似的，也就是实现超时时间控制的地方不同。
 
@@ -643,7 +645,7 @@ AQS的doAcquireSharedInterruptibly方法：
 看完await方法，再来看下countDown()方法：
 
 ```java
-  public void countDown() {
+    public void countDown() {
         sync.releaseShared(1);
     }
 ```
@@ -745,7 +747,6 @@ AQS支持独占式同步状态获取/释放、共享式同步状态获取/释放
 ReentrantReadWriteLock 类的整体结构：
 
 ```java
-
     public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable {
         private final ReentrantReadWriteLock.ReadLock readerLock;
         /** Inner class providing writelock */
@@ -1005,9 +1006,9 @@ fullTryAcquireShared方法:
 当线程获取读锁的时候，可能有其他线程同时也在持有读锁，因此不能把获取读锁的线程“升级”为写锁；而对于获得写锁的线程，它一定独占了读写锁，因此可以继续让它获取读锁，当它同时获取了写锁和读锁后，
 还可以先释放写锁继续持有读锁，这样一个写锁就“降级”为了读锁。
 
-    一个线程要想同时持有写锁和读锁，必须先获取写锁再获取读锁
-    写锁可以“降级”为读锁
-    读锁不能“升级”为写锁
+	一个线程要想同时持有写锁和读锁，必须先获取写锁再获取读锁
+	写锁可以“降级”为读锁
+	读锁不能“升级”为写锁
 
 [博客园原文](https://www.cnblogs.com/sheeva/p/6480116.html)
 
