@@ -55,7 +55,7 @@
 
     	一个是在临界点外面等待进入，一个是在临界点里面wait，等待其他线程notify。参见ThreadStateDemo。
     	线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束）
-![](../concurrent/2.png)
+![](../concurrent/2.jpg)
 
 ## 了解线程状态的意义？
 
@@ -196,11 +196,11 @@ wait()、notify()和notifyAll()等方法的描述：
 ## 实现方案
 
     	1.线程封闭：栈封闭、ThreadLocal封闭（我们系统哪些地方用了？）
-	
+	2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
+
 秒杀系统的处理限流的地方使用了ThredLocal 绑定用户[使用拦截器设置对应的线程的用户](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala/blob/master/src/main/java/main/scala/cn/edu/jxnu/seckill/config/UserArgumentResolver.scala)
 并继承HandlerMethodArgumentResolver，重写resolveArgument参数解析方法，得到对应的用户对象
 	
-   	2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
 
 ## JUC概览 JUC.LOCKS
 
