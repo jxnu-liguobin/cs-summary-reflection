@@ -265,12 +265,6 @@ public class MCSLock implements Lock {
 }
 ```
 
-### StampedLock 源码
-
-后转[StampedLock源码解析](../sourcecode/StampedLock.md)
-
-
-
 
 
 
