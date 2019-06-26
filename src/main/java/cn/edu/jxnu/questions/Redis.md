@@ -79,7 +79,7 @@ redis 提供 6种数据淘汰策略：
 　　　2. 服务器角度，利用setnx实现锁。<br>
 　　　注：对于第一种，需要应用程序自己处理资源的同步，可以使用的方法比较通俗，可以使用synchronized也可以使用lock；第二种需要用到Redis的setnx命令，但是需要注意一些问题。
 
-### 11.redis事物的了解CAS（check-and-set 操作实现乐观锁 ）？
+### 11.redis事物的了解（CAS check-and-set 操作实现乐观锁 ）？
 
 　和众多其它数据库一样，Redis作为NoSQL数据库也同样提供了事务机制。在Redis中，MULTI/EXEC/DISCARD/WATCH这四个命令是我们实现事务的基石。相信对有关系型数据库开发经验的开发者而言这一概念并不陌生，即便如此，我们还是会简要的列出Redis中事务的实现特征：
 
