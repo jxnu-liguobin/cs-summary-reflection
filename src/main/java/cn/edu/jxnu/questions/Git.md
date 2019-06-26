@@ -32,11 +32,11 @@ id_rsa.pub文件添加到Git的秘钥管理处，实际任何遵守Git协议的�
 
 上面的暂存区，分支，工作区的存储模型[借鉴自CyC2018](https://github.com/CyC2018/Interview-Notebook/blob/master/notes/Git.md)
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/git%20%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B.png)
+![](../practice/picture/git%20%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B.png)
 
 详细的Git流程
 
-![](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/src/main/java/cn/edu/jxnu/practice/picture/git-1.jpg)
+![](../practice/picture/git-1.jpg)
 
 ### 3、从远程开始
 
