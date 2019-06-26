@@ -23,8 +23,8 @@
 	
 ## 线程的概念
 
-    一个线程是进程的一个顺序执行流。 同进程的多个线程共享一块内存地址空间和一组系统资源，线程本身的数据通常只有CPU的寄存器数据
-    以及一个供程序执行时的堆栈。
+	一个线程是进程的一个顺序执行流。 同进程的多个线程共享一块内存地址空间和一组系统资源，线程本身的数据通常只有CPU的寄存器数据
+	以及一个供程序执行时的堆栈。
       
 ## 上下文切换
 
@@ -34,7 +34,7 @@
 
 ## 记录线程的运行状态，那么会记录哪些数据呢？
 
-     程序计数器的值、CPU寄存器的状态，过多的线程切换同样会带来较大的系统开销。
+     	程序计数器的值、CPU寄存器的状态，过多的线程切换同样会带来较大的系统开销。
 
 ## 线程状态
 
@@ -51,10 +51,10 @@
 
 	* TERMINATED 这个状态下表示该线程的run方法已经执行完毕。 (当时如果线程被持久持有, 可能不会被回收)
 
-### BLOCKED与WAITING的区别？
+## BLOCKED与WAITING的区别？
 
-    一个是在临界点外面等待进入，一个是在临界点里面wait，等待其他线程notify。参见ThreadStateDemo。
-    （线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束）
+    	一个是在临界点外面等待进入，一个是在临界点里面wait，等待其他线程notify。参见ThreadStateDemo。
+    	线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束）
 ![](../concurrent/2.png)
 
 ## 了解线程状态的意义？
@@ -114,26 +114,26 @@
     	
        	
    	总结：
-   			java线程中断机制通过调用t.interrupt() 方法来做的，
-			这个方法通过修改了被调用线程的中断状态来告知那个线程说它被中断了。
-			对于非阻塞中的线程，只是改变了中断状态，即t.isInterrupted() 将返回true；
-			对于可取消的阻塞状态中的线程，比如等待在这些函数上的线程
-			Thread.sleep()、Object.wait()、Thread.join(), 这个线程收到中断信号后，
-			会抛出InterruptedException，同时会把中断状态置回为true。
-			但调用Thread.interrupted()会对中断状态进行复位。
+		java线程中断机制通过调用t.interrupt() 方法来做的，
+		这个方法通过修改了被调用线程的中断状态来告知那个线程说它被中断了。
+		对于非阻塞中的线程，只是改变了中断状态，即t.isInterrupted() 将返回true；
+		对于可取消的阻塞状态中的线程，比如等待在这些函数上的线程
+		Thread.sleep()、Object.wait()、Thread.join(), 这个线程收到中断信号后，
+		会抛出InterruptedException，同时会把中断状态置回为true。
+		但调用Thread.interrupted()会对中断状态进行复位。
 	
 ![](../concurrent/4.png)
 
 ## 能不能中断处于非阻塞状态的线程呢？
 
-     可以通过interrupt方法和isInterrupted()方法来停止正在运行的线程。
-     但是一般情况下建议通过增加一个 isStop标志，然后在while循环中判断isStop的值，其他线程控制整个标志。
+     	可以通过interrupt方法和isInterrupted()方法来停止正在运行的线程。
+     	但是一般情况下建议通过增加一个 isStop标志，然后在while循环中判断isStop的值，其他线程控制整个标志。
 
 ## setDaemon和isDaemon方法
 
-     守护线程和用户线程的区别在于：守护线程依赖于创建它的线程，而用户线程则不依赖。
-     例子：如果在main线程中创建了一个守护线程，当main方法运行完毕之后，守护线程也会随着消亡。
-     而用户线程则不会，用户线程会一直运行直到其运行完毕。在JVM中，像垃圾收集器线程就是守护线程。
+     	守护线程和用户线程的区别在于：守护线程依赖于创建它的线程，而用户线程则不依赖。
+     	例子：如果在main线程中创建了一个守护线程，当main方法运行完毕之后，守护线程也会随着消亡。
+     	而用户线程则不会，用户线程会一直运行直到其运行完毕。在JVM中，像垃圾收集器线程就是守护线程。
 
 ## Object支持的线程协作
 
@@ -141,12 +141,9 @@ wait()、notify()和notifyAll()等方法的描述：
 
 ![](../concurrent/5.png)
 
-	如果调用某个对象的wait()方法，当前线程必须拥有这个对象的monitor
-	因此调用wait()方法必须在同步块或者同步方法中进行。
-	调用某个对象的wait()方法，相当于让当前线程交出此对象的monitor
-	然后进入等待状态，等待后续再次获得此对象的锁。
-	(jps jstack打印线程堆栈即可)notify()方法能够唤醒一个正在等待该对象的monitor的线程
-	当前线程也必须拥有这个对象的monitor。
+	如果调用某个对象的wait()方法，当前线程必须拥有这个对象的monitor因此调用wait()方法必须在同步块或者同步方法中进行。
+	调用某个对象的wait()方法，相当于让当前线程交出此对象的monitor然后进入等待状态，等待后续再次获得此对象的锁。
+	(jps jstack打印线程堆栈即可)notify()方法能够唤醒一个正在等待该对象的monitor的线程，当前线程也必须拥有这个对象的monitor。
 	当有多个线程都在等待该对象的monitor的话，则只能唤醒其中一个线程，具体唤醒哪个线程则不得而知。
 	nofityAll()方法能够唤醒所有正在等待该对象的monitor的线程，这一点与notify()方法是不同的。
 	注意一点：notify()和notifyAll()方法只是唤醒等待该对象的monitor的线程，并不决定哪个线程能够获取到monitor。
@@ -167,13 +164,12 @@ wait()、notify()和notifyAll()等方法的描述：
 	在另一线程B中，如果B更改了某些条件，使得线程A的condition条件满足了，就可以唤醒线程A。
 
 	线程B
-    	  synchronized(obj) {
-
+    	 synchronized(obj) {
               condition = true;
               obj.notify();
        	 }
 
-## 需要注意的概念是： 
+## 需要注意的概念是 
 
     1.调用obj的wait()， notify()方法前，必须获得obj锁，也就是必须写在synchronized(obj) {……} 代码段内。  
     2.调用obj.wait()后，线程A就释放了obj的锁，否则线程B无法获得obj锁，也就无法在synchronized(obj) {……} 代码段内唤醒A.  
@@ -197,14 +193,14 @@ wait()、notify()和notifyAll()等方法的描述：
 	定义：代码所在的进程中有多个线程在同时运行时，如果每次运行结果和单线程运行的结果是一样的，
 	而且其他的变量的值也和预期的是一样的，就是线程安全的。
 
-## 实现方案：
-        1.线程封闭：栈封闭、ThreadLocal封闭（我们系统哪些地方用了？）
-秒杀系统的处理限流的地方使用了ThreadLocal绑定用户
-[使用拦截器设置对应的线程的用户](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala/blob/master/src/main/java/main/scala/cn/edu/jxnu/seckill/config/UserArgumentResolver.scala)
+## 实现方案
+
+    	1.线程封闭：栈封闭、ThreadLocal封闭（我们系统哪些地方用了？）
+	
+秒杀系统的处理限流的地方使用了ThredLocal 绑定用户[使用拦截器设置对应的线程的用户](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala/blob/master/src/main/java/main/scala/cn/edu/jxnu/seckill/config/UserArgumentResolver.scala)
 并继承HandlerMethodArgumentResolver，重写resolveArgument参数解析方法，得到对应的用户对象
 	
-    2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
-
+   	2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
 
 ## JUC概览 JUC.LOCKS
 
@@ -217,25 +213,25 @@ wait()、notify()和notifyAll()等方法的描述：
 ## ReentrantLock和ReentrantReadWriteLock的区别和联系？
  
  ```java
-	ReentrantReadWriteLock.writeLock()/ readLock()
+  ReentrantReadWriteLock.writeLock()/ readLock()
 
-	public ReentrantReadWriteLock(boolean fair) {
-		sync = fair ? new FairSync() : new NonfairSync();
-		readerLock = new ReadLock(this);
-		writerLock = new WriteLock(this);
-	  }
+  public ReentrantReadWriteLock(boolean fair) {
+	sync = fair ? new FairSync() : new NonfairSync();
+	readerLock = new ReadLock(this);
+	writerLock = new WriteLock(this);
+  }
 
-	public static class ReadLock implements Lock, java.io.Serializable {
-		 private final Sync sync;
-		public void lock() {
-		  sync.acquireShared(1);
-		}  
+  public static class ReadLock implements Lock, java.io.Serializable {
+	 private final Sync sync;
+	public void lock() {
+	  sync.acquireShared(1);
+	}  
 
-	public static class WriteLock implements Lock, java.io.Serializable {
-		private final Sync sync;
-		public void lock() {
-		    sync.acquire(1);
-		}
+  public static class WriteLock implements Lock, java.io.Serializable {
+	private final Sync sync;
+	public void lock() {
+	    sync.acquire(1);
+	}
 ```          
 ## JUC.TOOLS AQS
 
@@ -285,12 +281,12 @@ wait()、notify()和notifyAll()等方法的描述：
 	Thread.setUncaughtExceptionHandler:设置默认异常处理器 类似双亲委派 会传递到顶层的ThreadGroup
 	并委托给默认的系统异常处理器（默认为空），否则输出到控制台
 
-##	ExecutorService submit和execute
+## ExecutorService submit和execute
 
 	submit 返回信息 异常被Future.get封装在ExecutionException重新抛出 客户端可以得到详细堆栈，无论是否检查型异常
 	execute 任务抛出的异常会交给未捕获异常处理器，也就是setUncaughtExceptionHandler设置的处理器
 	
-##	JVM关闭
+## JVM关闭
 	
 	正常关闭：System.exit(),最后一个普通线程结束，sigint信号，键入ctrl+c
 	强行关闭：Runtime.halt,sigkill信号	
