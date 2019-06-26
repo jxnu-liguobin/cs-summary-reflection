@@ -34,7 +34,7 @@
 
 ## 记录线程的运行状态，那么会记录哪些数据呢？
 
-     	程序计数器的值、CPU寄存器的状态，过多的线程切换同样会带来较大的系统开销。
+	程序计数器的值、CPU寄存器的状态，过多的线程切换同样会带来较大的系统开销。
 
 ## 线程状态
 
@@ -53,8 +53,8 @@
 
 ## BLOCKED与WAITING的区别？
 
-    	一个是在临界点外面等待进入，一个是在临界点里面wait，等待其他线程notify。
-    	线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束
+	一个是在临界点外面等待进入，一个是在临界点里面wait，等待其他线程notify。
+	线程调用了join方法 join另外的线程的时候, 也会进入WAITING状态, 等待被join的线程执行结束
 ![](../concurrent/2.jpg)
 
 ## 了解线程状态的意义？
@@ -125,14 +125,14 @@
 
 ## 能不能中断处于非阻塞状态的线程呢？
 
-     	可以通过interrupt方法和isInterrupted()方法来停止正在运行的线程。
-     	但是一般情况下建议通过增加一个 isStop标志，然后在while循环中判断isStop的值，其他线程控制整个标志。
+	可以通过interrupt方法和isInterrupted()方法来停止正在运行的线程。
+	但是一般情况下建议通过增加一个 isStop标志，然后在while循环中判断isStop的值，其他线程控制整个标志。
 
 ## setDaemon和isDaemon方法
 
-     	守护线程和用户线程的区别在于：守护线程依赖于创建它的线程，而用户线程则不依赖。
-     	例子：如果在main线程中创建了一个守护线程，当main方法运行完毕之后，守护线程也会随着消亡。
-     	而用户线程则不会，用户线程会一直运行直到其运行完毕。在JVM中，像垃圾收集器线程就是守护线程。
+	守护线程和用户线程的区别在于：守护线程依赖于创建它的线程，而用户线程则不依赖。
+	例子：如果在main线程中创建了一个守护线程，当main方法运行完毕之后，守护线程也会随着消亡。
+	而用户线程则不会，用户线程会一直运行直到其运行完毕。在JVM中，像垃圾收集器线程就是守护线程。
 
 ## Object支持的线程协作
 
@@ -194,7 +194,7 @@ wait()、notify()和notifyAll()等方法的描述：
 
 ## 实现方案
 
-    	1.线程封闭：栈封闭、ThreadLocal封闭（我们系统哪些地方用了？）
+	1.线程封闭：栈封闭、ThreadLocal封闭（我们系统哪些地方用了？）
 	2.线程同步： synchronize关键字，Object的wait/nofify，JUC中的locks，tools，atomic，collections。
 
 秒杀系统的处理限流的地方使用了ThredLocal 绑定用户[使用拦截器设置对应的线程的用户](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala/blob/master/src/main/java/main/scala/cn/edu/jxnu/seckill/config/UserArgumentResolver.scala)
