@@ -1,6 +1,6 @@
-## 常见的Git操作
+## 常见的 git mvn arc 操作
 
-### 1、仓库从无到有
+### 仓库从无到有
 
 本地生成ssh秘钥，如果不嫌麻烦当然可以不设置，使用HTTPS即可
 
@@ -20,7 +20,7 @@ id_rsa.pub文件添加到Git的秘钥管理处，实际任何遵守Git协议的�
 
 当然你也可以只配置临时变量 去掉--global即可，因为我需要往牛客，码云，GitHub，Gitlab提交，所以这种是很有用的。因此我只需要修改提交的临时地址。
 
-### 2、从本地开始
+### 从本地开始
 
 1. touch README.md 添加一个文件，用于注释、说明，在仓库的顶级目录下则会被显示作为该仓库或文件的说明。
 2. git init  初始化本地仓库。
@@ -38,7 +38,7 @@ id_rsa.pub文件添加到Git的秘钥管理处，实际任何遵守Git协议的�
 
 ![](../practice/picture/git-1.jpg)
 
-### 3、从远程开始
+### 从远程开始
 
 当然你也可以从远处拉下一个项目，就像这样
 
@@ -67,7 +67,7 @@ git checkout -b newBrach origin/master  在origin/master的基础上创建newBra
 
 像这样 git push -u origin master --force 但并不建议使用，慎用。
 
-### 4、其他分支处理命令
+### 其他分支处理命令
 
 分支修改
 
@@ -84,13 +84,7 @@ git checkout -b newBrach origin/master  在origin/master的基础上创建newBra
 3. git config --global push.default matching
 以上建议忽略，实际开发这里每个月都需要修改开发的迭代分支，还不如别设置了。
 
-Arcanist 命令
-
-1. arc diff master --preview 创建diff语句
-2. arc patch D11973 将pha上的revision变更patch到本地工作拷贝上
-3. arc land --revision D10653 --onto master pha上评审完毕后，将本地分支做git push
-
-### 5、解决提交错误
+### 解决提交错误
 
 如果你是commit提交错误了你可以这样 ：
 
@@ -104,8 +98,7 @@ git checkout 暂存区回滚到工作区（回滚最后一次add操作，--files
 
 PS:使用IDEA时，在未进行add时，执行IDEA提供的revert菜单也可以回退修改，还可以手动选择需要回退的文件，很方便。
 
-
-### 6、git rebase 和 git merge的区别
+### git rebase 和 git merge 的区别
 
 * git pull = git fetch + git merge
 * git pull --rebase = git fetch + git rebase 重点是不会产生新的commit请求。
@@ -173,8 +166,7 @@ git rebase --continue  git 便会自动继续合并
 * git rebase --skip 则会将引起冲突的commits丢弃掉；
 * git rebase --continue 用于修复冲突，提示开发者，一步一步地有没有解决冲突，fix conflicts and then run "git rebase --continue"
 
-
-### 7、重要的mvn命令
+### 重要的 mvn 命令
 
 * mvn clean deploy 清理并发布   
 * mvn install -Dmaven.test.skip=true 跳过测试打包
@@ -183,14 +175,16 @@ git rebase --continue  git 便会自动继续合并
 * mvn clean compile -U  编译 该参数能强制让Maven检查所有SNAPSHOT依赖更新，确保集成基于最新的状态，如果没有该参数，
 Maven默认以天为单位检查更新，而持续集成的频率应该比这高很多。
 
-### 8、解决冲突的方式之一
+### 解决冲突的方式之一
 	
 	合并分支到本开发分支，或者git pull --rebase拉去下来
 	查看冲突文件，并去除冲突提示注释和冲突部分代码
 	执行git add 将修改完后的冲突文件添加进索引【stage 暂存区，位于工作区和当前分支之间】
 	执行git rebase --continue 继续合并
+
+冲突的时候多注意查看提示和日志，一般Git都提供参考的解决办法
  
-### 9、处理本地分支与远程绑定的分支不同名
+### 处理本地分支与远程绑定的分支不同名
 
 本地是branchA分支，提交代码时却是和远程的branchB分支绑定的，此时提交会更新branchB分支，但是希望直接更新branchA分支的代码。
 经过测试，使用IDEA的checkout as 与 git checkout -b branchA origin/master命令是相同效果：导致branchA分支与远程master绑定。
@@ -204,7 +198,7 @@ Maven默认以天为单位检查更新，而持续集成的频率应该比这高
 
 或者在push的时候在IDEA弹窗上方修改为origin/branchA，这个点击的时候需要自己输入至少一个首字母才会提示可选分支，不智能。
   
-### 10、git revert 和 git reset
+### git revert 和 git reset
 
 git reset 主要用法：
 
@@ -244,8 +238,7 @@ git revert 和 git reset的主要区别：
     这些被回滚的commit应该还会被引入。 
     3.git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。          
 
-
-### 11、git在MAC的terminator(命令行)下自动显示当前分支
+### git 在 MAC 的 terminator(命令行)下自动显示当前分支
 
 1.修改的文件（任选其一）：.bash_profile、bashrc （全局 ~/.bash_profile）<br>
 2.在最后一行新增以下代码：
@@ -265,9 +258,58 @@ export PS1='\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ '
 ```
 3.执行命令：source .bash_profile
  
+### git stash 切换分支，并存储正在进行开发的代码
 
+正在进行开发的代码表示没有 add 和 commit，但是代码又需要保留的场景需求，现在你想切换分支，但是你还不想提交你正在进行中的工作；
+所以你需要储藏这些变更。为了往堆栈推送一个新的储藏，只要运行 git stash 命令，执行完该命令后，当前分支将变的干净，正在开发的代码被移除并存储在 git 中。
 
-欢迎指出提出建议和意见
+要查看现有的储藏，你可以使用 git stash list
+
+想在新的分支重新应用你刚刚的储藏，可以执行 git stash apply。如果你想应用更早的储藏，你可以通过名字指定它，像这样 git stash apply stash@{2} ，其中 stash@{2} 是储藏的名字。
+如果你不指明，git 默认使用最近的储藏并尝试应用它。
+
+apply命令将对文件的变更重新应用，但是被暂存的文件没有重新被暂存。
+想那样的话，你必须在运行 git stash apply 命令时带上一个 --index 的选项来告诉命令重新应用被暂存的变更。如果你是这么做的，你应该已经回到你原来的位置
+取消储藏 git stash show -p stash@{0} | git apply -R
+
+如果你沒有指定具体的某个储藏，git 会选择最近的储藏 git stash show -p | git apply -R
+
+你可能会想要新建一个別名，在你的 git 里增加一个 stash-unapply 命令，这样更有效率。例如 git config --global alias.stash-unapply '!git stash show -p | git apply -R'
+
+从储藏中创建分支 git stash branch
+
+### Arcanist 命令
+
+//其中 revision 表示 diff 编号，commit 表示 commit hash 值
+
+比较与对应 commit 之间的差异，以此创建 Revision ，可以执行，arc diff commit，若无 commit 参数，默认范围是 git merge-base origin/master HEAD..HEAD
+
+使用 --preview 参数，在 Web 中进行创建 arc diff --preview ，一般使用这种方法可以进行更好的代码 review
+
+修改默认编辑器为 vim 可以执行，arc set-config editor vim ，默认是 nano
+
+选择已有的 Revision 进行更新可以执行，arc diff --update revision
+
+将 Revision 应用到本地可以执行，arc patch revision，该命令会自动创建名为 arcpatch-revision 的分支
+
+将 Revision 合并到某一分支，默认为 master，arc land，使用 --preview 参数可预览哪些 commit 将会被 land
+
+arc land --revision revision --onto branch --preview
+
+    --revision revision 参数用于指定 Revision
+    --onto branch 用于指定 land 到哪一个分支
+    --keep-branch 执行 arc land 会默认删除 Revision 对应的本地分支，land 时可使用此参数保留本地分支
+
+arc land 到 master 成功后会默认关闭对应 Revision，land 到其他分支时，若没有在 Diffusion 中配置，Revision 不会自动关闭
+，可以执行，arc close-revision revision，或者到 Web 中手动关闭
+
+列出对应的 Repository，Commit range（同 arc diff），对应的 Revision，在不确定 arc diff 将会提交哪些 commit 时，可以使用此命令进行确认，arc which commit
+
+列出本地分支与 Revision 的对应关系及状态，arc branch
+
+列出自己的 Revision 及对应状态， arc list
+
+查看 arc 相关命令的具体执行过程，便于调试 --trace  加参数
 
 
 参考:
