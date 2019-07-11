@@ -42,3 +42,5 @@
 > 2018.12.1开始，本人主要维护本仓库Scala部分
 
 > 欢迎 Scala/Java 选手参与维护
+
+> 博客 https://www.jianshu.com/u/d1873cb152cf
