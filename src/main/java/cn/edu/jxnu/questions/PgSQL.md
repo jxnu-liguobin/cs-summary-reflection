@@ -96,3 +96,22 @@ dump数据库
  
 2.``` pg_restore -h localhost -p 5432 -U userName -W -d testdb -v "dump_backoup" ``` 
 
+* 查询表上的索引
+
+``` select * from pg_statio_all_indexes where relname='table_name' ```
+
+多列索引
+
+    官方
+    https://www.postgresql.org/docs/9.6/indexes-multicolumn.html
+    https://wiki.postgresql.org/wiki/9.1%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0#.E5.A4.9A.E5.88.97.E7.B4.A2.E5.BC.95.28Multicolumn_Indexes.29
+    
+    pgsql 多列索引
+    https://github.com/digoal/blog/blob/master/201702/20170205_01.md
+    
+    csdn
+    https://blog.csdn.net/jubaoquan/article/details/78850899
+    
+    开源中国
+    https://www.oschina.net/question/126398_22063
+
