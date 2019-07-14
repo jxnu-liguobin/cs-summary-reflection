@@ -338,7 +338,23 @@ mongo --port 27001
 ```
 以上启动脚本会启动两个MongoDB节点，分别是`127.0.0.1:27001`和`127.0.0.1:27002`，数据库文件位置为`C:/mongo/data`，日志路径为：`C:/mongo/logs/log1.log`、`C:/mongo/logs/log2.log`。
 
+* 统计本目录下所有Java和Scala文件的数量
 
+``
+echo -e $(find . -name "*.scala" | wc -l)\\n$(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'
+``
+
+* 查找本目录下所有Scala文件并显示详细文件信息
+
+```
+find ./ -name '*.scala' | xargs ls -all
+```
+
+* 查找本目录下所有Scala文件，并执行一些操作
+
+```
+find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细信息
+```
 
 持续更新中。。。
 
