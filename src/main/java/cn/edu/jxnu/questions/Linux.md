@@ -340,9 +340,9 @@ mongo --port 27001
 
 * 统计本目录下所有Java和Scala文件的数量
 
-``
+```
 echo -e $(find . -name "*.scala" | wc -l)\\n$(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'
-``
+```
 
 * 查找本目录下所有Scala文件并显示详细文件信息
 
