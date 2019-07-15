@@ -40,6 +40,24 @@ object FileUtils {
     }
   }
 
+  /** 不忽略异常
+   *
+   * @param resource 资源
+   * @param f        处理函数
+   * @tparam R 资源类型
+   * @tparam T 返回类型
+   * @return 返回T类型
+   */
+  def using[R <: Closable, T](resource: => R)(f: R => T): T = {
+    try {
+      f(resource)
+    } finally {
+      if (resource != null) {
+        resource.close()
+      }
+    }
+  }
+
   /** 基于Future的贷出模式
    *
    * @param resource 资源
