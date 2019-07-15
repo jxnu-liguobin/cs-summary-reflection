@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.{Calendar, Date, TimeZone}
 
 /**
- * 日期处理
+ * 日期处理工具
  *
  * @author 梦境迷离
  * @version 1.0, 2019-07-14
