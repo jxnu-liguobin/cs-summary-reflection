@@ -27,7 +27,7 @@
 | :--- | :--- |
 | [牛客网剑指题解整理](../questions/JianZhiOffer.md) | [其他Scala资源](../scala/Other.md) |
 | [Java For Leetcode](../leetcode) | [Scala实现的简单RPC](https://github.com/jxnu-liguobin/dlsRpc) |
-| [Scala For Leetcode](../leetcode/scala)  | [Scala小红书习题实现](../scala/fb/Scalafb.md) |
+| [Scala For Leetcode](../leetcode/scala)  | [Scala小红书习题实现](../scala/fb/README.md) |
 | [AMQP、RabbitMQ](../questions/MQ.md) | [Scala Akka通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler) |
 | [Spring、Mybatis](../questions/SSM.md) | |
 | [Redis相关](../questions/Redis.md) | |
