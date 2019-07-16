@@ -3,7 +3,7 @@
 | Java | Scala 
 | :--- | :--- |
 | [计算机网络](../questions/Network.md) |  [Scala语法基础](../scala/ScalaBasic.md) |  
-| [SQL、MySQL](../questions/MySQL.md) | [Scala常用工具类](../scala/utils/README.md) |
+| [SQL、MySQL](../questions/MySQL.md) | [Scala常用工具类](../scala/utils) |
 | [操作系统](../questions/OS.md) | [Scala Akka基本使用](../scala/ScalaAkkaBasic.md) |
 | [Java线程基础](../questions/Threads.md) | [Scala Play例子](https://github.com/jxnu-liguobin/scala_micro_service) |
 | [八大排序算法](../questions/Sort.md) | [Scala布隆过滤器](https://github.com/jxnu-liguobin/Scala-BloomFilter) |
