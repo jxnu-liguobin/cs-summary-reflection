@@ -2,12 +2,12 @@
 
 | Java | Scala 
 | :--- | :--- |
-| [计算机网络](../questions/Network.md) |  [Scala-语法基础](../scala/ScalaBasic.md) |  
-| [SQL、MySQL](../questions/MySQL.md) | [Scala-Sring开发常用类](../scala/ScalaUtil.md) |
-| [操作系统](../questions/OS.md) | [Scala-Akka基础介绍](../scala/ScalaAkkaBasic.md) |
-| [Java线程基础](../questions/Threads.md) | [Scala-Play例子](https://github.com/jxnu-liguobin/scala_micro_service) |
-| [八大排序算法](../questions/Sort.md) | [Scala-布隆过滤器](https://github.com/jxnu-liguobin/Scala-BloomFilter) |
-|  | [Scala-慕课秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala) |
+| [计算机网络](../questions/Network.md) |  [Scala语法基础](../scala/ScalaBasic.md) |  
+| [SQL、MySQL](../questions/MySQL.md) | [Scala常用工具类](../scala/ScalaUtil.md) |
+| [操作系统](../questions/OS.md) | [Scala Akka基础介绍](../scala/ScalaAkkaBasic.md) |
+| [Java线程基础](../questions/Threads.md) | [Scala Play例子](https://github.com/jxnu-liguobin/scala_micro_service) |
+| [八大排序算法](../questions/Sort.md) | [Scala布隆过滤器](https://github.com/jxnu-liguobin/Scala-BloomFilter) |
+|  | [Scala 慕课秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala) |
  
 ### 编程补充
 
@@ -26,12 +26,12 @@
 | 试题 | 其他 |
 | :--- | :--- |
 | [牛客网剑指题解整理](../questions/JianZhiOffer.md) | [其他Scala资源](../scala/Other.md) |
-| [Java For Leetcode](../leetcode) | [Scala-简单的RPC](https://github.com/jxnu-liguobin/dlsRpc) |
-| [Scala For Leetcode](../leetcode/scala)  | [Scala-小红书习题实现](../scala/fb/Scalafb.md) |
-| [AMQP、RabbitMQ](../questions/MQ.md) | [Scala-Akka通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler) |
+| [Java For Leetcode](../leetcode) | [Scala实现的简单RPC](https://github.com/jxnu-liguobin/dlsRpc) |
+| [Scala For Leetcode](../leetcode/scala)  | [Scala小红书习题实现](../scala/fb/Scalafb.md) |
+| [AMQP、RabbitMQ](../questions/MQ.md) | [Scala Akka通用爬虫](https://github.com/jxnu-liguobin/scala-akka-crawler) |
 | [Spring、Mybatis](../questions/SSM.md) | |
 | [Redis相关](../questions/Redis.md) | |
-| [Scala-面试题](../questions/ScalaQuestions.md) | |
+| [Scala面试题](../questions/ScalaQuestions.md) | |
 
 ### 说明
 
