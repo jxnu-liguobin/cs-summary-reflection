@@ -30,7 +30,7 @@ object FileUtils {
    * @tparam T 返回类型
    * @return 返回T类型
    */
-  def using[R <: Closable, T](resource: => R)(f: R => T): T = {
+  def usingIgnore[R <: Closable, T](resource: => R)(f: R => T): T = {
     try {
       f(resource)
     } finally {
