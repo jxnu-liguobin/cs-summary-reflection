@@ -1,9 +1,9 @@
 Scala 开发过程中收集的工具类
 ---
 
-[Spring开发工具 @deprecated](./ScalaUtil.md)
+[Scala Spring开发工具类 @deprecated](./ScalaUtil.md)
 
-指纯Scala服务端开发，但包含并不限于
+Scala服务端开发，但包含并不限于
 
 * 隐式对象
 * 高阶函数
