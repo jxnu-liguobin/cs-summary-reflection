@@ -1,6 +1,6 @@
 ### Scala常用的Util类
 
-此处不再更新，更多请看 [cn.edu.jxnu.scala.utils](./utils/README.md)
+此处不再更新
 
 > 目录
 * Spring Data Redis工具 redis键值对操作

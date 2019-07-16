@@ -11,7 +11,7 @@
     * [1.1.5 八大排序算法](src/main/java/cn/edu/jxnu/questions/Sort.md)
 * 1.2 Scala
     * [1.2.1 Scala语法基础](src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
-    * [1.2.2 Scala常用工具类](src/main/java/cn/edu/jxnu/scala/ScalaUtil.md)
+    * [1.2.2 Scala常用工具类](src/main/java/cn/edu/jxnu/scala/utils)
     * [1.2.3 Scala Akka基本使用](src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
     
 ## 第二章 编程补充
@@ -51,4 +51,4 @@
     * [3.1.5 Scala面试题](src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md)
 * 3.2 其他
     * [3.2.1 其他Scala资源](src/main/java/cn/edu/jxnu/scala/Other.md)
-    * [3.2.2 Scala小红书习题实现](src/main/java/cn/edu/jxnu/scala/fb/README.md)
+    * [3.2.2 Scala小红书习题实现](src/main/java/cn/edu/jxnu/scala/fb)
