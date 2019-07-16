@@ -9,7 +9,7 @@ Recording Learning  Interview  Summary and Reflection
 
 ### Enter Reading
 
-[查看详情 in GitHub @deprecated ](/src/main/java/cn/edu/jxnu/allmd/README.MD)
+[查看详情 in GitHub](/src/main/java/cn/edu/jxnu/allmd/README.MD)
 
 [在线阅读 in Gitbook](https://dreamylost.gitbook.io)
 

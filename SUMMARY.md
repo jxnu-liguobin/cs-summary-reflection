@@ -51,4 +51,4 @@
     * [3.1.5 Scala面试题](src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md)
 * 3.2 其他
     * [3.2.1 其他Scala资源](src/main/java/cn/edu/jxnu/scala/Other.md)
-    * [3.2.2 Scala小红书习题实现](src/main/java/cn/edu/jxnu/scala/fb)
+    * [3.2.2 Scala小红书习题实现](src/main/java/cn/edu/jxnu/scala/fb/README.md)
