@@ -356,9 +356,14 @@ find ./ -name '*.scala' | xargs ls -all
 find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细信息
 ```
 
+* 增加命令别名
+
+1. vim ~/.bash_profile
+2. alias 命令别名="真正执行命令"
+3. source ~/.bash_profile
+
+
 持续更新中。。。
-
-
 
 
 #### 参考  
