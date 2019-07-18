@@ -1,8 +1,7 @@
-## 内存划分、GC相关总结
+# 内存划分、GC相关总结
 
 
-JVM 中的内存区域划分
----
+## JVM 中的内存区域划分
 
 [JVM规范](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)
 
@@ -42,8 +41,7 @@ Java 的常量池可以存放各种常量信息，不管是编译期生成的各
 
 ![](../practice/picture/memory1.png)
 
-引用计数法与可达性分析
----
+## 引用计数法与可达性分析
 
 垃圾回收，顾名思义，便是将已经分配出去的，但却不再使用的内存回收回来，以便能够再次分配。
 在 Java 虚拟机的语境下，垃圾指的是死亡的对象所占据的堆空间。这里便涉及了一个关键的问题：如何辨别一个对象是存是亡？
@@ -73,8 +71,7 @@ Java 的常量池可以存放各种常量信息，不管是编译期生成的各
 误报并没有什么伤害，Java 虚拟机至多损失了部分垃圾回收的机会。漏报则比较麻烦，因为垃圾回收器可能回收事实上仍被引用的对象内存。
 一旦从原引用访问已经被回收了的对象，则很有可能会直接导致 Java 虚拟机崩溃。
 
-Stop-the-world 以及安全点
----
+### Stop-the-world 以及安全点
 
 怎么解决这个问题呢？在 Java 虚拟机里，传统的垃圾回收算法采用的是一种简单粗暴的方式，
 那便是 Stop-the-world，停止其他非垃圾回收线程的工作，直到完成垃圾回收。这也就造成了垃圾回收所谓的暂停时间（GC pause）。
@@ -83,8 +80,7 @@ Java 虚拟机中的 Stop-the-world 是通过安全点（safepoint）机制来�
 当然，安全点的初始目的并不是让其他线程停下，而是找到一个稳定的执行状态。
 在这个执行状态下，Java 虚拟机的堆栈不会发生变化。这么一来，垃圾回收器便能够“安全”地执行可达性分析。
 
-垃圾回收的三种方式
----
+## 垃圾回收的三种方式
 
 当标记完所有的存活对象时，我们便可以进行死亡对象的回收工作了。主流的基础回收方式可分为三种。
 
@@ -112,8 +108,7 @@ Java 虚拟机中的 Stop-the-world 是通过安全点（safepoint）机制来�
 
 现代的垃圾回收器往往会综合上述几种回收方式，综合它们优点的同时规避它们的缺点。
 
-Java 常见的垃圾收集器有哪些？
----
+## Java 常见的垃圾收集器有哪些？
 
 实际上，垃圾收集器（GC，Garbage Collector）是和具体 JVM 实现紧密相关的，不同厂商 （IBM、Oracle），不同版本的 JVM，提供的选择也不同。
 一般我们说的 JVM 指的就是 Oracle JDK 的 JVM。
@@ -145,9 +140,9 @@ CMS GC对应 JVM 参数是：-XX:+UseConcMarkSweepGC，年轻代自动开启 -XX
 在早期 JDK 8 等版本中，它是 server 模式 JVM 的默认 GC 选择，也被称作是吞吐量优先的 GC。它的算法和 Serial GC 比较相似，尽管实现要复杂的多，
 其特点是新生代和老年代 GC 都是并行进行的，在常见的服务器环境中更加高效。
 
-Parrallel GC 对应 JVM 参数是:-XX:+UseParallelGC
+Parrallel GC 对应 JVM 参数是：-XX:+UseParallelGC
 
-另外，Parallel GC 引入了开发者友好的配置项，我们可以直接设置暂停时间或吞吐量等目标， JVM 会自动进行适应性调整，例如下面参数:
+另外，Parallel GC 引入了开发者友好的配置项，我们可以直接设置暂停时间或吞吐量等目标， JVM 会自动进行适应性调整，例如下面参数：
 
 -XX:MaxGCPauseMillis=value
 -XX:GCTimeRatio=N // GC 时间和用户时间比例 = 1 / （N+1）
@@ -161,12 +156,12 @@ G1 GC 仍然存在着年代的概念，但是其内存结构并不是简单的�
 G1 吞吐量和停顿表现都非常不错，并且仍然在不断地完善，与此同时 CMS 已经在 JDK 9 中 被标记为废弃（deprecated），所以 G1 GC 值得你深入掌握。
 上面介绍了GC的分析，接下来就来看下JVM堆内存是如何进行分配和回收的。
 
-### 垃圾回收过程的理解
+## 垃圾回收过程的理解
 
 在垃圾收集的过程，对应到 Eden、 Survivor、Tenured 等区域会发生什么变化呢？实际上取决于具体的 GC 方式，先来熟悉一下通常的垃圾收集流程.
 
 第一，Java 应用不断创建对象，通常都是分配在 Eden 区域，当其空间占用达到一定阈值时， 触发 minor GC。
-仍然被引用的对象（绿色方块）存活下来，被复制到 JVM 选择的 Survivor 区 域，而没有被引用的对象则被回收。
+仍然被引用的对象存活下来，被复制到 JVM 选择的 Survivor 区 域，而没有被引用的对象则被回收。
 
 ![](../practice/picture/memory2.png)
 
@@ -183,7 +178,7 @@ G1 吞吐量和停顿表现都非常不错，并且仍然在不断地完善，�
 
 JVM 的可配置参数列表 [jvm vmoptions](https://www.oracle.com/technetwork/articles/java/vmoptions-jsp-140102.html)
 
-### 问题
+## 问题
 
 * 什么是本地方法JNI ？
 
@@ -221,7 +216,7 @@ public class Object {
 [After GC , the address of the object in memory be changed and why the object reference still valid？](https://stackoverflow.com/questions/15218438/after-gc-the-address-of-the-object-in-memory-be-changed-and-why-the-object-ref)
 gc 复制存活的对象，其原来的地址会发生变化。不过这些 jvm 就帮我们处理好了，对于程序员来说，这些是无感知的。
 
-### 常用 JVM 参数
+## 常用 JVM 参数
 
 | 属性 | 备注 |
 | :--- | :--- |
