@@ -41,7 +41,8 @@
         * [StampedLock](src/main/java/cn/edu/jxnu/sourcecode/StampedLock.md)
     * [2.3.2 AQS分析](src/main/java/cn/edu/jxnu/questions/AQS.md)
     * [2.3.3 StampedLock分析](src/main/java/cn/edu/jxnu/questions/StampedLock.md)
-
+    * [2.3.4 内存划分、GC相关总结](src/main/java/cn/edu/jxnu/questions/Memory.md)
+    
 ## 第三章 其他附加
 * 3.1 试题
     * [3.1.1 牛客网剑指题解整理](src/main/java/cn/edu/jxnu/questions/JianZhiOffer.md)

@@ -9,7 +9,7 @@ import play.api.libs.json.Writes
  * @author 梦境迷离
  * @version 1.0, 2019-07-15
  */
-object CodecUtils {
+object ImplicitUtils {
 
   /** 将DTO写入流，所需要的隐式参数
    *
@@ -28,4 +28,7 @@ object CodecUtils {
     Writeable(transform)
   }
 
+
+  //  slick读取数据库的json类型数据，需要的隐式对象
+  //  private implicit val jsValueMappedColumnType: BaseColumnType[JsValue] = MappedColumnType.base[JsValue, String](Json.stringify, Json.parse)
 }
