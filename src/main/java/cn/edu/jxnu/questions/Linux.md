@@ -223,6 +223,34 @@ Linux中有三种标准输入输出，分别是 STDIN，STDOUT，STDERR，对应
 
 平常输出日志用的最多的```sh test.sh > test.log 2>&1 &``` 意思是：执行test脚本，并将标准错误也输出到标准输出当中，最后一个&表示在后台执行。
 
+* 统计本目录下所有Java和Scala文件的数量
+
+```
+echo -e $(find . -name "*.scala" | wc -l)\\n$(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'
+```
+
+* 查找本目录下所有Scala文件并显示详细文件信息
+
+```
+find ./ -name '*.scala' | xargs ls -all
+```
+
+* 查找本目录下所有Scala文件，并执行一些操作
+
+```
+find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细信息
+```
+
+```which``` //可执行文件名称（which是通过 PATH环境变量到该路径内查找可执行文件，所以基本的功能是寻找可执行文件 ）
+```whereis``` //文件或者目录名称（从数据库文件中查找，不是实时更新）
+```whoami``` //显示自身的用户名称，本指令相当于执行  id -un 指令
+
+    whoami 与 who am i的区别
+    who这个命令重点在用来查看当前有那些用户登录到了本台机器上
+    who -m的作用和who am i的作用是一样的
+    who am i显示的是实际用户的用户名，即用户登陆的时候的用户ID。此命令相当于who -m
+    whoami显示的是有效用户ID ，是当前操作用户的用户名
+
 * sed命令
 
 [sed详细介绍](Linux-sed.md)
@@ -271,36 +299,6 @@ KillAll Finder
 以前面的输出为```[1] 11319 [1]表示job ID是1，11319表示进程ID是11319。切换到后台的进程，仍然可以用ps命令查看。```
  
 前后台间切换可以通过```bg <jobid> (background)```和```fg<jobid>()foreground)```命令将其在前后台间状态切换。
-
-* 统计本目录下所有Java和Scala文件的数量
-
-```
-echo -e $(find . -name "*.scala" | wc -l)\\n$(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'
-```
-
-* 查找本目录下所有Scala文件并显示详细文件信息
-
-```
-find ./ -name '*.scala' | xargs ls -all
-```
-
-* 查找本目录下所有Scala文件，并执行一些操作
-
-```
-find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细信息
-```
-
-### 其他命令&脚本
-
-```which``` //可执行文件名称（which是通过 PATH环境变量到该路径内查找可执行文件，所以基本的功能是寻找可执行文件 ）
-```whereis``` //文件或者目录名称（从数据库文件中查找，不是实时更新）
-```whoami``` //显示自身的用户名称，本指令相当于执行  id -un 指令
-
-    whoami 与 who am i的区别
-    who这个命令重点在用来查看当前有那些用户登录到了本台机器上
-    who -m的作用和who am i的作用是一样的
-    who am i显示的是实际用户的用户名，即用户登陆的时候的用户ID。此命令相当于who -m
-    whoami显示的是有效用户ID ，是当前操作用户的用户名
         
 * 字符串操作
 
