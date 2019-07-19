@@ -188,4 +188,17 @@ object DateUtils {
     val dayNumOfWeek = dayOfWeek(dateStr)
     dayNumOfWeek == 6 || dayNumOfWeek == 7
   }
+
+  /**
+   * 获取前/后n天日期
+   *
+   * @param daysAgo 为负数时表示前n天
+   * @return 基于北京时区的前/后n天的日期字符串
+   */
+  def daysAgo(daysAgo: Int): String = {
+    val calendar = Calendar.getInstance
+    calendar.setTime(new Date)
+    calendar.add(Calendar.DAY_OF_YEAR, daysAgo)
+    allSimpleDateFormat().format(calendar.getTime)
+  }
 }
