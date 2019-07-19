@@ -681,7 +681,7 @@ Nginx默认支持 RR轮转法 和 ip_hash法 这2种分配算法。前者会从�
 * HTTPS协议需要到CA申请证书，一般需要额外支出，此外还有一点需要注意的是，无论HTTPS、HTTP、等其他协议，它们的端口虽然推荐标准有默认值且众所周知，
 但是也带来了被攻击的危险性，实际上很多时候不会使用该端口，这在RFC2817有说明，实际也是这样的
 
-[SSL与TLS最简洁概括](../questions/SSL%E4%B8%8ETls%E6%A6%82%E8%BF%B0.txt)
+[SSL与TLS最简洁概括](../other/SSLAndTls.md)
 
 [RFC2818 - HTTP Over TLS](http://www.cnpaf.net/rfc/rfc2818.txt)
 

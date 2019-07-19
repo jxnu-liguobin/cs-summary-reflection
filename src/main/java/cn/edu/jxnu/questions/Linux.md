@@ -3,7 +3,7 @@ Linux基础命令
 
 //后面是追加注释
 
-#### 工作环境设置文件与环境变量
+### 工作环境设置文件与环境变量
 
 环境设置文件有两种：系统环境设置文件和个人环境设置文件
 
@@ -39,7 +39,7 @@ Linux基础命令
 这里使用重定向覆盖原来的环境，这种方法一定要把$PATH带上并拼接在最前面。使用``` > ```进行追加比较安全，然后再追加一条```PATH=$PATH:$HOMEBREW_BOTTLE_DOMAIN'```
 
 
-#### Linux常用命令
+### Linux常用命令
 
 * 查找文件
 
@@ -223,8 +223,11 @@ Linux中有三种标准输入输出，分别是 STDIN，STDOUT，STDERR，对应
 
 平常输出日志用的最多的```sh test.sh > test.log 2>&1 &``` 意思是：执行test脚本，并将标准错误也输出到标准输出当中，最后一个&表示在后台执行。
 
+* sed命令
 
-#### 其他命令以及脚本代码
+[sed详细介绍](Linux-sed.md)
+
+### 其他命令以及脚本代码
 
 * java 常用命令
 
@@ -253,6 +256,13 @@ fi
 
 ```date +%s``` 赋值```CURRENT_TIME=$(date+%s)```
 
+* Mac显示隐藏文件夹
+
+```
+defaults write com.apple.finder AppleShowAllFiles -bool true;
+KillAll Finder
+```
+
 * 后台进程
 
 在后台启动 ```sh test.sh &``` //前面加nohup 不挂断地运行命令
@@ -262,8 +272,25 @@ fi
  
 前后台间切换可以通过```bg <jobid> (background)```和```fg<jobid>()foreground)```命令将其在前后台间状态切换。
 
+* 统计本目录下所有Java和Scala文件的数量
 
-* 其他命令
+```
+echo -e $(find . -name "*.scala" | wc -l)\\n$(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'
+```
+
+* 查找本目录下所有Scala文件并显示详细文件信息
+
+```
+find ./ -name '*.scala' | xargs ls -all
+```
+
+* 查找本目录下所有Scala文件，并执行一些操作
+
+```
+find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细信息
+```
+
+### 其他命令&脚本
 
 ```which``` //可执行文件名称（which是通过 PATH环境变量到该路径内查找可执行文件，所以基本的功能是寻找可执行文件 ）
 ```whereis``` //文件或者目录名称（从数据库文件中查找，不是实时更新）
@@ -338,36 +365,15 @@ mongo --port 27001
 ```
 以上启动脚本会启动两个MongoDB节点，分别是`127.0.0.1:27001`和`127.0.0.1:27002`，数据库文件位置为`C:/mongo/data`，日志路径为：`C:/mongo/logs/log1.log`、`C:/mongo/logs/log2.log`。
 
-* 统计本目录下所有Java和Scala文件的数量
-
-```
-echo -e $(find . -name "*.scala" | wc -l)\\n$(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'
-```
-
-* 查找本目录下所有Scala文件并显示详细文件信息
-
-```
-find ./ -name '*.scala' | xargs ls -all
-```
-
-* 查找本目录下所有Scala文件，并执行一些操作
-
-```
-find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细信息
-```
-
 * 增加命令别名
 
 1. vim ~/.bash_profile
 2. alias 命令别名="真正执行命令"
 3. source ~/.bash_profile
 
-
 持续更新中。。。
 
-
-#### 参考  
-     
+参考  
 
 [Linux端口被占用的解决(Error: JBoss port is in use. Please check](http://www.hollischuang.com/archives/239)
 
