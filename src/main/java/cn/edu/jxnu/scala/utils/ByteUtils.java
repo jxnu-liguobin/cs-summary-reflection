@@ -1,6 +1,8 @@
 package cn.edu.jxnu.scala.utils;
 
 /**
+ * 字节 2进制 16进制
+ *
  * @author 梦境迷离
  * @version 1.0, 2019-07-20
  */
