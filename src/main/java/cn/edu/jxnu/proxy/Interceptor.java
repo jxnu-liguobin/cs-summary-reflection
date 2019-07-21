@@ -1,10 +1,10 @@
 package cn.edu.jxnu.proxy;
 
 /**
- * @description 拦截类
- * @author Mr.Li
+ * 拦截接口
  *
+ * @author 梦境迷离
  */
 public interface Interceptor {
-	public Object intercept(HandlerInvocation invocation) throws Exception;
+    Object intercept(HandlerInvocation invocation) throws Exception;
 }
