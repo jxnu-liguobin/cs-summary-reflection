@@ -63,7 +63,7 @@ object EncrypUtils {
    *
    * @param decode 已被编码的字符串
    */
-  def decode(decode: String): Unit = {
+  def decode(decode: String): String = {
     var b = decode.getBytes
     val base64 = new Base64
     b = base64.decode(b)
