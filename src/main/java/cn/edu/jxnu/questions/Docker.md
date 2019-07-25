@@ -5,18 +5,40 @@ Docker基础命令
 
 //此处主要是使用过的一些命令，不是docker大全！
 
+//Mac上操作
+
+//docker命令未加sudo
+
+//Docker命令分为镜像命令、容器命令、其他命令
+
+//K8s命令 待补充
+
 ### Docker命令
 
 * 安装docker
 
+CentOS6
 ```
-sudo apt-get update
-sudo apt-get install  docker
-sudo apt-get install  docker.io
-sudo apt-get install  docker-registry
+//EPEL库
+sudo yum install http://mirrors.yun-idc.com/epel/6/i386/epel-release-6-8.noarch.rpm
+sudo yum install docker-io
+```
+CentOS7
+```
+sudo yum install docker
+``` 
+
+注册为服务
+```
+sudo service docker start
+sudo chkconfig docker on
 ```
   
-* 安装linux 
+#### 镜像相关命令
+
+Docker镜像就是一个只读的模板
+
+* 安装Linux 
 
 ``` docker pull centos:6  ``` //6是版本号
 
@@ -32,34 +54,6 @@ sudo apt-get install  docker-registry
   
 ```docker build -t gio-test/test-project:test-tag .``` //后面有个点
 
-* 运行镜像，并且映射主机端口12345 到容器端口 3128（默认）
-
-```docker run -p 12345:3128 IMAGE```  //是镜像ID，下同
-
-* 同上，但是此条命令是把镜像运行在后台进程中
-
-```docker run -p 12345:3128 IMAGE```  //-d表示后台运行
-
-* 查看正在运行的所有的容器的列表
-
-```docker ps```
-
-* 停止运行指定的容器
-
-```docker stop IMAGE```
-
-* 查看所有的容器列表，包括没有在运行的
-
-```docker ps -a```
-
-* 强行关闭指定的容器 
-
-```docker kill CONTAINER_ID``` //CONTAINER_ID是容器ID
-
-* 从这台机器上移除所有未运行的容器
-
-```docker rm $(docker ps -a -q)```
-
 * 显示这台机器上的所有镜像
 
 ```docker images -a```
@@ -68,9 +62,9 @@ sudo apt-get install  docker-registry
 
 ```docker rmi $(docker images -q)```
 
-* 使用Docker credentials 登录到CLI会话
+* 移除本地test镜像
 
-```docker login```
+```sudo docker rmi test/test``` //docker rm 命令是移除容器
 
 * 给镜像打一个tag，为了可以上传到remote的registry
 
@@ -87,64 +81,116 @@ sudo apt-get install  docker-registry
 如果你没有在这些命令中指定 ``` :tag ``` 部分，在你生成和运行镜像时，最新的tag ``` :latest ``` 会被默认使用。 
 如果没有指定tag，Docker会使用最新的镜像版本，即latest（所以不指定会坑爹）
 
-* 查看镜像的详细信息
+ 查看镜像的详细信息
 
 ```docker inspect IMAGE```
 
-* 添加squid的证书
+* 查看私有库的镜像
 
-```sudo htpasswd -c squid_passwd  dreamylost```
+```curl 192.168.x.x:5000/v2/_catalog```
+
+* 搜索镜像
+
+```docker search consul``` //consul 服务注册发现框架
+
+* 导出镜像到本地文件
+
+```docker save -o ubuntu_14.04.tar ubuntu:14.04``` //导出ubuntu到ubuntu_14.04.tar
+
+* 从文件载入镜像
+
+```
+docker load --input ubuntu_14.04.tar
+//或
+docker load < ubuntu_14.04.tar //镜像存储文件将保存完整记录，体积也要大
+```
+
+#### 容器相关命令
+
+Docker利用容器来运行应用，容器是从镜像创建的运行实例
+
+* 查看正在运行的所有的容器的列表
+
+```docker ps```
+
+* 停止运行指定的容器
+
+```docker stop CONTAINER_ID```
+
+* 查看所有的容器列表，包括没有在运行的
+
+```docker ps -a```
+
+* 强行关闭指定的容器 
+
+```docker kill CONTAINER_ID``` //CONTAINER_ID是容器ID
+
+* 从这台机器上移除所有未运行的容器
+
+```docker rm $(docker ps -a -q)```
 
 * push文件到docker的某个容器中
 
-```sudo docker cp squid.conf  CONTAINER_ID:/etc/squid```
+```docker cp squid.conf  CONTAINER_ID:/etc/squid```
 
 * 进入运行的容器
 
-```sudo docker exec -it CONTAINER_ID /bin/bash``` //可能有镜像的多个实例，需要指定运行的容器ID，而不是镜像ID
-
-* 查看docker的端口映射
-
-```docker port  CONTAINER_ID```
-
-* 给容器安装vim命令
-
-```apt-get update``` //同步 ```/etc/apt/sources.list``` 和 ```/etc/apt/sources.list.d```中列出的源的索引 
-
-```apt-get install vim``` //安装命令，其他类似（先登录进运行的容器，关闭容器则失效）
-
-* 查看squid代理的链接访问日志
-
-```tail -f /var/log/squid/access.log``` //根据版本可能是squid3
-
-* 容器内的Linux安装Apache
-
-```apt-get install apache2=2.4.29-1ubuntu4.5``` //后面是版本号
+```docker exec -it CONTAINER_ID /bin/bash``` //可能有镜像的多个实例，需要指定运行的容器ID，而不是镜像ID
 
 * 将本地目录挂载到docker容器上
 
 ```docker run -i -t -v /Users/xx:/etc/squid3 IMAGE /bin/bash``` 
 //docker run -i -t -v 本地绝对路径:docker上绝对路径 镜像ID  /bin/bash
 
-* 加端口映射
+* 将本地目录挂载到docker容器上并加端口映射启动容器
 
 ```docker run  -p 12345:3128 -i -t -v  /Users/xx:/etc/squid3 IMAGE /bin/bash```
 
-* 拷贝docker的文件到本地
+* 运行镜像，并且映射主机端口12345 到容器端口 3128（默认）
 
-```docker cp CONTAINER_ID:/etc/squid3/squid.conf /Users/xx/xx```
+```docker run -p 12345:3128 IMAGE```  //是镜像ID，下同
 
-* 本地文件拷贝到docker
+* 同上，但是此条命令是把镜像运行在后台进程中
 
-```docker cp 本地路径 容器ID:容器路径 ```
+```docker run -p 12345:3128 IMAGE```  //-d表示后台运行
+
+* 进入正则运行的容器，并执行命令
+
+```docker exec -it CONTAINER_ID /bin/bash-c "ls"``` //ls是需要执行的命令
+
+* 将一个已经终止的容器启动运行起来
+
+```docker start```
+
+* 重新启动
+
+```docker restart```
+
+* 提交容器修改
+
+```docker commit CONTAINER_ID IMAGE``` //不提交下次启动就是新的，里面修改都没有
+
+* 修改自己commit的容器tag
+
+```docker tag IMAGE_ID userName/repositoryName:tag```
 
 * 使用本地配置文件启动squid代理
 
 ```docker run -p 3128:3128 -i -t -v /Users/xx:/etc/squid3 IMAGE```
 
-* 进入正则运行的容器，并执行命令
+* 导出容器快照到本地文件
 
-```docker exec -it CONTAINER_ID /bin/bash-c "ls"``` //ls是需要执行的命令
+```docker export CONTAINER_ID > fileName.tar```
+
+* 从容器快照文件中再导入为镜像
+
+```cat fileName.tar | sudo docker import - test/test:1.0```
+
+* 通过指定URL或者某个目录来导入
+
+```docker import http://example.com/exampleimage.tgz example/imagerepo``` //容器快照文件将丢弃所有的历史记录和元数据信息
+
+#### 其他
 
 * 推送到私服
 
@@ -164,25 +210,39 @@ sudo apt-get install  docker-registry
 }
 ```
 
-* 查看私有库的镜像
+* 拷贝docker的文件到本地
 
-```curl 192.168.x.x:5000/v2/_catalog```
+```docker cp CONTAINER_ID:/etc/squid3/squid.conf /Users/xx/xx```
 
-* 搜索镜像
+* 本地文件拷贝到docker
 
-```docker search consul``` //consul 服务注册发现框架
+```docker cp 本地路径 容器ID:容器路径 ```
 
-* 一个已经终止的容器启动运行起来
+* 查看docker的端口映射
 
-```docker start```
+```docker port  CONTAINER_ID```
 
-* 提交容器修改
+* 给容器安装vim命令
 
-```docker commit CONTAINER_ID IMAGE``` //不提交下次启动就是新的，里面修改都没有
+```apt-get update``` //同步 ```/etc/apt/sources.list``` 和 ```/etc/apt/sources.list.d```中列出的源的索引 
 
-* 修改自己commit的容器tag
+```apt-get install vim``` //安装命令，其他类似（先登录进运行的容器，关闭容器则失效）
 
-```docker tag IMAGE_ID userName/repositoryName:tag```
+* 查看squid代理的链接访问日志
+
+```tail -f /var/log/squid/access.log``` //根据版本可能是squid3
+
+* 容器内的Linux安装Apache
+
+```apt-get install apache2=2.4.29-1ubuntu4.5``` //后面是版本号
+
+* 使用Docker credentials 登录到CLI会话
+
+```docker login```
+
+* 添加squid的证书
+
+```sudo htpasswd -c squid_passwd  dreamylost```
 
 ### K8s命令
 
