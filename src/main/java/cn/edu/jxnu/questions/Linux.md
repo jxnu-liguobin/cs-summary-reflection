@@ -255,6 +255,144 @@ find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细�
 
 [sed详细介绍](Linux-sed.md)
 
+### 网络连接命令
+
+#### 查看TCP连接状态
+
+* 统计多种状态的网络连接数
+  
+```
+netstat -n | awk '/^tcp/ {++state[$NF]}; END {for(key in state) print key, state[key]}'
+
+注释
+/^tcp/: 滤出tcp开头的记录，屏蔽udp,socket等无关记录。
+state[]: 相当于定义了一个名叫state的数组NF
+NF: 表示记录的字段数，如上所示的记录，NF等于6
+$NF: 表示某个字段的值，如上所示的记录，$NF也就是$6，表示第6个字段的值，也就是TIME_WAIT
+state[$NF] 表示数组元素的值，如上所示的记录，就是state[TIME_WAIT]状态的连接数
+++state[$NF]表示把某个数加一，如上所示的记录，就是把state[TIME_WAIT]状态的连接数加一
+END 表示在最后阶段要执行的命令
+for(key in state) 遍历数组 print key,"\t",state[key] 打印数组的键和值，中间用\t制表符分割，美化一下
+```
+
+* 查找请求数请20个IP（常用于查找攻来源）
+
+```
+netstat -ant | grep "192.168.1.109" | awk '{print $5}' | awk -F: '{print $1}'| uniq -c | sort -nr | head -20
+```
+
+* 用tcpdump嗅探80端口的访问
+  
+```
+tcpdump -i eth0 -tnn dst port 80-c 1000
+```
+* 查找较多time_wait连接
+  
+```
+netstat -ant | awk '/TIME_WAIT/ {print $5}' | sort | uniq -c | sort -nr | head -20
+```
+
+* 根据端口列进程
+  
+```
+netstat -ntlp |grep 80|awk '{print $7}'|cut -d/-f1
+```
+
+#### 网站日志分析
+
+* 获得访问前10位的ip地址
+  
+```
+cat /opt/logs/nginx-access.log | awk '{print $1}' | sort | uniq -c | sort -nr | head -n10
+cat /opt/logs/nginx-access.log | awk '{counts[$(11)]+=1}; END {for(url in counts) print counts[url], url}'
+```
+
+* 访问次数最多的文件或页面,取前20
+
+```
+cat /opt/log/nginx-access.log | awk '{print $11}' | sort | uniq -c | sort -nr | head -20
+```
+
+* 列出传输最大的几个exe文件（分析下载站的时候常用）
+  
+```
+cat /opt/log/nginx-access.log |awk '($7~/\.exe/){print $10 " " $1 " " $4 " " $7}'|sort -nr|head -20
+```
+
+* 列出输出大于200000byte(约200kb)的exe文件以及对应文件发生次数
+  
+```
+cat /opt/log/nginx-access.log |awk '($10 > 200000 && $7~/\.exe/){print $7}'|sort -n|uniq -c|sort -nr|head -100
+```
+
+* 列出最最耗时的页面(超过60秒的)的以及对应页面发生次数
+
+```
+cat /opt/log/nginx-access.log |awk '($NF > 60 && $7~/\.php/){print $7}'|sort -n|uniq -c|sort -nr|head -100
+```
+
+* 列出传输时间超过 30 秒的文件
+  
+```
+cat /opt/log/nginx-access.log |awk '($NF > 30){print $7}'|sort -n|uniq -c|sort -nr|head -20
+```
+
+* 统计网站流量（G)
+  
+```
+cat /opt/log/nginx-access.log |awk '{sum+=$10} END {print sum/1024/1024/1024}
+```
+
+* 统计404的连接
+
+```
+awk '($9 ~/404/)'/opt/log/nginx-access.log |awk '{print $9,$7}'|sort
+```
+
+* 统计http status
+
+```
+cat /opt/log/nginx-access.log |awk '{counts[$(9)]+=1}; END {for(code in counts) print code, counts[code]}'
+cat /opt/log/nginx-access.log |awk '{print $9}'|sort|uniq -c|sort -rn
+cat /opt/logs/nginx-access.log | awk '{if($9~/200|30|404/) COUNT[$7]++} END {for( a in COUNT) print a,COUNT[a]}' | sort -k 2 -n -r | head -n20
+```
+
+* 每秒并发
+
+```
+cat /opt/logs/nginx-access.log | grep '18/Dec/2017:18:25' | wc -l | awk '{print $1/60}'
+```
+
+ #### 蜘蛛分析
+
+* 查看是哪些蜘蛛在抓取内容
+
+```
+tcpdump -i eth0 -l -s 0-w -dst port 80 | strings | grep -i user-agent |grep -i -E 'bot|crawler|slurp|spider'
+```
+
+#### 数据库分析
+
+* 查看数据库执行的sql
+
+```
+tcpdump -i eth0 -s 0-l -w -dst port 3306|strings |egrep -i 'SELECT|UPDATE|DELETE|INSERT|SET|COMMIT|ROLLBACK|CREATE|DROP|ALTER|CALL'
+```
+
+#### 系统Debug分析
+
+* 调试命令
+
+```
+strace -p pid
+```
+
+* 跟踪指定进程的PID
+
+```
+gdb -p pid
+```
+
 ### 其他命令以及脚本代码
 
 * java 常用命令
