@@ -8,6 +8,7 @@
 | [Java线程基础](../questions/Threads.md) | [Scala Play例子](https://github.com/jxnu-liguobin/scala_micro_service) |
 | [八大排序算法](../questions/Sort.md) | [Scala布隆过滤器](https://github.com/jxnu-liguobin/Scala-BloomFilter) |
 |  | [Scala 慕课秒杀系统](https://github.com/jxnu-liguobin/SpringBoot-SecKill-Scala) |
+|  | [Scala Future解读](../scala/Future.md) |
  
 ### 编程补充
 

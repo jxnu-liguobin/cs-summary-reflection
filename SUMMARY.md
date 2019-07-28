@@ -13,6 +13,8 @@
     * [1.2.1 Scala语法基础](src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
     * [1.2.2 Scala常用工具类](src/main/java/cn/edu/jxnu/scala/utils/README.md)
     * [1.2.3 Scala Akka基本使用](src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
+    * [1.2.4 Scala Future解读](src/main/java/cn/edu/jxnu/scala/Future.md)
+    
     
 ## 第二章 编程补充
 * 2.1 编程附加
