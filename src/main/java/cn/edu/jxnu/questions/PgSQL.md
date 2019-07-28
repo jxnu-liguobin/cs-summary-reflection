@@ -78,6 +78,19 @@ exit
 
 ``` select * from pg_tables where tableowner='apps' ```  //apps是用户
 
+* 查询是否锁表
+
+```sql
+select oid from pg_class where relname='可能锁表了的表'
+select pid from pg_locks where relation='上面查出的oid'
+```
+
+* 释放锁定表
+  
+```sql
+select pg_cancel_backend(pg_locks.pid) 
+```
+
 * 迁移数据库
 
 dump数据库
