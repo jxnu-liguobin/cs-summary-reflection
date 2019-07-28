@@ -66,10 +66,6 @@ Docker镜像就是一个只读的模板
 
 ```sudo docker rmi test/test``` //docker rm 命令是移除容器
 
-* 给镜像打一个tag，为了可以上传到remote的registry
-
-```docker tag <> username/repository:tag```
-
 * 上传打完tag的镜像到remote的registry
 
 ```docker push username/repository:tag```
@@ -172,7 +168,7 @@ Docker利用容器来运行应用，容器是从镜像创建的运行实例
 
 * 修改自己commit的容器tag
 
-```docker tag IMAGE_ID userName/repositoryName:tag```
+```docker tag IMAGE_ID userName/repositoryName:tag``` //坑，需要执行docker login，即时使用图形界面登陆过
 
 * 使用本地配置文件启动squid代理
 
