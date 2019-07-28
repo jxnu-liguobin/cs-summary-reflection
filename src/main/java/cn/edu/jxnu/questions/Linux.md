@@ -262,6 +262,13 @@ find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细�
 java, javac, [jps](http://www.hollischuang.com/archives/105), [jstat](http://www.hollischuang.com/archives/481), 
 [jmap](http://www.hollischuang.com/archives/303), [jstack](http://www.hollischuang.com/archives/110)
 
+* 统计jstack中各个状态的线程数量，slick-dead: 线程堆栈文件
+
+```
+awk -F: '/java.lang.Thread.State/ {c[$2]++}; END {for(t in c) print t, c[t]}' slick-dead | sort -rn -k 2
+```
+
+
 * 输出
 
 ```var=$(echo 1)``` //获取echo输出的值，并赋值给变量；或使用``` `` ```
@@ -383,4 +390,6 @@ mongo --port 27001
 
 [csdn参考](https://blog.csdn.net/c19870525/article/details/80756121)
 
-[cnblogs参考](https://www.cnblogs.com/is-Tina/p/8697299.html)                                                    
+[cnblogs参考](https://www.cnblogs.com/is-Tina/p/8697299.html)    
+
+[jstack 解读](https://wtog.github.io/2019/04/11/jstack.html)                                                

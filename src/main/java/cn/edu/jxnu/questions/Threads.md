@@ -38,18 +38,29 @@
 
 ## 线程状态
 
-	* NEW 	状态是指线程刚创建, 尚未启动
-
-	* RUNNABLE 状态是线程正在正常运行中, 当然可能会有某种耗时计算/IO等待的操作/CPU时间片切换等, 但不是锁，或Sleep等
-
-	* BLOCKED  这个状态下, 是在多个线程有同步操作的场景，也就是在等待进入临界区
-	比如正在等待另一个线程的synchronized 块的执行释放
-
-	* WAITING  这个状态下是指线程拥有了某个锁之后, 调用了wait方法, 等待其他线程/锁拥有者调用 notify / notifyAll。
-
-	* TIMED_WAITING  这个状态就是有时限的WAITING, 一般出现在调用wait(long), join(long)等，sleep(long)后也会进入该状态。
-
-	* TERMINATED 这个状态下表示该线程的run方法已经执行完毕。 (当时如果线程被持久持有, 可能不会被回收)
+* NEW 初始状态
+    * 线程刚刚被创建，并且start()方法还未被调用
+* RUNNABLE 运行状态
+    * 表示线程正在java虚拟机中执行，但是可能正在等待操作系统的其他资源，比如CPU
+* BLOCKED 阻塞状态
+    * 表示线程正在等待监视器锁。表示线程正在等待获取监视器锁，以便进入同步方法或者同步代码快，也有可能是从wait()方法被唤醒而等待再次进入同步方法或者同步代码块
+* WAITING 等待状态。
+    * 表示当前线程需要等待其他线程执行一些特殊操作，比如当前线程调用了a.wait()方法，它正在等待其他线程调用a.notify或a.notifyAll方法；
+    如果当前线程调用了threada.join(),那么它在等待thread a执行完成
+    * 触发条件
+        * Object.wait() 不设置超时时间
+        * Thread.join() 不设置超时时间
+        * LockSupport.park() 不设置超时时间
+* TIMED_WAITING 超时等待
+    * 与WAITING的不同在于，该状态有超时时间
+    * 触发条件
+        * Object.wait(time)
+        * Thread.join(time)
+        * Thread.sleep(time)
+        * LockSupport.parkNanos(time)
+        * LockSupport.parkUntil(time)
+* TERMINATED 终止状态
+    * 表示当前线程已经执行完毕（如果线程被持久持有, 可能不会被回收）
 
 ## BLOCKED与WAITING的区别？
 
