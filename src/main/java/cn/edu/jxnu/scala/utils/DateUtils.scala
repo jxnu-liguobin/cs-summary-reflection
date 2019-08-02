@@ -1,6 +1,7 @@
 package cn.edu.jxnu.scala.utils
 
 import java.text.SimpleDateFormat
+import java.time.{LocalDateTime, ZoneId}
 import java.util.{Calendar, Date, TimeZone}
 
 /**
@@ -9,7 +10,7 @@ import java.util.{Calendar, Date, TimeZone}
  * @author 梦境迷离
  * @version 1.0, 2019-07-14
  */
-object DateUtils {
+trait DateUtils {
 
   private final val patternComplete = "yyyy-MM-dd HH:mm:ss"
 
@@ -18,6 +19,8 @@ object DateUtils {
   private final val patternPart = "yyyy-MM-dd"
 
   private final lazy val zone = TimeZone.getTimeZone("GMT+8:00")
+
+  implicit private final val zoneId = ZoneId.of(zone.getID)
 
   /**
    * 时区默认北京的部分解析器
@@ -200,5 +203,25 @@ object DateUtils {
     calendar.setTime(new Date)
     calendar.add(Calendar.DAY_OF_YEAR, daysAgo)
     allSimpleDateFormat().format(calendar.getTime)
+  }
+
+  /**
+   * 将LocalDateTime转换成Date
+   *
+   * @param localDateTime
+   */
+  implicit def localDateTimeToDate(localDateTime: LocalDateTime)(implicit zoneId: ZoneId = zoneId): Date = {
+    val zdt = localDateTime.atZone(zoneId)
+    Date.from(zdt.toInstant)
+  }
+
+  /**
+   * 将Date转换成LocalDateTime
+   *
+   * @param date
+   */
+  implicit def dateToLocalDateTime(date: Date)(implicit zoneId: ZoneId = zoneId): LocalDateTime = {
+    val instant = date.toInstant
+    instant.atZone(zoneId).toLocalDateTime
   }
 }
