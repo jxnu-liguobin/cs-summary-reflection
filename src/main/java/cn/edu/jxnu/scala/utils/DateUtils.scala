@@ -1,8 +1,9 @@
 package cn.edu.jxnu.scala.utils
 
 import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
 import java.time.{LocalDateTime, ZoneId}
-import java.util.{Calendar, Date, TimeZone}
+import java.util.{Calendar, Date, Locale, TimeZone}
 
 /**
  * 日期处理工具
@@ -10,7 +11,7 @@ import java.util.{Calendar, Date, TimeZone}
  * @author 梦境迷离
  * @version 1.0, 2019-07-14
  */
-trait DateUtils {
+object DateUtils {
 
   private final val patternComplete = "yyyy-MM-dd HH:mm:ss"
 
@@ -18,27 +19,43 @@ trait DateUtils {
 
   private final val patternPart = "yyyy-MM-dd"
 
-  private final lazy val zone = TimeZone.getTimeZone("GMT+8:00")
+  private final lazy val default_zone = TimeZone.getTimeZone("GMT+8:00")
 
-  implicit private final val zoneId = ZoneId.of(zone.getID)
+  implicit private final val default_zoneId = ZoneId.of(default_zone.getID)
+
+  private final lazy val default_local = Locale.CHINA
 
   /**
    * 时区默认北京的部分解析器
    *
    * @param timeZone
    */
-  private def partSimpleDateFormat(timeZone: TimeZone = zone): SimpleDateFormat = {
+  private def partSimpleDateFormat(timeZone: TimeZone = default_zone): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(patternPart)
     sdf.setTimeZone(timeZone)
     sdf
   }
 
   /**
+   * LocalDateTime的精确匹配解析器
+   *
+   * @param local 默认China
+   */
+  private def allDateTimeFormatter(implicit local: Locale) = DateTimeFormatter.ofPattern(patternAll, local)
+
+  /**
+   * LocalDateTime的完全匹配解析器（不含秒后的）
+   *
+   * @param local 默认China
+   */
+  private def completeDateTimeFormatter(implicit local: Locale) = DateTimeFormatter.ofPattern(patternComplete, local)
+
+  /**
    * 时区默认北京的完整解析器
    *
    * @param timeZone
    */
-  private def completeSimpleDateFormat(timeZone: TimeZone = zone): SimpleDateFormat = {
+  private def completeSimpleDateFormat(timeZone: TimeZone = default_zone): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(patternComplete)
     sdf.setTimeZone(timeZone)
     sdf
@@ -49,7 +66,7 @@ trait DateUtils {
    *
    * @param timeZone
    */
-  private def allSimpleDateFormat(timeZone: TimeZone = zone): SimpleDateFormat = {
+  private def allSimpleDateFormat(timeZone: TimeZone = default_zone): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(patternAll)
     sdf.setTimeZone(timeZone)
     sdf
@@ -62,7 +79,7 @@ trait DateUtils {
    * @param pattern
    * @return
    */
-  def simpleDateFormat(timeZone: TimeZone = zone, pattern: String): SimpleDateFormat = {
+  def simpleDateFormat(timeZone: TimeZone = default_zone, pattern: String): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(pattern)
     sdf.setTimeZone(timeZone)
     sdf
@@ -210,7 +227,7 @@ trait DateUtils {
    *
    * @param localDateTime
    */
-  implicit def localDateTimeToDate(localDateTime: LocalDateTime)(implicit zoneId: ZoneId = zoneId): Date = {
+  implicit def localDateTimeToDate(localDateTime: LocalDateTime)(implicit zoneId: ZoneId = default_zoneId) = {
     val zdt = localDateTime.atZone(zoneId)
     Date.from(zdt.toInstant)
   }
@@ -220,8 +237,71 @@ trait DateUtils {
    *
    * @param date
    */
-  implicit def dateToLocalDateTime(date: Date)(implicit zoneId: ZoneId = zoneId): LocalDateTime = {
+  implicit def dateToLocalDateTime(date: Date)(implicit zoneId: ZoneId = default_zoneId) = {
     val instant = date.toInstant
     instant.atZone(zoneId).toLocalDateTime
   }
+
+  /**
+   * 将LocalDateTime转化为Long类型
+   * 精确时间 毫秒
+   *
+   * @param localDateTime
+   * @param zoneId
+   */
+  implicit def localDateTimeToLong(localDateTime: Option[LocalDateTime])(implicit zoneId: ZoneId = default_zoneId) = {
+    localDateTime match {
+      case None => 0L
+      case Some(l) => l.atZone(zoneId).toEpochSecond * 1000
+    }
+  }
+
+  /**
+   * 将Long类型转化为LocalDateTime
+   *
+   * 精确时间 999毫秒
+   *
+   * @param timestamp
+   * @param zoneId
+   */
+  implicit def longToLocalDateTime(timestamp: Option[Long])(implicit zoneId: ZoneId = default_zoneId) = {
+    timestamp match {
+      case Some(t) =>
+        val instant = new Date(t).toInstant
+        Option(instant.atZone(zoneId).toLocalDateTime)
+      case None => None
+    }
+  }
+
+  /**
+   * 将LocalDateTime对象转化为精确的时间字符串
+   *
+   * @param localDateTime
+   */
+  implicit def localDateTimeToString(localDateTime: Option[LocalDateTime])(implicit locale: Locale = default_local) = {
+    localDateTime match {
+      case Some(l) => Option(allDateTimeFormatter(locale).format(l))
+      case None => None
+    }
+  }
+
+  /**
+   * 将LocalDateTime对象转化为完整的时间字符串，无秒之后的
+   *
+   * @param localDateTime
+   */
+  implicit def localDateTimeToStringNoMS(localDateTime: Option[LocalDateTime])(implicit locale: Locale = default_local) = {
+    localDateTime match {
+      case Some(l) => Option(completeDateTimeFormatter(locale).format(l))
+      case None => None
+    }
+  }
+
+  implicit def toLong(localDateTime: Option[LocalDateTime]) = localDateTimeToLong(localDateTime)
+
+  implicit def toLocalDateTime(long: Option[Long]) = longToLocalDateTime(long)
+
+  implicit def toStr(localDateTime: Option[LocalDateTime]) = localDateTimeToString(localDateTime)
+
+  implicit def toStrNoMS(localDateTime: Option[LocalDateTime]) = localDateTimeToStringNoMS(localDateTime)
 }
