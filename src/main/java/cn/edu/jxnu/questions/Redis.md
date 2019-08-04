@@ -4,7 +4,7 @@
 
 Redis 是一个基于内存的高性能key-value数据库。 
 
-### 2.Reids的特点　　
+### 2.Redis的特点　　
 
 　　　Redis本质上是一个Key-Value类型的内存数据库，很像memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据flush到硬盘上进行保存。因为是纯内存操作，Redis的性能非常出色，每秒可以处理超过 10万次读写操作，是已知性能最快的Key-Value DB。memcache第三库有能支持持久化的方法。
 
