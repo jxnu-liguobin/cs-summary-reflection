@@ -1,4 +1,4 @@
-package cn.edu.jxnu.leetcode.scala.dp
+package cn.edu.jxnu.leetcode.scala
 
 /**
   * 746. Min Cost Climbing Stairs

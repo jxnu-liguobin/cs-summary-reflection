@@ -1,4 +1,4 @@
-package cn.edu.jxnu.leetcode.scala.dp
+package cn.edu.jxnu.leetcode.scala
 
 /**
  *  假设你正在爬楼梯。需要 n 阶你才能到达楼顶。

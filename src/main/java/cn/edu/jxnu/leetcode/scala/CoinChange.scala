@@ -1,4 +1,4 @@
-package cn.edu.jxnu.leetcode.scala.dp
+package cn.edu.jxnu.leetcode.scala
 
 /**
  * 给出不同面额的硬币以及一个总金额. 写一个方法来计算给出的总金额可以换取的最少的硬币数量. 如果已有硬币的任意组合均无法与总金额面额相等, 那么返回 -1.
