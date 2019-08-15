@@ -21,10 +21,10 @@ package cn.edu.jxnu.leetcode.scala
  */
 class Leetcode_2_ListNode {
 
-  def addTwoNumbers(l1: ListNode, l2: ListNode): ListNode = {
+  def addTwoNumbers(l1: ScalaListNode, l2: ScalaListNode): ScalaListNode = {
     var link1 = l1
     var link2 = l2
-    val root = new ListNode(0)
+    val root = new ScalaListNode(0)
     var cursor = root
     var carry = 0
     while (link1 != null || link2 != null || carry != 0) {
@@ -32,7 +32,7 @@ class Leetcode_2_ListNode {
       val l2Val = if (link2 != null) link2.x else 0
       val sumVal = l1Val + l2Val + carry
       carry = sumVal / 10
-      val sumNode = new ListNode(sumVal % 10)
+      val sumNode = new ScalaListNode(sumVal % 10)
       cursor.next = sumNode
       cursor = sumNode
       if (link1 != null) link1 = link1.next

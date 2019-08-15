@@ -6,7 +6,7 @@ package cn.edu.jxnu.leetcode.scala
  * @time 2019-08-14
  * @version v2.0
  */
-class ListNode(var _x: Int = 0) {
-  var next: ListNode = null
+class ScalaListNode(var _x: Int = 0) {
+  var next: ScalaListNode = null
   var x: Int = _x
 }
