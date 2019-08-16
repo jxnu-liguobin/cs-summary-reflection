@@ -255,6 +255,10 @@ find ./ -name '*.scala' -exec ls -all {} \; //执行ls -all 显示所有详细�
 
 [sed详细介绍](Linux-sed.md)
 
+* vim命令
+
+[vim命令总结](Linux-vim.md)
+
 ### 网络连接命令
 
 #### 查看TCP连接状态
@@ -510,9 +514,11 @@ mongo --port 27001
 
 * 增加命令别名
 
+```
 1. vim ~/.bash_profile
 2. alias 命令别名="真正执行命令"
 3. source ~/.bash_profile
+```
 
 持续更新中。。。
 
