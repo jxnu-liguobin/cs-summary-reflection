@@ -1,4 +1,4 @@
-package cn.edu.jxnu.scala.utils
+package cn.edu.jxnu.utils.other
 
 import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter

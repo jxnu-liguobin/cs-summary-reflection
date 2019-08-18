@@ -1,10 +1,9 @@
-package cn.edu.jxnu.scala.utils
+package cn.edu.jxnu.utils.other
 
 import java.io.FileOutputStream
 import java.lang.reflect.{InvocationHandler, Method, Proxy}
 
 import sun.misc.ProxyGenerator
-
 
 /**
  * Scala JDK代理

@@ -1,11 +1,10 @@
-package cn.edu.jxnu.scala.utils
+package cn.edu.jxnu.utils.other
 
 import java.io._
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.io.Source
-import scala.language.reflectiveCalls
-import scala.util.control.Exception._
+import scala.util.control.Exception.ignoring
 
 /**
  * 文件处理工具

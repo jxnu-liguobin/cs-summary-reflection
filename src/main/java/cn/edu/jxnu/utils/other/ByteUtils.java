@@ -1,4 +1,4 @@
-package cn.edu.jxnu.scala.utils;
+package cn.edu.jxnu.utils.other;
 
 /**
  * 字节 2进制 16进制
