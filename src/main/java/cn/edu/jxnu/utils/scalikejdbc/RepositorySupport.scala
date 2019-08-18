@@ -19,15 +19,14 @@ import scala.concurrent.Future
  */
 trait RepositorySupport extends LazyLogging {
 
-
-  import RepositorySupport._
-
+  //使用贷出模式借贷资源，无需关闭资源
   def readOnly[A](execution: DBSession ⇒ A): Future[A] = concurrent.Future {
     using(getDB) { db: DB =>
       db.readOnly((session: DBSession) => execution(session))
     }
   }
 
+  //事务和Future支持
   def localTx[A](execution: DBSession ⇒ A): Future[A] = concurrent.Future {
     using(getDB) { db: DB =>
       db.localTx((session: DBSession) => execution(session))
@@ -43,13 +42,6 @@ trait RepositorySupport extends LazyLogging {
   def getAutoCommitSession = getDB.autoCommitSession()
 
   def getReadOnlySession = getDB.readOnlySession()
-}
-
-
-/**
- * 数据库连接池，启动服务时需要执行init方法初始化数据库
- */
-object RepositorySupport extends RepositorySupport {
 
   def getConnectionPool: ConnectionPool = {
     ConnectionPool.get()
@@ -58,9 +50,15 @@ object RepositorySupport extends RepositorySupport {
   def getDB: DB = {
     DB(ConnectionPool.get().borrow())
   }
+}
+
+
+/**
+ * 数据库连接池，启动服务时需要执行init方法初始化数据库
+ */
+object RepositorySupport extends RepositorySupport {
 
   private final lazy val defaultConfig = ConfigFactory.load("application.conf")
-
 
   def init(config: Config = defaultConfig): Unit = {
     logger.info("Init connection pool from config scalike")

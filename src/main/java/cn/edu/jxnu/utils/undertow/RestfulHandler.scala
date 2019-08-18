@@ -16,6 +16,8 @@ import scala.runtime.BoxedUnit
 /**
  * undertow restful处理器接口
  *
+ * crud处理器混入该特质
+ *
  * @author 梦境迷离
  * @time 2019-08-18
  * @version v1.0
@@ -28,6 +30,7 @@ trait RestfulHandler extends HttpHandler with Executable with LazyLogging {
 
   protected val exceptionHandler: ExceptionHandler
 
+  //通用restful请求处理
   override def handleRequest(exchange: HttpServerExchange): Unit = {
     exchange.dispatch(workers, () => {
       lazy val exceptionCaught = (t: Throwable) => {
@@ -40,6 +43,7 @@ trait RestfulHandler extends HttpHandler with Executable with LazyLogging {
           case AuthenticationMechanismOutcome.AUTHENTICATED =>
             executeSafely({
               val future = exchange.getRequestMethod match {
+                //调用子类的实现
                 case GET => get(exchange)
                 case PUT => put(exchange)
                 case POST => post(exchange)

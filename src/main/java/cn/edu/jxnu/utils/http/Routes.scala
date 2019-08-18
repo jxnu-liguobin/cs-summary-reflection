@@ -8,7 +8,7 @@ import com.google.inject.Injector
 import scala.collection.JavaConverters._
 
 /**
- * undertow 获取待注册的请求路由
+ * 用于 undertow 注册请求路由时批量获取所有实例化的handler实现
  *
  * @author 梦境迷离
  * @time 2019-08-18

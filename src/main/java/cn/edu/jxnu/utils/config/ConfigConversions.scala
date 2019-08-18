@@ -8,7 +8,7 @@ import scala.language.implicitConversions
 import scala.util.{Failure, Success, Try}
 
 /**
- * typesafe config 转化
+ * 将typesafe config组件获取的值转化为Option值
  *
  * @author 梦境迷离
  * @time 2019-08-18
@@ -34,17 +34,18 @@ object ConfigConversions {
 
     implicit def getIntSeqOpt(path: String): Option[Seq[Int]] = getOpt(config.getIntList(path).asScala.map(_.intValue()))
 
-    implicit def getDurationOpt(path: String): Option[Duration] = getOpt(config.getDuration(path)).map(d ⇒ d.toNanos.nanos)
+    implicit def getDurationOpt(path: String): Option[Duration] = getOpt(config.getDuration(path)).map(d => d.toNanos.nanos)
 
     implicit def getLongSeqOpt(path: String): Option[Seq[Long]] = getOpt(config.getLongList(path).asScala.map(_.longValue()))
 
     implicit def getDoubleSeqOpt(path: String): Option[Seq[Double]] = getOpt(config.getDoubleList(path).asScala.map(_.doubleValue()))
 
-    private[this] def getOpt[T](f: ⇒ T): Option[T] = {
+    private[this] def getOpt[T](f: => T): Option[T] = {
       Try(f) match {
-        case Success(value) ⇒ Some(value)
-        case Failure(_) ⇒ None
+        case Success(value) => Some(value)
+        case Failure(_) => None
       }
     }
   }
+
 }
