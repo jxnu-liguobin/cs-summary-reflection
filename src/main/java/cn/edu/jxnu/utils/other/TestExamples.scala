@@ -1,10 +1,11 @@
 package cn.edu.jxnu.utils.other
 
 import play.api.mvc.{Action, Results}
+import play.api.routing.sird._
 import play.api.test.WsTestClient
 import play.core.server.Server
-
 import scala.concurrent.Await
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 
 /**
@@ -16,7 +17,7 @@ object TestExamples {
   //测试 ws 和 json编码
   def testWSClient: Unit = {
     Server.withRouter() {
-      case GET(p"/test") =>
+      case GET(p"/test ") =>
         Action(Results.Ok("""{"foo": "👍"}""").as("application/json"))
     } { implicit port =>
       WsTestClient.withClient { client =>
