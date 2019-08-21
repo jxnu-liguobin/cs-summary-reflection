@@ -242,6 +242,21 @@ Docker利用容器来运行应用，容器是从镜像创建的运行实例
 
 ### K8s命令
 
+* 端口映射
+```
+映射本地端口到远程k8s容器的pod上的端口，以k8s-ads-tracking的server-1为例
+1.查询所有运行的pods并以k8s-ads-tracking开头的
+kubectl -n k8s-ads-tracking get pods --kubeconfig=/Users/name/project-conf/k8s-config
+k8s-config是k8s的验证配置文件，有秘钥
+2.进入运行的pod 选择server-1
+kubectl -n k8s-ads-tracking exec -ti k8s-ads-tracking-server-1-85f4ff5fcb-9b9bs bash --kubeconfig=/Users/name/project-conf/k8s-config
+3.查看网络连接
+netstat -antp | grep 1
+4.映射端口
+kubectl -n k8s-ads-tracking port-forward k8s-ads-tracking-server-1-85f4ff5fcb-9b9bs 19000:19000 --kubeconfig=/Users/name/project-conf/k8s-config
+5.完成将本地19000端口映射到k8s环境的`k8s-ads-tracking-server-1-85f4ff5fcb-9b9bs`实例上的19000端口上
+```
+
 待补充。。。
 
 
