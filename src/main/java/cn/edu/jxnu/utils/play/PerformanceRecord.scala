@@ -13,7 +13,7 @@ import scala.concurrent.duration._
  * @since 2019-08-24
  * @version v1.0
  */
-object PerformanceRecordUtil extends LazyLogging {
+trait PerformanceRecord extends LazyLogging {
   private val durationLimit = 100.millisecond.toMillis
 
   implicit class FutureWrapper[T](f: Future[T]) {
@@ -29,7 +29,7 @@ object PerformanceRecordUtil extends LazyLogging {
      */
     def elapsed(invokeTag: String): Future[T] = {
       val begin = System.currentTimeMillis()
-      f.map { result ⇒
+      f.map { result =>
         val duration = System.currentTimeMillis() - begin
         if (duration > durationLimit) logger.warn(s"slow invoked: [${invokeTag}] elapsed [${System.currentTimeMillis() - begin}].ms")
         result
