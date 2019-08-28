@@ -204,6 +204,10 @@ PS：注意255结尾的IP是Broadcast address，不要误以为这个是IP。
 
 ```ssh userName@ip```
 
+* Linux切换用户
+
+```sudo su -l root``` //已登录用户切换到root
+
 * 登录并执行命令
 
 shell：```ssh userName@ip "ls" ``` //注意shell脚本中双引号有时候很必要
@@ -440,6 +444,10 @@ defaults write com.apple.finder AppleShowAllFiles -bool true;
 KillAll Finder
 ```
 
+* Mac查看当前目录下面所有文件夹所占的空间 
+
+```du -h -d 1``` //1表示当前层级（一级目录）
+
 * 后台进程
 
 在后台启动 ```sh test.sh &``` //前面加nohup 不挂断地运行命令
@@ -519,6 +527,15 @@ mongo --port 27001
 2. alias 命令别名="真正执行命令"
 3. source ~/.bash_profile
 ```
+
+* 解决ssh无法链接localhost
+
+```
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa  
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+```
+
+
 
 持续更新中。。。
 
