@@ -1,6 +1,11 @@
 package cn.edu.jxnu.utils.other
 
+import java.time.LocalDateTime
+
 import cn.edu.jxnu.utils.other.DateUtils._
+import play.api.libs.json.{JsNull, JsObject, JsValue, Json}
+
+import scala.collection.mutable
 
 /**
  * 自定义隐式转化
@@ -11,7 +16,22 @@ import cn.edu.jxnu.utils.other.DateUtils._
  */
 object CustomConversions {
 
-  import java.time.LocalDateTime
+  /**
+   * {{{
+   *   Json.obj().removeNull
+   * }}}
+   *
+   * @param jsValue
+   */
+  implicit class filterJsonWrapper(jsValue: JsObject) {
+    //去除json中的空值，并保证顺序
+    def removeNull = {
+      val fields = jsValue.fields.filterNot(_._2 == JsNull)
+      val maps = new mutable.LinkedHashMap[String, JsValue]()
+      fields.map(field => maps.+=(field._1 -> field._2))
+      Json.obj().copy(maps)
+    }
+  }
 
   implicit class LocalDateTimeOpt2StringOPt(localDateTime: Option[LocalDateTime]) {
     def toStrOpt = localDateTimeToString(localDateTime)
