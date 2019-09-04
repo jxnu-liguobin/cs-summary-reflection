@@ -14,6 +14,7 @@ object StringUtils {
    * @param queryParams ?后面的查询参数
    * @return
    */
+  @deprecated
   def query(queryParams: String): mutable.HashMap[String, String] = {
     val map = mutable.HashMap[String, String]() //可变 Map
     if (queryParams.isEmpty || !queryParams.contains("=")) map
