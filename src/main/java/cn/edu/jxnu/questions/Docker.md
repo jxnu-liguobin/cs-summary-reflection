@@ -257,6 +257,39 @@ kubectl -n k8s-ads-tracking port-forward k8s-ads-tracking-server-1-85f4ff5fcb-9b
 5.完成将本地19000端口映射到k8s环境的`k8s-ads-tracking-server-1-85f4ff5fcb-9b9bs`实例上的19000端口上
 ```
 
+* 获取Pod的运行状态
+
+```kubectl get pods``` //以nginx为例，下同
+
+* 获取Pod中所有容器的运行状态
+
+```kubectl  get pods nginx -o json```
+
+* 获得Pod的更多详细信息
+
+```kubectl describe pods nginx```
+
+* 根据Pod的名称删除指定的Pod
+
+```kubectl delete pods/nginx```
+
+* 根据yaml配置文件删除Pod
+
+```kubectl delete -f pod-nginx.yaml```
+
+* 进入到容器内部
+
+```kubectl exec -it nginx bash```
+
+* 如果Pod中有多个容器，可以使用-c参数指定具体的容器
+
+```kubectl exec -it nginx bash -c nginx```
+
+* 观察容器的输出日志
+
+```kubectl logs nginx```
+
+
 待补充。。。
 
 
