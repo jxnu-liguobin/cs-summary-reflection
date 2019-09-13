@@ -10,7 +10,21 @@ PostgreSQL常用命令
 
 * 初始化数据库
   
-``` postgresql-setup initdb```
+``` initdb /usr/local/var/postgres ``` //Mac上使用brew安装，/usr/local/var/postgres是安装目录，下同
+
+* 启动数据库
+
+``` pg_ctl -D /usr/local/var/postgres -l logfile start ```
+
+* 查看数据库状态
+
+``` pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log status ```
+
+* 停止数据库
+
+``` pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop -s -m fast ```
+
+``` ps -ef |grep postgres 或 ps auxwww | grep postgres ``` //查看进程 
 
 * 设置为开机自启动
   
