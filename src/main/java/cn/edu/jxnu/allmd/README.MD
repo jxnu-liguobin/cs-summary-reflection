@@ -35,14 +35,26 @@
 | [Redis 相关](../questions/Redis.md)                |                                                                            |
 | [Scala 面试题](../questions/ScalaQuestions.md)     |                                                                            |
 
+### 引用贡献
+
+| Reference                                                                                                 | contribution                                              |
+| :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- |
+| [guodongxiaren](https://github.com/guodongxiaren/README)                                                  | [梦境迷离](https://github.com/jxnu-liguobin)              |
+| [fhopf](https://github.com/fhopf/akka-crawler-example)                                                    | [ThomasPerkins1123](https://github.com/ThomasPerkins1123) |
+| [fengzhizi715](https://github.com/fengzhizi715/ProxyPool)                                                 |                                                           |
+| [joymufeng](https://github.com/joymufeng)                                                                 |                                                           |
+| [GoOffer](https://github.com/liuenci/GoOffer)                                                             |                                                           |
+| [infoq](https://www.infoq.cn)                                                                             |                                                           |
+| [ifeve](http://ifeve.com/)                                                                                |                                                           |
+| [Locutus of Blog](http://blog.locut.us/2008/01/12/a-decent-stand-alone-java-bloom-filter-implementation/) |                                                           |
+| [作业部落](https://www.zybuluo.com)                                                                       |                                                           |
+| [travis](https://travis-ci.org/)                                                                          |                                                           |
+| [shields](https://shields.io/)                                                                            |                                                           |
+| [playframework](https://www.playframework.com)                                                            |                                                           |
+| [gitbook](https://www.gitbook.com)                                                                        |                                                           |
+
 ### 说明
 
 > 侵删，仅供参考
 
 > 环境 Java 8、Scala 2.12.x
-
-> 2018.12.1 开始，本人主要维护本仓库 Scala 部分
-
-> 欢迎 Scala/Java 选手参与维护
-
-> 博客 https://www.jianshu.com/u/d1873cb152cf
