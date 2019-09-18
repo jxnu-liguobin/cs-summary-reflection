@@ -1,7 +1,5 @@
 # 梦境迷离
 
-* [概述](README.md)
-
 ## 第一章 语言基础
 * 1.1 Java
     * [1.1.1 计算机网络](src/main/java/cn/edu/jxnu/questions/Network.md)
