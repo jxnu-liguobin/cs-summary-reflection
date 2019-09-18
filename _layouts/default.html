@@ -11,15 +11,13 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 </head>
 <body>
-<a id="skip-to-content" href="#content">Skip to the content.</a>
-
 <header class="page-header" role="banner">
     <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
     <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
@@ -34,8 +32,9 @@
     {{ content }}
 
     <footer class="site-footer">
+        <h2 id="留言">留言</h2>>
         <dev>
-            <div id="SOHUCS" sid="请将此处替换为配置SourceID的语句"></div>
+            <div id="SOHUCS" sid="使用同一个的留言"></div>
             <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
             <script type="text/javascript">
                 window.changyan.api.config({
@@ -44,8 +43,7 @@
                 });
             </script>
         </dev>
-        <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span>次 </span>
-        <span id="busuanzi_container_site_uv">本站访客数 <span id="busuanzi_value_site_u"> </span>人次 </span>
+        <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
         {% if site.github.is_project_page %}
         <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}
