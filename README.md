@@ -9,7 +9,7 @@
 
 ## Details
 
-[博客目录](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/SUMMARY)
+[博客目录](http://dreamylost.cn/cs-summary-reflection/blob/master/SUMMARY)
 
 ## Where
 
