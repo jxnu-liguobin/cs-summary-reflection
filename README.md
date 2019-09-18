@@ -1,5 +1,3 @@
-# 本仓库说明
-
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
@@ -13,7 +11,9 @@
 
 ## Where
 
-[Git pages](http://dreamylost.cn/) | [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki) | [Git book](https://dreamylost.gitbook.io) | [CSDN 博客](https://blog.csdn.net/qq_34446485) | [简书博客](https://www.nowcoder.com/759736)
+[Git pages](http://dreamylost.cn/) | [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki) 
+
+[Git book](https://dreamylost.gitbook.io) | [简书博客](https://www.jianshu.com/u/d1873cb152cf)
 
 ## what
 
