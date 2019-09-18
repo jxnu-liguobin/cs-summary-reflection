@@ -9,7 +9,7 @@
 
 ## Where
 
-[内容详情](/src/main/java/cn/edu/jxnu/allmd/README.MD) | [Gitbook内容](https://dreamylost.gitbook.io) | [CSDN 博客](https://blog.csdn.net/qq_34446485) | [简书博客](https://www.nowcoder.com/759736)
+[Git pages](http://dreamylost.cn/) | [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki) | [Git book](https://dreamylost.gitbook.io) | [CSDN 博客](https://blog.csdn.net/qq_34446485) | [简书博客](https://www.nowcoder.com/759736)
 
 ## what
 
