@@ -1,1 +1,5 @@
 theme: jekyll-theme-cayman
+changyan:
+  enable: true
+  appid: cytoujWAK
+  appkey: prod_a5eeb71014cde58c3021c5162316c2b7
