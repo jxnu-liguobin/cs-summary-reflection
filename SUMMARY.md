@@ -13,7 +13,6 @@
     * [1.2.3 Scala Akka基本使用](src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
     * [1.2.4 Scala Future解读](src/main/java/cn/edu/jxnu/scala/Future.md)
     
-    
 ## 第二章 编程补充
 * 2.1 编程附加
     * [2.1.1 反射、ASM、CGLib](src/main/java/cn/edu/jxnu/questions/ASM.md)
@@ -53,3 +52,16 @@
 * 3.2 其他
     * [3.2.1 其他Scala资源](src/main/java/cn/edu/jxnu/scala/Other.md)
     * [3.2.2 Scala小红书习题实现](src/main/java/cn/edu/jxnu/scala/fb/README.md)
+
+### 留言
+ 
+ <dev>
+ <div id="SOHUCS" sid="请将此处替换为配置SourceID的语句"></div>
+ <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+ <script type="text/javascript">
+ window.changyan.api.config({
+ appid: 'cytoujWAK',
+ conf: 'prod_a5eeb71014cde58c3021c5162316c2b7'
+ });
+ </script>
+ </dev>
