@@ -1,18 +1,5 @@
-- [概述](#概述)
-- [Java Timer](#Java-Timer)
-    - [基本原理](#基本原理)
-    - [Timer主要特性总结](#Timer主要特性总结)
-    - [代码示例1](#代码示例1)
-    - [结果1](#结果1)
-- [Java ScheduledExecutorService](#Java-ScheduledExecutorService)
-    - [ScheduledThreadPoolExecutor的创建](#ScheduledThreadPoolExecutor的创建)
-    - [ScheduledThreadPoolExecutor的启动](#ScheduledThreadPoolExecutor的启动)
-    - [ScheduledThreadPoolExecutor的优点](#ScheduledThreadPoolExecutor的优点)
-    - [代码示例2](#代码示例2)
-    - [结果2](#结果2)
-- [Akka Actor scheduler](#Akka-Actor-scheduler)
-    - [代码示例3](#代码示例3)
-    - [结果3](#结果3)
+* 目录
+{:toc}
 
 # 概述
 

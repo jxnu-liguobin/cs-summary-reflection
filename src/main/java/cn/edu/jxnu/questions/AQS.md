@@ -1,10 +1,11 @@
-## AbstractQueuedSynchronizer[AQS]
+* 目录
+{:toc}
 
-
+### 概述
     
-    ReentrantLock
-    CountDownLatch
-    ReentrantReadWriteLock
+- ReentrantLock
+- CountDownLatch
+- ReentrantReadWriteLock
 
 Java中的FutureTask作为可异步执行任务并可获取执行结果而被大家所熟知。通常可以使用future.get()来获取线程的执行结果，在线程执行结束之前，get方法会一直阻塞状态，直到call()返回，其优点是使用线程异步执行任务的情况下还可以获取到线程的执行结果，但是FutureTask的以上功能却是依靠通过一个叫AbstractQueuedSynchronizer的类来实现，至少在JDK 1.5、JDK1.6版本是这样的（从1.7开始FutureTask已经被其作者Doug Lea修改为不再依赖AbstractQueuedSynchronizer实现了，这是JDK1.7的变化之一）。
 但是AbstractQueuedSynchronizer在JDK1.8中还有众多子类，原文是JDK1.8，下面是JDK9，部分有差异，区别不大可以忽略。

@@ -1,24 +1,5 @@
-### Scala基础
-
-[声明与废话在前](#声明与废话在前)
-
-[前情提要](#前情提要)
-
-[class 小目录](#class-小目录)
-
-[Scala 基础语法](#Scala-基础语法)
-
-[Scala 面向对象](#Scala-面向对象)
-
-[Scala 循环结构](#Scala-循环结构)
-
-[Scala IO操作](#Scala-IO操作)
-
-[Scala 函数式与控制抽象](#Scala-函数式与控制抽象)
-
-[Scala 启动原理](#Scala-启动原理)
-
-[Scala 常用算子](#Scala-常用算子)
+* 目录
+{:toc}
 
 #### 声明与废话在前 
 
