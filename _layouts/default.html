@@ -17,6 +17,8 @@
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <!--反回顶部-->
+    <div id="back-top"><a href="#top" title="回到顶部"></a></div>
 </head>
 <body>
 
@@ -28,8 +30,6 @@
     <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
     {% endif %}
     <a href="http://dreamylost.cn" class="btn">Return Home</a>
-    <!--反回顶部-->
-    <div id="back-top"><a href="http://dreamylost.cn/{{ content.url }}}#top" title="回到顶部"></a></div>
     <style>
         #back-top {
             position: fixed;
