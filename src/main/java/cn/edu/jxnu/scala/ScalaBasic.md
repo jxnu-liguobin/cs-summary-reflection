@@ -1,28 +1,26 @@
-### Scala基础 ###
+### Scala基础
 
-#### 内容 ####
+[声明与废话在前](#声明与废话在前)
 
-[声明与废话在前](#unit1)
+[前情提要](#前情提要)
 
-[前情提要](#unit2)
+[class 小目录](#class-小目录)
 
-[class 小目录](#unit3)
+[Scala 基础语法](#Scala-基础语法)
 
-[Scala 基础语法](#unit4)
+[Scala 面向对象](#Scala-面向对象)
 
-[Scala 面向对象](#unit5)
+[Scala 循环结构](#Scala-循环结构)
 
-[Scala 循环结构](#unit6)
+[Scala IO操作](#Scala-IO操作)
 
-[Scala IO操作](#unit7)
+[Scala 函数式与控制抽象](#Scala-函数式与控制抽象)
 
-[Scala 函数式与控制抽象](#unit8)
+[Scala 启动原理](#Scala-启动原理)
 
-[Scala 启动原理](#unit9)
+[Scala 常用算子](#Scala-常用算子)
 
-[Scala 常用算子](#unit10)
-
-#### 声明与废话在前 <div id="unit1"></div> ####  
+#### 声明与废话在前 
 
 因为我不是零基础，所以不再列举简单的。只记录稍微重点的。希望能帮助到你们，也当是自己的复习，学习的记录。目前主要做自动化、测试平台与工具开发（Java）
 本人未来的目标不出意外也是做类似的框架或工具开发。学习scala的初衷并不是为了大数据，而是学习函数式的思想，这不受影响。
@@ -36,7 +34,7 @@ PS:本人已转Scala服务端后台开发
 
 《Scala编程第三版》、《响应式架构 消息模式Actor实现与Scala、Akka应用集成》，《快学Scala》入门 （不是很友好）
  
-#### 前情提要 <div id="unit2"></div> ####
+#### 前情提要 
 
     /**
      * scala特点
@@ -210,7 +208,7 @@ Scala类型系统继承结构图
      *  不可变数据结构、无副作用
      */
      
-#### class 小目录 <div id="unit3"></div> ####
+#### class 小目录 
      
     /**
      * Scala的main方法执行 @see SingletonObject.scala、Test2.scala
@@ -235,7 +233,7 @@ Scala基本语法图解
 
 PS:每个markdown的Scala代码块原本是一个class，但是这样文件太多不方便查看，现已经被直接放到本md中。
 
-#### Scala 基础语法 <div id="unit4"></div> ####
+#### Scala 基础语法 
 
 ```scala
 object Test1 {
@@ -467,7 +465,7 @@ object PrintMultiTable extends App {
 可变集合继承结构
 ![可变集合继承结构](mutable.png)
 
-#### Scala 面向对象 <div id="unit5"></div> ####
+#### Scala 面向对象 
 
 ```scala
 package cn.edu.jxnu.scala
@@ -650,7 +648,7 @@ object TestInnerPrivateClass extends App {
     //PS:内部==内层==被嵌套类，外部==外层==嵌套类
 }
 ```
-#### Scala 循环结构 <div id="unit6"></div> ####
+#### Scala 循环结构 
 
 ```scala
 package cn.edu.jxnu.scala
@@ -768,7 +766,7 @@ object LoopBasic {
     //因为while没有返回值，并且使用了var变量，实际上函数式语言并不推荐。可以使用尾递归替代
 }
 ``` 
-#### Scala IO操作 <div id="unit7"></div> ####
+#### Scala IO操作 
 
 ```scala
 package cn.edu.jxnu.scala
@@ -849,7 +847,7 @@ object Test11 extends App {
     println("Thanks,you just typed:" + line)
 }
 ```
-#### Scala 函数式与抽象控制 <div id="unit8"></div>  ####
+#### Scala 函数式与抽象控制 
 
 ```scala
 package cn.edu.jxnu.scala
@@ -1142,7 +1140,7 @@ object Function4 extends App {
 
 }
 ```
-#### Scala 启动原理 <div id="unit9"></div> ####
+#### Scala 启动原理
 
 ```scala
 package cn.edu.jxnu.scala
@@ -1175,7 +1173,7 @@ object SingletonObject {
     }
 }
 ```
-#### Scala 常用算子 <div id="unit10"></div> ####
+#### Scala 常用算子 
 
 ```scala
 object ScalaRDD extends App {
