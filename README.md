@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
 ![GitHub](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection.svg)
 
-[dreamylost's博客首页](http://dreamylost.cn) 
+[dreamylost's博客首页](http://dreamylost.cn) | [AboutMe](src/main/java/cn/edu/jxnu/About.md) 
 
 ## 语言基础
 * Java
