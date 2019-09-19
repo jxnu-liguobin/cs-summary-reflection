@@ -24,8 +24,8 @@
 * 命令脚本
     * [Git、Mvn、Arc常见操作](src/main/java/cn/edu/jxnu/questions/Git.md)
     * [Linux常用命令](src/main/java/cn/edu/jxnu/questions/Linux.md)
-    * [ADB常用命令](src/main/java/cn/edu/jxnu/autotest/ADB.md)
-    * [Postman常用命令](src/main/java/cn/edu/jxnu/autotest/Postman.md)
+    * [ADB常用命令](src/main/java/cn/edu/jxnu/questions/ADB.md)
+    * [Postman常用命令](src/main/java/cn/edu/jxnu/questions/Postman.md)
     * [Docker常用命令](src/main/java/cn/edu/jxnu/questions/Docker.md)
     * [PostgreSQL常用命令](src/main/java/cn/edu/jxnu/questions/PgSQL.md)
 * 分析总结&源码
@@ -52,5 +52,5 @@
     * [Redis相关](src/main/java/cn/edu/jxnu/questions/Redis.md)
     * [Scala面试题](src/main/java/cn/edu/jxnu/questions/ScalaQuestions.md)
 * 其他
-    * [其他Scala资源](src/main/java/cn/edu/jxnu/scala/Other.md)
+    * [其他Scala资源](src/main/java/cn/edu/jxnu/questions/Other.md)
     * [Scala小红书习题实现](src/main/java/cn/edu/jxnu/scala/fb/README.md)
