@@ -833,7 +833,9 @@ MAC地址一共有48bit，分为两部分，前24bit是厂商代码，后24bit�
 
 拥塞避免
 
-快速重传 | [快速恢复](http://www.cnpaf.net/Class/RFC/200408/1001.html)
+快速重传
+ 
+[快速恢复](http://www.cnpaf.net/Class/RFC/200408/1001.html)
 
 2、流量控制 没找到RFC版本
 
