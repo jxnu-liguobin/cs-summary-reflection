@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?dd381827cc51b62781961a344a8c16ea";
             var s = document.getElementsByTagName("script")[0];
@@ -22,12 +22,39 @@
 
 <header class="page-header" role="banner">
     <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline
+        }}</h2>
     {% if site.github.is_project_page %}
     <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
     {% endif %}
     <a href="http://dreamylost.cn" class="btn">Return Home</a>
+    <!--反回顶部-->
+    <div id="back-top"><a href="http://liberize.me/tech/jekyll-add-back-to-top-button.html#top" title="回到顶部"></a></div>
+    <style>
+        #back-top {
+            position: fixed;
+            bottom: 30px;
+            margin-left: 1040px;
+        }
 
+        #back-top a {
+            width: 54px;
+            height: 54px;
+            display: block;
+            background: #ddd url(../img/bgs/bg_up_arrow.png) no-repeat center center;
+            background-color: #aaa;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            border-radius: 7px;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+
+        #back-top a:hover {
+            background-color: #777;
+        }
+    </style>
 </header>
 
 <main id="content" class="main-content" role="main">
@@ -36,17 +63,34 @@
         <h2 id="评论">评论</h2>
         <dev>
             <div id="SOHUCS" sid="{{ id }}"></div>
-            <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+            <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
             <script type="text/javascript">
                 window.changyan.api.config({
                     appid: 'cytoujWAK',
                     conf: 'prod_a5eeb71014cde58c3021c5162316c2b7'
                 });
+                $("#back-top").hide();
+                $(document).ready(function () {
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 100) {
+                            $('#back-top').fadeIn();
+                        } else {
+                            $('#back-top').fadeOut();
+                        }
+                    });
+                    $('#back-top a').click(function () {
+                        $('body,html').animate({
+                            scrollTop: 0
+                        }, 800);
+                        return false;
+                    });
+                });
             </script>
         </dev>
         <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
         {% if site.github.is_project_page %}
-        <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a
+                href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}
         <span class="site-footer-credits">本仓库的博客由<a href="https://pages.github.com">GitHub Pages 强力驱动</a>.</span>
     </footer>
