@@ -847,7 +847,7 @@ object Test11 extends App {
     println("Thanks,you just typed:" + line)
 }
 ```
-#### Scala 函数式与抽象控制 
+#### Scala 函数式与控制抽象
 
 ```scala
 package cn.edu.jxnu.scala
