@@ -8,11 +8,11 @@
     * [Java线程基础](src/main/java/cn/edu/jxnu/questions/Threads.md)
     * [八大排序算法](src/main/java/cn/edu/jxnu/questions/Sort.md)
 * Scala
-    * [Scala语法基础](src/main/java/cn/edu/jxnu/scala/ScalaBasic.md)
+    * [Scala语法基础](src/main/java/cn/edu/jxnu/questions/ScalaBasic.md)
     * [Scala常用工具类](src/main/java/cn/edu/jxnu/utils/README.md)
-    * [Scala Akka基本使用](src/main/java/cn/edu/jxnu/scala/ScalaAkkaBasic.md)
-    * [Scala Future解读](src/main/java/cn/edu/jxnu/scala/Future.md)
-    * [Java、Scala、Akka定时任务处理](src/main/java/cn/edu/jxnu/scala/Schedule.md)
+    * [Scala Akka基本使用](src/main/java/cn/edu/jxnu/questions/ScalaAkkaBasic.md)
+    * [Scala Future解读](src/main/java/cn/edu/jxnu/questions/Future.md)
+    * [Java、Scala、Akka定时任务处理](src/main/java/cn/edu/jxnu/questions/Schedule.md)
 
     
 ## 编程补充

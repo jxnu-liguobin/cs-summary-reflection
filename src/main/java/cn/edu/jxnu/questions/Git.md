@@ -1,5 +1,8 @@
 ## 常见的 git mvn arc 操作
 
+* 目录
+{:toc}
+
 ### 仓库从无到有
 
 本地生成 ssh 秘钥，如果不嫌麻烦当然可以不设置，使用 HTTPS 即可
@@ -270,11 +273,11 @@ export PS1='\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ '
 如果你不指明，git 默认使用最近的储藏并尝试应用它，下面命令也是这种约定。
 
 apply 命令将对文件的变更重新应用，但是被暂存的文件没有重新被暂存。想那样的话，你必须在运行  git stash apply  命令时带上一个  --index  的选项来告诉命令重新应用被暂存的变更。
-如果你是这么做的，你应该已经回到你原来的位置取消储藏 git stash show -p stash@{0} | git apply -R
+如果你是这么做的，你应该已经回到你原来的位置取消储藏 `git stash show -p stash@{0} | git apply -R`
 
-如果你沒有指定具体的某个储藏，git 会选择最近的储藏 git stash show -p | git apply -R
+如果你沒有指定具体的某个储藏，git 会选择最近的储藏 `git stash show -p | git apply -R`
 
-你可能会想要新建一个別名，在你的 git 里增加一个  stash-unapply  命令，这样更有效率。例如 git config --global alias.stash-unapply '!git stash show -p | git apply -R'
+你可能会想要新建一个別名，在你的 git 里增加一个  stash-unapply  命令，这样更有效率。例如 `git config --global alias.stash-unapply '!git stash show -p | git apply -R'`
 
 从储藏中创建分支可以使用 git stash branch name，如果你应用完 stash 后想马上删除，可以直接使用 git stash pop，而不是 git stash apply
 
