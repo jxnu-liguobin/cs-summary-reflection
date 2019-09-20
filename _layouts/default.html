@@ -51,6 +51,10 @@
         #back-top a:hover {
             background-color: #777;
         }
+        /* 畅言评论广告隐藏 */
+        #feedAv{ margin-top: -250px!important;transform: scale(0);}
+        /* 畅言右下角广告隐藏 */
+        #MZAD_POP_PLACEHOLDER{ margin-top: -250px!important;transform: scale(0);}
     </style>
 </header>
 
@@ -59,12 +63,9 @@
     <!--反回顶部-->
     <div id="back-top"><a href="#top" title="回到顶部"></a></div>
     <footer class="site-footer">
-        <script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
-        <script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cys0NKu99"></script>
-        <style>#feedAv{ margin-top: -250px !important;transform: scale(0) !important;}</style>
         <h2 id="评论">评论</h2>
         <dev>
-            <div id="SOHUCS" sid="{{ page.title }}"></div>
+            <div id="SOHUCS" sid="{{ title }}"></div>
             <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
             <script type="text/javascript">
                 window.changyan.api.config({
