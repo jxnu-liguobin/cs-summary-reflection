@@ -3,13 +3,6 @@ layout: page
 title: 关于
 permalink: /about
 ---
-## 开始
-
-1. Fork [wu-kan/wu-kan.github.io](https://github.com/wu-kan/wu-kan.github.io/fork)到你的仓库，并在设置里开启gh-pages
-2. 修改`_config.yml`为你自己的信息
-3. 删除`_post/`下的博文和`public/image/`文件夹下的图片，开始写你自己的文章
-4. 详细配置可以参见[这篇博文](https://wu-kan.github.io/posts/博客搭建/基于Jekyll搭建个人博客)
-5. 欢迎<a class="github-button" aria-label="Star wu-kan/wu-kan.github.io on GitHub" href="https://github.com/wu-kan/wu-kan.github.io" data-icon="octicon-star" data-show-count="true">Star</a><a class="github-button" aria-label="Fork wu-kan/wu-kan.github.io on GitHub" href="https://github.com/wu-kan/wu-kan.github.io/fork" data-icon="octicon-repo-forked" data-show-count="true">Fork</a><a class="github-button" aria-label="Issue wu-kan/wu-kan.github.io on GitHub" href="https://github.com/wu-kan/wu-kan.github.io/issues" data-icon="octicon-issue-opened" data-show-count="true">Issue</a>
 
 ## 声明
 

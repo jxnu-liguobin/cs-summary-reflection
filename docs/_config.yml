@@ -156,7 +156,7 @@ PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己
 sidebar:
   avatar: # 侧边栏显示的头像
     enable: true
-    img: https://avatars0.githubusercontent.com/u/29496873?s=40&v=4 # 头像的地址
+    img: https://avatars0.githubusercontent.com/u/29496873?s=400&u=b6bccb038f0d364b8814dce16be60b5fe31bd8cf&v=4 # 头像的地址
     info: <br/>一名Scala初级开发工程师 # 头像背后的信息，引用没有正版了， 垃圾网易云！
   social:
   - title: rss
@@ -211,7 +211,7 @@ sidebar:
   run_time:
     enable: true
     src: /public/js/run_time.js
-    start_time: '09/20/2019 11:03:56' # 这是我第一篇CSDN博客的时间
+    start_time: '09/20/2019 12:00:00' # 这是我第一篇CSDN博客的时间
     alert: <i class="fas fa-cog fa-spin fa-fw"></i>
     day: 天
     hour: 时

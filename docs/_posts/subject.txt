@@ -1,0 +1,135 @@
+网易一面
+	1、TCP三次握手和四次挥手过程
+		位码即tcp标志位,有6种表示:
+		SYN(synchronous建立连接)
+		ACK(acknowledgement 表示响应、确认)
+		PSH(push表示有DATA数据传输)
+		FIN(finish关闭连接)
+		RST(reset表示连接重置)
+		URG(urgent紧急指针字段值有效)
+	2、三次握手？
+		第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；
+		第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；
+		第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。
+		握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。
+		确认号：其数值等于发送方的发送序号+1(即接收方期望接收的下一个序列号)。
+	3、四次挥手：
+			与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次挥手”。
+			第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不会再给你发数据了
+			(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可以接受数据。
+			第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。
+			第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。
+			第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。
+	4、为什么是三次握手？
+		采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，
+		于是经过一段时间后，主机A又重新向主机B发送连接请求，且建立成功，顺序完成数据传输。考虑这样一种特殊情况，主机A第一次发送的连接请求并没有丢失，而是因为网络节点导致延迟达到主机B，
+		主机B以为是主机A又发起的新连接，于是主机B同意连接，并向主机A发回确认，但是此时主机A根本不会理会，主机B就一直在等待主机A发送数据，导致主机B的资源浪费。
+		采用两次握手不行，原因就是上面说的失效的连接请求的特殊情况，因此采用三次握手刚刚好，两次可能出现失效，四次甚至更多次则没必要，反而复杂了。
+			为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？
+		为了保证发送的最后一个ACK报文段能够到达B
+		1、防止“已失效的连接请求报文段”出现在本连接中。在发送完最后一个ACK报文段后，再经过2MSL，就可以使本连接持续的时间内所产生的所有报文段，都从网络中消失。
+		2、这样就可以使下一个新的连接中不会出现这种就得连接请求报文段。
+	5、JDK动态代理，没有实现接口怎么办？【cglib代理】？
+		Spring1.2:
+			将事务代理工厂[TransactionProxyFactoryBean] 或 自动代理拦截器[BeanNameAutoProxyCreator]
+			的 proxyTargetClass 属性,设置为true,则使用CGLIB代理,此属性默认为false,使用JDK动态代理.
+	以下引用 Spring Framework reference 2.0.5:
+	Spring2.0:
+		Spring AOP部分使用JDK动态代理或者CGLIB来为目标对象创建代理。（建议尽量使用JDK的动态代理）
+		如果被代理的目标对象实现了至少一个接口，则会使用JDK动态代理。所有该目标类型实现的接口都将被代理。若该目标对象没有实现任何接口，则创建一个CGLIB代理。
+		如果你希望强制使用CGLIB代理，（例如：希望代理目标对象的所有方法，而不只是实现自接口的方法）那也可以。但是需要考虑以下问题:
+		无法通知（advise）Final 方法，因为他们不能被覆写。 
+		你需要将CGLIB 2二进制发行包放在classpath下面，与之相较JDK本身就提供了动态代理 
+		强制使用CGLIB代理需要将 |aop:config| 的 proxy-target-class 属性设为true:
+		|aop:config proxy-target-class="true"|
+		...
+		|/aop:config|
+		当需要使用CGLIB代理和@AspectJ自动代理支持，请按照如下的方式设置 |aop:aspectj-autoproxy| 的 proxy-target-class 属性：
+		|aop:aspectj-autoproxy proxy-target-class="true"/|
+		而实际使用的过程中才会发现细节问题的差别，The devil is in the detail.JDK动态代理：其代理对象必须是某个接口的实现，它是通过在运行期间创建一个接口的实现类来完成对目标对象的代理。
+		CGLIB代理：实现原理类似于JDK动态代理，只是它在运行期间生成的代理对象是针对目标类扩展的子类。CGLIB是高效的代码生成包，底层是依靠ASM（通用底层字节码操作和分析开发库）操作字节码实现的，性能比JDK强。
+		Spring是依靠什么来判断采用哪种代理策略来生成AOP代理呢？以下代码就是Spring的判断逻辑  
+		
+		    //org.springframework.aop.framework.DefaultAopProxyFactory   
+		    //参数AdvisedSupport 是Spring AOP配置相关类   
+		    public AopProxy createAopProxy(AdvisedSupport advisedSupport)   
+		            throws AopConfigException {   
+		        //在此判断使用JDK动态代理还是CGLIB代理   
+		        if (advisedSupport.isOptimize() || advisedSupport.isProxyTargetClass()   
+		                || hasNoUserSuppliedProxyInterfaces(advisedSupport)) {   
+		            if (!cglibAvailable) {   
+		                throw new AopConfigException(   
+		                        "Cannot proxy target class because CGLIB2 is not available. "  
+		                                + "Add CGLIB to the class path or specify proxy interfaces.");   
+		              }   
+		            return CglibProxyFactory.createCglibProxy(advisedSupport);   
+		          } else {   
+		            return new JdkDynamicAopProxy(advisedSupport);   
+		          }   
+		      }  
+		advisedSupport.isOptimize()与advisedSupport.isProxyTargetClass()默认返回都是false，所以在默认情况下目标对象有没有实现接口决定着Spring采取的策略，当然可以设置advisedSupport.isOptimize()
+		或者advisedSupport.isProxyTargetClass()返回为true，这样无论目标对象有没有实现接口Spring都会选择使用CGLIB代理。
+		所以在默认情况下，如果一个目标对象如果实现了接口Spring则会选择JDK动态代理策略动态的创建一个接口实现类（动态代理类）来代理目标对象，可以通俗的理解这个动态代理类是目标对象的另外一个版本，所以这两者之间在强制转换的时候会抛出java.lang.ClassCastException。
+		而所以在默认情况下，如果目标对象没有实现任何接口，Spring会选择CGLIB代理， 其生成的动态代理对象是目标类的子类。
+		上说的是默认情况下，也可以手动配置一些选项使Spring采用CGLIB代理。 
+		org.springframework.transaction.interceptor.TransactionProxyFactoryBean是org.springframework.aop.framework. ProxyConfig的子类，
+		所以可以参照ProxyConfig里的一些设置如下所示，将optimize和proxyTargetClass任意一个设置为true都可以强制Spring采用CGLIB代理。
+		如果当需要使用CGLIB代理和@AspectJ自动代理支持，请按照如下的方式设置 |aop:aspectj-autoproxy| 的 proxy-target-class 属性： 
+		|aop:aspectj-autoproxy proxy-target-class="true"/|
+	这样使用CGLIB代理也就不会出现前面提到的ClassCastException问题了，也可以在性能上有所提高，关键是对于代理对象是否继承接口可以统一使用。
+	6、NIO与BIO区别
+		Java中的IO方式主要分为3种：BIO（同步阻塞）、NIO（同步非阻塞）和AIO（异步非阻塞）。
+		BIO
+		同步阻塞模式。在JDK1.4以前，使用Java建立网络连接时，只能采用BIO方式，在服务器端启动一个ServerSocket，然后使用accept等待客户端请求，对于每一个请求，使用一个线程来进行处理用户请求。线程的大部分时间都在等待请求的到来和IO操作，利用率很低。
+		而且线程的开销比较大，数量有限，因此服务器同时能处理的连接数也很低。
+		NIO
+		BIO模式中，是“一个Socket一个线程”；而在NIO中则是使用单个或少量的线程来轮询Socket，当发现Socket上有请求时，才为请求分配线程。因此是“一个请求一个线程”。
+		具体实现就是把Socket通过Channel注册到Selector，使用一个线程在Selector中轮询，发现Channel有读写的事件，就可以分配给其他线程来处理（通常使用线程池）。
+		AIO
+		从JDK7开始支持AIO模式。通过AsynchronousServerSocketChannel中注册事件回调函数来处理业务逻辑。当IO操作完成以后，回调函数会被调用。如果传入AsynchronousChannelGroup，可以绑定线程池来处理事件。
+		关于JDK的实现，Windows平台基于IOCP实现AIO，Linux只有eppoll模拟实现了AIO。	
+	附：关于IO经常提到Reactor/ Proactor模式。
+	这两个模式中都有两个角色：事件多路分离器(Event Demultiplexer)和事件处理器(Event Handler)。分离器负责对监听IO事件，并通知处理器；处理器负责对IO内容进行处理，完成对应的业务。
+	二者的差异，以读操作为例（写操作类似）。
+	Reactor中实现读：
+	1.        注册读就绪事件和相应的事件处理器。
+	2.        事件分离器等待事件。
+	3.        事件到来，激活分离器，分离器调用对应的处理器。
+	4.        处理器完成IO读操作，处理读到的数据，注册新的事件，然后返还控制权。
+	Proactor中实现读：
+	1.        注册读完成事件和相应的事件处理器（包括缓冲区地址）。
+	2.        事件分离器等待操作完成事件的同时，操作系统利用并行的内核线程执行实际的读操作，并将结果数据存入用户自定义缓冲区，最后通知事件分离器读操作完成。
+	3.        事件分离器呼唤处理器。
+	4.        事件处理器处理用户自定义缓冲区中的数据，然后启动一个新的异步操作，并将控制权返回事件分离器。
+	由此可见，两者的主要区别：Reactor中，由用户线程（事件处理器所在线程）完成IO的读写操作；
+	而在Proactor中，是由操作系统完成IO读写操作后，再通知事件处理器，用户线程只完成对数据的业务逻辑处理部分。
+
+	7、答案自己找：	HashMap、CurrentHashMap、CountDownLatch、Cyclicbarrir、重量级锁、轻量级锁
+	JVM分区【各个分区的作用】、JVM垃圾收集器、什么时候出发FullGC、一些JVM的参数
+	8、Mysql常用引擎的区别【InnoDB和MyISAM区别】
+	MyISAM：每个Myisam在磁盘上存储成三个文件。文件名都和表名相同，扩展名分别为.frm（存 储表定义）、.MYD（存储数据）、.MYI（存储索引）。
+	数据文件和索引文件可以放置在不同目录，平均分布io，获得更快的速度。对存储大小没有限 制，
+	MySQL数据库的最大有效表尺寸通常是由操作系统对文件大小的限制决定的,
+	InnoDB存储引擎：具有提交、回滚、奔溃恢复能力的事务安全。与Myisam相比，InnoDB的写效率差一些并且会占用更多的磁盘空间以保留数据和索引。
+如何选择合适的引擎，下面是常用存储引擎适用的环境：Myisam：它是在Web、数据仓储和其他应用环境下最常使用的存储引擎;InnoDB：用于事务处理应用程序，具有更多特性，包括ACID事务特性。
+	9、组合索引什么时候回失效：单独引用复合索引里非第一位置的索引列. 
+	
+	10、答案自己找：	数据库事务、SpringMVC的请求过程、Dubbo调用服务过程、Dubbo如果有个服务挂掉了怎么办
+			@Autowire注入机制【类型，需要使用名字使用Qualifier】
+		SpringAOP原理
+		AOP什么时候失效：使用Spring Aop注解的时候，如@Transactional, @Cacheable等注解一般需要在类方法第一个入口的地方加，不然不会生效。
+			如下面几种场景
+			1、Controller直接调用Service B方法：Controller > Service A
+			在Service A 上加@Transactional的时候可以正常实现AOP功能。
+			2、Controller调用Service A方法，A再调用B方法：Controller > Service A > Service B
+			在Service B上加@Transactional的时候不能实现AOP功能，因为在Service A方法中调用Service B方法想当于使用this.B()，this代表的是Service类本身，并不是真实的代理Service对象，所以这种不能实现代理功能。
+			所以，如果不是直接调用的方式，是不能实现代理功能的，非常需要注意。
+			但确实有这种不是直接调用的试，也需要实现代理功能，怎么做呢？很简单，只需要暴露当前代理对象给当前线程就行了，如下配置，注解粗体的部分。
+			<!-- aspect -->
+			<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+			protected final T proxy() {
+			return (T) AopContext.currentProxy();
+			}
+			这样就能拿到代理对象了，在Service A中可以通过proxy().B()即可正常实现B方法上面的代理功能。
+	11、你有什么想问的？
+	
