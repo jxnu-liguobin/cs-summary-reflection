@@ -3,7 +3,7 @@ kramdown:
   input: GFM # Github Flavored Markdown
   math_engine: katex # 防止行间公式渲染错误
 permalink: /posts/:categories/:title # 博文目录
-baseurl: "/docs" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
+baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
 
 title: 梦境迷离的博客
 url: http://dreamylost.cn
@@ -79,7 +79,7 @@ head: # 删改前确定知道自己在做什么
   - key: rel
     value: stylesheet
   - key: href
-    value: /docs/public/css/wu-kan.css
+    value: /public/css/wu-kan.css
 - tag: link
   var:
   - key: rel
@@ -104,10 +104,10 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
     value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
 - var:
   - key: src
-    value: /docs/public/js/prism.js
+    value: /public/js/prism.js
 - var:
   - key: src
-    value: /docs/public/js/mermaid.js
+    value: /public/js/mermaid.js
   - key: js
     value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
   - key: stylesheet
@@ -119,7 +119,7 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
 #    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 - var:
   - key: src
-    value: /docs/public/js/katex.js
+    value: /public/js/katex.js
   - key: js
     value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
   - key: auto_render
@@ -130,7 +130,7 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
     value: true
 - var:
   - key: src
-    value: /docs/public/js/baidu_push.js
+    value: /public/js/baidu_push.js
 
 PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己定制，我这里只导入了三个自己喜欢的插件。
   enable: true
@@ -185,14 +185,14 @@ sidebar:
     href: /archive
   simple_jekyll_search:
     enable: true
-    autoloader: /docs/public/simple-jekyll-search/autoloader.js
-    stylesheet: /docs/public/simple-jekyll-search/search_box.css
+    autoloader: /public/simple-jekyll-search/autoloader.js
+    stylesheet: /public/simple-jekyll-search/search_box.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
     placeholder: 搜索博文
-    json: /docs/public/simple-jekyll-search/search.json
+    json: /public/simple-jekyll-search/search.json
   jekyll_table_of_contents:
     enable: true
-    autoloader: /docs/public/js/jekyll_table_of_contents.js
+    autoloader: /public/js/jekyll_table_of_contents.js
     src: //cdn.jsdelivr.net/gh/ghiculescu/jekyll-table-of-contents/toc.js
   busuanzi:
     enable: true
@@ -211,7 +211,7 @@ sidebar:
     alert: <i class="fas fa-user-edit fa-fw"></i>
   run_time:
     enable: true
-    src: /docs/public/js/run_time.js
+    src: /public/js/run_time.js
     start_time: '09/20/2019 11:03:56' # 这是我第一篇CSDN博客的时间
     alert: <i class="fas fa-cog fa-spin fa-fw"></i>
     day: 天
@@ -249,13 +249,13 @@ post:
     text: 如果我的博客帮助到你，可以请我喝一杯咖啡~
     img: # 万一真的有人打赏呢~
     - id: wechat
-      src: /docs/public/image/wechatpay.jpg
+      src: /public/image/wechatpay.jpg
     - id: alipay
-      src: /docs/public/image/alipay.jpg
+      src: /public/image/alipay.jpg
 
 valine:
   enable: true
-  autoloader: /docs/public/js/valine.js
+  autoloader: /public/js/valine.js
   src: //cdn.jsdelivr.net/npm/valine
   appId: EGfUsFqN1cs4LwLJ2DiHayGi-gzGzoHsz
   appKey: Mifi34gVJtBxhs4HrDcONnzC
