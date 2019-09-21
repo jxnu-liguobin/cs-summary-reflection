@@ -183,7 +183,7 @@ sidebar:
     href: /tags
   - title: '<i class="fas fa-archive fa-fw"></i> 归档'
     href: /archive
-  - title: '<i class="fas fa-categories fa-fw"></i> 分类'
+  - title: '<i class="fas fa-table fa-fw"></i> 分类'
     href: /categories #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true

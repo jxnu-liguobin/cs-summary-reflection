@@ -26,6 +26,7 @@ title: 归档
 #### {{ post.date | date: '%Y' }}（{{ counts[i] }}）
 
 {:.archive-title}
+        {% assign i = i | plus: 1 %}
     {% endif %}
 * {{ post.date | date: '%m-%d' }} &raquo; [{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}
 {% endfor %}
