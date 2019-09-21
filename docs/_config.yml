@@ -6,7 +6,7 @@ permalink: /:categories/:title # 博文目录
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
 timezone: Asia/Shanghai
 
-title: 梦境迷离的博客
+title: dreamylost's blog
 url: http://dreamylost.cn
 author: dreamylost
 
