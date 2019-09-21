@@ -10,6 +10,8 @@ permalink: /about
 
 博客基于[MIT License](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/LICENSE)开源于[GitHub](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/docs)。
 
+博客模板使用[wu-kan](https://wu-kan.github.io)的。
+
 ## 致谢
 
 广大网友提供的资料，感谢。
@@ -40,27 +42,17 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 
 头像翻转效果来自于[leopardpan/leopardpan.github.io](https://github.com/leopardpan/leopardpan.github.io)，感谢。
 
-## Who
+## 个人简介
 
-> 一名全职Scala新手开发者
+* 梦境迷离
+* 服务端开发、Scala开发
+* 来自江西 现居北京
+* Email: dreamylost@outlook.com
 
-## Where
+## 其他
 
-[原 CSDN 博客](https://blog.csdn.net/qq_34446485) | [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki) 
-
-## what
-
-* 学习 
-* 工作
-* 收集 
-* 总结 
-* 反思 
-* 随笔
-
-## Notes
-
-> 2018.12.1 开始，本人主要维护本仓库 Scala 部分
-
-> 2019.09.21 完成Git、GitBook到Jekyll迁移
-
-> 欢迎 Scala/Java 选手参与维护
+* [原 CSDN 博客](https://blog.csdn.net/qq_34446485)
+* [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki)
+* 2018.12.1 开始，本人主要继续维护本仓库Scala部分以及本仓库的博客
+* 2019.09.21 完成Git、GitBook到Jekyll迁移，并迁移部分本人其他站点的博客至此
+* 欢迎 Scala/Java 选手参与维护，博客只是本仓库的一仓库~~~
