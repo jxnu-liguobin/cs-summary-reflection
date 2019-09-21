@@ -12,7 +12,6 @@ permalink: /about
 
 ## 致谢
 
-
 广大网友提供的资料，感谢。
 
 [wu-kan](https://wu-kan.github.io) 提供的开源博客模板，感谢。
@@ -40,3 +39,28 @@ CDN加速服务来自于[jsdelivr](https://www.jsdelivr.com/)，感谢。
 Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/live2d-widget)，感谢。
 
 头像翻转效果来自于[leopardpan/leopardpan.github.io](https://github.com/leopardpan/leopardpan.github.io)，感谢。
+
+## Who
+
+> 一名全职Scala新手开发者
+
+## Where
+
+[原 CSDN 博客](https://blog.csdn.net/qq_34446485) | [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki) 
+
+## what
+
+* 学习 
+* 工作
+* 收集 
+* 总结 
+* 反思 
+* 随笔
+
+## Notes
+
+> 2018.12.1 开始，本人主要维护本仓库 Scala 部分
+
+> 2019.09.21 完成Git、GitBook到Jekyll迁移
+
+> 欢迎 Scala/Java 选手参与维护
