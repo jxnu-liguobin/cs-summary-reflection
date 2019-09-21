@@ -135,7 +135,7 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
 PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己定制，我这里只导入了三个自己喜欢的插件。
   enable: true
   src: //cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js # Todo：把它加入autoloader
-  stylesheet: //cdn.jsdelivr.net/npm/prismjs/themes/prism-dark.css # 在https://github.com/PrismJS/prism/tree/master/themes 内查看可用主题，或者也可以搜一些第三方主题
+  stylesheet: //cdn.jsdelivr.net/npm/prismjs/themes/prism-twilight.css # 在https://github.com/PrismJS/prism/tree/master/themes 内查看可用主题，或者也可以搜一些第三方主题
   plugins:
     line_numbers:
       enable: true
