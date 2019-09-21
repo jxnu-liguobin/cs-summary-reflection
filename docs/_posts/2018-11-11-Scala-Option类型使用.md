@@ -2,6 +2,7 @@
 title: Option类型使用
 categories:
 - Scala
+tags: [Scala]
 ---
 
 * 目录

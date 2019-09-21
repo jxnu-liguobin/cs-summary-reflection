@@ -2,6 +2,7 @@
 title: akka基本使用例子
 categories:
 - Scala
+tags: [Scala]
 ---
 
 * 目录

@@ -2,6 +2,7 @@
 title: Scala基本语法
 categories:
 - Scala
+tags: [Scala]
 ---
 
 * 目录

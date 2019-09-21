@@ -2,6 +2,7 @@
 title: 其他Scala资源
 categories:
 - Scala
+tags: [Scala]
 ---
 
 其他 Scala 资源

@@ -2,6 +2,7 @@
 title: Scala的Future异步工具解决
 categories:
 - Scala
+tags: [Scala]
 ---
 
 流程解析
