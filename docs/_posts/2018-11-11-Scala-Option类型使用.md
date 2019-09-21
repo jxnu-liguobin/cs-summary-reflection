@@ -93,7 +93,6 @@ true
 ```
 这种无法处理嵌套的Json，如需要则要在内嵌Json中也调用removeNull，或者在implicit class filterJsonWrapper中增加一个处理嵌套的函数。
 当然这些处理只是自己的总结，可能不是最好的写法，毕竟这是Scala。这些仅供参考。
-本人另一篇 [Option 的 fold 方法 使用注意点
-](https://www.jianshu.com/p/1037a1dc6d6c)
+本人另一篇 "Option的fold方法使用注意点"
 
 
