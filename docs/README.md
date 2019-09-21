@@ -8,9 +8,14 @@ permalink: /about
 
 除特别声明或转载外，所有博文采用[署名-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)协议进行许可。
 
-博客基于[MIT License](https://github.com/wu-kan/wu-kan.github.io/blob/master/LICENSE)开源于[GitHub](https://github.com/wu-kan/wu-kan.github.io)。
+博客基于[MIT License](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/LICENSE)开源于[GitHub](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/docs)。
 
 ## 致谢
+
+
+广大网友提供的资料，感谢。
+
+[wu-kan](https://wu-kan.github.io) 提供的开源博客模板，感谢。
 
 托管于[Github Pages](https://pages.github.com/)，感谢。
 

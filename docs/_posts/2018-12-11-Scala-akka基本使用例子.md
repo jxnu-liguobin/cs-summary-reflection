@@ -1,5 +1,5 @@
 ---
-title: Scala akka基本使用
+title: akka基本使用例子
 categories:
 - Scala
 ---

@@ -1,16 +1,13 @@
 ---
-title: Future
+title: Scala的Future异步工具解决
 categories:
 - Scala
 ---
 
-Scala Future 异步工具类解读
----
-
-将任务提交到线程池，来达到异步执行到效果
-
 流程解析
 ---
+
+将任务提交到线程池
 
 先看一个 Future 用法的 例子
 ```scala

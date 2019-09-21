@@ -1,5 +1,5 @@
 ---
-title: Scala 基本语法
+title: Scala基本语法
 categories:
 - Scala
 ---
