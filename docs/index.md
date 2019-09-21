@@ -24,7 +24,7 @@ title: 梦境亦是美，醒来亦是空
 
 {% for post in site.tags[tag] %}
 
-- [{{ post.title }}]({{ post.url }})
+- [{{ post.title }}]({{ post.url }}
 
 {% if post.description %}
 
