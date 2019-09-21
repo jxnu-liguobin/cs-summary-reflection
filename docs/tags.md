@@ -4,7 +4,7 @@ title: 标签
 ---
 {% for tag in site.tags %}
 
-##### {{ tag[0] }}（{{ tag[0] | length }}）
+##### {{ tag[0] }}
 
 {% for post in tag[1] %}
 

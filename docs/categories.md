@@ -4,7 +4,7 @@ title: 分类
 ---
 {% for category in site.categories %}
 
-##### {{ category[0] }}（{{ category[0] | length }}）
+##### {{ category[0] }}
 
 {% for post in category[1] %}
 
