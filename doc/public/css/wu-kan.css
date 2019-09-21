@@ -1,0 +1,220 @@
+pre {
+  max-height: 50vh;
+  overflow: auto;
+}
+h1 {
+  font-size: 1.25rem;
+}
+h2 {
+  font-size: 1.2rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+@media (min-width: 70em) {
+  .container {
+    max-width: 42rem;
+  }
+}
+@media (min-width: 96em) {
+  .container {
+    max-width: 48rem;
+  }
+}
+/* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
+.sidebar-checkbox {
+  display: none;
+}
+.sidebar-toggle {
+  position: fixed;
+}
+.sidebar-toggle:before,
+.sidebar-toggle:active:before,
+#sidebar-checkbox:focus ~ .sidebar-toggle:before,
+#sidebar-checkbox:checked ~ .sidebar-toggle:before {
+  background-image: none;
+}
+.sidebar-social {
+  text-align: center;
+}
+.sidebar-social a:hover,
+.sidebar-social a:focus {
+  text-decoration: none;
+  background-color: rgba(255,255,255,.1);
+}
+.content{
+  background-color: rgba(255,255,255,.9);
+}
+.masthead {
+  background-color: rgba(255,255,255,.9);
+  padding-top:    .8rem;
+  padding-bottom: .8rem;
+}
+.post-date {
+  margin-top: 0px;
+}
+.related {
+  border-top: 0px solid #eee;
+}
+.reward {
+  padding: 1rem 0;
+  margin: 1rem;
+  text-align: center;
+}
+#rewardButton {
+  background-color: #ec6149;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border:0px solid;
+}
+#rewardQRs {
+  display: none;
+  border: 0px solid;
+}
+.reward_qr{
+  border: 0px solid;
+  background: none;
+}
+/*头像效果-start*/
+.ih-item.circle.effect {
+  margin: 0 auto;
+  -webkit-perspective: 900px;
+  -moz-perspective: 900px;
+  perspective: 900px;
+}
+.ih-item.circle.effect .img {
+  z-index: 11;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.ih-item.circle.effect .info {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.ih-item.circle.effect .info .info-back {
+  opacity: 1;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.ih-item.circle.effect.bottom_to_top .img {
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+.ih-item.circle.effect.bottom_to_top a:hover .img {
+  -webkit-transform: rotate3d(1, 0, 0, 180deg);
+  -moz-transform: rotate3d(1, 0, 0, 180deg);
+  -ms-transform: rotate3d(1, 0, 0, 180deg);
+  -o-transform: rotate3d(1, 0, 0, 180deg);
+  transform: rotate3d(1, 0, 0, 180deg);
+}
+.ih-item.circle.effect.top_to_bottom .img {
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+.ih-item.circle.effect.top_to_bottom a:hover .img {
+  -webkit-transform: rotate3d(1, 0, 0, -180deg);
+  -moz-transform: rotate3d(1, 0, 0, -180deg);
+  -ms-transform: rotate3d(1, 0, 0, -180deg);
+  -o-transform: rotate3d(1, 0, 0, -180deg);
+  transform: rotate3d(1, 0, 0, -180deg);
+}
+.ih-item.circle.effect.left_to_right .img {
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+.ih-item.circle.effect.left_to_right a:hover .img {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  -moz-transform: rotate3d(0, 1, 0, 180deg);
+  -ms-transform: rotate3d(0, 1, 0, 180deg);
+  -o-transform: rotate3d(0, 1, 0, 180deg);
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+.ih-item.circle.effect.right_to_left .img {
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+}
+.ih-item.circle.effect.right_to_left a:hover .img {
+  -webkit-transform: rotate3d(0, 1, 0, -180deg);
+  -moz-transform: rotate3d(0, 1, 0, -180deg);
+  -ms-transform: rotate3d(0, 1, 0, -180deg);
+  -o-transform: rotate3d(0, 1, 0, -180deg);
+  transform: rotate3d(0, 1, 0, -180deg);
+}
+.ih-item a:hover {
+  text-decoration: none;
+}
+.ih-item img {
+  width: 100%;
+  height: 100%;
+}
+.ih-item.circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.ih-item.circle .img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.ih-item.circle .img:before {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+.ih-item.circle .img img {
+  border-radius: 50%;
+}
+.ih-item.circle .info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+@media all and (max-width: 780px) {
+ .ih-item.circle .img {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    /*margin-top: 20px;*/
+    border-radius: 50%;
+}
+.ih-item.circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+}
+/*头像效果-end*/

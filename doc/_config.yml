@@ -1,0 +1,277 @@
+markdown: kramdown
+kramdown:
+  input: GFM # Github Flavored Markdown
+  math_engine: katex # 防止行间公式渲染错误
+permalink: /posts/:categories/:title # 博文目录
+baseurl: "/doc" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
+
+title: 梦境迷离的博客
+url: http://dreamylost.cn
+author: 梦境迷离
+
+head: # 删改前确定知道自己在做什么
+- tag: meta # Enable responsiveness on mobile devices
+  var:
+  - key: name
+    value: viewport
+  - key: content
+    value: width=device-width, initial-scale=1.0, maximum-scale=1
+- tag: meta
+  var:
+  - key: http-equiv
+    value: X-UA-Compatible
+  - key: content
+    value: IE=edge
+- tag: meta
+  var:
+  - key: http-equiv
+    value: content-type
+  - key: content
+    value: 'text/html; charset=utf-8'
+- tag: link
+  var:
+  - key: rel
+    value: profile
+  - key: href
+    value: //gmpg.org/xfn/11
+- tag: link # rss
+  var:
+  - key: rel
+    value: alternate
+  - key: href
+    value: /atom.xml
+  - key: title
+    value: RSS
+  - key: type
+    value: application/rss+xml
+- tag: link # 网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
+  var:
+  - key: rel
+    value: apple-touch-icon-precomposed
+  - key: href
+    value: //www.gravatar.com/avatar/a12c5fff23dde00df79af9aca4e7b6e4?d=wavatar&s=144
+- tag: link # 小图标，同上
+  var:
+  - key: rel
+    value: 'shortcut icon'
+  - key: href
+    value: //www.gravatar.com/avatar/a12c5fff23dde00df79af9aca4e7b6e4?d=wavatar&s=32
+- tag: link # 下面是博客的css，有些插件的css是单独在插件里引用的，假如需要自己的css可以仿照去加在后面。无脑cdn加速了。
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io/public/css/poole.css # 用cdn加速会出问题，暂时不知道为什么
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io/public/css/syntax.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io/public/css/lanyon.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: /doc/public/css/wu-kan.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css # 在https://fontawesome.com/icons 查看支持的图标
+
+body:
+  theme-base: theme-base-0d # 可选的值08~0f
+  layout-reverse: true # 开启后sidebar在右边，反之左边
+  sidebar-overlay: true # 开启后正文不随sidebar移动而移动
+
+script: # 需要在正文后调用的脚本或者插件的autoloader
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js # jQuery
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/npm/ribbon.js/dist/ribbon.min.js # 彩带背景
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
+- var:
+  - key: src
+    value: /doc/public/js/prism.js
+- var:
+  - key: src
+    value: /doc/public/js/mermaid.js
+  - key: js
+    value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+  - key: stylesheet
+    value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css
+  - key: markdown_expand
+    value: true
+#- var: mathjax
+#  - key: src
+#    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+- var:
+  - key: src
+    value: /doc/public/js/katex.js
+  - key: js
+    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
+  - key: auto_render
+    value : //cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
+  - key: stylesheet
+    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.css
+  - key: delimiters  # 开启行内公式$\KaTeX$支持
+    value: true
+- var:
+  - key: src
+    value: /doc/public/js/baidu_push.js
+
+PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己定制，我这里只导入了三个自己喜欢的插件。
+  enable: true
+  src: //cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js # Todo：把它加入autoloader
+  stylesheet: //cdn.jsdelivr.net/npm/prismjs/themes/prism-coy.css # 在https://github.com/PrismJS/prism/tree/master/themes 内查看可用主题，或者也可以搜一些第三方主题
+  plugins:
+    line_numbers:
+      enable: true
+      src: //cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js
+      stylesheet: //cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.css
+    autoloader: # 根据语言自动加载的高亮插件
+      enable: true
+      src: //cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js
+      languages_path: //cdn.jsdelivr.net/npm/prismjs/components/
+    toolbar:
+      enable: true
+      src: //cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.min.js # Todo：把它加入autoloader
+      stylesheet: //cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.css
+      select_code: # 我这里只实现了一个按钮，可以使用`Prism.plugins.toolbar.registerButton`提供的api自己定制
+        enable: true
+        alert: 选中这段
+
+sidebar:
+  avatar: # 侧边栏显示的头像
+    enable: true
+    img: /avatars0.githubusercontent.com/u/29496873?s=460&v=4 # 头像的地址
+    info: <br/>一名Scala开发工程师 # 头像背后的信息，引用没有正版了， 垃圾网易云！
+  description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=0&id=1384407965&auto=0&height=32"></iframe>'
+  social:
+  - title: rss
+    href: /atom.xml
+    class: 'fas fa-rss fa-fw'
+  - title: dreamylost@outlook.com # email
+    href: mailto:dreamylost@outlook.com
+    class: 'fas fa-envelope fa-fw'
+  - title: github
+    href: //github.com/jxnu-liguobin
+    class: 'fab fa-github fa-fw'
+  - title: zhihu
+    href: //www.zhihu.com/people/dreamylost/activities
+    class: 'fab fa-zhihu fa-fw'
+  nav:
+  - title: '<i class="fas fa-home fa-fw"></i> 首页'
+    href: /
+  - title: '<i class="fab fa-readme fa-fw"></i> 关于'
+    href: /about
+  - title: '<i class="fas fa-comments fa-fw"></i> 留言'
+    href: /comments
+  - title: '<i class="fas fa-tags fa-fw"></i> 标签'
+    href: /tags
+  - title: '<i class="fas fa-archive fa-fw"></i> 归档'
+    href: /archive
+  simple_jekyll_search:
+    enable: true
+    autoloader: /doc/public/simple-jekyll-search/autoloader.js
+    stylesheet: /doc/public/simple-jekyll-search/search_box.css
+    src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
+    placeholder: 搜索博文
+    json: /doc/public/simple-jekyll-search/search.json
+  jekyll_table_of_contents:
+    enable: true
+    autoloader: /doc/public/js/jekyll_table_of_contents.js
+    src: //cdn.jsdelivr.net/gh/ghiculescu/jekyll-table-of-contents/toc.js
+  busuanzi:
+    enable: true
+    src: //cdn.jsdelivr.net/npm/busuanzi/bsz.pure.mini.js
+    page_pv: # 页面访问量
+      alert: <i class="fas fa-eye fa-fw"></i>
+      unit: 次
+    site_pv: # 站点访问量
+      alert: <i class="fas fa-paw fa-fw"></i>
+      unit: 枚
+    site_uv: # 访客量
+      alert: <i class="fas fa-user-friends fa-fw"></i>
+      unit: 人
+  last_edit:
+    enable: true
+    alert: <i class="fas fa-user-edit fa-fw"></i>
+  run_time:
+    enable: true
+    src: /doc/public/js/run_time.js
+    start_time: '09/20/2019 11:03:56' # 这是我第一篇CSDN博客的时间
+    alert: <i class="fas fa-cog fa-spin fa-fw"></i>
+    day: 天
+    hour: 时
+    minute: 分
+    second: 秒
+  copyright:
+    enable: true
+    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star jxnu-liguobin/cs-summary-reflection" href="https://github.com/jxnu-liguobin/cs-summary-reflection" data-icon="octicon-star" data-show-count="true">Star</a>'
+
+index:
+  showtag:
+  - ICPC模板
+
+post:
+  meta:
+    enable: true
+    date: true
+    wordcount:
+      enable: true
+      unit: 字
+    readtime:
+      enable: true
+      unit: 分
+      divided_by: 300
+    visitor: # 需要开启valine的visitor选项使之开始计数; 可能会和busuanzi统计的有出入
+      enable: true
+      unit: 次
+    copyright: '<i class="fab fa-creative-commons"></i> <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/deed.zh">BY-SA 4.0</a>（除特别声明或转载文章外）'
+  related:
+    enable: false
+    title: 相关博文
+  reward:
+    enable: true
+    text: 如果我的博客帮助到你，可以请我喝一杯咖啡~
+    img: # 万一真的有人打赏呢~
+    - id: wechat
+      src: /doc/public/image/wechatpay.jpg
+    - id: alipay
+      src: /doc/public/image/alipay.jpg
+
+valine:
+  enable: true
+  autoloader: /doc/public/js/valine.js
+  src: //cdn.jsdelivr.net/npm/valine
+  appId: EGfUsFqN1cs4LwLJ2DiHayGi-gzGzoHsz
+  appKey: Mifi34gVJtBxhs4HrDcONnzC
+  notify: true # 评论回复邮件提醒
+  verify: true # 验证码服务
+  avatar: identicon
+  placeholder: 在这里评论吧！
+  visitor: true # 文章访问量统计
+  highlight: true # 代码高亮
+  avatarForce: false # 每次访问强制拉取最新的评论列表头像
+  recordIP: true # 记录评论者IP
+
+page404:
+  search_children: # 腾讯公益
+    enable: true
+    src: //qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js
+    charset: utf-8
+    homePageUrl: '/'
+    homePageName: 回到我的主页
