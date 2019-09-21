@@ -1,5 +1,5 @@
 ---
-layout: categories
+layout: page
 title: 分类
 ---
 {% for category in site.categories %}
