@@ -1,11 +1,12 @@
 #!/bin/bash
 
+export  LANG=en_US.UTF-8
+export LANG=zh_CN.UTF-8
+
 
 # bash custom-git.sh "提交的注释"
-commitComment=$1
 
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
-
 
 branch=`git branch -a | grep "*" | awk '{print $2}'`
 echo "当前分支：$branch"
@@ -31,5 +32,5 @@ delMarkFile=`git status | grep "deleted:" | grep "\.md$" | grep ".java"| wc -l |
 echo "本次共删除Java文件数：$delJavaFile，当前共删除Scala文件数：$delScalaFile，当前共删除markdown文件数：$delMarkFile"
 
 git add .
-git commit -m "$commitComment，时间：$starttime"
+git commit -m "${1}，时间：$starttime"
 git push origin master
