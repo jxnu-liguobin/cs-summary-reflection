@@ -2,7 +2,7 @@ markdown: kramdown
 kramdown:
   input: GFM # Github Flavored Markdown
   math_engine: katex # 防止行间公式渲染错误
-permalink: /:categories/:title # 博文目录
+permalink: /:categories/:title.html # 博文目录
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
 timezone: Asia/Shanghai
 
@@ -176,15 +176,15 @@ sidebar:
   - title: '<i class="fas fa-home fa-fw"></i> 首页'
     href: /
   - title: '<i class="fab fa-readme fa-fw"></i> 关于'
-    href: /about
+    href: /about.html
   - title: '<i class="fas fa-comments fa-fw"></i> 留言'
-    href: /comments
+    href: /comments.html
   - title: '<i class="fas fa-tags fa-fw"></i> 标签'
-    href: /tags
+    href: /tags.html
   - title: '<i class="fas fa-archive fa-fw"></i> 归档'
-    href: /archive
+    href: /archive.html
   - title: '<i class="fas fa-table fa-fw"></i> 分类'
-    href: /categories #增加分类栏，使用布局是page，因为都是独立的页面
+    href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true
     autoloader: /public/simple-jekyll-search/autoloader.js
