@@ -15,7 +15,7 @@ echo "当前时间：$starttime"
 scalaFile=`echo -e $(find . -name "*.scala" | wc -l) | awk '{a+=$1}END{print a}'`
 javaFile=`echo -e $(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'`
 mdFile=`echo -e $(find . -name "*.md" | wc -l) | awk '{a+=$1}END{print a}'`
-echo "本次总共有Scala文件：$scalaFile，本次总共有Java文件：$javaFile，本次总共有markdown文件：$mdFile"
+echo "共有Scala文件：$scalaFile，共有Java文件：$javaFile，共有markdown文件：$mdFile"
 
 #显示修改
 modifyJavaFile=`git status | grep "modified:" |  grep -G "\.java$" | wc -l | awk '{print $1}'`
