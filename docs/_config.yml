@@ -91,7 +91,7 @@ head: # 删改前确定知道自己在做什么
 
 body:
   theme-base: theme-base-0d # 可选的值08~0f
-  layout-reverse: false # 开启后sidebar在右边，反之左边
+  layout-reverse: true # 开启后sidebar在右边，反之左边
   sidebar-overlay: true # 开启后正文不随sidebar移动而移动
 
 script: # 需要在正文后调用的脚本或者插件的autoloader
