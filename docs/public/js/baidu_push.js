@@ -10,3 +10,4 @@
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
 })();
+//百度爬虫被屏蔽了，码云免费版不支持自定义域名
