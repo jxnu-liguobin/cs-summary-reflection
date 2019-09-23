@@ -62,19 +62,20 @@ head: # 删改前确定知道自己在做什么
   - key: rel
     value: stylesheet
   - key: href
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/dreamylost.cn/public/css/poole.css # 用cdn加速会出问题，暂时不知道为什么
+
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/poole.css # 用cdn加速会出问题，暂时不知道为什么
 - tag: link
   var:
   - key: rel
     value: stylesheet
   - key: href
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/dreamylost.cn/public/css/syntax.css
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/syntax.css
 - tag: link
   var:
   - key: rel
     value: stylesheet
   - key: href
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/dreamylost.cn/public/css/lanyon.css
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/lanyon.css
 - tag: link
   var:
   - key: rel
