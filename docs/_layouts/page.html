@@ -14,7 +14,15 @@
   {% for node in site.script %}
   <script {% for var in node.var %} {{ var.key }}="{{ var.value }}" {% endfor %}>
   </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147438358-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147438358-1');
+  </script>
   <script>
     var _hmt = _hmt || [];
     (function () {
@@ -23,10 +31,6 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-   window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-147438358-1');
   </script>
   {% endfor %}
   <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
