@@ -2,9 +2,6 @@ pre {
   max-height: 100vh;
   overflow: auto;
 }
-code[class*="language-"], pre[class*="language-"] {
-  font-size: .2rem;
-}
 h1 {
   font-size: 1.25rem;
 }
