@@ -1,6 +1,7 @@
 pre {
-  max-height: 120vh;
+  max-height: 100vh;
   overflow: auto;
+  font-size: 0.2rem
 }
 h1 {
   font-size: 1.25rem;
