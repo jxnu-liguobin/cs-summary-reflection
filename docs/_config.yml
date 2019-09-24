@@ -8,7 +8,7 @@ timezone: Asia/Shanghai
 
 title: dreamylost's blog
 url: http://dreamylost.cn
-author: dreamylost
+author: 梦境迷离
 
 head: # 删改前确定知道自己在做什么
 - tag: meta # Enable responsiveness on mobile devices
