@@ -215,7 +215,7 @@ sidebar:
   run_time:
     enable: true
     src: /public/js/run_time.js
-    start_time: '09/20/2019 12:00:00' # 这是我第一篇CSDN博客的时间，从这个时间开始迁移到Git pages
+    start_time: '2019/09/20 00:00:00' # 这是我第一篇CSDN博客的时间，从这个时间开始迁移到Git pages
     alert: <i class="fas fa-cog fa-spin fa-fw"></i>
     day: 天
     hour: 时
