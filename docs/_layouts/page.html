@@ -58,11 +58,6 @@
         <script src="{{ site.sidebar.jekyll_table_of_contents.autoloader }}"></script>
       </div>
       {% endif %}
-      {% if site.sidebar.run_time.enable %}
-      <div>
-        <script src="{{ site.sidebar.run_time.src }}"></script>
-      </div>
-      {% endif %}
       {% if site.sidebar.busuanzi.enable %}
       <div>
         {{ site.sidebar.busuanzi.page_pv.alert }}
@@ -82,6 +77,11 @@
       <div>
         {{ site.sidebar.last_edit.alert }}
         {{ site.time | date: '%F %T' }}
+      </div>
+      {% endif %}
+      {% if site.sidebar.run_time.enable %}
+      <div>
+        <script src="{{ site.sidebar.run_time.src }}"></script>
       </div>
       {% endif %}
       {% if site.sidebar.copyright.enable %}
