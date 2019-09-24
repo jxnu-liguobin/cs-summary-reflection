@@ -1,6 +1,7 @@
 ---
   layout: null
 ---
+    document.write('{{ site.sidebar.run_time.alert }} <span id="run_time"></span>');
 function run_time() {
   function setzero(i) {
     if (i < 10) { i = "0" + i };
