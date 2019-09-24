@@ -225,7 +225,7 @@ sidebar:
     enable: true
     text: '<script async defer src="https://buttons.github.io/buttons.js"></script><br>
     <a class="github-button" aria-label="Star jxnu-liguobin/cs-summary-reflection" href="https://github.com/jxnu-liguobin/cs-summary-reflection" data-icon="octicon-star" data-show-count="true">Star</a><br>
-    <a class="github-button" href="https://github.com/jxnu-liguobin/cs-summary-reflection/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork jxnu-liguobin/cs-summary-reflection on GitHub">Fork</a>
+    <a class="github-button" href="https://github.com/jxnu-liguobin/cs-summary-reflection/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork jxnu-liguobin/cs-summary-reflection on GitHub">Fork</a>'
 
 index:
   showtag:
