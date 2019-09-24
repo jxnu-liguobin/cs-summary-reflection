@@ -10,7 +10,9 @@ permalink: /about
 
 博客基于[MIT License](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/LICENSE)开源于[GitHub](https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/docs)。
 
-博客模板使用[wu-kan](https://wu-kan.github.io)的。
+博客模板使用[wu-kan](https://wu-kan.github.io)的，并基于原有模板增加了归档时间排序、文章分类、网站时间、修复若干BUG、字体自适应手机等，现继续分享并开源出来。
+
+博客模板：[https://github.com/jxnu-liguobin/jekyll-blog-dremylost](https://github.com/jxnu-liguobin/jekyll-blog-dremylost)
 
 ## 致谢
 
