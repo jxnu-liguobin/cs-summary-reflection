@@ -2,7 +2,7 @@
 title: Java集合转Scala集合与迭代器失效
 categories:
 - 工具脚本
-tags: [脚本]
+tags: [Scala与Java互操作]
 ---
 
 这里有两个需要小心的点。
