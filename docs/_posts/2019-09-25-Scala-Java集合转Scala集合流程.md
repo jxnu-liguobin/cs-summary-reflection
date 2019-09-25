@@ -1,7 +1,7 @@
 ---
 title: Java集合转Scala集合与迭代器失效
 categories:
-- 工具脚本
+- Scala
 tags: [Scala与Java互操作]
 ---
 
