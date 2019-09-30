@@ -19,12 +19,12 @@ echo "共有Scala文件：${scalaFile}，共有Java文件：${javaFile}，共有
 
 #显示修改
 modifyJavaFile=`git status | grep "modified:" |  grep -G "\.java$" | wc -l | awk '{print $1}'`
-modifyScalaFile=`git status | grep "modified:" | grep -G "\.scala$" | grep ".java"| wc -l | awk '{print $1}'`
-modifyMarkFile=`git status | grep "modified:" | grep -G "\.md$" | grep ".java"| wc -l | awk '{print $1}'`
+modifyScalaFile=`git status | grep "modified:" | grep -G "\.scala$" |  wc -l | awk '{print $1}'`
+modifyMarkFile=`git status | grep "modified:" | grep -G "\.md$" | wc -l | awk '{print $1}'`
 echo "本次共修改Java文件数：${modifyJavaFile}，本次共修改Scala文件数：${modifyScalaFile}，本次共修改markdown文件数：${modifyMarkFile}"
-delJavaFile=`git status | grep "deleted:" | grep -G "\.java$" | grep ".java"| wc -l | awk '{print $1}'`
-delScalaFile=`git status | grep "deleted:" | grep "\.scala$" | grep ".java"| wc -l | awk '{print $1}'`
-delMarkFile=`git status | grep "deleted:" | grep "\.md$" | grep ".java"| wc -l | awk '{print $1}'`
+delJavaFile=`git status | grep "deleted:" | grep -G "\.java$" |  wc -l | awk '{print $1}'`
+delScalaFile=`git status | grep "deleted:" | grep "\.scala$" | wc -l | awk '{print $1}'`
+delMarkFile=`git status | grep "deleted:" | grep "\.md$" |  wc -l | awk '{print $1}'`
 echo "本次共删除Java文件数：${delJavaFile}，本次共删除Scala文件数：${delScalaFile}，本次共删除markdown文件数：${delMarkFile}"
 
 #新增的不需显示

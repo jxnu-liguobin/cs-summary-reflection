@@ -2,8 +2,8 @@ package cn.edu.jxnu.utils.other
 
 import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
-import java.time.{LocalDateTime, ZoneId}
-import java.util.{Calendar, Date, Locale, TimeZone}
+import java.time.{ LocalDateTime, ZoneId, ZoneOffset, ZonedDateTime }
+import java.util.{ Calendar, Date, Locale, TimeZone }
 
 /**
  * 日期处理工具
@@ -24,6 +24,20 @@ object DateUtils {
   implicit private final val default_zoneId = ZoneId.of(default_zone.getID)
 
   private final lazy val default_local = Locale.CHINA
+
+  /**
+   * 获取当前时间对应的utc时间，以及下一个小时时间点
+   */
+  def getTimePosOfHour = {
+    import java.time.format.DateTimeFormatter
+    val timeStart = ZonedDateTime.now(ZoneOffset.UTC)
+    val timeEnd = timeStart.plusHours(1)
+    val formatter = DateTimeFormatter.ofPattern("yyyyMMddHH00")
+    val startPos = timeStart.format(formatter)
+    val stopPos = timeEnd.format(formatter)
+    startPos -> stopPos
+  }
+
 
   /**
    * 时区默认北京的部分解析器
