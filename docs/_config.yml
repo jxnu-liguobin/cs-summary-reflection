@@ -7,7 +7,7 @@ baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上
 timezone: Asia/Shanghai
 
 title: dreamylost's blog
-url: http://dreamylost.cn
+url: https://dreamylost.cn
 author: 梦境迷离
 
 head: # 删改前确定知道自己在做什么

@@ -16,7 +16,7 @@ title: 梦境亦是美，醒来亦是空
 
 {% endfor %}
 
-- [更多…](/archive)
+- [更多…](/archive.html)
 
 {% for tag in site.index.showtag %}
 

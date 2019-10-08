@@ -5,7 +5,7 @@
 
 ## Where
 
-[博客](http://dreamylost.cn) |
+[博客](https://dreamylost.cn) |
 [原 CSDN 博客](https://blog.csdn.net/qq_34446485) | [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki) 
 
 ## what
