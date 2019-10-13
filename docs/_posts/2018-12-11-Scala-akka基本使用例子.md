@@ -109,6 +109,8 @@ class ShoppingCart extends Actor {
 
 ```
 
+![生命周期](../public/image/actor1.png)
+
 #### 路由与容错策略
 
 使用actor池与路由
@@ -156,6 +158,5 @@ sender ! (content, self)
 //回复者携带了自己的ref，此时消息是一个二元组
 case (content: PageContent, _) 
 ```
-![生命周期](../public/image/actor1.png)
 
 [超详细Java版Actor的讲解](http://ifeve.com/akka-doc-java-untyped-actors/)
