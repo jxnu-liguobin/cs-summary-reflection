@@ -9,9 +9,7 @@ description: 主要介绍Lightbend平台的Akka与Java内存模型的关系
 * 目录
 {:toc}
 
-## Akka与Java内存模型
-
-使用Lightbend平台(包括Scala和Akka)的一个主要好处是，它简化了编写并发软件的过程。
+使用Lightbend平台(包括Scala和Akka)的一个主要好处是它简化了编写并发软件的过程。
 
 ### Java内存模型
 
