@@ -17,27 +17,29 @@ javaFile=`echo -e $(find . -name "*.java" | wc -l) | awk '{a+=$1}END{print a}'`
 mdFile=`echo -e $(find . -name "*.md" | wc -l) | awk '{a+=$1}END{print a}'`
 echo "共有Scala文件：${scalaFile}，共有Java文件：${javaFile}，共有markdown文件：${mdFile}"
 
+gitStatus=`git status`
+
 #显示修改
-modifyJavaFile=`git status | grep "modified:" |  grep -G "\.java$" | wc -l | awk '{print $1}'`
-modifyScalaFile=`git status | grep "modified:" | grep -G "\.scala$" |  wc -l | awk '{print $1}'`
-modifyMarkFile=`git status | grep "modified:" | grep -G "\.md$" | wc -l | awk '{print $1}'`
+modifyJavaFile=`echo $gitStatus | grep "modified:" |  grep -G "\.java$" | wc -l | awk '{print $1}'`
+modifyScalaFile=`echo $gitStatus | grep "modified:" | grep -G "\.scala$" |  wc -l | awk '{print $1}'`
+modifyMarkFile=`echo $gitStatus | grep "modified:" | grep -G "\.md$" | wc -l | awk '{print $1}'`
 echo "本次共修改Java文件数：${modifyJavaFile}，本次共修改Scala文件数：${modifyScalaFile}，本次共修改markdown文件数：${modifyMarkFile}"
 
 
 echo "更新文件列表："
-git status | grep "modified:" | awk '{print $2}'
+echo $gitStatus | grep "modified:" | awk '{print $2}'
 
-delJavaFile=`git status | grep "deleted:" | grep -G "\.java$" |  wc -l | awk '{print $1}'`
-delScalaFile=`git status | grep "deleted:" | grep -G "\.scala$" | wc -l | awk '{print $1}'`
-delMarkFile=`git status | grep "deleted:" | grep -G "\.md$" |  wc -l | awk '{print $1}'`
+delJavaFile=`echo $gitStatus | grep "deleted:" | grep -G "\.java$" |  wc -l | awk '{print $1}'`
+delScalaFile=`echo $gitStatus | grep "deleted:" | grep -G "\.scala$" | wc -l | awk '{print $1}'`
+delMarkFile=`echo $gitStatus | grep "deleted:" | grep -G "\.md$" |  wc -l | awk '{print $1}'`
 echo "本次共删除Java文件数：${delJavaFile}，本次共删除Scala文件数：${delScalaFile}，本次共删除markdown文件数：${delMarkFile}"
 
 #新增的不需显示
-newFile=`git status | grep "new file:" | wc -l | awk '{print $1}'`
+newFile=`echo $gitStatus | grep "new file:" | wc -l | awk '{print $1}'`
 echo "本次共新增文件数：${newFile}"
 
 echo "新增文件列表："
-git status | grep "new file::" | awk '{print $2}'
+echo $gitStatus | grep "new file::" | awk '{print $2}'
 
 git add .
 git commit -m "${1}，时间：$starttime"
