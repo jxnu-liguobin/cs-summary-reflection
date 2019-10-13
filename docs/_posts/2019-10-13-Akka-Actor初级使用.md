@@ -3,7 +3,7 @@ title: Actor初级使用
 categories:
   - Akka
 tags: [Akka-actor入门]
-description: 主要介绍Akka-actor模块的初级使用
+description: 主要介绍Akka-actor模块的基本使用
 ---
 
 * 目录
@@ -169,14 +169,14 @@ class DependencyInjector(applicationContext: AnyRef, beanName: String) extends I
 val actorRef = system.actorOf(Props(classOf[DependencyInjector], applicationContext, "hello"), "helloBean")
 ```
 
-有时，您可能会想提供一个IndirectActorProducer，它总是返回相同的实例，例如使用惰性Val。
+有时，您可能会想提供一个IndirectActorProducer，它总是返回相同的实例，例如使用惰性val。
 这是不支持的，因为它违背了actor重新启动的含义。
 
 当使用依赖项注入框架时，actor bean不能有单例作用域。
 
 #### 收件箱（信箱）
 
-当编写与actor通信的外部代码时，ask模式可以是解决方案(见下文)，但它不能做两件事：接收多个答复(例如，通过订阅ActorRef)并监视其他actor的生命周期。为此目的，有Inbox class：
+当编写与actor通信的外部代码时，ask模式可以是解决方案(见下文)，但它不能做两件事：接收多个答复(例如，通过订阅ActorRef)和监视其他actor的生命周期。为此目的，有Inbox class：
 
 ```scala
 import akka.actor.ActorDSL._
@@ -203,13 +203,13 @@ i.watch(target)
 * ! 意思是“触发和遗忘”，例如异步发送消息并立即返回。又称tell
 * ? 异步发送消息并返回Future代表可能的答复。又称ask
 
-这是发送消息的首选方式。不要阻塞等待消息。这提供了最佳的并发性和可伸缩性特征。
+这是发送消息的首选方式，不要阻塞等待消息，因为这提供了最佳的并发性和可伸缩性特征。
 
 ```scala
 actorRef ! message
 ```
 
-如果从Actor内部调用，则发送actor引用将与消息一起隐式传递，并在其sender(): ActorRef成员法目标actor可以使用它来回复原始发送方，方法是sender() ! replyMsg
+如果从Actor内部调用，则发送者actor的引用将与消息一起隐式传递，并在其sender(): ActorRef成员方法中对目标actor可用，接受者可用它来回复原始发送方，方法是sender() ! replyMsg
 
 #### 接收消息
 
@@ -273,7 +273,7 @@ class MyActor extends Actor {
 }
 ```
 
-#### 定时器与预定消息
+#### 定时器与定期消息
 
 可以将消息计划在以后的某个点发送，方法是使用调度器，但是当在一个actor中调度周期性或单个消息时，使用对命名计时器的支持是更方便和安全的。
 当actor重新启动并由定时器处理时，调度消息的生命周期可能很难管理。
