@@ -29,4 +29,10 @@ title: 归档
         {% assign i = i | plus: 1 %}
     {% endif %}
 * {{ post.date | date: '%m-%d' }} &raquo; [{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}
+
+{% if post.description %}
+ 
+  > {{ post.description }}
+ 
+{% endif %}
 {% endfor %}

@@ -9,6 +9,12 @@ title: 标签
 {% for post in tag[1] %}
 
  - [{{ post.title }}]({{ post.url }}) <small>{{ post.date | date_to_string }}</small>
+ 
+{% if post.description %}
+  
+  > {{ post.description }}
+  
+{% endif %}
 
 {% endfor %}
 
