@@ -49,7 +49,11 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 梦境迷离
 * 服务端开发、Scala开发
 * 来自江西 现居北京
-* Email: dreamylost@outlook.com
+
+## 工作机会
+
+* GrowingIO，招聘 Scala开发
+* 联系方式：dreamylost@outlook.com
 
 ## 其他
 
