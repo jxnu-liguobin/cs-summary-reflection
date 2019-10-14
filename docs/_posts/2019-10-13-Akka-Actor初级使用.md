@@ -365,7 +365,7 @@ def initialized: Receive = {
 
 如果actor可能在消息被初始化之前接收消息，则可以使用一个有用的工具来保存消息，直到初始化完成为止，然后在actor初始化后重新回复它们。
 
-### Actor生命周期
+下面是一个完整例子：
 
 ```scala
 import akka.actor.Actor
