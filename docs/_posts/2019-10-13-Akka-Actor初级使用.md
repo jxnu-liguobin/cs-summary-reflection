@@ -40,7 +40,7 @@ class MyActor extends Actor {
 }
 ```
 
-Akka actor的receive message循环是详尽的，与Erlang和Scala Actors（已废弃）不同。这意味着您需要为它可以接受的所有消息提供模式匹配，如果您希望能够处理未知的消息，那么您需要有一个默认的case，如上面的示例所示。
+Akka actor的receive message消息匹配的遍历是彻底的，与Erlang和Scala Actors（已废弃）不同。这意味着您需要为它可以接受的所有消息提供模式匹配，如果您希望能够处理未知的消息，那么您需要有一个默认的case，如上面的示例所示。
 否则akka.actor.UnhandledMessage(message, sender, recipient)将发布到ActorSystem的EventStream。
 上面定义的行为的返回类型是Unit，如果actor应回复所收到的消息，则必须按照下文解释明确地这样做。receive方法的结果是一个部分函数对象，该对象作为其“初始行为”存储在actor中。
 
