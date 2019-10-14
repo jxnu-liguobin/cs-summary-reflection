@@ -67,7 +67,221 @@ object Test {
 }
 ```
 
-#### Actor生命周期
+#### 创建监督策略
+
+```scala
+//首先，这是一对一的策略，这意味着每个孩子被分开对待(一个完全对一的策略工作非常相似，唯一的区别是，任何决定都适用于主管的所有孩子，而不仅仅是失败的)。
+//在上面的示例中，10分钟和1分钟分别传递给maxNrOfRetry和withinTimeRange参数，这意味着策略以每分钟10次重新启动子策略。
+//如果在withinTimeRange持续时间内重新启动计数超过maxNrOfRetry，则停止子actor。
+import akka.actor.OneForOneStrategy
+import akka.actor.SupervisorStrategy._
+import scala.concurrent.duration._
+
+override val supervisorStrategy =
+  OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = 1 minute) {
+    case _: ArithmeticException      => Resume
+    case _: NullPointerException     => Restart
+    case _: IllegalArgumentException => Stop
+    case _: Exception                => Escalate
+  }
+```
+
+当未为参与者定义监督策略时，默认情况下将处理下列异常：
+
+* ActorInitializationException会stop失败的子actor
+* ActorKilledException会stop失败的子actor
+* DeathPactException会stop失败的子actor
+* Exception将重新启动失败的子actor
+* 其他类型Throwable将升级为子actor
+
+您可以将自己的策略与默认策略结合起来：
+
+```scala
+import akka.actor.OneForOneStrategy
+import akka.actor.SupervisorStrategy._
+import scala.concurrent.duration._
+
+override val supervisorStrategy =
+  OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = 1 minute) {
+    case _: ArithmeticException => Resume
+    case t =>
+      super.supervisorStrategy.decider.applyOrElse(t, (_: Any) => Escalate)
+  }
+```
+
+#### 测试
+
+准备一个合适的主管Actor：
+
+```scala
+import akka.actor.Actor
+
+class Supervisor extends Actor {
+  import akka.actor.OneForOneStrategy
+  import akka.actor.SupervisorStrategy._
+  import scala.concurrent.duration._
+
+  override val supervisorStrategy =
+    OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = 1 minute) {
+      case _: ArithmeticException      => Resume
+      case _: NullPointerException     => Restart
+      case _: IllegalArgumentException => Stop
+      case _: Exception                => Escalate
+    }
+
+  def receive = {
+    case p: Props => sender() ! context.actorOf(p)
+  }
+}
+```
+
+这个主管Actor将被用来创造一个子actor，我们可以用这个子actor做测试：
+
+```scala
+import akka.actor.Actor
+
+class Child extends Actor {
+  var state = 0
+  def receive = {
+    case ex: Exception => throw ex
+    case x: Int        => state = x
+    case "get"         => sender() ! state
+  }
+}
+```
+
+通过使用TestActorSystems中描述的实用程序，测试更容易：
+
+```scala
+import com.typesafe.config.{ Config, ConfigFactory }
+import org.scalatest.{ BeforeAndAfterAll, Matchers }
+import akka.testkit.{ EventFilter, ImplicitSender, TestActors, TestKit }
+
+class FaultHandlingDocSpec(_system: ActorSystem)
+    extends TestKit(_system)
+    with ImplicitSender
+    with WordSpecLike
+    with Matchers
+    with BeforeAndAfterAll {
+
+  def this() =
+    this(
+      ActorSystem(
+        "FaultHandlingDocSpec",
+        ConfigFactory.parseString("""
+      akka {
+        loggers = ["akka.testkit.TestEventListener"]
+        loglevel = "WARNING"
+      }
+      """)))
+
+  override def afterAll: Unit = {
+    TestKit.shutdownActorSystem(system)
+  }
+
+  "A supervisor" must {
+    "apply the chosen strategy for its child" in {
+      // code here
+    }
+  }
+}
+```
+
+创建actor：
+
+```scala
+val supervisor = system.actorOf(Props[Supervisor], "supervisor")
+
+supervisor ! Props[Child]
+val child = expectMsgType[ActorRef] // retrieve answer from TestKit’s testActor
+```
+
+第一个测试将演示Resume，因此我们尝试在actor中设置一些非初始状态，然后失败：
+
+```scala
+child ! 42 // set state to 42
+child ! "get"
+expectMsg(42)
+
+child ! new ArithmeticException // crash it
+child ! "get"
+expectMsg(42)
+```
+
+如您所见，值42在故障处理指令中幸存下来。现在，如果我们将失败更改为更严重的NullPointerException，则不再是这样的：
+
+```scala
+child ! new NullPointerException // crash it harder
+child ! "get"
+expectMsg(0)
+```
+
+最后，在发生致命IllegalArgumentException事件时，主管actor将终止该子actor：
+
+```scala
+watch(child) // have testActor watch “child”
+child ! new IllegalArgumentException // break it
+expectMsgPF() { case Terminated(`child`) => () }
+```
+
+到目前为止，主管actor完全没有受到子actor的失败的影响，因为命令确实处理了它。在出现异常的情况下，这种情况不再是真的，并且主管actor会使故障升级。
+
+```scala
+supervisor ! Props[Child] // create new child
+val child2 = expectMsgType[ActorRef]
+watch(child2)
+child2 ! "get" // verify it is alive
+expectMsg(0)
+
+child2 ! new Exception("CRASH") // escalate failure
+expectMsgPF() {
+  case t @ Terminated(`child2`) if t.existenceConfirmed => ()
+}
+```
+
+主管actor本身由ActorSystem提供的顶级actor进行监督，该系统具有在所有异常情况下重新启动的默认策略(ActorInitializationException和ActorledKilException的显著例外)。
+因为在重新启动的情况下，默认的指令是杀死所有的子actor，所以我们希望的子actor不能在这个失败中生存下来。如果这是不想要的(这取决于用例)，我们需要使用一个不同的监督者来覆盖这个行为。
+
+```scala
+class Supervisor2 extends Actor {
+  import akka.actor.OneForOneStrategy
+  import akka.actor.SupervisorStrategy._
+  import scala.concurrent.duration._
+
+  override val supervisorStrategy =
+    OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = 1 minute) {
+      case _: ArithmeticException      => Resume
+      case _: NullPointerException     => Restart
+      case _: IllegalArgumentException => Stop
+      case _: Exception                => Escalate
+    }
+
+  def receive = {
+    case p: Props => sender() ! context.actorOf(p)
+  }
+  // override default to kill all children during restart
+  override def preRestart(cause: Throwable, msg: Option[Any]): Unit = {}
+}
+```
+
+有了这个父程序，子程序在升级后的重新启动中存活下来，如上一次测试所示：
+
+```scala
+val supervisor2 = system.actorOf(Props[Supervisor2], "supervisor2")
+
+supervisor2 ! Props[Child]
+val child3 = expectMsgType[ActorRef]
+
+child3 ! 23
+child3 ! "get"
+expectMsg(23)
+
+child3 ! new Exception("CRASH")
+child3 ! "get"
+expectMsg(0)
+```
+
+#### Actor初始化
 
 ```scala
 import akka.actor.Actor
@@ -109,51 +323,34 @@ class ShoppingCart extends Actor {
 
 ```
 
-![生命周期](../public/image/actor1.png)
-
 #### 路由与容错策略
 
-使用actor池与路由
+使用actor池与路由：
+
 ```scala
 parser = getContext().actorOf(Props.create(classOf[PageParsingActor], pageRetriever).
 withRouter(new RoundRobinPool(Constant.round_robin_pool_size)).withDispatcher("worker-dispatcher"))
 ```
-配置
+
+配置：
+
 ```
 worker-dispatcher {
   type = akka.dispatch.BalancingDispatcherConfigurator
 }
 ```
-失败策略
-```scala
-//actor重写本方法，AllForOneStrategy，影响同级或同层所有actor，1分钟5次 。 父监控子
-override def supervisorStrategy: SupervisorStrategy = AllForOneStrategy(maxNrOfRetries = 5, Duration.create("1 minute"), true) {
-
-    //忽略
-    case _: IndexingException => {
-        Escalate
-    }
-    //重启，Restart不保留状态
-    case re: RetrievalException => {
-        Resume
-    }
-    //代理异常，忽略
-    case pe: ProxyException => {
-        Escalate
-    }
-    //其他异常
-    case _: Exception => Stop
-}
-```
 
 #### 消息模式匹配注意点
 
-向发送者回复消息
+向发送者回复消息：
+
 ```scala
 //向发送者sender发送消息，并携带自己的ref
 sender ! (content, self)
 ```
-发送者接收
+
+发送者接收：
+
 ```scala
 //回复者携带了自己的ref，此时消息是一个二元组
 case (content: PageContent, _) 
