@@ -25,7 +25,7 @@ echo "==================新增文件列表====================="
 echo `git status | grep "new file:" | awk '{print $2}'`
 
 echo "==================删除文件列表====================="
-echo $gitStatus | grep "deleted:" | awk '{print $2}'
+echo `gitStatus | grep "deleted:" | awk '{print $2}'`
 echo "=================================================="
 
 git add .
