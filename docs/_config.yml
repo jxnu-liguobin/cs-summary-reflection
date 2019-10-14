@@ -229,6 +229,8 @@ sidebar:
 
 index:
   showtag:
+  - "源码分析"
+  - "Java并发"
   - "迁移自CSDN博客" #默认首页开启显示的标签
 
 post:
