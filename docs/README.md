@@ -58,7 +58,6 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 ## 其他
 
 * [原 CSDN 博客](https://blog.csdn.net/qq_34446485)
-* [Git wiki](https://github.com/jxnu-liguobin/cs-summary-reflection/wiki)
 * 2018.12.1 开始，本人主要继续维护本仓库Scala部分以及本仓库的博客
 * 2019.09.21 完成Git、GitBook到Jekyll迁移，并迁移部分本人其他站点的博客至此
-* 欢迎 Scala/Java 选手参与维护，博客只是本仓库的一部分~~~
+* 欢迎 Scala/Java 选手参与维护，博客只是本仓库docs部分~~~
