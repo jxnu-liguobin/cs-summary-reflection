@@ -408,7 +408,7 @@ class ShoppingCart extends Actor {
 
 ![生命周期](../public/image/actor1.png)
 
-#### actor与异常
+### actor与异常
 
 当消息正在由actor处理时，可能会引发某种类型的异常，例如数据库异常等。
 

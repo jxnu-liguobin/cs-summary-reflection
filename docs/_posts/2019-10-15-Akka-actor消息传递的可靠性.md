@@ -17,9 +17,6 @@ description: 本章概述了actor消息传递的可靠性的一般性规则
 编写actor的安全方式，是假设每一个通信可能是远程的，即做一个悲观的赌注。这意味着只依赖那些始终得到保证并在下文中详细讨论的属性。这在actor的实现中有一些开销。
 如果您愿意牺牲充分的位置透明性-例如，在一组密切协作的actor的情况下-您可以始终将它们放在同一个JVM上，并在消息传递方面享有更严格的保证。
 
-如有不理解可参看[官方文档 Message Delivery Reliability](https://doc.akka.io/docs/akka/current/general/message-delivery-reliability.html)
-
-
 #### 一般性规则简述
 
 这些是消息发送的规则(即tell或!方法，该方法也是ask(模式)下的规则)：
