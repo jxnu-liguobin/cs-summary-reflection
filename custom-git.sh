@@ -19,7 +19,7 @@ echo "共有Scala文件：${scalaFile}，共有Java文件：${javaFile}，共有
 
 
 echo "==================更新文件列表====================="
-echo `git status | grep "modified:" | awk '{print $2}'`
+echo `git status | grep "modified:" | awk '{print $2}'\n`
 
 echo "==================新增文件列表====================="
 echo `git status | grep "new file:" | awk '{print $2}'`
