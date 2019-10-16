@@ -7,9 +7,6 @@ description: 本章描述了如何在可能的分布式actor系统中识别和�
 即层次结构与位置透明度
 ---
 
-* 目录
-{:toc}
-
 ![actor系统在网络中的调用示意图](../public/image/actor-site-1.png)
 
 ... doing
