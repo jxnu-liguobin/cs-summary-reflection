@@ -1,5 +1,5 @@
 ---
-title: Actor的引用、路径和地址
+title: Actor的引用路径地址
 categories:
   - Akka
 tags: [Akka-Actor入门]
