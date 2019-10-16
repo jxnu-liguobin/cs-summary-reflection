@@ -3,7 +3,7 @@ title: Actor的位置透明度说明
 categories:
   - Akka
 tags: [Akka-Actor入门]
-description: 本章概述了actor消息传递的可靠性的一般性规则
+description: 本章概述了关于actor的位置透明度说明
 ---
 
 * 目录
