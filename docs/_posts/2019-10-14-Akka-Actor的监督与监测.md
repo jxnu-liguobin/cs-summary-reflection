@@ -1,8 +1,8 @@
 ---
-title: actor的监督与检测
+title: Actor的监督与检测
 categories:
   - Akka
-tags: [Akka-actor入门]
+tags: [Akka-Actor入门]
 description: 本章概述了监督背后的概念、提供的原语及其语义。
              
 ---

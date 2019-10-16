@@ -1,5 +1,5 @@
 ---
-title: akka基本使用例子
+title: Akka基本使用例子
 categories:
 - Scala
 tags: [Scala]
