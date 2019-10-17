@@ -6,6 +6,9 @@ tags: [Akka-Actor入门]
 description: 本章描述了如何在可能的分布式actor系统中识别和定位actor，这主要与actor系统的监督层次结构和actor之间的通信对跨多个网络节点的位置是透明的相关。即层次结构与位置透明度
 ---
 
+* 目录
+{:toc}
+
 ![actor系统在网络中的调用示意图](../public/image/actor-site-1.png)
 
 上面的图片显示了actor系统中最重要的实体之间的关系，请阅读详细信息。
@@ -115,7 +118,7 @@ context.actorSelection("../*") ! msg
 actorOf只会创建一个新的actor，并将其作为调用此方法的上下文的直接子代(可以是任何actor或actor系统)。
 actorSelection仅在传递消息时查找现有的actor，即不创建actor，或在创建选择时验证actor的存在
 
-### actor引用与路径相等
+### actor引用与路径相等性
 
 ActorRef的相等性与ActorRef对应于目标actor化身的意图相匹配。当两个actor引用具有相同的路径并指向相同的actor化身时，比较它们时是相等的。
 指向终止的actor的引用不等于指向具有相同路径的另一个(重新创建的)actor的引用。请注意，由于故障导致的actor重新启动仍然意味着它是同一actor的化身，即ActorRef的使用者看不到重新启动。
