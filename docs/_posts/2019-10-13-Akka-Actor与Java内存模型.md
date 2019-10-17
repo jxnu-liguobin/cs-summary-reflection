@@ -129,3 +129,5 @@ class MyActor(echoActor: ActorRef, cleanUpActor: ActorRef) extends Actor {
 ```
 
 * 讯息应不可变，这是为了避免共享可变状态陷阱。
+
+[文档](https://doc.akka.io/docs/akka/current/general/jmm.html)

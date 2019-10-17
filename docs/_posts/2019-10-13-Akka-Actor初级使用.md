@@ -40,7 +40,7 @@ class MyActor extends Actor {
 }
 ```
 
-Akka actor的receive message消息匹配的遍历是彻底的，与Erlang和Scala Actors（已废弃）不同。这意味着您需要为它可以接受的所有消息提供模式匹配，如果您希望能够处理未知的消息，那么您需要有一个默认的case，如上面的示例所示。
+Akka actor的receive message消息匹配的遍历是彻底的，与Erlang和Scala Actors(已废弃)不同。这意味着您需要为它可以接受的所有消息提供模式匹配，如果您希望能够处理未知的消息，那么您需要有一个默认的case，如上面的示例所示。
 否则akka.actor.UnhandledMessage(message, sender, recipient)将发布到ActorSystem的EventStream。
 上面定义的行为的返回类型是Unit，如果actor应回复所收到的消息，则必须按照下文解释明确地这样做。receive方法的结果是一个部分函数对象，该对象作为其“初始行为”存储在actor中。
 
@@ -174,7 +174,7 @@ val actorRef = system.actorOf(Props(classOf[DependencyInjector], applicationCont
 
 当使用依赖项注入框架时，actor bean不能有单例作用域。
 
-#### 收件箱（信箱）
+#### 收件箱(信箱)
 
 当编写与actor通信的外部代码时，ask模式可以是解决方案(见下文)，但它不能做两件事：接收多个答复(例如，通过订阅ActorRef)和监视其他actor的生命周期。为此目的，有Inbox class：
 
@@ -377,7 +377,7 @@ import akka.actor.Actor
  * @time 2019-02-11
  */
 class ShoppingCart extends Actor {
-    //必须拓展（混入）Actor特质【UntypedAbstractActor特质也可以，实现非类型化的actor】
+    //必须拓展(混入)Actor特质【UntypedAbstractActor特质也可以，实现非类型化的actor】
     //按照逻辑排序的四个方法
     //开始之前，大多数情况下需要重写
     //代码块的代码被删除了
@@ -397,7 +397,7 @@ class ShoppingCart extends Actor {
      */
     override def postRestart(reason: Throwable): Unit = {}
 
-    //用户编写的代码至少支持receive代码块（重写）
+    //用户编写的代码至少支持receive代码块(重写)
     override def receive = {
         //处理所有类型消息并不作处理
         case _ =>
@@ -418,11 +418,25 @@ class ShoppingCart extends Actor {
 重要的是要明白，它没有放回邮箱。因此，如果您想要重新尝试处理一条消息，您需要自己处理它，捕捉异常并重试您的流。
 确保您绑定了重试次数，因为您不希望系统发生活锁(这样就会消耗大量的CPU周期而不会取得有意义的进展)。
 
-##### 对于信箱（邮箱）来说发生了什么
+##### 对于信箱(邮箱)来说发生了什么
 
-如果在处理消息时引发异常，则邮箱不会发生任何情况。如果重新启动该actor，则将存在相同的邮箱。所以邮箱上的所有信息（消息）都会在那里而不会丢失。
+如果在处理消息时引发异常，则邮箱不会发生任何情况。如果重新启动该actor，则将存在相同的邮箱。所以邮箱上的所有信息(消息)都会在那里而不会丢失。
 
 ##### 对于actor来说发生了什么
 
-如果actor中的代码抛出异常，则暂停该actor并启动监视过程（请参阅监督与检测）。
-这取决于主管（上级）actor的决定，actor可以被恢复(好像什么都没发生)、也可以被重新启动（清除内部状态并从头开始）或者被终止。
+如果actor中的代码抛出异常，则暂停该actor并启动监视过程(请参阅监督与检测)。
+这取决于主管(上级)actor的决定，actor可以被恢复(好像什么都没发生)、也可以被重新启动(清除内部状态并从头开始)或者被终止。
+
+### 其他
+
+其他特性代码，没有翻译。[Akka-actor examples](https://github.com/growingio/distributed-implement-scala/tree/master/src/main/scala/io/growing/akka/actor)
+
+* Become_Actor.scala
+* PartialFunction_Actor.scala
+* Schedule_Actor.scala
+* Selection_Actor.scala
+* Stash_Actor.scala
+* Stop_Actor.scala
+* Watch_Actor.scala
+
+[文档](https://doc.akka.io/docs/akka/current/actors.html)
