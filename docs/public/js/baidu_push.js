@@ -18,3 +18,12 @@ var _hmt = _hmt || [];
     s.parentNode.insertBefore(hm, s);
 })();
 //百度爬虫被屏蔽了，码云免费版不支持自定义域名
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147390701-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147390701-1');
+</script>
