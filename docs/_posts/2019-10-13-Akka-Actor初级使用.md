@@ -365,7 +365,15 @@ def initialized: Receive = {
 
 如果actor可能在消息被初始化之前接收消息，则可以使用一个有用的工具来保存消息，直到初始化完成为止，然后在actor初始化后重新回复它们。
 
-下面是一个完整例子：
+actor生命周期：
+
+![生命周期](../public/image/actor1.png)
+
+### actor与异常
+
+当消息正在由actor处理时，可能会引发某种类型的异常，例如数据库异常等。
+
+下面是一个简单的容错处理异常的例子：
 
 ```scala
 import akka.actor.Actor
@@ -381,6 +389,7 @@ class ShoppingCart extends Actor {
     //按照逻辑排序的四个方法
     //开始之前，大多数情况下需要重写
     //代码块的代码被删除了
+    //杀死所有孩子actor
     override def preStart(): Unit = {}
 
     //终止之后，大多数情况下需要重写
@@ -405,12 +414,6 @@ class ShoppingCart extends Actor {
 
 }
 ```
-
-![生命周期](../public/image/actor1.png)
-
-### actor与异常
-
-当消息正在由actor处理时，可能会引发某种类型的异常，例如数据库异常等。
 
 ##### 对于消息来说发生了什么
 

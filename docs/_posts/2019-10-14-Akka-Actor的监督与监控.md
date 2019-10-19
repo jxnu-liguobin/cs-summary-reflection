@@ -1,5 +1,5 @@
 ---
-title: Actor的监督与检测
+title: Actor的监督与监控
 categories:
   - Akka
 tags: [Akka-Actor入门]
@@ -64,7 +64,7 @@ Akka实施了一种称为“父母监督”的特定形式。actor只能由其�
 
 顶层Scopes的actor path
 
-* "/user"是所有用户创建的顶级actor的监护人actor；actor使用ActorSystem.actorOf这个下面找到的。
+* "/user"是所有用户创建的顶级actor的监护人；使用ActorSystem.actorOf这个找到的
 * "/system"是所有系统创建的顶级actor的守护者，例如，记录侦听器或在actor系统启动时通过配置自动部署的actor。
 * "/deadLetters"是死信actor，在这里，发送给已停止或不存在的actor的所有消息都会被重新路由(在尽最大努力的基础上：消息甚至可能在本地JVM中丢失)。
 * "/temp"是所有短暂的系统创建的actor的监护人，例如那些用于实现ActorRef.ask.
