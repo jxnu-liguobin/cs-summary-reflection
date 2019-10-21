@@ -16,6 +16,7 @@
   {% for node in site.script %}
   <script {% for var in node.var %} {{ var.key }}="{{ var.value }}" {% endfor %}>
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147390701-1"></script>
   {% endfor %}
   <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
