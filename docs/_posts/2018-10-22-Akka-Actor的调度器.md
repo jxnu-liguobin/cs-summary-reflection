@@ -1,7 +1,7 @@
 ---
 title: Actor的调度器
 categories:
-- Akka
+  - Akka
 tags: [Akka-Actor入门]
 description: 介绍Actor的调度器（dispatcher）及其使用
 ---
@@ -207,6 +207,130 @@ val myActor =
 不能保证随着时间的推移使用相同的线程，因为PinnedDispatcher有超时设置，以便在空闲actor的情况下减少资源使用。要始终使用相同的线程，您需要向PinnedDispatcher的配置中添加`thread-pool-executor.allow-core-timeout=off`。
 
 ### 小心处理阻塞
+
+
+在某些情况下，不可避免地要执行阻塞操作，即让线程在不确定的时间内休眠，等待外部事件的发生。例如，遗留的RDBMS驱动程序或消息传递API，其根本原因通常是(网络)I/O造成的。
+
+```scala
+class BlockingActor extends Actor {
+  def receive = {
+    case i: Int =>
+      Thread.sleep(5000) //阻塞5秒
+      println(s"Blocking operation finished: ${i}")
+  }
+}
+```
+
+面对这种情况，您可能会尝试将阻塞调用包装在一个未来中，然后使用它，但是这个策略太简单了：当应用程序在增长的负载下运行时，您很可能会发现瓶颈或内存不足或线程不足。
+
+```scala
+class BlockingFutureActor extends Actor {
+  implicit val executionContext: ExecutionContext = context.dispatcher
+
+  def receive = {
+    case i: Int =>
+      println(s"Calling blocking Future: ${i}")
+      Future {
+        Thread.sleep(5000) //阻塞5秒
+        println(s"Blocking future finished ${i}")
+      }
+  }
+}
+```
+
+### 问题：阻塞默认调度器
+
+这里的关键是这一行：
+
+```scala
+implicit val executionContext: ExecutionContext = context.dispatcher
+```
+
+使用context.Dispatcher作为执行阻塞的Future executes的调度器可能是一个问题，因为默认情况下，这个调度器用于所有其他actor处理，除非您为该actor设置了一个单独的调度器（参考“为Actor设置调度器”）。
+
+
+如果所有可用线程都被阻塞，那么同一调度程序上的所有actor都将急需线程，并且无法处理传入的消息。
+
+注意：如果可能的话，也应该避免阻塞API。尝试查找或构建反应式API，以便将阻塞最小化，或转移到专用调度程序。通常，当与现有库或系统集成时，不可能避免阻塞API。下面的解决方案解释如何正确处理阻塞操作。请注意，同样的提示适用于管理Akka中任何地方的阻塞操作，包括streams、http和其他构建在其之上的反应式库。
+
+```scala
+class PrintActor extends Actor {
+  def receive = {
+    case i: Int =>
+      println(s"PrintActor: ${i}")
+  }
+}
+``
+
+```scala
+val actor1 = system.actorOf(Props(new BlockingFutureActor))
+val actor2 = system.actorOf(Props(new PrintActor))
+
+for (i <- 1 to 100) {
+  actor1 ! i
+  actor2 ! i
+}
+```
+
+在这里，应用程序向BlockingFutureActor和PrintActor发送100条消息，大量`akka.actor.default-dispatcher`线程正在处理请求。当您运行上述代码时，可能会看到整个应用程序被阻塞在这样的地方：
+
+```
+>　PrintActor: 44
+>　PrintActor: 45
+```
+
+PrintActor被认为是非阻塞的，但是它不能继续处理剩余的消息，因为所有的线程都被其他阻塞的actor占用和阻塞，从而导致线程饥饿。
+
+
+### 解决方案：专门用于阻塞操作的调度器
+
+在applicy.conf中，专门用于阻塞行为的调度器应该配置如下：
+
+```
+my-blocking-dispatcher {
+  type = Dispatcher
+  executor = "thread-pool-executor"
+  thread-pool-executor {
+    fixed-pool-size = 16
+  }
+  throughput = 1
+}
+```
+
+基于线程池的调度程序允许我们对它将承载的线程数量设置一个限制，这样我们就可以严格控制系统中最多会有多少阻塞的线程。
+
+应该根据您期望在这个dispatcher上运行的工作负载以及运行应用程序的机器的核数来精确地调整其大小。通常，一个很小的核数是一个很好的默认值。
+
+
+每当必须执行阻塞时，请使用上述配置的dispatcher而不是默认的dispatcher：
+
+```scala
+class SeparateDispatcherFutureActor extends Actor {
+  implicit val executionContext: ExecutionContext = context.system.dispatchers.lookup("my-blocking-dispatcher")
+
+  def receive = {
+    case i: Int =>
+      println(s"Calling blocking Future: ${i}")
+      Future {
+        Thread.sleep(5000)
+        println(s"Blocking future finished ${i}")
+      }
+  }
+}
+```
+
+### 阻塞操作的可用解决方案
+
+“阻塞问题”的非详尽解决办法包括以下建议：
+
+* 在路由器管理的actor（或一组actor）中执行阻塞调用，确保配置专门用于此目的或足够大小的线程池。
+* 在Future中执行阻塞调用，确保在任何时间点都有这样的调用次数的上限（提交无限制的此类任务数量将耗尽您的内存或线程限制）。
+* 在Future中执行阻塞调用，为线程池提供一个线程数量上限，这个上限适合于运行应用程序的硬件，如本节中详细解释的那样。
+* 指定一个线程来管理一组阻塞资源（例如，NIO选择器驱动多个通道），并在actor消息出现时分派事件。
+
+第一种可能性特别适合于具有单线程性质的资源，比如数据库句柄，传统上只能一次执行一个未执行的查询，并使用内部同步来确保这一点。一个常见的模式是为N个actor创建一个路由器，每个actor封装一个DB连接并处理发送给路由器的查询。然后，必须对数字N进行调优，以获得最大吞吐量，这取决于部署在哪个硬件上的DBMS。
+
+
 
 
 
