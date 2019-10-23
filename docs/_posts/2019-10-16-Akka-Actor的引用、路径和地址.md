@@ -132,7 +132,13 @@ ActorRef的相等性与ActorRef对应于目标actor化身的意图相匹配。�
 请注意，由于故障导致的actor重新启动仍然意味着它是同一actor的化身，即ActorRef的使用者看不到重新启动。
 
 如果需要跟踪集合中的actor引用，而不关心确切的actor化身，则可以使用ActorPath作为键，因为在比较actor路径时不会考虑目标actor的标识符。
-从这也可以看出，实际上路径(path)是actor的标识符、id。
+从这也可以看出，实际上路径(path)是actor的名称，后面跟着的是actor的唯一标识符id，大多数情况下可以忽略这个id的存在。如下：
+
+```
+First: Actor[akka://testSystem/user/first-actor#1053618476] //akka是协议，表示是本地actor
+
+Second: Actor[akka://testSystem/user/first-actor/second-actor#-1544706041] //second-actor是first-actor的孩子，1544706041是id
+```
 
 ### 重用actor路径
 
