@@ -20,6 +20,8 @@ libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.5.26"
 Akka的邮箱保存着发送给Actor的消息。通常，每个Actor都有自己的邮箱，但是使用BalancingPool，所有的路由器都将共享一个邮箱实例。
 此处的邮箱与信箱意思等同，传递意思等同发送。
 
+PS：利用邮箱缓存消息并非Actor模型自带的功能，而是Akka库的功能。
+
 ### 邮箱选择
 
 #### Actor需要的消息队列类型
@@ -70,8 +72,10 @@ my-dispatcher {
 2. 如果actor的Props包含邮箱选择（即在其上调用了WithMailbox），那么指定的此配置部分将描述要使用的邮箱类型（请注意，这需要是一个绝对配置路径，例如myapp.Special-mailbox，而不是嵌套在Akka命名空间中的相对路径）。
 3. 如果dispatcher的配置部分包含mailbox-type key，则将使用相同部分来配置邮箱类型。
 4. 如果Actor需要如上所述的邮箱类型，则将使用该要求的映射来确定要使用的邮箱类型；如果失败则将尝试dispatcher的（如果有的话）。
-5. 如果dispatcher需要如上所述的邮箱类型，则该要求的映射将用于确定要使用的邮箱类型。
+5. 如果dispatcher需要如上所述的邮箱类型，则将使用该要求的映射来确定要使用的邮箱类型。
 6. 默认邮箱akka.actor.default-mailbox将被使用。
+
+此处有点难以理解可能有偏差，可以参考英文理解，[官网文档](https://doc.akka.io/docs/akka/current/mailboxes.html)。我理解这里是一个优先级关系，但可能描述不太好理解，这里“该要求的映射应该是指配置中mailbox-requirement的值”。
 
 #### 默认邮箱
 
@@ -94,6 +98,8 @@ akka.actor.default-mailbox {
 ### 内建邮箱的实现
 
 Akka附带了许多邮箱实现，如下所示：
+
+这些邮箱几乎都是无界且非阻塞的。
 
 * UnboundedMailbox（默认）
   * 默认邮箱
@@ -145,7 +151,7 @@ Akka附带了许多邮箱实现，如下所示：
   * 相同优先级消息的传递顺序是未定义的（与BoundedStablePriorityMailbox形成对比）
   * 阻塞：若与mailbox-push-timeout-time不为0时一起使用则是，否则不是
   * 有界性：是
-  * 配置名称："akka.dispatch.BoundedPriorityMailbox"
+  * 配置名称：akka.dispatch.BoundedPriorityMailbox
 * BoundedStablePriorityMailbox
   * 实现：基于akka.util.PriorityQueueStabilizer（封装了java.util.PriorityQueue）
   * 阻塞：若与mailbox-push-timeout-time不为0时一起使用则是，否则不是
