@@ -67,19 +67,19 @@ my-dispatcher {
 当创建一个Actor时，ActorRefProvider首先确定将执行它的调度器，然后按以下方式确定邮箱：
 
 1. 如果Actor的部署配置部分包含mailbox key，那么指定的此配置部分将描述要使用的邮箱类型。
-2. 如果actor的Props包含邮箱选择（即在其上调用了WithMailbox），那么指定的此配置部分将描述要使用的邮箱类型（请注意，这需要是一个绝对配置路径，例如`myapp.Special-mailbox`，而不是嵌套在Akka命名空间中的相对路径）。
+2. 如果actor的Props包含邮箱选择（即在其上调用了WithMailbox），那么指定的此配置部分将描述要使用的邮箱类型（请注意，这需要是一个绝对配置路径，例如myapp.Special-mailbox，而不是嵌套在Akka命名空间中的相对路径）。
 3. 如果dispatcher的配置部分包含mailbox-type key，则将使用相同部分来配置邮箱类型。
 4. 如果Actor需要如上所述的邮箱类型，则将使用该要求的映射来确定要使用的邮箱类型；如果失败则将尝试dispatcher的（如果有的话）。
 5. 如果dispatcher需要如上所述的邮箱类型，则该要求的映射将用于确定要使用的邮箱类型。
-6. 默认邮箱`akka.actor.default-mailbox`将被使用。
+6. 默认邮箱akka.actor.default-mailbox将被使用。
 
 #### 默认邮箱
 
-如果未如上所述指定需要的邮箱，则使用默认邮箱。默认情况下，它是一个无边界邮箱，由`java.util.concurrent.concurrentlinkedqueue`支持。
+如果未如上所述指定需要的邮箱，则使用默认邮箱。默认情况下，它是一个无边界邮箱，由java.util.concurrent.concurrentlinkedqueue支持。
 
-`SingleConsumerOnlyUndeddedMailbox`是一个更高效的邮箱，它可以用作默认邮箱，但不能与BalancingDispatcher一起使用。
+SingleConsumerOnlyUndeddedMailbox是一个更高效的邮箱，它可以用作默认邮箱，但不能与BalancingDispatcher一起使用。
 
-将`SingleConsumerOnlyUnderdedMailbox`配置为默认邮箱：
+将SingleConsumerOnlyUnderdedMailbox配置为默认邮箱：
 
 ```
 akka.actor.default-mailbox {
@@ -89,7 +89,7 @@ akka.actor.default-mailbox {
 
 #### 将哪些配置传递给邮箱类型
 
-每个邮箱类型都由一个类实现，该类扩展了MailboxType，并接受两个构造函数参数：`ActorSystem.Settings`对象和Config部分。后者是通过从Actor系统的配置中获取命名的配置部分，用邮箱类型的配置路径覆盖其id key并向默认邮箱配置部分添加fall-back来实现的
+每个邮箱类型都由一个类实现，该类扩展了MailboxType，并接受两个构造函数参数：ActorSystem.Settings对象和Config部分。后者是通过从Actor系统的配置中获取命名的配置部分，用邮箱类型的配置路径覆盖其id key并向默认邮箱配置部分添加fall-back来实现的
 
 ### 内建邮箱的实现
 
@@ -97,66 +97,66 @@ Akka附带了许多邮箱实现，如下所示：
 
 * UnboundedMailbox（默认）
   * 默认邮箱
-  * 实现：基于`java.util.concurrent.ConcurrentLinkedQueue`
+  * 实现：基于java.util.concurrent.ConcurrentLinkedQueue
   * 阻塞：否
   * 有界性：否
-  * 配置名称："unbounded" or "akka.dispatch.UnboundedMailbox"
+  * 配置名称：unbounded 或 akka.dispatch.UnboundedMailbox
 * SingleConsumerOnUnedMailbox
   * 这个队列可能比默认队列快，也可能不快，这取决于您的用例（一定要正确地进行基准测试）
   * 实现：基于多生产者单消费者的队列，不能与BalancingDispatcher同时使用
   * 阻塞：否
   * 有界性：否
-  * 配置名称："akka.dispatch.SingleConsumerOnlyUnboundedMailbox"
+  * 配置名称：akka.dispatch.SingleConsumerOnlyUnboundedMailbox
 * NonBlockingBoundedMailbox
   * 实现：基于一种高效的多生产者单消费者队列
   * 阻塞：否，将溢出的消息丢弃到死信中
   * 有界性：是
-  * 配置名称："akka.dispatch.NonBlockingBoundedMailbox"
+  * 配置名称：akka.dispatch.NonBlockingBoundedMailbox
 * UnboundedControlAwareMailbox
   * 传递具有更高优先级的继承自akka.dispatch.ControlMessage的消息
-  * 实现：基于两个`java.util.concurrent.ConcurrentLinkedQueue`
+  * 实现：基于两个java.util.concurrent.ConcurrentLinkedQueue
   * 阻塞：否
   * 有界性：否
-  * 配置名称："akka.dispatch.UnboundedControlAwareMailbox"
+  * 配置名称：akka.dispatch.UnboundedControlAwareMailbox
 * UnboundedPriorityMailbox
   * 相同优先级消息的传递顺序是未定义的（与StablePriorityMailbox形成对比）
-  * 实现：基于`java.util.concurrent.PriorityBlockingQueue`
+  * 实现：基于java.util.concurrent.PriorityBlockingQueue
   * 阻塞：否
   * 有界性：否
-  * 配置名称："akka.dispatch.UnboundedPriorityMailbox"
+  * 配置名称：akka.dispatch.UnboundedPriorityMailbox
 * UnboundedStablePriorityMailbox
   * 对于优先级相同的消息保留FIFO顺序（与UnboundedPriorityMailbox形成对比）
-  * 实现：基于`akka.util.PriorityQueueStabilizer`（封装了java.util.concurrent.PriorityBlockingQueue）
+  * 实现：基于akka.util.PriorityQueueStabilizer（封装了java.util.concurrent.PriorityBlockingQueue）
   * 阻塞：否
   * 有界性：否
-  * 配置名称："akka.dispatch.UnboundedStablePriorityMailbox"
+  * 配置名称：akka.dispatch.UnboundedStablePriorityMailbox
 
-当达到容量并配置的`mailbox-push-timeout-time`为非0，其他有界限的邮箱实现将阻止发送者。
+当达到容量并配置的mailbox-push-timeout-time为非0，其他有界限的邮箱实现将阻止发送者。
 
-注意：以下邮箱只应与`mailbox-push-timeout-time`为0的一起使用，因为当`mailbox-push-timeout-time`非0时，下面所有的信箱都是阻塞的，反应式不推荐使用阻塞，万不得已也应当隔离出阻塞操作到独立的调度线程。
+注意：以下邮箱只应与mailbox-push-timeout-time为0的一起使用，因为当mailbox-push-timeout-time非0时，下面所有的信箱都是阻塞的，反应式不推荐使用阻塞，万不得已也应当隔离出阻塞操作到独立的调度线程。
 
 * BoundedMailbox
-  * 实现：基于`java.util.concurrent.LinkedBlockingQueue`
-  * 阻塞：若与`mailbox-push-timeout-time`不为0时一起使用则是，否则不是
+  * 实现：基于java.util.concurrent.LinkedBlockingQueue
+  * 阻塞：若与mailbox-push-timeout-time不为0时一起使用则是，否则不是
   * 有界性：是
-  * 配置名称："bounded” or “akka.dispatch.BoundedMailbox"
+  * 配置名称：bounded 或 akka.dispatch.BoundedMailbox
 * BoundedPriorityMailbox
-  * 实现：基于`akka.util.BoundedBlockingQueue`（封装了java.util.PriorityQueue）
+  * 实现：基于akka.util.BoundedBlockingQueue（封装了java.util.PriorityQueue）
   * 相同优先级消息的传递顺序是未定义的（与BoundedStablePriorityMailbox形成对比）
-  * 阻塞：若与`mailbox-push-timeout-time`不为0时一起使用则是，否则不是
+  * 阻塞：若与mailbox-push-timeout-time不为0时一起使用则是，否则不是
   * 有界性：是
   * 配置名称："akka.dispatch.BoundedPriorityMailbox"
 * BoundedStablePriorityMailbox
-  * 实现：基于`akka.util.PriorityQueueStabilizer`（封装了java.util.PriorityQueue）
-  * 阻塞：若与`mailbox-push-timeout-time`不为0时一起使用则是，否则不是
+  * 实现：基于akka.util.PriorityQueueStabilizer（封装了java.util.PriorityQueue）
+  * 阻塞：若与mailbox-push-timeout-time不为0时一起使用则是，否则不是
   * 有界性：是
-  * 配置名称："akka.dispatch.BoundedStablePriorityMailbox"
+  * 配置名称：akka.dispatch.BoundedStablePriorityMailbox
 * BoundedControlAwareMailbox
   * 传递具有更高优先级的继承自akka.dispatch.ControlMessage的消息
-  * 实现：基于两个`java.util.concurrent.ConcurrentLinkedQueue`，如果已达到容量，则阻塞队列。
-  * 阻塞：若与`mailbox-push-timeout-time`不为0时一起使用则是，否则不是
+  * 实现：基于两个java.util.concurrent.ConcurrentLinkedQueue，如果已达到容量，则阻塞队列。
+  * 阻塞：若与mailbox-push-timeout-time不为0时一起使用则是，否则不是
   * 有界性：是
-  * 配置名称："akka.dispatch.BoundedControlAwareMailbox"
+  * 配置名称：akka.dispatch.BoundedControlAwareMailbox
 
 ### 邮箱配置示例
 
@@ -262,7 +262,7 @@ import akka.actor.Props
 val myActor = context.actorOf(Props[MyActor].withMailbox("prio-mailbox"))
 ```
 
-#### ControlAwareMailbox
+#### 控制消息
 
 如果一个Actor需要能够立即接收控制消息，那么ControlAwareMailbox就会非常有用，而不管它的邮箱中已经有多少其他消息。如前介绍，这个消息类型优先级更高。
 
@@ -336,7 +336,7 @@ boundedMailbox extends MailboxType with ProducesMessageQueue[MyUnboundedMailbox.
 
 然后将MailboxType的FQCN指定为dispatcher配置或邮箱配置中“mailbox-type”的值。
 
-注意：确保包含一个构造函数，该构造函数需要`akka.actor.ActorSystem.Settings`和`com.ypesafe.config.Confi`g参数，因为此构造函数是以反射方式调用来构造你的邮箱类型的。作为第二个参数传入的配置是配置中使用此邮箱类型描述dispatcher或邮箱设置的部分；将对使用该配置类型的每个dispatcher或邮箱设置实例化邮箱类型一次。
+注意：确保包含一个构造函数，该构造函数需要akka.actor.ActorSystem.Settings和com.ypesafe.config.Config参数，因为此构造函数是以反射方式调用来构造你的邮箱类型的。作为第二个参数传入的配置是配置中使用此邮箱类型描述dispatcher或邮箱设置的部分；将对使用该配置类型的每个dispatcher或邮箱设置实例化邮箱类型一次。
 
 您还可以使用邮箱作为调度器的要求（requirement ），如下所示：
 
