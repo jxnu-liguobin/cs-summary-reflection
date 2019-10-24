@@ -102,7 +102,7 @@ val myActor =
     * 可共享性：不受限
     * 邮箱：任意，为每个actor创建一个
     * 使用场景：默认分派器，bulkheading
-    * 底层实现：`java.util.concurrent.executorService`。使用“fork join executor”、“fork-join-executor”或`akka.dispatcher.ExecutorServiceConfigurator`的FQCN指定使用“executor”。
+    * 底层实现：java.util.concurrent.executorService。使用“fork join executor”、“fork-join-executor”或akka.dispatcher.ExecutorServiceConfigurator的FQCN指定使用“executor”。
 * PinnedDispatcher
 这个Dispatcher为使用它的每个actor指定了一个唯一的线程；也就是说，每个actor都将有自己的线程池，其中只有一个线程在池中。
     * 可共享性：无
@@ -204,7 +204,7 @@ val myActor =
 
 注意：根据上面的my-thread-pool-dispatcher示例，thread-pool-executor配置是不适用的。这是因为当使用PinnedDispatcher时，每个actor都会有自己的线程池，而这个线程池只有一个线程。
 
-不能保证随着时间的推移使用相同的线程，因为PinnedDispatcher有超时设置，以便在空闲actor的情况下减少资源使用。要始终使用相同的线程，您需要向PinnedDispatcher的配置中添加`thread-pool-executor.allow-core-timeout=off`。
+不能保证随着时间的推移使用相同的线程，因为PinnedDispatcher有超时设置，以便在空闲actor的情况下减少资源使用。要始终使用相同的线程，您需要向PinnedDispatcher的配置中添加thread-pool-executor.allow-core-timeout=off。
 
 ### 小心处理阻塞
 
@@ -272,7 +272,7 @@ for (i <- 1 to 100) {
 }
 ```
 
-在这里，应用程序向BlockingFutureActor和PrintActor发送100条消息，大量`akka.actor.default-dispatcher`线程正在处理请求。当您运行上述代码时，可能会看到整个应用程序被阻塞在这样的地方：
+在这里，应用程序向BlockingFutureActor和PrintActor发送100条消息，大量akka.actor.default-dispatcher线程正在处理请求。当您运行上述代码时，可能会看到整个应用程序被阻塞在这样的地方：
 
 ```
 >　PrintActor: 44
@@ -329,18 +329,3 @@ class SeparateDispatcherFutureActor extends Actor {
 * 指定一个线程来管理一组阻塞资源（例如，NIO选择器驱动多个通道），并在actor消息出现时分派事件。
 
 第一种可能性特别适合于具有单线程性质的资源，比如数据库句柄，传统上只能一次执行一个未执行的查询，并使用内部同步来确保这一点。一个常见的模式是为N个actor创建一个路由器，每个actor封装一个DB连接并处理发送给路由器的查询。然后，必须对数字N进行调优，以获得最大吞吐量，这取决于部署在哪个硬件上的DBMS。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
