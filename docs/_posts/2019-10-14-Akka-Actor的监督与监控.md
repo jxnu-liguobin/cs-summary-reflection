@@ -2,7 +2,7 @@
 title: Actor的监督与监控
 categories:
   - Akka
-tags: [Akka-Actor入门]
+tags: [Akka-Actor中文文档]
 description: 本章概述了监督背后的概念、提供的原语及其语义。
              
 ---

@@ -2,7 +2,7 @@
 title: Actor的调度器
 categories:
   - Akka
-tags: [Akka-Actor入门]
+tags: [Akka-Actor中文文档]
 description: 介绍Actor的调度器（dispatcher）及其使用
 ---
 

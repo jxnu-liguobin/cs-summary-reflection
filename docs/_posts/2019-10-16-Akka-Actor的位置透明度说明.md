@@ -2,7 +2,7 @@
 title: Actor的位置透明度说明
 categories:
   - Akka
-tags: [Akka-Actor入门]
+tags: [Akka-Actor中文文档]
 description: 本章概述了关于actor的位置透明度说明
 ---
 

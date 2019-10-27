@@ -2,7 +2,7 @@
 title: Actor的信箱与使用
 categories:
   - Akka
-tags: [Akka-Actor入门]
+tags: [Akka-Actor中文文档]
 description: 本章介绍actor的信箱类型及其常用配置
 ---
 
