@@ -54,3 +54,7 @@ Akka远程处理是一个以对等方式连接actor系统的通信模块，它�
 一旦声明了这样的路由器，就可以从配置文件中自由地覆盖它的配置，包括将它与(一些)子程序的远程部署混合起来。在[路由](https://doc.akka.io/docs/akka/current/routing.html)中阅读更多有关此信息的内容。
 
 ![文档](https://doc.akka.io/docs/akka/current/general/remoting.html)
+
+* 使用搜狗翻译、百度翻译、谷歌翻译，仅供参考
+* 来自官方文档、参考《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
+* 后续随着理解深入会继续修改错误和描述，以便更好理解，本博客开源，欢迎指出错误

@@ -165,3 +165,7 @@ val supervisor = BackoffSupervisor.props(
 上面的代码设置了一个备用监控器，如果抛出MyException，任何其他异常都会升级。如果子程序在10秒内没有抛出任何错误，则自动重置回退。
 
 [文档](https://doc.akka.io/docs/akka/current/general/supervision.html)
+
+* 使用搜狗翻译、百度翻译、谷歌翻译，仅供参考
+* 来自官方文档、参考《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
+* 后续随着理解深入会继续修改错误和描述，以便更好理解，本博客开源，欢迎指出错误

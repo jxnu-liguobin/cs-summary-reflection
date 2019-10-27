@@ -131,3 +131,7 @@ class MyActor(echoActor: ActorRef, cleanUpActor: ActorRef) extends Actor {
 * 讯息应不可变，这是为了避免共享可变状态陷阱。
 
 [文档](https://doc.akka.io/docs/akka/current/general/jmm.html)
+
+* 使用搜狗翻译、百度翻译、谷歌翻译，仅供参考
+* 来自官方文档、参考《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
+* 后续随着理解深入会继续修改错误和描述，以便更好理解，本博客开源，欢迎指出错误

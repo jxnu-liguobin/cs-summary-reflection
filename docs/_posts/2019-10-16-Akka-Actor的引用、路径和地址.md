@@ -171,3 +171,7 @@ Second: Actor[akka://testSystem/user/first-actor/second-actor#-1544706041] //sec
 参考(Actor的监督与检测 - 高级监督actor)。
 
 [文档](https://doc.akka.io/docs/akka/current/general/addressing.html)
+
+* 使用搜狗翻译、百度翻译、谷歌翻译，仅供参考
+* 来自官方文档、参考《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
+* 后续随着理解深入会继续修改错误和描述，以便更好理解，本博客开源，欢迎指出错误

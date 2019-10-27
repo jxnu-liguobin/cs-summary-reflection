@@ -98,3 +98,7 @@ Akka采用分布式计算，并通过消息传递使通信的错误性变得明�
 原因是内部系统消息具有自己的邮箱，因此用户入队调用的顺序和系统消息不能保证其出队时间的顺序。
 
 这里仅有一般性规则的说明，如有不理解或更多高级规则可参看[官方文档 Message Delivery Reliability](https://doc.akka.io/docs/akka/current/general/message-delivery-reliability.html)
+
+* 使用搜狗翻译、百度翻译、谷歌翻译，仅供参考
+* 来自官方文档、参考《响应式架构 消息模式Actor实现与Scala、Akka应用集成》
+* 后续随着理解深入会继续修改错误和描述，以便更好理解，本博客开源，欢迎指出错误
