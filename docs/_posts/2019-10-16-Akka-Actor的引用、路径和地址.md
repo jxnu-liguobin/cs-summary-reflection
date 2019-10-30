@@ -24,14 +24,13 @@ actor引用是ActorRef的子类型，其首要目的是支持向它表示的acto
 * 有一个本地actor引用的子类型用于路由器(即，在Router trait中混合的actor)。它的逻辑结构与上述本地引用的逻辑结构相同，但是向他们发送消息会直接分派给他们的一个孩子。
 * 远程actor引用表示可以使用远程通信访问的actor，即向它们发送消息将透明地序列化消息并发送给远程JVM。
 * 在所有实际目的中，有几种特殊类型的actor引用与本地actor引用类似：
-
-      1. PromiseActorRef是Promise的特殊表示形式，目的是通过actor的响应来完成。 akka.pattern.ask创建此actor 引用。
-      2. DeadLetterActorRef是死信服务的默认实现，Akka将所有目的地已关闭或不存在的消息路由到死信服务。
-      3. Akka在查找不存在的本地actor路径时返回的是EmptyLocalActorRef：它等效于DeadLetterActorRef，但它保留其路径，以便Akka可以通过网络发送该路径并将其与该路径的其他现有actor引用进行比较，其中可能是在actor去死亡之前获得的。
+  * PromiseActorRef是Promise的特殊表示形式，目的是通过actor的响应来完成。 akka.pattern.ask创建此actor 引用。
+  * DeadLetterActorRef是死信服务的默认实现，Akka将所有目的地已关闭或不存在的消息路由到死信服务。
+  * Akka在查找不存在的本地actor路径时返回的是EmptyLocalActorRef：它等效于DeadLetterActorRef，但它保留其路径，以便Akka可以通过网络发送该路径并将其与该路径的其他现有actor引用进行比较，其中可能是在actor去死亡之前获得的。
 * 还有一些一次性的内部实现，您永远不应该看到：
 
-       1. 有一个actor引用，它并不代表一个actor，而只是作为根守护者的伪监督者，我们称它为“在时空泡泡中行走的人”。原文是“the one who walks the bubbles of space-time”
-       2. 在实际启动actor创建设施之前启动的第一个日志记录服务是一个伪造的actor引用，它接受日志事件并将其直接打印到标准输出中。它是Logging.StandardOutLogger。
+  * 有一个actor引用，它并不代表一个actor，而只是作为根守护者的伪监督者，我们称它为“在时空泡泡中行走的人”。原文是“the one who walks the bubbles of space-time”
+  * 在实际启动actor创建设施之前启动的第一个日志记录服务是一个伪造的actor引用，它接受日志事件并将其直接打印到标准输出中。它是Logging.StandardOutLogger。
 
 ### 什么是actor的路径
 
@@ -168,7 +167,7 @@ Second: Actor[akka://testSystem/user/first-actor/second-actor#-1544706041] //sec
     
 ### 顶层Scopes的actor路径
 
-参考(Actor的监督与检测 - 高级监督actor)。
+参考（Actor的监督与监控 - 高级监督actor）。
 
 [文档](https://doc.akka.io/docs/akka/current/general/addressing.html)
 
