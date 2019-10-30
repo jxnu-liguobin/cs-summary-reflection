@@ -1,5 +1,5 @@
 ---
-title: Scala的Future异步工具解决
+title: Scala的Future分析
 categories:
 - Scala
 tags: [Scala]
