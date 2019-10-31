@@ -31,7 +31,7 @@ class Master extends Actor {
       //暂且称router为路由器，routees为路由者或路由。下同
       //简单理解：路由者是路由器的实体，是Actor对象
       //一个路由器可以有多个路由者，并且路由者可以由外部提供，但宏观上属于同一个路由器。所以也可说路由器是Actor
-      //可能有误
+      //可能有误，目前先把它比作线程池和线程（路由还有路由组）
     val routees = Vector.fill(5) {
       val r = context.actorOf(Props[Worker])
       context.watch(r)
@@ -743,6 +743,77 @@ virtual-nodes-factor是在一致性hash节点环中使用的每个路由者的�
 
 ### 特别处理的消息
 
+发送给路由器Actor的大部分消息将根据路由器的路由逻辑转发。但是，有几种类型的消息具有特殊的行为。
+
+请注意，除了Broadcast之外，这些特殊消息只由独立的路由器Actor来处理，而不是由akka.routing.Router组件来处理，这在上面章节“一个简单的路由器”中描述了。
+
+#### 广播消息
+
+广播消息（Broadcast）可以用来向路由器的所有路由者们发送消息。当路由器接收到广播消息时，它将把消息的有效载荷广播给所有被路由者，而不管该路由器通常如何路由其消息。
+
+下面的示例显示了如何使用广播消息向路由器的每个路由者发送非常重要的消息。
+
+```scala
+import akka.routing.Broadcast
+router ! Broadcast("Watch out for Davy Jones' locker")
+```
+
+在本例中，路由器接收广播消息，提取其有效载荷(“Watch out for Davy Jones' locker”)，然后将有效载荷发送给路由器的所有路由者。由每个路由者Actor来处理接收到的有效载荷消息。
+
+    注意：当您对路由器使用BalancingPool时，不要使用广播消息。BalancingPool上的路由者们共享相同的邮箱实例，因此一些路由者可能会多次获得广播消息，而其他的路由者则得不到广播消息。
+
+#### 毒丸消息
+
+毒丸（PoisonPill）消息对包括路由器在内的所有Actor都有特殊处理。当任何Actor收到PoisonPill消息时，该Actor将被停止。有关详细信息，[请参阅PoisonPill文档](https://doc.akka.io/docs/akka/current/actors.html#poison-pill)。
+
+```scala
+import akka.actor.PoisonPill
+router ! PoisonPill
+```
+
+对于通常将消息传递给路由者的路由器，重要的是要意识到毒丸消息仅由路由器处理。发送到路由器的毒丸消息不会发送到路由者。
+
+
+然而，发送给路由器的PoisonPill消息可能仍然会影响其路由者，因为它将停止路由器，而当路由器停止时，它也会停止其子路由器。阻止子节点是正常的Actor行为。路由器将停止它创建的子路由者。每个子程序将处理其当前消息，然后停止。这可能导致一些消息未被处理。有关停止Actor的更多信息，[请参见文档](https://doc.akka.io/docs/akka/current/actors.html#stopping-actors)。
+
+如果希望停止路由器及其路由者，但希望路由者们首先处理当前邮箱中的所有邮件，则不应向路由器发送PoisonPill消息。相反，您应该将PoisonPill消息包装在广播消息中，以便每个路由者都能接收PoisonPill消息。请注意，这将停止所有路由器，即使路由者不是路由器的子节点，也就是说即使是以编程方式提供给路由器的路由者们。
+
+```scala
+import akka.actor.PoisonPill
+import akka.routing.Broadcast
+router ! Broadcast(PoisonPill)
+```
+
+使用上面所示的代码，每个路由者将收到一条PoisonPill消息。每个路由者将继续正常地处理其消息，最终处理PoisonPill。这会让路由者停下来。在所有路由者停止后，路由器本身就会自动停止，除非它是一个动态路由器，例如使用一个resizer。
+
+
+Brendan W McAdams出色的博客文章[Distributing Akka Workloads - And Shutting Down Afterwards](http://bytes.codes/2013/01/17/Distributing_Akka_Workloads_And_Shutting_Down_After/)，更详细地讨论了如何使用PoisonPill消息可以用来关闭路由器和路由者。
+
+#### 终止消息
+
+终止消息是另一种具有特殊处理功能的消息类型。有关Actor如何处理终止消息的一般信息，请参见[终止演员](https://doc.akka.io/docs/akka/current/actors.html#killing-actors)。
+
+当一个Kill消息被发送到一个路由器时，路由器会在内部处理该消息，而不会将它发送给它的路由者。路由器将抛出ActorKilledException并失败。然后，它将被恢复、重新启动或终止，这取决于它的监督方式。参考本博客的“Actor的监督与监控”一文
+
+路由器的子路由者也将被挂起，并将受到应用于路由器的监督指令的影响。非路由器的子路由者，即那些在路由器外部创建的，不会受到影响。
+
+```scala
+import akka.actor.Kill
+router ! Kill
+```
+
+与PoisonPill消息一样，在终止路由器（它间接杀死路由器的子女（碰巧是路由者））和直接终止路由者（其中一些人可能不是子节点）之间存在着区别。为了直接终止路由者，应该向路由器发送一条包含在广播消息中的终止消息。
+
+#### 管理消息
+
+* 向路由器Actor发送akka.routing.GetRoutees将让它在akka.routing.Routees消息中传回它目前使用的路由者。
+* 向路由器Actor发送akka.routing.AddRoutee将该路由者添加到它的路由者集合中。
+* 向路由器Actor发送akka.routing.RemoveRoutee将该路由者从其路由者集合中删除。
+* 发送akka.routing.AdjustPoolSize对池路由器Actor进行调整，将该数目的路由者从它的路由者集合中添加或移除。
+
+这些管理消息可能在其他消息之后处理，因此，如果您在发送AddRoutee之后立即发送一条普通消息，则不能保证路由者在路由普通消息时已被更改。如果您需要知道更改是什么时候应用的，您可以发送AddRoutee，后面跟着GetRoutees，并且当您收到Routees的回复时，您知道前面的更改已经应用了。
+
+### 动态调整大小的池
 
 
 未完。
