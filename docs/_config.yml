@@ -173,6 +173,9 @@ sidebar:
   - title: zhihu
     href: //www.zhihu.com/people/dreamylost/activities
     class: 'fab fa-zhihu fa-fw'
+  - title: twitter
+    href: //twitter.com/dreamylostcn
+    class: 'fab fa-twitter fa-fw'
   nav:
   - title: '<i class="fas fa-home fa-fw"></i> 首页'
     href: /
