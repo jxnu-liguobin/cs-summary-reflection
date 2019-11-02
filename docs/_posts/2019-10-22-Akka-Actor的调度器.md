@@ -10,7 +10,7 @@ description: 介绍Actor的调度器（dispatcher）及其使用
 * 目录
 {:toc}
 
-Akka的消息调度器（MessageDispatcher）是使Akka Actors“滴答”的东西，可以说它是机器的引擎。所有MessageDispatcher实现也都是一个ExecutionContext（参考“Scala的Future解读”），这意味着它们可以用于执行任意代码，例如 Future 实例。以下调度器与调度程序等同，均指Dispatcher。
+Akka的消息调度器（MessageDispatcher）是使Akka Actors“滴答”的东西，可以说它是机器的引擎。所有MessageDispatcher实现也都是一个ExecutionContext（参考“Scala的Future解读”），这意味着它们可以用于执行任意代码，例如 Future 实例。以下调度器与调度程序等同，均指Dispatcher，可以理解为Spring的Servlet分派器。
 
 ### 默认的调度器
 
