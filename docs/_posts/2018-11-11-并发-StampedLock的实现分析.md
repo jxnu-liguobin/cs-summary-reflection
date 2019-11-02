@@ -170,7 +170,7 @@ CLH锁也是一种基于链表的可扩展、高性能、公平的自旋锁，�
  然后线程A和B都在其myPred域上旋转，一旦它的myPred结点的locked字段变为false，它就可以获取锁。
  明显线程A的myPred locked域为false，此时线程A获取到了锁。
  
-![](../concurrent/CLH.png)
+![](../public/image/concurrent/CLH.png)
 
 实现
 
@@ -228,7 +228,7 @@ public class CLHLock implements Lock {
       c. 线程B和C相继加入队列，a->next=b,b->next=c。且B和C现在没有获取锁，处于等待状态，所以它们的locked域为true，尾指针指向线程C对应的结点
       d. 线程A释放锁后，顺着它的next指针找到了线程B，并把B的locked域设置为false。这一动作会触发线程B获取锁
       
- ![](../concurrent/MCS.jpg)
+ ![](../public/image/concurrent/MCS.jpg)
 
  实现
  
