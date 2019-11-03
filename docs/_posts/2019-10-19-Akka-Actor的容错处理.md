@@ -18,7 +18,7 @@ libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.5.25"
 ```
 
 正如ActorSystems中所解释的那样，每个actor都是其子actor的主管，因此每个actor都定义了故障处理监督策略。这一策略不能在事后改变，因为它是actor系统结构的一个组成部分。
-具体的监督策略可以参考(Akka分类下的"Akka的监督与监控")。
+具体的监督策略可以参考（Akka分类下的"Akka的监督与监控"）。
 
 ### 实践中的故障处理
 
@@ -48,8 +48,8 @@ override val supervisorStrategy =
 ```
 
 我们选择了一些著名的异常类型，以演示在监督中描述的故障处理指令的应用。
-首先，这是一对一的策略，这意味着每个孩子被分开对待(一个所有对一的策略工作非常相似，唯一的区别是，任何决定都适用于主管的所有孩子，而不仅仅是失败的孩子)。
-在上面的示例中，10分钟和1分钟分别传递给maxNrOfRetry和withinTimeRange参数，这意味着策略以每分钟10次重新启动子actor(孩子)。
+首先，这是一对一的策略，这意味着每个孩子被分开对待（一个所有对一的策略工作非常相似，唯一的区别是，任何决定都适用于主管的所有孩子，而不仅仅是失败的孩子）。
+在上面的示例中，10分钟和1分钟分别传递给maxNrOfRetry和withinTimeRange参数，这意味着策略以每分钟10次重新启动子actor（孩子）。
 如果在withinTimeRange持续时间内重新启动计数超过maxNrOfRetry，则停止子actor。
 
 此外，这些参数也有特殊的值。如果您指定：
@@ -72,11 +72,11 @@ override val supervisorStrategy =
 
 当没有为actor定义监督策略时，默认情况下将处理下列异常：
 
-* ActorInitializationException will stop the failing child actor
-* ActorKilledException will stop the failing child actor
-* DeathPactException will stop the failing child actor
-* Exception will restart the failing child actor
-* Other types of Throwable will be escalated to parent actor
+* ActorInitializationException 停止失败的子actor
+* ActorKilledException 停止失败的子actor
+* DeathPactException 停止失败的子actor
+* Exception will 重启（不保留状态）失败的子actor
+* Other types of Throwable 上升到父actor
 
 如果异常一直升级到根守护程序，它将以与上面定义的默认策略相同的方式处理它。
 
@@ -106,7 +106,7 @@ override val supervisorStrategy =
 默认情况下，除非升级，否则监督策略会记录故障。升级的故障应该在层次结构中较高的级别处理，并可能记录在案。
 
 您可以通过在实例化时将loggingEnable设置为false来禁止SupervisorStrategy的默认日志记录。
-定制化的日志记录可以在分配器(Decider)内完成。请注意，当监督策略在监督actor之内被声明时，对当前失败子节点的引用可作为发送方使用。
+定制化的日志记录可以在分配器（Decider）内完成。请注意，当监督策略在监督actor之内被声明时，对当前失败子节点的引用可作为发送方使用。
 
 您还可以通过重写logFailure方法，在您自己的SupervisorStrategy实现中自定义日志记录。
 
@@ -140,7 +140,7 @@ class Supervisor extends Actor {
 }
 ```
 
-这个主管将被用来创造一个孩子(子actor)，我们可以用这个孩子做实验：
+这个主管将被用来创造一个孩子（子actor），我们可以用这个孩子做实验：
 
 ```scala
 import akka.actor.Actor
@@ -244,10 +244,10 @@ expectMsgPF() {
 }
 ```
 
-主管本身由ActorSystem提供的顶级actor进行监督，该系统具有在所有异常情况下重新启动的默认策略(ActorInitializationException和ActorledKilException例外)。
+主管本身由ActorSystem提供的顶级actor进行监督，该系统具有在所有异常情况下重新启动的默认策略（ActorInitializationException和ActorledKilException例外）。
 因为在重新启动的情况下，默认的指令是杀死所有的孩子，所以我们期望我们可怜的孩子活不过这次失败。
                                 
-如果这是不想要的(这取决于用例)，我们需要使用一个不同的监督者来覆盖这个行为。即当不需要杀死所有子actor时，可以参考以下用例。
+如果这是不想要的（这取决于用例），我们需要使用一个不同的监督者来覆盖这个行为。即当不需要杀死所有子actor时，可以参考以下用例。
 
 ```scala
 class Supervisor2 extends Actor {
