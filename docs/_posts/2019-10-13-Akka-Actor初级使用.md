@@ -174,7 +174,7 @@ val actorRef = system.actorOf(Props(classOf[DependencyInjector], applicationCont
 
 当使用依赖项注入框架时，actor bean不能有单例作用域。
 
-#### 收件箱(信箱)
+#### 收件箱（信箱）
 
 当编写与actor通信的外部代码时，ask模式可以是解决方案（见下文），但它不能做两件事：接收多个答复（例如，通过订阅ActorRef）和监视其他actor的生命周期。为此目的，有Inbox class：
 
@@ -253,7 +253,7 @@ sender() ! x // replies will go to this actor
 指定时，接收函数应该能够处理akka.actor.ReceiveTimeout留言。1毫秒是支持的最小超时。
 
 请注意，接收超时可能会在另一条消息排队后立即触发并排队ReceiveTimeout消息；因此，不能保证在接收超时，一定有通过此方法配置的空闲期间。
-一旦设置，接收超时将保持有效(即在不活动期间后继续重复触发)。传入Duration.Undefined关闭此功能。
+一旦设置，接收超时将保持有效（即在不活动期间后继续重复触发）。传入Duration.Undefined关闭此功能。
 
 ```scala
 import akka.actor.ReceiveTimeout
@@ -314,7 +314,6 @@ class MyActor extends Actor with Timers {
 
 使用构造函数进行初始化有各种好处。首先，使用val字段存储在actor实例生命周期内不发生更改的任何状态成为可能，从而使actor的实现更加健壮。
 当调用actorOf创建actor实例和重新启动时，就会调用该构造函数，因此，该actor的内部总是可以假定发生了适当的初始化。这也是这种方法的缺点，因为在某些情况下，人们希望避免在重启时重新初始化内部。例如，在重启过程中保持子角色通常是有用的。下面提供了这种情况的case。
-
 
 #### 通过预启动初始化
 
