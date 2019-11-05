@@ -41,22 +41,22 @@ Akka实施了一种称为“父母监督”的特定形式。actor只能由其�
 
 ### 高级监督actor
 
-`/user: The Guardian Actor`
+/user: The Guardian Actor
 
 与之交互最多的actor可能是所有用户创建的actor的父级actor，即名为“/user”的监护人。
 使用system.actorOf()创建的actor是此actor的子actor。这意味着当该监护人终止时，系统中的所有正常actor也将被关闭。
-这也意味着这位监护人的监管策略决定了高层正常actor是如何受到监督的。由于Akka 2.1可以使用`akka.actor.guardian-supervisor-strategy`配置它，
+这也意味着这位监护人的监管策略决定了高层正常actor是如何受到监督的。由于Akka 2.1可以使用akka.actor.guardian-supervisor-strategy配置它，
 该策略采用了SupervisorStrategyConfigurator的完全限定类名。当监护人升级失败时，根监护人的反应将是终止监护人，这实际上将关闭整个actor系统。
 
-`/system: The System Guardian`
+/system: The System Guardian
 
 这个特殊的监护人被引入是为了实现一个有序的关闭序列，其中日志记录保持活跃，而所有正常的actor终止，即使日志本身是使用actor实现的。
 这是通过让系统监护人监视用户监护人并在接收到终止的消息时启动自己的关闭来实现的。顶级系统actor使用一种策略进行监督，该策略将对所有类型的异常无限期地重新启动，但ActorInitializationException和ActorKilledException除外，这将终止所讨论的子异常。
 所有其他可抛出的都会升级，并将关闭整个actor系统。
 
-`/: The Root Guardian`
+/: The Root Guardian
 
-根actor是所有所谓的“顶级”actor的祖父母，并使用`SupervisorStrategy.stoppingStrategy`监督策略来监督“顶层Scopes的actor path”中提到的所有特殊actor，其目的是在任何类型的例外情况下终止孩子。
+根actor是所有所谓的“顶级”actor的祖父母，并使用SupervisorStrategy.stoppingStrategy监督策略来监督“顶层Scopes的actor path”中提到的所有特殊actor，其目的是在任何类型的例外情况下终止孩子。
 所有其他可移植对象都将升级为…。但是对谁呢？因为每个真正的actor都有一个监督者，所以根监护人的监督者不可能是真正的actor。
 因为这意味着它是“泡沫之外的”，它被称为“泡沫行者”。这是一个合成ActorRef，它实际上是在第一个故障迹象出现时停止其子actor，并在根监护人完全终止时将actor系统的isTerminated状态设置为true（所有子节点递归停止）。
 
@@ -66,7 +66,7 @@ Akka实施了一种称为“父母监督”的特定形式。actor只能由其�
 
 * "/user"是所有用户创建的顶级actor的监护人；使用ActorSystem.actorOf这个找到的
 * "/system"是所有系统创建的顶级actor的守护者，例如，记录侦听器或在actor系统启动时通过配置自动部署的actor。
-* "/deadLetters"是死信actor，在这里，发送给已停止或不存在的actor的所有消息都会被重新路由(在尽最大努力的基础上：消息甚至可能在本地JVM中丢失)。
+* "/deadLetters"是死信actor，在这里，发送给已停止或不存在的actor的所有消息都会被重新路由（在尽最大努力的基础上：消息甚至可能在本地JVM中丢失）。
 * "/temp"是所有短暂的系统创建的actor的监护人，例如那些用于实现ActorRef.ask.
 * "/remote"是一种人为的路径，下面所有actor的监事都是远程actor的引用。
 
@@ -80,7 +80,7 @@ AllForOneStrategy适用于以下情况：儿童群体之间有非常紧密的依
 您必须确保任何actor能接收到重新启动之前排队的消息且随后处理都没有问题。
 
 通常，使用“全对一”策略时，停止一个子程序（即不响应失败）不会自动终止其他子级的；这可以通过观察它们的生命周期来完成：如果终止的消息没有由主管处理，
-它将抛出DeathPactException，该异常(取决于其主管)将重新启动它，默认的preRestart操作将终止所有的子级。当然，这也可以显式地处理。
+它将抛出DeathPactException，该异常（取决于其主管）将重新启动它，默认的preRestart操作将终止所有的子级。当然，这也可以显式地处理。
 
 注意，从“一对一”管理者创建一次性actor意味着临时actor升级的失败将影响所有永久actor。如果不需要，请安装一个中间管理器；这可以通过为工作进程声明一个大小为1的路由器来完成。
 
