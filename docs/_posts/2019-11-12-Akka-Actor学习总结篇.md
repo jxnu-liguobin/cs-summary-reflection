@@ -3,7 +3,7 @@ title: Actor学习总结篇
 categories:
   - Akka
 tags: [Akka-Actor学习总结]
-description: 本章将总结Actor模块在官方文档主要内容，对初学者看这篇即可。
+description: 本章将总结Actor模块在官方文档主要内容，初学者看这篇过一下知识点即可。
 ---
 
 * 目录
@@ -221,7 +221,7 @@ Akka Persistence 模块
 
 # 监督与监控
 
-## 什么是监督？
+## 什么是监督
 
 - 上级看管下级，下级为上级效力
 - 上级对下级的失败作出反应
