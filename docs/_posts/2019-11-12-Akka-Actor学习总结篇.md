@@ -24,11 +24,11 @@ description: 本章将总结Actor模块在官方文档主要内容，初学者�
 - 无锁、并发（并行）的处理方式
 - Actor对象的系统性
 
-接受器
+接受器/识别器  强调结果，只有0，1两种状态
 
 ![](../public/image/fsm-1.png)
 
-识别器
+变换器  强调动作条件与状态变更
 
 ![](../public/image/fsm-2.png)
 
@@ -55,11 +55,11 @@ description: 本章将总结Actor模块在官方文档主要内容，初学者�
  
 ActorSelection与对象性能模型，是不兼容的
 
-介绍关系
+介绍关系  向第三方ActorC发送消息，介绍子ActorB，并保存C的引用，可以下次使用
 
 ![](../public/image/actor-model-1.png)
 
-父子关系
+父子关系  创建Actor1，就获得了子Actor1引用
 
 ![](../public/image/actor-model-2.png)
 
