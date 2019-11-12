@@ -55,7 +55,11 @@ actor对旧化身的引用对于新的化身是无效的。发送给旧的actor�
 "akka://my-sys/user/service-a/worker1"                   // purely local
 "akka.tcp://my-sys@host.example.com:5678/user/service-b" // remote
 ```
-在这里，akka.tcp是2.4版本的默认远程传输工具。其他的传输工具是可插拔的。主机和端口部分的说明（即示例中的host.example.com:5678）取决于所使用的传输机制，但必须遵守URI结构规则。
+在这里，akka.tcp是2.4版本的默认远程传输工具。其他的传输工具是可插拔的。主机和端口部分的说明（即示例中的host.example.com:5678）取决于所使用的传输机制，但必须遵守URI结构规则。通用结构如下：
+
+```
+akka.<protocol>://<actor system name>@<hostname>:<port>/<actor path>
+```
 
 #### actor的逻辑路径
 
