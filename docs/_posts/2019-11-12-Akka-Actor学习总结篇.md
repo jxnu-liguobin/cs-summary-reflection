@@ -256,7 +256,17 @@ Akka Persistence 模块
 - 处理消息期间使用的某些外部资源（暂时）失败
 - Actor的内部状态已损坏
 
+## 默认行为
+
+- 对崩溃的子Actor应用OneForOneStrategy策略
+- 重启前关闭所有子Actor - 清理资源（preRestart -> postStop）
+- 重启后初始化子Actor - 新建Actor后立即调用 （postRestart -> preStart）
+- 遇到ActorInitializationException/ActorKilledException/DeathPactException - 默认停止
+- 遇到Exception - 默认重启
+
 ## 重新启动
+
+下面描述了默认的重启行为的顺序
 
 1. 暂停Actor（这意味着它将在恢复之前不会处理正常消息），并递归地暂停所有子级
 2. 调用旧实例的preRestart钩子（默认为向所有子Actor发送终止请求并调用postStop）
