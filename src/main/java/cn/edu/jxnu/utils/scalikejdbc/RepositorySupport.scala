@@ -2,10 +2,10 @@ package cn.edu.jxnu.utils.scalikejdbc
 
 import java.util.Properties
 
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.{ Config, ConfigFactory }
 import com.typesafe.scalalogging.LazyLogging
-import com.zaxxer.hikari.{HikariConfig, HikariDataSource}
-import scalikejdbc.{ConnectionPool, DB, DBSession, DataSourceConnectionPool, using}
+import com.zaxxer.hikari.{ HikariConfig, HikariDataSource }
+import scalikejdbc.{ ConnectionPool, DB, DBSession, DataSourceConnectionPool, using }
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future

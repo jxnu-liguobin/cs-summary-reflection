@@ -1,6 +1,6 @@
 package cn.edu.jxnu.utils.concurrent
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 import scala.util.control.NonFatal
 
 /**

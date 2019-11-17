@@ -45,7 +45,7 @@ object CountBits extends App {
 
 
   def count(n: Int): Int = {
-    import scala.util.control.Breaks.{break, breakable}
+    import scala.util.control.Breaks.{ break, breakable }
     var nums = n
     var count = 0
     while (nums != 0) {

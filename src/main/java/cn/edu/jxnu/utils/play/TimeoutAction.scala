@@ -12,7 +12,7 @@ import play.api.mvc.Results.RequestTimeout
 import play.api.mvc._
 
 import scala.concurrent.duration._
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 
 /**
  * 请求超时action

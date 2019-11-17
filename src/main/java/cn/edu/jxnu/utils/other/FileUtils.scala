@@ -2,7 +2,7 @@ package cn.edu.jxnu.utils.other
 
 import java.io._
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 import scala.io.Source
 import scala.util.control.Exception.ignoring
 

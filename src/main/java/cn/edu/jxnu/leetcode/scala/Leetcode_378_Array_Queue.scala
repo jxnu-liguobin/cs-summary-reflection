@@ -1,6 +1,6 @@
 package cn.edu.jxnu.leetcode.scala
 
-import java.util.{PriorityQueue => _}//隐藏java集合
+import java.util.{ PriorityQueue => _ }
 
 import scala.collection.mutable.PriorityQueue
 

@@ -2,7 +2,7 @@ package cn.edu.jxnu.leetcode.scala
 
 import cn.edu.jxnu.leetcode.TreeNode
 
-import scala.collection.mutable.{Queue, Seq, Stack}
+import scala.collection.mutable.{ Queue, Seq, Stack }
 
 /**
   * 树的遍历
@@ -93,7 +93,7 @@ object DFS extends App {
   }
 
   //隐藏java集合
-  import java.util.{Queue => _}
+  import java.util.{ Queue => _ }
 
   //层序
   def levelTraverse(root: TreeNode): Seq[Int] = {

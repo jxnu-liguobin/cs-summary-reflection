@@ -1,6 +1,6 @@
 package cn.edu.jxnu.leetcode.scala
 
-import cn.edu.jxnu.leetcode.{ListNode, ListNodeConstants}
+import cn.edu.jxnu.leetcode.{ ListNode, ListNodeConstants }
 
 /**
  * 从有序链表中删除重复节点

@@ -2,11 +2,11 @@ package cn.edu.jxnu.utils.undertow
 
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.util.{Objects, UUID}
+import java.util.{ Objects, UUID }
 
 import com.google.common.net.HttpHeaders
 import com.typesafe.scalalogging.Logger
-import io.undertow.server.{ExchangeCompletionListener, HttpHandler, HttpServerExchange}
+import io.undertow.server.{ ExchangeCompletionListener, HttpHandler, HttpServerExchange }
 import io.undertow.util.HeaderValues
 
 /**

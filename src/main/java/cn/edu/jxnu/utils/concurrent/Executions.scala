@@ -1,10 +1,10 @@
 package cn.edu.jxnu.utils.concurrent
 
-import java.util.concurrent.{Executors, ForkJoinPool}
+import java.util.concurrent.{ Executors, ForkJoinPool }
 
 import com.typesafe.scalalogging.LazyLogging
 
-import scala.concurrent.{ExecutionContext, ExecutionContextExecutor}
+import scala.concurrent.{ ExecutionContext, ExecutionContextExecutor }
 
 /**
  * 线程池，可替换默认的Implicits.global

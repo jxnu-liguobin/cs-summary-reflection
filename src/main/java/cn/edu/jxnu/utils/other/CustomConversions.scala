@@ -3,7 +3,7 @@ package cn.edu.jxnu.utils.other
 import java.time.LocalDateTime
 
 import cn.edu.jxnu.utils.other.DateUtils._
-import play.api.libs.json.{JsNull, JsObject, JsValue, Json}
+import play.api.libs.json.{ JsNull, JsObject, JsValue, Json }
 
 import scala.collection.mutable
 

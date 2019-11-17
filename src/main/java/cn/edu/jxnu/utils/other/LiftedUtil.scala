@@ -1,6 +1,6 @@
 package cn.edu.jxnu.utils.other
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 
 /**
  * 消除嵌套的Seq[Future]

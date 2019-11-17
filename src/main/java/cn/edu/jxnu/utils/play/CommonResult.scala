@@ -1,8 +1,8 @@
 package cn.edu.jxnu.utils.play
 
-import play.api.libs.json.{JsObject, Json}
+import play.api.libs.json.{ JsObject, Json }
 import play.api.mvc.Result
-import play.api.mvc.Results.{BadRequest, Conflict, Forbidden, Locked, NotFound, Ok, UnprocessableEntity, UnsupportedMediaType}
+import play.api.mvc.Results.{ BadRequest, Conflict, Forbidden, Locked, NotFound, Ok, UnprocessableEntity, UnsupportedMediaType }
 
 import scala.concurrent.Future
 import scala.concurrent.Future.successful

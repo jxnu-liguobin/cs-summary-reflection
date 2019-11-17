@@ -1,9 +1,10 @@
 package cn.edu.jxnu.utils.other
 
-import play.api.mvc.{Action, Results}
+import play.api.mvc.{ Action, Results }
 import play.api.routing.sird._
 import play.api.test.WsTestClient
 import play.core.server.Server
+
 import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration

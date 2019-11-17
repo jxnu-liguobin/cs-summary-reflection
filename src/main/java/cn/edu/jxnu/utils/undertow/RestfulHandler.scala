@@ -1,16 +1,16 @@
 package cn.edu.jxnu.utils.undertow
 
 import java.nio.ByteBuffer
-import java.util.concurrent.{Executor, Executors}
+import java.util.concurrent.{ Executor, Executors }
 
 import cn.edu.jxnu.utils.concurrent.Executable
 import com.typesafe.scalalogging.LazyLogging
 import io.undertow.security.api.AuthenticationMechanism.AuthenticationMechanismOutcome
-import io.undertow.server.{HttpHandler, HttpServerExchange}
+import io.undertow.server.{ HttpHandler, HttpServerExchange }
 import io.undertow.util.Methods._
-import io.undertow.util.{Headers, StatusCodes}
+import io.undertow.util.{ Headers, StatusCodes }
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 import scala.runtime.BoxedUnit
 
 /**

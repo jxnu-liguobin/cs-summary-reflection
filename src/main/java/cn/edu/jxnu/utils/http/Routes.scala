@@ -2,7 +2,7 @@ package cn.edu.jxnu.utils.http
 
 import java.nio.file.Paths
 
-import com.google.common.reflect.{ClassPath, TypeToken}
+import com.google.common.reflect.{ ClassPath, TypeToken }
 import com.google.inject.Injector
 
 import scala.collection.JavaConverters._

@@ -1,7 +1,7 @@
 package cn.edu.jxnu.utils.other
 
 import java.io.FileOutputStream
-import java.lang.reflect.{InvocationHandler, Method, Proxy}
+import java.lang.reflect.{ InvocationHandler, Method, Proxy }
 
 import sun.misc.ProxyGenerator
 
