@@ -50,7 +50,7 @@ akka.actor.mailbox.requirements {
 
 现在，每次创建MyBoundedActor类型的Actor时，它都会尝试获得一个有界的邮箱。如果Actor在部署中配置了不同的邮箱（直接或通过具有指定邮箱类型的dispatcher），则将覆盖此映射配置。
 
-注意：为Actor创建的邮箱中的队列类型将根据该特质中的所需类型进行检查，如果队列没有实现所需的类型，则Actor的创建将失败。
+> 为Actor创建的邮箱中的队列类型将根据该特质中的所需类型进行检查，如果队列没有实现所需的类型，则Actor的创建将失败。
 
 #### 调度器需要的消息队列类型
 
@@ -139,7 +139,7 @@ Akka附带了许多邮箱实现，如下所示：
 
 当达到容量并配置的mailbox-push-timeout-time为非0，其他有界限的邮箱实现将阻止发送者。
 
-注意：以下邮箱只应与mailbox-push-timeout-time为0的一起使用，因为当mailbox-push-timeout-time非0时，下面所有的信箱都是阻塞的，反应式不推荐使用阻塞，万不得已也应当隔离出阻塞操作到独立的调度线程。
+> 以下邮箱只应与mailbox-push-timeout-time为0的一起使用，因为当mailbox-push-timeout-time非0时，下面所有的信箱都是阻塞的，反应式不推荐使用阻塞，万不得已也应当隔离出阻塞操作到独立的调度线程。
 
 * BoundedMailbox
   * 实现：基于java.util.concurrent.LinkedBlockingQueue
@@ -342,7 +342,7 @@ boundedMailbox extends MailboxType with ProducesMessageQueue[MyUnboundedMailbox.
 
 然后将MailboxType的FQCN指定为dispatcher配置或邮箱配置中“mailbox-type”的值。
 
-注意：确保包含一个构造函数，该构造函数需要akka.actor.ActorSystem.Settings和com.ypesafe.config.Config参数，因为此构造函数是以反射方式调用来构造你的邮箱类型的。作为第二个参数传入的配置是配置中使用此邮箱类型描述dispatcher或邮箱设置的部分；将对使用该配置类型的每个dispatcher或邮箱设置实例化邮箱类型一次。
+> 确保包含一个构造函数，该构造函数需要akka.actor.ActorSystem.Settings和com.ypesafe.config.Config参数，因为此构造函数是以反射方式调用来构造你的邮箱类型的。作为第二个参数传入的配置是配置中使用此邮箱类型描述dispatcher或邮箱设置的部分；将对使用该配置类型的每个dispatcher或邮箱设置实例化邮箱类型一次。
 
 您还可以使用邮箱作为调度器的要求（requirement ），如下所示：
 

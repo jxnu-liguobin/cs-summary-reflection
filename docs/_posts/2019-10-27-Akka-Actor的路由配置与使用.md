@@ -147,7 +147,7 @@ sender().!("reply")(context.parent) // alternative syntax (beware of the parens!
 
 路由器Actor的监督策略可以配置为池的supervisorStrategy属性。如果没有提供配置，路由器默认为“总是升级（always escalate）”策略。这意味着错误会传递给路由器的主管进行处理。路由器的主管将决定如何处理任何错误。
 
-注意路由器的主管将把这个错误当作路由器本身的错误来处理。因此，停止或重新启动的指令将导致路由器本身停止或重新启动。路由器反过来会导致其子节点停止并重新启动。
+> 路由器的主管将把这个错误当作路由器本身的错误来处理。因此，停止或重新启动的指令将导致路由器本身停止或重新启动。路由器反过来会导致其子节点停止并重新启动。
 
 应该指出的是，路由器的重新启动行为已经被覆盖，这样，重新启动时，同时仍然重新创建孩子，仍然将保持相同数目的Actor在池中。
 
@@ -760,7 +760,7 @@ router ! Broadcast("Watch out for Davy Jones' locker")
 
 在本例中，路由器接收广播消息，提取其有效载荷(“Watch out for Davy Jones' locker”)，然后将有效载荷发送给路由器的所有路由者。由每个路由者Actor来处理接收到的有效载荷消息。
 
-    注意：当您对路由器使用BalancingPool时，不要使用广播消息。BalancingPool上的路由者们共享相同的邮箱实例，因此一些路由者可能会多次获得广播消息，而其他的路由者则得不到广播消息。
+> 当您对路由器使用BalancingPool时，不要使用广播消息。BalancingPool上的路由者们共享相同的邮箱实例，因此一些路由者可能会多次获得广播消息，而其他的路由者则得不到广播消息。
 
 #### 毒丸消息
 
@@ -993,7 +993,7 @@ val redundancy1: ActorRef =
 redundancy1 ! "important"
 ```
 
-注意，我们在RedundancyGroup中添加了一个构造函数，它接受Config参数。这使得在配置中定义它成为可能。
+> 我们在RedundancyGroup中添加了一个构造函数，它接受Config参数。这使得在配置中定义它成为可能。
 
 ```
 akka.actor.deployment {
@@ -1033,7 +1033,7 @@ akka.actor.deployment {
 
 这是唯一需要为池启用专用调度程序的操作。
    
-    注意：如果使用一组Actor并路由到其路径，则它们仍将使用在其Props中为其配置的同一调度程序，因此在创建Actor调度程序后将无法对其进行更改。
+> 如果使用一组Actor并路由到其路径，则它们仍将使用在其Props中为其配置的同一调度程序，因此在创建Actor调度程序后将无法对其进行更改。
 
 “Head”路由器不能总是在同一个Dispatcher上运行，因为它不处理相同类型的消息，因此这个特殊的Actor不使用配置在Props中的调度程序，而是从RouterConfig获取路由器Dispatcher，默认为Actor系统的默认调度程序。所有标准路由器都允许在其构造函数或工厂方法中设置此属性，自定义路由器必须以适当的方式实现该方法。
 
@@ -1053,7 +1053,7 @@ val router: ActorRef = system.actorOf(
   name = "poolWithDispatcher")
 ```
 
-    注意：不允许将routerDispatcher配置为akka.dispatch.BalancingDispatcherConfigurator，因为其他任何Actor都不能处理用于特殊路由器Actor的消息。
+> 不允许将routerDispatcher配置为akka.dispatch.BalancingDispatcherConfigurator，因为其他任何Actor都不能处理用于特殊路由器Actor的消息。
 
 
 * 使用搜狗翻译、百度翻译、谷歌翻译，仅供参考

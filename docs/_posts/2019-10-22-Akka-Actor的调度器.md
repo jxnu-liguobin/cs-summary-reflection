@@ -51,7 +51,7 @@ my-dispatcher {
 }
 ```
 
-注意：parallelism-max没有设置ForkJoinPool分配的线程总数的上限。它是一个专门设置会话池持续运行的热线程数，以减少处理新传入任务的延迟。您可以在JDK的[ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)文档中阅读更多有关并行性的内容。
+> parallelism-max没有设置ForkJoinPool分配的线程总数的上限。它是一个专门设置会话池持续运行的热线程数，以减少处理新传入任务的延迟。您可以在JDK的[ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)文档中阅读更多有关并行性的内容。
 
 另一个使用“thread-pool-executor”的示例：
 
@@ -93,7 +93,7 @@ val myActor =
   context.actorOf(Props[MyActor].withDispatcher("my-dispatcher"), "myactor1")
 ```
 
-注意：您在WithDispatcher中指定的Dispatcher和部署配置中的Dispatcher属性实际上是配置的路径。所以在这个例子中它是一个属于顶级层次结构的调度器，你也可以把它作为一个属于子级别层次的调度器，你需要使用点来表示层级关系，比如：“foo.bar.my dispatcher”。actor的层次结构说明请参考“监督与监控”。
+> 您在WithDispatcher中指定的Dispatcher和部署配置中的Dispatcher属性实际上是配置的路径。所以在这个例子中它是一个属于顶级层次结构的调度器，你也可以把它作为一个属于子级别层次的调度器，你需要使用点来表示层级关系，比如：“foo.bar.my dispatcher”。actor的层次结构说明请参考“监督与监控”。
 
 ### 调度器类型
 
@@ -202,7 +202,7 @@ val myActor =
   context.actorOf(Props[MyActor].withDispatcher("my-pinned-dispatcher"), "myactor3")
 ```
 
-注意：根据上面的my-thread-pool-dispatcher示例，thread-pool-executor配置是不适用的。这是因为当使用PinnedDispatcher时，每个actor都会有自己的线程池，而这个线程池只有一个线程。
+> 根据上面的my-thread-pool-dispatcher示例，thread-pool-executor配置是不适用的。这是因为当使用PinnedDispatcher时，每个actor都会有自己的线程池，而这个线程池只有一个线程。
 
 不能保证随着时间的推移使用相同的线程，因为PinnedDispatcher有超时设置，以便在空闲actor的情况下减少资源使用。要始终使用相同的线程，您需要向PinnedDispatcher的配置中添加thread-pool-executor.allow-core-timeout=off。
 
@@ -251,7 +251,7 @@ implicit val executionContext: ExecutionContext = context.dispatcher
 
 如果所有可用线程都被阻塞，那么同一调度程序上的所有actor都将急需线程，并且无法处理传入的消息。
 
-注意：如果可能的话，也应该避免阻塞API。尝试查找或构建反应式API，以便将阻塞最小化，或转移到专用调度程序。通常，当与现有库或系统集成时，不可能避免阻塞API。下面的解决方案解释如何正确处理阻塞操作。请注意，同样的提示适用于管理Akka中任何地方的阻塞操作，包括streams、http和其他构建在其之上的反应式库。
+> 如果可能的话，也应该避免阻塞API。尝试查找或构建反应式API，以便将阻塞最小化，或转移到专用调度程序。通常，当与现有库或系统集成时，不可能避免阻塞API。下面的解决方案解释如何正确处理阻塞操作。请注意，同样的提示适用于管理Akka中任何地方的阻塞操作，包括streams、http和其他构建在其之上的反应式库。
 
 ```scala
 class PrintActor extends Actor {
