@@ -420,7 +420,7 @@ actor生命周期：
 
 ### 其他
 
-其他特性代码，没有翻译。[Akka-actor examples](https://github.com/growingio/distributed-implement-scala/tree/master/src/main/scala/io/growing/akka/actor)
+其他特性代码，没有翻译。[Akka-actor examples](https://github.com/jxnu-liguobin/scala-examples/tree/master/scala-akka/src/main/scala/io/growing/akka/actor)
 
 * Become_Actor.scala
 * PartialFunction_Actor.scala
