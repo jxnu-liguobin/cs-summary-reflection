@@ -3,6 +3,9 @@
 
 > 一名全职Scala新手开发者
 
+[![Build Status](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection.svg?branch=master)](https://travis-ci.org/jxnu-liguobin/cs-summary-reflection)
+ ![GitHub top language](https://img.shields.io/github/languages/top/jxnu-liguobin/cs-summary-reflection.svg)
+
 ## Where
 
 [博客](https://dreamylost.cn) |
