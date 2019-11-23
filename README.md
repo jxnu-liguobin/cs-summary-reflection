@@ -8,19 +8,21 @@
 [博客](https://dreamylost.cn) |
 [原CSDN博客](https://blog.csdn.net/qq_34446485) 
 
-## what
+## What
 
 * 学习 
 * 工作
 * 收集 
 * 总结 
 * 反思 
-* 随笔
+* 博客
 
 ## Notes
 
 > 2018.12.1 开始，本人主要维护本仓库 Scala 部分
 
-> 欢迎 Scala/Java 选手参与维护
-
-> 此库docs目录是博客源码
+> 目前模块说明：
+* docs 博客源码/源文件
+* examples 以前写的例子
+* leetCode 以前刷的题
+* scala-utils 编写/收集的Scala工具类
