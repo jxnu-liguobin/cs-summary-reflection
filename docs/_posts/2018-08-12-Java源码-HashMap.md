@@ -5,6 +5,29 @@ categories:
 tags: [源码分析]
 ---
 
+在JDK8及以后的版本中，HashMap引入了红黑树结构，其底层的数据结构变成了数组+链表或数组+红黑树。添加元素时，若桶中链表个数超过8，链表会转换成红黑树。
+
+# 为什么临界值是8？
+
+源码中有这样一段注释
+Because TreeNodes are about twice the size of regular nodes, we use them only when bins contain enough nodes to warrant use (see TREEIFYTHRESHOLD). And when they become too small (due to removal or resizing) they are converted back to plain bins. In usages with well-distributed user hashCodes, tree bins are rarely used. Ideally, under random hashCodes, the frequency of nodes in bins follows a Poisson distribution (http://en.wikipedia.org/wiki/Poissondistribution) with a parameter of about 0.5 on average for the default resizing threshold of 0.75, although with a large variance because of resizing granularity. Ignoring variance, the expected occurrences of list size k are (exp(-pow(0.5, k) / factorial(k)). The first values are: 0: 0.60653066 1: 0.30326533 2: 0.07581633 3: 0.01263606 4: 0.00157952 5: 0.00015795 6: 0.00001316 7: 0.00000094 8: 0.00000006 more: less than 1 in ten million
+
+
+理想情况下使用随机的哈希码，容器中节点分布在hash桶中的频率遵循泊松分布(具体可以查看http://en.wikipedia.org/wiki/Poisson_distribution)，按照泊松分布的计算公式计算出了桶中元素个数和概率的对照表，可以看到链表中元素个数为8时的概率已经非常小，再多的就更少了，所以原作者在选择链表元素个数时选择了8，是根据概率统计而选择的。
+
+# 默认加载因子为什么选择0.75?
+
+HashMap有两个参数影响其性能：初始容量和加载因子。容量是哈希表中桶的数量，初始容量只是哈希表在创建时的容量。加载因子是哈希表在其容量自动扩容之前可以达到多满的一种度量。当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表进行扩容、rehash操作（即重建内部数据结构），扩容后的哈希表将具有两倍的原容量。
+
+通常，加载因子需要在时间和空间成本上寻求一种折衷。加载因子过高，例如为1，虽然减少了空间开销，提高了空间利用率，但同时也增加了查询时间成本；加载因子过低，例如0.5，虽然可以减少查询时间成本，但是空间利用率很低，同时提高了rehash操作的次数
+
+【这很容易理解，当加载因子为1时，桶中所有位置都可用，但是不可避免的冲突可能性增大，试想桶中如果100个坑，已经有了98个坑位被占了，剩下两个是不是得费尽心思才能正确进入？而如果100个坑，还剩50个坑可用，是不是随意入坑的概率高得多？别忘了，一旦冲突就是要成链或红黑树，比起直接在桶中获取速度当然慢了，而当加载因子为0.5时，随意hash存放进桶更容易不冲突，但是一旦占用一半就需要扩容就太消耗性能，毕竟扩容是费时间的，而且一半的坑位用不了是不是太浪费存储空间了？】
+
+在设置初始容量时应该考虑到映射中所需的条目数及其加载因子，以便最大限度地减少rehash操作次数，所以，一般在使用HashMap时建议根据预估值设置初始容量，减少扩容操作。
+选择0.75作为默认的加载因子，完全是时间和空间成本上寻求的一种折衷选择。
+
+# 源码
+
 ```java
 package java.util;
 
