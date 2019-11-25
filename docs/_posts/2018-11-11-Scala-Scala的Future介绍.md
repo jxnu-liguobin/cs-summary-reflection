@@ -1,5 +1,5 @@
 ---
-title: Scala的Future分析
+title: Scala的Future介绍
 categories:
 - Scala
 tags: [Scala]
@@ -128,3 +128,5 @@ Promise 对 Future 里的任务进行调度执行
 
 
 [reference from](https://wtog.github.io/2019/03/30/scala-future.html)
+
+[官方文档](https://docs.scala-lang.org/zh-cn/overviews/core/futures.html)
