@@ -64,26 +64,26 @@ Akka采用分布式计算，并通过消息传递使通信的错误性变得明�
  
 保证说明如下：
 
-* Actor A1 sends messages M1, M2, M3 to A2
-* Actor A3 sends messages M4, M5, M6 to A2
+* actor A1 向 actor A2 发送消息 M1, M2, M3
+* actor A3 向 actor A2 发送消息 M4, M5, M6
 
 这意味着：
 
-1. If M1 is delivered it must be delivered before M2 and M3
-2. If M2 is delivered it must be delivered before M3
-3. If M4 is delivered it must be delivered before M5 and M6
-4. If M5 is delivered it must be delivered before M6
-5. A2 can see messages from A1 interleaved with messages from A3
-6. Since there is no guaranteed delivery, any of the messages may be dropped, i.e. not arrive at A2
+1. 如果M1交付，则必须在M2和M3之前交付
+2. 如果M2交付，则必须在M3之前交付
+3. 如果M4已交付，则必须在M5和M6之前交付
+4. 如果M5已交付，则必须在M6之前交付
+5. A2可以看到来自A1的消息与来自A3的消息交错
+6. 由于没有保证交付，任何消息都可能被丢弃，即不能到达A2
 
 如果邮箱实现不遵守FIFO顺序（例如PriorityMailbox），则actor的处理顺序会偏离排队顺序。
 
 但请注意，这一规则不具有传递性：
 
-* Actor A sends message M1 to actor C
-* Actor A then sends message M2 to actor B
-* Actor B forwards message M2 to actor C
-* Actor C may receive M1 and M2 in any order
+* actor A 向 actor C 发送消息 M1
+* actor A 向 actor B 发送消息 M2
+* actor B 将消息 M2 转发给 actor C
+* actor C 可以按任意顺序接收 M1 和 M2
 
 这意味着M2不会被在M1被actor C收到之前被接收到（尽管其中任何一个都可能丢失）。当A、B和C在不同的网络主机上时，由于消息传递延迟不同，此顺序可能会被违反，请参阅下面的更多信息。
 
@@ -91,9 +91,9 @@ Akka采用分布式计算，并通过消息传递使通信的错误性变得明�
 
 上面讨论的排序保证只适用于actor之间的用户消息。actor的子程序的故障传递的是特定的系统消息，这些消息相对于普通的用户消息而言是不被排序的。特别是：
 
-* Child actor C sends message M to its parent P
-* Child actor fails with failure F
-* Parent actor P might receive the two events either in order M, F or F, M
+* 子 actor C 向其父P发送消息M
+* 子 actor 以故障F失败
+* 父 actor P可能按顺序M、F或F、M接收这两个事件
 
 原因是内部系统消息具有自己的邮箱，因此用户入队调用的顺序和系统消息不能保证其出队时间的顺序。
 
