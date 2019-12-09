@@ -278,3 +278,6 @@ implicit val system = ActorSystem()
 这些失败可以描述为与基础设施或多或少相关，它们是绑定或连接失败。在大多数情况下，您不需要深入研究这些内容，因为Akka无论如何都会记录此类错误，对于此类问题，这是合理的默认设置。
 
 为了进一步了解如何在实际路由层（即应用程序代码出现的地方）中处理异常，请参阅“[异常处理](https://doc.akka.io/docs/akka-http/current/routing-dsl/exception-handling.html)”，它明确地侧重于说明如何处理路由中引发的异常并将其转换为具有适当错误码的[HttpResponse](https://doc.akka.io/api/akka-http/10.1.10/akka/http/scaladsl/model/HttpResponse.html)和人类可读的故障描述。
+
+
+[英文原文](https://doc.akka.io/docs/akka-http/current/server-side/low-level-api.html)
