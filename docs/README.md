@@ -52,6 +52,8 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 梦境迷离
 * 服务端开发、Scala开发
 * 来自江西 现居北京
+* 函数式&反应式交流QQ群：892402908
+* 互联网吹逼QQ群：655462259
 
 ## 工作机会
 
