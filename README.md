@@ -29,3 +29,4 @@
 * examples 以前写的例子
 * leetCode 以前刷的题
 * scala-utils 编写/收集的Scala工具类
+* rust-exercise rust 学习
