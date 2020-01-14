@@ -24,8 +24,84 @@ fn main() {
     println!("斐波那契第20项是：{}", fib(20));
     println!("====================");
     println!("斐波那契第20项是：{}", fib_2(20));
-
+    println!("====================");
+    string_from();
+    println!("====================");
+    return_function();
+    println!("====================");
+    tuple_function();
+    println!("====================");
+    copy_function();
+    println!("====================");
     guessing_game();
+}
+
+fn copy_function() {
+    let x = 5;
+    //基本类型在移动时使用copy，x不会失效。
+    let y = x;
+    println!("x = {}, y = {}", x, y);
+
+    //使用clone克隆数据，目前先理解为深拷贝
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+
+    println!("s1 = {}, s2 = {}", s1, s2);
+}
+
+fn tuple_function() {
+    let s1 = String::from("hello");
+    let (s2, len) = calculate_length(s1);
+    println!("The length of '{}' is {}.", s2, len);
+    fn calculate_length(s: String) -> (String, usize) {
+        let length = s.len(); // len() 返回字符串的长度
+        (s, length)
+    }
+}
+
+fn return_function() {
+    let s1 = gives_ownership();         // lets_ownership移动其返回值到s1中
+
+    let s2 = String::from("hello");     // s2进入范围
+
+    let s3 = takes_and_gives_back(s2);  // s2被移入takes_and_gives_back,  takes_and_gives_back的返回值被移动到s3
+    println!("{},{}", s1, s3);
+
+    fn gives_ownership() -> String {             // gives_ownership会其返回值移动到调用它的函数中
+        let some_string = String::from("hello"); // some_string进入范围
+        some_string                              // 返回some_string字符串并移到调用函数
+    }
+
+    // take_and_gives_back将获取一个String并返回一个
+    fn takes_and_gives_back(a_string: String) -> String { // a_string进入范围
+        a_string  // 返回a_string并移至调用函数
+    }
+}
+
+fn string_from() {
+    let mut s = String::from("hello");
+    s.push_str(", world!"); // push_str() 将文字附加到字符串
+
+    println!("{}", s); //打印 hello, world!
+
+
+    let s = String::from("hello");  // s进入范围
+
+    takes_ownership(s);          // s的值移动到函数，所以在这里不再有效
+//    println!("{}", s);//编译错误：value borrowed here after move。出借后的s被移动，后续不可用
+
+    let x = 5;                      // x进入范围
+    makes_copy(x);            // x将移动到函数
+    // 但是i32是Copy，所以之后还可以使用
+    println!("{}", x);//正常打印
+
+    fn takes_ownership(some_string: String) {
+        println!("{}", some_string);
+    } //在这里，some_string超出范围并调用`drop`。内存释放
+
+    fn makes_copy(some_integer: i32) {
+        println!("{}", some_integer);
+    }
 }
 
 fn fib(n: i32) -> i32 {
