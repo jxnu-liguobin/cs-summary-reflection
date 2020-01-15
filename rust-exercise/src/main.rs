@@ -7,6 +7,8 @@ use std::ops::{Range, RangeBounds};
 ///引入rand库的Rng特质
 use rand::Rng;
 
+/// 引用和借用：https://dreamylost.cn/rust/Rust-Rust%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%95%E7%94%A8%E4%B8%8E%E5%80%9F%E7%94%A8.html
+/// 所有权：https://dreamylost.cn/rust/Rust-%E6%89%80%E6%9C%89%E6%9D%83.html
 fn main() {
     println!("Hello, world!");
     variables();
@@ -33,7 +35,78 @@ fn main() {
     println!("====================");
     copy_function();
     println!("====================");
+    point_function();
+    println!("====================");
+    try_change();
+    println!("====================");
+    empty_point();
     guessing_game();
+}
+//下面为了编译，将错误或多余代码注释了。
+
+fn empty_point() {
+
+//    let reference_to_nothing = dangle();
+    let reference_to_nothing = no_dangle();
+    fn no_dangle() -> String {
+        String::from("hello")// 直接反回函数的值，不能加分号
+    }
+    //编译报错，因为s是在dangle内部创建的，所以当dangle的代码完成时，将释放s。但是我们试图返回对它的引用。这意味着该引用将指向无效的String。Rust不允许我们这样做。
+//    fn dangle() -> &String {
+//        let s = String::from("hello");
+//        &s
+//    }
+}
+
+fn try_change() {
+    //必须都是mut的，否则编译就会报错，不可变，无法被改变
+    fn change(some_string: &mut String) {
+        some_string.push_str(", world");
+    }
+    let mut s = String::from("hello");
+    change(&mut s);
+
+
+    let mut s = String::from("hello");
+    let r1 = &mut s;
+//    let r2 = &mut s;//可变引用只能被出借一次，这里将会编译报错
+//    println!("{}, {}", r1, r2);
+
+
+    let mut s = String::from("hello");
+    {
+        let r1 = &mut s;
+    } // r1在这里超出范围，因此我们可以毫无问题地进行新引用。
+    let r2 = &mut s;//正常使用，虽然上面已经用过s
+
+
+    let mut s = String::from("hello");
+    let r1 = &s; // 没问题，与上面两次mut出借不一样，这里是没有mut，所以对于不可变引用，可以使用多次次，且不可在拥有不可变引用时同时拥有可变引用
+    let r2 = &s; // 没问题
+//    let r3 = &mut s; // 有问题，不可变在后面却是可变，不允许，编译报错
+//    println!("{}, {}, and {}", r1, r2, r3);
+
+
+    let mut s = String::from("hello");
+
+    let r1 = &s; // 没问题
+    let r2 = &s; // 没问题
+    println!("{} and {}", r1, r2);
+// 在此之后不再使用r1和r2
+
+    let r3 = &mut s; // 没问题，因为r1 r2进入println! 并且在此之后会失效，与所有权有关。
+    println!("{}", r3);
+}
+
+fn point_function() {
+    fn calculate_length(s: &String) -> usize {
+        s.len()
+    }
+    let s1 = String::from("hello");
+    //类似c/c++传递指针/引用
+    let len = calculate_length(&s1);
+    //s1在之后还能使用
+    println!("The length of '{}' is {}.", s1, len);
 }
 
 fn copy_function() {
