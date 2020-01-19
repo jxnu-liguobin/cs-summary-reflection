@@ -75,7 +75,7 @@ mod back_of_house {
 
 //mod front_of_house;//在mod front_of_house之后使用分号（而不是使用块）会告诉Rust从另一个与模块同名的文件中加载模块的内容。
 
-//重新导出，使名称可用于新范围内的任何代码 （因为我们将一个项目放入范围内，同时也使该项目可供其他人进入其范围）
+//pub use 重新导出，使名称可用于新范围内的任何代码 （因为我们将一个项目放入范围内，同时也使该项目可供其他人进入其范围）
 //use std::collections::*; //导入所有内部的类型
 
 pub fn eat_at_restaurant2() {
