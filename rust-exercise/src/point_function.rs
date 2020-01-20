@@ -1,4 +1,5 @@
 ///指针（引用）
+///Rust中最常见的一种指针是引用，还有其他指针
 pub fn empty_point_function() {
 
     //let reference_to_nothing = dangle();
