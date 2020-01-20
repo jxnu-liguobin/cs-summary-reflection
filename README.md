@@ -26,4 +26,4 @@ Scala程序员、函数式爱好者
 * examples 以前写的例子
 * leetCode 以前刷的题
 * scala-utils 编写/收集的Scala工具类
-* rust-exercise rust 学习
+* rust-* rust 学习
