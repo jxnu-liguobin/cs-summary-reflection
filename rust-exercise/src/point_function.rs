@@ -1,5 +1,6 @@
 ///指针（引用）
 ///Rust中最常见的一种指针是引用，还有其他指针
+///在使用所有权和借用概念的Rust中，引用和智能指针之间的另一个区别是，引用是仅借用数据的指针。相反，在许多情况下，智能指针拥有它们指向的数据。
 pub fn empty_point_function() {
 
     //let reference_to_nothing = dangle();
