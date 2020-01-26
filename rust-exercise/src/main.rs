@@ -27,9 +27,11 @@ use point_function::*;
 use simple_array_data_type::*;
 use smart_point::*;
 use struct_data_type::*;
+use thread_syntax::*;
 use variables_function::*;
 
 pub mod panic_function;
+pub mod thread_syntax;
 pub mod generic_traits_lifetimes;
 pub mod iterator_demonstration;
 pub mod struct_data_type;
@@ -109,5 +111,21 @@ fn main() {
     println!("====================");
     box_function();
     println!("====================");
-    example_guessing_game();
+    create_thread();
+    println!("====================");
+    join_thread();
+    println!("====================");
+    use_var_thread();
+    println!("====================");
+    channel_thread();
+    println!("====================");
+    send_multi_msg();
+    println!("====================");
+    copy_tx();
+    println!("====================");
+    mutex_thread();
+    println!("====================");
+    mutex_multi_thread();
+    println!("====================");
+    //example_guessing_game();
 }
