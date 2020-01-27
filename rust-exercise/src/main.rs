@@ -19,6 +19,7 @@ use enum_data_type::*;
 use example_guessing_game::example_guessing_game;
 use generic_traits_lifetimes::*;
 use iterator_demonstration::*;
+use macro_syntax::*;
 use match_syntax::*;
 use method_syntax::*;
 use other_function::*;
@@ -47,6 +48,7 @@ pub mod control_function;
 pub mod other_function;
 pub mod closures_syntax;
 pub mod smart_point;
+pub mod macro_syntax;
 
 /// 引用和借用：https://dreamylost.cn/rust/Rust-Rust%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%95%E7%94%A8%E4%B8%8E%E5%80%9F%E7%94%A8.html
 /// 所有权：https://dreamylost.cn/rust/Rust-%E6%89%80%E6%9C%89%E6%9D%83.html
@@ -126,6 +128,8 @@ fn main() {
     mutex_thread();
     println!("====================");
     mutex_multi_thread();
+    println!("====================");
+    marco_function();
     println!("====================");
     //example_guessing_game();
 }
