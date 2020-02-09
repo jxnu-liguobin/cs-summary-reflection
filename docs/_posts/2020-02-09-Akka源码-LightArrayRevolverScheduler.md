@@ -1,8 +1,8 @@
 ---
 title: LightArrayRevolverScheduler
 categories:
-  - Akka源码
-tags: [Akka actor]
+- Akka源码
+tags: [源码分析]
 ---
 
 ```scala
