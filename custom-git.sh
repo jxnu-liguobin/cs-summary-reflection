@@ -22,5 +22,5 @@ echo "==================更新文件列表====================="
 git status | grep "modified:" | awk '{print $2}'
 
 git add .
-git commit -m "${1}，时间：$starttime"
+git commit -m "${1}, time: $starttime"
 git push origin master

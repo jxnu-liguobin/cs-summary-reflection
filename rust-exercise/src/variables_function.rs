@@ -81,4 +81,11 @@ pub fn expr_function() {
     };
 
     println!("The value of y is: {}", y);
+
+//    String转&str的几种办法：
+//    1. s.deref() 手动解引用
+//    2. &*s 同上
+//    3. s.as_ref()
+//    4. &s[..]
+//    5. s.borrow() 需要use std::borrow::Borrow
 }
