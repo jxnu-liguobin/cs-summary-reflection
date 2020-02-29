@@ -1,7 +1,7 @@
 use std::fmt::{Display, Error, Formatter};
 use std::fmt;
 
-//println宏的使用
+///println宏的使用
 pub fn formatted_print() {
     println!("Hello, world!");
     println!("{} days", 31);
@@ -76,24 +76,7 @@ pub fn formatted_print() {
     println!("Debug: {:?}", point);
 
 
-    //实现打印集合
-    struct List(Vec<i32>);
-
-    impl fmt::Display for List {
-        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-            let vec = &self.0;
-            write!(f, "[")?;
-            for (count, v) in vec.iter().enumerate() {
-                if count != 0 { write!(f, ", ")?; }
-                write!(f, "{}: {}", count, v)?;//打印索引和数据
-            }
-            write!(f, "]")
-        }
-    }
-
-    let v = List(vec![1, 2, 3]);
-    println!("{}", v);
-
+    testcase_list();
 
     struct City {
         name: &'static str,
@@ -143,4 +126,24 @@ pub fn formatted_print() {
     ].iter() {
         println!("{:#}", *color);
     }
+}
+
+pub fn testcase_list() {
+    //实现打印集合
+    struct List(Vec<i32>);
+
+    impl fmt::Display for List {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            let vec = &self.0;
+            write!(f, "[")?;
+            for (count, v) in vec.iter().enumerate() {
+                if count != 0 { write!(f, ", ")?; }
+                write!(f, "{}: {}", count, v)?;//打印索引和数据
+            }
+            write!(f, "]")
+        }
+    }
+
+    let v = List(vec![1, 2, 3]);
+    println!("{}", v);
 }
