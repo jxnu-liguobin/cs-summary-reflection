@@ -1,12 +1,16 @@
 use std::fmt;
 use std::fmt::{Display, Error, Formatter};
 
+use crate::conversion::*;
 use crate::custom_types::*;
 use crate::formatted_print::*;
 use crate::primitives::*;
+use crate::types::*;
 use crate::variable_bindings::*;
 
 pub mod formatted_print;
+pub mod conversion;
+pub mod types;
 pub mod primitives;
 pub mod custom_types;
 pub mod variable_bindings;
@@ -16,4 +20,6 @@ fn main() {
     formatted_print();
     primitives();
     custom_types();
+    types();
+    conversion()
 }
