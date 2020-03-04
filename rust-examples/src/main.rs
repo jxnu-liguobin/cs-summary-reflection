@@ -3,12 +3,14 @@ use std::fmt::{Display, Error, Formatter};
 
 use crate::conversion::*;
 use crate::custom_types::*;
+use crate::flow_control::*;
 use crate::formatted_print::*;
 use crate::primitives::*;
 use crate::types::*;
 use crate::variable_bindings::*;
 
 pub mod formatted_print;
+pub mod flow_control;
 pub mod conversion;
 pub mod types;
 pub mod primitives;
@@ -21,5 +23,6 @@ fn main() {
     primitives();
     custom_types();
     types();
-    conversion()
+    conversion();
+    flow_control();
 }
