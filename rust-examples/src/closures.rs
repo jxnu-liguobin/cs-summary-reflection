@@ -157,7 +157,9 @@ fn closures_std() {
     let vec2 = vec![4, 5, 6];
     let mut iter = vec1.iter();//&i32
     let mut into_iter = vec2.into_iter();//i32
+    //解构参数
     println!("Find 2 in vec1: {:?}", iter.find(|&&x| x == 2));//`&&i32` to `i32`
+    println!("Find 2 in vec1: {:?}", iter.find(|x| **x == 2));//参数是`&&i32`，使用时解构
     println!("Find 2 in vec2: {:?}", into_iter.find(|&x| x == 2));//`&i32` to `i32`
     let array1 = [1, 2, 3];
     let array2 = [4, 5, 6];
