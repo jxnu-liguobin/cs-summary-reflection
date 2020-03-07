@@ -1,16 +1,20 @@
 use std::fmt;
 use std::fmt::{Display, Error, Formatter};
 
+use crate::closures::*;
 use crate::conversion::*;
 use crate::custom_types::*;
 use crate::flow_control::*;
 use crate::formatted_print::*;
+use crate::functions::*;
 use crate::primitives::*;
 use crate::types::*;
 use crate::variable_bindings::*;
 
 pub mod formatted_print;
+pub mod functions;
 pub mod flow_control;
+pub mod closures;
 pub mod conversion;
 pub mod types;
 pub mod primitives;
@@ -25,4 +29,6 @@ fn main() {
     types();
     conversion();
     flow_control();
+    functions();
+    closures();
 }
