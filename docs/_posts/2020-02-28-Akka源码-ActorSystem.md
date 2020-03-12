@@ -476,7 +476,7 @@ abstract class ActorSystem extends ActorRefFactory {
 
   /**
    * 注册一个代码块(回调)，以便在[actor system.terminate()]]发出并且此actor系统中的所有actor都已停止后运行
-   * 通过多次调用此方法，可以注册多个代码块回调将按与注册相反的顺序依次运行，即先运行上次注册
+   * 通过多次调用此方法，可以注册多个代码块回调将按与注册相反的顺序依次运行，即先运行最后注册的回调
    * 请注意，在完成所有已注册的回调之前，ActorSystem不会终止
    *
    * 如果系统已终止或终止已启动，则抛出RejectedExecutionException
@@ -938,11 +938,11 @@ private[akka] class ActorSystemImpl(
           } catch {
             case t: Throwable ⇒
               extensions.replace(ext, inProcessOfRegistration, t) //移除inProcess信号
-              throw t //升级
+              throw t //升级 向上抛出异常
           } finally {
-            inProcessOfRegistration.countDown //始终将进程内信号通知监听器
+            inProcessOfRegistration.countDown //始终将inProcess信号通知监听器
           }
-          case _ ⇒ registerExtension(ext) //其他人正在为此扩展注册扩展，请重试
+          case _ ⇒ registerExtension(ext) //其他人正在注册此扩展，请重试
         }
       case existing ⇒ existing.asInstanceOf[T]
     }
