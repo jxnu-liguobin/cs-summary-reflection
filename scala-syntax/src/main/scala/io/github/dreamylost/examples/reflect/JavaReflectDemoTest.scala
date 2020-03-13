@@ -1,4 +1,4 @@
-package cn.edu.jxnu.scala.reflect
+package io.github.dreamylost.examples.reflect
 
 /**
  * 不推荐使用

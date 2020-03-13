@@ -1,4 +1,4 @@
-package cn.edu.jxnu.scala.fb
+package io.github.dreamylost.examples.fb
 
 /**
  * @author 梦境迷离

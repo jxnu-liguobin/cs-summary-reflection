@@ -1,4 +1,4 @@
-package cn.edu.jxnu.scala.fb
+package io.github.dreamylost.examples.fb
 
 import scala.annotation.tailrec
 

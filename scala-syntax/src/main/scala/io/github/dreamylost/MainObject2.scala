@@ -1,4 +1,4 @@
-package cn.edu.jxnu.other
+package io.github.dreamylost
 
 /**
  * 测试 初始化顺序

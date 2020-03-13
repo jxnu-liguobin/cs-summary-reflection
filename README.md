@@ -19,11 +19,10 @@ Scala程序员、函数式爱好者
 
 ## Notes
 
-> 2018.12.1 开始，本人主要维护本仓库 Scala 部分
+> Modules Note
 
-> 目前模块说明：
-* docs 博客
-* examples 其他代码例子「scala/java」
-* leetcode leetcode题「scala/java」
-* scala-utils scala工具类「编写/收集」
-* rust-* rust 学习
+* docs        blog
+* examples    other
+* leetcode    leetcode
+* scala-*     scala
+* rust-*      rust

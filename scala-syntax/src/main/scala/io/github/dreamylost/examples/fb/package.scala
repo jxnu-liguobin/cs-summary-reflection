@@ -1,4 +1,4 @@
-package cn.edu.jxnu.scala
+package io.github.dreamylost.examples
 
 package object fb {
 
