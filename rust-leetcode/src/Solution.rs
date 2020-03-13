@@ -1,3 +1,4 @@
+use std::borrow::BorrowMut;
 use std::collections::VecDeque;
 use std::ops::Index;
 
@@ -7,9 +8,31 @@ pub fn solutions() {
     leetcode_1365();
     leetcode_1342();
     leetcode_1313();
+    leetcode_1281();
 }
 
 struct Solution;
+
+///整数的各位积和之差
+fn leetcode_1281() {
+    println!("leetcode_1281");
+    impl Solution {
+        pub fn subtract_product_and_sum(n: i32) -> i32 {
+            let mut num = n;
+            let mut muti = 1;
+            let mut sum = 0;
+            while num != 0 {
+                let mut tmp = num % 10;
+                muti *= tmp;
+                sum += tmp;
+                num /= 10;
+            }
+            muti - sum
+        }
+    }
+
+    println!("{}", Solution::subtract_product_and_sum(234));
+}
 
 ///左旋转字符串
 fn interview_58_2() {
