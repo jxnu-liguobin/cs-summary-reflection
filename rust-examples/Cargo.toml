@@ -3,7 +3,7 @@ name = "rust-examples"
 version = "0.1.0"
 authors = ["梦境迷离 <liguobin@growingio.com>"]
 edition = "2018"
-
+#build = "build.rs" 构建前操作
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
