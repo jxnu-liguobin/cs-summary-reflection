@@ -67,18 +67,18 @@ Bowler Framework
   
 ```
 abstract    case       catch      class
-def         do         else	      extends
+def         do         else       extends
 false       final      finally    for
 forSome     if         implicit   import
-lazy	    match	   new	      null
+lazy	    match      new	  null
 object      override   package    private
 protected   return     sealed     super
-this	    throw	  trait	      try
-true	    type       val	      var
+this	    throw      trait      try
+true	    type       val	  var
 while       with       yield
--	         :         =          =>
-<-	         <:        <%         >:
-#	         @
+-	      :         =         =>
+<-	      <:        <%        >:
+#	      @
 ```
      
 * scala的数据类型 - 全部是类，不存在基础类型
@@ -138,10 +138,11 @@ Scala 有函数和方法，二者在语义上的区别很小。Scala 方法是�
 
 * 三要素
     
-   
-    函数是一等的值
-    不可变数据结构
-    无副作用
+```
+函数是一等的值
+不可变数据结构
+无副作用
+```   
      
 此图由playscala.cn作者作，并授权使用
 
