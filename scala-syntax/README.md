@@ -42,60 +42,63 @@ Scala基础语法学习笔记
 
 * Scala与JavaScala具有与Java完全不同的一组功能，其中的一些如下（所有类型都是对象）
 
-
-        类型推断
-        嵌套函数
-        函数是对象
-        DSL
-        模式匹配
-        性状/特质
-        型变
-        闭包
-        并发支持
-        灵感来自Erlang
+```
+类型推断
+嵌套函数
+函数是对象
+DSL
+模式匹配
+性状/特质
+型变
+闭包
+并发支持
+灵感来自Erlang
+```
 
 * Scala Web框架
         
-        
-        Lift Framework
-        Play Framework
-        Bowler Framework
+```        
+Lift Framework
+Play Framework
+Bowler Framework
+```
 
 * Scala中的保留字
   
 ```
-    abstract    case       catch      class
-    def         do         else	      extends
-    false       final      finally    for
-    forSome     if         implicit   import
-    lazy	    match	   new	      null
-    object      override   package    private
-    protected   return     sealed     super
-    this	    throw	  trait	      try
-    true	    type       val	      var
-    while       with       yield
-    -	         :         =          =>
-    <-	         <:        <%         >:
-    #	         @
+abstract    case       catch      class
+def         do         else	      extends
+false       final      finally    for
+forSome     if         implicit   import
+lazy	    match	   new	      null
+object      override   package    private
+protected   return     sealed     super
+this	    throw	  trait	      try
+true	    type       val	      var
+while       with       yield
+-	         :         =          =>
+<-	         <:        <%         >:
+#	         @
 ```
      
 * scala的数据类型 - 全部是类，不存在基础类型
 
-
-    1	Byte	8位有符号值，范围从-128至127    java-byte
-    2	Short   16位有符号值，范围从-32768至32767 -java-short
-    3	Int     32位有符号值，范围从-2147483648至2147483647  java-int
-    4	Long	64位有符号值，范围从-9223372036854775808至9223372036854775807  java-long
-    5	Float	32位IEEE 754单精度浮点值  java-float
-    6	Double	64位IEEE 754双精度浮点值  java-double
-    7	Char	16位无符号Unicode字符。范围从U+0000到U+FFFF  java-char
-    8	String	一个Char类型序列 java-String，完全等价
-    9	Boolean	文字值true或文字值false java-boolean
-    10	Unit	对应于无值  类似java-void 执行无返回值方法完全是为了副作用：如打印。唯一值 ()
-    11	Null	null或空引用  java-null
-    12	Nothing	每种其他类型的亚型; 不包括无值
-    13	Any     任何类型的超类型; 任何对象的类型为Any
-    14	AnyRef	任何引用类型的超类型
+```
+1	Byte	8位有符号值，范围从-128至127    java-byte
+2	Short   16位有符号值，范围从-32768至32767 -java-short
+3	Int     32位有符号值，范围从-2147483648至2147483647  java-int
+4	Long	64位有符号值，范围从-9223372036854775808至9223372036854775807  java-long
+5	Float	32位IEEE 754单精度浮点值  java-float
+6	Double	64位IEEE 754双精度浮点值  java-double
+7	Char	16位无符号Unicode字符。范围从U+0000到U+FFFF  java-char
+8	String	一个Char类型序列 java-String，完全等价
+9	Boolean	文字值true或文字值false java-boolean
+10	Unit	对应于无值  类似java-void 执行无返回值方法完全是为了副作用：如打印。唯一值 ()
+11	Null	null或空引用  java-null
+12	Nothing	每种其他类型的亚型; 不包括无值
+13	Any     任何类型的超类型; 任何对象的类型为Any
+14	AnyRef	任何引用类型的超类型
+```
 
 Scala类型系统继承结构图
 
