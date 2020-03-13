@@ -63,7 +63,7 @@ Scala基础语法学习笔记
 
 * Scala中的保留字
   
-  
+```
     abstract    case       catch      class
     def         do         else	      extends
     false       final      finally    for
@@ -77,8 +77,8 @@ Scala基础语法学习笔记
     -	         :         =          =>
     <-	         <:        <%         >:
     #	         @
+```
      
-
 * scala的数据类型 - 全部是类，不存在基础类型
 
 
