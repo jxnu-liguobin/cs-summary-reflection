@@ -6,7 +6,6 @@ dependencies {
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
     compile group: 'org.ow2.asm', name: 'asm-all', version: '5.1'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.29'
-    compile group: 'com.typesafe.play', name: 'play_2.12', version: '2.7.0'
     compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.15'
     testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
 }

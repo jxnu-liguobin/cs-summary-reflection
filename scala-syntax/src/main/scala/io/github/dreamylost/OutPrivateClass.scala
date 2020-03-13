@@ -51,7 +51,7 @@ class OutPrivateClass {
   // private val name: String = "hello" //下面方法均正常输出
   // val name: String = "hello" //下面方法均正常输出
   //限定具体的包的权限
-  private[basic] val name: String = "hello" //下面方法均正常输出
+  private[dreamylost] val name: String = "hello" //下面方法均正常输出
 
 
 }

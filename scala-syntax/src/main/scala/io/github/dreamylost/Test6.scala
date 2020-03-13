@@ -2,7 +2,7 @@ package io.github.dreamylost
 
 object Test6 extends App {
 
-  import examples.collection.mutable.ListBuffer
+  import scala.collection.mutable.ListBuffer
 
   //List是具体实现，函数式不可变集合，相当于Java的LinkedList，但是Java没有不可变对象，它们不完全相同。Sequence相当于Java的List
   val list = List(1, 2, 3) //不需要new，使用函数风格的调用，底层调用了List的伴生对象的工厂方法List.apply()

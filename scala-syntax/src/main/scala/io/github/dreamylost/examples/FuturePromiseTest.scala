@@ -1,5 +1,10 @@
 package io.github.dreamylost.examples
 
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{ Await, Future, Promise }
+import scala.util.Success
+
 /**
  *
  * @author liguobin@growingio.com

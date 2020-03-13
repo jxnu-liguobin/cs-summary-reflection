@@ -1,6 +1,6 @@
 package io.github.dreamylost
 
-import examples.util.control.Breaks._
+import scala.util.control.Breaks._
 
 /**
  * Java是指令式风格，Scala是函数式风格。

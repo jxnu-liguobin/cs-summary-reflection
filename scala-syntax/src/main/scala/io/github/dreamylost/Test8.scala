@@ -10,7 +10,7 @@ object Test8 extends App {
   // 注意：因为对不可变集使用+=实际是调用+=方法set1.+=("hhh")，所以表达式不需要重新赋值，set1可以是val
   // 而对于可变集，+=实际是+调用后再进行赋值，所以不能为val
   //对于只有一个参数的方法调用可以省略 . () ，所以set1.+=("hhh") ===> set1 += "hhh"
-  val set1 = examples.collection.mutable.Set("hello", "world") //提供+=方法
+  val set1 = collection.mutable.Set("hello", "world") //提供+=方法
   set1 += "hhh" //实际是调用方法
   println(set1.contains("hhh"))
   println("===============Set遍历=============")
@@ -18,7 +18,7 @@ object Test8 extends App {
   println
   println("================Map集===========")
   //创建并初始化可变的Map
-  val map = examples.collection.mutable.Map[String, String]()
+  val map = collection.mutable.Map[String, String]()
   map += ("a" -> "b") //实际是(a).->("b")方法调用，同样也是省略了. ()
   map += ("b" -> "c") //底层也是+=的方法调用，所以map也可以是val
   map += ("c" -> "d") //Map("hello"->"world","a"->"b")默认是不可变，不再解释

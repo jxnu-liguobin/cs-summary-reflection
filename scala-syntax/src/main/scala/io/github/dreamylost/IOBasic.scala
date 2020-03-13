@@ -1,6 +1,6 @@
 package io.github.dreamylost
 
-import examples.io.Source
+import scala.io.Source
 
 /**
  * 从文件读取行，文件写入使用Java IO
@@ -72,6 +72,6 @@ object Test11 extends App {
   //控制台交互
   print("Please enter your input:")
   //val line = Console.readLine()//过期
-  val line = examples.io.StdIn.readLine()
+  val line = scala.io.StdIn.readLine()
   println("Thanks,you just typed:" + line)
 }

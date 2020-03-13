@@ -1,0 +1,30 @@
+顶级目录执行build task(gradle build)完成构建
+
+> Task :scala-syntax:processResources NO-SOURCE
+> Task :scala-syntax:classes
+> Task :scala-syntax:jar
+> Task :scala-syntax:assemble
+> Task :scala-syntax:compileTestJava NO-SOURCE
+> Task :scala-syntax:compileTestScala NO-SOURCE
+> Task :scala-syntax:processTestResources NO-SOURCE
+> Task :scala-syntax:testClasses UP-TO-DATE
+> Task :scala-syntax:test NO-SOURCE
+> Task :scala-syntax:check UP-TO-DATE
+> Task :scala-syntax:build
+> Task :scala-utils:compileJava NO-SOURCE
+> Task :scala-utils:compileScala
+> Task :scala-utils:processResources NO-SOURCE
+> Task :scala-utils:classes
+> Task :scala-utils:jar
+> Task :scala-utils:assemble
+> Task :scala-utils:compileTestJava NO-SOURCE
+> Task :scala-utils:compileTestScala NO-SOURCE
+> Task :scala-utils:processTestResources NO-SOURCE
+> Task :scala-utils:testClasses UP-TO-DATE
+> Task :scala-utils:test NO-SOURCE
+> Task :scala-utils:check UP-TO-DATE
+> Task :scala-utils:build
+
+BUILD SUCCESSFUL in 12s
+10 actionable tasks: 4 executed, 6 up-to-date
+18:01:23: Task execution finished 'build'.

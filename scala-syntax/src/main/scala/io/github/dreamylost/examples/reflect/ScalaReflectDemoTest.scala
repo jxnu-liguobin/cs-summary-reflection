@@ -17,8 +17,8 @@ object ScalaReflectDemoTest extends App {
   def method() {
     //使用Scala的反射API对象方法
     val classMirror = universe.runtimeMirror(getClass.getClassLoader)
-    val classTest = classMirror.reflect(new cn.edu.jxnu.scala.reflect.ReflectDemoTestClass) //获取需要反射的类对象
-    val methods = universe.typeOf[cn.edu.jxnu.scala.reflect.ReflectDemoTestClass]
+    val classTest = classMirror.reflect(new io.github.dreamylost.examples.reflect.ReflectDemoTestClass) //获取需要反射的类对象
+    val methods = universe.typeOf[io.github.dreamylost.examples.reflect.ReflectDemoTestClass]
     val method = methods.decl(universe.TermName("testMethod")).asMethod
     val result = classTest.reflectMethod(method)("test name for args")
     val ret = result.asInstanceOf[String]
@@ -28,7 +28,7 @@ object ScalaReflectDemoTest extends App {
   def staticMethod() {
     //使用Scala的反射API对象的静态方法
     val classMirror = universe.runtimeMirror(getClass.getClassLoader) //获取运行时类镜像
-    val classTest = classMirror.staticModule("cn.edu.jxnu.scala.reflect.ReflectDemoTestClass") //获取需要反射object
+    val classTest = classMirror.staticModule("io.github.dreamylost.examples.reflect.ReflectDemoTestClass") //获取需要反射object
     val methods = classMirror.reflectModule(classTest) //构造获取方式的对象
     val objMirror = classMirror.reflect(methods.instance) //反射结果赋予对象
     val method = methods.symbol.typeSignature.member(universe.TermName("testStaticMethod")).asMethod //反射调用函数
