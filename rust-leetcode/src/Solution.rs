@@ -1,17 +1,74 @@
 use std::borrow::BorrowMut;
+use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::ops::Index;
+use std::ptr::null;
+use std::rc::Rc;
+
+use pre_structs::*;
 
 ///Leetcode 超简单的算法题目，主要为了熟悉rust语法
+///rust所必须的数据结构
+mod pre_structs {
+    use std::cell::RefCell;
+    use std::rc::Rc;
+
+    pub(crate) struct Solution;
+
+
+    #[derive(Debug, PartialEq, Eq)]
+    pub struct TreeNode {
+        pub val: i32,
+        pub left: Option<Rc<RefCell<TreeNode>>>,
+        pub right: Option<Rc<RefCell<TreeNode>>>,
+    }
+
+    impl TreeNode {
+        #[inline]
+        pub fn new(val: i32) -> Self {
+            TreeNode {
+                val,
+                left: None,
+                right: None,
+            }
+        }
+    }
+}
+
 pub fn solutions() {
     interview_58_2();
     leetcode_1365();
     leetcode_1342();
     leetcode_1313();
     leetcode_1281();
+    interview_04_02();
 }
 
-struct Solution;
+///最小高度树
+fn interview_04_02() {
+    println!("interview_04_02");
+    impl Solution {
+        pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+            fn buildTree(nums: &Vec<i32>, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
+                if l > r {
+                    return None
+                }
+                if l == r {
+                    return Some(Rc::new(RefCell::new(TreeNode::new(nums[l as usize]))))
+                }
+                let mid = l + (r - l) / 2;
+                let mut root = TreeNode::new(nums[mid as usize]);
+                root.left = buildTree(nums, l, mid - 1);
+                root.right = buildTree(nums, mid + 1, r);
+                return Some(Rc::new(RefCell::new(root)))
+            }
+
+            return buildTree(&nums, 0, (nums.len() - 1) as i32)
+        }
+    }
+    let nums = vec![-10, -3, 0, 5, 9];
+    println!("{:?}", Solution::sorted_array_to_bst(nums))
+}
 
 ///整数的各位积和之差
 fn leetcode_1281() {
