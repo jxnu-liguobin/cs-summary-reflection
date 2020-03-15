@@ -1,7 +1,8 @@
-use std::borrow::BorrowMut;
+use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
+use std::cmp::max;
 use std::collections::VecDeque;
-use std::ops::Index;
+use std::ops::{AddAssign, Deref, Index};
 use std::ptr::null;
 use std::rc::Rc;
 
@@ -42,6 +43,48 @@ pub fn solutions() {
     leetcode_1313();
     leetcode_1281();
     interview_04_02();
+    interview_55_1();
+    leetcode_1351();
+}
+
+///统计有序矩阵中的负数
+fn leetcode_1351() {
+    println!("leetcode_1351");
+    impl Solution {
+        //应该将矩阵是排序的考虑进去，从右下角或左下角使用标记
+        pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
+            let mut count: i32 = 0;
+            for r in grid.iter() {
+                count += r.iter().filter(|&&x| x < 0).count() as i32
+            }
+            return count
+        }
+    }
+
+    let nums = vec![vec![4, 3, 2, -1], vec![3, 2, 1, -1], vec![1, 1, -1, -2], vec![-1, -1, -2, -3]];
+    println!("{}", Solution::count_negatives(nums));
+}
+
+///二叉树的深度 = leetcode 104
+fn interview_55_1() {
+    println!("interview_55_1");
+    impl Solution {
+        pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+            fn get_depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+                if let Some(root) = root {
+                    let node = root.try_borrow().unwrap();
+                    return max(get_depth(&node.left), get_depth(&node.right)) + 1;
+                } else {
+                    return 0
+                }
+            }
+            get_depth(&root)
+        }
+    }
+
+    let tree = Some(Rc::new(RefCell::new(TreeNode::new(1))));
+    let ret = Solution::max_depth(tree);
+    println!("{}", ret)
 }
 
 ///最小高度树
