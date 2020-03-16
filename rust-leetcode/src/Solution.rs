@@ -1,9 +1,8 @@
-use std::borrow::{Borrow, BorrowMut};
+use std::borrow::Borrow;
 use std::cell::RefCell;
 use std::cmp::max;
 use std::collections::VecDeque;
 use std::ops::{AddAssign, Deref, Index};
-use std::ptr::null;
 use std::rc::Rc;
 
 use pre_structs::*;
@@ -17,6 +16,7 @@ mod pre_structs {
     pub(crate) struct Solution;
 
 
+    //二叉树
     #[derive(Debug, PartialEq, Eq)]
     pub struct TreeNode {
         pub val: i32,
@@ -34,6 +34,23 @@ mod pre_structs {
             }
         }
     }
+
+    //单链表
+    #[derive(PartialEq, Eq, Clone, Debug)]
+    pub struct ListNode {
+        pub val: i32,
+        pub next: Option<Box<ListNode>>,//堆上
+    }
+
+    impl ListNode {
+        #[inline]
+        fn new(val: i32) -> Self {
+            ListNode {
+                next: None,
+                val,
+            }
+        }
+    }
 }
 
 pub fn solutions() {
@@ -45,6 +62,65 @@ pub fn solutions() {
     interview_04_02();
     interview_55_1();
     leetcode_1351();
+    interview_02_02();
+}
+
+///返回倒数第 k 个节点
+fn interview_02_02() {
+    println!("interview_02_02");
+    impl Solution {
+        pub fn kth_to_last(head: Option<Box<ListNode>>, k: i32) -> i32 {
+            let mut nodes = head;
+            let mut qs = VecDeque::new();
+            loop {
+                if let Some(node) = nodes.borrow() {
+                    qs.push_back(node.val);
+                    nodes = node.next.clone();
+                } else {
+                    break;
+                }
+            }
+
+            let i = qs.len() - k as usize;
+            let ret = qs.get(i);
+            *ret.unwrap()
+        }
+
+        //倒数第k个，位置就是len-k。即快指针先走k步，然后2个指针同时走，快指针到达尾时，慢指针的位置就是第len-k个元素。此时快指针刚好走完一圈
+        pub fn kth_to_last2(head: Option<Box<ListNode>>, k: i32) -> i32 {
+            let mut i = k;
+            let mut fast = head.clone();
+            let mut slow = head;
+            while i > 0 {
+                if let Some(node) = fast.borrow() {
+                    fast = node.next.clone();
+                    i -= 1;
+                } else {
+                    break;
+                }
+            }
+
+            while fast != None {
+                if let Some(node) = fast.borrow() {
+                    fast = node.next.clone();
+                    if let Some(node) = slow.borrow() {
+                        slow = node.next.clone();
+                    }
+                }
+            }
+            slow.unwrap().val
+        }
+    }
+
+    let e1 = Some(Box::new(ListNode { val: 5, next: None }));
+    let e2 = Some(Box::new(ListNode { val: 4, next: e1 }));
+    let e3 = Some(Box::new(ListNode { val: 3, next: e2 }));
+    let e4 = Some(Box::new(ListNode { val: 2, next: e3 }));
+    let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
+    let ret = Solution::kth_to_last(e5.clone(), 2);
+    let ret2 = Solution::kth_to_last2(e5, 2);
+    println!("{}", ret);
+    println!("{}", ret2);
 }
 
 ///统计有序矩阵中的负数
@@ -57,7 +133,7 @@ fn leetcode_1351() {
             for r in grid.iter() {
                 count += r.iter().filter(|&&x| x < 0).count() as i32
             }
-            return count
+            return count;
         }
     }
 
@@ -75,7 +151,7 @@ fn interview_55_1() {
                     let node = root.try_borrow().unwrap();
                     return max(get_depth(&node.left), get_depth(&node.right)) + 1;
                 } else {
-                    return 0
+                    return 0;
                 }
             }
             get_depth(&root)
@@ -94,19 +170,19 @@ fn interview_04_02() {
         pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
             fn buildTree(nums: &Vec<i32>, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
                 if l > r {
-                    return None
+                    return None;
                 }
                 if l == r {
-                    return Some(Rc::new(RefCell::new(TreeNode::new(nums[l as usize]))))
+                    return Some(Rc::new(RefCell::new(TreeNode::new(nums[l as usize]))));
                 }
                 let mid = l + (r - l) / 2;
                 let mut root = TreeNode::new(nums[mid as usize]);
                 root.left = buildTree(nums, l, mid - 1);
                 root.right = buildTree(nums, mid + 1, r);
-                return Some(Rc::new(RefCell::new(root)))
+                return Some(Rc::new(RefCell::new(root)));
             }
 
-            return buildTree(&nums, 0, (nums.len() - 1) as i32)
+            return buildTree(&nums, 0, (nums.len() - 1) as i32);
         }
     }
     let nums = vec![-10, -3, 0, 5, 9];
