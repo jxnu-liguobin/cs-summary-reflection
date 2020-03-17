@@ -1,4 +1,4 @@
-use std::borrow::Borrow;
+use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::cmp::max;
 use std::collections::VecDeque;
@@ -63,6 +63,44 @@ pub fn solutions() {
     interview_55_1();
     leetcode_1351();
     interview_02_02();
+    interview_27();
+}
+
+///二叉树的镜像
+fn interview_27() {
+    use std::rc::Rc;
+    use std::cell::RefCell;
+    impl Solution {
+        pub fn mirror_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+            fn mirror(root: &mut Option<Rc<RefCell<TreeNode>>>) {
+                if let Some(node) = root {
+                    let mut n = node.borrow_mut();
+                    unsafe {
+                        //FUCK YOU
+                        let lt = std::mem::replace(&mut (*n.as_ptr()).left, None);
+                        let rt = std::mem::replace(&mut (*n.as_ptr()).right, lt);
+                        std::mem::replace(&mut (*n.as_ptr()).left, rt);
+                        mirror(&mut (*n.as_ptr()).right);
+                        mirror(&mut (*n.as_ptr()).left);
+                    }
+                }
+            }
+            let mut root = root;
+            mirror(&mut root);
+            root
+        }
+    }
+
+
+    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: None, right: None })));
+    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 3, left: None, right: None })));
+    let e3 = Some(Rc::new(RefCell::new(TreeNode { val: 6, left: None, right: None })));
+    let e4 = Some(Rc::new(RefCell::new(TreeNode { val: 9, left: None, right: None })));
+    let e5 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: e1, right: e2 })));
+    let e6 = Some(Rc::new(RefCell::new(TreeNode { val: 7, left: e3, right: e4 })));
+    let e7 = Some(Rc::new(RefCell::new(TreeNode { val: 4, left: e5, right: e6 })));
+//    println!("{:?}", Solution::mirror_tree(e7));
+    println!("{:?}", Solution::mirror_tree(e7))
 }
 
 ///返回倒数第 k 个节点
