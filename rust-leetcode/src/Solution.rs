@@ -1,9 +1,10 @@
-use std::borrow::{Borrow, BorrowMut};
+use std::borrow::Borrow;
 use std::cell::RefCell;
 use std::cmp::max;
 use std::collections::VecDeque;
 use std::ops::{AddAssign, Deref, Index};
 use std::rc::Rc;
+use std::str::Chars;
 
 use pre_structs::*;
 
@@ -63,44 +64,8 @@ pub fn solutions() {
     interview_55_1();
     leetcode_1351();
     interview_02_02();
-    interview_27();
-}
-
-///二叉树的镜像
-fn interview_27() {
-    use std::rc::Rc;
-    use std::cell::RefCell;
-    impl Solution {
-        pub fn mirror_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
-            fn mirror(root: &mut Option<Rc<RefCell<TreeNode>>>) {
-                if let Some(node) = root {
-                    let mut n = node.borrow_mut();
-                    unsafe {
-                        //FUCK YOU
-                        let lt = std::mem::replace(&mut (*n.as_ptr()).left, None);
-                        let rt = std::mem::replace(&mut (*n.as_ptr()).right, lt);
-                        std::mem::replace(&mut (*n.as_ptr()).left, rt);
-                        mirror(&mut (*n.as_ptr()).right);
-                        mirror(&mut (*n.as_ptr()).left);
-                    }
-                }
-            }
-            let mut root = root;
-            mirror(&mut root);
-            root
-        }
-    }
-
-
-    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: None, right: None })));
-    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 3, left: None, right: None })));
-    let e3 = Some(Rc::new(RefCell::new(TreeNode { val: 6, left: None, right: None })));
-    let e4 = Some(Rc::new(RefCell::new(TreeNode { val: 9, left: None, right: None })));
-    let e5 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: e1, right: e2 })));
-    let e6 = Some(Rc::new(RefCell::new(TreeNode { val: 7, left: e3, right: e4 })));
-    let e7 = Some(Rc::new(RefCell::new(TreeNode { val: 4, left: e5, right: e6 })));
-//    println!("{:?}", Solution::mirror_tree(e7));
-    println!("{:?}", Solution::mirror_tree(e7))
+    interview_22();
+    interview_17();
 }
 
 ///返回倒数第 k 个节点
@@ -159,6 +124,42 @@ fn interview_02_02() {
     let ret2 = Solution::kth_to_last2(e5, 2);
     println!("{}", ret);
     println!("{}", ret2);
+}
+
+///链表中倒数第k个节点
+fn interview_22() {
+    println!("interview_22");
+    impl Solution {
+        pub fn get_kth_from_end(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
+            let mut i = k;
+            let mut fast = head.as_ref();
+            let mut slow = head.as_ref();
+            while i > 0 {
+                if let Some(node) = fast.borrow() {
+                    fast = node.next.as_ref();
+                    i -= 1;
+                }
+            }
+
+            while fast != None {
+                if let Some(node) = fast.borrow() {
+                    fast = node.next.as_ref();
+                    if let Some(node) = slow.borrow() {
+                        slow = node.next.as_ref();
+                    }
+                }
+            }
+            Some(slow.unwrap().clone())
+        }
+    }
+
+    let e1 = Some(Box::new(ListNode { val: 5, next: None }));
+    let e2 = Some(Box::new(ListNode { val: 4, next: e1 }));
+    let e3 = Some(Box::new(ListNode { val: 3, next: e2 }));
+    let e4 = Some(Box::new(ListNode { val: 2, next: e3 }));
+    let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
+    let ret = Solution::get_kth_from_end(e5, 2);
+    println!("{:?}", ret);
 }
 
 ///统计有序矩阵中的负数
@@ -334,6 +335,71 @@ fn leetcode_1313() {
 
     let result = Solution::decompress_rl_elist(nums);
     print_vec(result);
+}
+
+///打印从1到最大的n位数
+fn interview_17() {
+    println!("interview_17");
+    let num = ['9'; 10];//10个字符串9，这里10只能是一个常量，无法直接用于本题
+    let mut max_num = String::new();
+    for i in num.iter() {
+        max_num.push(*i)
+    }
+    println!("{:?}", max_num);
+
+    impl Solution {
+        //8ms
+        pub fn print_numbers(n: i32) -> Vec<i32> {
+            let mut max_num = String::new();
+            for i in 1..=n {
+                max_num.push('9')
+            }
+            let mut ret = Vec::new();
+            for i in 1..=max_num.parse::<i32>().unwrap() {
+                ret.push(i);
+            }
+            ret
+        }
+
+        //8ms
+        pub fn print_numbers2(n: i32) -> Vec<i32> {
+            let mut ret = Vec::new();
+            let x: i32 = 10;
+            for i in 1..x.pow(n as u32) {
+                ret.push(i);
+            }
+            ret
+        }
+
+        //20ms
+        pub fn print_numbers3(n: i32) -> Vec<i32> {
+            //快速幂
+            fn pow(mut base: i32, mut index: i32) -> i32 {
+                let mut ret = 1;
+                while index > 0 {
+                    if index & 1 == 1 {
+                        ret *= base;
+                    }
+                    index /= 2;
+                    base *= base;
+                }
+                ret
+            }
+
+            let mut ret = Vec::new();
+            for i in 1..pow(10, n) {
+                ret.push(i);
+            }
+            ret
+        }
+    }
+
+    let p = Solution::print_numbers(1);
+    let p2 = Solution::print_numbers2(1);
+    let p3 = Solution::print_numbers3(1);
+    print_vec(p);
+    print_vec(p2);
+    print_vec(p3)
 }
 
 fn print_vec(nums: Vec<i32>) {
