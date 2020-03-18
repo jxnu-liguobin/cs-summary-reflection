@@ -3,6 +3,8 @@ Leetcode Rust 实现
 
 超简单的算法题目，主要为了熟悉rust语法。源码在Solution.rs，并包含测试
 
+不区分具体的LeetCode系列
+
 * 返回倒数第 k 个节点值
 ```rust
 impl Solution {
@@ -206,6 +208,55 @@ impl Solution {
             }
         }
         rets
+    }
+}
+```
+* 打印从1到最大的n位数
+```rust
+impl Solution {
+    //8ms
+    pub fn print_numbers(n: i32) -> Vec<i32> {
+        let mut max_num = String::new();
+        for i in 1..=n {
+            max_num.push('9')
+        }
+        let mut ret = Vec::new();
+        for i in 1..=max_num.parse::<i32>().unwrap() {
+            ret.push(i);
+        }
+        ret
+    }
+
+    //8ms
+    pub fn print_numbers2(n: i32) -> Vec<i32> {
+        let mut ret = Vec::new();
+        let x: i32 = 10;
+        for i in 1..x.pow(n as u32) {
+            ret.push(i);
+        }
+        ret
+    }
+
+    //20ms
+    pub fn print_numbers3(n: i32) -> Vec<i32> {
+        //快速幂
+        fn pow(mut base: i32, mut index: i32) -> i32 {
+            let mut ret = 1;
+            while index > 0 {
+                if index & 1 == 1 {
+                    ret *= base;
+                }
+                index /= 2;
+                base *= base;
+            }
+            ret
+        }
+
+        let mut ret = Vec::new();
+        for i in 1..pow(10, n) {
+            ret.push(i);
+        }
+        ret
     }
 }
 ```

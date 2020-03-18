@@ -4,6 +4,7 @@ use std::cmp::max;
 use std::collections::VecDeque;
 use std::ops::{AddAssign, Deref, Index};
 use std::rc::Rc;
+use std::str::Chars;
 
 use pre_structs::*;
 
@@ -64,6 +65,7 @@ pub fn solutions() {
     leetcode_1351();
     interview_02_02();
     interview_22();
+    interview_17();
 }
 
 ///返回倒数第 k 个节点
@@ -333,6 +335,71 @@ fn leetcode_1313() {
 
     let result = Solution::decompress_rl_elist(nums);
     print_vec(result);
+}
+
+///打印从1到最大的n位数
+fn interview_17() {
+    println!("interview_17");
+    let num = ['9'; 10];//10个字符串9，这里10只能是一个常量，无法直接用于本题
+    let mut max_num = String::new();
+    for i in num.iter() {
+        max_num.push(*i)
+    }
+    println!("{:?}", max_num);
+
+    impl Solution {
+        //8ms
+        pub fn print_numbers(n: i32) -> Vec<i32> {
+            let mut max_num = String::new();
+            for i in 1..=n {
+                max_num.push('9')
+            }
+            let mut ret = Vec::new();
+            for i in 1..=max_num.parse::<i32>().unwrap() {
+                ret.push(i);
+            }
+            ret
+        }
+
+        //8ms
+        pub fn print_numbers2(n: i32) -> Vec<i32> {
+            let mut ret = Vec::new();
+            let x: i32 = 10;
+            for i in 1..x.pow(n as u32) {
+                ret.push(i);
+            }
+            ret
+        }
+
+        //20ms
+        pub fn print_numbers3(n: i32) -> Vec<i32> {
+            //快速幂
+            fn pow(mut base: i32, mut index: i32) -> i32 {
+                let mut ret = 1;
+                while index > 0 {
+                    if index & 1 == 1 {
+                        ret *= base;
+                    }
+                    index /= 2;
+                    base *= base;
+                }
+                ret
+            }
+
+            let mut ret = Vec::new();
+            for i in 1..pow(10, n) {
+                ret.push(i);
+            }
+            ret
+        }
+    }
+
+    let p = Solution::print_numbers(1);
+    let p2 = Solution::print_numbers2(1);
+    let p3 = Solution::print_numbers3(1);
+    print_vec(p);
+    print_vec(p2);
+    print_vec(p3)
 }
 
 fn print_vec(nums: Vec<i32>) {
