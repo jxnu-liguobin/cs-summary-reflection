@@ -63,6 +63,7 @@ pub fn solutions() {
     interview_55_1();
     leetcode_1351();
     interview_02_02();
+    interview_22();
 }
 
 ///返回倒数第 k 个节点
@@ -121,6 +122,42 @@ fn interview_02_02() {
     let ret2 = Solution::kth_to_last2(e5, 2);
     println!("{}", ret);
     println!("{}", ret2);
+}
+
+///链表中倒数第k个节点
+fn interview_22() {
+    println!("interview_22");
+    impl Solution {
+        pub fn get_kth_from_end(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
+            let mut i = k;
+            let mut fast = head.as_ref();
+            let mut slow = head.as_ref();
+            while i > 0 {
+                if let Some(node) = fast.borrow() {
+                    fast = node.next.as_ref();
+                    i -= 1;
+                }
+            }
+
+            while fast != None {
+                if let Some(node) = fast.borrow() {
+                    fast = node.next.as_ref();
+                    if let Some(node) = slow.borrow() {
+                        slow = node.next.as_ref();
+                    }
+                }
+            }
+            Some(slow.unwrap().clone())
+        }
+    }
+
+    let e1 = Some(Box::new(ListNode { val: 5, next: None }));
+    let e2 = Some(Box::new(ListNode { val: 4, next: e1 }));
+    let e3 = Some(Box::new(ListNode { val: 3, next: e2 }));
+    let e4 = Some(Box::new(ListNode { val: 2, next: e3 }));
+    let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
+    let ret = Solution::get_kth_from_end(e5, 2);
+    println!("{:?}", ret);
 }
 
 ///统计有序矩阵中的负数
