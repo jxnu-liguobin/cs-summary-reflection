@@ -12,12 +12,11 @@ object Interview_27 extends App {
   def mirrorTree(root: TreeNode): TreeNode = {
     import scala.collection.mutable
     val queue = mutable.Queue[TreeNode]()
-    var left: TreeNode = null
     queue.enqueue(root)
     while (queue.nonEmpty) {
       val tmp = queue.dequeue()
       if (tmp != null) {
-        left = tmp.left
+        val left = tmp.left
         tmp.left = tmp.right
         tmp.right = left
         queue.enqueue(tmp.right)
