@@ -425,6 +425,58 @@ fn interview_17() {
     print_vec(p3)
 }
 
+///替换空格
+fn interview_05() {
+    println!("interview_05");
+    impl Solution {
+        pub fn replace_space(s: String) -> String {
+            let mut str = s;
+            str.replace(" ", "%20")
+        }
+    }
+
+    let ret = Solution::replace_space("We are happy.".to_string());
+    println!("{}", ret)
+}
+
+///分割平衡字符串
+fn leetcode_1221() {
+    println!("leetcode_1221");
+    impl Solution {
+        pub fn balanced_string_split(s: String) -> i32 {
+            let mut l = 0;
+            let mut ret = 0;
+            for c in s.chars() {
+                if c == 'L' {
+                    l += 1;
+                }
+                if c == 'R' {
+                    l -= 1;
+                }
+                if l == 0 {
+                    ret += 1;
+                }
+            }
+            ret
+        }
+        //函数式
+        pub fn balanced_string_split2(s: String) -> i32 {
+            s.chars().scan(0, |acc, e| {
+                *acc = if let 'R' = e {
+                    (*acc + 1)
+                } else {
+                    (*acc - 1)
+                };
+                Some(*acc)
+            }).filter(|&e| e == 0).count() as i32
+        }
+    }
+    let ret = Solution::balanced_string_split("RLRRLLRLRL".to_string());
+    let ret2 = Solution::balanced_string_split2("RLRRLLRLRL".to_string());
+    println!("{}", ret);
+    println!("{}", ret2)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -439,6 +491,8 @@ pub fn solutions() {
     interview_22();
     interview_17();
     interview_27();
+    interview_05();
+    leetcode_1221();
 }
 
 fn print_vec(nums: Vec<i32>) {
