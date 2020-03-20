@@ -477,6 +477,30 @@ fn leetcode_1221() {
     println!("{}", ret2)
 }
 
+///从尾到头打印链表
+fn interview_06() {
+    println!("interview_06");
+    impl Solution {
+        pub fn reverse_print(head: Option<Box<ListNode>>) -> Vec<i32> {
+            let mut ret = Vec::<i32>::new();
+            let mut node = head.as_ref();
+            loop {
+                if let Some(root) = node {
+                    ret.push(root.val);
+                    node = root.next.as_ref();
+                } else { break }
+            }
+            ret.reverse();
+            ret
+        }
+    }
+    let e3 = Some(Box::new(ListNode { val: 2, next: None }));
+    let e4 = Some(Box::new(ListNode { val: 3, next: e3 }));
+    let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
+    let ret = Solution::reverse_print(e5);
+    println!("{:?}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -493,6 +517,7 @@ pub fn solutions() {
     interview_27();
     interview_05();
     leetcode_1221();
+    interview_06();
 }
 
 fn print_vec(nums: Vec<i32>) {
