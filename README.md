@@ -22,7 +22,6 @@ Scala程序员、函数式爱好者
 > Modules Note
 
 * docs        blog
-* examples    other
-* leetcode    leetcode
 * scala-*     scala
 * rust-*      rust
+* java-*      rust

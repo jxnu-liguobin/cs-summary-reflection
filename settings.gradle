@@ -1,5 +1,5 @@
 rootProject.name = 'cs-summary-reflection'
-include 'examples'
+include 'java-examples'
 include 'scala-utils'
 include 'leetcode'
-include 'scala-syntax'
+include 'scala-examples'
