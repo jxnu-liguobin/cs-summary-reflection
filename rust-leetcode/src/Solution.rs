@@ -553,6 +553,83 @@ fn leetcode_938() {
     }
 }
 
+///删除最外层的括号
+fn lettcode_1021() {
+    println!("lettcode_1021");
+    impl Solution {
+        pub fn remove_outer_parentheses(s: String) -> String {
+            let mut ret_str = String::new();
+            let mut le = 0;
+            for c in s.chars() {
+                if c == ')' {
+                    le -= 1
+                }
+                if le >= 1 {
+                    ret_str.push(c)
+                }
+                if c == '(' {
+                    le += 1
+                }
+            }
+            ret_str
+        }
+
+        pub fn remove_outer_parentheses2(s: String) -> String {
+            let mut stack = VecDeque::new();
+            let mut ret_str = String::new();
+            for c in s.chars() {
+                //括号匹配，忽略最左边和最右边的括号
+                if c == '(' {
+                    stack.push_back(c);
+                    if stack.len() > 1 {
+                        ret_str.push(c);
+                    }
+                } else {
+                    stack.pop_back();
+                    if stack.len() != 0 {
+                        ret_str.push(c);
+                    }
+                }
+            }
+            ret_str
+        }
+    }
+
+
+
+    let ret = Solution::remove_outer_parentheses("(()())(())".to_string());
+    println!("{}", ret)
+}
+
+///反转链表 leetcode 206
+fn interview_24() {
+    println!("interview_24");
+    impl Solution {
+        pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+            let mut pre = None;
+            let mut tmp = head;
+            loop {
+                //每次让head指向的节点指向pre指向的节点
+                if let Some(mut head) = tmp {
+                    tmp = head.next;
+                    head.next = pre;
+                    pre = Some(head);
+                } else {
+                    break;
+                }
+            }
+            pre
+        }
+    }
+    let e1 = Some(Box::new(ListNode { val: 5, next: None }));
+    let e2 = Some(Box::new(ListNode { val: 4, next: e1 }));
+    let e3 = Some(Box::new(ListNode { val: 3, next: e2 }));
+    let e4 = Some(Box::new(ListNode { val: 2, next: e3 }));
+    let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
+    let ret = Solution::reverse_list(e5);
+    println!("{:?}", ret.unwrap());// 5 4 3 2 1
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -571,6 +648,8 @@ pub fn solutions() {
     leetcode_1221();
     interview_06();
     leetcode_938();
+    lettcode_1021();
+    interview_24();
 }
 
 fn print_vec(nums: Vec<i32>) {

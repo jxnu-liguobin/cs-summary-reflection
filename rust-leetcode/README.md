@@ -366,3 +366,64 @@ impl Solution {
     }
 }
 ```
+* 删除最外层的括号
+```rust
+impl Solution {
+    pub fn remove_outer_parentheses(s: String) -> String {
+        let mut ret_str = String::new();
+        let mut le = 0;
+        for c in s.chars() {
+            if c == ')' {
+                le -= 1
+            }
+            if le >= 1 {
+                ret_str.push(c)
+            }
+            if c == '(' {
+                le += 1
+            }
+        }
+        ret_str
+    }
+   //内存占用小
+    pub fn remove_outer_parentheses2(s: String) -> String {
+        let mut stack = VecDeque::new();
+        let mut ret_str = String::new();
+        for c in s.chars() {
+            //括号匹配，忽略最左边和最右边的括号
+            if c == '(' {
+                stack.push_back(c);
+                if stack.len() > 1 {
+                    ret_str.push(c);
+                }
+            } else {
+                stack.pop_back();
+                if stack.len() != 0 {
+                    ret_str.push(c);
+                }
+            }
+        }
+        ret_str
+    }
+}
+```
+* 反转链表
+```rust
+impl Solution {
+    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut pre = None;
+        let mut tmp = head;
+        loop {
+            //每次让head指向的节点指向pre指向的节点
+            if let Some(mut head) = tmp {
+                tmp = head.next;
+                head.next = pre;
+                pre = Some(head);
+            } else {
+                break;
+            }
+        }
+        pre
+    }
+}
+```
