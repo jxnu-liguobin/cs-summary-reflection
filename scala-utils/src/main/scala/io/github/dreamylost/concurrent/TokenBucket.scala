@@ -1,5 +1,9 @@
 package io.github.dreamylost.concurrent
 
+import java.util.concurrent.TimeUnit
+
+import scala.concurrent.Future
+
 /**
  * 简单令牌桶实现
  *
@@ -92,10 +96,34 @@ abstract class TokenBucket(capacity: Long, nanosBetweenTokens: Long) {
  * 令牌桶默认实现，使用`System.nanoTime`作为时间源
  */
 final class NanoTimeTokenBucket(_cap: Long, _period: Long) extends TokenBucket(_cap, _period) {
+
   override def currentTime: Long = System.nanoTime()
+
+  def require[T](body: () => Future[T], semaphore: Long, allowBlock: Boolean = false): Future[T] = {
+    val delay = offer(semaphore)
+    if (delay == 0) {
+      body()
+    } else {
+      if (!allowBlock) {
+        Future.failed(new Exception("Not enough semaphore"))
+      } else {
+        TimeUnit.NANOSECONDS.sleep(delay)
+        body()
+      }
+    }
+  }
+}
+
+object NanoTimeTokenBucket {
+
+  def apply(_cap: Long, _period: Long): NanoTimeTokenBucket = new NanoTimeTokenBucket(_cap, _period)
 }
 
 object TokenBucketSpec extends App {
+
+  import scala.concurrent.ExecutionContext
+  import scala.util.{ Failure, Success }
+
   val tokenBucket = new NanoTimeTokenBucket(10, 1000000)
   tokenBucket.init()
   new Thread(() => {
@@ -104,6 +132,15 @@ object TokenBucketSpec extends App {
     val ret = tokenBucket.offer(15) / 1000 / 1000
     println(ret)
   }).start()
+
+  implicit val ex = ExecutionContext.Implicits.global
+  val tokenBucket2 = NanoTimeTokenBucket(10, 1000000)
+  val ret = tokenBucket2.require(() => Future.successful(1 * 2 * 3 * 4 * 5 * 6), 20)
+  ret onComplete {
+    case Success(_) =>
+    case Failure(exception) =>
+      println(exception.getMessage)
+  }
 }
 
 
