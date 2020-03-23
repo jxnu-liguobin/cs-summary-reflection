@@ -630,6 +630,49 @@ fn interview_24() {
     println!("{:?}", ret.unwrap());// 5 4 3 2 1
 }
 
+///奇数值单元格的数目
+fn leetcode_1252() {
+    println!("leetcode_1252");
+    impl Solution {
+        pub fn odd_cells(n: i32, m: i32, indices: Vec<Vec<i32>>) -> i32 {
+            let mut arr = vec![vec![0; m as usize]; n as usize];
+            let mut res = 0;
+            for row in indices {
+                for i in 0..n {
+                    arr[i as usize][row[1] as usize] += 1;
+                }
+                for j in 0..m {
+                    arr[row[0] as usize][j as usize] += 1;
+                }
+            }
+            for i in 0..n {
+                for j in 0..m {
+                    if arr[i as usize][j as usize] & 1 == 1 {
+                        res += 1;
+                    }
+                }
+            }
+            res
+        }
+    }
+
+    let ret = Solution::odd_cells(2, 3, vec![vec![0, 1], vec![1, 1]]);
+    println!("{}", ret)
+}
+
+///6 和 9 组成的最大数字
+fn leetcode_1323() {
+    println!("leetcode_1323");
+    impl Solution {
+        pub fn maximum69_number(num: i32) -> i32 {
+            num.to_string().replacen('6', "9", 1).parse().unwrap()
+        }
+    }
+
+    let ret = Solution::maximum69_number(996);
+    println!("{}", ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -650,6 +693,8 @@ pub fn solutions() {
     leetcode_938();
     lettcode_1021();
     interview_24();
+    leetcode_1252();
+    leetcode_1323();
 }
 
 fn print_vec(nums: Vec<i32>) {
