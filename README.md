@@ -24,4 +24,4 @@ Scala程序员、函数式爱好者
 * docs        blog
 * scala-*     scala
 * rust-*      rust
-* java-*      rust
+* java-*      java
