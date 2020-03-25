@@ -747,6 +747,23 @@ fn leetcode_461() {
     println!("{}", ret)
 }
 
+///转换成小写字母
+fn leetcode_709() {
+    println!("leetcode_709");
+    impl Solution {
+        pub fn to_lower_case(str: String) -> String {
+            str.chars().map(|c| {
+                //说明是大写，+32
+                if c < 'a' && c >= 'A' {
+                    (c as u8 + 32 as u8) as char
+                } else { c }
+            }).collect()
+        }
+    }
+    let ret = Solution::to_lower_case("al&phaBET".to_string());
+    println!("{}", ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -771,6 +788,7 @@ pub fn solutions() {
     leetcode_1323();
     leetcode_617();
     leetcode_461();
+    leetcode_709();
 }
 
 fn print_vec(nums: Vec<i32>) {
