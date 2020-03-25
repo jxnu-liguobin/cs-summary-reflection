@@ -463,7 +463,7 @@ impl Solution {
 * 合并二叉树
 ```rust
 impl Solution {
-        ///李广胜
+        ///author 李广胜
     pub fn merge_trees(t1: Option<Rc<RefCell<TreeNode>>>, t2: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         if t1.is_none() {
             return t2;
@@ -485,7 +485,7 @@ impl Solution {
         }
     }
 
-    ///长条人
+    ///author 长条人
     pub fn merge_trees2(t1: Option<Rc<RefCell<TreeNode>>>, t2: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         fn merge(t1: &mut Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) {
             if let Some(mut n1) = t1.as_ref() {
@@ -505,6 +505,23 @@ impl Solution {
         let mut t1 = t1;
         merge(&mut t1, &t2);
         t1
+    }
+}
+```
+* 汉明距离
+```rust
+impl Solution {
+    pub fn hamming_distance(x: i32, y: i32) -> i32 {
+        let mut nums = x ^ y;
+        //二进制中1的个数
+        let mut c = 0;
+        while nums != 0 {
+            if nums & 1 == 1 {
+                c += 1;
+            }
+            nums = nums >> 1;
+        }
+        c
     }
 }
 ```

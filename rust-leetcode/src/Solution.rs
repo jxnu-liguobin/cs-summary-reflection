@@ -675,10 +675,11 @@ fn leetcode_1323() {
 
 ///合并二叉树
 fn leetcode_617() {
+    println!("leetcode_617");
     use std::rc::Rc;
     use std::cell::RefCell;
     impl Solution {
-        ///李广胜
+        ///author 李广胜
         pub fn merge_trees(t1: Option<Rc<RefCell<TreeNode>>>, t2: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
             if t1.is_none() {
                 return t2;
@@ -700,7 +701,7 @@ fn leetcode_617() {
             }
         }
 
-        ///长条人
+        ///author 长条人
         pub fn merge_trees2(t1: Option<Rc<RefCell<TreeNode>>>, t2: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
             fn merge(t1: &mut Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) {
                 if let Some(mut n1) = t1.as_ref() {
@@ -722,6 +723,28 @@ fn leetcode_617() {
             t1
         }
     }
+}
+
+///汉明距离
+fn leetcode_461() {
+    println!("leetcode_461");
+    impl Solution {
+        pub fn hamming_distance(x: i32, y: i32) -> i32 {
+            let mut nums = x ^ y;
+            //二进制中1的个数
+            let mut c = 0;
+            while nums != 0 {
+                if nums & 1 == 1 {
+                    c += 1;
+                }
+                nums = nums >> 1;
+            }
+            c
+        }
+    }
+
+    let ret = Solution::hamming_distance(1577962638, 1727613287);
+    println!("{}", ret)
 }
 
 ///所有方法调用
@@ -747,6 +770,7 @@ pub fn solutions() {
     leetcode_1252();
     leetcode_1323();
     leetcode_617();
+    leetcode_461();
 }
 
 fn print_vec(nums: Vec<i32>) {
