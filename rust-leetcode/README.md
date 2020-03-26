@@ -1,7 +1,7 @@
 Leetcode Rust 实现
 --
 
-超简单的算法题目，主要为了熟悉rust语法。源码在Solution.rs，并包含测试
+超简单的算法题目，主要为了熟悉rust语法。源码在Solution.rs，并包含部分测试（均AC，90%是双100）
 
 不区分具体的LeetCode系列
 
@@ -535,6 +535,42 @@ impl Solution {
                 (c as u8 + 32 as u8) as char
             } else { c }
         }).collect()
+    }
+}
+```
+* 和为零的N个唯一整数
+```rust
+impl Solution {
+    //双指针 平均分布，不同解决得到的结果不同
+    pub fn sum_zero(n: i32) -> Vec<i32> {
+        let mut ret = vec![0; n as usize];
+        let mut i = 0usize;
+        let mut j = (n - 1) as usize;
+        let mut c = 1;
+        loop {
+            if i >= j {
+                break;
+            }
+            ret[i] = c;
+            ret[j] = -c;
+            i += 1;
+            j -= 1;
+            c += 1;
+        }
+        ret
+    }
+    //[sum=1~n-2,-sum]
+    pub fn sum_zero2(n: i32) -> Vec<i32> {
+        let mut ret = vec![0; n as usize];
+        let mut sum = 0;
+        let mut j = 0;
+        for i in 0..=n - 2 {
+            ret[j] = i;
+            j += 1;
+            sum += i;
+        }
+        ret[(n - 1) as usize] = -sum;
+        ret
     }
 }
 ```
