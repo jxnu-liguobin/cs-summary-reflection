@@ -226,7 +226,7 @@ sidebar:
     second: 秒
   copyright:
     enable: true
-    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><br>
+    text: '<script async defer src="//cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/buttons.js"></script><br>
     <a class="github-button" aria-label="Star jxnu-liguobin/cs-summary-reflection" href="https://github.com/jxnu-liguobin/cs-summary-reflection" data-icon="octicon-star" data-show-count="true">Star</a> 
     <a class="github-button" href="https://github.com/jxnu-liguobin/cs-summary-reflection/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork jxnu-liguobin/cs-summary-reflection on GitHub">Fork</a></br>
     <a href="http://www.beian.miit.gov.cn/publish/query/indexFirst.action" rel="nofollow" target="_blank">赣ICP备17017283号-1</a>'
