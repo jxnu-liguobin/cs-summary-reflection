@@ -75,13 +75,13 @@ head: # 删改前确定知道自己在做什么
   - key: rel
     value: stylesheet
   - key: href
-    value: /public/css/lanyon.css
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/lanyon.css
 - tag: link
   var:
   - key: rel
     value: stylesheet
   - key: href
-    value: /public/css/wu-kan.css
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/wu-kan.css
 - tag: link
   var:
   - key: rel
@@ -106,10 +106,10 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
     value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
 - var:
   - key: src
-    value: /public/js/prism.js
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/prism.js
 - var:
   - key: src
-    value: /public/js/mermaid.js
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/mermaid.js
   - key: js
     value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
   - key: stylesheet
@@ -121,7 +121,7 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
 #    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 - var:
   - key: src
-    value: /public/js/katex.js
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/katex.js
   - key: js
     value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
   - key: auto_render
@@ -132,7 +132,7 @@ script: # 需要在正文后调用的脚本或者插件的autoloader
     value: true
 - var:
   - key: src
-    value: /public/js/baidu_push.js
+    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/baidu_push.js
 
 PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己定制，我这里只导入了三个自己喜欢的插件。使用自己修改后的CSS
   enable: true
@@ -191,14 +191,14 @@ sidebar:
     href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true
-    autoloader: /public/simple-jekyll-search/autoloader.js
-    stylesheet: /public/simple-jekyll-search/search_box.css
+    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/autoloader.js
+    stylesheet: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search_box.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
     placeholder: 搜索博文
-    json: /public/simple-jekyll-search/search.json
+    json: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search.json
   jekyll_table_of_contents:
     enable: true
-    autoloader: /public/js/jekyll_table_of_contents.js
+    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/jekyll_table_of_contents.js
     src: //cdn.jsdelivr.net/gh/ghiculescu/jekyll-table-of-contents/toc.js
   busuanzi:
     enable: true
@@ -217,7 +217,7 @@ sidebar:
     alert: <i class="fas fa-user-edit fa-fw"></i>
   run_time:
     enable: true
-    src: /public/js/run_time.js
+    src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/run_time.js
     start_time: '2019/09/20 00:00:00' # 这是我第一篇CSDN博客的时间，从这个时间开始迁移到Git pages
     alert: <i class="fas fa-cog fa-spin fa-fw"></i>
     day: 天
@@ -260,13 +260,13 @@ post:
     text: 如果我的博客帮助到你，可以请我喝一杯咖啡~
     img: # 万一真的有人打赏呢~
     - id: wechat
-      src: /public/image/wechatpay.jpg
+      src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/image/wechatpay.jpg
     - id: alipay
-      src: /public/image/alipay.jpg
+      src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/image/alipay.jpg
 
 valine:
   enable: true
-  autoloader: /public/js/valine.js
+  autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/valine.js
   src: //cdn.jsdelivr.net/npm/valine
   appId: EGfUsFqN1cs4LwLJ2DiHayGi-gzGzoHsz
   appKey: Mifi34gVJtBxhs4HrDcONnzC
