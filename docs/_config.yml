@@ -11,83 +11,83 @@ url: https://dreamylost.cn
 author: 梦境迷离
 
 head: # 删改前确定知道自己在做什么
-- tag: meta # Enable responsiveness on mobile devices
-  var:
-  - key: name
-    value: viewport
-  - key: content
-    value: width=device-width, initial-scale=1.0, maximum-scale=1
-- tag: meta
-  var:
-  - key: http-equiv
-    value: X-UA-Compatible
-  - key: content
-    value: IE=edge
-- tag: meta
-  var:
-  - key: http-equiv
-    value: content-type
-  - key: content
-    value: 'text/html; charset=utf-8'
-- tag: link
-  var:
-  - key: rel
-    value: profile
-  - key: href
-    value: //gmpg.org/xfn/11
-- tag: link # rss
-  var:
-  - key: rel
-    value: alternate
-  - key: href
-    value: /atom.xml
-  - key: title
-    value: RSS
-  - key: type
-    value: application/rss+xml
-- tag: link # 网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
-  var:
-  - key: rel
-    value: apple-touch-icon-precomposed
-  - key: href
-    value: https://avatars0.githubusercontent.com/u/29496873?s=40&v=4
-- tag: link # 小图标，同上
-  var:
-  - key: rel
-    value: 'shortcut icon'
-  - key: href
-    value: https://avatars0.githubusercontent.com/u/29496873?s=40&v=4
-- tag: link # 下面是博客的css，有些插件的css是单独在插件里引用的，假如需要自己的css可以仿照去加在后面。无脑cdn加速了。
-  var:
-  - key: rel
-    value: stylesheet
-  - key: href
+  - tag: meta # Enable responsiveness on mobile devices
+    var:
+      - key: name
+        value: viewport
+      - key: content
+        value: width=device-width, initial-scale=1.0, maximum-scale=1
+  - tag: meta
+    var:
+      - key: http-equiv
+        value: X-UA-Compatible
+      - key: content
+        value: IE=edge
+  - tag: meta
+    var:
+      - key: http-equiv
+        value: content-type
+      - key: content
+        value: 'text/html; charset=utf-8'
+  - tag: link
+    var:
+      - key: rel
+        value: profile
+      - key: href
+        value: //gmpg.org/xfn/11
+  - tag: link # rss
+    var:
+      - key: rel
+        value: alternate
+      - key: href
+        value: /atom.xml
+      - key: title
+        value: RSS
+      - key: type
+        value: application/rss+xml
+  - tag: link # 网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
+    var:
+      - key: rel
+        value: apple-touch-icon-precomposed
+      - key: href
+        value: https://avatars0.githubusercontent.com/u/29496873?s=40&v=4
+  - tag: link # 小图标，同上
+    var:
+      - key: rel
+        value: 'shortcut icon'
+      - key: href
+        value: https://avatars0.githubusercontent.com/u/29496873?s=40&v=4
+  - tag: link # 下面是博客的css，有些插件的css是单独在插件里引用的，假如需要自己的css可以仿照去加在后面。无脑cdn加速了。
+    var:
+      - key: rel
+        value: stylesheet
+      - key: href
 
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/poole.css # 用cdn加速会出问题，暂时不知道为什么
-- tag: link
-  var:
-  - key: rel
-    value: stylesheet
-  - key: href
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/syntax.css
-- tag: link
-  var:
-  - key: rel
-    value: stylesheet
-  - key: href
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/lanyon.css
-- tag: link
-  var:
-  - key: rel
-    value: stylesheet
-  - key: href
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/wu-kan.css
-- tag: link
-  var:
-  - key: rel
-    value: stylesheet
-  - key: href
-    value: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css # 在https://fontawesome.com/icons 查看支持的图标
+        value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/poole.css # 用cdn加速会出问题，暂时不知道为什么
+  - tag: link
+    var:
+      - key: rel
+        value: stylesheet
+      - key: href
+        value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/syntax.css
+  - tag: link
+    var:
+      - key: rel
+        value: stylesheet
+      - key: href
+        value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/lanyon.css
+  - tag: link
+    var:
+      - key: rel
+        value: stylesheet
+      - key: href
+        value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/wu-kan.css
+  - tag: link
+    var:
+      - key: rel
+        value: stylesheet
+      - key: href
+        value: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css # 在https://fontawesome.com/icons 查看支持的图标
 
 body:
   theme-base: theme-base-0d # 可选的值08~0f
@@ -95,44 +95,44 @@ body:
   sidebar-overlay: true # 开启后正文不随sidebar移动而移动
 
 script: # 需要在正文后调用的脚本或者插件的autoloader
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js # jQuery
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/npm/ribbon.js/dist/ribbon.min.js # 彩带背景
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/prism.js
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/mermaid.js
-  - key: js
-    value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
-  - key: stylesheet
-    value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css
-  - key: markdown_expand
-    value: true
-#- var: mathjax
-#  - key: src
-#    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/katex.js
-  - key: js
-    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
-  - key: auto_render
-    value : //cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
-  - key: stylesheet
-    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.css
-  - key: delimiters  # 开启行内公式$\KaTeX$支持
-    value: true
-- var:
-  - key: src
-    value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/baidu_push.js
+  - var:
+      - key: src
+        value: //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js # jQuery
+  - var:
+      - key: src
+        value: //cdn.jsdelivr.net/npm/ribbon.js/dist/ribbon.min.js # 彩带背景
+  - var:
+      - key: src
+        value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
+  - var:
+      - key: src
+        value: /public/js/prism.js
+  - var:
+      - key: src
+        value: /public/js/mermaid.js
+      - key: js
+        value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+      - key: stylesheet
+        value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css
+      - key: markdown_expand
+        value: true
+  #- var: mathjax
+  #  - key: src
+  #    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  - var:
+      - key: src
+        value: /public/js/katex.js
+      - key: js
+        value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
+      - key: auto_render
+        value : //cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
+      - key: stylesheet
+        value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.css
+      - key: delimiters  # 开启行内公式$\KaTeX$支持
+        value: true
+  - var:
+      - key: src
+        value: /public/js/baidu_push.js
 
 PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己定制，我这里只导入了三个自己喜欢的插件。使用自己修改后的CSS
   enable: true
@@ -161,44 +161,44 @@ sidebar:
     img: https://avatars0.githubusercontent.com/u/29496873?s=100&u=b6bccb038f0d364b8814dce16be60b5fe31bd8cf&v=4 # 头像的地址
     info: <br/>一名Scala初级开发工程师 # 头像背后的信息，音乐引用，直接去掉了播放器，因为没有正版了， 垃圾网易云！
   social:
-  - title: rss
-    href: /atom.xml
-    class: 'fas fa-rss fa-fw'
-  - title: dreamylost@outlook.com # email
-    href: mailto:dreamylost@outlook.com
-    class: 'fas fa-envelope fa-fw'
-  - title: github
-    href: //github.com/jxnu-liguobin
-    class: 'fab fa-github fa-fw'
-  - title: zhihu
-    href: //www.zhihu.com/people/dreamylost/activities
-    class: 'fab fa-zhihu fa-fw'
-  - title: twitter
-    href: //twitter.com/dreamylostcn
-    class: 'fab fa-twitter fa-fw'
+    - title: rss
+      href: /atom.xml
+      class: 'fas fa-rss fa-fw'
+    - title: dreamylost@outlook.com # email
+      href: mailto:dreamylost@outlook.com
+      class: 'fas fa-envelope fa-fw'
+    - title: github
+      href: //github.com/jxnu-liguobin
+      class: 'fab fa-github fa-fw'
+    - title: zhihu
+      href: //www.zhihu.com/people/dreamylost/activities
+      class: 'fab fa-zhihu fa-fw'
+    - title: twitter
+      href: //twitter.com/dreamylostcn
+      class: 'fab fa-twitter fa-fw'
   nav:
-  - title: '<i class="fas fa-home fa-fw"></i> 首页'
-    href: /
-  - title: '<i class="fab fa-readme fa-fw"></i> 关于'
-    href: /about.html
-  - title: '<i class="fas fa-comments fa-fw"></i> 留言'
-    href: /comments.html
-  - title: '<i class="fas fa-tags fa-fw"></i> 标签'
-    href: /tags.html
-  - title: '<i class="fas fa-archive fa-fw"></i> 归档'
-    href: /archive.html
-  - title: '<i class="fas fa-table fa-fw"></i> 分类'
-    href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
+    - title: '<i class="fas fa-home fa-fw"></i> 首页'
+      href: /
+    - title: '<i class="fab fa-readme fa-fw"></i> 关于'
+      href: /about.html
+    - title: '<i class="fas fa-comments fa-fw"></i> 留言'
+      href: /comments.html
+    - title: '<i class="fas fa-tags fa-fw"></i> 标签'
+      href: /tags.html
+    - title: '<i class="fas fa-archive fa-fw"></i> 归档'
+      href: /archive.html
+    - title: '<i class="fas fa-table fa-fw"></i> 分类'
+      href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true
-    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/autoloader.js
+    autoloader: /public/simple-jekyll-search/autoloader.js
     stylesheet: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search_box.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
     placeholder: 搜索博文
-    json: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search.json
+    json: /public/simple-jekyll-search/search.json
   jekyll_table_of_contents:
     enable: true
-    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/jekyll_table_of_contents.js
+    autoloader: /public/js/jekyll_table_of_contents.js
     src: //cdn.jsdelivr.net/gh/ghiculescu/jekyll-table-of-contents/toc.js
   busuanzi:
     enable: true
@@ -217,7 +217,7 @@ sidebar:
     alert: <i class="fas fa-user-edit fa-fw"></i>
   run_time:
     enable: true
-    src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/run_time.js
+    src: /public/js/run_time.js
     start_time: '2019/09/20 00:00:00' # 这是我第一篇CSDN博客的时间，从这个时间开始迁移到Git pages
     alert: <i class="fas fa-cog fa-spin fa-fw"></i>
     day: 天
@@ -226,16 +226,16 @@ sidebar:
     second: 秒
   copyright:
     enable: true
-    text: '<script async defer src="//cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/buttons.js"></script><br>
-    <a class="github-button" aria-label="Star jxnu-liguobin/cs-summary-reflection" href="https://github.com/jxnu-liguobin/cs-summary-reflection" data-icon="octicon-star" data-show-count="true">Star</a> 
+    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><br>
+    <a class="github-button" aria-label="Star jxnu-liguobin/cs-summary-reflection" href="https://github.com/jxnu-liguobin/cs-summary-reflection" data-icon="octicon-star" data-show-count="true">Star</a>
     <a class="github-button" href="https://github.com/jxnu-liguobin/cs-summary-reflection/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork jxnu-liguobin/cs-summary-reflection on GitHub">Fork</a></br>
     <a href="http://www.beian.miit.gov.cn/publish/query/indexFirst.action" rel="nofollow" target="_blank">赣ICP备17017283号-1</a>'
 
 index:
   showtag:
-  - "源码分析"
-  - "Java并发"
-  - "迁移自CSDN博客" #默认首页开启显示的标签
+    - "源码分析"
+    - "Java并发"
+    - "迁移自CSDN博客" #默认首页开启显示的标签
 
 post:
   meta:
@@ -259,14 +259,14 @@ post:
     enable: true
     text: 如果我的博客帮助到你，可以请我喝一杯咖啡~
     img: # 万一真的有人打赏呢~
-    - id: wechat
-      src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/image/wechatpay.jpg
-    - id: alipay
-      src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/image/alipay.jpg
+      - id: wechat
+        src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/image/wechatpay.jpg
+      - id: alipay
+        src: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/image/alipay.jpg
 
 valine:
   enable: true
-  autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/valine.js
+  autoloader: /public/js/valine.js
   src: //cdn.jsdelivr.net/npm/valine
   appId: EGfUsFqN1cs4LwLJ2DiHayGi-gzGzoHsz
   appKey: Mifi34gVJtBxhs4HrDcONnzC
