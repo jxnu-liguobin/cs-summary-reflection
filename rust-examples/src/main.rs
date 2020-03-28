@@ -7,12 +7,14 @@ use crate::custom_types::*;
 use crate::flow_control::*;
 use crate::formatted_print::*;
 use crate::functions::*;
+use crate::generics::*;
 use crate::modules::*;
 use crate::primitives::*;
 use crate::types::*;
 use crate::variable_bindings::*;
 
 pub mod formatted_print;
+pub mod generics;
 pub mod modules;
 pub mod functions;
 pub mod flow_control;
@@ -34,4 +36,5 @@ fn main() {
     functions();
     closures();
     modules();
+    generics();
 }
