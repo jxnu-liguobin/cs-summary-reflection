@@ -1,7 +1,7 @@
 use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::cmp::max;
-use std::collections::VecDeque;
+use std::collections::{HashSet, VecDeque};
 use std::ops::{AddAssign, Deref, Index};
 use std::rc::Rc;
 use std::str::Chars;
@@ -806,6 +806,31 @@ fn leetcode_1304() {
     print_vec(ret2);
 }
 
+///唯一摩尔斯密码词
+fn lettcode_804() {
+    println!("lettcode_804");
+    impl Solution {
+        pub fn unique_morse_representations(words: Vec<String>) -> i32 {
+            let m = vec![".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+            let mut ret = HashSet::new();
+            for w in words.iter() {
+                let mut mw = String::new();
+                for c in w.chars() {
+                    //bad smell
+                    let c = m[(c as u8 - 97) as usize];
+                    mw.push_str(c);
+                }
+                ret.insert(mw);
+            }
+            ret.len() as i32
+        }
+    }
+
+    let words = vec!["gin".to_owned(), "zen".to_owned(), "gig".to_owned(), "msg".to_owned()];
+    let ret = Solution::unique_morse_representations(words);
+    println!("{}", ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -832,6 +857,7 @@ pub fn solutions() {
     leetcode_461();
     leetcode_709();
     leetcode_1304();
+    lettcode_804();
 }
 
 fn print_vec(nums: Vec<i32>) {
