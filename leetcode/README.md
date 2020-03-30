@@ -367,9 +367,21 @@
 ```
 * 判断平衡树
 ```scala
+  private var result = true
+  def isBalanced(root: TreeNode): Boolean = {
+    maxDepth(root)
+    result
+  }
+
+  //@tailrec
   def maxDepth(root: TreeNode): Int = {
-      if (root == null) return 0
-      return math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    if (root == null)
+      return 0
+    val l = maxDepth(root.left)
+    val r = maxDepth(root.right)
+    if (Math.abs(l - r) > 1)
+      result = false
+    return 1 + math.max(l, r)
   }
 ```
 * 最小路径
