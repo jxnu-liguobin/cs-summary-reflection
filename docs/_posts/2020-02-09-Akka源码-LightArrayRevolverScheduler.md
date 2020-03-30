@@ -228,8 +228,8 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
     //http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/9b0ca45cd756/src/share/vm/prims/unsafe.cpp
     if (stopped.compareAndSet(null, p)) {//期望为null，失败为false
     //中断定时器线程以使其更快地关闭是不好的，因为它可能正在执行计划的任务，这可能对被中断的响应不好。相反，我们只需再等待一个滴答就可以完成。
-      p.future//返回的这里没任何地方填充task，不太明白
-    } else Future.successful(Nil)
+      p.future
+    } else Future.successful(Nil)//Future.successful(Nil)
   }
 
   //定时任务的主线程
@@ -295,6 +295,7 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
               timerThread = thread
             case p =>
               //不为空时表面已经stop过，填充promise success，"取消"所有任务
+              //p为Promise.successful(Nil))时，比较成功,来自stop方法返回的promise
               assert(stopped.compareAndSet(p, Promise.successful(Nil)), "Stop signal violated in LARS")
               p.success(clearAll())
           }
@@ -340,6 +341,7 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
         case null => nextTick()
         case p =>
         //已经关闭了，清空任务
+        //p为Promise.successful(Nil))时，比较成功
           assert(stopped.compareAndSet(p, Promise.successful(Nil)), "Stop signal violated in LARS")
           p.success(clearAll())
       }
