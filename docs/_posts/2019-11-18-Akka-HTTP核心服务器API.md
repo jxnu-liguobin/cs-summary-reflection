@@ -134,6 +134,7 @@ val bindingFuture: Future[Http.ServerBinding] =
 
 在服务器端，独立HTTP层形成一个[BidiFlow](https://doc.akka.io/api/akka/2.5.23/akka/stream/scaladsl/BidiFlow.html)，其定义如下：
 
+{% raw %}
 ```scala
 /**
  * 服务器端HTTP层的类型（作为独立的BidiFlow）
@@ -149,7 +150,7 @@ val bindingFuture: Future[Http.ServerBinding] =
  */
 type ServerLayer = BidiFlow[HttpResponse, SslTlsOutbound, SslTlsInbound, HttpRequest, NotUsed]
 ```
-
+{% endraw %}
 通过调用Http().serverLayer方法的两个重载之一来创建Http.ServerLayer的实例，该方法还允许进行不同程度的配置。
 
 ## 控制服务器并行性
