@@ -44,5 +44,7 @@ else
 fi
 endtime=`date +'%Y-%m-%d %H:%M:%S'`
 echo "end at "endtime
+git remote remove origin
+git remote add origin $mygithub
 #rm -rf ../../tmp
 
