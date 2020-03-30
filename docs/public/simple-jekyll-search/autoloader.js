@@ -1,5 +1,5 @@
 ---
-    layout: null
+layout: null
 ---
   document.write('<input id="search-input" placeholder="{{ site.sidebar.simple_jekyll_search.placeholder }}" />');
 document.write('<div id="results-container"></div>');

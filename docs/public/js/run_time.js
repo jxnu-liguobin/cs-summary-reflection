@@ -1,5 +1,5 @@
 ---
-  layout: null
+layout: null
 ---
     document.write('<span id="run_time">{{ site.sidebar.run_time.alert }}</span>');
 function run_time() {

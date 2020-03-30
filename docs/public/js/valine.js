@@ -1,5 +1,5 @@
 ---
-  layout: null
+layout: null
 ---
   (function () {
     document.write('<div id="valine"></div>');

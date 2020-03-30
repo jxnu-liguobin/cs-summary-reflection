@@ -1,5 +1,5 @@
 ---
-  layout: null
+layout: null
 ---
   {% if site.PrismJS.enable %}
 function loadStyle(url) {
