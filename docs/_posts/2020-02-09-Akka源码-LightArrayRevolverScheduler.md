@@ -60,14 +60,15 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
   val ShutdownTimeout = config.getMillisDuration("akka.scheduler.shutdown-timeout")
 
   import LightArrayRevolverScheduler._
-
+ 
+  //远离零值，向上舍入数字
   private def roundUp(d: FiniteDuration): FiniteDuration = {
     val dn = d.toNanos
     val r = ((dn - 1) / tickNanos + 1) * tickNanos
     if (r != dn && r > 0 && dn > 0) r.nanos else d
   }
 
-  //时钟实现是可替换的（用于测试），其实现必须返回单调递增的纳秒序列
+  //当前纳米时间戳，时钟实现是可替换的（用于测试），其实现必须返回单调递增的纳秒序列
   protected def clock(): Long = System.nanoTime
 
   //可替换用于测试
@@ -103,20 +104,22 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
         InitialRepeatMarker,
         schedule(
           executor,
+          //原子性的计算任务的开始时间
           new AtomicLong(clock() + initialDelay.toNanos) with Runnable {
             override def run(): Unit = {
               try {
                 runnable.run()
+                //原子性的给当前AtomicLong增加delay值，并计算与当前时间的间隔
                 val driftNanos = clock() - getAndAdd(delay.toNanos)
                 if (self.get != null)
-                //还没到时间，继续调度
+                //还没结束，继续调度，更新延迟时间，本实现默认使用的是纳秒的时间戳，最小精度是1纳米
                   swap(schedule(executor, this, Duration.fromNanos(Math.max(delay.toNanos - driftNanos, 1))))
               } catch {
                 case _: SchedulerException => //忽略排队失败或终止的目标actor
               }
             }
           },
-          roundUp(initialDelay)))
+          roundUp(initialDelay)))//远离0，向数字舍入，值可能会变大
 
       @tailrec private def swap(c: Cancellable): Unit = {
         get match {
@@ -144,7 +147,7 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
     }
   }
 
-  //将Runnable延迟执行一次
+  //将Runnable延迟执行一次，属于单发任务，是直接调用内部方法schedule
   override def scheduleOnce(delay: FiniteDuration, runnable: Runnable)(
       implicit executor: ExecutionContext): Cancellable =
     try schedule(executor, runnable, roundUp(delay))
@@ -163,7 +166,6 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
         case NonFatal(e)             => log.error(e, "exception while executing timer task")
       }
     }
-
     Await.result(stop(), getShutdownTimeout).foreach {
       case task: Scheduler.TaskRunOnClose =>
         runTask(task)
@@ -183,7 +185,6 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
   /*
    * 下面是实际的定时器实现
    */
-
   private val start = clock()
   private val tickNanos = TickDuration.toNanos
   private val wheelMask = WheelSize - 1
@@ -201,8 +202,9 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
     } else {
       val delayNanos = delay.toNanos
       checkMaxDelay(delayNanos)
-
+      //计算这个任务需要的滴答数量（指针需要走多少步）
       val ticks = (delayNanos / tickNanos).toInt
+      //任务入队
       val task = new TaskHolder(r, ticks, ec)
       queue.add(task)
       if (stopped.get != null && task.cancel())
@@ -212,7 +214,7 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
     }
 
   private def checkMaxDelay(delayNanos: Long): Unit =
-    //延迟/滴答的延迟不能大于MaxValue
+    //延迟/滴答的值不能大于MaxValue
     if (delayNanos / tickNanos > Int.MaxValue)
       //由于舍入，错误消息中有1秒的误差
       throw new IllegalArgumentException(
@@ -232,7 +234,7 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
 
   //定时任务的主线程
   @volatile private var timerThread: Thread = threadFactory.newThread(new Runnable {
-
+    
     var tick = startTick
     var totalTick: Long = tick //不环绕（不会因为轮子满一周而被重置）的滴答数，用于计算睡眠时间
     val wheel = Array.fill(WheelSize)(new TaskQueue)//将轮子中的所有桶都初始化为TaskQueue队列
@@ -252,17 +254,22 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
       case null => ()
       case node =>
         node.value.ticks match {
+          //到时间了，开始执行，value是TaskHolder类型的
           case 0 => node.value.executeTask()
           case ticks =>
+            //ticks是延迟时间，除以每个滴答的延迟，得到总的步数&后得到桶中的位置，与总共开始的步数tick相减得到偏移步数
             val futureTick = ((
               time - start + //计算自定时器启动以来的纳秒数
               (ticks * tickNanos) + // 添加所需延迟
               tickNanos - 1 // 四舍五入
-            ) / tickNanos).toInt //并转换为槽号（轮子上的索引）
-            //tick是将环绕（需要转的圈数）的Int，但是futureTick的toInt给我们模运算，并且在任何情况下，差异（偏移）都是正确的
+            ) / tickNanos).toInt //并转换为槽号（此处计算出的是步数，&wheelMask后得到是槽号或桶的位置）
+            //桶中队列里面的任务的偏移量
             val offset = futureTick - tick
+            //得到在桶上的刻度
             val bucket = futureTick & wheelMask
+            //还有offset步才能开始执行
             node.value.ticks = offset
+            //没有能执行，重新入队
             wheel(bucket).addNode(node)
         }
         checkQueue(time)
@@ -284,8 +291,10 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
                   stopped.set(Promise.successful(Nil))
                   clearAll()
               }
+              //当工作线程发生异常退出时重新根据当前任务创建新的工作线程
               timerThread = thread
             case p =>
+              //不为空时表面已经stop过，填充promise success，"取消"所有任务
               assert(stopped.compareAndSet(p, Promise.successful(Nil)), "Stop signal violated in LARS")
               p.success(clearAll())
           }
@@ -294,8 +303,8 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
 
     @tailrec final def nextTick(): Unit = {
       val time = clock()
+      //开始时间+总的步数*每步延迟 - 实例化定时器时的时钟时间 = 需要睡眠的时间
       val sleepTime = start + (totalTick * tickNanos) - time
-
       if (sleepTime > 0) {
         //小睡前检查队列
         checkQueue(time)
@@ -303,7 +312,7 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
       } else {
         //求得开始的刻度在轮子上桶中的位置
         val bucket = tick & wheelMask
-        //获得本桶中的任务队列
+        //获得本刻度上对应的任务队列
         val tasks = wheel(bucket)
         val putBack = new TaskQueue
         //执行轮子上的桶
@@ -314,41 +323,49 @@ class LightArrayRevolverScheduler(config: Config, log: LoggingAdapter, threadFac
             if (!task.isCancelled) {
               if (task.ticks >= WheelSize) {
                 task.ticks -= WheelSize//如果需要滴答的次数大于轮子的大小，说明还需要转圈，暂不执行该桶中的队列中的任务
-                putBack.addNode(node)
+                putBack.addNode(node)//需要重新入任务队列的任务
               } else task.executeTask()//执行队列中的任务
             }
             executeBucket()//递归调用自己判断桶上是否有任务达到执行时间
         }
         executeBucket()
-        //更新本桶中整个队列
+        //更新本刻度对应的任务队列（队列中的TaskTimer会随着时间的流逝变少）
         wheel(bucket) = putBack
         //刻度加1（轮子上的指针走了一步）
         tick += 1
         totalTick += 1//总的刻度数加1
       }
       stopped.get match {
+         //没有被关闭，指针继续走
         case null => nextTick()
         case p =>
+        //已经关闭了，清空任务
           assert(stopped.compareAndSet(p, Promise.successful(Nil)), "Stop signal violated in LARS")
           p.success(clearAll())
       }
     }
   })
-
+  //启动工作线程
   timerThread.start()
 }
 
 //内部api
 object LightArrayRevolverScheduler {
+ 
+  //使用TaskHolder包装了task
   private[this] val taskOffset = unsafe.objectFieldOffset(classOf[TaskHolder].getDeclaredField("task"))
-
+  
+  //基于Dmitriy Vyukov的非侵入式MPSC队列的无锁MPSC链接队列实现
+  //http://www.1024cores.net/home/lock-free-algorithms/queues/non-intrusive-mpsc-node-based-queue
+  //如果在队列不再很空但入队的元素尚不可见的情况下允许此队列返回null，则该队列可以是无等待的（即在peekNode和pollNode中没有旋转循环）。但是，这会破坏actor schedule
   private class TaskQueue extends AbstractNodeQueue[TaskHolder]
 
   protected[actor] trait TimerTask extends Runnable with Cancellable
 
   protected[actor] class TaskHolder(@volatile var task: Runnable, var ticks: Int, executionContext: ExecutionContext)
       extends TimerTask {
-
+ 
+    //提取任务
     @tailrec
     private final def extractTask(replaceWith: Runnable): Runnable =
       task match {
@@ -368,7 +385,7 @@ object LightArrayRevolverScheduler {
         }
     }
 
-    //仅应在execDirectly中调用
+    //仅应在直接执行中调用，入close方法调用时
     override def run(): Unit = extractTask(ExecutedTask).run()
 
     override def cancel(): Boolean = extractTask(CancelledTask) match {
@@ -387,7 +404,8 @@ object LightArrayRevolverScheduler {
     def isCancelled: Boolean = false
     def run(): Unit = ()
   }
-
+ 
+  //初始重复标记
   private val InitialRepeatMarker: Cancellable = new Cancellable {
     def cancel(): Boolean = false
     def isCancelled: Boolean = false
