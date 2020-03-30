@@ -831,6 +831,35 @@ fn lettcode_804() {
     println!("{}", ret)
 }
 
+///翻转图像
+fn leetcode_832() {
+    println!("leetcode_832");
+    impl Solution {
+        pub fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+            let ret: Vec<Vec<i32>> = a.iter().map(|mut row| -> Vec<i32> {
+                let mut new_row: Vec<i32> = row.iter().map(|x| -> i32 {
+                    let new_x = if let 0 = x {
+                        1
+                    } else { 0 };
+                    new_x
+                }).collect();
+                new_row.reverse();
+                new_row
+            }).collect();
+            ret
+        }
+    }
+
+    let p = vec![vec![1, 1, 0], vec![1, 0, 1], vec![0, 0, 0]];
+    let ret = Solution::flip_and_invert_image(p);
+    for r in ret.iter() {
+        for c in r.iter() {
+            print!("{}", c)
+        }
+        println!("{}", "")
+    }
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -858,6 +887,7 @@ pub fn solutions() {
     leetcode_709();
     leetcode_1304();
     lettcode_804();
+    leetcode_832();
 }
 
 fn print_vec(nums: Vec<i32>) {
