@@ -3,9 +3,12 @@
 export  LANG=en_US.UTF-8
 export LANG=zh_CN.UTF-8
 
+# 暂时未解决md没有被编译的问题
+# blog.scala.chat
 mygithub="git@github.com:jxnu-liguobin/cs-summary-reflection.git"
 mycoding="git@e.coding.net:scala-chat/coding_upgrade_date_IxzKa/cs-summary-reflection.git"
 project="cs-summary-reflection"
+
 #open ! shell
 shopt -s  extglob
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
@@ -18,6 +21,7 @@ if [ ! -d "./tmp" ];then
 	cd $project
 	git remote remove origin
 	git remote add origin $mycoding
+	git config user.name "梦境迷离"
 	git rm -rf --cached !(docs)
 	rm -rf !(docs)
 	cp -r docs/ ./
