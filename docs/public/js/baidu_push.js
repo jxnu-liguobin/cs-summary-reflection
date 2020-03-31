@@ -21,7 +21,7 @@ gtag('config', 'UA-147390701-1');
 var _hmt = _hmt || [];
 (function () {
     var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?5bb7446369fec3169ed660a1bff94b07";
+    hm.src = "https://hm.baidu.com/hm.js?4ffe8c02f276c870f738d60437ac99b6";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
 })();

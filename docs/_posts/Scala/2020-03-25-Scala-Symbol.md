@@ -1,7 +1,7 @@
 ---
 title: Symbol
 categories:
-- Scala源码
+- Scala
 tags: [源码分析]
 ---
 
