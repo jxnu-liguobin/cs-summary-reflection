@@ -46,8 +46,6 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 
 国内CDN加速服务由[腾讯云](https://cloud.tencent.com/)提供。
 
-本仓库的Coding镜像库[Coding](https://scala-chat.coding.net/p/coding_upgrade_date_IxzKa/d/cs-summary-reflection/git)
-
 
 ## 个人简介
 
@@ -57,15 +55,13 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 函数式&反应式交流QQ群：892402908
 * 互联网吹逼QQ群：655462259
 
-## 工作机会
+## 联系方式
 
-* GrowingIO，招聘 Scala开发
-* 联系方式：dreamylost@outlook.com
+* dreamylost@outlook.com
 
 ## 其他
 
 * [原 CSDN 博客](https://blog.csdn.net/qq_34446485)
 * 2018.12.1 开始，本人主要继续维护本仓库Scala部分以及本仓库的博客
 * 2019.09.21 完成Git、GitBook到Jekyll迁移，并迁移部分本人其他站点的博客至此
-* 2020.03.30 完成GitHub到Coding镜像库的同步处理
 * 欢迎 Scala/Java 选手参与维护，博客只是本仓库docs部分~~~
