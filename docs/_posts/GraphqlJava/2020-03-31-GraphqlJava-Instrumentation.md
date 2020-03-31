@@ -3,7 +3,7 @@ title: Instrumentation
 categories:
 - GraphqlJava
 tags: [Graphql-Java学习]
-description: 本章介绍graphql-java中Instrumentation的功能以及使用
+description: 本章介绍graphql-java中Instrumentation的基本使用
 ---
 
 # Instrumentation 
@@ -12,7 +12,7 @@ description: 本章介绍graphql-java中Instrumentation的功能以及使用
 
 graphql.execution.instrumentation.Instrumentation接口允许您注入代码，这可以观察一个查询的执行并且还可以更改运行时行为。
 
-这样做的主要用例是允许性能监控和自定义日志记录，但是它可以用于许多不同的目的。
+这样做的主要用例是支持性能监控和自定义日志记录，但是它也可以用于许多不同的目的。
 
 构建Graphql对象时，可以指定要使用的Instrumentation（如果有的话）。
 ```java
@@ -204,7 +204,7 @@ graphql.execution.instrumentation.fieldvalidation.FieldValidationInstrumentation
 您可以使自己实现FieldValidation，也可以使用SimpleFieldValidation类添加简单的每个字段检查规则。
 ```java
 /**
- * @author liguobin@growingio.com
+ * @author 梦境迷离
  * @version 1.0, 2020/3/31
  */
 public class FieldValidationBuilder {
