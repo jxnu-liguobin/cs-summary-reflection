@@ -225,6 +225,11 @@ public class FieldValidationBuilder {
     }
 }
 ```
+使用时只需要将FieldValidationBuilder放入ChainedInstrumentation中，如
+```java
+Instrumentation instrumentation = new ChainedInstrumentation(asList(FieldValidationBuilder.builder(), new TracingInstrumentation(), new CustomInstrumentation()));
+GraphQL graphQL = GraphQL.newGraphQL(graphQLSchema).instrumentation(instrumentation).build();
+```
 有查询如下
 ```
 {
