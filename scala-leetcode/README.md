@@ -900,7 +900,7 @@
 ``` 
 * 最短路径
 ```scala
-def minPathSum(grid: Array[Array[Int]]): Int = {
+  def minPathSum(grid: Array[Array[Int]]): Int = {
 
     if (grid == null || grid.length == 0 || grid(0).length == 0) {
       return 0
@@ -938,5 +938,28 @@ def minPathSum(grid: Array[Array[Int]]): Int = {
   def sumRange(i: Int, j: Int): Int = {
     if (i == 0) return nums(j)
     nums(j) - nums(i - 1)
+  }
+```
+* 机器人能否返回原点
+```scala
+  def judgeCircle(moves: String): Boolean = {
+    val cs = moves.toCharArray
+    //512 ms
+    var i = 0
+    var j = 0
+    cs.foreach {
+      case 'L' => i += 1
+      case 'R' => i -= 1
+      case 'U' => j += 1
+      case 'D' => j -= 1
+    }
+    j == 0 && i == 0
+  }
+
+
+  def judgeCircle2(moves: String): Boolean = {
+    val cs = moves.toCharArray
+    //580 ms
+    cs.count(_ == 'L') == cs.count(_ == 'R') && cs.count(_ == 'U') == cs.count(_ == 'D')
   }
 ```
