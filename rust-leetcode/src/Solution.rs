@@ -927,6 +927,37 @@ fn interview_25() {
     println!("{:?}", ret1);
 }
 
+///上升下降字符串
+fn leetcode_1370() {
+    println!("leetcode_1370");
+    impl Solution {
+        pub fn sort_string(s: String) -> String {
+            let mut ret = String::new();
+            let mut v = vec![0; 26];
+            for c in s.chars() {
+                v[c as usize - 97] += 1;
+            }
+            while ret.len() < s.len() {
+                for n in 0..26u8 {
+                    if v[n as usize] > 0 {
+                        ret.push((n + 97) as char);
+                        v[n as usize] -= 1;
+                    }
+                }
+                for n in (0..=25u8).rev() {
+                    if v[n as usize] > 0 {
+                        ret.push((n + 97) as char);
+                        v[n as usize] -= 1;
+                    }
+                }
+            }
+            ret
+        }
+    }
+    let ret = Solution::sort_string("aaaabbbbcccc".to_owned());
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -956,6 +987,7 @@ pub fn solutions() {
     lettcode_804();
     leetcode_832();
     interview_25();
+    leetcode_1370();
 }
 
 fn print_vec(nums: Vec<i32>) {
