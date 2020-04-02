@@ -2,7 +2,7 @@
 layout: page
 title: 标签
 ---
-{% for tag in site.tags %}
+{% for tag in site.tags reversed %}
 
 ##### {{ tag[0] }}
 

@@ -2,7 +2,7 @@
 layout: page
 title: 分类
 ---
-{% for category in site.categories %}
+{% for category in site.categories reversed %}
 
 ##### {{ category[0] }}
 
