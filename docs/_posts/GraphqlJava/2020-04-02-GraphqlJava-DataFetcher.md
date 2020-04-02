@@ -21,7 +21,7 @@ graphql中的每个字段都有一个与之关联的graphql.schema.DataFetcher�
 
 因此，想象一下像下面这样的类型声明
 
-```
+```graphql
 type Query {
     products(match : String) : [Product]# 返回Product列表
 }
@@ -101,7 +101,7 @@ class ProductDTO {
 但是，您的graphql schema命名和运行时对象命名之间可能会有小的差异。例如，假设在运行时支持Java对象中，Product.description实际上表示为getDesc()。
 
 如果使用SDL指定schema，则可以使用@fetch指令指示此重新映射。
-```
+```graphql
 directive @fetch(from : String!) on FIELD_DEFINITION
 
 type Product {
@@ -153,7 +153,7 @@ graphql查询的执行将创建字段及其类型的调用树。 graphql.executi
 # The interesting parts of DataFetchingFieldSelectionSet
 
 想象一下如下查询
-```
+```graphql
 query {
     products {
         # 下面的字段表示选择集，需要什么数据就填什么字段
