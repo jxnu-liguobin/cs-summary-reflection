@@ -334,7 +334,7 @@ GraphQL.newGraphQL(schema)
 调用的数据获取程序本身可以返回CompletionStage值，这将创建完全异步的行为。
 
 因此，想象一个查询如下
-```
+```graphql
 query {
   hero {
     enemies {
@@ -399,7 +399,7 @@ GraphQL graphQL = GraphQL.newGraphQL(StarWarsSchema.starWarsSchema)
 为了获得较高的高速缓存命中率，建议将字段参数作为变量传递，而不是直接在查询中传递。
 
 以下查询
-```
+```graphql
 query HelloTo {
      sayHello(to: "Me") {
         greeting
@@ -408,7 +408,7 @@ query HelloTo {
 ```
 
 应该改写为
-```
+```graphql
 query HelloTo($to: String!) {
      sayHello(to: $to) {
         greeting
@@ -417,7 +417,7 @@ query HelloTo($to: String!) {
 ```
 
 带有变量
-```
+```json
 {
    "to": "Me"
 }

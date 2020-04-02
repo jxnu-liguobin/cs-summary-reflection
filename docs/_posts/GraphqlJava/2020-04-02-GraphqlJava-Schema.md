@@ -20,7 +20,7 @@ graphql-java提供了两种不同的方式来定义schema：以编程方式使�
 如果不确定要使用哪种方式，我们建议使用SDL。
 
 SDL 示例
-```
+```graphql
 type Foo {
     bar: String
 }
@@ -72,7 +72,7 @@ new TypeResolver() {
 通过SDL定义架构时，在创建可执行schema时，需要提供所需的DataFetcher和TypeResolver。
 
 下面以名为starWarsSchema.graphqls的静态schema文件为例
-```
+```graphql
 schema {
     query: QueryType
 }
@@ -271,7 +271,7 @@ graphql-java支持以下标量
 
 SDL 示例
 
-```
+```graphql
 type SimpsonCharacter {
     name: String
     mainCharacter: Boolean
@@ -300,7 +300,7 @@ GraphQLObjectType simpsonCharacter = newObject()
 
 SDL 示例
 
-```  
+```graphql
 interface ComicCharacter {
     name: String;
 }
@@ -321,7 +321,7 @@ GraphQLInterfaceType comicCharacter = newInterface()
 ## Union
 
 SDL 示例
-```
+```graphql
 type Cat {
     name: String;
     lives: Int;
@@ -363,7 +363,7 @@ GraphQLCodeRegistry codeRegistry = newCodeRegistry()
 ## Enum
 
 SDL 示例
-```
+```graphql
 enum Color {
     RED
     GREEN
@@ -384,7 +384,7 @@ GraphQLEnumType colorEnum = newEnum()
 ## ObjectInputType
 
 SDL 示例
-```
+```graphql
 input Character {
     name: String
 }
@@ -446,7 +446,7 @@ GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeRegistry,
 Graphql SDL类型系统具有用于将schema模块化的另一种方法。您可以使用type extensions将其他字段和接口添加到类型。
 
 假设您在一个schema文件中有这样的类型定义
-```
+```graphql
 type Human {
     id: ID!
     name: String!
@@ -454,7 +454,7 @@ type Human {
 ```
 系统的另一部分可以扩展此类型以为其添加更多形状。
 
-```
+```graphql
 extend type Human implements Character {
     id: ID!
     name: String!
@@ -463,13 +463,13 @@ extend type Human implements Character {
 }
 ```
 您可以根据需要选择任意数量的扩展名。它们将按照遇到的顺序组合在一起。重复的字段将合并为一个（但是不允许将字段重新定义为新类型）。
-```
+```graphql
 extend type Human {
     homePlanet: String
 }
 ```
 有了所有这些类型扩展后，Human类型现在在运行时看起来像这样。
-```
+```graphql
 type Human implements Character {
     id: ID!
     name: String!
@@ -480,7 +480,7 @@ type Human implements Character {
 ```
 
 这在最高层尤其有用。您可以使用扩展类型向顶层schema“query”添加新字段。团队可以贡献“sections”来提供总的graphql查询。
-```
+```graphql
 schema {
   query: CombinedQueryFromMultipleTeams
 }
@@ -508,7 +508,7 @@ extend type CombinedQueryFromMultipleTeams {
 # Subscription Support
 
 订阅使您可以执行查询，并且只要该查询的支持对象发生更改，就会发送更新。
-```
+```graphql
 subscription foo {
     # normal graphql query
 }

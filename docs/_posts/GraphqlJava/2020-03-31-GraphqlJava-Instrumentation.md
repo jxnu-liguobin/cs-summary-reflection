@@ -100,7 +100,7 @@ graphql.execution.instrumentation.tracing.TracingInstrumentation是一种Instrum
 
 将创建一个详细的跟踪视图，并将其放置在结果的扩展部分中。
 有查询请求如下
-```
+```graphql
 {
   human(id:"1001") {
     id
@@ -234,7 +234,7 @@ Instrumentation instrumentation = new ChainedInstrumentation(asList(FieldValidat
 GraphQL graphQL = GraphQL.newGraphQL(graphQLSchema).instrumentation(instrumentation).build();
 ```
 有查询如下
-```
+```graphql
 {
   human(id:"1") { #改成长度不小4的字符串，就会返回数据或null
     id
