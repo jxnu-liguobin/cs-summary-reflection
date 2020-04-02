@@ -2,9 +2,12 @@
 title: Instrumentation
 categories:
 - GraphqlJava
-tags: [Graphql-Java学习]
+tags: [V1.4]
 description: 本章介绍graphql-java中Instrumentation的基本使用
 ---
+
+* 目录
+{:toc}
 
 # Instrumentation 
 

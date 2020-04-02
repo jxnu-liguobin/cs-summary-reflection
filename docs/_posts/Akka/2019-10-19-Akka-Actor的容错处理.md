@@ -2,7 +2,7 @@
 title: Actor的容错处理
 categories:
   - Akka
-tags: [Akka-Actor中文文档]
+tags: [V2.5.25]
 description: 主要介绍Akka-actor模块的基本的容错处理使用
 ---
 

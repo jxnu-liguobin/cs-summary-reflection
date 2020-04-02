@@ -2,7 +2,7 @@
 title: Actor与Java内存模型
 categories:
   - Akka
-tags: [Akka-Actor中文文档]
+tags: [V2.5.25]
 description: 主要介绍Lightbend平台的Akka与Java内存模型的关系
 ---
 
