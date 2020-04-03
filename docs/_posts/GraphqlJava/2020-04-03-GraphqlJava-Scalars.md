@@ -17,7 +17,7 @@ graphql规范指出，所有实现都必须具有以下标量类型。
 * Boolean 又名 GraphQLBoolean - true 或 false
 * Int 又名 GraphQLInt - 一个有符号的32位整数
 * Float 又名 GraphQLFloat - 一个有符号双精度浮点数
-* ID 又名 GraphQLID 唯一标识符，以与String相同的方式序列化；但是，将其定义为ID表示它不是人类可读的。
+* ID 又名 GraphQLID - 唯一标识符，以与String相同的方式序列化；但是，将其定义为ID表示它不是人类可读的。
 
 graphql-java添加了以下标量类型，这些标量类型在基于Java的系统中很有用
 
@@ -31,7 +31,7 @@ graphql.Scalars类包含所提供标量类型的单例实例
 
 # Writing your Own Custom Scalars
 
-您可以编写自己的自定义标量实现。这样，您将负责在运行时强制值，我们将在稍后解释。
+您可以编写自己的自定义标量实现。这样，您将负责在运行时强制限制值，我们将在稍后解释。
 
 想象我们决定需要一个电子邮件标量类型。它将电子邮件地址作为输入和输出。
 
@@ -61,9 +61,9 @@ public static final GraphQLScalarType EMAIL = new GraphQLScalarType("email", "A 
 
 # Coercing values
 
-任何自定义标量实现中的实际工作都是graphql.schema.Coercing实现。
+任何自定义标量实现中的实际工作都是实现graphql.schema.Coercing。
 
-您的自定义标量代码必须处理2种形式的输入（parseValue或parseLiteral）和1种形式的输出（序列化）。
+您的自定义标量代码必须处理2种形式的输入（parseValue/parseLiteral）和1种形式的输出（序列化）。
 
 想象一下这个查询，它使用变量，AST文字并输出我们的标量类型电子邮件。
 ```graphql
@@ -77,7 +77,7 @@ mutation Contact($mainContact: Email!) {
 
 我们的自定义电子邮件标量将
 * 通过parseValue调用以将$mainContact变量值转换为运行时对象
-* 通过parseLiteral调用以将AST graphql.language.StringValue"backup@company.com"转换为运行时对象
+* 通过parseLiteral调用以将AST graphql.language.StringValue "backup@company.com" 转换为运行时对象
 * 通过序列化调用，以将mainContactEmail的运行时表示形式转换为可用于输出的表单
 
 # Validation of input and output
@@ -90,7 +90,7 @@ graphql.schema.Coercing的JavaDoc方法协定如下
 * 仅允许从parseValue引发graphql.schema.CoercingParseValueException。这表明该值不能解析为适当形式的输入。您不得允许其他运行时异常转义此方法以获取正常的graphql行为进行验证。您必须返回非null值。
 * 仅允许从parseLiteral引发graphql.schema.CoercingParseLiteralException。这表明AST值不能解析为适当形式的输入。您不得允许任何运行时异常转义此方法，以获取正常的graphql行为进行验证。
 
-有些人试图依靠运行时异常进行验证，并希望它们以graphql错误的形式出现。不是这种情况。您必须遵循Coercing方法协定，以允许graphql-java引擎根据有关标量类型的graphql规范工作。
+有些人试图依靠运行时异常进行验证，并希望它们以graphql错误的形式出现。然而并发如此，您必须遵循Coercing方法协定，以允许graphql-java引擎根据有关标量类型的graphql规范工作。
 
 # Example implementation
 
