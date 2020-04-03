@@ -3,7 +3,7 @@ title: Schema
 categories:
 - GraphqlJava
 tags: [V1.4]
-description: 本章介绍graphql-java中Schema如何定义
+description: 本章介绍graphql-java中的Schema如何定义
 ---
 
 * 目录

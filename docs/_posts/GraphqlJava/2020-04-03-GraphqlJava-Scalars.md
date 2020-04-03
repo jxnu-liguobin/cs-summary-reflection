@@ -160,7 +160,7 @@ public static class EmailScalar {
 使用上面定义的Email类型完成请求与相应
 
 ```java
-//自定义标量
+//自定义标量，......表示省略
 ......
 
 //在StarWarsWiring中定义（或直接使用，主要为了使用依赖注入）
@@ -196,6 +196,7 @@ private GraphQLSchema buildSchema(String sdl) {
 ```graphql
 scalar Email
 
+......
 type Human implements Character {
     id: ID!
     name: String!
@@ -207,6 +208,7 @@ type Human implements Character {
     email: Email!
 }
 ......
+
 ```
 
 修改Java POJO，为Human类增加String类型 email字段

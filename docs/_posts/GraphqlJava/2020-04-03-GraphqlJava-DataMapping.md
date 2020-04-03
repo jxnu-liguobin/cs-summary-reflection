@@ -3,7 +3,7 @@ title: Data mapping
 categories:
 - GraphqlJava
 tags: [V1.4]
-description: 本章介绍graphql-java中如何将数据映射到类型
+description: 本章介绍graphql-java中如何将数据映射到Java对象类型（DTO）
 ---
 
 * 目录
