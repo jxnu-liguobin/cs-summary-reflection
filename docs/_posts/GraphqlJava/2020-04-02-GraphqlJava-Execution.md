@@ -37,7 +37,7 @@ List<GraphQLError> errors = executionResult.getErrors();
 
 通常，您可以依赖graphql.schema.PropertyDataFetcher来检查Java POJO对象以从中获取字段值。如果您未在字段上指定数据提取程序，则将使用此数据提取器。
 
-但是，您可能需要通过自己的自定义数据获取程序来获取顶级领域对象。这可能涉及进行数据库调用或通过HTTP语句联系另一个系统。
+但是，您可能需要通过自己的自定义数据获取程序来获取顶级领域对象。这可能涉及进行数据库调用或通过HTTP语句与另一个系统交互。
 
 graphql-java对于如何获取领域数据对象并不固执己见，这是您最关心的问题。对于该数据的用户授权也没有意见。您应该将所有逻辑在业务逻辑层代码中实现。
 
@@ -53,7 +53,7 @@ DataFetcher userDataFetcher = new DataFetcher() {
 
 每个DataFetcher都会传递一个graphql.schema.DataFetchingEnvironment对象，该对象包含要获取的字段，向该字段提供了哪些参数以及其他信息，例如该字段的父对象，查询根对象或查询上下文对象。
 
-在上面的示例中，执行将等待数据获取程序返回后再继续。您可以通过将CompletionStage返回到数据来使DataFetcher的执行异步，这将在此页进一步解释。
+在上面的示例中，执行将等待数据获取程序返回后再继续。您可以通过返回CompletionStage使DataFetcher异步执行，这将在此页进一步解释。
 
 # Exceptions while fetching data
 
@@ -155,7 +155,7 @@ sendAsJson(toSpecificationResult);
 
 从http://graphql.org/learn/queries/#mutations了解更多关于graphql中的数据突变是好的起点。
 
-本质上，您需要定义一个以参数作为输入的GraphQLObjectType。这些参数可以用来通过调用数据获取器来改变存储的数据。
+本质上，您需要定义一个以参数作为输入的GraphQLObjectType。这些参数可以在调用数据获取器时来改变存储的数据。
 
 突变是通过类似以下查询的方式调用的
 ```java
@@ -228,7 +228,7 @@ GraphQLSchema schema = GraphQLSchema.newSchema()
         .codeRegistry(codeRegistry)
         .build();
 ```
-请注意，输入参数的类型为GraphQLInputObjectType，这个很重要。输入参数只能是该类型，并且不能使用诸如GraphQLObjectType之类的输出类型。标量类型可同时作为输入和输出类型。
+**请注意，输入参数的类型为GraphQLInputObjectType，这个很重要。输入参数只能是该类型，并且不能使用诸如GraphQLObjectType之类的输出类型。标量类型可同时作为输入和输出类型。**
 
 此处的数据获取程序负责执行突变并返回一些合理的输出值。
 ```java

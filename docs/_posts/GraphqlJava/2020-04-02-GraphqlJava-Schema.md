@@ -265,7 +265,7 @@ graphql-java支持以下标量
 * GraphQLBigDecimal
 * GraphQLBigInteger
 
-请注意，客户可能无法理解扩展标量范围的语义。例如，将Java Long（最大值2^63-1）映射到JavaScript Number（最大值2^53-1）对您来说可能有问题。
+**请注意，客户可能无法理解扩展标量范围的语义。例如，将Java Long（最大值2^63-1）映射到JavaScript Number（最大值2^53-1）对您来说可能有问题。**
 
 ## Object
 

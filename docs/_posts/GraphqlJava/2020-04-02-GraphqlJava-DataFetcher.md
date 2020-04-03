@@ -59,7 +59,7 @@ DataFetcher productsDataFetcher = new DataFetcher<List<ProductDTO>>() {
 ```
 每个DataFetcher都会传递一个graphql.schema.DataFetchingEnvironment对象，该对象包含要获取的字段，向该字段提供了哪些参数以及其他信息，例如字段的类型，其父类型，查询根对象或查询上下文对象
 
-请注意，上面的数据获取程序代码如何将上下文对象用作特定于应用程序的安全性句柄来访问数据库。这是提供较低层调用上下文的常用技术。
+**请注意，上面的数据获取程序代码如何将上下文对象用作特定于应用程序的安全性句柄来访问数据库。这是提供较低层调用上下文的常用技术。**
 
 一旦有了ProductDTO对象的列表，我们通常不需要在每个字段上使用专门的数据获取程序。 graphql-java附带了一个智能的graphql.schema.PropertyDataFetcher，它知道如何根据字段名称遵循POJO模式。在上面的示例中，有一个name字段，因此它将尝试查找 public String getName() POJO方法来获取数据。
 
