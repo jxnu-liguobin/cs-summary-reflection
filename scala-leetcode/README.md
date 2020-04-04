@@ -1,8 +1,10 @@
 ---
 
-早期学习时写的LeetCode、编程之美、剑指offer等（非全）
+早期学习时写的LeetCode等（非全）
 
-补充后期Scala、Java实现的LeetCode，此处只有Scala实现的（不同时期写法不同）
+补充后期Scala实现的LeetCode，此处只有Scala实现的（不同时期写法不同）
+
+根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Java，并在java-leetcode项目下实现。
 
 * 爬楼梯
 ```scala
