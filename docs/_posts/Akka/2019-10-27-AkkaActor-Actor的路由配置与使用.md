@@ -1,8 +1,8 @@
 ---
 title: Actor的路由配置与使用
 categories:
-  - Akka
-tags: [V2.5.26]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: actor路由介绍
 ---
 

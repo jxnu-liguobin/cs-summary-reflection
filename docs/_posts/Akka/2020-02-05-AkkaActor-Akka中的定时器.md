@@ -1,8 +1,8 @@
 ---
 title: Akka中的定时器
 categories:
-  - Akka
-tags: [V2.5.23]
+  - AkkaActor
+tags: [akka 2.5.23]
 description: 本文是关于Akka的定时调度功能的基本使用
 ---
 

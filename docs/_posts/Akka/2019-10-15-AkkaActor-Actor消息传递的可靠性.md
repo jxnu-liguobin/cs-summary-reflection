@@ -1,8 +1,8 @@
 ---
 title: Actor消息传递的可靠性
 categories:
-  - Akka
-tags: [V2.5.25]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: 本章概述了actor消息传递的可靠性的一般性规则
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Actor的位置透明性说明
 categories:
-  - Akka
-tags: [V2.5.25]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: 本章概述了关于actor的位置透明性说明
 ---
 

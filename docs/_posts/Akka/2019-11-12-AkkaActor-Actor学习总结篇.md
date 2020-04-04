@@ -1,8 +1,8 @@
 ---
 title: Actor学习总结篇
 categories:
-  - Akka
-tags: [V2.5.25]
+  - AkkaActor
+tags: [akka 2.5.25]
 description: 本章将总结Actor模块在官方文档主要内容，初学者看这篇过一下知识点即可。
 ---
 

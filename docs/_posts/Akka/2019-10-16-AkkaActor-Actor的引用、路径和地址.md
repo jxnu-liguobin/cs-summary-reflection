@@ -1,8 +1,8 @@
 ---
 title: Actor的引用、路径和地址
 categories:
-  - Akka
-tags: [V2.5.25]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: 本章描述了如何在可能的分布式actor系统中识别和定位actor，这主要与actor系统的监督层次结构和actor之间的通信对跨多个网络节点的位置是透明的相关。即层次结构与位置透明度
 ---
 

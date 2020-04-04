@@ -1,8 +1,8 @@
 ---
 title: Actor的信箱与使用
 categories:
-  - Akka
-tags: [V2.5.26]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: 本章介绍actor的信箱类型及其常用配置
 ---
 

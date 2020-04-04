@@ -1,8 +1,8 @@
 ---
 title: Actor的调度器
 categories:
-  - Akka
-tags: [V2.5.25]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: 介绍Actor的调度器（dispatcher）及其使用
 ---
 

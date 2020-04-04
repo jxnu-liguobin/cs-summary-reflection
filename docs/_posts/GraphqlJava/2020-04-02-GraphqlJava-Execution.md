@@ -2,7 +2,7 @@
 title: Execution
 categories:
 - GraphqlJava
-tags: [V1.4]
+tags: [graphql-java 1.4文档]
 description: 本章介绍graphql-java中如何执行请求
 ---
 

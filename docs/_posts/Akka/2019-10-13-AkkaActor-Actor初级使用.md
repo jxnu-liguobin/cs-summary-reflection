@@ -1,8 +1,8 @@
 ---
 title: Actor初级使用
 categories:
-  - Akka
-tags: [V2.5.25]
+  - AkkaActor
+tags: [akka 2.5.25文档]
 description: 主要介绍Akka-actor模块的基本使用
 ---
 

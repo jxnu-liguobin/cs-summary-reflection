@@ -1,8 +1,8 @@
 ---
 title: HTTP核心服务端API
 categories:
-  - Akka
-tags: [V10.1.11]
+  - AkkaHTTP
+tags: [akka-http 10.1.11文档]
 description: Akka-HTTP的核心服务器API主要实现了HTTP/1.1的基本功能，即akka-http-core本身没有实现高级的功能，诸如：请求路由，文件服务，压缩等
 ---
 
