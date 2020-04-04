@@ -191,7 +191,7 @@ sidebar:
       href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true
-    autoloader: /public/simple-jekyll-search/autoloader.js
+    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/simple-jekyll-search.js
     stylesheet: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search_box.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
     placeholder: 搜索博文
