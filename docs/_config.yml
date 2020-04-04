@@ -158,7 +158,7 @@ PrismJS: # 代码高亮插件，可以在https://prismjs.com/download.html自己
 sidebar:
   avatar: # 侧边栏显示的头像
     enable: true
-    img: https://avatars0.githubusercontent.com/u/29496873?s=100&u=b6bccb038f0d364b8814dce16be60b5fe31bd8cf&v=4 # 头像的地址
+    img: /public/image/my_img.jpeg # 头像的地址
     info: <br/>一名Scala初级开发工程师 # 头像背后的信息，音乐引用，直接去掉了播放器，因为没有正版了， 垃圾网易云！
   social:
     - title: rss
