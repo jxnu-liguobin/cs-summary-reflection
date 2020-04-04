@@ -8,7 +8,7 @@ package io.github.dreamylost
  * @time 2018年8月14日
  * @version v1.0
  */
-object MaxProfit extends App {
+object Leetcode_121 extends App {
 
   print(maxProfit(Array(7, 1, 5, 3, 6, 4)))
 

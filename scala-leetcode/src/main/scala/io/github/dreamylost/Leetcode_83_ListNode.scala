@@ -1,6 +1,5 @@
 package io.github.dreamylost
 
-import io.github.dreamylost.LeetCode1299.ListNode
 
 /**
  * 从有序链表中删除重复节点

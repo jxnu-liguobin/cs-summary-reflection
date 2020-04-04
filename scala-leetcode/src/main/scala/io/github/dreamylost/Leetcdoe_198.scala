@@ -8,7 +8,7 @@ package io.github.dreamylost
   * @date: 2018-08-16
   * @author: 梦境迷离
   */
-object HouseRobber extends App {
+object Leetcdoe_198 extends App {
 
   println(rob(Array(2, 7, 9, 3, 1)))
 

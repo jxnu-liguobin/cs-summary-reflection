@@ -8,7 +8,7 @@ package io.github.dreamylost
  * @since 2020-01-01
  * @version v1.0
  */
-object LeetCode7 extends App {
+object Leetcode_7 extends App {
 
   Console println reverse(1534236469)
 

@@ -7,7 +7,7 @@ package io.github.dreamylost
  * @since 2020-04-01
  * @version v1.0
  */
-object LeetCode657 extends App {
+object Leetcode_657 extends App {
 
   Console println judgeCircle("UD")
 

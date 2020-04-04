@@ -8,7 +8,7 @@ package io.github.dreamylost
  * @since 2020-01-09
  * @version v1.0
  */
-object LeetCode1266 extends App {
+object Leetcode_1266 extends App {
 
   println(minTimeToVisitAllPoints(Array(Array(1, 1), Array(3, 4), Array(-1, 0))))
 

@@ -7,7 +7,7 @@ package io.github.dreamylost
  * @since 2020-01-01
  * @version v1.0
  */
-object LeetCode1295 extends App {
+object Leetcode_1295 extends App {
 
 
   println(findNumbers(Array(12, 345, 2, 6, 7896)))

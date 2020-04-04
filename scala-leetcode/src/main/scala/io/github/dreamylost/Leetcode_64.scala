@@ -6,7 +6,7 @@ package io.github.dreamylost
   * @author 梦境迷离
   * @time 2018-09-05
   */
-object MinimumPathSum extends App {
+object Leetcode_64 extends App {
 
   val ret = minPathSum(Array(Array(1, 3, 1), Array(1, 5, 1), Array(4, 2, 1)))
   println(ret)

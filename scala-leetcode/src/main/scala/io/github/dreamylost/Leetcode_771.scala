@@ -8,7 +8,7 @@ package io.github.dreamylost
  * @since 2020-01-01
  * @version v1.0
  */
-object LeetCode771 extends App {
+object Leetcode_771 extends App {
 
   println(numJewelsInStones("aA", "aAAbbbb"))
 

@@ -9,7 +9,7 @@ package io.github.dreamylost
  * @time 2018年8月14日
  * @version v1.0
  */
-object ClimbStairs extends App {
+object Leetcode_70 extends App {
 
   print(climbStairs(2))
 

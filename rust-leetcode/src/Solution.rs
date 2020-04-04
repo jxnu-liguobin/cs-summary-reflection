@@ -878,12 +878,12 @@ fn interview_25() {
                         if let Some(ref mut _cur) = cur {
                             _cur.next = Some(_l1);
                         }
-                    },
+                    }
                     (None, Some(_l2)) => {
                         if let Some(ref mut _cur) = cur {
                             _cur.next = Some(_l2);
                         }
-                    },
+                    }
                     (Some(mut _l1), Some(mut _l2)) => {
                         if &_l1.val < &_l2.val {
                             let _next = _l1.next.take();
@@ -905,8 +905,8 @@ fn interview_25() {
                             l2 = _next;
                             l1 = Some(_l1);
                         }
-                    },
-                    (None, None) => {},
+                    }
+                    (None, None) => {}
                 }
             }
             return result_head.unwrap().next;
@@ -981,7 +981,7 @@ fn interview_03_04() {
 
         /** Removes the element from in front of queue and returns that element. */
         fn pop(&mut self) -> i32 {
-            return MyQueue::peek_pop(self, true)
+            return MyQueue::peek_pop(self, true);
         }
 
         fn peek_pop(queue: &mut MyQueue, flag: bool) -> i32 {
@@ -1000,7 +1000,7 @@ fn interview_03_04() {
 
         /** Get the front element. */
         fn peek(&mut self) -> i32 {
-            return MyQueue::peek_pop(self, false)
+            return MyQueue::peek_pop(self, false);
         }
 
         /** Returns whether the queue is empty. */
@@ -1017,6 +1017,28 @@ fn interview_03_04() {
     println!("{}", ret_1);
     println!("{}", ret_2);
     println!("{}", ret_3);
+}
+
+///高度检查器
+fn leetcode_1051() {
+    println!("leetcode_1051");
+    impl Solution {
+        pub fn height_checker(heights: Vec<i32>) -> i32 {
+            //排序后与原数组的差异个数
+            let mut c_heights = heights.clone();
+            let mut ret = 0;
+            c_heights.sort();
+            for i in 0..heights.len() {
+                if c_heights[i as usize] != heights[i as usize] {
+                    ret += 1;
+                }
+            }
+            ret
+        }
+    }
+    let heights = vec![1, 1, 4, 2, 1, 3];
+    let ret = Solution::height_checker(heights);
+    println!("{}", ret);
 }
 
 ///所有方法调用
@@ -1050,6 +1072,7 @@ pub fn solutions() {
     interview_25();
     leetcode_1370();
     interview_03_04();
+    leetcode_1051();
 }
 
 fn print_vec(nums: Vec<i32>) {

@@ -9,7 +9,7 @@ package io.github.dreamylost
  * @since 2020-01-06
  * @version v1.0
  */
-object LeetCode1108 extends App {
+object Leetcode_1108 extends App {
 
   println(defangIPaddr("255.100.50.0"))
 

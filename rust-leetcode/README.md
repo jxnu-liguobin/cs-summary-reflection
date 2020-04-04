@@ -3,9 +3,7 @@ Leetcode Rust 实现
 
 超简单的算法题目，主要为了熟悉rust语法。源码在Solution.rs，并包含部分测试（均AC，90%是双100）
 
-不区分具体的LeetCode系列
-
-* 返回倒数第 k 个节点值
+* 面试题 02.02 返回倒数第 k 个节点值
 ```rust
 impl Solution {
     pub fn kth_to_last(head: Option<Box<ListNode>>, k: i32) -> i32 {
@@ -51,7 +49,7 @@ impl Solution {
     }
 }
 ```
-* 链表中倒数第k个节点
+* 面试题22 链表中倒数第k个节点
 ```rust
 impl Solution {
     pub fn get_kth_from_end(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
@@ -77,7 +75,7 @@ impl Solution {
     }
 }
 ```
-* 统计有序矩阵中的负数
+* 1351 统计有序矩阵中的负数
 ```rust
 impl Solution {
     //应该将矩阵是排序的考虑进去，从右下角或左下角使用标记
@@ -90,7 +88,7 @@ impl Solution {
     }
 }
 ```
-* 二叉树的深度
+* 面试题55 - I 二叉树的深度
 ```rust
 impl Solution {
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
@@ -106,7 +104,7 @@ impl Solution {
     }
 }
 ```
-* 最小高度树
+* 面试题 04.02 最小高度树
 ```rust
 impl Solution {
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -128,7 +126,7 @@ impl Solution {
     }
 }
 ```
-* 整数的各位积和之差
+* 1281 整数的各位积和之差
 ```rust
 impl Solution {
     pub fn subtract_product_and_sum(n: i32) -> i32 {
@@ -145,7 +143,7 @@ impl Solution {
     }
 }
 ```
-* 左旋转字符串
+* 面试题58 - II 左旋转字符串
 ```rust
 impl Solution {
     pub fn reverse_left_words(s: String, n: i32) -> String {
@@ -156,7 +154,7 @@ impl Solution {
     }
 }
 ```
-* 有多少小于当前数字的数字
+* 1365 有多少小于当前数字的数字
 ```rust
 impl Solution {
     pub fn smaller_numbers_than_current(nums: Vec<i32>) -> Vec<i32> {
@@ -174,7 +172,7 @@ impl Solution {
     }
 }
 ```
-* 将数字变成 0 的操作次数
+* 1342 将数字变成 0 的操作次数
 ```rust
 impl Solution {
     pub fn number_of_steps(num: i32) -> i32 {
@@ -192,7 +190,7 @@ impl Solution {
     }
 }
 ```
-* 解压缩编码列表
+* 1313 解压缩编码列表
 ```rust
 impl Solution {
     pub fn decompress_rl_elist(nums: Vec<i32>) -> Vec<i32> {
@@ -211,7 +209,7 @@ impl Solution {
     }
 }
 ```
-* 打印从1到最大的n位数
+* 面试题17 打印从1到最大的n位数
 ```rust
 impl Solution {
     //8ms
@@ -260,7 +258,7 @@ impl Solution {
     }
 }
 ```
-* 替换空格
+* 面试题05 替换空格
 ```rust
 impl Solution {
     pub fn replace_space(s: String) -> String {
@@ -269,7 +267,7 @@ impl Solution {
     }
 }
 ```
-* 分割平衡字符串
+* 1221 分割平衡字符串
 ```rust
 impl Solution {
     pub fn balanced_string_split(s: String) -> i32 {
@@ -301,7 +299,7 @@ impl Solution {
     }
 }
 ``` 
-* 从尾到头打印链表
+* 面试题06 从尾到头打印链表
 ```rust
 impl Solution {
     pub fn reverse_print(head: Option<Box<ListNode>>) -> Vec<i32> {
@@ -318,7 +316,7 @@ impl Solution {
     }
 }
 ```
-* 二叉搜索树的范围和
+* 938 二叉搜索树的范围和
 ```rust
 impl Solution {
     pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32) -> i32 {
@@ -366,7 +364,7 @@ impl Solution {
     }
 }
 ```
-* 删除最外层的括号
+* 1021 删除最外层的括号
 ```rust
 impl Solution {
     pub fn remove_outer_parentheses(s: String) -> String {
@@ -407,7 +405,7 @@ impl Solution {
     }
 }
 ```
-* 反转链表
+* 面试题24 反转链表
 ```rust
 impl Solution {
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
@@ -427,7 +425,7 @@ impl Solution {
     }
 }
 ```
-* 奇数值单元格的数目
+* 1252 奇数值单元格的数目
 ```rust
 impl Solution {
     pub fn odd_cells(n: i32, m: i32, indices: Vec<Vec<i32>>) -> i32 {
@@ -452,7 +450,7 @@ impl Solution {
     }
 }
 ```
-* 6 和 9 组成的最大数字
+* 1323 6 和 9 组成的最大数字
 ```rust
 impl Solution {
     pub fn maximum69_number(num: i32) -> i32 {
@@ -460,7 +458,7 @@ impl Solution {
     }
 }
 ```
-* 合并二叉树
+* 617 合并二叉树
 ```rust
 impl Solution {
         ///author 李广胜
@@ -508,7 +506,7 @@ impl Solution {
     }
 }
 ```
-* 汉明距离
+* 461 汉明距离
 ```rust
 impl Solution {
     pub fn hamming_distance(x: i32, y: i32) -> i32 {
@@ -525,7 +523,7 @@ impl Solution {
     }
 }
 ```
-* 转换成小写字母
+* 709 转换成小写字母
 ```rust
 impl Solution {
     pub fn to_lower_case(str: String) -> String {
@@ -538,7 +536,7 @@ impl Solution {
     }
 }
 ```
-* 和为零的N个唯一整数
+* 1304 和为零的N个唯一整数
 ```rust
 impl Solution {
     //双指针 平均分布，不同解决得到的结果不同
@@ -574,7 +572,7 @@ impl Solution {
     }
 }
 ```
-* 唯一摩尔斯密码词
+* 804 唯一摩尔斯密码词
 ```rust
 impl Solution {
     pub fn unique_morse_representations(words: Vec<String>) -> i32 {
@@ -593,7 +591,7 @@ impl Solution {
     }
 }
 ```
-* 翻转图像
+* 832 翻转图像
 ```rust
 impl Solution {
     pub fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
@@ -611,7 +609,7 @@ impl Solution {
     }
 }
 ```
-* 合并两个排序的链表
+* 面试题25 合并两个排序的链表
 ```rust
 pub fn merge_two_lists(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut result_head: Option<Box<ListNode>> = Some(Box::new(ListNode { val: -1, next: None }));
@@ -661,7 +659,7 @@ pub fn merge_two_lists(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
     return result_head.unwrap().next;
 }
 ```
-* 上升下降字符串
+* 1370 上升下降字符串
 ```rust
 impl Solution {
     pub fn sort_string(s: String) -> String {
@@ -688,7 +686,7 @@ impl Solution {
     }
 }
 ```
-* 化栈为队
+* 面试题 03.04 化栈为队
 ```rust
 struct MyQueue {
     stack1: VecDeque<Option<i32>>,
@@ -735,6 +733,23 @@ impl MyQueue {
     /** Returns whether the queue is empty. */
     fn empty(&mut self) -> bool {
         self.stack1.is_empty() && self.stack2.is_empty()
+    }
+}
+```
+* 1051 高度检查器
+```rust
+impl Solution {
+    pub fn height_checker(heights: Vec<i32>) -> i32 {
+        //排序后与原数组的差异个数
+        let mut c_heights = heights.clone();
+        let mut ret = 0;
+        c_heights.sort();
+        for i in 0 ..heights.len() {
+            if c_heights[i as usize] != heights[i as usize] {
+                ret += 1;
+            }
+        }
+        ret
     }
 }
 ```

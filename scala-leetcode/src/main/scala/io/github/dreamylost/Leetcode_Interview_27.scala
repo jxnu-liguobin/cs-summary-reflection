@@ -6,7 +6,7 @@ package io.github.dreamylost
  * @author liguobin@growingio.com
  * @version 1.0,2020/3/18
  */
-object Interview_27 extends App {
+object Leetcode_Interview_27 extends App {
 
   //层次遍历-QUEUE
   def mirrorTree(root: TreeNode): TreeNode = {

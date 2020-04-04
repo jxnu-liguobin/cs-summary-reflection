@@ -7,9 +7,9 @@ import java.util.{ Queue => _ }
 import scala.collection.mutable
 
 /**
- * 树的遍历
+ * 二叉树的遍历
  */
-object DFS extends App {
+object BTT extends App {
 
   //前
   def qiandfs(root: TreeNode) {

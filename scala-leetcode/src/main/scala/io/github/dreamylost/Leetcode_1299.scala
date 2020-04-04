@@ -8,7 +8,7 @@ package io.github.dreamylost
  * @since 2020-01-12
  * @version v1.0
  */
-object LeetCode1299 extends App {
+object Leetcode_1299 extends App {
 
   class ListNode(_x: Int = 0) {
     var next: ListNode = _

@@ -7,7 +7,7 @@ package io.github.dreamylost
  * @author: liguobin
  *
  */
-object MinCostClimbingStairs extends App {
+object Leetcode_746 extends App {
 
   val ret = minCostClimbingStairs(Array(1, 100, 1, 1, 1, 100, 1, 1, 100, 1))
   print(ret)
