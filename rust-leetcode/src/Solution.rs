@@ -1041,6 +1041,35 @@ fn leetcode_1051() {
     println!("{}", ret);
 }
 
+///自除数
+fn leetcode_728() {
+    println!("leetcode_728");
+    impl Solution {
+        pub fn self_dividing_numbers(left: i32, right: i32) -> Vec<i32> {
+            let mut result = Vec::new();
+            for num in left..=right {
+                if helper(num) {
+                    result.push(num)
+                }
+            }
+
+            fn helper(n: i32) -> bool {
+                for c in n.to_string().chars() {
+                    if ((c as i32) - 48) == 0 || n % ((c as i32) - 48) != 0 {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            result
+        }
+    }
+
+    let ret = Solution::self_dividing_numbers(1, 22);
+    print_vec(ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1073,6 +1102,7 @@ pub fn solutions() {
     leetcode_1370();
     interview_03_04();
     leetcode_1051();
+    leetcode_728();
 }
 
 fn print_vec(nums: Vec<i32>) {
