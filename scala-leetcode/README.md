@@ -965,3 +965,41 @@
     cs.count(_ == 'L') == cs.count(_ == 'R') && cs.count(_ == 'U') == cs.count(_ == 'D')
   }
 ```
+* N叉树的后序遍历
+```scala
+//使用不可变的,leetcode中编译不过，版本问题，Stack在2.11.0后为过期的
+  def postorder2(root: Node): List[Int] = {
+    import scala.collection.immutable.Stack
+    var ret = List[Int]()
+    var stack = Stack[Node]()
+    stack = stack.push(root)
+    while (stack.nonEmpty) {
+      val (head, tail) = stack.pop2
+      stack = tail
+      ret = ret.:+(head.value)
+      if (head.children.nonEmpty) {
+        //根+先左后右，出来的顺序就是根+先右后左。翻转后就是左右根
+        head.children.foreach(e => stack = stack.push(e))
+      }
+    }
+    ret.reverse
+  }
+
+  def postorder(root: Node): List[Int] = {
+    import scala.collection.mutable
+    var ret = List[Int]()
+    val stack = mutable.Stack[Node]()
+    stack.push(root)
+    while (stack.nonEmpty) {
+      val node = stack.pop()
+      if (node != null) {
+        ret = ret ++ Seq(node.value)
+        if (node.children.nonEmpty) {
+          //先左后右，出来的顺序就是根先右后左。翻转后就是左右根
+          node.children.foreach(stack.push)
+        }
+      }
+    }
+    ret.reverse
+  }
+```
