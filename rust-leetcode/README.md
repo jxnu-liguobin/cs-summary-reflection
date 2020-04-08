@@ -779,4 +779,22 @@ impl Solution {
     }
 }
 ```
-
+* 判定字符是否唯一
+```rust
+impl Solution {
+    pub fn is_unique(astr: String) -> bool {
+        let cs = astr.chars();
+        //题目没有说明，但这样AC了，假定只有大小写字母
+        let mut count = vec![0; ('z' as i32 as usize) + 1];//123
+        for c in cs {
+            count[(c as i32) as usize] += 1;
+        }
+        for &c in count.iter() {
+            if c > 1 {
+                return false;
+            }
+        }
+        true
+    }
+}
+```

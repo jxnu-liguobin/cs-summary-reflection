@@ -1003,3 +1003,23 @@
     ret.reverse
   }
 ```
+* N叉树的前序遍历
+```scala
+  def preorder(root: Node): List[Int] = {
+    import scala.collection.mutable
+    var ret = List[Int]()
+    val stack = mutable.Stack[Node]()
+    stack.push(root)
+    while (stack.nonEmpty) {
+      val node = stack.pop()
+      if (node != null) {
+        ret = ret ++ Seq(node.value)
+        if (node.children.nonEmpty) {
+          //先右后左，出来的顺序就是根先左后右
+          node.children.reverse.foreach(stack.push)
+        }
+      }
+    }
+    ret
+  }
+```

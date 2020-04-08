@@ -1070,6 +1070,30 @@ fn leetcode_728() {
     print_vec(ret);
 }
 
+///判定字符是否唯一
+fn interview_01_01() {
+    println!("interview_01_01");
+    impl Solution {
+        pub fn is_unique(astr: String) -> bool {
+            let cs = astr.chars();
+            //题目没有说明，但这样AC了，假定只有大小写字母
+            let mut count = vec![0; ('z' as i32 as usize) + 1];//123
+            for c in cs {
+                count[(c as i32) as usize] += 1;
+            }
+            for &c in count.iter() {
+                if c > 1 {
+                    return false;
+                }
+            }
+            true
+        }
+    }
+
+    let ret = Solution::is_unique("abc".to_owned());
+    println!("{}", ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1103,6 +1127,7 @@ pub fn solutions() {
     interview_03_04();
     leetcode_1051();
     leetcode_728();
+    interview_01_01();
 }
 
 fn print_vec(nums: Vec<i32>) {
