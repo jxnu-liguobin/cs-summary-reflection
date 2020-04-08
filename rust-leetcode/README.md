@@ -796,5 +796,21 @@ impl Solution {
         }
         true
     }
+    //位运算
+    pub fn is_unique2(astr: String) -> bool {
+        let cs = astr.chars();
+        let mut mark = 0;
+        let mut mark_bit = 0;
+        for c in cs {
+            mark_bit = c as i32 - ('a' as i32);
+            if (mark & (1 << mark_bit)) != 0 {
+                return false;
+            } else {
+                mark |= 1 << mark_bit
+            }
+        }
+        true
+    }
+
 }
 ```
