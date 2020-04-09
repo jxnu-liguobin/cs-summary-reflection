@@ -1111,6 +1111,32 @@ fn interview_01_01() {
     println!("{}", ret2)
 }
 
+///两个数组间的距离值
+fn leetcode_1385() {
+    println!("leetcode_1385");
+    impl Solution {
+        //暴力解
+        pub fn find_the_distance_value(arr1: Vec<i32>, arr2: Vec<i32>, d: i32) -> i32 {
+            let mut c = 0;
+            let ret = arr1.iter().for_each(|&x| {
+                let mut flag = false;
+                arr2.iter().for_each(|&y| {
+                    if !flag && (x - y).abs() > d {} else {
+                        flag = true;
+                    }
+                }
+                );
+                if !flag {
+                    c += 1;
+                }
+            });
+            c
+        }
+    }
+    let ret = Solution::find_the_distance_value(vec![4, 5, 8], vec![10, 9, 1, 8], 2);
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1145,6 +1171,7 @@ pub fn solutions() {
     leetcode_1051();
     leetcode_728();
     interview_01_01();
+    leetcode_1385();
 }
 
 fn print_vec(nums: Vec<i32>) {
