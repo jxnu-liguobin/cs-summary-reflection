@@ -132,7 +132,8 @@ actorSelection仅在传递消息时查找现有的actor，即不创建actor，�
 
 ActorRef的相等性与ActorRef对应于目标actor化身的意图相匹配。当两个actor引用具有相同的路径并指向相同的actor化身时，比较它们时是相等的。
 指向终止的actor的引用不等于指向具有相同路径的另一个（重新创建的）actor的引用。
-请注意，由于故障导致的actor重新启动仍然意味着它是同一actor的化身，即ActorRef的使用者看不到重新启动。
+
+> 请注意，由于故障导致的actor重新启动仍然意味着它是同一actor的化身，即ActorRef的使用者看不到重新启动。
 
 如果需要跟踪集合中的actor引用，而不关心确切的actor化身，则可以使用ActorPath作为键，因为在比较actor路径时不会考虑目标actor的标识符。
 从这也可以看出，实际上路径（path）是actor的名称，后面跟着的是actor的唯一标识符id，大多数情况下可以忽略这个id的存在。如下：

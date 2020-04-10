@@ -274,7 +274,7 @@ implicit val system = ActorSystem()
     }
 ```
 
-请注意，这是当TCP连接正确关闭时，如果客户端刚刚离开，例如因为网络故障，它将不会被视为此类流故障。它将通过空闲[超时检测](https://doc.akka.io/docs/akka-http/current/common/timeouts.html#timeouts)）。
+> 请注意，这是当TCP连接正确关闭时，如果客户端刚刚离开，例如因为网络故障，它将不会被视为此类流故障。它将通过空闲[超时检测](https://doc.akka.io/docs/akka-http/current/common/timeouts.html#timeouts)）。
 
 这些失败可以描述为与基础设施或多或少相关，它们是绑定或连接失败。在大多数情况下，您不需要深入研究这些内容，因为Akka无论如何都会记录此类错误，对于此类问题，这是合理的默认设置。
 

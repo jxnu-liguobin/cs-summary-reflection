@@ -13,7 +13,7 @@ description: 本章介绍graphql-java中的常见异常
 
 如果遇到某些特殊情况，graphql引擎可能会抛出运行时异常。以下列出了可以从graphql.execute(...)调用中抛出的异常类型。
 
-这些不是执行中的graphql错误，而是在完全不可接受的条件下执行graphql查询。
+这些不是执行中的graphql错误，而是执行graphql查询时完全不可接受的条件。
 
 * graphql.schema.CoercingSerializeException 
     - 当无法通过标量类型对值进行序列化时（例如，将String值强制转换为Int），将抛出此异常。

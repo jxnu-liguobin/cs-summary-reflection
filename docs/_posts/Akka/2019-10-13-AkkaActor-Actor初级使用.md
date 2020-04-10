@@ -252,7 +252,7 @@ sender() ! x // replies will go to this actor
 这个ActorContext setReceiveTimeout定义非活动超时，然后发送ReceiveTimeout信息被触发。
 指定时，接收函数应该能够处理akka.actor.ReceiveTimeout留言。1毫秒是支持的最小超时。
 
-请注意，接收超时可能会在另一条消息排队后立即触发并排队ReceiveTimeout消息；因此，不能保证在接收超时，一定有通过此方法配置的空闲期间。
+> 请注意，接收超时可能会在另一条消息排队后立即触发并排队ReceiveTimeout消息；因此，不能保证在接收超时，一定有通过此方法配置的空闲期间。
 一旦设置，接收超时将保持有效（即在不活动期间后继续重复触发）。传入Duration.Undefined关闭此功能。
 
 ```scala
@@ -340,7 +340,7 @@ override def preRestart(reason: Throwable, message: Option[Any]): Unit = {
 }
 ```
 
-请注意，子角色仍在重新启动，但没有创建新的ActorRef。我们可以递归地对子元素应用相同的原则，确保它们的prestart()方法只有在创建它们的refs时才被调用。
+> 请注意，子角色仍在重新启动，但没有创建新的ActorRef。我们可以递归地对子元素应用相同的原则，确保它们的prestart()方法只有在创建它们的refs时才被调用。
 
 #### 通过消息传递初始化
 
