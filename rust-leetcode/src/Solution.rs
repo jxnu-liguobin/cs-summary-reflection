@@ -1137,6 +1137,39 @@ fn leetcode_1385() {
     println!("{}", ret);
 }
 
+///二叉搜索树的第k大节点
+fn interview_54() {
+    println!("interview_54");
+    use std::rc::Rc;
+    use std::cell::RefCell;
+    impl Solution {
+        pub fn kth_largest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
+            let mut ret = Vec::new();
+            let mut nodes = VecDeque::new();
+            let mut cur = root.clone();
+            while cur.is_some() || !nodes.is_empty() {
+                while let Some(c) = cur {
+                    nodes.push_back(Some(c.clone()));
+                    cur = c.try_borrow().unwrap().left.clone();
+                }
+                if let Some(n) = nodes.pop_back().unwrap() {
+                    ret.push(n.try_borrow().unwrap().val);
+                    cur = n.try_borrow().unwrap().right.clone();
+                }
+            }
+            for e in ret.iter() {
+                println!("{}", e);
+            };
+            ret[(ret.len() - k as usize)]
+        }
+    }
+    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: None, right: None })));
+    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: None, right: e2 })));
+    let e4 = Some(Rc::new(RefCell::new(TreeNode { val: 4, left: None, right: None })));
+    let root = Some(Rc::new(RefCell::new(TreeNode { val: 3, left: e1, right: e4 })));
+    println!("{:?}", Solution::kth_largest(root, 4))
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1172,6 +1205,7 @@ pub fn solutions() {
     leetcode_728();
     interview_01_01();
     leetcode_1385();
+    interview_54();
 }
 
 fn print_vec(nums: Vec<i32>) {
