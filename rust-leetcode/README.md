@@ -5,6 +5,8 @@ Leetcode Rust 实现
 
 根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Java，并在java-leetcode项目下实现。
 
+无注明，默认是LeetCode系列
+
 * 面试题 02.02 返回倒数第 k 个节点值
 ```rust
 impl Solution {
@@ -779,7 +781,7 @@ impl Solution {
     }
 }
 ```
-* 判定字符是否唯一
+* 面试题 01.01 判定字符是否唯一
 ```rust
 impl Solution {
     pub fn is_unique(astr: String) -> bool {
@@ -814,7 +816,7 @@ impl Solution {
 
 }
 ```
-* 两个数组间的距离值
+* 1385 两个数组间的距离值
 ```rust
 impl Solution {
     //暴力解
@@ -836,7 +838,7 @@ impl Solution {
     }
 }
 ```
-* 二叉搜索树的第k大节点
+* 面试题 54 二叉搜索树的第k大节点
 ```rust
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -862,7 +864,7 @@ impl Solution {
     }
 }
 ```
-* 用两个栈实现队列
+* 面试题 09 用两个栈实现队列
 ```rust
 struct CQueue {
     stack1: VecDeque<Option<i32>>,
@@ -896,7 +898,7 @@ impl CQueue {
     }
 }
 ```
-* 最大数值
+* 面试题 16.07 最大数值
 ```rust
 impl Solution {
     //不能使用if-else 比较运算符
@@ -910,7 +912,7 @@ impl Solution {
     }
 }
 ```
-* 增减字符串匹配
+* 942 增减字符串匹配
 ```rust
 impl Solution {
     pub fn di_string_match(s: String) -> Vec<i32> {
