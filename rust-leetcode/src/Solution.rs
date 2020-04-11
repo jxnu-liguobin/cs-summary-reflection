@@ -1261,6 +1261,42 @@ fn leetcode_942() {
     print_vec(ret)
 }
 
+///有序数组的平方
+fn leetcode_977() {
+    println!("leetcode_977");
+    impl Solution {
+        //172ms,2.1MB
+        pub fn sorted_squares(a: Vec<i32>) -> Vec<i32> {
+            let mut a = a;
+            a[0] = a[0] * a[0];
+            for i in 1..a.len() {
+                let mut tmp = a[i] * a[i];
+                let mut j = i;
+                while j > 0 && a[j - 1] > tmp {
+                    a[j] = a[j - 1];
+                    j -= 1
+                }
+                a[j] = tmp;
+            }
+            a
+        }
+
+        //12ms,2.2MB
+        pub fn sorted_squares2(a: Vec<i32>) -> Vec<i32> {
+            let mut ret = a;
+            for (i, n) in ret.iter_mut().enumerate() {
+                *n = *n * *n;
+            }
+            ret.sort();
+            ret
+        }
+    }
+    let ret = Solution::sorted_squares(vec![-4, -1, 0, 3, 10]);
+    let ret2 = Solution::sorted_squares2(vec![-4, -1, 0, 3, 10]);
+    print_vec(ret);
+    print_vec(ret2);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1300,6 +1336,7 @@ pub fn solutions() {
     interview_09();
     interview_16_07();
     leetcode_942();
+    leetcode_977();
 }
 
 fn print_vec(nums: Vec<i32>) {
