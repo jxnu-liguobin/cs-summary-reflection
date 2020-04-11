@@ -1214,6 +1214,53 @@ fn interview_09() {
     println!("{}", ret_3)
 }
 
+///最大数值
+fn interview_16_07() {
+    println!("interview_16_07");
+    impl Solution {
+        //不能使用if-else 比较运算符
+        //max(a, b) = ((a + b) + abs(a - b)) / 2。
+        pub fn maximum(a: i32, b: i32) -> i32 {
+            let mut a = a as i64;
+            let mut b = b as i64;
+            b = a - b;
+            a -= b & (b >> 32);
+            a as i32
+        }
+    }
+
+    let ret = Solution::maximum(10, 2);
+    println!("{}", ret)
+}
+
+///增减字符串匹配
+fn leetcode_942() {
+    println!("leetcode_942");
+    impl Solution {
+        pub fn di_string_match(s: String) -> Vec<i32> {
+            let n = s.len();
+            //'D'代表着倒序，'I'代表升序，那么如果为'D'，只要取最大值max，同时最大值减一，作为下一个'D'的最大值；如果为'I'，则正好相反，取最小值min，同时加一，
+            //作为下一个'I'的最小值；剩下最后一个值，max=min，取啥都行
+            let mut arr = vec![0; n + 1];
+            let mut max = n as i32;
+            let mut min = 0;
+            for i in 0..n {
+                if s.get(i..=i).unwrap() == "D" {
+                    arr[i] = max;
+                    max -= 1;
+                } else {
+                    arr[i] = min;
+                    min += 1;
+                }
+            }
+            arr[n] = max;
+            arr
+        }
+    }
+    let ret = Solution::di_string_match("IDID".to_owned());
+    print_vec(ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1251,6 +1298,8 @@ pub fn solutions() {
     leetcode_1385();
     interview_54();
     interview_09();
+    interview_16_07();
+    leetcode_942();
 }
 
 fn print_vec(nums: Vec<i32>) {
