@@ -1,7 +1,7 @@
 use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::cmp::max;
-use std::collections::{HashSet, VecDeque};
+use std::collections::{HashSet, LinkedList, VecDeque};
 use std::ops::{AddAssign, Deref, Index};
 use std::rc::Rc;
 use std::str::Chars;
@@ -1332,6 +1332,44 @@ fn leetcode_1380() {
     print_vec(ret);
 }
 
+///最近的请求次数
+fn leetcode_933() {
+    println!("leetcode_933");
+    struct RecentCounter {
+        queue: LinkedList<i32>
+    }
+
+    /**
+     * `&self` means the method takes an immutable reference.
+     * If you need a mutable reference, change it to `&mut self` instead.
+     */
+    impl RecentCounter {
+        fn new() -> Self {
+            RecentCounter { queue: LinkedList::new() }
+        }
+
+        fn ping(&mut self, t: i32) -> i32 {
+            self.queue.push_back(t);
+            while *self.queue.front().unwrap() < t - 3000 {
+                self.queue.pop_front();
+            }
+            self.queue.len() as i32
+        }
+    }
+
+    let mut obj = RecentCounter::new();
+    let ret_1: i32 = obj.ping(3001);
+    println!("{}", ret_1);
+    let ret_1: i32 = obj.ping(3002);
+    println!("{}", ret_1);
+    let ret_1: i32 = obj.ping(4000);
+    println!("{}", ret_1);
+    let ret_1: i32 = obj.ping(5000);
+    println!("{}", ret_1);
+    let ret_1: i32 = obj.ping(7000);
+    println!("{}", ret_1);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1373,6 +1411,7 @@ pub fn solutions() {
     leetcode_942();
     leetcode_977();
     leetcode_1380();
+    leetcode_933();
 }
 
 fn print_vec(nums: Vec<i32>) {

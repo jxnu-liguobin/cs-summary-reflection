@@ -7,6 +7,30 @@ Leetcode Rust 实现
 
 无注明，默认是LeetCode系列
 
+* 933 最近的请求次数
+```rust
+struct RecentCounter {
+    queue: LinkedList<i32>
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl RecentCounter {
+    fn new() -> Self {
+        RecentCounter { queue: LinkedList::new() }
+    }
+
+    fn ping(&mut self, t: i32) -> i32 {
+        self.queue.push_back(t);
+        while *self.queue.front().unwrap() < t - 3000 {
+            self.queue.pop_front();
+        }
+        self.queue.len() as i32
+    }
+}
+```
 * 面试题 02.02 返回倒数第 k 个节点值
 ```rust
 impl Solution {
@@ -992,4 +1016,4 @@ impl Solution {
         }
         result
     }
-```
+}
