@@ -1336,7 +1336,7 @@ fn leetcode_1380() {
 fn leetcode_933() {
     println!("leetcode_933");
     struct RecentCounter {
-        queue: LinkedList<i32>
+        queue: VecDeque<i32>
     }
 
     /**
@@ -1345,7 +1345,7 @@ fn leetcode_933() {
      */
     impl RecentCounter {
         fn new() -> Self {
-            RecentCounter { queue: LinkedList::new() }
+            RecentCounter { queue: VecDeque::new() }
         }
 
         fn ping(&mut self, t: i32) -> i32 {

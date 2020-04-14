@@ -10,7 +10,7 @@ Leetcode Rust 实现
 * 933 最近的请求次数
 ```rust
 struct RecentCounter {
-    queue: LinkedList<i32>
+    queue: VecDeque<i32>
 }
 
 /**
@@ -19,7 +19,7 @@ struct RecentCounter {
  */
 impl RecentCounter {
     fn new() -> Self {
-        RecentCounter { queue: LinkedList::new() }
+        RecentCounter { queue: VecDeque::new() }
     }
 
     fn ping(&mut self, t: i32) -> i32 {
