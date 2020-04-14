@@ -1370,6 +1370,54 @@ fn leetcode_933() {
     println!("{}", ret_1);
 }
 
+///数组拆分 I
+fn leetcode_561() {
+    println!("leetcode_561");
+    impl Solution {
+        //尽可能保留最大值
+        pub fn array_pair_sum(nums: Vec<i32>) -> i32 {
+            let mut nums = nums;
+            nums.sort();
+            let mut sum = 0;
+            let mut i = 0;
+            while i < nums.len() {
+                sum += nums[i as usize];
+                i += 2;
+            }
+            sum
+        }
+    }
+
+    let ret = Solution::array_pair_sum(vec![1, 4, 3, 2]);
+    println!("{}", ret)
+}
+
+///将有序数组转换为二叉搜索树
+fn leetcode_108() {
+    println!("leetcode_108");
+    use std::rc::Rc;
+    use std::cell::RefCell;
+    impl Solution {
+        //与最小高度树 interview_04_02 一样
+        pub fn sorted_array_to_bst2(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+            fn buildTree(nums: &Vec<i32>, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
+                if l > r {
+                    return None;
+                }
+                let mid = l + (r - l) / 2;
+                let mut root = TreeNode::new(nums[mid as usize]);
+                root.left = buildTree(nums, l, mid - 1);
+                root.right = buildTree(nums, mid + 1, r);
+                return Some(Rc::new(RefCell::new(root)));
+            }
+            buildTree(&nums, 0, nums.len() as i32)
+        }
+    }
+
+    let ret = Solution::sorted_array_to_bst(vec![-10, -3, 0, 5, 9]);
+    println!("{:?}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1412,6 +1460,8 @@ pub fn solutions() {
     leetcode_977();
     leetcode_1380();
     leetcode_933();
+    leetcode_561();
+    leetcode_108();
 }
 
 fn print_vec(nums: Vec<i32>) {

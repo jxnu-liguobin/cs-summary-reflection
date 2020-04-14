@@ -7,6 +7,23 @@ Leetcode Rust 实现
 
 无注明，默认是LeetCode系列
 
+* 561 数组拆分 I
+```rust
+impl Solution {
+    //尽可能保留最大值
+    pub fn array_pair_sum(nums: Vec<i32>) -> i32 {
+        let mut nums = nums;
+        nums.sort();
+        let mut sum = 0;
+        let mut i = 0;
+        while i < nums.len() {
+            sum += nums[i as usize];
+            i += 2;
+        }
+        sum
+    }
+}
+```
 * 933 最近的请求次数
 ```rust
 struct RecentCounter {
