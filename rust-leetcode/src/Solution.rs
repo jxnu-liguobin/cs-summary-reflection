@@ -1441,6 +1441,30 @@ fn leetcode_1374() {
     println!("{}", ret);
 }
 
+///非递增顺序的最小子序列
+fn leetcode_1403() {
+    println!("leetcode_1403");
+    //sum(A) > sum(B)且A的长度要尽可能的短
+    impl Solution {
+        pub fn min_subsequence(nums: Vec<i32>) -> Vec<i32> {
+            let mut nums = nums;
+            nums.sort_by(|a, b| b.cmp(a));
+            let size = nums.len();
+            let mut f = 0;
+            let sum: i32 = nums.iter().sum();
+            for i in 0..size {
+                f += nums[i];
+                if f > sum - f {
+                    return nums[..i + 1].to_vec();
+                }
+            }
+            nums
+        }
+    }
+    let ret = Solution::min_subsequence(vec![4, 3, 10, 9, 8]);
+    print_vec(ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1486,6 +1510,7 @@ pub fn solutions() {
     leetcode_561();
     leetcode_108();
     leetcode_1374();
+    leetcode_1403();
 }
 
 fn print_vec(nums: Vec<i32>) {
