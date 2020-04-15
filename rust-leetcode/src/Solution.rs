@@ -1470,8 +1470,8 @@ fn leetcode_557() {
     println!("leetcode_557");
     impl Solution {
         pub fn reverse_words(s: String) -> String {
-            let mut arr: Vec<&str> = s.split(' ').collect();
-            let ret: Vec<String> = arr.iter_mut().map(|word| -> String {
+            let arr: Vec<&str> = s.split(' ').collect();
+            let ret: Vec<String> = arr.iter().map(|word| -> String {
                 let c: String = (*word).chars().rev().collect();
                 c
             }).collect();
