@@ -1465,6 +1465,24 @@ fn leetcode_1403() {
     print_vec(ret);
 }
 
+///反转字符串中的单词 III
+fn leetcode_557() {
+    println!("leetcode_557");
+    impl Solution {
+        pub fn reverse_words(s: String) -> String {
+            let arr: Vec<&str> = s.split(' ').collect();
+            let ret: Vec<String> = arr.iter().map(|word| -> String {
+                let c: String = (*word).chars().rev().collect();
+                c
+            }).collect();
+            ret.join(" ").to_string()
+        }
+    }
+
+    let ret = Solution::reverse_words("Let's take LeetCode contest".to_owned());
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1511,6 +1529,7 @@ pub fn solutions() {
     leetcode_108();
     leetcode_1374();
     leetcode_1403();
+    leetcode_557();
 }
 
 fn print_vec(nums: Vec<i32>) {
