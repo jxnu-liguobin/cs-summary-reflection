@@ -10,10 +10,12 @@ use crate::functions::*;
 use crate::generics::*;
 use crate::modules::*;
 use crate::primitives::*;
+use crate::traits::*;
 use crate::types::*;
 use crate::variable_bindings::*;
 
 pub mod formatted_print;
+pub mod traits;
 pub mod generics;
 pub mod modules;
 pub mod functions;
@@ -37,4 +39,5 @@ fn main() {
     closures();
     modules();
     generics();
+    traits::traits();
 }
