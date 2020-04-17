@@ -8,6 +8,7 @@ use crate::flow_control::*;
 use crate::formatted_print::*;
 use crate::functions::*;
 use crate::generics::*;
+use crate::misc::*;
 use crate::modules::*;
 use crate::primitives::*;
 use crate::traits::*;
@@ -15,6 +16,7 @@ use crate::types::*;
 use crate::variable_bindings::*;
 
 pub mod formatted_print;
+pub mod misc;
 pub mod traits;
 pub mod generics;
 pub mod modules;
@@ -40,4 +42,5 @@ fn main() {
     modules();
     generics();
     traits::traits();
+    misc();
 }
