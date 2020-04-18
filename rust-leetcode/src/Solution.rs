@@ -1533,6 +1533,16 @@ fn leetcode_999() {
     println!("{}", ret)
 }
 
+///Nim 游戏
+fn leetcode_292() {
+    println!("leetcode_292");
+    impl Solution {
+        pub fn can_win_nim(n: i32) -> bool {
+            if n % 4 == 0 { false } else { true }
+        }
+    }
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1581,6 +1591,7 @@ pub fn solutions() {
     leetcode_1403();
     leetcode_557();
     leetcode_999();
+    leetcode_292();
 }
 
 fn print_vec(nums: Vec<i32>) {
