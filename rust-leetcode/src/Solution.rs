@@ -1504,7 +1504,7 @@ fn leetcode_999() {
                     i = i + direction[0];
                     j = j + direction[1];
                 }
-                return false
+                return false;
             }
 
             //定义方向数组，可以认为是四个方向向量，在棋盘问题上是常见的做法
@@ -1541,6 +1541,41 @@ fn leetcode_292() {
             if n % 4 == 0 { false } else { true }
         }
     }
+}
+
+///拼写单词
+fn leetcode_1160() {
+    println!("leetcode_1160");
+    impl Solution {
+        pub fn count_characters(words: Vec<String>, chars: String) -> i32 {
+            let mut char_count = vec![0; 'z' as usize + 1];
+            for c in chars.chars() {
+                char_count[c as usize] += 1;
+            }
+            let mut ret = 0;
+            for word in words.iter() {
+                let mut word_count = vec![0; 'z' as usize + 1];
+                for c in word.chars() {
+                    word_count[c as usize] += 1;
+                }
+                let mut flg = true;
+                if word.chars().map(|tc| -> bool { char_count[tc as usize] < word_count[tc as usize] }).find(|&x| x == true).is_some() {
+                    flg = false;
+                }
+                if flg {
+                    ret += word.len()
+                }
+            }
+            ret as i32
+        }
+    }
+
+    let ret = Solution::count_characters(vec!["skwgxuuuumkfurejmqrbipvlavdrozjyxhagbwetabjwevfsegqfpllgafm".to_owned(), "ufvpzzgpswnk".to_owned(),
+                                              "tcouxmlrnfyoxvkeglchhryykmdvgvdxpookbtiyhuthoqsnqbowewpfgbcy".to_owned(),
+                                              "qwpttmxzazkkfqqtrnkaejifligdvgnyvtmppjbkeuqryxzqyegttvhzolpztvigxygzvsppurijaekb".to_owned(),
+                                              "vbtvbheurzbglzljczmziitkbmtoybiwhoyfrsxvfveaxchebjdzdnnispzwbrgrbcdaistps".to_owned()]
+                                             .iter().map(|c| c.to_string()).collect(), "avyteswqppomeojxoybotzriuvxolmllevluauwb".to_owned());
+    println!("{}", ret);
 }
 
 ///所有方法调用
@@ -1592,6 +1627,7 @@ pub fn solutions() {
     leetcode_557();
     leetcode_999();
     leetcode_292();
+    leetcode_1160();
 }
 
 fn print_vec(nums: Vec<i32>) {
