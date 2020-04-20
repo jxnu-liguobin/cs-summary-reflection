@@ -1578,6 +1578,28 @@ fn leetcode_1160() {
     println!("{}", ret);
 }
 
+///逐步求和得到正数的最小值
+fn leetcode_1413() {
+    println!("leetcode_1413");
+    impl Solution {
+        pub fn min_start_value(nums: Vec<i32>) -> i32 {
+            let mut start = 1;
+            let mut min_sum = 0;
+            for &n in nums.iter() {
+                min_sum += n;
+                //累加和的最小值是正数
+                //min_sum + x >= 1
+                //x >= 1 - min_sum
+                //min(x) = 1 - min_sum
+                start = max(start, 1 - min_sum);
+            }
+            start
+        }
+    }
+    let ret = Solution::min_start_value(vec![-3, 2, -3, 4, 2]);
+    println!("{}", ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1628,6 +1650,7 @@ pub fn solutions() {
     leetcode_999();
     leetcode_292();
     leetcode_1160();
+    leetcode_1413();
 }
 
 fn print_vec(nums: Vec<i32>) {
