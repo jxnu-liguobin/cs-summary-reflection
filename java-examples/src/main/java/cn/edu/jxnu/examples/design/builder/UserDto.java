@@ -2,6 +2,8 @@ package cn.edu.jxnu.examples.design.builder;
 
 /**
  * builder模式
+ * <p>
+ * Scala的case的copy方法也是
  *
  * @author 梦境迷离
  * @version 1.0 2018-08-27
