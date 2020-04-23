@@ -1023,3 +1023,34 @@
     ret
   }
 ```
+* N叉树的最大深度
+```scala
+ //DFS
+  def maxDepth(root: Node): Int = {
+    if (root == null) return 0
+    var depth = 0
+    for (i <- root.children.indices) {
+      depth = Math.max(depth, maxDepth(root.children(i)))
+    }
+    depth + 1
+  }
+
+  //层序遍历
+  def maxDepth2(root: Node): Int = {
+    if (root == null) return 0
+    if (root.children.isEmpty) return 1
+    var depth = 0
+    var queue = root :: List()
+    while (queue.nonEmpty) {
+      depth += 1
+      queue.indices foreach { _ =>
+        val node = queue.take(1).headOption
+        queue = queue.drop(1)
+        if (node.fold(false)(_.children.nonEmpty)) {
+          queue = queue ::: node.fold(List[Node]())(_.children)
+        }
+      }
+    }
+    depth
+  }
+```
