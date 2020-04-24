@@ -1659,6 +1659,31 @@ fn interview_32_2() {
     }
 }
 
+///删列造序
+fn leetcode_944() {
+    println!("leetcode_944");
+    impl Solution {
+        //删除降序的，剩下非降序的
+        //12ms
+        pub fn min_deletion_size(a: Vec<String>) -> i32 {
+            let mut ret = 0;
+            let row = a.len();
+            let col = a[0].len();
+            for j in 0..col {
+                for i in 0..row - 1 {
+                    if a[i].index(j..=j) > a[i + 1].index(j..=j) {
+                        ret += 1;
+                        break
+                    }
+                }
+            }
+            ret
+        }
+    }
+    let ret = Solution::min_deletion_size(vec!["cba".to_owned(), "daf".to_owned(), "ghi".to_owned()]);
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1711,6 +1736,7 @@ pub fn solutions() {
     leetcode_1160();
     leetcode_1413();
     interview_32_2();
+    leetcode_944();
 }
 
 fn print_vec(nums: Vec<i32>) {
