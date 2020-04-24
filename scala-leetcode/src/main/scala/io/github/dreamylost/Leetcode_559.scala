@@ -56,4 +56,29 @@ object Leetcode_559 extends App {
     }
     depth
   }
+
+  //纯函数式，竟然会快点
+  def maxDepth3(root: Node): Int = {
+    val depth: scala.collection.mutable.ArrayBuffer[Int] = scala.collection.mutable.ArrayBuffer[Int]()
+    Option(root).foldRight(depth) { (r, depth) =>
+      r match {
+        case null => depth.+=(0)
+        case r if r.children.isEmpty => depth.+=(1)
+        case r =>
+          var queue = r :: List()
+          while (queue.nonEmpty) {
+            depth.+=(1)
+            queue.indices foreach { _ =>
+              val node = queue.take(1).headOption
+              queue = queue.drop(1)
+              if (node.fold(false)(_.children.nonEmpty)) {
+                queue = queue ::: node.fold(List[Node]())(_.children)
+              }
+            }
+          }
+          depth
+      }
+    }
+    depth.sum
+  }
 }
