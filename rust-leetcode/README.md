@@ -1276,3 +1276,26 @@ impl Solution {
     }
 }
 ```
+* 13 罗马数字转整数
+```rust
+impl Solution {
+    pub fn roman_to_int(s: String) -> i32 {
+        let mut maps = HashMap::new();
+        let chs = vec!["I", "V", "X", "L", "C", "D", "M"];
+        let n = vec![1, 5, 10, 50, 100, 500, 1000];
+        let mut ret = 0;
+        let right = s.len() - 1;
+        n.iter().enumerate().for_each(|(x, &y)| { maps.insert(chs[x], y); });
+        for i in 0..right {
+            //字不是顺序的，但是数字列表是顺序的
+            if *maps.get(s.index(i..=i)).unwrap() >= *maps.get(s.index(i + 1..=i + 1)).unwrap() {
+                ret += *maps.get(s.index(i..=i)).unwrap();
+            } else {
+                ret -= *maps.get(s.index(i..=i)).unwrap();
+            }
+        }
+        ret += *maps.get(s.index(right..=right)).unwrap();
+        ret
+    }
+}
+```

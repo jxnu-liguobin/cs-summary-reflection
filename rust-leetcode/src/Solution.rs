@@ -1,7 +1,7 @@
 use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::cmp::max;
-use std::collections::{HashSet, LinkedList, VecDeque};
+use std::collections::{HashMap, HashSet, LinkedList, VecDeque};
 use std::ops::{AddAssign, Deref, Index};
 use std::rc::Rc;
 use std::str::Chars;
@@ -1673,7 +1673,7 @@ fn leetcode_944() {
                 for i in 0..row - 1 {
                     if a[i].index(j..=j) > a[i + 1].index(j..=j) {
                         ret += 1;
-                        break
+                        break;
                     }
                 }
             }
@@ -1724,6 +1724,34 @@ fn leetcoode_9() {
     let ret2 = Solution::is_palindrome2(181);
     println!("{}", ret);
     println!("{}", ret2);
+}
+
+///罗马数字转整数
+fn leetcode_13() {
+    println!("leetcode_13");
+    impl Solution {
+        pub fn roman_to_int(s: String) -> i32 {
+            let mut maps = HashMap::new();
+            let chs = vec!["I", "V", "X", "L", "C", "D", "M"];
+            let n = vec![1, 5, 10, 50, 100, 500, 1000];
+            let mut ret = 0;
+            let right = s.len() - 1;
+            n.iter().enumerate().for_each(|(x, &y)| { maps.insert(chs[x], y); });
+            for i in 0..right {
+                //字不是顺序的，但是数字列表是顺序的
+                if *maps.get(s.index(i..=i)).unwrap() >= *maps.get(s.index(i + 1..=i + 1)).unwrap() {
+                    ret += *maps.get(s.index(i..=i)).unwrap();
+                } else {
+                    ret -= *maps.get(s.index(i..=i)).unwrap();
+                }
+            }
+            ret += *maps.get(s.index(right..=right)).unwrap();
+            ret
+        }
+    }
+
+    let ret = Solution::roman_to_int("LVIII".to_owned());
+    println!("{}", ret)
 }
 
 ///所有方法调用
@@ -1780,6 +1808,7 @@ pub fn solutions() {
     interview_32_2();
     leetcode_944();
     leetcoode_9();
+    leetcode_13();
 }
 
 fn print_vec(nums: Vec<i32>) {
