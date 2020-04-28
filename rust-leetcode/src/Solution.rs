@@ -1807,6 +1807,30 @@ fn leetcode_13() {
     println!("{}", ret3);
 }
 
+///链表的中间结点
+fn leetcode_876() {
+    println!("leetcode_876");
+    impl Solution {
+        pub fn middle_node(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+            let mut q = &head;
+            let mut s = &head;
+            while q.is_some() && q.as_ref().unwrap().next.is_some() {
+                q = &q.as_ref().unwrap().next.as_ref().unwrap().next;
+                s = &s.as_ref().unwrap().next;
+            }
+            s.clone()
+        }
+    }
+
+    let e1 = Some(Box::new(ListNode { val: 5, next: None }));
+    let e2 = Some(Box::new(ListNode { val: 4, next: e1 }));
+    let e3 = Some(Box::new(ListNode { val: 3, next: e2 }));
+    let e4 = Some(Box::new(ListNode { val: 2, next: e3 }));
+    let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
+    let ret = Solution::middle_node(e5);
+    println!("{:?}", ret)
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1862,6 +1886,7 @@ pub fn solutions() {
     leetcode_944();
     leetcoode_9();
     leetcode_13();
+    leetcode_876();
 }
 
 fn print_vec(nums: Vec<i32>) {
