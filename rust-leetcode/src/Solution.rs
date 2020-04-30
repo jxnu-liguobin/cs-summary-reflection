@@ -1831,6 +1831,27 @@ fn leetcode_876() {
     println!("{:?}", ret)
 }
 
+
+///键盘行
+fn leetcode_500() {
+    println!("leetcode_500");
+    impl Solution {
+        pub fn find_words(words: Vec<String>) -> Vec<String> {
+            let map: HashMap<char, i32> = vec![('Q', 0), ('W', 0), ('E', 0), ('R', 0), ('T', 0), ('Y', 0), ('U', 0), ('I', 0), ('O', 0), ('P', 0),
+                                               ('A', 1), ('S', 1), ('D', 1), ('F', 1), ('G', 1), ('H', 1), ('J', 1), ('K', 1), ('L', 1),
+                                               ('Z', 2), ('X', 2), ('C', 2), ('V', 2), ('B', 2), ('N', 2), ('M', 2)].iter().cloned().collect();
+            words.iter().filter(|word| {
+                let chars: Vec<char> = word.chars().collect();
+                let index: HashSet<i32> = chars.iter().map(|c| -> i32 { map[&c.to_ascii_uppercase()] }).collect();
+                index.len() == 1
+            }).cloned().collect()
+        }
+    }
+
+    let ret = Solution::find_words(vec!["Hello".to_string(), "Alaska".to_string(), "Dad".to_string(), "Peace".to_string()]);
+    print_vec_string(ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1887,9 +1908,16 @@ pub fn solutions() {
     leetcoode_9();
     leetcode_13();
     leetcode_876();
+    leetcode_500();
 }
 
 fn print_vec(nums: Vec<i32>) {
+    for e in nums.iter() {
+        println!("{}", e);
+    }
+}
+
+fn print_vec_string(nums: Vec<String>) {
     for e in nums.iter() {
         println!("{}", e);
     }
