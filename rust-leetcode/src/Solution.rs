@@ -1852,6 +1852,102 @@ fn leetcode_500() {
     print_vec_string(ret);
 }
 
+///最长公共前缀
+fn leetcode_14() {
+    println!("leetcode_14");
+    impl Solution {
+        //0 ms, 2.1 MB
+        pub fn longest_common_prefix(strs: Vec<String>) -> String {
+            //选出最小的字符串w，使用w的所有子串去匹配strs中的单词
+            let mut min_word: &String = &"".to_owned();
+            let mut min_length = usize::max_value();
+            if strs.is_empty() {
+                return min_word.clone();
+            }
+            let mut result: &str = "";
+            strs.iter().for_each(|word| {
+                if min_length > word.len() {
+                    min_length = word.len();
+                    min_word = word;
+                }
+            });
+            while min_length > 0 {
+                let mut sub_word = &min_word[0..min_length];
+                let mut is_max = true;
+                for w in strs.iter() {
+                    if w.starts_with(sub_word) == false {
+                        is_max = false;
+                        break;
+                    }
+                }
+                if is_max {
+                    result = sub_word;
+                    break;
+                }
+                min_length -= 1;
+            }
+            result.to_owned()
+        }
+
+        //0 ms, 2.1 MB
+        pub fn longest_common_prefix2(strs: Vec<String>) -> String {
+            let strs = &strs;
+            let mut result: String = "".to_owned();
+            if strs.is_empty() {
+                return result;
+            }
+            //选取第一个单词w，对w的长度从大到小进行切片，将切片与所有单词进行匹配
+            result = strs[0].clone();
+            for (index, word) in strs.iter().enumerate() {
+                while !word.starts_with(result.as_str()) {
+                    result = result[0..result.len() - 1].to_owned();
+                    if result.len() == 0 {
+                        return "".to_owned();
+                    }
+                }
+            }
+            result
+        }
+
+        //4 ms, 2.1 MB
+        pub fn longest_common_prefix3(strs: Vec<String>) -> String {
+            let strs = &strs;
+            let mut result: String = "".to_owned();
+            if strs.is_empty() {
+                return result;
+            }
+            //选取第一个单词w，与其他字符串依次比较对应位置上的字符
+            let word = &strs[0].clone();
+            let init_word: Vec<char> = word.chars().collect();
+            for i in 0..init_word.len() {
+                let mut c: char = init_word[i];
+                for j in 1..strs.len() {
+                    let cs: Vec<char> = strs[j].chars().collect();
+                    if i < cs.len() && c != cs[i] || i == cs.len() {
+                        return word[0..i].to_owned();
+                    }
+                }
+            }
+            word.to_owned()
+        }
+    }
+
+    let ret = Solution::longest_common_prefix(vec!["flower".to_owned(), "flow".to_owned(), "flight".to_owned()]);
+    let ret2 = Solution::longest_common_prefix(vec![]);
+    println!("{}", ret);
+    println!("{}", ret2);
+
+    let ret = Solution::longest_common_prefix2(vec!["flower".to_owned(), "flow".to_owned(), "flight".to_owned()]);
+    let ret2 = Solution::longest_common_prefix2(vec![]);
+    println!("{}", ret);
+    println!("{}", ret2);
+
+    let ret = Solution::longest_common_prefix3(vec!["aa".to_owned(), "a".to_owned()]);
+    let ret2 = Solution::longest_common_prefix3(vec![]);
+    println!("{}", ret);
+    println!("{}", ret2);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -1909,6 +2005,7 @@ pub fn solutions() {
     leetcode_13();
     leetcode_876();
     leetcode_500();
+    leetcode_14();
 }
 
 fn print_vec(nums: Vec<i32>) {
