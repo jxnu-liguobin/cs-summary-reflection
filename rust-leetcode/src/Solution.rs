@@ -1948,6 +1948,35 @@ fn leetcode_14() {
     println!("{}", ret2);
 }
 
+///有效的括号
+fn leetcode_20() {
+    println!("leetcode_20");
+    impl Solution {
+        pub fn is_valid(s: String) -> bool {
+            let chars: Vec<char> = s.chars().collect();
+            let mut stack = Vec::<char>::new();
+            for &c in chars.iter() {
+                if c == '{' || c == '[' || c == '(' {
+                    stack.push(c);
+                } else {
+                    if stack.is_empty() {
+                        return false;
+                    }
+                    let c_stack = stack.pop();
+                    if let Some(cStack) = c_stack {
+                        if c == ')' && cStack != '(' || c == ']' && cStack != '[' || c == '}' && cStack != '{' {
+                            return false;
+                        }
+                    }
+                }
+            }
+            stack.is_empty()
+        }
+    }
+    let ret = Solution::is_valid("()[]{}".to_owned());
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2006,6 +2035,7 @@ pub fn solutions() {
     leetcode_876();
     leetcode_500();
     leetcode_14();
+    leetcode_20();
 }
 
 fn print_vec(nums: Vec<i32>) {
