@@ -1977,6 +1977,25 @@ fn leetcode_20() {
     println!("{}", ret);
 }
 
+
+///搜索插入位置
+fn leetcode_35() {
+    println!("leetcode_35");
+    impl Solution {
+        pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
+            let mut nums = nums;
+            //找到知己反回索引，没有找到则返回该元素插入后保持数组仍然有序的索引位置，主要用于有序的数组/向量
+            let ret = match nums.binary_search(&target) {
+                Ok(found_index) => found_index,
+                Err(maybe_insert) => maybe_insert
+            };
+            ret as i32
+        }
+    }
+    let ret = Solution::search_insert(vec![1, 3, 5, 6], 5);
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2036,6 +2055,7 @@ pub fn solutions() {
     leetcode_500();
     leetcode_14();
     leetcode_20();
+    leetcode_35();
 }
 
 fn print_vec(nums: Vec<i32>) {
