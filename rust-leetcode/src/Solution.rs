@@ -1996,6 +1996,20 @@ fn leetcode_35() {
     println!("{}", ret);
 }
 
+///按奇偶排序数组
+fn leetcode_905() {
+    println!("leetcode_905");
+    impl Solution {
+        pub fn sort_array_by_parity(a: Vec<i32>) -> Vec<i32> {
+            let (mut even, mut odd): (Vec<i32>, Vec<i32>) = a.iter().partition(|&n| n % 2 == 0);
+            even.append(&mut odd);
+            even
+        }
+    }
+    let ret = Solution::sort_array_by_parity(vec![3, 1, 2, 4]);
+    print_vec(ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2056,6 +2070,7 @@ pub fn solutions() {
     leetcode_14();
     leetcode_20();
     leetcode_35();
+    leetcode_905();
 }
 
 fn print_vec(nums: Vec<i32>) {
