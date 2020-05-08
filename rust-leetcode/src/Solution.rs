@@ -2010,6 +2010,28 @@ fn leetcode_905() {
     print_vec(ret);
 }
 
+///独一无二的出现次数
+fn leetcode_1207() {
+    println!("leetcode_1207");
+    impl Solution {
+        pub fn unique_occurrences(arr: Vec<i32>) -> bool {
+            let mut map = HashMap::new();
+            for num in arr.iter() {
+                let n = if map.contains_key(num) { map.get(num).unwrap() } else { &0 };
+                if map.contains_key(num) {
+                    map.insert(num, *n + 1);
+                } else {
+                    map.insert(num, 1);
+                }
+            }
+            let set: HashSet<i32> = map.values().cloned().collect();
+            set.len() == map.len()
+        }
+    }
+    let ret = Solution::unique_occurrences(vec![1, 2, 2, 1, 1, 3]);
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2071,6 +2093,7 @@ pub fn solutions() {
     leetcode_20();
     leetcode_35();
     leetcode_905();
+    leetcode_1207();
 }
 
 fn print_vec(nums: Vec<i32>) {
