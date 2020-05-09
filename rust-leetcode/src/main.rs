@@ -1,6 +1,6 @@
-use Solution::*;
+use solution::*;
 
-pub mod Solution;
+pub mod solution;
 
 fn main() {
     println!("Hello, world!");
