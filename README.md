@@ -51,7 +51,7 @@ Scala程序员、函数式爱好者
 * 学习示例
     - scala-examples    
         - Scala语法学习笔记
-        - 《Scala函数式编程》习题
+        - Scala函数式编程习题
     - rust-*      
         - rust语法学习
 * 工具
