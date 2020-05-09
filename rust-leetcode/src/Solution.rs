@@ -1996,6 +1996,42 @@ fn leetcode_35() {
     println!("{}", ret);
 }
 
+///按奇偶排序数组
+fn leetcode_905() {
+    println!("leetcode_905");
+    impl Solution {
+        pub fn sort_array_by_parity(a: Vec<i32>) -> Vec<i32> {
+            let (mut even, mut odd): (Vec<i32>, Vec<i32>) = a.iter().partition(|&n| n % 2 == 0);
+            even.append(&mut odd);
+            even
+        }
+    }
+    let ret = Solution::sort_array_by_parity(vec![3, 1, 2, 4]);
+    print_vec(ret);
+}
+
+///独一无二的出现次数
+fn leetcode_1207() {
+    println!("leetcode_1207");
+    impl Solution {
+        pub fn unique_occurrences(arr: Vec<i32>) -> bool {
+            let mut map = HashMap::new();
+            for num in arr.iter() {
+                let n = if map.contains_key(num) { map.get(num).unwrap() } else { &0 };
+                if map.contains_key(num) {
+                    map.insert(num, *n + 1);
+                } else {
+                    map.insert(num, 1);
+                }
+            }
+            let set: HashSet<i32> = map.values().cloned().collect();
+            set.len() == map.len()
+        }
+    }
+    let ret = Solution::unique_occurrences(vec![1, 2, 2, 1, 1, 3]);
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2056,6 +2092,8 @@ pub fn solutions() {
     leetcode_14();
     leetcode_20();
     leetcode_35();
+    leetcode_905();
+    leetcode_1207();
 }
 
 fn print_vec(nums: Vec<i32>) {

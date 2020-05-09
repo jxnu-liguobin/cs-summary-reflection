@@ -1495,3 +1495,31 @@ impl Solution {
     }
 }
 ```
+* 905 按奇偶排序数组
+```rust
+impl Solution {
+    pub fn sort_array_by_parity(a: Vec<i32>) -> Vec<i32> {
+        let (mut even, mut odd): (Vec<i32>, Vec<i32>) = a.iter().partition(|&n| n % 2 == 0);
+        even.append(&mut odd);
+        even
+    }
+}
+```
+* 1207 独一无二的出现次数
+```rust
+impl Solution {
+    pub fn unique_occurrences(arr: Vec<i32>) -> bool {
+        let mut map = HashMap::new();
+        for num in arr.iter() {
+            let n = if map.contains_key(num) { map.get(num).unwrap() } else { &0 };
+            if map.contains_key(num) {
+                map.insert(num, *n + 1);
+            } else {
+                map.insert(num, 1);
+            }
+        }
+        let set: HashSet<i32> = map.values().cloned().collect();
+        set.len() == map.len()
+    }
+}
+```
