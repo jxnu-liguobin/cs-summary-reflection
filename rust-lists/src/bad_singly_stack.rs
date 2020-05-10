@@ -1,4 +1,4 @@
-///一个不好的单向链表栈
+///一个不好的单向链表 栈
 use std::mem;
 
 pub struct List {
@@ -56,7 +56,7 @@ impl Drop for List {
 
 #[cfg(test)]
 mod test {
-    use crate::list1::List;
+    use crate::bad_singly_stack::List;
 
     #[test]
     fn basics() {
