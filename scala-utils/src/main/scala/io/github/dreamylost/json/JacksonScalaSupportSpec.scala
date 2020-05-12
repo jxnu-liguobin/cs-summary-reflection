@@ -7,10 +7,10 @@ package io.github.dreamylost.json
  */
 object JacksonScalaSupportSpec extends App {
 
-  case class Filter(name: String, key: String, expr: String, values: Seq[Filter] = Seq.empty)
+  case class Filter(name: String, key: String, value: String, exprs: Option[Seq[Filter]] = None, values: Seq[String] = Seq.empty)
 
 
-  val filter = Filter(name = "filter", "key", expr = "expr", values = Seq(Filter(name = "filter-sub", "key-sub", expr = "expr-sub")))
+  val filter = Filter(name = "filter", "key", value = "value", exprs = Some(Seq(Filter(name = "filter-sub", "key-sub", value = "value-sub"))))
   println(filter)
   val json = JacksonScalaSupport.mapper.writeValueAsString(filter)
   println(json)

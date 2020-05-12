@@ -1,5 +1,5 @@
 [package]
-name = "rust-lists"
+name = "rust-datastructure"
 version = "0.1.0"
 authors = ["梦境迷离 <dreamylost@outlook.com>"]
 edition = "2018"
