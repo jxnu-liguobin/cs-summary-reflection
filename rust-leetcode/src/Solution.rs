@@ -2076,6 +2076,19 @@ fn leetcode_38() {
     println!("{}", ret);
 }
 
+///最后一个单词的长度
+fn leetcode_58() {
+    println!("leetcode_58");
+    impl Solution {
+        pub fn length_of_last_word(s: String) -> i32 {
+            let chars: Vec<&str> = s.trim().split(' ').collect();
+            chars[chars.len() - 1].len() as i32
+        }
+    }
+    let ret = Solution::length_of_last_word("Hello World".to_owned());
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2139,6 +2152,7 @@ pub fn solutions() {
     leetcode_905();
     leetcode_1207();
     leetcode_38();
+    leetcode_58();
 }
 
 fn print_vec(nums: Vec<i32>) {
