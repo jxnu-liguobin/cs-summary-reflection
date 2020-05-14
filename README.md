@@ -39,7 +39,7 @@ Scala程序员、函数式爱好者
             - [消息队列](./docs/_posts/消息队列)
             - [算法](./docs/_posts/算法)
             - [计算机网络](./docs/_posts/计算机网络)
-            - [随便](./docs/_posts/随笔)
+            - [随笔](./docs/_posts/随笔)
             - [面试](./docs/_posts/面试)
 * LeetCode
     - scala-leetcode 
