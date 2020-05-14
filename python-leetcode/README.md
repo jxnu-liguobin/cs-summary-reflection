@@ -1,8 +1,4 @@
-Python 实现
--- 
+# 算法-Python
+# (1)二叉树专题
 
-* 665 非递减数列（样式示例）
-```python
-def checkPossibility():
-    pass
-```
+ day1:[二叉树的镜像](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/python-leetcode/solution/leetcode_27_.py)
