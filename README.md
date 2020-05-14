@@ -48,6 +48,8 @@ Scala程序员、函数式爱好者
         - Java实现  
     - rust-leetcode 
         - Rust实现     
+    - python-leetcode
+        - Python实现
 * 学习示例
     - scala-examples    
         - Scala语法学习笔记
