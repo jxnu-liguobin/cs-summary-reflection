@@ -2032,6 +2032,63 @@ fn leetcode_1207() {
     println!("{}", ret);
 }
 
+///外观数列
+fn leetcode_38() {
+    println!("leetcode_38");
+    impl Solution {
+        //给一个数，这个数是1
+        //描述上一步的数，这个数是1即一个1，故写作11
+        //描述上一步的数，这个数是11即两个1，故写作21
+        //描述上一步的数，这个数是21即一个2一个1，故写作12-11
+        //描述上一步的数，这个数是1211即一个1一个2两个1，故写作11-12-21
+        pub fn count_and_say(n: i32) -> String {
+            if n == 1 { return "1".to_owned(); }
+            let pre_str = Solution::count_and_say(n - 1);
+            let mut curr_str = String::new();
+            let mut pre_char = None;
+            let mut pre_char_count = 0;
+            //当n为2及以上时。因为下一个数列是对上面的解释。所以用三个变量，一个代表数量count ,一个代表前一个数字pre，一个代表后一个数字back
+            for back_char in pre_str.chars() {
+                if pre_char == None {
+                    pre_char = Some(back_char);
+                }
+                if back_char != pre_char.unwrap() {
+                    //将pre_char_count个pre_char分别存储
+                    curr_str.push_str(&pre_char_count.to_string());
+                    curr_str.push(pre_char.unwrap());
+                    pre_char = Some(back_char);
+                    //不同时，重置个数
+                    pre_char_count = 1;
+                } else {
+                    //相等时计算字符个数
+                    pre_char_count += 1;
+                }
+            }
+            //最后一位在前面跳出来了，需要追加
+            if pre_char_count > 0 {
+                curr_str.push_str(&pre_char_count.to_string());
+                curr_str.push(pre_char.unwrap());
+            }
+            curr_str
+        }
+    }
+    let ret = Solution::count_and_say(4);
+    println!("{}", ret);
+}
+
+///最后一个单词的长度
+fn leetcode_58() {
+    println!("leetcode_58");
+    impl Solution {
+        pub fn length_of_last_word(s: String) -> i32 {
+            let chars: Vec<&str> = s.trim().split(' ').collect();
+            chars[chars.len() - 1].len() as i32
+        }
+    }
+    let ret = Solution::length_of_last_word("Hello World".to_owned());
+    println!("{}", ret);
+}
+
 ///所有方法调用
 pub fn solutions() {
     interview_58_2();
@@ -2094,6 +2151,8 @@ pub fn solutions() {
     leetcode_35();
     leetcode_905();
     leetcode_1207();
+    leetcode_38();
+    leetcode_58();
 }
 
 fn print_vec(nums: Vec<i32>) {
