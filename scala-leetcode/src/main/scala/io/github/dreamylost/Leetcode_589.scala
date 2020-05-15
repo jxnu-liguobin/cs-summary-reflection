@@ -6,7 +6,7 @@ package io.github.dreamylost
  * @author liguobin@growingio.com
  * @version 1.0,2020/4/9
  */
-object LeetCode_589 extends App {
+object Leetcode_589 extends App {
 
   val node5 = new Node(5)
   val node6 = new Node(6)

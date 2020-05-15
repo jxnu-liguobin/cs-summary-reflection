@@ -9,7 +9,7 @@ use std::str::Chars;
 use pre_structs::*;
 
 ///Leetcode 超简单的算法题目，主要为了熟悉rust语法
-///rust所必须的数据结构
+///rust所必须的数据结构，Solution.rs源码中的行号对应README.md链接的#L参数，新增代码只能追加到最后
 mod pre_structs {
     use std::cell::RefCell;
     use std::rc::Rc;
