@@ -1,7 +1,7 @@
 use core::result;
-use std::{fmt, thread};
 use std::process::id;
-use std::sync::{Arc, mpsc, Mutex};
+use std::sync::{mpsc, Arc, Mutex};
+use std::{fmt, thread};
 
 ///定义线程交互消息
 enum Message {
@@ -39,18 +39,21 @@ impl ThreadPool {
     pub fn new(size: usize) -> ThreadPool {
         assert!(size > 0, "ThreadPool size cannot less than 0");
         let (sender, receiver) = mpsc::channel();
-        let receiver = Arc::new(Mutex::new(receiver));//Arc共享接收器 Mutex任务互斥
-        //初始化大小
+        let receiver = Arc::new(Mutex::new(receiver)); //Arc共享接收器 Mutex任务互斥
+                                                       //初始化大小
         let mut workers = Vec::with_capacity(size);
         for id in 0..size {
             //创建一些线程并将其存储在向量中
-            workers.push(Worker::new(id, Arc::clone(&receiver)));//共享receiver
+            workers.push(Worker::new(id, Arc::clone(&receiver))); //共享receiver
         }
         ThreadPool { workers, sender }
     }
 
     //参考thread::spawn对其参数的限制
-    pub fn execute<F>(&self, f: F) where F: FnOnce() + Send + 'static {
+    pub fn execute<F>(&self, f: F)
+    where
+        F: FnOnce() + Send + 'static,
+    {
         self.sender.send(Message::NewJob(Box::new(f))).unwrap();
     }
 }
@@ -66,8 +69,9 @@ impl Drop for ThreadPool {
         println!("Shutting down all workers.");
         for worker in &mut self.workers {
             println!("Shutting down worker {}", worker.id);
-            if let Some(thread) = worker.thread.take() {//take出工作线程并置为None
-                thread.join().unwrap();//等待主线程的
+            if let Some(thread) = worker.thread.take() {
+                //take出工作线程并置为None
+                thread.join().unwrap(); //等待主线程的
             }
         }
     }
@@ -98,6 +102,9 @@ impl Worker {
                 }
             }
         });
-        Worker { id, thread: Some(thread) }
+        Worker {
+            id,
+            thread: Some(thread),
+        }
     }
 }

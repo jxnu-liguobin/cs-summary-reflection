@@ -2,7 +2,6 @@ use std::fmt::{Debug, Display};
 
 ///通用类型，特征和寿命
 
-
 pub fn largest_function() {
     //在数字列表中查找最大数字的代码
     let number_list = vec![34, 50, 25, 100, 65];
@@ -200,9 +199,17 @@ pub fn trait_function() {
     }
 
     ///这样写太麻烦
-    fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 { 1 }
+    fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
+        1
+    }
     //简化
-    fn some_function2<T, U>(t: T, u: U) -> i32 where T: Display + Clone, U: Clone + Debug { 1 }
+    fn some_function2<T, U>(t: T, u: U) -> i32
+    where
+        T: Display + Clone,
+        U: Clone + Debug,
+    {
+        1
+    }
 
     ///返回实现特征的类型
     fn returns_summarizable() -> impl Summary {
@@ -215,24 +222,24 @@ pub fn trait_function() {
     }
     //下面是无效的，编译不过
     //由于在编译器中实现impl Trait语法方面的限制，因此不允许返回NewsArticle或Tweet
-//    fn returns_summarizable2(switch: bool) -> impl Summary {
-//        if switch {
-//            NewsArticle {
-//                headline: String::from("Penguins win the Stanley Cup Championship!"),
-//                location: String::from("Pittsburgh, PA, USA"),
-//                author: String::from("Iceburgh"),
-//                content: String::from("The Pittsburgh Penguins once again are the best
-//            hockey team in the NHL."),
-//            }
-//        } else {
-//            Tweet {
-//                username: String::from("horse_ebooks"),
-//                content: String::from("of course, as you probably already know, people"),
-//                reply: false,
-//                retweet: false,
-//            }
-//        }
-//    }
+    //    fn returns_summarizable2(switch: bool) -> impl Summary {
+    //        if switch {
+    //            NewsArticle {
+    //                headline: String::from("Penguins win the Stanley Cup Championship!"),
+    //                location: String::from("Pittsburgh, PA, USA"),
+    //                author: String::from("Iceburgh"),
+    //                content: String::from("The Pittsburgh Penguins once again are the best
+    //            hockey team in the NHL."),
+    //            }
+    //        } else {
+    //            Tweet {
+    //                username: String::from("horse_ebooks"),
+    //                content: String::from("of course, as you probably already know, people"),
+    //                reply: false,
+    //                retweet: false,
+    //            }
+    //        }
+    //    }
 
     struct Pair<T> {
         x: T,
@@ -240,10 +247,7 @@ pub fn trait_function() {
     }
     impl<T> Pair<T> {
         fn new(x: T, y: T) -> Self {
-            Self {
-                x,
-                y,
-            }
+            Self { x, y }
         }
     }
     ///始终实现new函数，但是Pair<T>仅在内部类型T实现了实现比较的PartialOrd特质和实现打印的Display特质的情况下，才实现cmp_display方法。
@@ -261,38 +265,38 @@ pub fn trait_function() {
 
 ///生命周期
 fn lifetimes_function() {
-//使用生命周期验证引用
-//在大多数情况下，生存期是隐式和推断的，就像在大多数情况下一样，推断类型。
-//当可能有多个类型时，必须注释类型。以类似的方式，当引用的生存期可以通过几种不同方式关联时，我们必须注释生存期。
-//Rust要求我们使用通用生命周期参数注释关系，以确保在运行时使用的实际引用绝对有效。
-//生命周期的主要目的是防止引用悬而未决，从而导致程序引用的数据不是其要引用的数据。
-//    {
-//        r和x的生命周期注释，分别命名为'a和'b
-//        let r;                // ---------+-- 'a
-                                //          |
-//        {                     //          |
-//            let x = 5;        // -+-- 'b  |
-//            r = &x;           //  |       |
-//        }                     // -+       |
-                                //          |
-//        println!("r: {}", r); //          |
-//    }                         // ----------+
+    //使用生命周期验证引用
+    //在大多数情况下，生存期是隐式和推断的，就像在大多数情况下一样，推断类型。
+    //当可能有多个类型时，必须注释类型。以类似的方式，当引用的生存期可以通过几种不同方式关联时，我们必须注释生存期。
+    //Rust要求我们使用通用生命周期参数注释关系，以确保在运行时使用的实际引用绝对有效。
+    //生命周期的主要目的是防止引用悬而未决，从而导致程序引用的数据不是其要引用的数据。
+    //    {
+    //        r和x的生命周期注释，分别命名为'a和'b
+    //        let r;                // ---------+-- 'a
+    //          |
+    //        {                     //          |
+    //            let x = 5;        // -+-- 'b  |
+    //            r = &x;           //  |       |
+    //        }                     // -+       |
+    //          |
+    //        println!("r: {}", r); //          |
+    //    }                         // ----------+
 
     ///正确代码
     {
-        let x = 5;       // ----------+-- 'b
-                              //           |
-        let r = &x;     // --+-- 'a  |
-                              //   |       |
+        let x = 5; // ----------+-- 'b
+                   //           |
+        let r = &x; // --+-- 'a  |
+                    //   |       |
         println!("r: {}", r); //   |       |
                               // --+       |
-    }                         // ----------+
+    } // ----------+
 
     ///函数的通用生命周期
     ///过于复杂，建议有时间再研究：https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html
-//    &i32        // 一个引用
-//    &'a i32     // 具有明确生命周期的引用
-//    &'a mut i32 // 具有显式寿命的可变引用
+    //    &i32        // 一个引用
+    //    &'a i32     // 具有明确生命周期的引用
+    //    &'a mut i32 // 具有显式寿命的可变引用
     ///指定签名中的所有引用必须具有相同的生存期 'a
     fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
         if x.len() > y.len() {
@@ -302,5 +306,3 @@ fn lifetimes_function() {
         }
     }
 }
-
-

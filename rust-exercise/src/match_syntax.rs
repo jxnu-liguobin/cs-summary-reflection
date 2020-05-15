@@ -3,7 +3,7 @@ pub fn match_syntax2() {
     let some_u8_value = Some(0u8);
     match some_u8_value {
         Some(3) => println!("three"),
-        _ => () //这行是多余的样板代码
+        _ => (), //这行是多余的样板代码
     }
 
     //使用if let 省略上面的样板代码
@@ -65,7 +65,6 @@ pub fn match_syntax() {
         }
     }
 
-
     ///绑定到值的匹配
     #[derive(Debug)]
     enum UsState {
@@ -112,6 +111,6 @@ pub fn match_syntax() {
         3 => println!("three"),
         5 => println!("five"),
         7 => println!("seven"),
-        _ => ()
+        _ => (),
     }
 }

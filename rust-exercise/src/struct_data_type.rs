@@ -7,7 +7,8 @@ pub fn struct_data_type() {
         active: bool,
     }
 
-    let mut user1 = User { //必须定义为可变的才能修改结构体的内容
+    let mut user1 = User {
+        //必须定义为可变的才能修改结构体的内容
         email: String::from("someone@example.com"),
         username: String::from("someusername123"),
         active: true,
@@ -73,7 +74,10 @@ pub fn struct_data_type() {
         width * height
     }
 
-    println!("The area of the rectangle is {} square pixels.", area(width1, height1));
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(width1, height1)
+    );
 
     //使用元祖
     fn area_tuple(dimensions: (u32, u32)) -> u32 {
@@ -98,12 +102,15 @@ pub fn struct_data_type() {
         rectangle.width * rectangle.height
     }
 
-    let rect1 = Rectangle { width: 30, height: 50 };
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
     println!(
         "The area of the rectangle is {} square pixels.",
         area_struct(&rect1)
     );
 
     //这将会报错，因为该结构体不支持显示：`Rectangle` doesn't implement `std::fmt::Display`
-    println!("rect1 is {:#?}", rect1);//{:?}使用调试模式打印也会报错：`Rectangle` doesn't implement `std::fmt::Debug`,{:#?} 格式化打印
+    println!("rect1 is {:#?}", rect1); //{:?}使用调试模式打印也会报错：`Rectangle` doesn't implement `std::fmt::Debug`,{:#?} 格式化打印
 }

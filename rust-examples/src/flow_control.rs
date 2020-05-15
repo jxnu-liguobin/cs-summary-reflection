@@ -31,7 +31,7 @@ fn if_else() {
     } else {
         println!(", and is a big number, halve the number");
         n / 2
-    };//别忘了在这里加分号！所有“let”绑定都需要它
+    }; //别忘了在这里加分号！所有“let”绑定都需要它
 
     println!("{} -> {}", n, big_n);
 }
@@ -61,11 +61,10 @@ fn loop_while() {
             println!("Entered the inner loop");
             break 'outer;
         }
-        println!("This point will never be reached");//永远不会被执行，到break 'outer;就会直接退出外层循环
+        println!("This point will never be reached"); //永远不会被执行，到break 'outer;就会直接退出外层循环
     }
 
     println!("Exited the outer loop");
-
 
     //从loop返回值
     let mut counter = 0;
@@ -99,7 +98,8 @@ fn loop_while() {
 
 fn for_range() {
     //`n` = 1, 2, ..., 100
-    for n in 1..101 {//包含左，不含右，Scala的until不包含右界，to包含右界
+    for n in 1..101 {
+        //包含左，不含右，Scala的until不包含右界，to包含右界
         if n % 15 == 0 {
             println!("fizzbuzz");
         } else if n % 3 == 0 {
@@ -112,7 +112,8 @@ fn for_range() {
     }
 
     //`n` =  1, 2, ..., 100
-    for n in 1..=100 {//包含右界
+    for n in 1..=100 {
+        //包含右界
         if n % 15 == 0 {
             println!("fizzbuzz");
         } else if n % 3 == 0 {
@@ -126,7 +127,8 @@ fn for_range() {
 
     ///迭代器
     let names = vec!["Bob", "Frank", "Ferris"];
-    for name in names.iter() {//将在每次迭代中借用集合的每个元素。因此，在循环之后，该集合将保持不变并可供重用。
+    for name in names.iter() {
+        //将在每次迭代中借用集合的每个元素。因此，在循环之后，该集合将保持不变并可供重用。
         match name {
             &"Ferris" => println!("There is a rustacean among us!"),
             _ => println!("Hello {}", name),
@@ -134,7 +136,8 @@ fn for_range() {
     }
 
     let names = vec!["Bob", "Frank", "Ferris"];
-    for name in names.into_iter() {//消耗集合，以便在每次迭代时提供准确的数据。一旦使用完了集合，就不再可以重复使用，因为它已在循环中“移动”。
+    for name in names.into_iter() {
+        //消耗集合，以便在每次迭代时提供准确的数据。一旦使用完了集合，就不再可以重复使用，因为它已在循环中“移动”。
         match name {
             "Ferris" => println!("There is a rustacean among us!"),
             _ => println!("Hello {}", name),
@@ -142,7 +145,8 @@ fn for_range() {
     }
 
     let mut names = vec!["Bob", "Frank", "Ferris"];
-    for name in names.iter_mut() {//可变地借用了集合的每个元素，从而允许在适当的位置修改集合。
+    for name in names.iter_mut() {
+        //可变地借用了集合的每个元素，从而允许在适当的位置修改集合。
         *name = match name {
             &mut "Ferris" => "There is a rustacean among us!",
             _ => "Hello",
@@ -156,10 +160,10 @@ fn match_case() {
     let number = 13;
     println!("Tell me about {}", number);
     match number {
-        1 => println!("One!"),//仅匹配1
-        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),//匹配2或3或5或7或11
-        13..=19 => println!("A teen"),//匹配13到19的数字
-        _ => println!("Ain't special"),//其他
+        1 => println!("One!"),                             //仅匹配1
+        2 | 3 | 5 | 7 | 11 => println!("This is a prime"), //匹配2或3或5或7或11
+        13..=19 => println!("A teen"),                     //匹配13到19的数字
+        _ => println!("Ain't special"),                    //其他
     }
 
     let boolean = true;
@@ -202,17 +206,14 @@ fn match_enums() {
         Color::Red => println!("The color is Red!"),
         Color::Blue => println!("The color is Blue!"),
         Color::Green => println!("The color is Green!"),
-        Color::RGB(r, g, b) =>
-            println!("Red: {}, green: {}, and blue: {}!", r, g, b),
-        Color::HSV(h, s, v) =>
-            println!("Hue: {}, saturation: {}, value: {}!", h, s, v),
-        Color::HSL(h, s, l) =>
-            println!("Hue: {}, saturation: {}, lightness: {}!", h, s, l),
-        Color::CMY(c, m, y) =>
-            println!("Cyan: {}, magenta: {}, yellow: {}!", c, m, y),
-        Color::CMYK(c, m, y, k) =>
-            println!("Cyan: {}, magenta: {}, yellow: {}, key (black): {}!",
-                     c, m, y, k),
+        Color::RGB(r, g, b) => println!("Red: {}, green: {}, and blue: {}!", r, g, b),
+        Color::HSV(h, s, v) => println!("Hue: {}, saturation: {}, value: {}!", h, s, v),
+        Color::HSL(h, s, l) => println!("Hue: {}, saturation: {}, lightness: {}!", h, s, l),
+        Color::CMY(c, m, y) => println!("Cyan: {}, magenta: {}, yellow: {}!", c, m, y),
+        Color::CMYK(c, m, y, k) => println!(
+            "Cyan: {}, magenta: {}, yellow: {}, key (black): {}!",
+            c, m, y, k
+        ),
     }
 }
 
@@ -321,7 +322,8 @@ fn if_let() {
 
     if let Some(i) = emoticon {
         println!("Matched {:?}!", i);
-    } else if i_like_letters {//lf let没匹配上
+    } else if i_like_letters {
+        //lf let没匹配上
         println!("Didn't match a number. Let's go with a letter!");
     } else {
         println!("I don't like letters. Let's go with an emoticon :)!");
@@ -352,7 +354,8 @@ fn if_let() {
     }
 
     let a = Foo::Bar;
-    if let Foo::Bar = a {//枚举没有注解#[derive(PartialEq)]，则无法比较，使用传统的if，则失败，编译不过
+    if let Foo::Bar = a {
+        //枚举没有注解#[derive(PartialEq)]，则无法比较，使用传统的if，则失败，编译不过
         println!("a is foobar");
     }
 }
@@ -371,7 +374,9 @@ fn while_let() {
                     optional = Some(i + 1);
                 }
             }
-            _ => { break; }
+            _ => {
+                break;
+            }
         }
     }
 
@@ -385,5 +390,5 @@ fn while_let() {
             println!("`i` is `{:?}`. Try again.", i);
             optional = Some(i + 1);
         }
-    }//while let 无子语句
+    } //while let 无子语句
 }

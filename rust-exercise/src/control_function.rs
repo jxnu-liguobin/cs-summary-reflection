@@ -9,7 +9,7 @@ pub fn control_function() {
     }
 
     ///处理多个if
-    let number = 6;//阴影，遮盖了前面的number
+    let number = 6; //阴影，遮盖了前面的number
 
     if number % 4 == 0 {
         println!("number is divisible by 4");
@@ -24,18 +24,14 @@ pub fn control_function() {
     ///与Scala一样，可以将if表达式的结果赋值给变量（这里的变量一般是指不可变的变量，虽然绕口，但是确实是事实）
     let condition = true;
     ///从每个分支取得的if的返回值必须是同一类型，否则编译报错
-    let number = if condition {
-        5
-    } else {
-        6
-    };
+    let number = if condition { 5 } else { 6 };
 
     println!("The value of number is: {}", number);
 
     ///循环
     loop {
         println!("again!");
-        break;//这个分号可省
+        break; //这个分号可省
     }
     ///从循环中返回值
     let mut counter = 0;
@@ -44,7 +40,7 @@ pub fn control_function() {
         counter += 1;
         if counter == 10 {
             break counter * 2;
-        };//这个分号可省
+        }; //这个分号可省
     };
 
     ///分号的使用还不清晰明确，后面再看
@@ -57,7 +53,7 @@ pub fn control_function() {
     while number != 0 {
         println!("{}!", number);
         number -= 1;
-    };//这个分号可以省略
+    } //这个分号可以省略
     println!("LIFTOFF!!!");
 
     ///while变量数组

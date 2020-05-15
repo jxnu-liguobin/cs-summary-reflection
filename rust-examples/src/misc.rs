@@ -32,7 +32,7 @@ fn threads() {
 
     for child in children {
         //等待线程完成，返回结果。_ 匿名变量，不需要这个结果
-        let _ = child.join();//按顺序从0~9打印
+        let _ = child.join(); //按顺序从0~9打印
     }
 }
 
@@ -63,13 +63,15 @@ fn thread_testcase() {
         // TODO: try removing the 'move' and see what happens
         children.push(thread::spawn(move || -> u32 {
             //转化为数字并计算此段的中间和
-            let result = data_segment.chars().map(|c| c.to_digit(10).expect("should be a digit")).sum();
+            let result = data_segment
+                .chars()
+                .map(|c| c.to_digit(10).expect("should be a digit"))
+                .sum();
             println!("processed segment {}, result={}", i, result);
             //每个子线程都返回中间结果
             result
         }));
     }
-
 
     //将每个线程的中间结果收集到一个新的Vec中
     let mut intermediate_sums = vec![];
@@ -87,8 +89,8 @@ fn thread_testcase() {
 
 //通道
 fn channels() {
-    use std::sync::mpsc::{Sender, Receiver};
     use std::sync::mpsc;
+    use std::sync::mpsc::{Receiver, Sender};
     use std::thread;
 
     static NTHREADS: i32 = 3;
@@ -210,7 +212,10 @@ fn file_read_lines() {
         }
     }
 
-    fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
+    fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
+    where
+        P: AsRef<Path>,
+    {
         let file = File::open(filename)?;
         //返回文件上的迭代器
         Ok(io::BufReader::new(file).lines())
@@ -221,9 +226,10 @@ fn file_read_lines() {
 fn child_processes() {
     use std::process::Command;
 
-    let output = Command::new("rustc").arg("--version").output().unwrap_or_else(|e| {
-        panic!("failed to execute process: {}", e)
-    });
+    let output = Command::new("rustc")
+        .arg("--version")
+        .output()
+        .unwrap_or_else(|e| panic!("failed to execute process: {}", e));
 
     if output.status.success() {
         let s = String::from_utf8_lossy(&output.stdout);
@@ -246,7 +252,8 @@ fn child_processes_pipes() {
     let process = match Command::new("wc")
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
-        .spawn() {
+        .spawn()
+    {
         Err(why) => panic!("couldn't spawn wc: {}", why.description()),
         Ok(process) => process,
     };
@@ -350,9 +357,11 @@ fn filesystem_operations() {
     // Read the contents of a directory, returns `io::Result<Vec<Path>>`
     match fs::read_dir("a") {
         Err(why) => println!("! {:?}", why.kind()),
-        Ok(paths) => for path in paths {
-            println!("> {:?}", path.unwrap().path());
-        },
+        Ok(paths) => {
+            for path in paths {
+                println!("> {:?}", path.unwrap().path());
+            }
+        }
     }
 
     println!("`rm a/c/e.txt`");
@@ -393,11 +402,13 @@ fn argument_parsing() {
     }
 
     fn help() {
-        println!("usage:
+        println!(
+            "usage:
 match_args <string>
     Check whether given string is the answer.
 match_args {{increase|decrease}} <integer>
-    Increase or decrease given integer by one.");
+    Increase or decrease given integer by one."
+        );
     }
     let args: Vec<String> = env::args().collect();
 
@@ -405,20 +416,16 @@ match_args {{increase|decrease}} <integer>
         1 => {
             println!("My name is 'match_args'. Try passing some arguments!");
         }
-        2 => {
-            match args[1].parse() {
-                Ok(42) => println!("This is the answer!"),
-                _ => println!("This is not the answer."),
-            }
-        }
+        2 => match args[1].parse() {
+            Ok(42) => println!("This is the answer!"),
+            _ => println!("This is not the answer."),
+        },
         3 => {
             let cmd = &args[1];
             let num = &args[2];
             // parse the number
             let number: i32 = match num.parse() {
-                Ok(n) => {
-                    n
-                }
+                Ok(n) => n,
                 Err(_) => {
                     eprintln!("error: second argument not an integer");
                     help();
@@ -446,7 +453,7 @@ fn foreign_function_interface() {
 
     //这个外部块链接到libm库
     #[link(name = "m")]
-    extern {
+    extern "C" {
         fn csqrtf(z: Complex) -> Complex;
 
         fn ccosf(z: Complex) -> Complex;

@@ -4,7 +4,9 @@
 //by value: T
 pub fn closures() {
     //闭包是lambda，一个表达式可以省略大括号
-    fn function(i: i32) -> i32 { i + 1 }
+    fn function(i: i32) -> i32 {
+        i + 1
+    }
     let closure_annotated = |i: i32| -> i32 { i + 1 };
     let closure_inferred = |i| i + 1;
     let i = 1;
@@ -35,10 +37,10 @@ fn capturing() {
     let print = || println!("`color`: {}", color);
     print();
 
-    let _reborrow = &color;//闭包使用的color能被继续借用
-    print();//直到最后一次使用print
+    let _reborrow = &color; //闭包使用的color能被继续借用
+    print(); //直到最后一次使用print
 
-    let _color_moved = color;//最后使用`print`后允许移动或重新借用
+    let _color_moved = color; //最后使用`print`后允许移动或重新借用
     let mut count = 0;
     let mut inc = || {
         count += 1;
@@ -55,20 +57,26 @@ fn capturing() {
         mem::drop(movable);
     };
 
-    consume();//仅能被使用一次。
+    consume(); //仅能被使用一次。
 }
 
 fn input_parameters() {
     //以闭包作为参数并调用它的函数。
-    fn apply<F>(f: F) where
-    // The closure takes no input and returns nothing.
-        F: FnOnce() {//按值捕获
+    fn apply<F>(f: F)
+    where
+        // The closure takes no input and returns nothing.
+        F: FnOnce(),
+    {
+        //按值捕获
         // ^ TODO: Try changing this to `Fn` or `FnMut`.
         f();
     }
 
     // A function which takes a closure and returns an `i32`.
-    fn apply_to_3<F>(f: F) -> i32 where F: Fn(i32) -> i32 {
+    fn apply_to_3<F>(f: F) -> i32
+    where
+        F: Fn(i32) -> i32,
+    {
         f(3)
     }
 
@@ -78,11 +86,11 @@ fn input_parameters() {
     //从借来的引用创建自己拥有的数据
     let mut farewell = "goodbye".to_owned();
     let diary = || {
-        println!("I said {}.", greeting);//捕获引用
-        farewell.push_str("!!!");//捕获可变引用
+        println!("I said {}.", greeting); //捕获引用
+        farewell.push_str("!!!"); //捕获可变引用
         println!("Then I screamed {}.", farewell);
         println!("Now I can sleep. zzzzz");
-        mem::drop(farewell);//捕获值
+        mem::drop(farewell); //捕获值
     };
     apply(diary);
     let double = |x| 2 * x;
@@ -91,8 +99,10 @@ fn input_parameters() {
 
 fn type_anonymity() {
     // `F`必须是泛型的
-    fn apply<F>(f: F) where
-        F: FnOnce() {
+    fn apply<F>(f: F)
+    where
+        F: FnOnce(),
+    {
         f();
     }
 }
@@ -145,8 +155,8 @@ fn closures_std() {
     //any
     let vec1 = vec![1, 2, 3];
     let vec2 = vec![4, 5, 6];
-    println!("2 in vec1: {}", vec1.iter().any(|&x| x == 2));//不消耗集合，使用引用捕获
-    println!("2 in vec2: {}", vec2.into_iter().any(|x| x == 2));//消耗集合，使用值捕获
+    println!("2 in vec1: {}", vec1.iter().any(|&x| x == 2)); //不消耗集合，使用引用捕获
+    println!("2 in vec2: {}", vec2.into_iter().any(|x| x == 2)); //消耗集合，使用值捕获
     let array1 = [1, 2, 3];
     let array2 = [4, 5, 6];
     println!("2 in array1: {}", array1.iter().any(|&x| x == 2));
@@ -155,16 +165,19 @@ fn closures_std() {
     //find
     let vec1 = vec![1, 2, 3];
     let vec2 = vec![4, 5, 6];
-    let mut iter = vec1.iter();//&i32
-    let mut into_iter = vec2.into_iter();//i32
-    //解构参数
-    println!("Find 2 in vec1: {:?}", iter.find(|&&x| x == 2));//`&&i32` to `i32`
-    println!("Find 2 in vec1: {:?}", iter.find(|x| **x == 2));//参数是`&&i32`，使用时解构
-    println!("Find 2 in vec2: {:?}", into_iter.find(|&x| x == 2));//`&i32` to `i32`
+    let mut iter = vec1.iter(); //&i32
+    let mut into_iter = vec2.into_iter(); //i32
+                                          //解构参数
+    println!("Find 2 in vec1: {:?}", iter.find(|&&x| x == 2)); //`&&i32` to `i32`
+    println!("Find 2 in vec1: {:?}", iter.find(|x| **x == 2)); //参数是`&&i32`，使用时解构
+    println!("Find 2 in vec2: {:?}", into_iter.find(|&x| x == 2)); //`&i32` to `i32`
     let array1 = [1, 2, 3];
     let array2 = [4, 5, 6];
     println!("Find 2 in array1: {:?}", array1.iter().find(|&&x| x == 2));
-    println!("Find 2 in array2: {:?}", array2.into_iter().find(|&&x| x == 2));
+    println!(
+        "Find 2 in array2: {:?}",
+        array2.into_iter().find(|&&x| x == 2)
+    );
 
     //position index
     let vec = vec![1, 9, 3, 3, 13, 2];
@@ -185,7 +198,8 @@ fn higher_order_functions() {
     println!("Find the sum of all the squared odd numbers under 1000");
     let upper = 1000;
     let mut acc = 0;
-    for n in 0.. {//无穷大
+    for n in 0.. {
+        //无穷大
         let n_squared = n * n;
         if n_squared >= upper {
             break;
@@ -195,11 +209,11 @@ fn higher_order_functions() {
     }
     println!("imperative style: {}", acc);
     //函数式风格
-    let sum_of_squared_odd_numbers: u32 =
-        (0..).map(|n| n * n)
-            .take_while(|&n_squared| n_squared < upper)
-            .filter(|&n_squared| is_odd(n_squared))     // That are odd
-            .fold(0, |acc, n_squared| acc + n_squared); // Sum them
+    let sum_of_squared_odd_numbers: u32 = (0..)
+        .map(|n| n * n)
+        .take_while(|&n_squared| n_squared < upper)
+        .filter(|&n_squared| is_odd(n_squared)) // That are odd
+        .fold(0, |acc, n_squared| acc + n_squared); // Sum them
     println!("functional style: {}", sum_of_squared_odd_numbers);
 }
 
@@ -222,13 +236,16 @@ fn diverging_functions() {
         for i in 0..up_to {
             let addition: u32 = match i % 2 == 1 {
                 true => i,
-                false => continue,//不返还，不违反match
+                false => continue, //不返还，不违反match
             };
             acc += addition;
         }
         acc
     }
-    println!("Sum of odd numbers up to 9 (excluding): {}", sum_odd_numbers(9));
+    println!(
+        "Sum of odd numbers up to 9 (excluding): {}",
+        sum_odd_numbers(9)
+    );
 
     //println!("{}", foo()) //error This call never returns.
 }

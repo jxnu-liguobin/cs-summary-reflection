@@ -17,7 +17,9 @@ fn tuples() {
     struct Matrix(f32, f32, f32, f32);
 
     //一组不同类型的元组
-    let long_tuple = (1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true);
+    let long_tuple = (
+        1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true,
+    );
 
     //可以使用元组索引从元组中提取值
     println!("long tuple first value: {}", long_tuple.0);
@@ -41,7 +43,7 @@ fn tuples() {
 
     //要创建含有一个元素的元组，需要逗号来区分它们
     // from a literal surrounded by parentheses
-    println!("one element tuple: {:?}", (5u32, ));
+    println!("one element tuple: {:?}", (5u32,));
     println!("just an integer: {:?}", (5u32));
 
     //元组可以被解构以创建绑定

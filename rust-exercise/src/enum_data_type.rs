@@ -31,7 +31,6 @@ pub fn enum_data_type() {
         address: String::from("::1"),
     };
 
-
     ///数值直接放入每个枚举变量中，而不是需要使用结构体 struct IpAddr
     enum IpAddr2 {
         V4(String),

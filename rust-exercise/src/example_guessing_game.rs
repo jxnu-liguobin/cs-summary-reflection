@@ -15,12 +15,14 @@ pub fn example_guessing_game() {
         println!("Please input your guess.");
 
         //变量默认是不可变的。使用mut表示变量是可变的，定义成let foo = 5; 则是不可变。
-        let mut guess = String::new();//关联函数，在类型上实现。一些语言称为静态方法。该函数创建了一个空串
+        let mut guess = String::new(); //关联函数，在类型上实现。一些语言称为静态方法。该函数创建了一个空串
 
         //没有使用use，则这里需要写成 std::io::stdin
         //&表示该参数是一个引用，Rust的主要优势之一是使用引用的安全性和便捷性
         //&使您代码的多个部分可以访问同一条数据，而无需将该数据多次复制到内存中
-        io::stdin().read_line(&mut guess).expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
         //无法比较数值与字符串需要转化为数值，Rust默认为i32
         //Rust允许我们用新的值遮盖以前的值guess。此功能通常用于要将值从一种类型转换为另一种类型的情况。

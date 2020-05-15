@@ -1,5 +1,5 @@
-use std::fmt::{Display, Error, Formatter};
 use std::fmt;
+use std::fmt::{Display, Error, Formatter};
 
 ///println宏的使用
 pub fn formatted_print() {
@@ -7,9 +7,17 @@ pub fn formatted_print() {
     println!("{} days", 31);
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");
     //命名参数
-    println!("{subject} {verb} {object}", object = "the lazy dog", subject = "the quick brown fox", verb = "jumps over");
+    println!(
+        "{subject} {verb} {object}",
+        object = "the lazy dog",
+        subject = "the quick brown fox",
+        verb = "jumps over"
+    );
     // 在冒号后指定特殊输出格式
-    println!("{} of {:b} people know binary, the other half doesn't", 1, 2);
+    println!(
+        "{} of {:b} people know binary, the other half doesn't",
+        1, 2
+    );
     //右对齐，指定宽度6
     println!("{number:>width$}", number = 1, width = 6);
     //右对齐，宽度6，使用0填错
@@ -30,11 +38,13 @@ pub fn formatted_print() {
     }
 
     //更好看
-    let peter = Person { name: "Peter", age: 27 };
+    let peter = Person {
+        name: "Peter",
+        age: 27,
+    };
     println!("{:#?}", peter);
 
     //自己实现fmt::Display或Debug特质
-
 
     #[derive(Debug)]
     struct MinMax(i64, i64);
@@ -61,7 +71,11 @@ pub fn formatted_print() {
     //实现自己的Debug
     impl fmt::Debug for Point2D {
         fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
-            write!(f, "Complex {} real: {}, imag: {} {}", "{", self.x, self.y, "}")
+            write!(
+                f,
+                "Complex {} real: {}, imag: {} {}",
+                "{", self.x, self.y, "}"
+            )
         }
     }
 
@@ -75,7 +89,6 @@ pub fn formatted_print() {
     println!("Debug: {:?}", point);
     println!("Debug: {:?}", point);
 
-
     testcase_list();
 
     struct City {
@@ -88,7 +101,15 @@ pub fn formatted_print() {
         fn fmt(&self, f: &mut Formatter) -> fmt::Result {
             let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
             let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
-            write!(f, "{}: {:.3}°{} {:.3}°{}", self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
+            write!(
+                f,
+                "{}: {:.3}°{} {:.3}°{}",
+                self.name,
+                self.lat.abs(),
+                lat_c,
+                self.lon.abs(),
+                lon_c
+            )
         }
     }
 
@@ -107,23 +128,55 @@ pub fn formatted_print() {
             //format!("{}", foo) -> "3735928559"
             //format!("0x{:X}", foo) -> "0xDEADBEEF"
             //format!("0o{:o}", foo) -> "0o33653337357"
-            write!(f, "RGB ({}, {}, {}) 0x{:0>2X}{:0>2X}{:0>2X} ", self.red, self.green, self.blue, self.red, self.green, self.blue)
+            write!(
+                f,
+                "RGB ({}, {}, {}) 0x{:0>2X}{:0>2X}{:0>2X} ",
+                self.red, self.green, self.blue, self.red, self.green, self.blue
+            )
             //右对齐，补0，16进制打印
         }
     }
 
     for city in [
-        City { name: "Dublin", lat: 53.347778, lon: -6.259722 },
-        City { name: "Oslo", lat: 59.95, lon: 10.75 },
-        City { name: "Vancouver", lat: 49.25, lon: -123.1 },
-    ].iter() {
+        City {
+            name: "Dublin",
+            lat: 53.347778,
+            lon: -6.259722,
+        },
+        City {
+            name: "Oslo",
+            lat: 59.95,
+            lon: 10.75,
+        },
+        City {
+            name: "Vancouver",
+            lat: 49.25,
+            lon: -123.1,
+        },
+    ]
+    .iter()
+    {
         println!("{}", *city);
     }
     for color in [
-        Color { red: 128, green: 255, blue: 90 },
-        Color { red: 0, green: 3, blue: 254 },
-        Color { red: 0, green: 0, blue: 0 },
-    ].iter() {
+        Color {
+            red: 128,
+            green: 255,
+            blue: 90,
+        },
+        Color {
+            red: 0,
+            green: 3,
+            blue: 254,
+        },
+        Color {
+            red: 0,
+            green: 0,
+            blue: 0,
+        },
+    ]
+    .iter()
+    {
         println!("{:#}", *color);
     }
 }
@@ -137,8 +190,10 @@ pub fn testcase_list() {
             let vec = &self.0;
             write!(f, "[")?;
             for (count, v) in vec.iter().enumerate() {
-                if count != 0 { write!(f, ", ")?; }
-                write!(f, "{}: {}", count, v)?;//打印索引和数据
+                if count != 0 {
+                    write!(f, ", ")?;
+                }
+                write!(f, "{}: {}", count, v)?; //打印索引和数据
             }
             write!(f, "]")
         }

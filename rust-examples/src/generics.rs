@@ -103,22 +103,38 @@ fn bounds() {
         fn area(&self) -> f64;
     }
     impl HasArea for Rectangle {
-        fn area(&self) -> f64 { self.length * self.height }
+        fn area(&self) -> f64 {
+            self.length * self.height
+        }
     }
     #[derive(Debug)]
-    struct Rectangle { length: f64, height: f64 }
+    struct Rectangle {
+        length: f64,
+        height: f64,
+    }
     #[allow(dead_code)]
-    struct Triangle { length: f64, height: f64 }
+    struct Triangle {
+        length: f64,
+        height: f64,
+    }
     //泛型“T”必须实现“Debug”
     fn print_debug<T: Debug>(t: &T) {
         println!("{:?}", t);
     }
 
     //必须实现HasArea
-    fn area<T: HasArea>(t: &T) -> f64 { t.area() }
+    fn area<T: HasArea>(t: &T) -> f64 {
+        t.area()
+    }
 
-    let rectangle = Rectangle { length: 3.0, height: 4.0 };
-    let _triangle = Triangle { length: 3.0, height: 4.0 };
+    let rectangle = Rectangle {
+        length: 3.0,
+        height: 4.0,
+    };
+    let _triangle = Triangle {
+        length: 3.0,
+        height: 4.0,
+    };
     print_debug(&rectangle);
     println!("Area: {}", area(&rectangle));
     //print_debug(&_triangle);
@@ -136,8 +152,12 @@ fn bounds() {
     impl Blue for BlueJay {}
 
     //这些函数仅对实现这些特性的类型有效。这些特征都是空的，这一事实无关紧要。
-    fn red<T: Red>(_: &T) -> &'static str { "red" }
-    fn blue<T: Blue>(_: &T) -> &'static str { "blue" }
+    fn red<T: Red>(_: &T) -> &'static str {
+        "red"
+    }
+    fn blue<T: Blue>(_: &T) -> &'static str {
+        "blue"
+    }
     let cardinal = Cardinal;
     let blue_jay = BlueJay;
     let _turkey = Turkey;
@@ -175,7 +195,10 @@ fn where_clauses() {
         fn print_in_option(self);
     }
 
-    impl<T> PrintInOption for T where Option<T>: Debug {
+    impl<T> PrintInOption for T
+    where
+        Option<T>: Debug,
+    {
         fn print_in_option(self) {
             println!("{:?}", Some(self));
         }
@@ -200,18 +223,29 @@ fn associated_types() {
             fn contains(&self, number_1: &i32, number_2: &i32) -> bool {
                 (&self.0 == number_1) && (&self.1 == number_2)
             }
-            fn first(&self) -> i32 { self.0 }
-            fn last(&self) -> i32 { self.1 }
+            fn first(&self) -> i32 {
+                self.0
+            }
+            fn last(&self) -> i32 {
+                self.1
+            }
         }
         //必须显示声明所有泛型
-        fn difference<A, B, C>(container: &C) -> i32 where
-            C: Contains<A, B> {
+        fn difference<A, B, C>(container: &C) -> i32
+        where
+            C: Contains<A, B>,
+        {
             container.last() - container.first()
         }
         let number_1 = 3;
         let number_2 = 10;
         let container = Container(number_1, number_2);
-        println!("Does container contain {} and {}: {}", &number_1, &number_2, container.contains(&number_1, &number_2));
+        println!(
+            "Does container contain {} and {}: {}",
+            &number_1,
+            &number_2,
+            container.contains(&number_1, &number_2)
+        );
         println!("First number: {}", container.first());
         println!("Last number: {}", container.last());
         println!("The difference is: {}", difference(&container));
@@ -235,8 +269,12 @@ fn associated_types() {
             fn contains(&self, number_1: &i32, number_2: &i32) -> bool {
                 (&self.0 == number_1) && (&self.1 == number_2)
             }
-            fn first(&self) -> i32 { self.0 }
-            fn last(&self) -> i32 { self.1 }
+            fn first(&self) -> i32 {
+                self.0
+            }
+            fn last(&self) -> i32 {
+                self.1
+            }
         }
         //使用关联类型后定义更加简洁
         fn difference<C: Contains>(container: &C) -> i32 {
@@ -245,7 +283,12 @@ fn associated_types() {
         let number_1 = 3;
         let number_2 = 10;
         let container = Container(number_1, number_2);
-        println!("Does container contain {} and {}: {}", &number_1, &number_2, container.contains(&number_1, &number_2));
+        println!(
+            "Does container contain {} and {}: {}",
+            &number_1,
+            &number_2,
+            container.contains(&number_1, &number_2)
+        );
         println!("First number: {}", container.first());
         println!("Last number: {}", container.last());
         println!("The difference is: {}", difference(&container));
@@ -259,8 +302,8 @@ fn associated_types() {
 //标记拥有关系；
 //自动trait实现（send/sync）；
 fn phantom_type_parameters() {
-    use std::ops::Add;
     use std::marker::PhantomData;
+    use std::ops::Add;
     #[derive(Debug, Clone, Copy)]
     enum Inch {}
     #[derive(Debug, Clone, Copy)]

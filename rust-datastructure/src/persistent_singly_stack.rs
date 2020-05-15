@@ -25,13 +25,15 @@ impl<T> List<T> {
             head: Some(Rc::new(Node {
                 elem,
                 next: self.head.clone(),
-            }))
+            })),
         }
     }
 
     pub fn tail(&self) -> List<T> {
         //and_then 如果self为[`None`]，则返回[`None`]，否则调用'f'并包装值，返回结果。有些语言称此操作为flatmap。
-        List { head: self.head.as_ref().and_then(|node| node.next.clone()) }
+        List {
+            head: self.head.as_ref().and_then(|node| node.next.clone()),
+        }
     }
 
     pub fn head(&self) -> Option<&T> {
@@ -39,7 +41,9 @@ impl<T> List<T> {
     }
 
     pub fn iter(&self) -> Iter<'_, T> {
-        Iter { next: self.head.as_ref().map(|node| &**node) }
+        Iter {
+            next: self.head.as_ref().map(|node| &**node),
+        }
     }
 }
 

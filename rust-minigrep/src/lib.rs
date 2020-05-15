@@ -24,20 +24,24 @@ impl Config {
             None => return Err("Didn't get a file name"),
         };
         let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
-        Ok(Config { query, filename, case_sensitive })
+        Ok(Config {
+            query,
+            filename,
+            case_sensitive,
+        })
     }
-//    pub fn new(args: &[String]) -> Result<Config, &'static str> {
-//        //构造时限制参数
-//        if args.len() < 3 {
-//            //panic!("not enough arguments");
-//            return Err("not enough arguments");
-//        }
-//        let query = args[1].clone();
-//        let filename = args[2].clone();
-//        //获取环境变量
-//        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
-//        Ok(Config { query, filename, case_sensitive })
-//    }
+    //    pub fn new(args: &[String]) -> Result<Config, &'static str> {
+    //        //构造时限制参数
+    //        if args.len() < 3 {
+    //            //panic!("not enough arguments");
+    //            return Err("not enough arguments");
+    //        }
+    //        let query = args[1].clone();
+    //        let filename = args[2].clone();
+    //        //获取环境变量
+    //        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+    //        Ok(Config { query, filename, case_sensitive })
+    //    }
 }
 
 ///现在，只知道这Box<dyn Error>意味着函数将返回实现该Error特征的类型，但是我们不必指定返回值将是哪种特定类型。
@@ -65,7 +69,6 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     results
 }
 
-
 ///忽略大小写的查询
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let query = query.to_lowercase();
@@ -81,5 +84,8 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
 
 ///使用迭代器和闭包的简洁查询函数
 pub fn search2<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    contents.lines().filter(|line| line.contains(query)).collect()
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }

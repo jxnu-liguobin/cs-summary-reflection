@@ -7,7 +7,6 @@ pub fn iterator_function() {
     println!("{}", v2 == vec![2, 3, 4])
 }
 
-
 struct Counter {
     count: u32,
 }
@@ -42,7 +41,6 @@ fn calling_next_directly() {
     assert_eq!(counter.next(), None);
 }
 
-
 #[derive(PartialEq, Debug)]
 struct Shoe {
     size: u32,
@@ -57,20 +55,34 @@ fn shoes_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
 #[test]
 fn filters_by_size() {
     let shoes = vec![
-        Shoe { size: 10, style: String::from("sneaker") },
-        Shoe { size: 13, style: String::from("sandal") },
-        Shoe { size: 10, style: String::from("boot") },
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
     ];
     let in_my_size = shoes_in_my_size(shoes, 10);
     assert_eq!(
         in_my_size,
         vec![
-            Shoe { size: 10, style: String::from("sneaker") },
-            Shoe { size: 10, style: String::from("boot") },
+            Shoe {
+                size: 10,
+                style: String::from("sneaker")
+            },
+            Shoe {
+                size: 10,
+                style: String::from("boot")
+            },
         ]
     );
 }
-
 
 #[test]
 fn iterator_demonstration() {
@@ -93,7 +105,8 @@ fn iterator_sum() {
 
 #[test]
 fn using_other_iterator_trait_methods() {
-    let sum: u32 = Counter::new().zip(Counter::new().skip(1))
+    let sum: u32 = Counter::new()
+        .zip(Counter::new().skip(1))
         .map(|(a, b)| a * b)
         .filter(|x| x % 3 == 0)
         .sum();

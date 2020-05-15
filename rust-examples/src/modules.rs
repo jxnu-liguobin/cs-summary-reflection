@@ -12,7 +12,7 @@ fn struct_visibility() {
         }
 
         //公有结构体和私有字段
-        #[allow(dead_code)]//禁用编译器的 未使用警告
+        #[allow(dead_code)] //禁用编译器的 未使用警告
         pub struct ClosedBox<T> {
             contents: T,
         }
@@ -20,14 +20,14 @@ fn struct_visibility() {
         impl<T> ClosedBox<T> {
             //公有的构造函数
             pub fn new(contents: T) -> ClosedBox<T> {
-                ClosedBox {
-                    contents: contents,
-                }
+                ClosedBox { contents: contents }
             }
         }
     }
 
-    let open_box = my::OpenBox { contents: "public information" };
+    let open_box = my::OpenBox {
+        contents: "public information",
+    };
     println!("The open box contains: {}", open_box.contents);
 
     //ERROR
@@ -67,7 +67,8 @@ fn cfg() {
     are_you_on_linux2();
 
     println!("Are you sure?");
-    if cfg!(target_os = "linux") {//target_os由rustc隐式提供，但是自定义条件条件必须使用--cfg标志传递给rustc
+    if cfg!(target_os = "linux") {
+        //target_os由rustc隐式提供，但是自定义条件条件必须使用--cfg标志传递给rustc
         println!("Yes. It's definitely linux!");
     } else {
         println!("Yes. It's definitely *not* linux!");

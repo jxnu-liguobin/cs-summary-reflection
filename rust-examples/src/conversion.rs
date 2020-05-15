@@ -1,6 +1,5 @@
 ///类型之间的转化
 pub fn conversion() {
-
     //FROM
     let my_str = "hello";
     let my_string = String::from(my_str);
@@ -24,7 +23,6 @@ pub fn conversion() {
     // Try removing the type declaration
     let num: Number = int.into();
     println!("My number is {:?}", num);
-
 
     try_conversion();
 
@@ -64,11 +62,10 @@ fn try_conversion() {
     let result: Result<EvenNumber, ()> = 5i32.try_into();
     assert_eq!(result, Err(()));
 
-
     //转化为字符串
     use std::fmt;
     struct Circle {
-        radius: i32
+        radius: i32,
     }
 
     impl fmt::Display for Circle {
@@ -86,16 +83,15 @@ fn expression() {
     let y = {
         let x_squared = x * x;
         let x_cube = x_squared * x;
-        x_cube + x_squared + x//返回这个表达式
+        x_cube + x_squared + x //返回这个表达式
     };
 
     let z = {
         // The semicolon suppresses this expression and `()` is assigned to `z`
-        2 * x;//以分号结尾的返回 ()
+        2 * x; //以分号结尾的返回 ()
     };
 
     println!("x is {:?}", x);
     println!("y is {:?}", y);
     println!("z is {:?}", z);
 }
-

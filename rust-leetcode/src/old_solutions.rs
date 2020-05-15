@@ -9,13 +9,13 @@ use std::str::Chars;
 use pre_structs::*;
 
 ///Leetcode 超简单的算法题目，主要为了熟悉rust语法
-///rust所必须的数据结构，Solution.rs源码中的行号对应README.md链接的#L参数，新增代码只能追加到最后
+///rust所必须的数据结构
+///old_solutions 是第一版，基本都带有测试（后续每个题都使用独立文件，测试暂无）
 mod pre_structs {
     use std::cell::RefCell;
     use std::rc::Rc;
 
     pub(crate) struct Solution;
-
 
     //二叉树
     #[derive(Debug, PartialEq, Eq)]
@@ -40,24 +40,21 @@ mod pre_structs {
     #[derive(PartialEq, Eq, Clone, Debug)]
     pub struct ListNode {
         pub val: i32,
-        pub next: Option<Box<ListNode>>,//堆上
+        pub next: Option<Box<ListNode>>, //堆上
     }
 
     impl ListNode {
         #[inline]
         fn new(val: i32) -> Self {
-            ListNode {
-                next: None,
-                val,
-            }
+            ListNode { next: None, val }
         }
     }
 }
 
 ///二叉树的镜像
 fn interview_27() {
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
     impl Solution {
         pub fn mirror_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
             fn mirror(root: &mut Option<Rc<RefCell<TreeNode>>>) {
@@ -79,15 +76,42 @@ fn interview_27() {
         }
     }
 
-
-    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: None, right: None })));
-    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 3, left: None, right: None })));
-    let e3 = Some(Rc::new(RefCell::new(TreeNode { val: 6, left: None, right: None })));
-    let e4 = Some(Rc::new(RefCell::new(TreeNode { val: 9, left: None, right: None })));
-    let e5 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: e1, right: e2 })));
-    let e6 = Some(Rc::new(RefCell::new(TreeNode { val: 7, left: e3, right: e4 })));
-    let e7 = Some(Rc::new(RefCell::new(TreeNode { val: 4, left: e5, right: e6 })));
-//    println!("{:?}", Solution::mirror_tree(e7));
+    let e1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 1,
+        left: None,
+        right: None,
+    })));
+    let e2 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 3,
+        left: None,
+        right: None,
+    })));
+    let e3 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 6,
+        left: None,
+        right: None,
+    })));
+    let e4 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 9,
+        left: None,
+        right: None,
+    })));
+    let e5 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: e1,
+        right: e2,
+    })));
+    let e6 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 7,
+        left: e3,
+        right: e4,
+    })));
+    let e7 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 4,
+        left: e5,
+        right: e6,
+    })));
+    //    println!("{:?}", Solution::mirror_tree(e7));
     println!("{:?}", Solution::mirror_tree(e7))
 }
 
@@ -115,7 +139,7 @@ fn interview_02_02() {
         //倒数第k个，位置就是len-k。即快指针先走k步，然后2个指针同时走，快指针到达尾时，慢指针的位置就是第len-k个元素。此时快指针刚好走完一圈
         pub fn kth_to_last2(head: Option<Box<ListNode>>, k: i32) -> i32 {
             let mut i = k;
-            let mut fast = head.as_ref();//clone也可以，但没有必要，不能copy，没有实现Copy
+            let mut fast = head.as_ref(); //clone也可以，但没有必要，不能copy，没有实现Copy
             let mut slow = head.as_ref();
             while i > 0 {
                 if let Some(node) = fast.borrow() {
@@ -199,7 +223,12 @@ fn leetcode_1351() {
         }
     }
 
-    let nums = vec![vec![4, 3, 2, -1], vec![3, 2, 1, -1], vec![1, 1, -1, -2], vec![-1, -1, -2, -3]];
+    let nums = vec![
+        vec![4, 3, 2, -1],
+        vec![3, 2, 1, -1],
+        vec![1, 1, -1, -2],
+        vec![-1, -1, -2, -3],
+    ];
     println!("{}", Solution::count_negatives(nums));
 }
 
@@ -326,7 +355,7 @@ fn leetcode_1342() {
                     n -= 1;
                 }
                 i += 1;
-            };
+            }
             i
         }
     }
@@ -363,7 +392,7 @@ fn leetcode_1313() {
 ///打印从1到最大的n位数
 fn interview_17() {
     println!("interview_17");
-    let num = ['9'; 10];//10个字符串9，这里10只能是一个常量，无法直接用于本题
+    let num = ['9'; 10]; //10个字符串9，这里10只能是一个常量，无法直接用于本题
     let mut max_num = String::new();
     for i in num.iter() {
         max_num.push(*i)
@@ -461,14 +490,13 @@ fn leetcode_1221() {
         }
         //函数式
         pub fn balanced_string_split2(s: String) -> i32 {
-            s.chars().scan(0, |acc, e| {
-                *acc = if let 'R' = e {
-                    (*acc + 1)
-                } else {
-                    (*acc - 1)
-                };
-                Some(*acc)
-            }).filter(|&e| e == 0).count() as i32
+            s.chars()
+                .scan(0, |acc, e| {
+                    *acc = if let 'R' = e { (*acc + 1) } else { (*acc - 1) };
+                    Some(*acc)
+                })
+                .filter(|&e| e == 0)
+                .count() as i32
         }
     }
     let ret = Solution::balanced_string_split("RLRRLLRLRL".to_string());
@@ -488,7 +516,9 @@ fn interview_06() {
                 if let Some(root) = node {
                     ret.push(root.val);
                     node = root.next.as_ref();
-                } else { break; }
+                } else {
+                    break;
+                }
             }
             ret.reverse();
             ret
@@ -504,8 +534,8 @@ fn interview_06() {
 ///二叉搜索树的范围和
 fn leetcode_938() {
     println!("leetcode_938");
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
     impl Solution {
         pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32) -> i32 {
             let mut ret = 0;
@@ -554,7 +584,7 @@ fn leetcode_938() {
 }
 
 ///删除最外层的括号
-fn lettcode_1021() {
+fn leetcode_1021() {
     println!("lettcode_1021");
     impl Solution {
         pub fn remove_outer_parentheses(s: String) -> String {
@@ -595,8 +625,6 @@ fn lettcode_1021() {
         }
     }
 
-
-
     let ret = Solution::remove_outer_parentheses("(()())(())".to_string());
     println!("{}", ret)
 }
@@ -627,7 +655,7 @@ fn interview_24() {
     let e4 = Some(Box::new(ListNode { val: 2, next: e3 }));
     let e5 = Some(Box::new(ListNode { val: 1, next: e4 }));
     let ret = Solution::reverse_list(e5);
-    println!("{:?}", ret.unwrap());// 5 4 3 2 1
+    println!("{:?}", ret.unwrap()); // 5 4 3 2 1
 }
 
 ///奇数值单元格的数目
@@ -676,11 +704,14 @@ fn leetcode_1323() {
 ///合并二叉树
 fn leetcode_617() {
     println!("leetcode_617");
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
     impl Solution {
         ///author 李广胜
-        pub fn merge_trees(t1: Option<Rc<RefCell<TreeNode>>>, t2: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        pub fn merge_trees(
+            t1: Option<Rc<RefCell<TreeNode>>>,
+            t2: Option<Rc<RefCell<TreeNode>>>,
+        ) -> Option<Rc<RefCell<TreeNode>>> {
             if t1.is_none() {
                 return t2;
             }
@@ -695,14 +726,23 @@ fn leetcode_617() {
                 //直接b2.val编译错误
                 Some(Rc::new(RefCell::new(TreeNode {
                     val: (*b1.as_ptr()).val + (*b2.as_ptr()).val,
-                    left: Solution::merge_trees((*b1.as_ptr()).left.clone(), (*b2.as_ptr()).left.clone()),
-                    right: Solution::merge_trees((*b1.as_ptr()).right.clone(), (*b2.as_ptr()).right.clone()),
+                    left: Solution::merge_trees(
+                        (*b1.as_ptr()).left.clone(),
+                        (*b2.as_ptr()).left.clone(),
+                    ),
+                    right: Solution::merge_trees(
+                        (*b1.as_ptr()).right.clone(),
+                        (*b2.as_ptr()).right.clone(),
+                    ),
                 })))
             }
         }
 
         ///author 长条人
-        pub fn merge_trees2(t1: Option<Rc<RefCell<TreeNode>>>, t2: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        pub fn merge_trees2(
+            t1: Option<Rc<RefCell<TreeNode>>>,
+            t2: Option<Rc<RefCell<TreeNode>>>,
+        ) -> Option<Rc<RefCell<TreeNode>>> {
             fn merge(t1: &mut Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) {
                 if let Some(mut n1) = t1.as_ref() {
                     if let Some(n2) = t2 {
@@ -713,7 +753,8 @@ fn leetcode_617() {
                             merge(&mut (*n1.as_ptr()).left, &(*n2.as_ptr()).left);
                             merge(&mut (*n1.as_ptr()).right, &(*n2.as_ptr()).right);
                         }
-                    } else {}
+                    } else {
+                    }
                 } else {
                     *t1 = t2.clone();
                 }
@@ -752,12 +793,16 @@ fn leetcode_709() {
     println!("leetcode_709");
     impl Solution {
         pub fn to_lower_case(str: String) -> String {
-            str.chars().map(|c| {
-                //说明是大写，+32
-                if c < 'a' && c >= 'A' {
-                    (c as u8 + 32 as u8) as char
-                } else { c }
-            }).collect()
+            str.chars()
+                .map(|c| {
+                    //说明是大写，+32
+                    if c < 'a' && c >= 'A' {
+                        (c as u8 + 32 as u8) as char
+                    } else {
+                        c
+                    }
+                })
+                .collect()
         }
     }
     let ret = Solution::to_lower_case("al&phaBET".to_string());
@@ -811,7 +856,11 @@ fn lettcode_804() {
     println!("lettcode_804");
     impl Solution {
         pub fn unique_morse_representations(words: Vec<String>) -> i32 {
-            let m = vec![".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+            let m = vec![
+                ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-",
+                ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--",
+                "-..-", "-.--", "--..",
+            ];
             let mut ret = HashSet::new();
             for w in words.iter() {
                 let mut mw = String::new();
@@ -826,7 +875,12 @@ fn lettcode_804() {
         }
     }
 
-    let words = vec!["gin".to_owned(), "zen".to_owned(), "gig".to_owned(), "msg".to_owned()];
+    let words = vec![
+        "gin".to_owned(),
+        "zen".to_owned(),
+        "gig".to_owned(),
+        "msg".to_owned(),
+    ];
     let ret = Solution::unique_morse_representations(words);
     println!("{}", ret)
 }
@@ -836,16 +890,20 @@ fn leetcode_832() {
     println!("leetcode_832");
     impl Solution {
         pub fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-            let ret: Vec<Vec<i32>> = a.iter().map(|mut row| -> Vec<i32> {
-                let mut new_row: Vec<i32> = row.iter().map(|x| -> i32 {
-                    let new_x = if let 0 = x {
-                        1
-                    } else { 0 };
-                    new_x
-                }).collect();
-                new_row.reverse();
-                new_row
-            }).collect();
+            let ret: Vec<Vec<i32>> = a
+                .iter()
+                .map(|mut row| -> Vec<i32> {
+                    let mut new_row: Vec<i32> = row
+                        .iter()
+                        .map(|x| -> i32 {
+                            let new_x = if let 0 = x { 1 } else { 0 };
+                            new_x
+                        })
+                        .collect();
+                    new_row.reverse();
+                    new_row
+                })
+                .collect();
             ret
         }
     }
@@ -864,8 +922,14 @@ fn leetcode_832() {
 fn interview_25() {
     println!("interview_25");
     impl Solution {
-        pub fn merge_two_lists(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-            let mut result_head: Option<Box<ListNode>> = Some(Box::new(ListNode { val: -1, next: None }));
+        pub fn merge_two_lists(
+            l1: Option<Box<ListNode>>,
+            l2: Option<Box<ListNode>>,
+        ) -> Option<Box<ListNode>> {
+            let mut result_head: Option<Box<ListNode>> = Some(Box::new(ListNode {
+                val: -1,
+                next: None,
+            }));
             let mut cur = &mut result_head;
             let mut l1 = l1;
             let mut l2 = l2;
@@ -1077,7 +1141,7 @@ fn interview_01_01() {
         pub fn is_unique(astr: String) -> bool {
             let cs = astr.chars();
             //题目没有说明，但这样AC了，假定只有大小写字母
-            let mut count = vec![0; ('z' as i32 as usize) + 1];//123
+            let mut count = vec![0; ('z' as i32 as usize) + 1]; //123
             for c in cs {
                 count[(c as i32) as usize] += 1;
             }
@@ -1121,11 +1185,11 @@ fn leetcode_1385() {
             let ret = arr1.iter().for_each(|&x| {
                 let mut flag = false;
                 arr2.iter().for_each(|&y| {
-                    if !flag && (x - y).abs() > d {} else {
+                    if !flag && (x - y).abs() > d {
+                    } else {
                         flag = true;
                     }
-                }
-                );
+                });
                 if !flag {
                     c += 1;
                 }
@@ -1140,8 +1204,8 @@ fn leetcode_1385() {
 ///二叉搜索树的第k大节点
 fn interview_54() {
     println!("interview_54");
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
     impl Solution {
         pub fn kth_largest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
             let mut ret = Vec::new();
@@ -1159,14 +1223,30 @@ fn interview_54() {
             }
             for e in ret.iter() {
                 println!("{}", e);
-            };
+            }
             ret[(ret.len() - k as usize)]
         }
     }
-    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: None, right: None })));
-    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: None, right: e2 })));
-    let e4 = Some(Rc::new(RefCell::new(TreeNode { val: 4, left: None, right: None })));
-    let root = Some(Rc::new(RefCell::new(TreeNode { val: 3, left: e1, right: e4 })));
+    let e2 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: None,
+    })));
+    let e1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 1,
+        left: None,
+        right: e2,
+    })));
+    let e4 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 4,
+        left: None,
+        right: None,
+    })));
+    let root = Some(Rc::new(RefCell::new(TreeNode {
+        val: 3,
+        left: e1,
+        right: e4,
+    })));
     println!("{:?}", Solution::kth_largest(root, 4))
 }
 
@@ -1201,7 +1281,11 @@ fn interview_09() {
                 }
             }
             let e = self.stack2.pop_back();
-            if e.is_none() { -1 } else { e.unwrap().unwrap() }
+            if e.is_none() {
+                -1
+            } else {
+                e.unwrap().unwrap()
+            }
         }
     }
 
@@ -1336,7 +1420,7 @@ fn leetcode_1380() {
 fn leetcode_933() {
     println!("leetcode_933");
     struct RecentCounter {
-        queue: VecDeque<i32>
+        queue: VecDeque<i32>,
     }
 
     /**
@@ -1345,7 +1429,9 @@ fn leetcode_933() {
      */
     impl RecentCounter {
         fn new() -> Self {
-            RecentCounter { queue: VecDeque::new() }
+            RecentCounter {
+                queue: VecDeque::new(),
+            }
         }
 
         fn ping(&mut self, t: i32) -> i32 {
@@ -1395,8 +1481,8 @@ fn leetcode_561() {
 ///将有序数组转换为二叉搜索树
 fn leetcode_108() {
     println!("leetcode_108");
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
     impl Solution {
         //与最小高度树 interview_04_02 一样
         pub fn sorted_array_to_bst2(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -1432,7 +1518,7 @@ fn leetcode_1374() {
                 ret = vec!['a'; n as usize];
             }
             let mut rs = String::new();
-            ret.iter().for_each(|&c| { rs.push(c) });
+            ret.iter().for_each(|&c| rs.push(c));
             rs
         }
     }
@@ -1471,10 +1557,13 @@ fn leetcode_557() {
     impl Solution {
         pub fn reverse_words(s: String) -> String {
             let arr: Vec<&str> = s.split(' ').collect();
-            let ret: Vec<String> = arr.iter().map(|word| -> String {
-                let c: String = (*word).chars().rev().collect();
-                c
-            }).collect();
+            let ret: Vec<String> = arr
+                .iter()
+                .map(|word| -> String {
+                    let c: String = (*word).chars().rev().collect();
+                    c
+                })
+                .collect();
             ret.join(" ").to_string()
         }
     }
@@ -1527,8 +1616,16 @@ fn leetcode_999() {
         }
     }
 
-    let d = vec![vec!['.', '.', '.', '.', '.', '.', '.', '.'], vec!['.', '.', '.', 'p', '.', '.', '.', '.'], vec!['.', '.', '.', 'R', '.', '.', '.', 'p'], vec!['.', '.', '.', '.', '.', '.', '.', '.'], vec!['.', '.', '.', '.', '.', '.', '.', '.'], vec!['.', '.', '.', 'p', '.', '.', '.', '.'],
-                 vec!['.', '.', '.', '.', '.', '.', '.', '.'], vec!['.', '.', '.', '.', '.', '.', '.', '.']];
+    let d = vec![
+        vec!['.', '.', '.', '.', '.', '.', '.', '.'],
+        vec!['.', '.', '.', 'p', '.', '.', '.', '.'],
+        vec!['.', '.', '.', 'R', '.', '.', '.', 'p'],
+        vec!['.', '.', '.', '.', '.', '.', '.', '.'],
+        vec!['.', '.', '.', '.', '.', '.', '.', '.'],
+        vec!['.', '.', '.', 'p', '.', '.', '.', '.'],
+        vec!['.', '.', '.', '.', '.', '.', '.', '.'],
+        vec!['.', '.', '.', '.', '.', '.', '.', '.'],
+    ];
     let ret = Solution::num_rook_captures(d);
     println!("{}", ret)
 }
@@ -1538,7 +1635,11 @@ fn leetcode_292() {
     println!("leetcode_292");
     impl Solution {
         pub fn can_win_nim(n: i32) -> bool {
-            if n % 4 == 0 { false } else { true }
+            if n % 4 == 0 {
+                false
+            } else {
+                true
+            }
         }
     }
 }
@@ -1559,7 +1660,12 @@ fn leetcode_1160() {
                     word_count[c as usize] += 1;
                 }
                 let mut flg = true;
-                if word.chars().map(|tc| -> bool { char_count[tc as usize] < word_count[tc as usize] }).find(|&x| x == true).is_some() {
+                if word
+                    .chars()
+                    .map(|tc| -> bool { char_count[tc as usize] < word_count[tc as usize] })
+                    .find(|&x| x == true)
+                    .is_some()
+                {
                     flg = false;
                 }
                 if flg {
@@ -1570,11 +1676,20 @@ fn leetcode_1160() {
         }
     }
 
-    let ret = Solution::count_characters(vec!["skwgxuuuumkfurejmqrbipvlavdrozjyxhagbwetabjwevfsegqfpllgafm".to_owned(), "ufvpzzgpswnk".to_owned(),
-                                              "tcouxmlrnfyoxvkeglchhryykmdvgvdxpookbtiyhuthoqsnqbowewpfgbcy".to_owned(),
-                                              "qwpttmxzazkkfqqtrnkaejifligdvgnyvtmppjbkeuqryxzqyegttvhzolpztvigxygzvsppurijaekb".to_owned(),
-                                              "vbtvbheurzbglzljczmziitkbmtoybiwhoyfrsxvfveaxchebjdzdnnispzwbrgrbcdaistps".to_owned()]
-                                             .iter().map(|c| c.to_string()).collect(), "avyteswqppomeojxoybotzriuvxolmllevluauwb".to_owned());
+    let ret = Solution::count_characters(
+        vec![
+            "skwgxuuuumkfurejmqrbipvlavdrozjyxhagbwetabjwevfsegqfpllgafm".to_owned(),
+            "ufvpzzgpswnk".to_owned(),
+            "tcouxmlrnfyoxvkeglchhryykmdvgvdxpookbtiyhuthoqsnqbowewpfgbcy".to_owned(),
+            "qwpttmxzazkkfqqtrnkaejifligdvgnyvtmppjbkeuqryxzqyegttvhzolpztvigxygzvsppurijaekb"
+                .to_owned(),
+            "vbtvbheurzbglzljczmziitkbmtoybiwhoyfrsxvfveaxchebjdzdnnispzwbrgrbcdaistps".to_owned(),
+        ]
+        .iter()
+        .map(|c| c.to_string())
+        .collect(),
+        "avyteswqppomeojxoybotzriuvxolmllevluauwb".to_owned(),
+    );
     println!("{}", ret);
 }
 
@@ -1603,8 +1718,8 @@ fn leetcode_1413() {
 ///从上到下打印二叉树 II
 fn interview_32_2() {
     println!("interview_32_2");
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
     impl Solution {
         //leetcode 102
         pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
@@ -1643,13 +1758,33 @@ fn interview_32_2() {
         }
     }
 
-    let e7 = Some(Rc::new(RefCell::new(TreeNode { val: 7, left: None, right: None })));
-    let e15 = Some(Rc::new(RefCell::new(TreeNode { val: 15, left: None, right: None })));
-    let e20 = Some(Rc::new(RefCell::new(TreeNode { val: 20, left: e15, right: e7 })));
-    let e9 = Some(Rc::new(RefCell::new(TreeNode { val: 9, left: None, right: None })));
-    let e3 = Some(Rc::new(RefCell::new(TreeNode { val: 3, left: e9, right: e20 })));
-//    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: None, right: None })));
-//    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: e2, right: None })));
+    let e7 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 7,
+        left: None,
+        right: None,
+    })));
+    let e15 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 15,
+        left: None,
+        right: None,
+    })));
+    let e20 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 20,
+        left: e15,
+        right: e7,
+    })));
+    let e9 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 9,
+        left: None,
+        right: None,
+    })));
+    let e3 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 3,
+        left: e9,
+        right: e20,
+    })));
+    //    let e2 = Some(Rc::new(RefCell::new(TreeNode { val: 2, left: None, right: None })));
+    //    let e1 = Some(Rc::new(RefCell::new(TreeNode { val: 1, left: e2, right: None })));
     let ret = Solution::level_order(e3);
     for v in ret.iter() {
         for c in v.iter() {
@@ -1680,20 +1815,22 @@ fn leetcode_944() {
             ret
         }
     }
-    let ret = Solution::min_deletion_size(vec!["cba".to_owned(), "daf".to_owned(), "ghi".to_owned()]);
+    let ret =
+        Solution::min_deletion_size(vec!["cba".to_owned(), "daf".to_owned(), "ghi".to_owned()]);
     println!("{}", ret);
 }
 
-
 ///回文数
-fn leetcoode_9() {
+fn leetcode_9() {
     println!("leetcoode_9");
     impl Solution {
         //1.双指针，2.找规律，3.字符串，4.栈
         pub fn is_palindrome(x: i32) -> bool {
             //4ms
             let mut n = x;
-            if n < 0 || (n != 0 && n % 10 == 0) { return false; } else {
+            if n < 0 || (n != 0 && n % 10 == 0) {
+                return false;
+            } else {
                 let mut tmp = 0;
                 while n > 0 {
                     tmp = tmp * 10 + (n % 10);
@@ -1736,7 +1873,9 @@ fn leetcode_13() {
             let n = vec![1, 5, 10, 50, 100, 500, 1000];
             let mut ret = 0;
             let right = s.len() - 1;
-            n.iter().enumerate().for_each(|(x, &y)| { maps.insert(chs[x], y); });
+            n.iter().enumerate().for_each(|(x, &y)| {
+                maps.insert(chs[x], y);
+            });
             for i in 0..right {
                 //字不是顺序的，但是数字列表是顺序的
                 if maps[s.index(i..=i)] >= maps[s.index(i + 1..=i + 1)] {
@@ -1769,11 +1908,13 @@ fn leetcode_13() {
                 return 0;
             }
 
-            s.chars().zip(s.chars().skip(1)).for_each(|(first, second)| {
-                let a = roman_to_int_char(first).unwrap();
-                let b = roman_to_int_char(second).unwrap();
-                v += (if a < b { -1 * a } else { a });
-            });
+            s.chars()
+                .zip(s.chars().skip(1))
+                .for_each(|(first, second)| {
+                    let a = roman_to_int_char(first).unwrap();
+                    let b = roman_to_int_char(second).unwrap();
+                    v += (if a < b { -1 * a } else { a });
+                });
             v += roman_to_int_char(s.chars().last().unwrap()).unwrap();
 
             v
@@ -1781,7 +1922,15 @@ fn leetcode_13() {
 
         //闲杂织造
         pub fn roman_to_int3(s: String) -> i32 {
-            let tr = vec![('I', 1), ('V', 5), ('X', 10), ('L', 50), ('C', 100), ('D', 500), ('M', 1000)];
+            let tr = vec![
+                ('I', 1),
+                ('V', 5),
+                ('X', 10),
+                ('L', 50),
+                ('C', 100),
+                ('D', 500),
+                ('M', 1000),
+            ];
             let mut hash: HashMap<char, i32> = tr.iter().cloned().collect();
             let chars: Vec<char> = s.chars().collect();
             let mut ans = 0;
@@ -1831,24 +1980,63 @@ fn leetcode_876() {
     println!("{:?}", ret)
 }
 
-
 ///键盘行
 fn leetcode_500() {
     println!("leetcode_500");
     impl Solution {
         pub fn find_words(words: Vec<String>) -> Vec<String> {
-            let map: HashMap<char, i32> = vec![('Q', 0), ('W', 0), ('E', 0), ('R', 0), ('T', 0), ('Y', 0), ('U', 0), ('I', 0), ('O', 0), ('P', 0),
-                                               ('A', 1), ('S', 1), ('D', 1), ('F', 1), ('G', 1), ('H', 1), ('J', 1), ('K', 1), ('L', 1),
-                                               ('Z', 2), ('X', 2), ('C', 2), ('V', 2), ('B', 2), ('N', 2), ('M', 2)].iter().cloned().collect();
-            words.iter().filter(|word| {
-                let chars: Vec<char> = word.chars().collect();
-                let index: HashSet<i32> = chars.iter().map(|c| -> i32 { map[&c.to_ascii_uppercase()] }).collect();
-                index.len() == 1
-            }).cloned().collect()
+            let map: HashMap<char, i32> = vec![
+                ('Q', 0),
+                ('W', 0),
+                ('E', 0),
+                ('R', 0),
+                ('T', 0),
+                ('Y', 0),
+                ('U', 0),
+                ('I', 0),
+                ('O', 0),
+                ('P', 0),
+                ('A', 1),
+                ('S', 1),
+                ('D', 1),
+                ('F', 1),
+                ('G', 1),
+                ('H', 1),
+                ('J', 1),
+                ('K', 1),
+                ('L', 1),
+                ('Z', 2),
+                ('X', 2),
+                ('C', 2),
+                ('V', 2),
+                ('B', 2),
+                ('N', 2),
+                ('M', 2),
+            ]
+            .iter()
+            .cloned()
+            .collect();
+            words
+                .iter()
+                .filter(|word| {
+                    let chars: Vec<char> = word.chars().collect();
+                    let index: HashSet<i32> = chars
+                        .iter()
+                        .map(|c| -> i32 { map[&c.to_ascii_uppercase()] })
+                        .collect();
+                    index.len() == 1
+                })
+                .cloned()
+                .collect()
         }
     }
 
-    let ret = Solution::find_words(vec!["Hello".to_string(), "Alaska".to_string(), "Dad".to_string(), "Peace".to_string()]);
+    let ret = Solution::find_words(vec![
+        "Hello".to_string(),
+        "Alaska".to_string(),
+        "Dad".to_string(),
+        "Peace".to_string(),
+    ]);
     print_vec_string(ret);
 }
 
@@ -1932,12 +2120,20 @@ fn leetcode_14() {
         }
     }
 
-    let ret = Solution::longest_common_prefix(vec!["flower".to_owned(), "flow".to_owned(), "flight".to_owned()]);
+    let ret = Solution::longest_common_prefix(vec![
+        "flower".to_owned(),
+        "flow".to_owned(),
+        "flight".to_owned(),
+    ]);
     let ret2 = Solution::longest_common_prefix(vec![]);
     println!("{}", ret);
     println!("{}", ret2);
 
-    let ret = Solution::longest_common_prefix2(vec!["flower".to_owned(), "flow".to_owned(), "flight".to_owned()]);
+    let ret = Solution::longest_common_prefix2(vec![
+        "flower".to_owned(),
+        "flow".to_owned(),
+        "flight".to_owned(),
+    ]);
     let ret2 = Solution::longest_common_prefix2(vec![]);
     println!("{}", ret);
     println!("{}", ret2);
@@ -1964,7 +2160,10 @@ fn leetcode_20() {
                     }
                     let c_stack = stack.pop();
                     if let Some(cStack) = c_stack {
-                        if c == ')' && cStack != '(' || c == ']' && cStack != '[' || c == '}' && cStack != '{' {
+                        if c == ')' && cStack != '('
+                            || c == ']' && cStack != '['
+                            || c == '}' && cStack != '{'
+                        {
                             return false;
                         }
                     }
@@ -1977,7 +2176,6 @@ fn leetcode_20() {
     println!("{}", ret);
 }
 
-
 ///搜索插入位置
 fn leetcode_35() {
     println!("leetcode_35");
@@ -1987,7 +2185,7 @@ fn leetcode_35() {
             //找到知己反回索引，没有找到则返回该元素插入后保持数组仍然有序的索引位置，主要用于有序的数组/向量
             let ret = match nums.binary_search(&target) {
                 Ok(found_index) => found_index,
-                Err(maybe_insert) => maybe_insert
+                Err(maybe_insert) => maybe_insert,
             };
             ret as i32
         }
@@ -2017,7 +2215,11 @@ fn leetcode_1207() {
         pub fn unique_occurrences(arr: Vec<i32>) -> bool {
             let mut map = HashMap::new();
             for num in arr.iter() {
-                let n = if map.contains_key(num) { map.get(num).unwrap() } else { &0 };
+                let n = if map.contains_key(num) {
+                    map.get(num).unwrap()
+                } else {
+                    &0
+                };
                 if map.contains_key(num) {
                     map.insert(num, *n + 1);
                 } else {
@@ -2042,7 +2244,9 @@ fn leetcode_38() {
         //描述上一步的数，这个数是21即一个2一个1，故写作12-11
         //描述上一步的数，这个数是1211即一个1一个2两个1，故写作11-12-21
         pub fn count_and_say(n: i32) -> String {
-            if n == 1 { return "1".to_owned(); }
+            if n == 1 {
+                return "1".to_owned();
+            }
             let pre_str = Solution::count_and_say(n - 1);
             let mut curr_str = String::new();
             let mut pre_char = None;
@@ -2109,7 +2313,8 @@ fn leetcode_665() {
                     } else if nums[i - 1] > nums[i + 1] {
                         //如果 i-1 和 i+1 是降序排列，此时增大 i+1 的值
                         nums[i + 1] = nums[i];
-                    } else {}
+                    } else {
+                    }
                     //计算需要改动的次数
                     cnt += 1;
                     if cnt > 1 {
@@ -2143,7 +2348,7 @@ pub fn solutions() {
     leetcode_1221();
     interview_06();
     leetcode_938();
-    lettcode_1021();
+    leetcode_1021();
     interview_24();
     leetcode_1252();
     leetcode_1323();
@@ -2178,7 +2383,7 @@ pub fn solutions() {
     leetcode_1413();
     interview_32_2();
     leetcode_944();
-    leetcoode_9();
+    leetcode_9();
     leetcode_13();
     leetcode_876();
     leetcode_500();

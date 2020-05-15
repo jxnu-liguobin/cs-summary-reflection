@@ -1,7 +1,7 @@
-use std::{fs, io};
 use std::error::Error;
 use std::fs::File;
 use std::io::{ErrorKind, Read};
+use std::{fs, io};
 
 ///恐慌使用（error）
 pub fn panic_function() {
@@ -11,7 +11,7 @@ pub fn panic_function() {
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create("hello.txt") {
                 Ok(fc) => fc,
-                Err(e) => panic!("Problem creating the file: {:?}", e),//panic!打印错误信息，panic是不可恢复的错误
+                Err(e) => panic!("Problem creating the file: {:?}", e), //panic!打印错误信息，panic是不可恢复的错误
             },
             other_error => panic!("Problem opening the file: {:?}", other_error),
         },
@@ -50,7 +50,7 @@ pub fn panic_function() {
 
     ///传播错误的捷径：?运算符
     fn read_username_from_file2() -> Result<String, io::Error> {
-        let mut f = File::open("hello.txt")?;//使用?运算符将错误返回到调用代码的函数,将错误自身转换为返回的错误类型。（From特质 from函数）
+        let mut f = File::open("hello.txt")?; //使用?运算符将错误返回到调用代码的函数,将错误自身转换为返回的错误类型。（From特质 from函数）
         let mut s = String::new();
         f.read_to_string(&mut s)?;
         Ok(s)
@@ -83,9 +83,7 @@ pub fn panic_function() {
             if value < 1 || value > 100 {
                 panic!("Guess value must be between 1 and 100, got {}.", value);
             }
-            Guess {
-                value
-            }
+            Guess { value }
         }
         pub fn value(&self) -> i32 {
             self.value

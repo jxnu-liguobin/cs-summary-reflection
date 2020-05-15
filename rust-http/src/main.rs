@@ -1,7 +1,7 @@
-use std::{fs, thread};
 use std::io::{Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::time::Duration;
+use std::{fs, thread};
 
 use lib::ThreadPool;
 

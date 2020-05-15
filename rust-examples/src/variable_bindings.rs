@@ -17,7 +17,6 @@ pub fn variable_bindings() {
 
     let noisy_unused_variable = 2u32;
 
-
     //可变
     let _immutable_binding = 1;
     let mut mutable_binding = 1;
