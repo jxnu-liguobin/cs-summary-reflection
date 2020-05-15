@@ -53,11 +53,17 @@ fn structures() {
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     //使用“let”绑定对点进行解构
-    let Point { x: top_edge, y: left_edge } = point;
+    let Point {
+        x: top_edge,
+        y: left_edge,
+    } = point;
 
     let _rectangle = Rectangle {
         //结构体实例也是一个表达式
-        top_left: Point { x: left_edge, y: top_edge },
+        top_left: Point {
+            x: left_edge,
+            y: top_edge,
+        },
         bottom_right: bottom_right,
     };
 
@@ -115,7 +121,6 @@ fn enums() {
     inspect(load);
     inspect(unload);
 
-
     ///类型别名
     enum VeryVerboseEnumOfThingsToDoWithNumbers {
         Add,
@@ -136,7 +141,6 @@ fn enums() {
             }
         }
     }
-
 
     enum Status {
         Rich,
@@ -162,7 +166,6 @@ fn enums() {
         Civilian => println!("Civilians work!"),
         Soldier => println!("Soldiers fight!"),
     }
-
 
     ///经典的类c结构体
     enum Number {
@@ -213,7 +216,7 @@ fn testcase_linkedlist() {
             match *self {
                 //不能拥有尾，因为“self”是借来的；相反，要引用尾
                 Cons(_, ref tail) => 1 + tail.len(),
-                Nil => 0
+                Nil => 0,
             }
         }
 
@@ -224,9 +227,7 @@ fn testcase_linkedlist() {
                     //返回堆分配的字符串，而不是打印到控制台
                     format!("{}, {}", head, tail.stringify())
                 }
-                Nil => {
-                    format!("Nil")
-                }
+                Nil => format!("Nil"),
             }
         }
     }
@@ -238,7 +239,7 @@ fn testcase_linkedlist() {
     list = list.prepend(3);
 
     println!("linked list has length: {}", list.len());
-    println!("{}", list.stringify());//3, 2, 1, Nil
+    println!("{}", list.stringify()); //3, 2, 1, Nil
 }
 
 pub fn constants() {

@@ -3,19 +3,18 @@ use std::string::ToString;
 ///https://doc.rust-lang.org/stable/nomicon/vec.html.
 ///集合
 pub fn collection_function() {
-    let mut v: Vec<i32> = Vec::new();//Vec类似ArrayList，称为向量？
-    v.push(12);//想要修改必须定义为mut可变的
+    let mut v: Vec<i32> = Vec::new(); //Vec类似ArrayList，称为向量？
+    v.push(12); //想要修改必须定义为mut可变的
     println!("{:#?}", v);
     let v = vec![1, 2, 3];
     println!("{:#?}", v);
     let v = vec![1, 2, 3, 4, 5];
-    let third = &v[2];//获取元素
+    let third = &v[2]; //获取元素
     println!("The third element is {}", third);
     match v.get(2) {
         Some(third) => println!("The third element is {}", third),
         None => println!("There is no third element."),
     }
-
 
     //let does_not_exist = &v[100];//恐慌，编译时直接退出程序
     ///当将get方法传递给向量之外的索引时，它将返回None且不会出现惊慌。如果在正常情况下偶尔访问超出向量范围的元素，则可以使用此方法。
@@ -23,18 +22,18 @@ pub fn collection_function() {
     let does_not_exist = v.get(100);
     ///当程序具有有效的引用时，借位检查器将执行所有权和借用规则
     let mut v = vec![1, 2, 3, 4, 5];
-    let first = v[0];//使用引用&v[0]将会报错
-    v.push(6);//尝试保留第一个元素的引用的同时向向量添加元素将会出现编译错误，此时引用可能改变
+    let first = v[0]; //使用引用&v[0]将会报错
+    v.push(6); //尝试保留第一个元素的引用的同时向向量添加元素将会出现编译错误，此时引用可能改变
     println!("The first element is: {}", first);
 
     ///遍历向量集合
     let v = vec![100, 32, 57];
     for i in &v {
-        println!("{}", i);//直接打印 i，而不需要使用c语言中的*i，省略了*
+        println!("{}", i); //直接打印 i，而不需要使用c语言中的*i，省略了*
     }
     let mut v = vec![100, 32, 57];
     for i in &mut v {
-        *i += 50;//对可变的向量进行操作，让每个元素都增加50
+        *i += 50; //对可变的向量进行操作，让每个元素都增加50
         println!("{}", i)
     }
 
@@ -65,7 +64,7 @@ pub fn collection_function() {
     println!("{}", s);
     let s = "initial contents".to_string();
     println!("{}", s);
-    let s = String::from("initial contents");//从字符串文字(字符串常量 切片 &str类型)创建字符串(对象/String类型)
+    let s = String::from("initial contents"); //从字符串文字(字符串常量 切片 &str类型)创建字符串(对象/String类型)
     println!("{}", s);
     //其他编码的文字
     let hello = String::from("السلام عليكم");
@@ -86,16 +85,16 @@ pub fn collection_function() {
     let mut s1 = String::from("foo");
     let s2 = "bar";
     s1.push_str(s2);
-    println!("s2 is {}", s2);//s2被加到s1之后，再次使用s2
+    println!("s2 is {}", s2); //s2被加到s1之后，再次使用s2
     let mut s = String::from("lo");
-    s.push('l');//使用push向字符串值添加一个字符
+    s.push('l'); //使用push向字符串值添加一个字符
 
     ///合并字符串
     let s1 = String::from("Hello, ");
     let s2 = String::from("world!");
     let s3 = s1 + &s2; //s1被移动，之后无法再次使用
-    //+ 方法 使用add方法 fn add(self, s: &str) -> String {
-    //所以+组合字符串第二个参数必须是 &str的，但是这是因为编译器将&String转化为&str了。
+                       //+ 方法 使用add方法 fn add(self, s: &str) -> String {
+                       //所以+组合字符串第二个参数必须是 &str的，但是这是因为编译器将&String转化为&str了。
     let s1 = String::from("tic");
     let s2 = String::from("tac");
     let s3 = String::from("toe");
@@ -124,10 +123,10 @@ pub fn collection_function() {
     ///但是用String不能保证性能，因为Rust必须从头到尾遍历所有内容以确定有多少个有效字符。
     ///有效的Unicode标量值可能由1个以上的字节组成，从rust字符串中获取字素簇很复杂，标准库并未提供此功能
     for c in "नमस्ते".chars() {
-        println!("{}", c);//न म स ् त े ，一个字符由2个char组成
+        println!("{}", c); //न म स ् त े ，一个字符由2个char组成
     }
     for b in "नमस्ते".bytes() {
-        println!("{}", b);//返回字节，很多个
+        println!("{}", b); //返回字节，很多个
     }
 
     ///hash map
@@ -144,7 +143,7 @@ pub fn collection_function() {
     let field_name = String::from("Favorite color");
     let field_value = String::from("Blue");
     let mut map = HashMap::new();
-    map.insert(field_name, field_value);//此时field_name和field_value无效,已经被移动到map中
+    map.insert(field_name, field_value); //此时field_name和field_value无效,已经被移动到map中
     ///获取key对应的value
     let team_name = String::from("Blue");
     let score = scores.get(&team_name);
@@ -164,4 +163,4 @@ pub fn collection_function() {
     }
 
     println!("{:?}", map);
-}//v超出范围并在此处释放
+} //v超出范围并在此处释放

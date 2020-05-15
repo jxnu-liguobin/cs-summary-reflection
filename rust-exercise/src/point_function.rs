@@ -2,11 +2,10 @@
 ///Rust中最常见的一种指针是引用，还有其他指针
 ///在使用所有权和借用概念的Rust中，引用和智能指针之间的另一个区别是，引用是仅借用数据的指针。相反，在许多情况下，智能指针拥有它们指向的数据。
 pub fn empty_point_function() {
-
     //let reference_to_nothing = dangle();
     let reference_to_nothing = no_dangle();
     fn no_dangle() -> String {
-        String::from("hello")// 直接反回函数的值，不能加分号
+        String::from("hello") // 直接反回函数的值，不能加分号
     }
     //编译报错，因为s是在dangle内部创建的，所以当dangle的代码完成时，将释放s。但是我们试图返回对它的引用。这意味着该引用将指向无效的String。Rust不允许我们这样做。
     //    fn dangle() -> &String {

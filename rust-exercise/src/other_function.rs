@@ -12,23 +12,24 @@ pub fn crate_function() {
 //    lib::eat_at_restaurant2();
 //}
 
-
 pub fn return_function() {
-    let s1 = gives_ownership();           // lets_ownership移动其返回值到s1中
+    let s1 = gives_ownership(); // lets_ownership移动其返回值到s1中
 
-    let s2 = String::from("hello");     // s2进入范围
+    let s2 = String::from("hello"); // s2进入范围
 
-    let s3 = takes_and_gives_back(s2);  // s2被移入takes_and_gives_back,  takes_and_gives_back的返回值被移动到s3
+    let s3 = takes_and_gives_back(s2); // s2被移入takes_and_gives_back,  takes_and_gives_back的返回值被移动到s3
     println!("{},{}", s1, s3);
 
-    fn gives_ownership() -> String {             // gives_ownership会其返回值移动到调用它的函数中
+    fn gives_ownership() -> String {
+        // gives_ownership会其返回值移动到调用它的函数中
         let some_string = String::from("hello"); // some_string进入范围
-        some_string                              // 返回some_string字符串并移到调用函数
+        some_string // 返回some_string字符串并移到调用函数
     }
 
     // take_and_gives_back将获取一个String并返回一个
-    fn takes_and_gives_back(a_string: String) -> String { // a_string进入范围
-        a_string                                    // 返回a_string并移至调用函数
+    fn takes_and_gives_back(a_string: String) -> String {
+        // a_string进入范围
+        a_string // 返回a_string并移至调用函数
     }
 }
 

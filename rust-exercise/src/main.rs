@@ -31,24 +31,24 @@ use struct_data_type::*;
 use thread_syntax::*;
 use variables_function::*;
 
-pub mod panic_function;
-pub mod thread_syntax;
+pub mod closures_syntax;
+pub mod collection_function;
+pub mod control_function;
+pub mod enum_data_type;
+pub mod example_guessing_game;
 pub mod generic_traits_lifetimes;
 pub mod iterator_demonstration;
-pub mod struct_data_type;
-pub mod simple_array_data_type;
-pub mod match_syntax;
-pub mod example_guessing_game;
-pub mod variables_function;
-pub mod enum_data_type;
-pub mod method_syntax;
-pub mod collection_function;
-pub mod point_function;
-pub mod control_function;
-pub mod other_function;
-pub mod closures_syntax;
-pub mod smart_point;
 pub mod macro_syntax;
+pub mod match_syntax;
+pub mod method_syntax;
+pub mod other_function;
+pub mod panic_function;
+pub mod point_function;
+pub mod simple_array_data_type;
+pub mod smart_point;
+pub mod struct_data_type;
+pub mod thread_syntax;
+pub mod variables_function;
 
 /// 引用和借用：https://dreamylost.cn/rust/Rust-Rust%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%95%E7%94%A8%E4%B8%8E%E5%80%9F%E7%94%A8.html
 /// 所有权：https://dreamylost.cn/rust/Rust-%E6%89%80%E6%9C%89%E6%9D%83.html
@@ -64,7 +64,7 @@ fn main() {
     println!("====================");
     expr_function();
     println!("====================");
-    println!("{}", five());//打印字符串，不能直接println!(five())
+    println!("{}", five()); //打印字符串，不能直接println!(five())
     println!("====================");
     control_function();
     println!("====================");

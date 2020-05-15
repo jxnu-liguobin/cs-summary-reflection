@@ -1,6 +1,9 @@
 ///特质
 pub fn traits() {
-    struct Sheep { naked: bool, name: &'static str }
+    struct Sheep {
+        naked: bool,
+        name: &'static str,
+    }
 
     impl Sheep {
         fn is_naked(&self) -> bool {
@@ -36,7 +39,10 @@ pub fn traits() {
     impl Animal for Sheep {
         //self的类型是`Sheep`
         fn new(name: &'static str) -> Sheep {
-            Sheep { name: name, naked: false }
+            Sheep {
+                name: name,
+                naked: false,
+            }
         }
 
         fn name(&self) -> &'static str {
@@ -65,7 +71,6 @@ pub fn traits() {
     dolly.shear();
     dolly.talk();
 
-
     //
     derive();
     return_dyn();
@@ -78,7 +83,6 @@ pub fn traits() {
     supertraits();
     overlapping_traits();
 }
-
 
 fn derive() {
     //比较特质: Eq, PartialEq, Ord, PartialOrd.
@@ -118,12 +122,11 @@ fn derive() {
 
     let meter = Centimeters(100.0);
 
-    let cmp =
-        if foot.to_centimeters() < meter {
-            "smaller"
-        } else {
-            "bigger"
-        };
+    let cmp = if foot.to_centimeters() < meter {
+        "smaller"
+    } else {
+        "bigger"
+    };
 
     println!("One foot is {} than one meter.", cmp);
 }
@@ -163,7 +166,10 @@ fn return_dyn() {
 
     let random_number = 0.234;
     let animal = random_animal(random_number);
-    println!("You've randomly chosen an animal, and it says {}", animal.noise());
+    println!(
+        "You've randomly chosen an animal, and it says {}",
+        animal.noise()
+    );
 }
 
 fn operator_overload() {
@@ -306,12 +312,15 @@ fn impl_trait() {
     use std::vec::IntoIter;
 
     //组合vec
-    fn combine_vecs_explicit_return_type(v: Vec<i32>, u: Vec<i32>) -> iter::Cycle<iter::Chain<IntoIter<i32>, IntoIter<i32>>> {
+    fn combine_vecs_explicit_return_type(
+        v: Vec<i32>,
+        u: Vec<i32>,
+    ) -> iter::Cycle<iter::Chain<IntoIter<i32>, IntoIter<i32>>> {
         v.into_iter().chain(u.into_iter()).cycle()
     }
 
     //简化返回类型
-    fn combine_vecs(v: Vec<i32>, u: Vec<i32>) -> impl Iterator<Item=i32> {
+    fn combine_vecs(v: Vec<i32>, u: Vec<i32>) -> impl Iterator<Item = i32> {
         v.into_iter().chain(u.into_iter()).cycle()
     }
 
@@ -328,14 +337,14 @@ fn impl_trait() {
 
 fn closure_trait() {
     fn make_adder_function(y: i32) -> impl Fn(i32) -> i32 {
-        let closure = move |x: i32| { x + y };
+        let closure = move |x: i32| x + y;
         closure
     }
 
     let plus_one = make_adder_function(1);
     assert_eq!(plus_one(2), 3);
 
-    fn double_positives<'a>(numbers: &'a Vec<i32>) -> impl Iterator<Item=i32> + 'a {
+    fn double_positives<'a>(numbers: &'a Vec<i32>) -> impl Iterator<Item = i32> + 'a {
         numbers.iter().filter(|x| x > &&0).map(|x| x * 2)
     }
 }

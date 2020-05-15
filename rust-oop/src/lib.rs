@@ -32,7 +32,6 @@ pub mod gui {
         }
     }
 
-
     //Button，Image，和SelectBox，将从继承Component并且因此继承draw方法。
     //他们每个人都可以重写该draw方法来定义其自定义行为
     //rust没有继承，需要使用其他方法实现这一功能
@@ -43,7 +42,7 @@ pub mod gui {
     //使用Screen<T: Draw>将限制为一个Screen实例，该实例具有一个全部为Button类型或全部TextField类型的组件的列表。
     //如果您只拥有同类集合，则最好使用泛型和特质范围，因为定义会在编译时被单一化以使用具体类型。
     pub struct Screen {
-        pub components: Vec<Box<dyn Draw>>,//Box<dyn Draw>   实现了Draw特质的任何类型组件
+        pub components: Vec<Box<dyn Draw>>, //Box<dyn Draw>   实现了Draw特质的任何类型组件
     }
 
     impl Screen {
@@ -67,7 +66,6 @@ pub mod gui {
         }
     }
 
-
     pub struct SelectBox {
         pub width: u32,
         pub height: u32,
@@ -84,4 +82,3 @@ pub mod gui {
 //安全的特质对象
 //返回类型不是Self。
 //没有通用类型参数。
-

@@ -21,11 +21,11 @@ do
 				echo "############ [ not enable $lang language in this project ]"
 				break
 			fi
-			# compile rust
+			# compile rust and fmt code
 			case "$lang" in
 			"rust")
 			echo "################# [ compile $sub_module ]"
-			`cd $sub_module;cargo build >/dev/null 2>&1 ;cd .. `;;
+			`cd $sub_module;cargo build >/dev/null 2>&1;cargo fmt --all; cd .. `;;
 			# compile python
 			"python")
 			echo "############ [ TODO ]";;

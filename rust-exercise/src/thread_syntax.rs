@@ -1,4 +1,4 @@
-use std::sync::{Arc, mpsc, Mutex};
+use std::sync::{mpsc, Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
@@ -13,7 +13,7 @@ pub fn create_thread() {
 
     for i in 1..5 {
         println!("hi number {} from the main thread!", i);
-        thread::sleep(Duration::from_millis(1));//短暂停止，最终仍取决于操作系统如何调度线程。
+        thread::sleep(Duration::from_millis(1)); //短暂停止，最终仍取决于操作系统如何调度线程。
     }
 }
 
@@ -32,13 +32,14 @@ pub fn join_thread() {
         thread::sleep(Duration::from_millis(1));
     }
     ///阻塞当前正在运行的线程，直到由该句柄表示的线程终止
-    handle.join().unwrap();//即thread::spawn先执行，main后执行
+    handle.join().unwrap(); //即thread::spawn先执行，main后执行
 }
 
 pub fn use_var_thread() {
     ///尝试在另一个线程中使用由主线程创建的向量
     let v = vec![1, 2, 3];
-    let handle = thread::spawn(move || {//必须在闭包前加move，强制获取v变量的所有权而不是借用这个值
+    let handle = thread::spawn(move || {
+        //必须在闭包前加move，强制获取v变量的所有权而不是借用这个值
         println!("Here's a vector: {:?}", v);
     });
     //v不能再被主线程使用，所有权已经转移
@@ -56,7 +57,7 @@ pub fn channel_thread() {
         tx.send(val).unwrap();
     });
     //使用rx接收器接收消息
-    let received = rx.recv().unwrap();//try_recv方法不会阻塞
+    let received = rx.recv().unwrap(); //try_recv方法不会阻塞
     println!("Got: {}", received);
 }
 
@@ -150,4 +151,3 @@ pub fn mutex_multi_thread() {
     }
     println!("Result: {}", *counter.lock().unwrap());
 }
-

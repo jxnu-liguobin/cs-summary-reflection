@@ -3,7 +3,7 @@ use std::error::Error;
 use std::fs;
 use std::process;
 
-use rust_minigrep::{Config, run};
+use rust_minigrep::{run, Config};
 
 ///主函数，必须命令行执行（需要传参数）
 ///cargo run to poem.txt > output.txt 将结果输出到文件中
@@ -26,10 +26,14 @@ fn main() {
 
 ///相比下面而言更好的选择是将config作为一个结构体
 fn parse_config2(args: &[String]) -> Config {
-    let query = args[1].clone();//clone的运行时成本在这里不考虑
+    let query = args[1].clone(); //clone的运行时成本在这里不考虑
     let filename = args[2].clone();
     let case_sensitive = false;
-    Config { query, filename, case_sensitive }
+    Config {
+        query,
+        filename,
+        case_sensitive,
+    }
 }
 
 fn parse_config(args: &[String]) -> (&str, &str) {
@@ -53,10 +57,7 @@ Rust:
 safe, fast, productive.
 Pick three.";
 
-        assert_eq!(
-            vec!["safe, fast, productive."],
-            search(query, contents)
-        );
+        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
     }
 
     #[test]

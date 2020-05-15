@@ -3,7 +3,6 @@ pub fn simple_array_data_type() {
     ///--release模式下，整数溢出将会变为最小值
     ///在u8(0-255)类型下，256变为0，257变为1，依此类推
 
-
     ///默认浮点类型是f64，相当于Java double，IEEE754标准
     let x = 2.0; // f64
 
@@ -60,7 +59,7 @@ pub fn simple_array_data_type() {
     let second = a[1];
 
     ///Rust通过立即退出而不是允许内存访问并继续操作来保护您免受此类错误的侵害
-    let element = a[0];//若下标大于数组索引则运行时检查并报错退出"error: index out of bounds: the len is 5 but the index is 10"
+    let element = a[0]; //若下标大于数组索引则运行时检查并报错退出"error: index out of bounds: the len is 5 but the index is 10"
 }
 
 ///rust String比较复杂
@@ -70,16 +69,15 @@ pub fn string_function() {
 
     println!("{}", s); //打印 hello, world!
 
+    let s = String::from("hello"); // s进入范围
 
-    let s = String::from("hello");  // s进入范围
+    takes_ownership(s); // s的值移动到函数，所以在这里不再有效
+                        //println!("{}", s);//编译错误：value borrowed here after move。出借后的s被移动，后续不可用
 
-    takes_ownership(s);            // s的值移动到函数，所以在这里不再有效
-    //println!("{}", s);//编译错误：value borrowed here after move。出借后的s被移动，后续不可用
-
-    let x = 5;                         // x进入范围
-    makes_copy(x);               // x将移动到函数
-    //但是i32是Copy，所以之后还可以使用
-    println!("{}", x);//正常打印
+    let x = 5; // x进入范围
+    makes_copy(x); // x将移动到函数
+                   //但是i32是Copy，所以之后还可以使用
+    println!("{}", x); //正常打印
 
     fn takes_ownership(some_string: String) {
         println!("{}", some_string);

@@ -15,7 +15,7 @@ fn main() {
                 options: vec![
                     String::from("Yes"),
                     String::from("Maybe"),
-                    String::from("No")
+                    String::from("No"),
                 ],
             }),
             Box::new(Button {
@@ -27,7 +27,6 @@ fn main() {
     };
 
     screen.run();
-
 
     blog();
     blog_rust();

@@ -15,18 +15,18 @@ use crate::traits::*;
 use crate::types::*;
 use crate::variable_bindings::*;
 
-pub mod formatted_print;
-pub mod misc;
-pub mod traits;
-pub mod generics;
-pub mod modules;
-pub mod functions;
-pub mod flow_control;
 pub mod closures;
 pub mod conversion;
-pub mod types;
-pub mod primitives;
 pub mod custom_types;
+pub mod flow_control;
+pub mod formatted_print;
+pub mod functions;
+pub mod generics;
+pub mod misc;
+pub mod modules;
+pub mod primitives;
+pub mod traits;
+pub mod types;
 pub mod variable_bindings;
 
 ///为了方便将每个知识点分为单独的源文件，并提供与之相同的公开方法测试内部所有代码

@@ -21,11 +21,17 @@ pub fn method_syntax() {
 
         //关联函数，没有self，类似其他语言的静态方法，但不是rust方法
         fn square(size: u32) -> Rectangle {
-            Rectangle { width: size, height: size }
+            Rectangle {
+                width: size,
+                height: size,
+            }
         }
     }
 
-    let rect1 = Rectangle { width: 30, height: 50 };
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
 
     ///c/c++中如果object是一个指针, object->something() 与 (*object).something()等价
     ///Rust没有等效于->运算符；相反，Rust具有称为自动引用和取消引用的功能。调用方法是Rust少数具有这种行为的地方之一。
@@ -38,9 +44,18 @@ pub fn method_syntax() {
     );
 
     ///方法参数
-    let rect1 = Rectangle { width: 30, height: 50 };
-    let rect2 = Rectangle { width: 10, height: 40 };
-    let rect3 = Rectangle { width: 60, height: 45 };
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
 
     println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
@@ -48,7 +63,7 @@ pub fn method_syntax() {
     ///impl块的另一个有用功能是允许我们在不以self为参数的impl块中定义函数。这些之所以称为关联函数，是因为它们与struct相关联。
     ///它们仍然是函数，而不是方法，因为它们没有可使用的结构实例
     ///关联函数通常用于将返回该结构的新实例的构造函数。例如，我们可以提供一个关联的函数，该函数将具有一个维度参数并将其用作宽度和高度，从而使创建矩形矩形变得更加容易，而不必两次指定相同的值：
-    let sq = Rectangle::square(3);//类似调用静态方法
+    let sq = Rectangle::square(3); //类似调用静态方法
     println!("sq is {:#?}", sq);
 
     ///关联函数与结构体相关，但是没有self实例，他们仍是函数！！！

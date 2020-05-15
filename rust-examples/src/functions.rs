@@ -107,4 +107,3 @@ fn methods() {
 
     pair.destroy();
 }
-

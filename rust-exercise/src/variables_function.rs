@@ -8,7 +8,7 @@ pub fn variables_function() {
 
     let mut y = 6;
     println!("The value of y is: {}", y);
-    y = 7;//可变的变量
+    y = 7; //可变的变量
     println!("The value of y is: {}", y);
     //常量，必须指定类型，不可省略
     const MAX_POINTS: u32 = 100_000;
@@ -36,26 +36,22 @@ pub fn try_change_function() {
     let mut s = String::from("hello");
     change(&mut s);
 
-
     let mut s = String::from("hello");
     let r1 = &mut s;
     //let r2 = &mut s;//可变引用只能被出借一次，这里将会编译报错
     //println!("{}, {}", r1, r2);
 
-
     let mut s = String::from("hello");
     {
         let r1 = &mut s;
     } // r1在这里超出范围，因此我们可以毫无问题地进行新引用。
-    let r2 = &mut s;//正常使用，虽然上面已经用过s
-
+    let r2 = &mut s; //正常使用，虽然上面已经用过s
 
     let mut s = String::from("hello");
-    let r1 = &s;   // 没问题，与上面两次mut出借不一样，这里是没有mut，所以对于不可变引用，可以使用多次次，且不可在拥有不可变引用时同时拥有可变引用
-    let r2 = &s;   // 没问题
-    //let r3 = &mut s;    // 有问题，不可变在后面却是可变，不允许，编译报错
-    //println!("{}, {}, and {}", r1, r2, r3);
-
+    let r1 = &s; // 没问题，与上面两次mut出借不一样，这里是没有mut，所以对于不可变引用，可以使用多次次，且不可在拥有不可变引用时同时拥有可变引用
+    let r2 = &s; // 没问题
+                 //let r3 = &mut s;    // 有问题，不可变在后面却是可变，不允许，编译报错
+                 //println!("{}, {}, and {}", r1, r2, r3);
 
     let mut s = String::from("hello");
 
@@ -69,7 +65,6 @@ pub fn try_change_function() {
 }
 
 pub fn expr_function() {
-
     //赋值需要返回值，rust语句没有返回值，不同于其他语言赋值可以连用
     // let x = (let y = 6);
 
@@ -82,10 +77,10 @@ pub fn expr_function() {
 
     println!("The value of y is: {}", y);
 
-//    String转&str的几种办法：
-//    1. s.deref() 手动解引用
-//    2. &*s 同上
-//    3. s.as_ref()
-//    4. &s[..]
-//    5. s.borrow() 需要use std::borrow::Borrow
+    //    String转&str的几种办法：
+    //    1. s.deref() 手动解引用
+    //    2. &*s 同上
+    //    3. s.as_ref()
+    //    4. &s[..]
+    //    5. s.borrow() 需要use std::borrow::Borrow
 }

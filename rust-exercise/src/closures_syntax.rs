@@ -13,11 +13,7 @@ pub fn closures_syntax() {
     let simulated_user_specified_value = 10;
     let simulated_random_number = 7;
 
-    generate_workout4(
-        simulated_user_specified_value,
-        simulated_random_number,
-    );
-
+    generate_workout4(simulated_user_specified_value, simulated_random_number);
 
     ///初始版本
     fn generate_workout(intensity: u32, random_number: u32) {
@@ -44,26 +40,16 @@ pub fn closures_syntax() {
 
     ///将调研提取到一个地方，存储在expensive_result变量中
     fn generate_workout2(intensity: u32, random_number: u32) {
-        let expensive_result =
-            simulated_expensive_calculation(intensity);
+        let expensive_result = simulated_expensive_calculation(intensity);
 
         if intensity < 25 {
-            println!(
-                "Today, do {} pushups!",
-                expensive_result
-            );
-            println!(
-                "Next, do {} situps!",
-                expensive_result
-            );
+            println!("Today, do {} pushups!", expensive_result);
+            println!("Next, do {} situps!", expensive_result);
         } else {
             if random_number == 3 {
                 println!("Take a break today! Remember to stay hydrated!");
             } else {
-                println!(
-                    "Today, run for {} minutes!",
-                    expensive_result
-                );
+                println!("Today, run for {} minutes!", expensive_result);
             }
         }
     }
@@ -71,29 +57,21 @@ pub fn closures_syntax() {
     ///使用闭包重构以存储代码
     fn generate_workout3(intensity: u32, random_number: u32) {
         ///定义一个闭包并将其存储在 expensive_closure变量中
-        let expensive_closure = |num| {//如果我们有多个参数，则将它们用逗号分隔，例如|param1, param2|，显示定义类型：|num: u32| -> u32
+        let expensive_closure = |num| {
+            //如果我们有多个参数，则将它们用逗号分隔，例如|param1, param2|，显示定义类型：|num: u32| -> u32
             println!("calculating slowly...");
             thread::sleep(Duration::from_secs(2));
             num
         };
 
         if intensity < 25 {
-            println!(
-                "Today, do {} pushups!",
-                expensive_closure(intensity)
-            );
-            println!(
-                "Next, do {} situps!",
-                expensive_closure(intensity)
-            );
+            println!("Today, do {} pushups!", expensive_closure(intensity));
+            println!("Next, do {} situps!", expensive_closure(intensity));
         } else {
             if random_number == 3 {
                 println!("Take a break today! Remember to stay hydrated!");
             } else {
-                println!(
-                    "Today, run for {} minutes!",
-                    expensive_closure(intensity)
-                );
+                println!("Today, run for {} minutes!", expensive_closure(intensity));
             }
         }
     }
@@ -106,14 +84,8 @@ pub fn closures_syntax() {
             num
         });
         if intensity < 25 {
-            println!(
-                "Today, do {} pushups!",
-                expensive_result.value(intensity)
-            );
-            println!(
-                "Next, do {} situps!",
-                expensive_result.value(intensity)
-            );
+            println!("Today, do {} pushups!", expensive_result.value(intensity));
+            println!("Next, do {} situps!", expensive_result.value(intensity));
         } else {
             if random_number == 3 {
                 println!("Take a break today! Remember to stay hydrated!");
@@ -126,10 +98,12 @@ pub fn closures_syntax() {
         }
     }
 
-    fn add_one_v1(x: u32) -> u32 { x + 1 }//显示函数定义
-    let add_one_v2 = |x: u32| -> u32 { x + 1 };//完整注释的闭包定义
-    let add_one_v3 = |x: u32| { x + 1 };//删除类型，没有使用该闭包时不加u32会报错
-    let add_one_v4 = |x: u32| x + 1;//删除括号，没有使用该闭包时不加u32会报错
+    fn add_one_v1(x: u32) -> u32 {
+        x + 1
+    } //显示函数定义
+    let add_one_v2 = |x: u32| -> u32 { x + 1 }; //完整注释的闭包定义
+    let add_one_v3 = |x: u32| x + 1; //删除类型，没有使用该闭包时不加u32会报错
+    let add_one_v4 = |x: u32| x + 1; //删除括号，没有使用该闭包时不加u32会报错
 
     ///两次使用闭包传入了不同类型参数，将会报错
     ///如果尝试对同一闭包使用其他不同类型，则会收到类型错误。
@@ -152,14 +126,19 @@ pub fn closures_syntax() {
 }
 
 ///定义一个包含闭包的结构，闭包类型Fn(u32) -> u32
-struct Cacher<T> where T: Fn(u32) -> u32 {
+struct Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
     calculation: T,
     value: Option<u32>,
 }
 
-
 ///实现结构
-impl<T> Cacher<T> where T: Fn(u32) -> u32 {
+impl<T> Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
     fn new(calculation: T) -> Cacher<T> {
         //没有执行时默认是None
         Cacher {
@@ -191,5 +170,5 @@ fn call_with_different_values() {
     //失败
     let v2 = c.value(2);
 
-    assert_ne!(v2, 2);//不等！！！！
+    assert_ne!(v2, 2); //不等！！！！
 }

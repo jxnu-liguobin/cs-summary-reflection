@@ -32,7 +32,7 @@ pub mod front_of_house;
 //使用 pub公开模块的功能
 pub fn eat_at_restaurant() {
     // 使用绝对路径，更好
-//    crate::front_of_house::hosting::add_to_waitlist_host();
+    //    crate::front_of_house::hosting::add_to_waitlist_host();
     // 使用相对路径
     front_of_house::hosting::add_to_waitlist_host();
 }
@@ -52,7 +52,7 @@ mod back_of_house {
     pub struct Breakfast {
         pub toast: String,
         //该结构是公开的，且只有toast是公开的属性字段
-        seasonal_fruit: String,//无法更改
+        seasonal_fruit: String, //无法更改
     }
 
     impl Breakfast {
@@ -72,14 +72,13 @@ mod back_of_house {
     }
 }
 
-
 //mod front_of_house;//在mod front_of_house之后使用分号（而不是使用块）会告诉Rust从另一个与模块同名的文件中加载模块的内容。
 
 //pub use 重新导出，使名称可用于新范围内的任何代码 （因为我们将一个项目放入范围内，同时也使该项目可供其他人进入其范围）
 //use std::collections::*; //导入所有内部的类型
 
 pub fn eat_at_restaurant2() {
-    let mut meal = back_of_house::Breakfast::summer("Rye");//关联函数 summer 用于构造实例
+    let mut meal = back_of_house::Breakfast::summer("Rye"); //关联函数 summer 用于构造实例
     meal.toast = String::from("Wheat");
     println!("I'd like {} toast please", meal.toast);
     //下面编译不过，seasonal_fruit是私有的
@@ -89,12 +88,12 @@ pub fn eat_at_restaurant2() {
     let order2 = back_of_house::Appetizer::Salad;
 
     //使用use导入模块，可以省略模块前缀，使代码简洁
-    front_of_house::hosting::add_to_waitlist_host();//front_of_house :: hosting 二级包
+    front_of_house::hosting::add_to_waitlist_host(); //front_of_house :: hosting 二级包
     front_of_house::hosting::add_to_waitlist_host();
     front_of_house::hosting::add_to_waitlist_host();
 
     //use的习惯用法，但是不同模块中的相同函数，需要加模块前缀，如：fmt::Result，io::Result
-    use std::collections::HashMap as RustHashMap;//使用as为导入的类型提供别名，一般在最前面使用导入，这里为了方便
+    use std::collections::HashMap as RustHashMap; //使用as为导入的类型提供别名，一般在最前面使用导入，这里为了方便
     let mut map = RustHashMap::new();
     map.insert(1, 2);
 }
