@@ -13,3 +13,4 @@ gradle/
 gradlew
 gradlew.bat
 tmp/
+*.log
