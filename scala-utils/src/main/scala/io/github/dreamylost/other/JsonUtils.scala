@@ -1,20 +1,20 @@
 package io.github.dreamylost.other
 
-import play.api.libs.json.{ JsObject, JsValue }
+import play.api.libs.json.JsObject
+import play.api.libs.json.JsValue
 
 import scala.collection.mutable
 
 /**
- *
+  *
  * @author liguobin@growingio.com
- * @version 1.0,2020/2/28
- */
+  * @version 1.0,2020/2/28
+  */
 object JsonUtils {
 
-
   /**
-   * 比较两个json对象的结构是否相等，以及返回错误所在的层级
-   */
+    * 比较两个json对象的结构是否相等，以及返回错误所在的层级
+    */
   def compareJsonSchema(source: JsObject, target: JsObject) = {
     //标记递归状态
     val exit = mutable.Queue[Boolean]()
@@ -29,19 +29,21 @@ object JsonUtils {
     }
 
     /**
-     * 排除不等情况并存到queue中
-     * 1. key数量不同
-     * 2. key值不同
-     * 3. 有子结构则递归判断
-     * 4. 最终检验是否有标记在queue，无则相等
-     *
+      * 排除不等情况并存到queue中
+      * 1. key数量不同
+      * 2. key值不同
+      * 3. 有子结构则递归判断
+      * 4. 最终检验是否有标记在queue，无则相等
+      *
      * @param source
-     * @param target
-     */
+      * @param target
+      */
     def compare(source: JsObject, target: JsObject)(d: Int): (Int, Boolean) = {
       depth = d + 1
-      val toMapJsValue = (jsObj: JsObject) => jsObj.fields.map(s => s._1 -> s._2.asOpt[JsObject].getOrElse(s._2)).toMap
-      val toMapJsObj = (map: Map[String, JsValue]) => map.filter(s => s._2.asOpt[JsObject].isDefined).map(s => s._1 -> s._2.as[JsObject])
+      val toMapJsValue = (jsObj: JsObject) =>
+        jsObj.fields.map(s => s._1 -> s._2.asOpt[JsObject].getOrElse(s._2)).toMap
+      val toMapJsObj = (map: Map[String, JsValue]) =>
+        map.filter(s => s._2.asOpt[JsObject].isDefined).map(s => s._1 -> s._2.as[JsObject])
       val sourcesMap = toMapJsValue(source.as[JsObject])
       val targetMap = toMapJsValue(target.as[JsObject])
       log(sourcesMap, targetMap)

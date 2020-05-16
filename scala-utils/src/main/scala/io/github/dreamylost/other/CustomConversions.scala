@@ -3,26 +3,29 @@ package io.github.dreamylost.other
 import java.time.LocalDateTime
 
 import io.github.dreamylost.other.DateUtils._
-import play.api.libs.json.{ JsNull, JsObject, JsValue, Json }
+import play.api.libs.json.JsNull
+import play.api.libs.json.JsObject
+import play.api.libs.json.JsValue
+import play.api.libs.json.Json
 
 import scala.collection.mutable
 
 /**
- * 自定义隐式转化
- *
+  * 自定义隐式转化
+  *
  * @author 梦境迷离
- * @since 2019-08-26
- * @version v1.0
- */
+  * @since 2019-08-26
+  * @version v1.0
+  */
 object CustomConversions {
 
   /**
-   * {{{
-   *   Json.obj().removeNull
-   * }}}
-   *
+    * {{{
+    *   Json.obj().removeNull
+    * }}}
+    *
    * @param jsValue
-   */
+    */
   implicit class filterJsonWrapper(jsValue: JsObject) {
     //去除json中的空值，并保证顺序
     def removeNull = {

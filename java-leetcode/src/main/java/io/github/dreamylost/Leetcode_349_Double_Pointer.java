@@ -12,7 +12,6 @@ import java.util.Set;
  */
 public class Leetcode_349_Double_Pointer {
 
-
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set = new HashSet<>();
         Arrays.sort(nums1);

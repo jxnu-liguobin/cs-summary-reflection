@@ -1,14 +1,13 @@
 package io.github.dreamylost
 
 /**
- * 给你一个整数数组 nums，请你返回其中位数为 偶数 的数字的个数。
- *
+  * 给你一个整数数组 nums，请你返回其中位数为 偶数 的数字的个数。
+  *
  * @author 梦境迷离
- * @since 2020-01-01
- * @version v1.0
- */
+  * @since 2020-01-01
+  * @version v1.0
+  */
 object Leetcode_1295 extends App {
-
 
   println(findNumbers(Array(12, 345, 2, 6, 7896)))
 

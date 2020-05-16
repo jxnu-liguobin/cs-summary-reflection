@@ -34,11 +34,10 @@ public class Leetcode_141_Double_Pointer {
      */
     public boolean hasCycle2(ListNode head) {
         if (head == null || head.next == null) return false;
-        if (head.next == head) return true;//尾的下一个是头结点
+        if (head.next == head) return true; // 尾的下一个是头结点
         ListNode nextNode = head.next;
         head.next = head;
         boolean isCycle = hasCycle2(nextNode);
         return isCycle;
     }
-
 }

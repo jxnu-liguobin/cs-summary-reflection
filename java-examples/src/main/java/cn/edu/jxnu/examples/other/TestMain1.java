@@ -36,8 +36,8 @@ public class TestMain1 {
                 } else {
                     middle = substr.length() / 2 + 1;
                 }
-                if (substr.substring(0, substr.length() / 2).equals(
-                        reverseString(substr.substring(middle)))) {
+                if (substr.substring(0, substr.length() / 2)
+                        .equals(reverseString(substr.substring(middle)))) {
                     if (max.length() < substr.length()) {
                         max = substr;
                     }
@@ -52,5 +52,4 @@ public class TestMain1 {
         String str = in.nextLine();
         System.out.println(longestPalindrome(str));
     }
-
 }

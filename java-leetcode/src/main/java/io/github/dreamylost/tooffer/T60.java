@@ -2,9 +2,7 @@ package io.github.dreamylost.tooffer;
 
 import java.util.ArrayList;
 
-/**
- * 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
- */
+/** 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。 */
 public class T60 {
 
     ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {

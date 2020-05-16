@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 /**
  * 从 1-9 数字中选出 k 个数，使得它们的和为 n。
- * <p>
- * Input: k = 3, n = 9
- * <p>
- * 1~9的数字,k[3]位数组合和为n[9] Output:
- * <p>
- * [[1,2,6], [1,3,5], [2,3,4]]
+ *
+ * <p>Input: k = 3, n = 9
+ *
+ * <p>1~9的数字,k[3]位数组合和为n[9] Output:
+ *
+ * <p>[[1,2,6], [1,3,5], [2,3,4]]
  *
  * @author 梦境迷离.
  * @version v1.0
@@ -26,11 +26,14 @@ public class Leetcode_216_Backtracking {
         List<List<Integer>> ret = new Leetcode_216_Backtracking().combinationSum3(m, n);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
-        ret.forEach(x -> {
-            String result = x.stream().map(j -> j.toString()).collect(Collectors.joining(",", "[", "],"));
-            stringBuilder.append(result);
-
-        });
+        ret.forEach(
+                x -> {
+                    String result =
+                            x.stream()
+                                    .map(j -> j.toString())
+                                    .collect(Collectors.joining(",", "[", "],"));
+                    stringBuilder.append(result);
+                });
         stringBuilder.append("]");
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length() - 1);
         System.out.println(stringBuilder.toString());
@@ -45,7 +48,7 @@ public class Leetcode_216_Backtracking {
             backtracking(k - 1, n - i, path, i, ret);
             path.remove(0);
         }
-        //[1~n/2,1~n/2]
+        // [1~n/2,1~n/2]
         int temp = n / 2;
         while (temp > 0) {
             List<Integer> path2 = new ArrayList<>();
@@ -55,7 +58,7 @@ public class Leetcode_216_Backtracking {
             temp--;
         }
 
-        //[m,n],[n,m]
+        // [m,n],[n,m]
         for (List<Integer> list : ret) {
             int n1 = list.get(0);
             int n2 = list.get(1);
@@ -68,24 +71,26 @@ public class Leetcode_216_Backtracking {
             ret2.add(path2);
         }
         ret.addAll(ret2);
-        Collections.sort(ret, new Comparator<List<Integer>>() {
-            @Override
-            public int compare(List<Integer> o1, List<Integer> o2) {
-                if (o1.get(0) > o2.get(0)) {
-                    return 1;
-                }
-                if (o1.get(0) == o2.get(0)) {
-                    if (o1.get(1) > o2.get(1)) {
-                        return 1;
+        Collections.sort(
+                ret,
+                new Comparator<List<Integer>>() {
+                    @Override
+                    public int compare(List<Integer> o1, List<Integer> o2) {
+                        if (o1.get(0) > o2.get(0)) {
+                            return 1;
+                        }
+                        if (o1.get(0) == o2.get(0)) {
+                            if (o1.get(1) > o2.get(1)) {
+                                return 1;
+                            }
+                            if (o1.get(1) == o2.get(1)) {
+                                return 0;
+                            }
+                            return -1;
+                        }
+                        return -1;
                     }
-                    if (o1.get(1) == o2.get(1)) {
-                        return 0;
-                    }
-                    return -1;
-                }
-                return -1;
-            }
-        });
+                });
         return ret;
     }
 
@@ -94,20 +99,20 @@ public class Leetcode_216_Backtracking {
      *
      * @param k
      * @param n
-     * @param path  临时结果集
+     * @param path 临时结果集
      * @param start 开启标记位
-     * @param ret   结果集
+     * @param ret 结果集
      * @author 梦境迷离.
      * @time 2018年4月21日
      * @version v1.0
      */
-    private void backtracking(int k, int n, List<Integer> path, int start, List<List<Integer>> ret) {
-        if (k == 0 && n >= 0) {//==
+    private void backtracking(
+            int k, int n, List<Integer> path, int start, List<List<Integer>> ret) {
+        if (k == 0 && n >= 0) { // ==
             ret.add(new ArrayList<>(path));
             return;
         }
-        if (k == 0 || n == 0)
-            return;
+        if (k == 0 || n == 0) return;
         // 只能访问下一个元素，防止遍历的结果重复
         for (int i = start + 1; i <= 9; i++) {
             path.add(i);

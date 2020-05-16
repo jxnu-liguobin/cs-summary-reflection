@@ -1,12 +1,12 @@
 package io.github.dreamylost
 
 /**
- * 657. 机器人能否返回原点
- *
+  * 657. 机器人能否返回原点
+  *
  * @author 梦境迷离
- * @since 2020-04-01
- * @version v1.0
- */
+  * @since 2020-04-01
+  * @version v1.0
+  */
 object Leetcode_657 extends App {
 
   Console println judgeCircle("UD")
@@ -24,7 +24,6 @@ object Leetcode_657 extends App {
     }
     j == 0 && i == 0
   }
-
 
   def judgeCircle2(moves: String): Boolean = {
     val cs = moves.toCharArray

@@ -1,16 +1,16 @@
-package io.github.dreamylost.practice;//package cn.edu.jxnu.practice;
+package io.github.dreamylost.practice; // package cn.edu.jxnu.practice;
 //
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.Scanner;
-//import java.util.TreeSet;
+// import java.util.ArrayList;
+// import java.util.Arrays;
+// import java.util.Scanner;
+// import java.util.TreeSet;
 //
-///** 超时
+/// ** 超时
 // * @author 梦境迷离.
 // * @time 2018年8月11日
 // * @version v1.0
 // */
-//public class Test1 {
+// public class Test1 {
 //
 //	public static void main(String[] args) {
 //		Scanner scanner = new Scanner(System.in);
@@ -67,4 +67,4 @@ package io.github.dreamylost.practice;//package cn.edu.jxnu.practice;
 //		}
 //	}
 //
-//}
+// }

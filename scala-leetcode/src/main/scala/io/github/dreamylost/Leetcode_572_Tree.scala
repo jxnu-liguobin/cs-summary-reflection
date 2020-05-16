@@ -1,7 +1,7 @@
 package io.github.dreamylost
 
 /**
- * 子树
+  * 子树
 
 572. Subtree of Another Tree (Easy)
 
@@ -35,24 +35,24 @@ Given tree t:
  1   2
 
 Return false
- * @author 梦境迷离
- * @time 2018年7月18日
- * @version v1.0
- */
+  * @author 梦境迷离
+  * @time 2018年7月18日
+  * @version v1.0
+  */
 object Leetcode_572_Tree extends App {
 
-    def isSubtree(s: TreeNode, t: TreeNode): Boolean = {
-        if (s == null) return false
-        isSubtreeWithRoot(s, t) || isSubtreeWithRoot(s.left, t) || isSubtreeWithRoot(s.right, t)
-    }
+  def isSubtree(s: TreeNode, t: TreeNode): Boolean = {
+    if (s == null) return false
+    isSubtreeWithRoot(s, t) || isSubtreeWithRoot(s.left, t) || isSubtreeWithRoot(s.right, t)
+  }
 
-    private def isSubtreeWithRoot(s: TreeNode, t: TreeNode): Boolean = {
+  private def isSubtreeWithRoot(s: TreeNode, t: TreeNode): Boolean = {
 
-        if (s == null && t == null) return true
-        if (s == null || t == null) return false
-        if (s.value != t.value) return false
-        isSubtreeWithRoot(s.left, t.left) && isSubtreeWithRoot(s.right, t.right)
+    if (s == null && t == null) return true
+    if (s == null || t == null) return false
+    if (s.value != t.value) return false
+    isSubtreeWithRoot(s.left, t.left) && isSubtreeWithRoot(s.right, t.right)
 
-    }
+  }
 
 }

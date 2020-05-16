@@ -1,12 +1,13 @@
 package io.github.dreamylost
 
-import java.time.{ ZonedDateTime, ZoneOffset }
+import java.time.ZonedDateTime
+import java.time.ZoneOffset
 
 /**
- *
+  *
  * @author liguobin@growingio.com
- * @version 1.0,2019/9/30
- */
+  * @version 1.0,2019/9/30
+  */
 object TimePosTest extends App {
 
   def getTimePosOfHour = {

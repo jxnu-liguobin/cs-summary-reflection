@@ -1,11 +1,11 @@
 package io.github.dreamylost
 
 /**
- * 746. Min Cost Climbing Stairs
- *
+  * 746. Min Cost Climbing Stairs
+  *
  * @date: 2018-08-20
- * @author: liguobin
- *
+  * @author: liguobin
+  *
  */
 object Leetcode_746 extends App {
 
@@ -31,6 +31,5 @@ object Leetcode_746 extends App {
     return math.min(s1, s2) // 1步或者两步
 
   }
-
 
 }

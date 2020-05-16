@@ -7,17 +7,11 @@ import java.util.stream.Collectors;
 
 /**
  * 含有相同元素的求组合求和
- * <p>
- * 组合值等于8
- * <p>
- * For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8,
- * A solution set is:
- * [
- * [1, 7],
- * [1, 2, 5],
- * [2, 6],
- * [1, 1, 6]
- * ]
+ *
+ * <p>组合值等于8
+ *
+ * <p>For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8, A solution set is: [ [1,
+ * 7], [1, 2, 5], [2, 6], [1, 1, 6] ]
  *
  * @author 梦境迷离.
  * @version v1.0
@@ -31,15 +25,17 @@ public class Leetcode_40_Backtracking {
         List<List<Integer>> ret = new Leetcode_40_Backtracking().combinationSum2(arr, target);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
-        ret.forEach(x -> {
-            String result = x.stream().map(j -> j.toString()).collect(Collectors.joining(",", "[", "],"));
-            stringBuilder.append(result);
-
-        });
+        ret.forEach(
+                x -> {
+                    String result =
+                            x.stream()
+                                    .map(j -> j.toString())
+                                    .collect(Collectors.joining(",", "[", "],"));
+                    stringBuilder.append(result);
+                });
         stringBuilder.append("]");
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length() - 1);
         System.out.println(stringBuilder.toString());
-
     }
 
     private List<List<Integer>> ret;
@@ -51,14 +47,14 @@ public class Leetcode_40_Backtracking {
         return ret;
     }
 
-    private void doCombination(int[] candidates, int target, int start, List<Integer> list, boolean[] visited) {
+    private void doCombination(
+            int[] candidates, int target, int start, List<Integer> list, boolean[] visited) {
         if (target <= 0) {
             ret.add(new ArrayList<>(list));
             return;
         }
         for (int i = start; i < candidates.length; i++) {
-            if (i != 0 && candidates[i] == candidates[i - 1] && !visited[i - 1])
-                continue;
+            if (i != 0 && candidates[i] == candidates[i - 1] && !visited[i - 1]) continue;
             if (candidates[i] <= target) {
                 list.add(candidates[i]);
                 visited[i] = true;

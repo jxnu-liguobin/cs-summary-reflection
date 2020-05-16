@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
- */
+/** 从上往下打印出二叉树的每个节点，同层节点从左至右打印。 */
 public class T22 {
 
-    //层次遍历，可用队列
+    // 层次遍历，可用队列
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         ArrayList<TreeNode> queue = new ArrayList<>();

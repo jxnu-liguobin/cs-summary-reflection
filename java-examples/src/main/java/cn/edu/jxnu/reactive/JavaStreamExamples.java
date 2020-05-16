@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 public class JavaStreamExamples {
 
     static final List<Integer> numbers = Arrays.asList(1, 2, 3);
-    static final List<Integer> numbersPlusOne = numbers.stream().map(number -> number + 1).collect(Collectors.toList());
+    static final List<Integer> numbersPlusOne =
+            numbers.stream().map(number -> number + 1).collect(Collectors.toList());
 
     public static void main(String[] args) {
         numbersPlusOne.forEach(System.out::println);

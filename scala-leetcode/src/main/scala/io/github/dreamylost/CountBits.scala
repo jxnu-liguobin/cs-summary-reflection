@@ -15,7 +15,6 @@ object CountBits extends App {
     print(i)
   }
 
-
   /**
     *
     * f[1] = (f[0]==0) + (1%1==1) = 1
@@ -31,7 +30,6 @@ object CountBits extends App {
     f
   }
 
-
   /**
     * 最后用例超时
     */
@@ -43,9 +41,9 @@ object CountBits extends App {
     ret
   }
 
-
   def count(n: Int): Int = {
-    import scala.util.control.Breaks.{ break, breakable }
+    import scala.util.control.Breaks.break
+    import scala.util.control.Breaks.breakable
     var nums = n
     var count = 0
     while (nums != 0) {

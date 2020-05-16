@@ -1,6 +1,5 @@
 package cn.edu.jxnu.examples.other;
 
-
 /**
  * 测试
  *
@@ -8,7 +7,7 @@ package cn.edu.jxnu.examples.other;
  * @time 2018-08-15
  */
 public class TestJava7 extends Thread {
-	
+
     public static void main(String[] args) {
         TestJava7 t = new TestJava7();
         TestJava7 s = new TestJava7();

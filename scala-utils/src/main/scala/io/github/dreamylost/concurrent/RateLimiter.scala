@@ -2,16 +2,19 @@ package io.github.dreamylost.concurrent
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.concurrent.duration.{ Deadline, FiniteDuration, _ }
-import scala.util.{ Failure, Success }
+import scala.concurrent.duration.Deadline
+import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
+import scala.util.Failure
+import scala.util.Success
 
 /**
- * 简单限流器：任意period时间内请求数不能大于requests
- *
+  * 简单限流器：任意period时间内请求数不能大于requests
+  *
  * @author 梦境迷离
- * @since 2020-03-22
- * @version v1.0
- */
+  * @since 2020-03-22
+  * @version v1.0
+  */
 class RateLimiter(requests: Int, period: FiniteDuration) {
 
   private val startTimes = {
@@ -35,8 +38,7 @@ class RateLimiter(requests: Int, period: FiniteDuration) {
     val now = Deadline.now
     if ((now - lastTime) < period) {
       Future.failed(new Exception("RateLimiter Exceeded"))
-    }
-    else {
+    } else {
       enqueue(now)
       block
     }
@@ -47,16 +49,15 @@ object RateLimiterSpec extends App {
   //本程序10秒内必定执行完成。所以理论上总会有5个成功的
   val limiter = new RateLimiter(5, 10.seconds)
   var success = 0
-  (1 to 100).foreach {
-    i =>
-      val ret = limiter.call(Future.successful(1))
-      ret onComplete {
-        case Failure(exception) =>
-          println(s"failed => ${100 - success}, $exception")
-        case Success(value) =>
-          success += 1
-          println(s"success => $success")
-      }
-      ret
+  (1 to 100).foreach { i =>
+    val ret = limiter.call(Future.successful(1))
+    ret onComplete {
+      case Failure(exception) =>
+        println(s"failed => ${100 - success}, $exception")
+      case Success(value) =>
+        success += 1
+        println(s"success => $success")
+    }
+    ret
   }
 }

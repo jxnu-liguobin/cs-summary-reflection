@@ -11,7 +11,7 @@ import io.reactivex.Observable;
  */
 public class RxJavaExample {
 
-    //订阅事件并在收到时打印
+    // 订阅事件并在收到时打印
     public void observe(String[] strings) {
         Observable.fromArray(strings).subscribe(s -> System.out.println("Reactived: " + s));
     }

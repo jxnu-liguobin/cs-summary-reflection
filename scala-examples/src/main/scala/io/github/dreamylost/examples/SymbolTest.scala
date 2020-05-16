@@ -1,10 +1,10 @@
 package io.github.dreamylost.examples
 
 /**
- *
+  *
  * @author liguobin@growingio.com
- * @version 1.0,2020/3/25
- */
+  * @version 1.0,2020/3/25
+  */
 object SymbolTest {
 
   //在Scala中，Symbol类型的对象是被拘禁的(interned)，任意的同名symbols都指向同一个Symbol对象，避免了因冗余而造成的内存开销。

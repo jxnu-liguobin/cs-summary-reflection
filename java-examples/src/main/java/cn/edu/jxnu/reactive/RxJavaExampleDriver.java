@@ -12,7 +12,7 @@ public class RxJavaExampleDriver {
     private static final RxJavaExample rx_java_example = new RxJavaExample();
 
     public static void main(String[] args) {
-        //生产事件
+        // 生产事件
         String[] strings = {"a", "b", "c"};
         rx_java_example.observe(strings);
     }

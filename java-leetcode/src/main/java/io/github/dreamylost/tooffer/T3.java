@@ -3,11 +3,7 @@ package io.github.dreamylost.tooffer;
 import java.util.ArrayList;
 import java.util.Stack;
 
-/**
- * 输入一个链表，从尾到头打印链表每个节点的值。
- * 1 -> 2 -> 3
- * 3 -> 2 -> 1
- */
+/** 输入一个链表，从尾到头打印链表每个节点的值。 1 -> 2 -> 3 3 -> 2 -> 1 */
 public class T3 {
 
     ArrayList<Integer> arrayList = new ArrayList<>();
