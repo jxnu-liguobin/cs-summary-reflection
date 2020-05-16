@@ -1,11 +1,11 @@
 package io.github.dreamylost
 
 /**
- * 镜像二叉树非递归
- *
+  * 镜像二叉树非递归
+  *
  * @author liguobin@growingio.com
- * @version 1.0,2020/3/18
- */
+  * @version 1.0,2020/3/18
+  */
 object Leetcode_Interview_27 extends App {
 
   //层次遍历-QUEUE
@@ -25,6 +25,5 @@ object Leetcode_Interview_27 extends App {
     }
     root
   }
-
 
 }

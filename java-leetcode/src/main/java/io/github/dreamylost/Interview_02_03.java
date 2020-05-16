@@ -8,7 +8,7 @@ package io.github.dreamylost;
  * @since 2020-03-19
  */
 public class Interview_02_03 {
-    //将node后面的节点提前一个
+    // 将node后面的节点提前一个
     public void deleteNode(ListNode node) {
         node.value = node.next.value;
         node.next = node.next.next;

@@ -1,8 +1,6 @@
 package io.github.dreamylost.tooffer;
 
-/**
- * 请实现两个函数，分别用来序列化和反序列化二叉树
- */
+/** 请实现两个函数，分别用来序列化和反序列化二叉树 */
 public class T61 {
 
     String Serialize(TreeNode root) {

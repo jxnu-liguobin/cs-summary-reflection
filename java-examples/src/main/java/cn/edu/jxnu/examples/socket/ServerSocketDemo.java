@@ -25,5 +25,4 @@ public class ServerSocketDemo {
         s.close();
         ss.close();
     }
-
 }

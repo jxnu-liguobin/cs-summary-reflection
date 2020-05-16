@@ -1,19 +1,21 @@
 package io.github.dreamylost.examples
 
-import play.api.libs.json.{ JsNull, JsValue, Json, Writes }
+import play.api.libs.json.JsNull
+import play.api.libs.json.JsValue
+import play.api.libs.json.Json
+import play.api.libs.json.Writes
 
 /**
- *
+  *
  * @author 梦境迷离
- * @since 2019-09-07
- * @version v1.0
- */
+  * @since 2019-09-07
+  * @version v1.0
+  */
 object OptionTest extends App {
 
-
   /** *
-   * 下面是常用的Option类型的操作
-   */
+    * 下面是常用的Option类型的操作
+    */
   //有一个Option类型，无法估计Option值不存在时，是否有默认类型，但是可以预估到经过函数F后的默认类型，这种情况很适合使用fold（play的表单验证）
   val opt = Option("ssss")
   //不清楚opt的默认值，但是知道opt经过F函数后一定是true或者false
@@ -28,17 +30,19 @@ object OptionTest extends App {
   val resOrElse = opt.orElse(Option("-1")).getOrElse("-2") != "sss"
   println(resOrElse) //默认是 -1与sss的比较，也是true
 
-
   //测试类
   case class TestJson(id: String, name: Option[String])
 
   object TestJson {
     implicit val writer = new Writes[TestJson] {
       override def writes(o: TestJson): JsValue = {
-        val fields = Json.obj(
-          "id" -> o.id,
-          "name" -> o.name
-        ).fields.filterNot(_._2 == JsNull)
+        val fields = Json
+          .obj(
+            "id" -> o.id,
+            "name" -> o.name
+          )
+          .fields
+          .filterNot(_._2 == JsNull)
         Json.obj().copy(fields.toMap)
       }
     }

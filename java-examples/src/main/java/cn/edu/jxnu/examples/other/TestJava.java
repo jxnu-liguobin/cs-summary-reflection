@@ -12,12 +12,10 @@ public class TestJava {
         StringBuffer sa = new StringBuffer();
         sa.append(a);
         change(sa, b);
-        System.out.println(sa.toString());//AB
-
+        System.out.println(sa.toString()); // AB
     }
 
     public static void change(StringBuffer sa, String b) {
         sa.append(b);
-
     }
 }

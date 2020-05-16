@@ -27,20 +27,14 @@ public class ListNode {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
         ListNode other = (ListNode) obj;
         if (next == null) {
-            if (other.next != null)
-                return false;
-        } else if (!next.equals(other.next))
-            return false;
-        if (value != other.value)
-            return false;
+            if (other.next != null) return false;
+        } else if (!next.equals(other.next)) return false;
+        if (value != other.value) return false;
         return true;
     }
 

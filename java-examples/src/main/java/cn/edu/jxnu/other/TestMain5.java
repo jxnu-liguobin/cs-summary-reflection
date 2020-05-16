@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class TestMain5 {
 
-
     /**
      * 跳跃
      *
@@ -44,7 +43,5 @@ public class TestMain5 {
         }
         int ret = jump(ns);
         System.out.println(ret);
-
     }
-
 }

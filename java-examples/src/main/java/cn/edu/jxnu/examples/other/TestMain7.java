@@ -46,7 +46,6 @@ public class TestMain7 {
                 inc();
             }
         }
-
     }
 
     class Dec implements Runnable {
@@ -57,6 +56,5 @@ public class TestMain7 {
                 dec();
             }
         }
-
     }
 }

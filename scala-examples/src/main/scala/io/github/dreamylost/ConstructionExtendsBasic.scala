@@ -1,6 +1,5 @@
 package io.github.dreamylost
 
-
 class Construction {
   //class有主构造器和辅助构造器，辅助构造器第一行代码须用调用主构造器（例外可以是：另一个调用了主构造的辅助构造）
   def this(var1: String) = {
@@ -31,8 +30,8 @@ class Construction3(val var1: String, val var2: String) {
 //重写父类的非抽象成员需要使用override
 //在scala中，若有继承，那么，只有主构造函数才能将参数的值传递到父类的构造函数中去。
 //继承父类时，必须用父类的主构造函数，并且传入参数，与上一句一个意思
-class Construction4 @SerialVersionUID(1L)(override val var1: String, override val var2: String) extends Construction3(
-  var1, var1) {
+class Construction4 @SerialVersionUID(1L) (override val var1: String, override val var2: String)
+    extends Construction3(var1, var1) {
 
   //Trait的线性化细节描述Scala编程P238
   //1.java的super是静态绑定的

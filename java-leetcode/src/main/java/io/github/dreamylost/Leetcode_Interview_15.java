@@ -18,7 +18,7 @@ public class Leetcode_Interview_15 {
         int ret = 0;
         while (n != 0) {
             ret += n & 1;
-            n >>>= 1;// >>=会超时
+            n >>>= 1; // >>=会超时
         }
         return ret;
     }

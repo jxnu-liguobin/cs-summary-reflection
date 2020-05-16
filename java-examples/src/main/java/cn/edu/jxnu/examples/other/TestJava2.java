@@ -8,7 +8,6 @@ package cn.edu.jxnu.examples.other;
  */
 public class TestJava2 {
 
-
     static String result = "";
 
     public static void main(String[] args) {
@@ -25,10 +24,9 @@ public class TestJava2 {
         } catch (Exception e) {
             result += "CATCH" + "\n";
         } finally {
-            result += "FINALLY" + "\n";//有return 时，n=1输出FINALLY   n=0输出CATCH FINALLY
+            result += "FINALLY" + "\n"; // 有return 时，n=1输出FINALLY   n=0输出CATCH FINALLY
             // return;// 有return 时  result += "END" + "\n"; 报错
         }
-        result += "END" + "\n";//无return时，n=0输出 CATCH FINALLY END，n=1输出 FINALLY END
+        result += "END" + "\n"; // 无return时，n=0输出 CATCH FINALLY END，n=1输出 FINALLY END
     }
-
 }

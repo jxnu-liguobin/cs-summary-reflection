@@ -25,7 +25,8 @@ public class CommonProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        HandlerInvocation handlerInvocation = new HandlerInvocation(target, method, args, interceptorList.iterator());
+        HandlerInvocation handlerInvocation =
+                new HandlerInvocation(target, method, args, interceptorList.iterator());
         return handlerInvocation.invoke();
     }
 
@@ -35,14 +36,17 @@ public class CommonProxy implements InvocationHandler {
         CommonProxy.initInterceptors(list);
 
         MyBusinessImpl myBusinessImpl = new MyBusinessImpl();
-        MyBusiness myBusiness = (MyBusiness) Proxy.newProxyInstance(MyBusiness.class.getClassLoader(),
-                new Class<?>[]{MyBusiness.class}, new CommonProxy(myBusinessImpl));
+        MyBusiness myBusiness =
+                (MyBusiness)
+                        Proxy.newProxyInstance(
+                                MyBusiness.class.getClassLoader(),
+                                new Class<?>[] {MyBusiness.class},
+                                new CommonProxy(myBusinessImpl));
         myBusiness.xxx1("aaa");
         myBusiness.xxx2(123);
     }
 
-
-    //===========================测试类======================================
+    // ===========================测试类======================================
     public interface MyBusiness {
         void xxx1(String msg);
 
@@ -59,4 +63,3 @@ public class CommonProxy implements InvocationHandler {
         }
     }
 }
-

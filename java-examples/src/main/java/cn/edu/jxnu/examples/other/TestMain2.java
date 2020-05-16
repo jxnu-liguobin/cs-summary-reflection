@@ -13,10 +13,9 @@ public class TestMain2 {
         int n = scanner.nextInt();
         boolean ret = util(n);
         System.out.println(ret);
-
     }
 
-    //求素数
+    // 求素数
     private static boolean util(int n) {
         boolean ret = true;
         int m = (int) Math.sqrt(n);
@@ -27,6 +26,5 @@ public class TestMain2 {
             }
         }
         return ret;
-
     }
 }

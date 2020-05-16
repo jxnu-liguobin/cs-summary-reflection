@@ -1,8 +1,12 @@
+plugins {
+    id "com.diffplug.gradle.spotless" version "3.30.0"
+}
 subprojects {
 
     apply plugin: 'java'
     apply plugin: 'maven'
     apply plugin: 'scala'
+    apply plugin: 'com.diffplug.gradle.spotless'
 
     group = 'io.github'
     version = '2.0.0'
@@ -14,7 +18,10 @@ subprojects {
 
 
     repositories {
-     //强制HTTPS了
+        //强制HTTPS了
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
         maven { url "https://repo.maven.apache.org/maven2" }
     }
 
@@ -25,6 +32,12 @@ subprojects {
             }
             java {
                 srcDirs = []
+            }
+        }
+
+        test {
+            scala {
+                srcDirs = ['src/test/java','src/test/scala']
             }
         }
     }
@@ -38,8 +51,46 @@ subprojects {
         compile group: 'junit', name: 'junit', version: '4.12'
         compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.8'
         compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.12.8'
+        compile group: 'com.diffplug.spotless', name: 'spotless-plugin-gradle', version: '3.30.0'
     }
 
     [compileJava, compileScala, compileTestScala, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
+    /**
+     * gradle spotlessApply
+     * 自动格式化Java
+     */
+    spotless {
+        java {
+            googleJavaFormat('1.1').aosp()
+        }
+    }
+}
+
+/**
+ * gradle  spotlessApply
+ * 格式化所有Scala项目
+ */
+project(':scala-leetcode') {
+    spotless {
+        scala {
+            scalafmt('2.5.2').configFile('.scalafmt.conf')
+        }
+    }
+}
+
+project(':scala-utils') {
+    spotless {
+        scala {
+            scalafmt('2.5.2').configFile('.scalafmt.conf')
+        }
+    }
+}
+
+project(':scala-examples') {
+    spotless {
+        scala {
+            scalafmt('2.5.2').configFile('.scalafmt.conf')
+        }
+    }
 }

@@ -126,3 +126,5 @@ Leetcode Rust 实现
 * [58 最后一个单词的长度](src/leetcode_58.rs)
 
 * [665 非递减数列](src/leetcode_665.rs)
+
+* [66 加一](src/leetcode_66.rs)

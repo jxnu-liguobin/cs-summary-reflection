@@ -1,38 +1,50 @@
 package io.github.dreamylost.json
 
-import java.lang.reflect.{ Constructor, Method }
+import java.lang.reflect.Constructor
+import java.lang.reflect.Method
 
-import com.fasterxml.jackson.core.{ JsonParser, JsonProcessingException }
-import com.fasterxml.jackson.databind.{ DeserializationContext, JavaType, ObjectMapper }
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.core.JsonProcessingException
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JavaType
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer
 import com.fasterxml.jackson.databind.node.ObjectNode
 
 import scala.reflect.runtime.universe._
 
 /**
- * case class 解码器
- *
+  * case class 解码器
+  *
  * @author 梦境迷离
- * @since 2020-04-30
- * @version v1.0
- */
+  * @since 2020-04-30
+  * @version v1.0
+  */
 class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T].runtimeClass) {
 
   /**
-   * 构造函数、方法、字段、字段索引、基本类型
-   */
+    * 构造函数、方法、字段、字段索引、基本类型
+    */
   private val constructor: Constructor[_] = handledType().getConstructors.head
   private val methods: Array[Method] = handledType().getMethods
   private val fields: Array[Symbol] = typeOf[T].members.filter(!_.isMethod).toArray.reverse
   private val fieldsWithIndex: Array[(Symbol, Int)] = fields.zipWithIndex
-  private val numberTypes: Seq[Type] = Seq(typeOf[Int], typeOf[Long], typeOf[Char], typeOf[Short], typeOf[Byte], typeOf[Float], typeOf[Double])
+  private val numberTypes: Seq[Type] = Seq(
+    typeOf[Int],
+    typeOf[Long],
+    typeOf[Char],
+    typeOf[Short],
+    typeOf[Byte],
+    typeOf[Float],
+    typeOf[Double]
+  )
 
   /**
-   * 对象转Java的零值
-   *
+    * 对象转Java的零值
+    *
    * @param typ
-   * @return
-   */
+    * @return
+    */
   private def zeroValue(typ: Type): AnyRef = {
     typ match {
       case t if numberTypes.contains(t) ⇒ 0.asInstanceOf[AnyRef]
@@ -45,17 +57,18 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
   }
 
   /**
-   * 反序列化
-   *
+    * 反序列化
+    *
    * @param jp
-   * @param ctxt
-   * @throws
-   * @return
-   */
+    * @param ctxt
+    * @throws
+    * @return
+    */
   @throws[JsonProcessingException]
   override def deserialize(jp: JsonParser, ctxt: DeserializationContext): T = {
     val node: ObjectNode = jp.getCodec.readTree(jp)
-    val mapper: ObjectMapper with CaseClassObjectMapper = jp.getCodec.asInstanceOf[ObjectMapper with CaseClassObjectMapper]
+    val mapper: ObjectMapper with CaseClassObjectMapper =
+      jp.getCodec.asInstanceOf[ObjectMapper with CaseClassObjectMapper]
     val params: Array[AnyRef] = fieldsWithIndex.map {
       case (field, index) ⇒
         val fieldName = field.name.toString.trim
@@ -77,25 +90,28 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
 }
 
 /**
- *
+  *
  * scala java 类型映射
- *
+  *
  * @author 梦境迷离
- * @since 2020-04-30
- * @version v1.0
- */
+  * @since 2020-04-30
+  * @version v1.0
+  */
 trait CaseClassObjectMapper {
   self: ObjectMapper =>
 
   def constructType(typ: Type): JavaType = {
     def checkArgumentLength(argumentsLength: Int, shouldBeLength: Int) = {
       if (argumentsLength != shouldBeLength) {
-        throw new IllegalArgumentException(s"need exactly $shouldBeLength type parameter for types (${typ.typeSymbol.fullName})")
+        throw new IllegalArgumentException(
+          s"need exactly $shouldBeLength type parameter for types (${typ.typeSymbol.fullName})"
+        )
       }
     }
 
     //使用Scala反射获取运行时类的类型
-    lazy val clazz: Class[_] = runtimeMirror(getClass.getClassLoader).runtimeClass(typ.typeSymbol.asClass)
+    lazy val clazz: Class[_] =
+      runtimeMirror(getClass.getClassLoader).runtimeClass(typ.typeSymbol.asClass)
     lazy val typeArguments: Array[JavaType] = typ.typeArgs.map(constructType).toArray
 
     typ match {

@@ -1,11 +1,11 @@
 package io.github.dreamylost.other
 
 /**
- *
+  *
  * @author 梦境迷离
- * @since 2019-09-04
- * @version v1.0
- */
+  * @since 2019-09-04
+  * @version v1.0
+  */
 object IPAddressUtil {
 
   val ipv6Regex =
@@ -31,35 +31,35 @@ object IPAddressUtil {
   val max = getIPNum("255.255.255.255")
 
   /**
-   * if ip is IPV6 or private ipV4, It's invalid
-   *
+    * if ip is IPV6 or private ipV4, It's invalid
+    *
    * @param ipAddress ip 地址
-   * @return
-   */
+    * @return
+    */
   def isValidIP(ipAddress: String): Boolean = {
 
     if (ipv6Regex.findFirstIn(ipAddress).isEmpty) {
       val ipNum = getIPNum(ipAddress)
 
       /**
-       * 取A类B类的IP
-       * A类  10.0.0.0 - 10.255.255.255
-       * B类  172.16.0.0 - 172.31.255.255
-       * C类  192.168.0.0 - 192.168.255.255
-       * 当然，还有127这个网段是环回地址
-       */
+        * 取A类B类的IP
+        * A类  10.0.0.0 - 10.255.255.255
+        * B类  172.16.0.0 - 172.31.255.255
+        * C类  192.168.0.0 - 192.168.255.255
+        * 当然，还有127这个网段是环回地址
+        */
       ipNum > min && !isInner(ipNum, aBegin, aEnd) && !isInner(ipNum, bBegin, bEnd) &&
-        !isInner(ipNum, cBegin, cEnd) && !ipAddress.equals("127.0.0.1") && ipNum < max
+      !isInner(ipNum, cBegin, cEnd) && !ipAddress.equals("127.0.0.1") && ipNum < max
     } else {
       false
     }
   }
 
   /**
-   *
+    *
    * @param ipAddress ip地址字符串
-   * @return
-   */
+    * @return
+    */
   def getIPNum(ipAddress: String): Long = {
     val nums = ipAddress.split("\\.")
     val a = nums(0).toLong

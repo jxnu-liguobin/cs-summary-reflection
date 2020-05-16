@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 /**
  * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
- * <p>
- * 不可以包含重复的三元组
+ *
+ * <p>不可以包含重复的三元组
  *
  * @author 梦境迷离
  * @time 2018-09-16
@@ -17,10 +17,10 @@ public class Leetcode_15_Double_Pointer {
 
     /**
      * 分别是（1）寻找三个满足条件的元素（2）去重复
-     * <p>
-     * 根据题目所给的条件，可以看出三个数字之和是定值，因此，当我们选取第一个数字num1后，问题变为寻找和为0-num1的两个数字。
-     * <p>
-     * 可以观察到，因为数组是有序的，我们可以设置两个指针从两边同时选取
+     *
+     * <p>根据题目所给的条件，可以看出三个数字之和是定值，因此，当我们选取第一个数字num1后，问题变为寻找和为0-num1的两个数字。
+     *
+     * <p>可以观察到，因为数组是有序的，我们可以设置两个指针从两边同时选取
      *
      * @param nums
      * @return
@@ -44,11 +44,8 @@ public class Leetcode_15_Double_Pointer {
         return results;
     }
 
-    public static void twoSum(int[] nums,
-                              int left,
-                              int right,
-                              int target,
-                              List<List<Integer>> results) {
+    public static void twoSum(
+            int[] nums, int left, int right, int target, List<List<Integer>> results) {
         while (left < right) {
             if (nums[left] + nums[right] == target) {
                 ArrayList<Integer> triple = new ArrayList<>();
@@ -74,15 +71,18 @@ public class Leetcode_15_Double_Pointer {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> ret = threeSum(new int[]{-1, 0, 1, 2, -1, -4});
+        List<List<Integer>> ret = threeSum(new int[] {-1, 0, 1, 2, -1, -4});
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[\n");
-        ret.forEach(x -> {
-            String result = x.stream().map(j -> j.toString()).collect(Collectors.joining(",", "[", "]"));
-            stringBuilder.append(" " + result);
-            stringBuilder.append("\n");
-
-        });
+        ret.forEach(
+                x -> {
+                    String result =
+                            x.stream()
+                                    .map(j -> j.toString())
+                                    .collect(Collectors.joining(",", "[", "]"));
+                    stringBuilder.append(" " + result);
+                    stringBuilder.append("\n");
+                });
         stringBuilder.append("]");
         System.out.println(stringBuilder.toString());
     }

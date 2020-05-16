@@ -1,9 +1,9 @@
 package io.github.dreamylost.examples.fb
 
 /**
- * @author 梦境迷离
- * @version 1.0, 2019-05-18
- */
+  * @author 梦境迷离
+  * @version 1.0, 2019-05-18
+  */
 object laziness extends App {
 
   lazy val stream = Stream.apply(1, 2, 3, 4, 5, 6, 7)
@@ -40,7 +40,6 @@ object laziness extends App {
   Console println "hashSubsequence => " + stream.hashSubsequence(Stream(6, 7))
   Console println "scanRight => " + stream.scanRight(0)(_ + _)
 
-
   import Stream._
 
   //定义数据结构
@@ -48,77 +47,83 @@ object laziness extends App {
   trait Stream[+A] {
 
     /**
-     * 只是为了方便测试，自己加的toString方法
-     *
+      * 只是为了方便测试，自己加的toString方法
+      *
      * @return
-     */
+      */
     override def toString: String = {
       toList.toString()
     }
 
     //书上原有方法
-    def headOption: Option[A] = this match {
-      case Empty => None
-      case Cons(h, t) => Some(h()) //显示调用thunk强制求值
-    }
+    def headOption: Option[A] =
+      this match {
+        case Empty => None
+        case Cons(h, t) => Some(h()) //显示调用thunk强制求值
+      }
 
     /**
-     * 5.1：将流转化为List
-     *
+      * 5.1：将流转化为List
+      *
      * @return
-     */
+      */
     def toList: List[A] = {
       //类似头插法构造list，()用于强制求值
       @annotation.tailrec
-      def loop(s: Stream[A], acc: List[A]): List[A] = s match {
-        case Cons(h, t) => loop(t(), h() :: acc)
-        case _ => acc
-      }
+      def loop(s: Stream[A], acc: List[A]): List[A] =
+        s match {
+          case Cons(h, t) => loop(t(), h() :: acc)
+          case _ => acc
+        }
 
       loop(this, List()).reverse
     }
 
     /**
-     * 5.2-1：返回stream中前n个元素
-     *
+      * 5.2-1：返回stream中前n个元素
+      *
      * @param n
-     * @return
-     */
-    def take(n: Int): Stream[A] = this match {
-      case Cons(h, t) if n > 1 => cons(h(), t().take(n - 1))
-      case Cons(h, _) if n == 1 => cons(h(), empty)
-      case _ => empty
-    }
+      * @return
+      */
+    def take(n: Int): Stream[A] =
+      this match {
+        case Cons(h, t) if n > 1 => cons(h(), t().take(n - 1))
+        case Cons(h, _) if n == 1 => cons(h(), empty)
+        case _ => empty
+      }
 
     /**
-     * 5.2-2：返回stream中第n个元素之后的所有元素
-     *
+      * 5.2-2：返回stream中第n个元素之后的所有元素
+      *
      * @param n
-     * @return
-     */
+      * @return
+      */
     @annotation.tailrec
-    final def drop(n: Int): Stream[A] = this match {
-      case Cons(_, t) if n > 0 => t().drop(n - 1)
-      case _ => this
-    }
+    final def drop(n: Int): Stream[A] =
+      this match {
+        case Cons(_, t) if n > 0 => t().drop(n - 1)
+        case _ => this
+      }
 
     /**
-     * 5.3：返回stream中从起始元素连续满足给定断言的所有元素
-     *
+      * 5.3：返回stream中从起始元素连续满足给定断言的所有元素
+      *
      * @param p
-     * @return
-     */
-    def takeWhile(p: A => Boolean): Stream[A] = this match {
-      //匹配case，同时满足if
-      case Cons(h, t) if p(h()) => cons(h(), t().takeWhile(p))
-      case _ => empty
-    }
+      * @return
+      */
+    def takeWhile(p: A => Boolean): Stream[A] =
+      this match {
+        //匹配case，同时满足if
+        case Cons(h, t) if p(h()) => cons(h(), t().takeWhile(p))
+        case _ => empty
+      }
 
     //书上原有方法
-    def exists(p: A => Boolean): Boolean = this match {
-      case Cons(h, t) => p(h()) || t().exists(p) // ||有短路功能，第一个参数为true，不会再执行第二个表达式（方法）
-      case _ => false
-    }
+    def exists(p: A => Boolean): Boolean =
+      this match {
+        case Cons(h, t) => p(h()) || t().exists(p) // ||有短路功能，第一个参数为true，不会再执行第二个表达式（方法）
+        case _ => false
+      }
 
     //书上原有方法，类似List的右折叠，=> B是传名参数
     def foldRight[B](z: => B)(f: (A, => B) => B): B = {
@@ -134,77 +139,76 @@ object laziness extends App {
     }
 
     /**
-     * 5.4：检查stream中所有元素是否与给定的断言匹配，遇到不匹配的值就终止遍历
-     *
+      * 5.4：检查stream中所有元素是否与给定的断言匹配，遇到不匹配的值就终止遍历
+      *
      * @param p
-     * @return
-     */
+      * @return
+      */
     def forAll(p: A => Boolean): Boolean = {
       //这里默认是true。注意
       foldRight(true)((h, t) => p(h) && t) //&& 可以短路，遇到不匹配就不执行递归了
     }
 
     /**
-     * 5.5：使用foldRight实现
-     *
+      * 5.5：使用foldRight实现
+      *
      * @param p
-     * @return
-     */
+      * @return
+      */
     def takeWhile2(p: A => Boolean): Stream[A] = {
       //折叠初始值，折叠方式
       foldRight(empty[A])((h, t) => if (p(h)) cons(h, t) else empty)
     }
 
     /**
-     * 5.6：使用foldRight实现
-     *
+      * 5.6：使用foldRight实现
+      *
      * @return
-     */
+      */
     def headOption2: Option[A] = {
       //起始值是None，类型是Option
       foldRight(None: Option[A])((h, _) => Some(h))
     }
 
     /**
-     * 5.7-1：使用foldRight实现
-     *
+      * 5.7-1：使用foldRight实现
+      *
      * @param f
-     * @tparam B
-     * @return
-     */
+      * @tparam B
+      * @return
+      */
     def map[B](f: A => B): Stream[B] = {
       foldRight(empty[B])((h, t) => cons(f(h), t))
     }
 
     /**
-     * 5.7-2：使用foldRight实现
-     *
+      * 5.7-2：使用foldRight实现
+      *
      * @param f
-     * @return
-     */
+      * @return
+      */
     def filter(f: A => Boolean): Stream[A] = {
       foldRight(empty[A])((h, t) => if (f(h)) cons(h, t) else t)
     }
 
-
     /**
-     * 5.7-3：使用foldRight实现
-     *
+      * 5.7-3：使用foldRight实现
+      *
      * @param s
-     * @tparam B
-     * @return
-     */
+      * @tparam B
+      * @return
+      */
     def append[B >: A](s: => Stream[B]): Stream[B] = {
       foldRight(s)((h, t) => cons(h, t))
     }
 
     /**
-     * 5.7-4：使用foldRight实现
-     *
+      * 5.7-4：使用foldRight实现
+      *
      * @param f
-     * @tparam B
-     * @return
-     */
+      * @tparam B
+      * @return
+      */
     def flatMap[B](f: A => Stream[B]): Stream[B] = {
       foldRight(empty[B])((h, t) => f(h) append t)
     }
@@ -215,12 +219,12 @@ object laziness extends App {
     }
 
     /**
-     * 5.13-1：使用unfold实现map
-     *
+      * 5.13-1：使用unfold实现map
+      *
      * @param f
-     * @tparam B
-     * @return
-     */
+      * @tparam B
+      * @return
+      */
     def mapWithUnfold[B](f: A => B): Stream[B] =
       unfold(this) {
         //使用f函数将h进行类型转换生成值 f(h() ，继续对tail流操作
@@ -229,11 +233,11 @@ object laziness extends App {
       }
 
     /**
-     * 5.13-2：使用unfold实现take
-     *
+      * 5.13-2：使用unfold实现take
+      *
      * @param n
-     * @return
-     */
+      * @return
+      */
     def takeWithUnfold(n: Int): Stream[A] = {
       unfold((this, n)) {
         case (Cons(h, t), 1) => Some((h(), (empty, 0)))
@@ -243,11 +247,11 @@ object laziness extends App {
     }
 
     /**
-     * 5.13-3：使用unfold实现takeWhile
-     *
+      * 5.13-3：使用unfold实现takeWhile
+      *
      * @param f
-     * @return
-     */
+      * @return
+      */
     def takeWhileWithUnfold(f: A => Boolean): Stream[A] = {
       unfold(this) {
         case Cons(h, t) if f(h()) => Some((h(), t()))
@@ -256,29 +260,29 @@ object laziness extends App {
     }
 
     /**
-     * 封装了zipWith
-     *
+      * 封装了zipWith
+      *
      * @param s2
-     * @tparam B
-     * @return
-     */
+      * @tparam B
+      * @return
+      */
     def zip[B](s2: Stream[B]): Stream[(A, B)] = {
       zipWith(s2)((_, _))
     }
 
     /**
-     * 5.13-4：使用unfold实现zipWith
-     *
+      * 5.13-4：使用unfold实现zipWith
+      *
      * 接收一个stream，对两个stream的对应元素使用f函数进行处理，构造出新的stream
-     * zip函数将传进来的两个参数中相应位置上的元素组成一个pair数组
-     * 如果其中一个参数元素比较长，那么多余的参数会被删掉。
-     *
+      * zip函数将传进来的两个参数中相应位置上的元素组成一个pair数组
+      * 如果其中一个参数元素比较长，那么多余的参数会被删掉。
+      *
      * @param s2
-     * @param f
-     * @tparam B
-     * @tparam C
-     * @return
-     */
+      * @param f
+      * @tparam B
+      * @tparam C
+      * @return
+      */
     def zipWith[B, C](s2: Stream[B])(f: (A, B) => C): Stream[C] = {
       unfold((this, s2)) {
         case (Cons(h1, t1), Cons(h2, t2)) => Some((f(h1(), h2()), (t1(), t2())))
@@ -287,15 +291,15 @@ object laziness extends App {
     }
 
     /**
-     * 5.13-5：使用unfold实现zipAll
-     *
+      * 5.13-5：使用unfold实现zipAll
+      *
      * zipAll应该继续遍历只要stream还有更多元素
-     * 和zip函数类似，区别：如果其中一个元素个数比较少，那么将用默认的元素填充(None)
-     *
+      * 和zip函数类似，区别：如果其中一个元素个数比较少，那么将用默认的元素填充(None)
+      *
      * @param s2
-     * @tparam B
-     * @return
-     */
+      * @tparam B
+      * @return
+      */
     def zipAll[B](s2: Stream[B]): Stream[(Option[A], Option[B])] = {
       zipWithAll(s2)(_ -> _)
     }
@@ -313,16 +317,16 @@ object laziness extends App {
     }
 
     /**
-     * 5.14：使用已经存在的函数实现。
-     *
+      * 5.14：使用已经存在的函数实现。
+      *
      * 检查一个stream是否是另一个stream的前缀
-     *
+      *
      * Example：Stream(1,2,3).startsWith(Stream(1,2))  return true
-     *
+      *
      * @param s
-     * @tparam A
-     * @return
-     */
+      * @tparam A
+      * @return
+      */
     def startsWith[A](s: Stream[A]): Boolean = {
       zipAll(s).takeWhile(_._2.isDefined) forAll {
         case (h1, h2) => h1.get == h2.get
@@ -330,12 +334,12 @@ object laziness extends App {
     }
 
     /**
-     * 5.15：使用unfold实现tails
-     *
+      * 5.15：使用unfold实现tails
+      *
      * Example：Stream(1,2,3).tails   return  Stream(Stream(1,2,3),Stream(2,3),Stream(3),Stream())
-     *
+      *
      * @return
-     */
+      */
     def tails: Stream[Stream[A]] = {
       unfold(this) {
         case Empty => None
@@ -352,17 +356,17 @@ object laziness extends App {
     }
 
     /**
-     * 5.16：泛化tails函数，类似foldRight返回一个中间结果的stream
-     *
+      * 5.16：泛化tails函数，类似foldRight返回一个中间结果的stream
+      *
      * Example：Stream(1,2,3).scanRight(0)(_ + _).toList   return List(6,5,3,0)
-     *
+      *
      * 难  看答案吧
-     *
+      *
      * @param z
-     * @param f
-     * @tparam B
-     * @return
-     */
+      * @param f
+      * @tparam B
+      * @return
+      */
     def scanRight[B](z: B)(f: (A, => B) => B): Stream[B] = {
       //初始值=(0,Stream()) ，操作 f= ( _ + _)
       foldRight(z -> Stream(z))((a, p0) => {
@@ -405,12 +409,12 @@ object laziness extends App {
     val ones: Stream[Int] = Stream.cons(1, ones)
 
     /**
-     * 5.8：根据给定值返回无限流
-     *
+      * 5.8：根据给定值返回无限流
+      *
      * @param a
-     * @tparam A
-     * @return
-     */
+      * @tparam A
+      * @return
+      */
     def constant[A](a: A): Stream[A] = {
       //引用自身，是无限流，因为具有增量性质，上面写的函数对无限流也适用。但最后可能造成栈溢出
       lazy val tail: Stream[A] = Cons(() => a, () => tail)
@@ -418,20 +422,20 @@ object laziness extends App {
     }
 
     /**
-     * 5.9：写一个函数生成一个整数无限流，从N开始，然后N+1,N+2,N+3... Scala的Int是有符号32位整型
-     * stream从某点开始从正数变为负数，并且40亿后会重复发生
-     *
+      * 5.9：写一个函数生成一个整数无限流，从N开始，然后N+1,N+2,N+3... Scala的Int是有符号32位整型
+      * stream从某点开始从正数变为负数，并且40亿后会重复发生
+      *
      * @param n
-     * @return
-     */
+      * @return
+      */
     def from(n: Int): Stream[Int] = {
       //从N开始，每个tail构造使用N+1
       cons(n, from(n + 1))
     }
 
     /**
-     * 5.10：写一个fibs函数生成斐波那契熟练的无限流：0,1,1,2,3,5,8，等
-     */
+      * 5.10：写一个fibs函数生成斐波那契熟练的无限流：0,1,1,2,3,5,8，等
+      */
     def fibs = {
       def go(f0: Int, f1: Int): Stream[Int] = {
         //构造的时候使用f0+f1
@@ -442,21 +446,21 @@ object laziness extends App {
     }
 
     /**
-     * 5.11：写一个更加通用的构造流的函数，它接收一个起始状态，以及一个在生成的Stream中用于产生下一状态和下一个值的函数
-     * 注：fold 可以根据数据源和条件，由包含多个元素的序列产生一个结果；而 unfold 方向相反，它根据条件由源产生了更多的结果
-     *
+      * 5.11：写一个更加通用的构造流的函数，它接收一个起始状态，以及一个在生成的Stream中用于产生下一状态和下一个值的函数
+      * 注：fold 可以根据数据源和条件，由包含多个元素的序列产生一个结果；而 unfold 方向相反，它根据条件由源产生了更多的结果
+      *
      * 它有两个优点：
-     * 1.消除了while循环语句
-     * 2.消除了不必要的变量声明
-     *
+      * 1.消除了while循环语句
+      * 2.消除了不必要的变量声明
+      *
      * 具体参考答案，这个地方不太好理解，而且不好测无限流
-     *
+      *
      * @param z 初始化值
-     * @param f 传入S类型参数，产生下一值的函数
-     * @tparam A 产生值的类型
-     * @tparam S 初始值的类型
-     * @return
-     */
+      * @param f 传入S类型参数，产生下一值的函数
+      * @tparam A 产生值的类型
+      * @tparam S 初始值的类型
+      * @return
+      */
     def unfold[A, S](z: S)(f: S => Option[(A, S)]): Stream[A] = {
       //共递归函数
       //对z这个初始化先应用f函数
@@ -469,39 +473,39 @@ object laziness extends App {
     }
 
     /**
-     * 5.12-1：使用unfold实现fibs
-     */
+      * 5.12-1：使用unfold实现fibs
+      */
     def fibsWithUnfold = {
       //z:S=(f0, f1) => z:S=(f1,f0+f1)
       unfold((0, 1)) { case (f0, f1) => Some((f0, (f1, f0 + f1))) }
     }
 
     /**
-     * 5.12-2：使用unfold实现from
-     *
+      * 5.12-2：使用unfold实现from
+      *
      * @param n
-     * @return
-     */
+      * @return
+      */
     def fromWithUnfold(n: Int) = {
       unfold(n)(n => Some((n, n + 1)))
     }
 
     /**
-     * 5.12-3：使用unfold实现constant
-     *
+      * 5.12-3：使用unfold实现constant
+      *
      * @param a
-     * @tparam A
-     * @return
-     */
+      * @tparam A
+      * @return
+      */
     def constantWithUnfold[A](a: A) = {
       unfold(a)(_ => Some((a, a)))
     }
 
     /**
-     * 5.12-4：使用unfold实现ones
-     *
+      * 5.12-4：使用unfold实现ones
+      *
      * @return
-     */
+      */
     def onesWithUnfold = {
       unfold(1)(_ => Some((1, 1)))
     }

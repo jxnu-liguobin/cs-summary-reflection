@@ -18,6 +18,5 @@ object Test2 extends App {
     "hello"
   } //只有一个参数的方法调用可以使用花括号
 
-
   // string.chars().anyMatch((int ch)-> Character.isUpperCase((char)ch)) //java 8
 }

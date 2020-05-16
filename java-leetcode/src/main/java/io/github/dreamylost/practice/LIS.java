@@ -1,19 +1,13 @@
 package io.github.dreamylost.practice;
 
-
 /**
- * <p>
  * Title: LIS.java
- * </p>
- * <p>
- * Description: 求数组最长递增子序列长度
- * </p>
- * <p>
- * Copyright: Copyright (c) 2018
- * </p>
- * <p>
- * School: jxnu
- * </p>
+ *
+ * <p>Description: 求数组最长递增子序列长度
+ *
+ * <p>Copyright: Copyright (c) 2018
+ *
+ * <p>School: jxnu
  *
  * @author Mr.Li
  * @version 1.0
@@ -22,14 +16,11 @@ package io.github.dreamylost.practice;
  */
 public class LIS {
 
-    /**
-     * @param args
-     */
+    /** @param args */
     public static void main(String[] args) {
         int[] array = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int result = new LIS().lis(array);
         System.out.println("最大递增子序列长度是：" + result);
-
     }
 
     /**

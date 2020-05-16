@@ -1,9 +1,9 @@
 package io.github.dreamylost
 
 /**
- * @author 梦境迷离
- * @version 1.0, 2019-06-20
- */
+  * @author 梦境迷离
+  * @version 1.0, 2019-06-20
+  */
 object MainObject1 extends App {
 
   //lazy var 是不允许的，
@@ -30,7 +30,6 @@ object MainObject1 extends App {
   //普通变量
   private var default6 = Seq(1, 2, 3, 4)
   println("var 初始化 =>>>>> " + default6)
-
 
   def getData() = {
     println("方法调用1 =>>>>>> " + default1)

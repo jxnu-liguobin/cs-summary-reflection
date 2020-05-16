@@ -2,20 +2,23 @@ package io.github.dreamylost.undertow
 
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.util.{ Objects, UUID }
+import java.util.Objects
+import java.util.UUID
 
 import com.google.common.net.HttpHeaders
 import com.typesafe.scalalogging.Logger
-import io.undertow.server.{ ExchangeCompletionListener, HttpHandler, HttpServerExchange }
+import io.undertow.server.ExchangeCompletionListener
+import io.undertow.server.HttpHandler
+import io.undertow.server.HttpServerExchange
 import io.undertow.util.HeaderValues
 
 /**
- * undertow 访问日志处理器
- *
+  * undertow 访问日志处理器
+  *
  * @author 梦境迷离
- * @time 2019-08-18
- * @version v1.0
- */
+  * @time 2019-08-18
+  * @version v1.0
+  */
 class AccessLogHandler(next: HttpHandler, service: Option[String]) extends HttpHandler {
 
   private[this] val logger: Logger = Logger("access")
@@ -60,7 +63,8 @@ class AccessLogHandler(next: HttpHandler, service: Option[String]) extends HttpH
     s"""$address $serviceName $requestId - [$now] "$method $path $protocol" $status $bytesSent $cost "$referred" "$ua""""
   }
 
-  private[this] def isEmpty(values: HeaderValues): Boolean = Objects.isNull(values) || values.isEmpty
+  private[this] def isEmpty(values: HeaderValues): Boolean =
+    Objects.isNull(values) || values.isEmpty
 
 }
 
@@ -68,6 +72,7 @@ object AccessLogHandler {
 
   def apply(next: HttpHandler): AccessLogHandler = new AccessLogHandler(next, None)
 
-  def apply(next: HttpHandler, service: String): AccessLogHandler = new AccessLogHandler(next, Option(service))
+  def apply(next: HttpHandler, service: String): AccessLogHandler =
+    new AccessLogHandler(next, Option(service))
 
 }

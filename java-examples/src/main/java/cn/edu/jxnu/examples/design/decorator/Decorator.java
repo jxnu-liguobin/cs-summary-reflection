@@ -1,18 +1,15 @@
 package cn.edu.jxnu.examples.design.decorator;
 
 public abstract class Decorator implements Component {
-	private Component instance;// 持有Component的引用，通过构造器注入
+    private Component instance; // 持有Component的引用，通过构造器注入
 
-	public Decorator() {
+    public Decorator() {}
 
-	}
+    public Decorator(Component inst) {
+        this.instance = inst;
+    }
 
-	public Decorator(Component inst) {
-		this.instance = inst;
-	}
-
-	public Component getInstance() {
-		return this.instance;
-	}
-
+    public Component getInstance() {
+        return this.instance;
+    }
 }

@@ -2,14 +2,10 @@ package io.github.dreamylost.tooffer;
 
 import java.util.Stack;
 
-/**
- * 输入一个链表，输出该链表中倒数第k个结点。
- * [1,2,3,4,5,6,7,8]
- * k = 2
- */
+/** 输入一个链表，输出该链表中倒数第k个结点。 [1,2,3,4,5,6,7,8] k = 2 */
 public class T14 {
 
-    //使用栈
+    // 使用栈
     public ListNode FindKthToTail(ListNode head, int k) {
         if (k <= 0) {
             return null;
@@ -57,5 +53,4 @@ public class T14 {
         }
         return last;
     }
-
 }

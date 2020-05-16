@@ -1,14 +1,15 @@
 package io.github.dreamylost.`macro`
 
-import io.github.dreamylost.`macro`.ImplicitMacros.{ show, Showable }
+import io.github.dreamylost.`macro`.ImplicitMacros.show
+import io.github.dreamylost.`macro`.ImplicitMacros.Showable
 
 /**
- * Scala 隐式宏
- *
+  * Scala 隐式宏
+  *
  * @see https://docs.scala-lang.org/overviews/macros/implicits.html
- * @author liguobin@growingio.com
- * @version 1.0,2020/3/17
- */
+  * @author liguobin@growingio.com
+  * @version 1.0,2020/3/17
+  */
 object ImplicitMacros {
 
   ///类 类型
@@ -32,15 +33,17 @@ object ImplicitMacros2 {
   ///多个不同类需要打印功能，可能出现模板代码
   class C(val x: Int)
 
-  implicit def cShowable = new Showable[C] {
-    def show(c: C) = "C(" + c.x + ")"
-  }
+  implicit def cShowable =
+    new Showable[C] {
+      def show(c: C) = "C(" + c.x + ")"
+    }
 
   class D(val x: Int)
 
-  implicit def dShowable = new Showable[D] {
-    def show(d: D) = "D(" + d.x + ")"
-  }
+  implicit def dShowable =
+    new Showable[D] {
+      def show(d: D) = "D(" + d.x + ")"
+    }
 
   //上面模板代码可以使用隐式宏，既解决冗余代码又不影响性能
   object Showable {

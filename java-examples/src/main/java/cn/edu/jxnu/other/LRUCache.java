@@ -3,7 +3,6 @@ package cn.edu.jxnu.other;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
 /**
  * @author 梦境迷离
  * @time 2018年9月28日
@@ -69,20 +68,17 @@ public class LRUCache {
         } else {
             end = n.pre;
         }
-
     }
 
     public void setHead(Node n) {
         n.next = head;
         n.pre = null;
 
-        if (head != null)
-            head.pre = n;
+        if (head != null) head.pre = n;
 
         head = n;
 
-        if (end == null)
-            end = head;
+        if (end == null) end = head;
     }
 
     public void put(int key, int value) {
