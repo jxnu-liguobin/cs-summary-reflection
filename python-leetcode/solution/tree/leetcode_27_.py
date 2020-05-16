@@ -3,12 +3,6 @@
 # coding=utf-8
 """
 27. 二叉树的镜像
-
-所以其他Python代码参考本例格式，通用数据结构放在init中，禁止使用Python2
-
-可增加main方法和测速case 或 ac结果
-
-提交前使用IDEA的format code格式化代码
 """
 from solution import TreeNode
 
