@@ -128,3 +128,5 @@ Leetcode Rust 实现
 * [665 非递减数列](src/leetcode_665.rs)
 
 * [66 加一](src/leetcode_66.rs)
+
+* [67 二进制求和](src/leetcode_67.rs)
