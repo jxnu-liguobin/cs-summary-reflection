@@ -101,7 +101,6 @@ impl Solution {
     }
 }
 
-
 #[cfg(test)]
 mod test {
     use crate::pre_structs::{ListNode, Solution};
