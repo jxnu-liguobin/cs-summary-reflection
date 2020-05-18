@@ -3,25 +3,26 @@ package io.github.dreamylost.examples
 import play.api.libs.json._
 
 /**
- *
+  *
  * @author 梦境迷离
- * @since 2019-09-30
- * @version v1.0
- */
+  * @since 2019-09-30
+  * @version v1.0
+  */
 object ImplicitSeqObjectTest extends App {
-
 
   //需要显示指定自己需要的特别序列化方式
   Console println Json.toJson(TestEntity("name1"))(TestEntity.Implicits.writerForOne)
-  Console println Json.toJson(Seq(TestEntity("name1"), TestEntity("name2")))(TestEntity.Implicits.writerForSeq)
+  Console println Json.toJson(Seq(TestEntity("name1"), TestEntity("name2")))(
+    TestEntity.Implicits.writerForSeq
+  )
 
   /**
-   * RESULT:
-   * {{{
-   *  {"name":"name1"}
-   * [{"name":"name2"},{"name":"name1"}]
-   * }}}
-   */
+    * RESULT:
+    * {{{
+    *  {"name":"name1"}
+    * [{"name":"name2"},{"name":"name1"}]
+    * }}}
+    */
 
 }
 
@@ -29,11 +30,9 @@ case class TestEntity(name: String)
 
 object TestEntity {
 
-
   //正常情况的write/read一般放在伴生对象这里，直接就可以自动引用，不需要显示指定
 
   object Implicits {
-
 
     //需求：对返回的对象进行特别处理，去掉或新增2个需要展示的字段或者修改（或不同使用者对格式要求不一样），但不是所有该VO使用方都需要这两个字段。
     //由于该展示VO可能被多个业务或功能同时使用，最简单的是设置Option并且不需要使用的返回null，这在前端使用接口时没问题。但是有没有更好的办法？

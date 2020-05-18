@@ -9,8 +9,8 @@ package io.github.dreamylost;
 public class Leetcode_234_Double_Pointer {
 
     /**
-     * This can be solved by reversing the 2nd half and compare the two halves. Let's start with an example [1, 1, 2, 1].
-     * In the beginning, set two pointers fast and slow starting at the head.
+     * This can be solved by reversing the 2nd half and compare the two halves. Let's start with an
+     * example [1, 1, 2, 1]. In the beginning, set two pointers fast and slow starting at the head.
      *
      * @param head
      * @return
@@ -24,7 +24,7 @@ public class Leetcode_234_Double_Pointer {
         if (fast != null) {
             slow = slow.next;
         }
-        //颠倒慢指针
+        // 颠倒慢指针
         slow = reverse(slow);
         fast = head;
 

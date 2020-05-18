@@ -2,7 +2,6 @@ package io.github.dreamylost
 
 class ObjectBasic {
 
-
   private val str1 = "hello"
 
   def print(): Unit = {
@@ -13,8 +12,8 @@ class ObjectBasic {
 }
 
 /**
- * ============================构造函数、实例化规则==============================================
- */
+  * ============================构造函数、实例化规则==============================================
+  */
 //伴生对象与伴生类同名，同一源文件中
 //注意单例对象是一等的，是特殊的class
 object ObjectBasic extends App {

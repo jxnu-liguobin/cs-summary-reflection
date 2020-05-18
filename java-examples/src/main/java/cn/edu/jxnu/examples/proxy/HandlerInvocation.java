@@ -14,7 +14,8 @@ public class HandlerInvocation {
     private Method method;
     private Object[] args;
 
-    public HandlerInvocation(Object proxy, Method method, Object[] args, Iterator<Interceptor> iterator) {
+    public HandlerInvocation(
+            Object proxy, Method method, Object[] args, Iterator<Interceptor> iterator) {
         this.proxy = proxy;
         this.method = method;
         this.args = args;

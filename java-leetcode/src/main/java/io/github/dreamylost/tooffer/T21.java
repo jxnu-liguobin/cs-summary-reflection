@@ -10,8 +10,7 @@ import java.util.Stack;
 public class T21 {
 
     /**
-     * 模拟堆栈操作：将原数列依次压栈，栈顶元素与所给出栈队列相比，如果相同则出栈，
-     * 如果不同则继续压栈，直到原数列中所有数字压栈完毕。
+     * 模拟堆栈操作：将原数列依次压栈，栈顶元素与所给出栈队列相比，如果相同则出栈， 如果不同则继续压栈，直到原数列中所有数字压栈完毕。
      * 检测栈中是否为空，若空，说明出栈队列可由原数列进行栈操作得到。否则，说明出栈队列不能由原数列进行栈操作得到。
      */
     public boolean IsPopOrder(int[] pushA, int[] popA) {
@@ -34,7 +33,7 @@ public class T21 {
         int[] pushA = {1, 2, 3, 4, 5};
         int[] popA = {4, 5, 3, 2, 1};
         System.out.println(new T21().IsPopOrder(pushA, popA));
-        popA = new int[]{4, 3, 5, 1, 2};
+        popA = new int[] {4, 3, 5, 1, 2};
         System.out.println(new T21().IsPopOrder(pushA, popA));
     }
 }

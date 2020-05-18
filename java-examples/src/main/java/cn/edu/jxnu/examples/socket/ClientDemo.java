@@ -10,7 +10,8 @@ public class ClientDemo {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));// 包装socket输出流
+        BufferedWriter bufferedWriter =
+                new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())); // 包装socket输出流
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             if ("886".equals(line)) {
@@ -24,5 +25,4 @@ public class ClientDemo {
         // bufferedWriter.close();
         socket.close();
     }
-
 }

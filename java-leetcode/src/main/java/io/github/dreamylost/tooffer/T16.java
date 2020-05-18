@@ -1,10 +1,6 @@
 package io.github.dreamylost.tooffer;
 
-/**
- * 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
- * [1,2,3,4,5,6,7,8]
- * [2,3,4,5,6,7,8,9]
- */
+/** 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。 [1,2,3,4,5,6,7,8] [2,3,4,5,6,7,8,9] */
 public class T16 {
 
     public ListNode Merge(ListNode list1, ListNode list2) {
@@ -26,9 +22,9 @@ public class T16 {
         }
     }
 
-    //非递归
+    // 非递归
     public ListNode Merge2(ListNode list1, ListNode list2) {
-        //新建一个头节点，用来存合并的链表。
+        // 新建一个头节点，用来存合并的链表。
         ListNode head = new ListNode(-1);
         head.next = null;
         ListNode root = head;
@@ -43,7 +39,7 @@ public class T16 {
                 list2 = list2.next;
             }
         }
-        //把未结束的链表连接到合并后的链表尾部
+        // 把未结束的链表连接到合并后的链表尾部
         if (list1 != null) {
             head.next = list1;
         }

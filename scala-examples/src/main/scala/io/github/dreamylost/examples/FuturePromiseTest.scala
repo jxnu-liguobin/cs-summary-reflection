@@ -2,16 +2,17 @@ package io.github.dreamylost.examples
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{ Await, Future, Promise }
+import scala.concurrent.Await
+import scala.concurrent.Future
+import scala.concurrent.Promise
 import scala.util.Success
 
 /**
- *
+  *
  * @author liguobin@growingio.com
- * @version 1.0,2019/11/8
- */
+  * @version 1.0,2019/11/8
+  */
 object FuturePromiseTest extends App {
-
 
   var i = 0
 

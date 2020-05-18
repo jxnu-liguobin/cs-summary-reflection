@@ -6,9 +6,7 @@ public class ThreadStateDemo extends Thread {
         super(name);
     }
 
-    /**
-     * sleep、wait可以响应中断，wait可以有参数
-     */
+    /** sleep、wait可以响应中断，wait可以有参数 */
     public void run() {
         synchronized (this) {
             try {
@@ -32,7 +30,6 @@ public class ThreadStateDemo extends Thread {
             System.out.println(Thread.currentThread().getName() + " wait()");
             t1.wait();
             System.out.println(Thread.currentThread().getName() + " continue");
-
         }
     }
 }

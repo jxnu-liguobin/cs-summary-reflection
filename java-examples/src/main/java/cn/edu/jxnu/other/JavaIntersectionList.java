@@ -1,9 +1,9 @@
 package cn.edu.jxnu.other;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * @author 梦境迷离
@@ -22,20 +22,22 @@ public class JavaIntersectionList {
         list2.add("4444");
         list2.add("5555");
         // 交集
-        //List<String> intersection = list1.stream().filter(item -> list2.contains(item)).collect(toList());
-        //setA - (setA - setB) 需要实现equals ，暂时没有想到直接lambda filter不需要equals的实现方法
+        // List<String> intersection = list1.stream().filter(item ->
+        // list2.contains(item)).collect(toList());
+        // setA - (setA - setB) 需要实现equals ，暂时没有想到直接lambda filter不需要equals的实现方法
         list1.retainAll(list2);
         System.out.println("---得到交集 intersection---");
         list1.parallelStream().forEach(System.out::println);
 
-
         // 差集 (list1 - list2)
-        List<String> reduce1 = list1.stream().filter(item -> !list2.contains(item)).collect(toList());
+        List<String> reduce1 =
+                list1.stream().filter(item -> !list2.contains(item)).collect(toList());
         System.out.println("---得到差集 reduce1 (list1 - list2)---");
         reduce1.parallelStream().forEach(System.out::println);
 
         // 差集 (list2 - list1)
-        List<String> reduce2 = list2.stream().filter(item -> !list1.contains(item)).collect(toList());
+        List<String> reduce2 =
+                list2.stream().filter(item -> !list1.contains(item)).collect(toList());
         System.out.println("---得到差集 reduce2 (list2 - list1)---");
         reduce2.parallelStream().forEach(System.out::println);
 
@@ -56,6 +58,4 @@ public class JavaIntersectionList {
         System.out.println("---原来的List2---");
         list2.parallelStream().forEach(System.out::println);
     }
-
-
 }

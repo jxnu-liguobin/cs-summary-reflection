@@ -1,11 +1,11 @@
 package io.github.dreamylost.examples.reflect
 
 /**
- *
+  *
  * @author 梦境迷离
- * @since 2020-03-07
- * @version v1.0
- */
+  * @since 2020-03-07
+  * @version v1.0
+  */
 class ReflectDemoTestClass {
 
   def testMethod(name: String) = {

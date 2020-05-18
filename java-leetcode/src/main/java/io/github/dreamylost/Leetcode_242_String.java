@@ -2,8 +2,8 @@ package io.github.dreamylost;
 
 /**
  * 两个字符串包含的字符是否完全相同
- * <p>
- * 242. Valid Anagram (Easy)
+ *
+ * <p>242. Valid Anagram (Easy)
  */
 public class Leetcode_242_String {
 
@@ -13,7 +13,6 @@ public class Leetcode_242_String {
         boolean flag = Leetcode_242_String.isAnagram(a, b);
         System.out.println(flag);
     }
-
 
     public static boolean isAnagram(String a, String b) {
 
@@ -32,7 +31,6 @@ public class Leetcode_242_String {
             if (c != 0) {
                 return false;
             }
-
         }
         return true;
     }

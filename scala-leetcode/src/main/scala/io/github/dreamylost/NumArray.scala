@@ -1,11 +1,11 @@
 package io.github.dreamylost
 
 /**
- *  给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
- * @author 梦境迷离
- * @time 2018年8月13日
- * @version v1.0
- */
+  *  给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
+  * @author 梦境迷离
+  * @time 2018年8月13日
+  * @version v1.0
+  */
 class NumArray(_nums: Array[Int]) {
 
   //牺牲空间

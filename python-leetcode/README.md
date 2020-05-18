@@ -8,3 +8,8 @@
 ## 二叉树专题
 
 1. [二叉树的镜像](./solution/tree/leetcode_27_.py)
+2. [二叉树的深度](./solution/tree/leetcode_55_.py)
+3. [二叉树的反转](./solution/tree/leetcode_226_.py)
+4. [二叉搜索树中的搜索](./solution/tree/leetcode_700_.py)
+5. [N叉树的后续遍历](./solution/tree/leetcode_590_.py)
+

@@ -16,7 +16,7 @@ public class SideEffecting implements Serializable, Cloneable {
         this.count = count;
     }
 
-    //具有副作用的函数（方法）：多次调用，得到的值是不一样的。
+    // 具有副作用的函数（方法）：多次调用，得到的值是不一样的。
     public int next() {
         this.count += Math.incrementExact(this.count);
         return this.count;

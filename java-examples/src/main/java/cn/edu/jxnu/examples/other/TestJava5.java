@@ -12,5 +12,4 @@ public class TestJava5 {
         int s = ~10;
         System.out.println(s);
     }
-
 }

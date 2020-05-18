@@ -1,13 +1,13 @@
 package io.github.dreamylost
 
 /**
- * 反转数字
- * 求余得尾数，以除得十位
- *
+  * 反转数字
+  * 求余得尾数，以除得十位
+  *
  * @author 梦境迷离
- * @since 2020-01-01
- * @version v1.0
- */
+  * @since 2020-01-01
+  * @version v1.0
+  */
 object Leetcode_7 extends App {
 
   Console println reverse(1534236469)

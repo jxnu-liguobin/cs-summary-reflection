@@ -13,5 +13,3 @@ public class LeetCode_237 {
         node.next = node.next.next;
     }
 }
-
-

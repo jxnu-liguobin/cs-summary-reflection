@@ -8,14 +8,14 @@ package io.github.dreamylost
   */
 object Leetcode_80_Array {
 
-    def removeDuplicates(nums: Array[Int]): Int = {
-        var i = 0
-        for (n <- nums) {
-            if (i < 2 || n > nums(i - 2)) {
-                nums(i) = n
-                i += 1
-            }
-        }
-        i
+  def removeDuplicates(nums: Array[Int]): Int = {
+    var i = 0
+    for (n <- nums) {
+      if (i < 2 || n > nums(i - 2)) {
+        nums(i) = n
+        i += 1
+      }
     }
+    i
+  }
 }

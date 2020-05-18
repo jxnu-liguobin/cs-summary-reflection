@@ -1,8 +1,7 @@
 package io.github.dreamylost;
 
 /**
- * LCP 1. 猜数字
- * 此种题 不支持rust Scala
+ * LCP 1. 猜数字 此种题 不支持rust Scala
  *
  * @author 梦境迷离
  * @version v1.0
@@ -11,7 +10,7 @@ package io.github.dreamylost;
 public class Leetcode_LCP_1 {
 
     public static void main(String[] args) {
-        int count = game(new int[]{1, 2, 3}, new int[]{1, 2, 3});
+        int count = game(new int[] {1, 2, 3}, new int[] {1, 2, 3});
         System.out.println(count);
     }
 

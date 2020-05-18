@@ -2,14 +2,10 @@ package io.github.dreamylost.tooffer;
 
 import java.util.HashMap;
 
-/**
- * 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
- */
+/** 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。 */
 public class T55 {
 
-    /**
-     * 两个指针分别从链表头和相遇点出发，最后一定相遇于环入口 https://www.e-learn.cn/content/qita/780537
-     */
+    /** 两个指针分别从链表头和相遇点出发，最后一定相遇于环入口 https://www.e-learn.cn/content/qita/780537 */
     public ListNode EntryNodeOfLoop(ListNode pHead) {
         if (null == pHead) {
             return null;

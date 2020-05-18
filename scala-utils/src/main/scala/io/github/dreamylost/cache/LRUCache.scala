@@ -5,14 +5,14 @@ import java.{ util => ju }
 import scala.collection.JavaConverters._
 
 /**
- * this lru-cache use LinkedHashMap don't resolve ConcurrentModificationException
- * 1. use local var to save values when put in other's threads
- * 2. use google's ConcurrentLinkedHashMap
- *
+  * this lru-cache use LinkedHashMap don't resolve ConcurrentModificationException
+  * 1. use local var to save values when put in other's threads
+  * 2. use google's ConcurrentLinkedHashMap
+  *
  * @author 梦境迷离
- * @since 2019-09-28
- * @version v1.0
- */
+  * @since 2019-09-28
+  * @version v1.0
+  */
 class LRUCache[K, V](val maxSize: Int, underlying: ju.Map[K, V]) {
 
   def put(key: K, value: V): Unit = {

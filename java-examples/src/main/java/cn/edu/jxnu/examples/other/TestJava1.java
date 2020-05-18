@@ -10,11 +10,11 @@ public class TestJava1 {
 
     public static void main(String[] args) {
         BB B = new BB();
-        //输出
-        //static A
-        //static B
-        //A
-        //B
+        // 输出
+        // static A
+        // static B
+        // A
+        // B
     }
 }
 
@@ -32,11 +32,9 @@ class BB extends AA {
 
     static {
         System.out.println("static B");
-
     }
 
     BB() {
         System.out.println("B");
     }
 }
-

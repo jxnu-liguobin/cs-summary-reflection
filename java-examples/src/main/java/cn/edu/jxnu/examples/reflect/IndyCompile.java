@@ -1,14 +1,13 @@
 package cn.edu.jxnu.examples.reflect;
 
+import static org.objectweb.asm.Opcodes.*;
+
+import java.io.FileOutputStream;
+import java.lang.reflect.Method;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Handle;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
-
-import java.io.FileOutputStream;
-import java.lang.reflect.Method;
-
-import static org.objectweb.asm.Opcodes.*;
 
 /**
  * @author Remi Forax
@@ -19,8 +18,7 @@ public class IndyCompile extends ClassLoader {
     public static void main(final String[] args) throws Throwable {
         // creates the expression tree corresponding to
         // exp(i) = i > 3 && 6 > i
-        Exp exp = new And(new GT(new Var(0), new Cst(3)), new GT(new Cst(6),
-                new Var(0)));
+        Exp exp = new And(new GT(new Var(0), new Cst(3)), new GT(new Cst(6), new Var(0)));
 
         // compiles this expression into a generic static method in a class
         IndyCompile main = new IndyCompile();
@@ -40,15 +38,12 @@ public class IndyCompile extends ClassLoader {
         // ... more fun, test with strings !!!
         for (int i = 0; i < 10; ++i) {
             boolean val = (Boolean) expMethod.invoke(null, Integer.toString(i));
-            System.out.println("\"" + i + "\" > 3 && 6 > \"" + i + "\" = "
-                    + val);
+            System.out.println("\"" + i + "\" > 3 && 6 > \"" + i + "\" = " + val);
         }
     }
 
-    /**
-     * An abstract expression.
-     */
-    static abstract class Exp {
+    /** An abstract expression. */
+    abstract static class Exp {
 
         static final Handle CST = getHandle("cst", "Ljava/lang/Object;");
 
@@ -58,9 +53,8 @@ public class IndyCompile extends ClassLoader {
 
         /**
          * Returns the maximum variable index used in this expression.
-         * 
-         * @return the maximum variable index used in this expression, or -1 if
-         *         no variable is used.
+         *
+         * @return the maximum variable index used in this expression, or -1 if no variable is used.
          */
         int getMaxVarIndex() {
             return -1;
@@ -82,8 +76,8 @@ public class IndyCompile extends ClassLoader {
             desc.append(")Ljava/lang/Object;");
 
             // eval method
-            MethodVisitor mv = cw.visitMethod(ACC_PUBLIC | ACC_STATIC, "eval",
-                    desc.toString(), null, null);
+            MethodVisitor mv =
+                    cw.visitMethod(ACC_PUBLIC | ACC_STATIC, "eval", desc.toString(), null, null);
             compile(mv);
             mv.visitInsn(ARETURN);
             // max stack and max locals automatically computed
@@ -101,19 +95,18 @@ public class IndyCompile extends ClassLoader {
         abstract void compile(MethodVisitor mv);
 
         @SuppressWarnings("deprecation")
-		private static Handle getHandle(final String name, final String optArgs) {
+        private static Handle getHandle(final String name, final String optArgs) {
             return new Handle(
                     H_INVOKESTATIC,
                     "RT",
                     name,
                     "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;"
-                            + optArgs + ")Ljava/lang/invoke/CallSite;");
+                            + optArgs
+                            + ")Ljava/lang/invoke/CallSite;");
         }
     }
 
-    /**
-     * A constant expression.
-     */
+    /** A constant expression. */
     static class Cst extends Exp {
 
         private final Object value;
@@ -137,9 +130,7 @@ public class IndyCompile extends ClassLoader {
         }
     }
 
-    /**
-     * A variable reference expression.
-     */
+    /** A variable reference expression. */
     static class Var extends Exp {
 
         final int index;
@@ -160,10 +151,8 @@ public class IndyCompile extends ClassLoader {
         }
     }
 
-    /**
-     * An abstract binary expression.
-     */
-    static abstract class BinaryExp extends Exp {
+    /** An abstract binary expression. */
+    abstract static class BinaryExp extends Exp {
 
         final Exp e1;
 
@@ -180,9 +169,7 @@ public class IndyCompile extends ClassLoader {
         }
     }
 
-    /**
-     * An addition expression.
-     */
+    /** An addition expression. */
     static class Add extends BinaryExp {
 
         Add(final Exp e1, final Exp e2) {
@@ -194,15 +181,12 @@ public class IndyCompile extends ClassLoader {
             // compiles e1, e2, and adds an instruction to add the two values
             e1.compile(mv);
             e2.compile(mv);
-            mv.visitInvokeDynamicInsn("add",
-                    "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
-                    BINARY);
+            mv.visitInvokeDynamicInsn(
+                    "add", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", BINARY);
         }
     }
 
-    /**
-     * A multiplication expression.
-     */
+    /** A multiplication expression. */
     static class Mul extends BinaryExp {
 
         Mul(final Exp e1, final Exp e2) {
@@ -215,15 +199,12 @@ public class IndyCompile extends ClassLoader {
             // values
             e1.compile(mv);
             e2.compile(mv);
-            mv.visitInvokeDynamicInsn("mul",
-                    "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
-                    BINARY);
+            mv.visitInvokeDynamicInsn(
+                    "mul", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", BINARY);
         }
     }
 
-    /**
-     * A "greater than" expression.
-     */
+    /** A "greater than" expression. */
     static class GT extends BinaryExp {
 
         GT(final Exp e1, final Exp e2) {
@@ -236,15 +217,12 @@ public class IndyCompile extends ClassLoader {
             // values
             e1.compile(mv);
             e2.compile(mv);
-            mv.visitInvokeDynamicInsn("gt",
-                    "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
-                    BINARY);
+            mv.visitInvokeDynamicInsn(
+                    "gt", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", BINARY);
         }
     }
 
-    /**
-     * A logical "and" expression.
-     */
+    /** A logical "and" expression. */
     static class And extends BinaryExp {
 
         And(final Exp e1, final Exp e2) {
@@ -258,8 +236,7 @@ public class IndyCompile extends ClassLoader {
             // tests if e1 is false
             mv.visitInsn(DUP);
             // convert to a boolean
-            mv.visitInvokeDynamicInsn("asBoolean", "(Ljava/lang/Object;)Z",
-                    UNARY);
+            mv.visitInvokeDynamicInsn("asBoolean", "(Ljava/lang/Object;)Z", UNARY);
 
             Label end = new Label();
             mv.visitJumpInsn(IFEQ, end);
@@ -273,9 +250,7 @@ public class IndyCompile extends ClassLoader {
         }
     }
 
-    /**
-     * A logical "or" expression.
-     */
+    /** A logical "or" expression. */
     static class Or extends BinaryExp {
 
         Or(final Exp e1, final Exp e2) {
@@ -289,8 +264,7 @@ public class IndyCompile extends ClassLoader {
             // tests if e1 is true
             mv.visitInsn(DUP);
             // convert to a boolean
-            mv.visitInvokeDynamicInsn("asBoolean", "(Ljava/lang/Object;)Z",
-                    UNARY);
+            mv.visitInvokeDynamicInsn("asBoolean", "(Ljava/lang/Object;)Z", UNARY);
             Label end = new Label();
             mv.visitJumpInsn(IFNE, end);
             // case where e1 is false : e1 || e2 is equal to e2
@@ -302,9 +276,7 @@ public class IndyCompile extends ClassLoader {
         }
     }
 
-    /**
-     * A logical "not" expression.
-     */
+    /** A logical "not" expression. */
     static class Not extends Exp {
 
         private final Exp e;
@@ -322,8 +294,7 @@ public class IndyCompile extends ClassLoader {
         void compile(final MethodVisitor mv) {
             // compiles e, and applies 'not'
             e.compile(mv);
-            mv.visitInvokeDynamicInsn("not",
-                    "(Ljava/lang/Object;)Ljava/lang/Object;", UNARY);
+            mv.visitInvokeDynamicInsn("not", "(Ljava/lang/Object;)Ljava/lang/Object;", UNARY);
         }
     }
 }

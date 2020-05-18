@@ -1,11 +1,11 @@
 package io.github.dreamylost.examples.fb
 
 /**
- * 第四章
- *
+  * 第四章
+  *
  * @author 梦境迷离
- * @version 1.0, 2019-05-01
- */
+  * @version 1.0, 2019-05-01
+  */
 object errorhandling extends App {
 
   //    Console println Option.failingFn(1)
@@ -19,48 +19,52 @@ object errorhandling extends App {
 
     //4.1：Option基本函数实现
     //如果Option不为None，对其应用f函数
-    def map[B](f: A => B): Option[B] = this match {
-      case None => None
-      case Some(a) => Some(f(a))
-    }
+    def map[B](f: A => B): Option[B] =
+      this match {
+        case None => None
+        case Some(a) => Some(f(a))
+      }
 
     //如果Option不为None，返回实际值，否则返回默认值，default: => B表示非立即求值
-    def getOrElse[B >: A](default: => B): B = this match {
-      case None => default
-      case Some(a) => a
-    }
+    def getOrElse[B >: A](default: => B): B =
+      this match {
+        case None => default
+        case Some(a) => a
+      }
 
     //可能会失败
     def flatMap[B](f: A => Option[B]): Option[B] = {
       map(f) getOrElse None
     }
 
-
     //使用模式匹配
-    def flatMap_1[B](f: A => Option[B]): Option[B] = this match {
-      case None => None
-      case Some(a) => f(a)
-    }
+    def flatMap_1[B](f: A => Option[B]): Option[B] =
+      this match {
+        case None => None
+        case Some(a) => f(a)
+      }
 
     def orElse[B >: A](ob: => Option[B]): Option[B] = {
       this map (Some(_)) getOrElse ob
     }
 
     //使用模式匹配，B >: A 表示B的类型必须是A或者是A的超类类型
-    def orElse_1[B >: A](ob: => Option[B]): Option[B] = this match {
-      case None => ob
-      case _ => this
-    }
+    def orElse_1[B >: A](ob: => Option[B]): Option[B] =
+      this match {
+        case None => ob
+        case _ => this
+      }
 
     def filter(f: A => Boolean): Option[A] = {
       flatMap(a => if (f(a)) Some(a) else None)
     }
 
     //使用模式匹配
-    def filter_1(f: A => Boolean): Option[A] = this match {
-      case Some(a) if f(a) => this
-      case _ => None
-    }
+    def filter_1(f: A => Boolean): Option[A] =
+      this match {
+        case Some(a) if f(a) => this
+        case _ => None
+      }
 
   }
 
@@ -77,8 +81,7 @@ object errorhandling extends App {
       try {
         val x = 42 + 5
         x + y
-      }
-      catch {
+      } catch {
         case e: Exception => 43
       }
     }
@@ -89,8 +92,7 @@ object errorhandling extends App {
         val x = 42 + 5
         //抛出的异常可以被赋予任何类型
         x + ((throw new Exception("fail!")): Int)
-      }
-      catch {
+      } catch {
         case e: Exception => 43
       }
     }
@@ -102,30 +104,30 @@ object errorhandling extends App {
     }
 
     /**
-     * 4.2：根据flatMap实现方差函数
-     *
+      * 4.2：根据flatMap实现方差函数
+      *
      * @param xs
-     * @return
-     */
+      * @return
+      */
     def variance(xs: Seq[Double]): Option[Double] = {
       //方差：对每个元素求math.pow(x-m,2)的累加和并/元素个数，标准差再开2次根号
       mean(xs) flatMap (m => mean(xs.map(x => math.pow(x - m, 2))))
     }
 
     /**
-     * 4.3：使用一个二元函数组合两个Option值
-     *
+      * 4.3：使用一个二元函数组合两个Option值
+      *
      * @param a
-     * @param b
-     * @param f
-     * @tparam A
-     * @tparam B
-     * @tparam C
-     * @return
-     */
+      * @param b
+      * @param f
+      * @tparam A
+      * @tparam B
+      * @tparam C
+      * @return
+      */
     def map2[A, B, C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] = {
-      a flatMap {
-        aa => b map (bb => f(aa, bb))
+      a flatMap { aa =>
+        b map (bb => f(aa, bb))
       }
     }
 
@@ -138,12 +140,12 @@ object errorhandling extends App {
     }
 
     /**
-     * 4.4：将Option列表结合为一个Option
-     *
+      * 4.4：将Option列表结合为一个Option
+      *
      * @param a
-     * @tparam A
-     * @return
-     */
+      * @tparam A
+      * @return
+      */
     def sequence[A](a: List[Option[A]]): Option[List[A]] = {
       a match {
         case Nil => Some(Nil)
@@ -170,12 +172,12 @@ object errorhandling extends App {
     }
 
     /**
-     * 4.5：使用map和sequence函数，只遍历一次列表
-     *
+      * 4.5：使用map和sequence函数，只遍历一次列表
+      *
      * @param a
-     * @tparam A
-     * @return
-     */
+      * @tparam A
+      * @return
+      */
     def sequenceViaTraverse[A](a: List[Option[A]]): Option[List[A]] = {
       traverse(a)(x => x)
     }
@@ -208,7 +210,7 @@ object errorhandling extends App {
     }
 
     def map2[EE >: E, B, C](b: Either[EE, B])(f: (A, B) => C): Either[EE, C] = {
-      for {a <- this; b1 <- b} yield f(a, b1)
+      for { a <- this; b1 <- b } yield f(a, b1)
     }
   }
 
@@ -248,7 +250,7 @@ object errorhandling extends App {
     def traverse[E, A, B](es: List[A])(f: A => Either[E, B]): Either[E, List[B]] = {
       es match {
         case Nil => Right(Nil)
-        case h :: t => (f(h) map2 traverse(t)(f)) (_ :: _)
+        case h :: t => (f(h) map2 traverse(t)(f))(_ :: _)
       }
     }
 

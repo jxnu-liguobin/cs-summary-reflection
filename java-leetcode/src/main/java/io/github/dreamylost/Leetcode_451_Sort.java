@@ -8,16 +8,11 @@ import java.util.Map;
 /**
  * @author 梦境迷离
  * @description 桶排序
- *
- * 				按照字符出现次数对字符串排序
- *
- *              Input: "tree"
- *
- *              Output: "eert"
- *
- *              Explanation: 'e' appears twice while 'r' and 't' both appear
- *              once. So 'e' must appear before both 'r' and 't'. Therefore
- *              "eetr" is also a valid answer.
+ *     <p>按照字符出现次数对字符串排序
+ *     <p>Input: "tree"
+ *     <p>Output: "eert"
+ *     <p>Explanation: 'e' appears twice while 'r' and 't' both appear once. So 'e' must appear
+ *     before both 'r' and 't'. Therefore "eetr" is also a valid answer.
  * @time 2018年4月8日
  */
 public class Leetcode_451_Sort {
@@ -53,5 +48,4 @@ public class Leetcode_451_Sort {
         }
         return str.toString();
     }
-
 }

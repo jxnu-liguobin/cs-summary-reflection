@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/**
- * 请实现一个函数按照之字形打印二叉树，
- * 即第一行按照从左到右的顺序打印，
- * 第二层按照从右至左的顺序打印，
- * 第三行按照从左到右的顺序打印，其他行以此类推。
- */
+/** 请实现一个函数按照之字形打印二叉树， 即第一行按照从左到右的顺序打印， 第二层按照从右至左的顺序打印， 第三行按照从左到右的顺序打印，其他行以此类推。 */
 public class T59 {
 
     public ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
@@ -19,7 +14,7 @@ public class T59 {
         }
         ArrayList<Integer> list = new ArrayList<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.addLast(null);//层分隔符
+        queue.addLast(null); // 层分隔符
         queue.addLast(pRoot);
         boolean leftToRight = true;
         while (queue.size() != 1) {

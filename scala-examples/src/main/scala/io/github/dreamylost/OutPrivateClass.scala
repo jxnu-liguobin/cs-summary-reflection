@@ -1,12 +1,11 @@
 package io.github.dreamylost
 
 /**
- *
+  *
  * @author liguobin@growingio.com
- * @version 1.0,2020/3/13
- */
+  * @version 1.0,2020/3/13
+  */
 object OutPrivateClass extends App {
-
 
   private val name: String = "hello"
 
@@ -52,7 +51,6 @@ class OutPrivateClass {
   // val name: String = "hello" //下面方法均正常输出
   //限定具体的包的权限
   private[dreamylost] val name: String = "hello" //下面方法均正常输出
-
 
 }
 

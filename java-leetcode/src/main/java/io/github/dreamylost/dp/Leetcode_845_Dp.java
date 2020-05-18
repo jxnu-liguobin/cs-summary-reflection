@@ -1,30 +1,26 @@
 package io.github.dreamylost.dp;
 
 /**
- * 845. 数组中的最长山脉
- * 我们把数组 A 中符合下列属性的任意连续子数组 B 称为 “山脉”：
- * B.length >= 3
- * 存在 0 < i < B.length - 1 使得 B[0] < B[1] < ... B[i-1] < B[i] > B[i+1] > ... > B[B.length - 1]
- * （注意：B 可以是 A 的任意子数组，包括整个数组 A。）
- * 给出一个整数数组 A，返回最长 “山脉” 的长度。
- * 如果不含有 “山脉” 则返回 0。
+ * 845. 数组中的最长山脉 我们把数组 A 中符合下列属性的任意连续子数组 B 称为 “山脉”： B.length >= 3 存在 0 < i < B.length - 1 使得 B[0] <
+ * B[1] < ... B[i-1] < B[i] > B[i+1] > ... > B[B.length - 1] （注意：B 可以是 A 的任意子数组，包括整个数组 A。） 给出一个整数数组
+ * A，返回最长 “山脉” 的长度。 如果不含有 “山脉” 则返回 0。
  *
  * @author 梦境迷离
  * @time 2018-09-27
  */
 public class Leetcode_845_Dp {
 
-    //DP
+    // DP
     public int longestMountain(int[] A) {
         int N = A.length, res = 0;
         int[] up = new int[N], down = new int[N];
-        //向左
+        // 向左
         for (int i = N - 2; i >= 0; --i) {
             if (A[i] > A[i + 1]) {
                 down[i] = down[i + 1] + 1;
             }
         }
-        //向右
+        // 向右
         for (int i = 0; i < N; ++i) {
             if (i > 0 && A[i] > A[i - 1]) {
                 up[i] = up[i - 1] + 1;
@@ -36,7 +32,7 @@ public class Leetcode_845_Dp {
         return res;
     }
 
-    //DP优化后
+    // DP优化后
     public int longestMountain2(int[] A) {
         int res = 0, up = 0, down = 0;
         for (int i = 1; i < A.length; ++i) {
@@ -66,7 +62,7 @@ public class Leetcode_845_Dp {
             while (left < n - 1 && A[left] >= A[left + 1]) {
                 left++;
             }
-            //左边的山上顶点就是右边下山的起点
+            // 左边的山上顶点就是右边下山的起点
             right = left + 1;
             while (right < n - 1 && A[right] < A[right + 1]) {
                 right++;
@@ -75,7 +71,7 @@ public class Leetcode_845_Dp {
                 right++;
                 max = Math.max(max, right - left + 1);
             }
-            //右边的山下就是左边上山的起点
+            // 右边的山下就是左边上山的起点
             left = right;
         }
         return max;
