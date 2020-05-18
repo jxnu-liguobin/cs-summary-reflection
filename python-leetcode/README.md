@@ -4,7 +4,12 @@
 2. 可选择性增加main方法和test case 或 ac结果
 3. 提交前使用IDEA的format code格式化代码
 4. 禁止使用Python2
+5. bash script
 
+## bash shell
+
+1. [有效电话号码](./solution/tree/leetcode_193_.sh)
+ 
 ## 二叉树专题
 
 1. [二叉树的镜像](./solution/tree/leetcode_27_.py)
