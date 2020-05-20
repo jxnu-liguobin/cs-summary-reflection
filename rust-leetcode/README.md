@@ -31,7 +31,7 @@ Leetcode Rust 实现
 * [1021 删除最外层的括号](src/leetcode_1021.rs)
 * [933 最近的请求次数](src/leetcode_933.rs)
 
-## 数组&矩阵
+## 其他
 
 * [1351 统计有序矩阵中的负数](src/leetcode_1351.rs)
 * [1380 矩阵中的幸运数](src/leetcode_1380.rs)
@@ -79,3 +79,4 @@ Leetcode Rust 实现
 * [66 加一](src/leetcode_66.rs)
 * [67 二进制求和](src/leetcode_67.rs)
 * [475 供暖器](src/leetcode_475.rs)
+* [605 种花问题](src/leetcode_605.rs)
