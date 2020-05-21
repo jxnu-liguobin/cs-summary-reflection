@@ -81,3 +81,4 @@ Leetcode Rust 实现
 * [475 供暖器](src/leetcode_475.rs)
 * [605 种花问题](src/leetcode_605.rs)
 * [面试题10- I 斐波那契数列](src/interview_10_01.rs)
+* [633 平方数之和](src/leetcode_633.rs)
