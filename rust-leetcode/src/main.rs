@@ -7,6 +7,7 @@ pub mod interview_04_02;
 pub mod interview_05;
 pub mod interview_06;
 pub mod interview_09;
+pub mod interview_10_01;
 pub mod interview_16_07;
 pub mod interview_17;
 pub mod interview_22;
