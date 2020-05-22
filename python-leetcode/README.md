@@ -21,7 +21,11 @@
 7. [递增顺序查找二叉树](./solution/tree/leetcode_897_.py)
 8. [单值二叉树](./solution/tree/leetcode_965_.py)
 9. [二叉树的层次遍历II](./solution/tree/leetcode_107_.py)
-10. [二叉树层的平均值](./solution/tree/leetcode_637_.py)
+10.[二叉树层的平均值](./solution/tree/leetcode_637_.py)
+11.[二叉树的所有路径](./solution/tree/leetcode_257_.py)
+12.[二叉树搜索树的最近公共祖先](./solution/tree/leetcode_235_.py)
+
+
 
 
 
