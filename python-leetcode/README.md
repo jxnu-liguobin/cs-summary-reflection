@@ -12,18 +12,19 @@
  
 ## 二叉树专题
 
-1. [二叉树的镜像](./solution/tree/leetcode_27_.py)
-2. [二叉树的深度](./solution/tree/leetcode_55_.py)
-3. [二叉树的反转](./solution/tree/leetcode_226_.py)
-4. [二叉搜索树中的搜索](./solution/tree/leetcode_700_.py)
-5. [N叉树的后续遍历](./solution/tree/leetcode_590_.py)
-6. [二叉树的层次遍历](./solution/tree/leetcode_32_.py)
-7. [递增顺序查找二叉树](./solution/tree/leetcode_897_.py)
-8. [单值二叉树](./solution/tree/leetcode_965_.py)
-9. [二叉树的层次遍历II](./solution/tree/leetcode_107_.py)
+1.  [二叉树的镜像](./solution/tree/leetcode_27_.py)
+2.  [二叉树的深度](./solution/tree/leetcode_55_.py)
+3.  [二叉树的反转](./solution/tree/leetcode_226_.py)
+4.  [二叉搜索树中的搜索](./solution/tree/leetcode_700_.py)
+5.  [N叉树的后续遍历](./solution/tree/leetcode_590_.py)
+6.  [二叉树的层次遍历](./solution/tree/leetcode_32_.py)
+7.  [递增顺序查找二叉树](./solution/tree/leetcode_897_.py)
+8.  [单值二叉树](./solution/tree/leetcode_965_.py)
+9.  [二叉树的层次遍历II](./solution/tree/leetcode_107_.py)
 10. [二叉树层的平均值](./solution/tree/leetcode_637_.py)
 11. [二叉树的所有路径](./solution/tree/leetcode_257_.py)
 12. [二叉树搜索树的最近公共祖先](./solution/tree/leetcode_235_.py)
+13. [从根到叶的二进制数之和](./solution/tree/leetcode_1022_.py)
 
 
 
