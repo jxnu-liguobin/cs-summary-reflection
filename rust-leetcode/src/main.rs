@@ -18,6 +18,7 @@ pub mod interview_32_2;
 pub mod interview_54;
 pub mod interview_55_1;
 pub mod interview_58_2;
+pub mod leetcode_100;
 pub mod leetcode_1021;
 pub mod leetcode_1051;
 pub mod leetcode_108;
