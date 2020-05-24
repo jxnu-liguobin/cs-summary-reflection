@@ -25,6 +25,7 @@
 11. [二叉树的所有路径](./solution/tree/leetcode_257_.py)
 12. [二叉树搜索树的最近公共祖先](./solution/tree/leetcode_235_.py)
 13. [从根到叶的二进制数之和](./solution/tree/leetcode_1022_.py)
+14. [叶子相似的树](./solution/tree/leetcode_872_.py)
 
 
 
