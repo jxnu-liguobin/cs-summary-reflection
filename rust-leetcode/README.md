@@ -85,3 +85,4 @@ Leetcode Rust 实现
 * [面试题10- I 斐波那契数列](src/interview_10_01.rs)
 * [633 平方数之和](src/leetcode_633.rs)
 * [204 计数质数](src/leetcode_204.rs)
+* [686 重复叠加字符串匹配](src/leetcode_686.rs)
