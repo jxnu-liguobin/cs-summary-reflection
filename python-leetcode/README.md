@@ -26,6 +26,8 @@
 12. [二叉树搜索树的最近公共祖先](./solution/tree/leetcode_235_.py)
 13. [从根到叶的二进制数之和](./solution/tree/leetcode_1022_.py)
 14. [叶子相似的树](./solution/tree/leetcode_872_.py)
+15. [二叉搜索树转换为累加树](./solution/tree/leetcode_538_.py)
+16. [平衡二叉树](./solution/tree/leetcode_110_.py)
 
 
 
