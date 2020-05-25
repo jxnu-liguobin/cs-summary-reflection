@@ -65,6 +65,32 @@ impl Solution {
         }
         -1
     }
+    //120MS,2.2MB
+    pub fn repeated_string_match3(a: String, b: String) -> i32 {
+        let a: Vec<char> = a.chars().collect();
+        let b: Vec<char> = b.chars().collect();
+        for i in 0..a.len() {
+            if a[i] == b[0] {
+                let mut k = i;
+                let mut j = 0;
+                let mut count = 1;
+                while a[k] == b[j] {
+                    k += 1;
+                    j += 1;
+                    //a长b短
+                    if j >= b.len() {
+                        return count;
+                    }
+                    //a短b长,重复使用a
+                    if k >= a.len() {
+                        k = 0;
+                        count += 1;
+                    }
+                }
+            }
+        }
+        -1
+    }
 }
 
 #[cfg(test)]
@@ -76,7 +102,7 @@ mod test {
         let ret = Solution::repeated_string_match("abaabaa".to_owned(), "abaababaab".to_owned());
         let ret2 = Solution::repeated_string_match("a".to_owned(), "aa".to_owned());
         let ret3 = Solution::repeated_string_match("ab".to_owned(), "ba".to_owned());
-        let ret4 = Solution::repeated_string_match("a".to_owned(), "a".to_owned());
+        let ret4 = Solution::repeated_string_match3("a".to_owned(), "a".to_owned());
         let ret5 = Solution::repeated_string_match2("abcd".to_owned(), "cdabcdab".to_owned());
         assert!(ret == -1);
         assert!(ret2 == 2);
