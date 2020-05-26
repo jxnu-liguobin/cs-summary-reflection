@@ -4,8 +4,6 @@ title: 关于
 permalink: /about
 ---
 
-# README
-
 ## 声明
 
 除特别声明或转载外，所有博文采用[署名-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)协议进行许可。
@@ -30,7 +28,7 @@ CDN加速服务来自于[jsdelivr](https://www.jsdelivr.com/)，感谢。
 
 博客主题基于[poole/lanyon](https://github.com/poole/lanyon)，感谢。
 
-图标库来自于[fontawesome-free](https://fontawesome.com/)，感谢。
+图标库来自于[<i class="fab fa-font-awesome"></i>fontawesome-free](https://fontawesome.com/)，感谢。
 
 留言和阅读量系统来自于[Valine](https://valine.js.org/)和[LeanCloud](https://leancloud.cn/)，感谢。
 
@@ -47,6 +45,7 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 头像翻转效果来自于[leopardpan/leopardpan.github.io](https://github.com/leopardpan/leopardpan.github.io)，感谢。
 
 国内CDN加速服务由[腾讯云](https://cloud.tencent.com/)提供。
+
 
 ## 个人简介
 
@@ -66,4 +65,3 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 2018.12.1 开始，本人主要继续维护本仓库Scala部分以及本仓库的博客
 * 2019.09.21 完成Git、GitBook到Jekyll迁移，并迁移部分本人其他站点的博客至此
 * 欢迎 Scala/Java 选手参与维护，博客只是本仓库docs部分~~~
-
