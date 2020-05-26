@@ -86,3 +86,4 @@ Leetcode Rust 实现
 * [633 平方数之和](src/leetcode_633.rs)
 * [204 计数质数](src/leetcode_204.rs)
 * [686 重复叠加字符串匹配](src/leetcode_686.rs)
+* [面试题 08.01 三步问题](src/interview_08_01.rs)
