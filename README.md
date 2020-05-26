@@ -1,3 +1,5 @@
+# README
+
 ## Who
 
 Scala程序员、函数式/反应式爱好者
@@ -13,20 +15,20 @@ Scala程序员、函数式/反应式爱好者
 
 ## Contents
 
-- 博客 [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485) 
-- Scala/Java/Rust学习与笔记
-- LeetCode
-    - Scala
-    - Rust
-    - Java
-    - Python
-    
+* 博客 [博客](https://dreamylost.cn) \| [CSDN博客](https://blog.csdn.net/qq_34446485) 
+* Scala/Java/Rust学习与笔记
+* LeetCode
+  * Scala
+  * Rust
+  * Java
+  * Python
+
 ## Environment
 
-- Scala 2.12.8+
-- Java 1.8+
-- Python 3.0+  
-- Rust 1.0+  
+* Scala 2.12.8+
+* Java 1.8+
+* Python 3.0+  
+* Rust 1.0+  
 
 ## Contributors
 
