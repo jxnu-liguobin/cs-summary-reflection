@@ -1,19 +1,15 @@
 ---
 title: Instrumentation
 categories:
-  - GraphqlJava
-tags:
-  - graphql-java 1.4文档
+- GraphqlJava
+tags: [graphql-java 1.4文档]
 description: 本章介绍graphql-java中Instrumentation的基本使用
 ---
 
-# 2020-03-31-GraphqlJava-Instrumentation
-
 * 目录
+{:toc}
 
-  {:toc}
-
-## Instrumentation
+# Instrumentation 
 
 这个词没找到好的中文对应。以下直接使用本单词。
 
@@ -22,14 +18,13 @@ graphql.execution.instrumentation.Instrumentation接口允许您注入代码，�
 这样做的主要用例是支持性能监控和自定义日志记录，但是它也可以用于许多不同的目的。
 
 构建Graphql对象时，可以指定要使用的Instrumentation（如果有的话）。
-
 ```java
 GraphQL.newGraphQL(schema)
         .instrumentation(new TracingInstrumentation())
         .build();
 ```
 
-## Custom Instrumentation
+# Custom Instrumentation
 
 即定制化的Instrumentation。Instrumentation的实现需要实现“begin”步骤方法，这些方法表示graphql查询的执行。
 
@@ -82,7 +77,7 @@ public class CustomInstrumentation extends SimpleInstrumentation {
 }
 ```
 
-## Chaining Instrumentation
+# Chaining Instrumentation
 
 您可以使用graphql.execution.instrumentation.ChainedInstrumentation类将多个Instrumentation对象组合在一起，该类接受Instrumentation对象的列表并按定义的顺序调用它们。
 
@@ -97,14 +92,14 @@ GraphQL.newGraphQL(schema)
         .build();
 ```
 
-## Apollo Tracing Instrumentation
+# Apollo Tracing Instrumentation
 
 graphql.execution.instrumentation.tracing.TracingInstrumentation是一种Instrumentation实现，用于创建有关正在执行的查询的跟踪信息。
 
-> 它遵循在以下位置定义的Apollo建议的跟踪格式：[https://github.com/apollographql/apollo-tracing](https://github.com/apollographql/apollo-tracing) [https://github.com/apollographql/apollo-tracing](https://github.com/apollographql/apollo-tracing)\_
+> 它遵循在以下位置定义的Apollo建议的跟踪格式：https://github.com/apollographql/apollo-tracing <https://github.com/apollographql/apollo-tracing>_
 
-将创建一个详细的跟踪视图，并将其放置在结果的扩展部分中。 有查询请求如下
-
+将创建一个详细的跟踪视图，并将其放置在结果的扩展部分中。
+有查询请求如下
 ```graphql
 {
   human(id:"1001") {
@@ -113,10 +108,8 @@ graphql.execution.instrumentation.tracing.TracingInstrumentation是一种Instrum
   }
 }
 ```
-
 返回详细信息，在extensions中有追踪信息
-
-```javascript
+```json
 {
     "data": {
         "human": {
@@ -207,12 +200,11 @@ graphql.execution.instrumentation.tracing.TracingInstrumentation是一种Instrum
 }
 ```
 
-## Field Validation Instrumentation
+# Field Validation Instrumentation
 
 graphql.execution.instrumentation.fieldvalidation.FieldValidationInstrumentation是一种工具实现，可用于在执行查询之前验证字段及其参数。如果在此过程中返回错误，则查询执行将中止，并且错误将出现在查询结果中。
 
 您可以使自己实现FieldValidation，也可以使用SimpleFieldValidation类添加简单的每个字段检查规则。
-
 ```java
 /**
  * @author 梦境迷离
@@ -236,16 +228,12 @@ public class FieldValidationBuilder {
     }
 }
 ```
-
 使用时只需要将FieldValidationBuilder放入ChainedInstrumentation中，如
-
 ```java
 Instrumentation instrumentation = new ChainedInstrumentation(asList(FieldValidationBuilder.builder(), new TracingInstrumentation(), new CustomInstrumentation()));
 GraphQL graphQL = GraphQL.newGraphQL(graphQLSchema).instrumentation(instrumentation).build();
 ```
-
 有查询如下
-
 ```graphql
 {
   human(id:"1") { #改成长度不小4的字符串，就会返回数据或null
@@ -254,10 +242,8 @@ GraphQL graphQL = GraphQL.newGraphQL(graphQLSchema).instrumentation(instrumentat
   }
 }
 ```
-
 返回完整信息
-
-```javascript
+```json
 {
     "errors": [
         {
@@ -276,5 +262,4 @@ GraphQL graphQL = GraphQL.newGraphQL(graphQLSchema).instrumentation(instrumentat
 }
 ```
 
-完整例子请参考 [https://github.com/jxnu-liguobin/springboot-examples](https://github.com/jxnu-liguobin/springboot-examples)
-
+完整例子请参考 https://github.com/jxnu-liguobin/springboot-examples

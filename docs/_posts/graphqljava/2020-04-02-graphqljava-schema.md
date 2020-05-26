@@ -1,19 +1,15 @@
 ---
 title: Schema
 categories:
-  - GraphqlJava
-tags:
-  - graphql-java 1.4文档
+- GraphqlJava
+tags: [graphql-java 1.4文档]
 description: 本章介绍graphql-java中的Schema如何定义
 ---
 
-# 2020-04-02-GraphqlJava-Schema
-
 * 目录
+{:toc}
 
-  {:toc}
-
-## Creating a schema
+# Creating a schema
 
 定义数据模型
 
@@ -24,15 +20,12 @@ graphql-java提供了两种不同的方式来定义schema：以编程方式使�
 如果不确定要使用哪种方式，我们建议使用SDL。
 
 SDL 示例
-
 ```graphql
 type Foo {
     bar: String
 }
 ```
-
 Java 示例
-
 ```java
 GraphQLObjectType fooType = newObject()
     .name("Foo")
@@ -42,7 +35,7 @@ GraphQLObjectType fooType = newObject()
     .build();
 ```
 
-## DataFetcher and TypeResolver
+# DataFetcher and TypeResolver
 
 定义数据读取器和类型解析器
 
@@ -50,14 +43,14 @@ DataFetcher提供字段的数据（如果是突变的话，并更改某些内容
 
 GraphQL定义了两种请求类型，查询query和突变mutation（突变包含新增、删除、修改）。
 
-每个字段定义都有一个DataFetcher。如果未配置，则使用PropertyDataFetcher，这是一个默认的读取器。 PropertyDataFetcher从Map和Java Bean获取数据。因此，当字段名称与Map关键字或源Object的属性名称匹配时，就不需要DataFetcher。
+每个字段定义都有一个DataFetcher。如果未配置，则使用PropertyDataFetcher，这是一个默认的读取器。
+PropertyDataFetcher从Map和Java Bean获取数据。因此，当字段名称与Map关键字或源Object的属性名称匹配时，就不需要DataFetcher。
 
 TypeResolver帮助graphql-java决定具体值属于哪种类型。Interface和Union类型需要此功能。
 
 例如，假设您有一个名为MagicUserType的Interface，该接口可解析回一系列名为Wizard，Witch和Necromancer的Java类。类型解析器负责检查运行时对象，并确定应使用什么GraphqlObjectType来表示该对象，从而决定要调用哪些数据读取程序和字段。
 
 一个常见的实现如下
-
 ```java
 new TypeResolver() {
     @Override
@@ -74,12 +67,11 @@ new TypeResolver() {
 };
 ```
 
-## Creating a schema using the SDL
+# Creating a schema using the SDL
 
 通过SDL定义架构时，在创建可执行schema时，需要提供所需的DataFetcher和TypeResolver。
 
 下面以名为starWarsSchema.graphqls的静态schema文件为例
-
 ```graphql
 schema {
     query: QueryType
@@ -129,7 +121,6 @@ type Droid implements Character {
 运行时连接包含DataFetcher，TypeResolvers和自定义Scalar，它们是制作完全可执行的schema所必需的。
 
 您可以使用以下建造者模式将其连接在一起
-
 ```java
 RuntimeWiring buildRuntimeWiring() {
     return RuntimeWiring.newRuntimeWiring()
@@ -157,7 +148,6 @@ RuntimeWiring buildRuntimeWiring() {
 ```
 
 最后，您可以通过连接静态schema和运行时织入对象（RuntimeWiring），生成可执行schema，如本示例所示
-
 ```java
 SchemaParser schemaParser = new SchemaParser();
 SchemaGenerator schemaGenerator = new SchemaGenerator();
@@ -170,7 +160,6 @@ GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeRegistry,
 ```
 
 除了上面显示的建造器风格外，还可以使用WiringFactory接口来连接TypeResolver和DataFetcher。由于可以检查SDL定义以确定要连接的内容，因此可以进行更动态的运行时连接。例如，您可以查看SDL指令或SDL定义的其他方面，以帮助您确定要创建的运行时。
-
 ```java
 RuntimeWiring buildDynamicRuntimeWiring() {
     WiringFactory dynamicWiringFactory = new WiringFactory() {
@@ -212,12 +201,11 @@ RuntimeWiring buildDynamicRuntimeWiring() {
 }
 ```
 
-## Creating a schema programmatically
+# Creating a schema programmatically
 
 以编程方式创建schema时，将在类型创建时提供DataFetcher和TypeResolver
 
 Java示例如下
-
 ```java
 DataFetcher<Foo> fooDataFetcher = new DataFetcher<Foo>() {
     @Override
@@ -242,9 +230,10 @@ GraphQLCodeRegistry codeRegistry = newCodeRegistry()
                 coordinates("ObjectType", "foo"),
                 fooDataFetcher)
         .build();
+
 ```
 
-## Types
+# Types
 
 GraphQL类型系统支持以下类型
 
@@ -255,17 +244,17 @@ GraphQL类型系统支持以下类型
 * InputObject
 * Enum
 
-### Scalar
+## Scalar
 
 graphql-java支持以下标量
 
 标准graphql标量
 
-* \*GraphQLString 
-* \*GraphQLBoolean 
-* \*GraphQLInt 
-* \*GraphQLFloat 
-* \*GraphQLID
+* *GraphQLString 
+* *GraphQLBoolean 
+* *GraphQLInt 
+* *GraphQLFloat 
+* *GraphQLID
 
 扩展graphql-java标量
 
@@ -278,7 +267,7 @@ graphql-java支持以下标量
 
 **请注意，客户可能无法理解扩展标量范围的语义。例如，将Java Long（最大值2^63-1）映射到JavaScript Number（最大值2^53-1）对您来说可能有问题。**
 
-### Object
+## Object
 
 SDL 示例
 
@@ -290,7 +279,6 @@ type SimpsonCharacter {
 ```
 
 Java 示例
-
 ```java
 GraphQLObjectType simpsonCharacter = newObject()
 .name("SimpsonCharacter")
@@ -306,7 +294,7 @@ GraphQLObjectType simpsonCharacter = newObject()
 .build();
 ```
 
-### Interface
+## Interface
 
 接口是类型的抽象定义。
 
@@ -319,7 +307,6 @@ interface ComicCharacter {
 ```
 
 Java 示例
-
 ```java
 GraphQLInterfaceType comicCharacter = newInterface()
     .name("ComicCharacter")
@@ -331,10 +318,9 @@ GraphQLInterfaceType comicCharacter = newInterface()
     .build();
 ```
 
-### Union
+## Union
 
 SDL 示例
-
 ```graphql
 type Cat {
     name: String;
@@ -350,7 +336,6 @@ union Pet = Cat | Dog
 ```
 
 Java 示例
-
 ```java
 TypeResolver typeResolver = new TypeResolver() {
     @Override
@@ -375,10 +360,9 @@ GraphQLCodeRegistry codeRegistry = newCodeRegistry()
         .build();
 ```
 
-### Enum
+## Enum
 
 SDL 示例
-
 ```graphql
 enum Color {
     RED
@@ -386,9 +370,7 @@ enum Color {
     BLUE
 }
 ```
-
 Java 示例
-
 ```java
 GraphQLEnumType colorEnum = newEnum()
     .name("Color")
@@ -399,18 +381,16 @@ GraphQLEnumType colorEnum = newEnum()
     .build();
 ```
 
-### ObjectInputType
+## ObjectInputType
 
 SDL 示例
-
 ```graphql
 input Character {
     name: String
 }
 ```
-
-当使用graphql做突变操作时就需要input。（类似restful中定义request body） Java 示例
-
+当使用graphql做突变操作时就需要input。（类似restful中定义request body）
+Java 示例
 ```java
 GraphQLInputObjectType inputObjectType = newInputObject()
     .name("inputObjectType")
@@ -420,7 +400,7 @@ GraphQLInputObjectType inputObjectType = newInputObject()
     .build();
 ```
 
-### Type References \(recursive types\)
+## Type References (recursive types)
 
 GraphQL支持递归类型：例如，一个Person可以包含相同类型的朋友列表。
 
@@ -429,7 +409,6 @@ GraphQL支持递归类型：例如，一个Person可以包含相同类型的朋�
 创建schema时，GraphQLTypeReference将替换为实际类型对象。
 
 示例如下
-
 ```java
 GraphQLObjectType person = newObject()
         .name("Person")
@@ -441,7 +420,7 @@ GraphQLObjectType person = newObject()
 
 通过SDL声明schema时，不需要为递归类型进行特殊处理，因为它可以为您检测到并自动完成。
 
-## Modularising the Schema SDL
+# Modularising the Schema SDL
 
 拥有一个大的schema文件并不总是可行的。您可以使用两种技术对模式进行模块化。
 
@@ -464,18 +443,15 @@ typeRegistry.merge(schemaParser.parse(schemaFile3));
 
 GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeRegistry, buildRuntimeWiring());
 ```
-
 Graphql SDL类型系统具有用于将schema模块化的另一种方法。您可以使用type extensions将其他字段和接口添加到类型。
 
 假设您在一个schema文件中有这样的类型定义
-
 ```graphql
 type Human {
     id: ID!
     name: String!
 }
 ```
-
 系统的另一部分可以扩展此类型以为其添加更多形状。
 
 ```graphql
@@ -486,17 +462,13 @@ extend type Human implements Character {
     appearsIn: [Episode]!
 }
 ```
-
 您可以根据需要选择任意数量的扩展名。它们将按照遇到的顺序组合在一起。重复的字段将合并为一个（但是不允许将字段重新定义为新类型）。
-
 ```graphql
 extend type Human {
     homePlanet: String
 }
 ```
-
 有了所有这些类型扩展后，Human类型现在在运行时看起来像这样。
-
 ```graphql
 type Human implements Character {
     id: ID!
@@ -508,7 +480,6 @@ type Human implements Character {
 ```
 
 这在最高层尤其有用。您可以使用扩展类型向顶层schema“query”添加新字段。团队可以贡献“sections”来提供总的graphql查询。
-
 ```graphql
 schema {
   query: CombinedQueryFromMultipleTeams
@@ -534,13 +505,11 @@ extend type CombinedQueryFromMultipleTeams {
 }
 ```
 
-## Subscription Support
+# Subscription Support
 
 订阅使您可以执行查询，并且只要该查询的支持对象发生更改，就会发送更新。
-
 ```graphql
 subscription foo {
     # normal graphql query
 }
 ```
-

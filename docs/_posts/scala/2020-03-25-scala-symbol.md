@@ -1,12 +1,9 @@
 ---
 title: Symbol
 categories:
-  - Scala
-tags:
-  - 源码分析
+- Scala
+tags: [源码分析]
 ---
-
-# 2020-03-25-Scala-Symbol
 
 ```scala
 /**
@@ -107,4 +104,3 @@ private[scala] abstract class UniquenessCache[K, V >: Null] {
   def unapply(other: V): Option[K] = keyFromValue(other)
 }
 ```
-

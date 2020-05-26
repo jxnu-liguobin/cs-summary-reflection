@@ -1,17 +1,13 @@
 ---
 title: Scalars
 categories:
-  - GraphqlJava
-tags:
-  - graphql-java 1.4文档
+- GraphqlJava
+tags: [graphql-java 1.4文档]
 description: 本章介绍graphql-java中如何自定义标量类型
 ---
 
-# 2020-04-03-GraphqlJava-Scalars
-
 * 目录
-
-  {:toc}
+{:toc}
 
 graphql类型系统的叶节点称为标量。一旦达到标量类型，就无法进一步下降到类型层次结构中。标量类型旨在表示不可分的值。
 
@@ -33,29 +29,28 @@ graphql-java添加了以下标量类型，这些标量类型在基于Java的系�
 
 graphql.Scalars类包含所提供标量类型的单例实例
 
-## Writing your Own Custom Scalars
+# Writing your Own Custom Scalars
 
 您可以编写自己的自定义标量实现。这样，您将负责在运行时强制限制值，我们将在稍后解释。
 
 想象我们决定需要一个电子邮件标量类型。它将电子邮件地址作为输入和输出。
 
 我们将为此创建一个单例graphql.schema.GraphQLScalarType实例。
-
 ```java
 public static final GraphQLScalarType EMAIL = new GraphQLScalarType("email", "A custom scalar that handles emails", new Coercing() {
-
+    
     //接受一个Java对象并将其转换为该标量的输出形式
     @Override
     public Object serialize(Object dataFetcherResult) {
         return serializeEmail(dataFetcherResult);
     }
-
+    
     //接受变量输入对象并转换为Java运行时表示形式
     @Override
     public Object parseValue(Object input) {
         return parseEmailFromVariable(input);
     }
-
+    
     //将AST文字graphql.language.Value作为输入并转换为Java运行时表示形式
     @Override
     public Object parseLiteral(Object input) {
@@ -64,14 +59,13 @@ public static final GraphQLScalarType EMAIL = new GraphQLScalarType("email", "A 
 });
 ```
 
-## Coercing values
+# Coercing values
 
 任何自定义标量实现中的实际工作都是实现graphql.schema.Coercing。
 
 您的自定义标量代码必须处理2种形式的输入（parseValue/parseLiteral）和1种形式的输出（序列化）。
 
 想象一下这个查询，它使用变量，AST文字并输出我们的标量类型电子邮件。
-
 ```graphql
 mutation Contact($mainContact: Email!) {
     makeContact(mainContactEmail: $mainContact, backupContactEmail: "backup@company.com") {
@@ -82,12 +76,11 @@ mutation Contact($mainContact: Email!) {
 ```
 
 我们的自定义电子邮件标量将
-
 * 通过parseValue调用以将$mainContact变量值转换为运行时对象
 * 通过parseLiteral调用以将AST graphql.language.StringValue "backup@company.com" 转换为运行时对象
 * 通过序列化调用，以将mainContactEmail的运行时表示形式转换为可用于输出的表单
 
-## Validation of input and output
+# Validation of input and output
 
 该方法可以验证接收到的输入是否有意义。例如，我们的电子邮件标量将尝试验证输入和输出确实是电子邮件地址。
 
@@ -99,7 +92,7 @@ graphql.schema.Coercing的JavaDoc方法协定如下
 
 有些人试图依靠运行时异常进行验证，并希望它们以graphql错误的形式出现。然而并发如此，您必须遵循Coercing方法协定，以允许graphql-java引擎根据有关标量类型的graphql规范工作。
 
-## Example implementation
+# Example implementation
 
 以下是我们想象中的email标量类型的一个非常粗略的实现，以向您展示如何实现这种标量的Coercing方法。
 
@@ -162,7 +155,7 @@ public static class EmailScalar {
 }
 ```
 
-## 使用自定义标量
+# 使用自定义标量
 
 使用上面定义的Email类型完成请求与相应
 
@@ -200,7 +193,6 @@ private GraphQLSchema buildSchema(String sdl) {
 ```
 
 在starWarsSchemaAnnotated.graphqls文件修改为
-
 ```graphql
 scalar Email
 
@@ -216,12 +208,12 @@ type Human implements Character {
     email: Email!
 }
 ......
+
 ```
 
 修改Java POJO，为Human类增加String类型 email字段
 
 使用如下查询
-
 ```graphql
 {
   humans {
@@ -230,10 +222,8 @@ type Human implements Character {
   }
 }
 ```
-
 返回信息（开了追踪所以有extensions属性）
-
-```javascript
+```json
 {
     "data": {
         "humans": [
@@ -412,5 +402,4 @@ type Human implements Character {
 }
 ```
 
-完整代码 [https://github.com/jxnu-liguobin/springboot-examples](https://github.com/jxnu-liguobin/springboot-examples)
-
+完整代码 https://github.com/jxnu-liguobin/springboot-examples

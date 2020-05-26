@@ -1,19 +1,15 @@
 ---
 title: SDL Directives
 categories:
-  - GraphqlJava
-tags:
-  - graphql-java 1.4文档
+- GraphqlJava
+tags: [graphql-java 1.4文档]
 description: 本章介绍graphql-java中的如何使用指令功能
 ---
 
-# 2020-04-08-GraphqlJava-SDLDirectives
-
 * 目录
+{:toc}
 
-  {:toc}
-
-## Adding Behaviour
+# Adding Behaviour
 
 SDL允许您以声明的方式定义您的graphql类型，而无需使用代码。但是，您仍然需要连接（织入）以支持这些类型及其字段的所有逻辑。
 
@@ -24,7 +20,6 @@ Schema指令允许您执行此操作。您可以在SDL元素上放置指令，�
 与在常规运行时连接中可能要在10-100s的数据获取器中进行连接相比，这是一种更强大的模型。
 
 例如，假设您具有以下类型
-
 ```graphql
 type Employee
     id : ID
@@ -37,7 +32,6 @@ type Employee
 将薪水信息发布给每个可以看到该雇员姓名的人可能不是你想要的。相反，您可能想要某种访问控制，以便如果您的角色是经理（下文manager），则可以看到薪水，否则将无法获得任何数据（指薪水代表的字段）。
 
 Directives（指令）可以帮助您更轻松地声明这一点。我们上面的声明将如下所示
-
 ```graphql
 directive @auth(role : String!) on FIELD_DEFINITION
 
@@ -50,7 +44,6 @@ type Employee
 ```
 
 因此，我们已经说过，只有拥有角色"manager"的人员才有权查看此字段。现在，我们可以在需要经理角色授权的任何字段上使用此指令。
-
 ```graphql
 directive @auth(role : String!) on FIELD_DEFINITION
 
@@ -70,7 +63,6 @@ type Department {
 ```
 
 现在，我们需要使用此@auth指令连接可以处理任何字段的代码。我们使用graphql.schema.idl.SchemaDirectiveWiring来做到这一点。
-
 ```java
 class AuthorisationDirective implements SchemaDirectiveWiring {
 
@@ -107,7 +99,8 @@ class AuthorisationDirective implements SchemaDirectiveWiring {
             .build();
 ```
 
-这已修改了GraphQLFieldDefinition，以便仅在当前授权上下文具有经理角色的情况下才调用其原始数据获取程序。 究竟使用哪种授权机制取决于您自己。举例说，您可以使用Spring Security，但graphql-java并不在乎。
+这已修改了GraphQLFieldDefinition，以便仅在当前授权上下文具有经理角色的情况下才调用其原始数据获取程序。
+究竟使用哪种授权机制取决于您自己。举例说，您可以使用Spring Security，但graphql-java并不在乎。
 
 您可以将此授权检查器提供给graphql输入的执行（ExecutionInput）的"context"对象，以便以后可以在DataFetchingEnvironment中对其进行访问。
 
@@ -120,10 +113,9 @@ ExecutionInput executionInput = ExecutionInput.newExecutionInput()
         .build();
 ```
 
-## Declaring Directives
+# Declaring Directives
 
 为了在SDL中使用指令，graphql规范要求您必须在使用前声明其形态。在使用之前，我们上面的@auth指令示例需要像这样声明。
-
 ```graphql
 # 这是指令声明
 directive @auth(role : String!) on FIELD_DEFINITION
@@ -136,13 +128,11 @@ type Employee
 ```
 
 一个例外是@deprecated指令，它为您隐式声明，如下所示
-
 ```graphql
 directive @deprecated(  reason: String = "No longer supported") on FIELD_DEFINITION | ENUM_VALUE
 ```
 
 有效的SDL指令位置如下
-
 ```graphql
 SCHEMA,
 SCALAR,
@@ -159,14 +149,13 @@ INPUT_FIELD_DEFINITION
 
 指令通常应用于字段定义，但是如您所见，它们可以在许多地方使用。
 
-## Another Example - Date Formatting
+# Another Example - Date Formatting
 
 日期格式是一个横切关注点，我们只需要编写一次并将其应用于许多地方。
 
 下面演示了一个schema指令示例，该指令可将日期格式应用于LocaleDate对象的字段。
 
 在此示例中最棒的是，它向应用到的每个字段添加了一个额外的格式参数。因此，客户端可以根据您的每个请求选择需要提供的日期格式。
-
 ```graphql
 directive @dateFormat on FIELD_DEFINITION
 
@@ -176,7 +165,6 @@ type Query {
 ```
 
 那么我们的运行时代码可能是
-
 ```java
 public static class DateFormatting implements SchemaDirectiveWiring {
     @Override
@@ -255,12 +243,12 @@ public static void main(String[] args) {
 }
 ```
 
-**注意，SDL定义没有format参数，一旦指令连接被应用，它就会被添加到字段定义中，因此客户可以开始使用它。** **请注意，graphql-java没有附带这个实现。这里提供的只是一个示例，您可以自己添加一些内容。**
+**注意，SDL定义没有format参数，一旦指令连接被应用，它就会被添加到字段定义中，因此客户可以开始使用它。**
+**请注意，graphql-java没有附带这个实现。这里提供的只是一个示例，您可以自己添加一些内容。**
 
-## Chaining Behaviour
+# Chaining Behaviour
 
 这些指令是按照它们遇到的顺序被应用的。例如，想象一下改变了字段值大小写的指令。
-
 ```graphql
 directive @uppercase on FIELD_DEFINITION
 directive @lowercase on FIELD_DEFINITION
@@ -275,4 +263,3 @@ type Query {
     allTogetherNow : String @lowercase @uppercase @mixedcase @reversed
 }
 ```
-
