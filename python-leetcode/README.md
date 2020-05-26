@@ -28,6 +28,8 @@
 14. [叶子相似的树](./solution/tree/leetcode_872_.py)
 15. [二叉搜索树转换为累加树](./solution/tree/leetcode_538_.py)
 16. [平衡二叉树](./solution/tree/leetcode_110_.py)
+17. [相同的树](./solution/tree/leetcode_100_.py)
+18. [对称二叉树](./solution/tree/leetcode_101_.py)
 
 
 
