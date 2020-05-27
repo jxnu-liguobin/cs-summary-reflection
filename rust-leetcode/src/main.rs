@@ -51,6 +51,7 @@ pub mod leetcode_38;
 pub mod leetcode_461;
 pub mod leetcode_475;
 pub mod leetcode_500;
+pub mod leetcode_532;
 pub mod leetcode_557;
 pub mod leetcode_561;
 pub mod leetcode_58;
