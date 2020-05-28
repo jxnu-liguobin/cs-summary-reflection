@@ -31,6 +31,7 @@
 17. [相同的树](./solution/tree/leetcode_100_.py)
 18. [对称二叉树](./solution/tree/leetcode_101_.py)
 19. [二叉搜索树节点最小距离](./solution/tree/leetcode_783_.py)
+20. [二叉树的坡度](./solution/tree/leetcode_563_.py)
 
 
 
