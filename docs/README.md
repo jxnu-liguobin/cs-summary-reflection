@@ -52,12 +52,12 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 梦境迷离
 * 服务端开发、Scala开发
 * 来自江西 现居北京
-* 函数式&反应式交流QQ群：892402908
-* 互联网吹逼QQ群：655462259
+
+![福报群655462259](./public/image/fubaoqun.JPG) ![函数式群892402908](./public/image/fbqun.JPG) 
 
 ## 联系方式
 
-* dreamylost@outlook.com
+![邮箱dreamylost@outlook.com](./public/image/my_chat.JPG) 
 
 ## 其他
 
