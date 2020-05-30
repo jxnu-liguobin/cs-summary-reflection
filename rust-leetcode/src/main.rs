@@ -23,6 +23,7 @@ pub mod leetcode_100;
 pub mod leetcode_101;
 pub mod leetcode_1021;
 pub mod leetcode_1051;
+pub mod leetcode_107;
 pub mod leetcode_108;
 pub mod leetcode_1160;
 pub mod leetcode_1207;
