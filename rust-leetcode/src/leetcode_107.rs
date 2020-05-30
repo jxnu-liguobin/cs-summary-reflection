@@ -44,6 +44,37 @@ impl Solution {
         }
         ret
     }
+
+    //forsworns
+    pub fn level_order_bottom2(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, depth: usize, nodes: &mut Vec<Vec<i32>>) {
+            let node = &node;
+            if node.is_none() {
+                return;
+            }
+            while nodes.len() <= depth {
+                nodes.push(vec![]);
+            }
+            let val = node.as_ref().borrow().unwrap().try_borrow().unwrap().val;
+            nodes[depth].push(val);
+            dfs(
+                node.as_ref()
+                    .and_then(|nd| nd.try_borrow().unwrap().left.clone()),
+                depth + 1,
+                nodes,
+            );
+            dfs(
+                node.as_ref()
+                    .and_then(|nd| nd.try_borrow().unwrap().right.clone()),
+                depth + 1,
+                nodes,
+            );
+        }
+        let mut res = vec![];
+        dfs(root, 0, &mut res);
+        res.reverse();
+        res
+    }
 }
 
 #[cfg(test)]
@@ -80,7 +111,13 @@ mod test {
             left: e9,
             right: e20,
         })));
-        let ret = Solution::level_order_bottom(e3);
+        let ret = Solution::level_order_bottom2(e3);
+        for v in ret.iter() {
+            for c in v.iter() {
+                print!("{}", c)
+            }
+            println!("\n")
+        }
         assert!(ret.len() == 3 && ret[0].len() == 2);
     }
 }

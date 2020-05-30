@@ -26,7 +26,7 @@ Scala程序员、函数式/反应式爱好者
 - Scala 2.12.8+
 - Java 1.8+
 - Python 3.0+  
-- Rust 1.0+  
+- Rust 1.4+  
 
 ## Contributors
 
