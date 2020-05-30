@@ -33,6 +33,8 @@
 19. [二叉搜索树节点最小距离](./solution/tree/leetcode_783_.py)
 20. [二叉树的坡度](./solution/tree/leetcode_563_.py)
 21. [ 两数之和 IV - 输入 BST](./solution/tree/leetcode_653_.py)
+22. [左右叶子之和](./solution/tree/leetcode_404_.py)
+23. [路径总和 III](./solution/tree/leetcode_437_.py)
 
 
 
