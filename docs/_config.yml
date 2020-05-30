@@ -191,10 +191,10 @@ sidebar:
       href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true
-    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/js/simple-jekyll-search.js
+    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/autoloader.js
     stylesheet: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search_box.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
-    placeholder: 搜索博文
+    placeholder: 请输入想要搜索的关键字
     json: /public/simple-jekyll-search/search.json
   jekyll_table_of_contents:
     enable: true
