@@ -53,11 +53,11 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 服务端开发、Scala开发
 * 来自江西 现居北京
 
-![福报群655462259](./public/image/fubaoqun.JPG) ![函数式群892402908](./public/image/fbqun.JPG) 
+<img src="./public/image/fubaoqun.JPG" alt="福报群655462259" width="300" height="380"/> <img src="./public/image/fbqun.JPG" alt="函数式群892402908" width="300" height="380"/>
 
 ## 联系方式
 
-![邮箱dreamylost@outlook.com](./public/image/my_chat.JPG) 
+<img src="./public/image/my_chat.JPG" alt="邮箱dreamylost@outlook.com" width="300" height="380"/>
 
 ## 其他
 
