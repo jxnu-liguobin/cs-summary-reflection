@@ -62,7 +62,6 @@ head: # 删改前确定知道自己在做什么
       - key: rel
         value: stylesheet
       - key: href
-
         value: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/css/poole.css # 用cdn加速会出问题，暂时不知道为什么
   - tag: link
     var:
@@ -191,7 +190,7 @@ sidebar:
       href: /categories.html  #增加分类栏，使用布局是page，因为都是独立的页面
   simple_jekyll_search:
     enable: true
-    autoloader: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/autoloader.js
+    autoloader: /public/simple-jekyll-search/autoloader.js
     stylesheet: //cdn.jsdelivr.net/gh/jxnu-liguobin/cs-summary-reflection/docs/public/simple-jekyll-search/search_box.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
     placeholder: 请输入想要搜索的关键字
