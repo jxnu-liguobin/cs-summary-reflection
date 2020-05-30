@@ -1,7 +1,7 @@
 ---
-layout: null
+    layout: null
 ---
-  document.write('<input id="search-input" placeholder="{{ site.sidebar.simple_jekyll_search.placeholder }}" />');
+    document.write('<input id="search-input" placeholder="{{ site.sidebar.simple_jekyll_search.placeholder }}" />');
 document.write('<div id="results-container"></div>');
 document.write('<script src="{{ site.sidebar.simple_jekyll_search.src }}"></script>');
 function loadStyle(url) {
