@@ -35,3 +35,68 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
+
+pub fn get_test_tree_5() -> Option<Rc<RefCell<TreeNode>>> {
+    let e7 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 7,
+        left: None,
+        right: None,
+    })));
+    let e15 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 15,
+        left: None,
+        right: None,
+    })));
+    let e20 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 20,
+        left: e15,
+        right: e7,
+    })));
+    let e9 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 9,
+        left: None,
+        right: None,
+    })));
+    let e3 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 3,
+        left: e9,
+        right: e20,
+    })));
+
+    e3
+}
+
+pub fn get_test_tree_3() -> Option<Rc<RefCell<TreeNode>>> {
+    let e2 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: None,
+    })));
+    let e1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: None,
+    })));
+    let root1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 1,
+        left: e1,
+        right: e2,
+    })));
+
+    root1
+}
+
+pub fn get_test_tree_2() -> Option<Rc<RefCell<TreeNode>>> {
+    let e1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: None,
+    })));
+    let root1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 1,
+        left: None,
+        right: e1,
+    })));
+
+    root1
+}
