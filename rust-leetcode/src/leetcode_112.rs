@@ -30,8 +30,7 @@ impl Solution {
                 None => false,
             }
         }
-        let origin_sum = sum;
-        helper(&root, origin_sum)
+        helper(&root, sum)
     }
 }
 
