@@ -20,6 +20,7 @@ Leetcode Rust 实现
 * [107 二叉树的层次遍历 II](src/leetcode_107.rs)
 * [110 平衡二叉树](src/leetcode_110.rs)
 * [111 二叉树的最小深度](src/leetcode_111.rs)
+* [112 路径总和](src/leetcode_112.rs)
 
 ## 链表&栈&队列
 
