@@ -93,3 +93,4 @@ Leetcode Rust 实现
 * [面试题 08.01 三步问题](src/interview_08_01.rs)
 * [532 数组中的K-diff数对](src/leetcode_532.rs)
 * [840 矩阵中的幻方](src/leetcode_840.rs)
+* [581 最短无序连续子数组](src/leetcode_581.rs)
