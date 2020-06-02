@@ -37,6 +37,7 @@
 23. [路径总和 III](./solution/tree/leetcode_437_.py)
 24. [二叉树的堂兄弟节点](./solution/tree/leetcode_993_.py)
 25. [二叉树的直径](./solution/tree/leetcode_543_.py)
+26. [二叉树中第二小的节点](./solution/tree/leetcode_671_.py)
 
 
 
