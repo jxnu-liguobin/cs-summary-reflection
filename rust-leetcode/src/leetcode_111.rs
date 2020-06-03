@@ -16,17 +16,17 @@ impl Solution {
             match node {
                 Some(n) => {
                     return match (
-                        n.as_ref().borrow().borrow().left.is_some(),
-                        n.as_ref().borrow().borrow().right.is_some(),
+                        n.as_ref().borrow().left.is_some(),
+                        n.as_ref().borrow().right.is_some(),
                     ) {
                         (true, true) => {
                             min(
-                                min_depth_(&n.as_ref().borrow().borrow().left),
-                                min_depth_(&n.as_ref().borrow().borrow().right),
+                                min_depth_(&n.as_ref().borrow().left),
+                                min_depth_(&n.as_ref().borrow().right),
                             ) + 1
                         }
-                        (false, true) => min_depth_(&n.as_ref().borrow().borrow().right) + 1,
-                        (true, false) => min_depth_(&n.as_ref().borrow().borrow().left) + 1,
+                        (false, true) => min_depth_(&n.as_ref().borrow().right) + 1,
+                        (true, false) => min_depth_(&n.as_ref().borrow().left) + 1,
                         (false, false) => 1,
                         _ => 0,
                     };

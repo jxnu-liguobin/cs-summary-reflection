@@ -100,3 +100,28 @@ pub fn get_test_tree_2() -> Option<Rc<RefCell<TreeNode>>> {
 
     root1
 }
+
+pub fn get_test_tree_4() -> Option<Rc<RefCell<TreeNode>>> {
+    let e3 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: None,
+    })));
+    let e2 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: e3,
+    })));
+    let e1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 2,
+        left: None,
+        right: e2,
+    })));
+    let root1 = Some(Rc::new(RefCell::new(TreeNode {
+        val: 1,
+        left: None,
+        right: e1,
+    })));
+
+    root1
+}

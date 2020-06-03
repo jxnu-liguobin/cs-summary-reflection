@@ -12,15 +12,20 @@ Leetcode Rust 实现
 * [面试题 55 - I 二叉树的深度](src/interview_55_1.rs)
 * [面试题 04.02 最小高度树](src/interview_04_02.rs)
 * [938 二叉搜索树的范围和](src/leetcode_938.rs)
-* [617 合并二叉树](src/leetcode_617.rs)
 * [面试题 54 二叉搜索树的第k大节点](src/interview_54.rs)
 * [面试题 32 - II. 从上到下打印二叉树 II](src/interview_32_2.rs)
-* [100 相同的树](src/leetcode_100.rs)
 * [101 对称二叉树](src/leetcode_101.rs)
 * [107 二叉树的层次遍历 II](src/leetcode_107.rs)
 * [110 平衡二叉树](src/leetcode_110.rs)
 * [111 二叉树的最小深度](src/leetcode_111.rs)
 * [112 路径总和](src/leetcode_112.rs)
+* [687 最长同值路径](src/leetcode_687.rs)
+
+### unsafe写法
+
+* [617 合并二叉树](src/leetcode_617.rs)
+* [100 相同的树](src/leetcode_100.rs)
+
 
 ## 链表&栈&队列
 

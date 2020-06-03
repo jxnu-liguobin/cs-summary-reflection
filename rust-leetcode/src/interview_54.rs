@@ -20,9 +20,6 @@ impl Solution {
                 cur = n.try_borrow().unwrap().right.clone();
             }
         }
-        for e in ret.iter() {
-            println!("{}", e);
-        }
         ret[(ret.len() - k as usize)]
     }
 }

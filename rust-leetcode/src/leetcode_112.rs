@@ -14,17 +14,17 @@ impl Solution {
             match node {
                 Some(n) => {
                     match (
-                        n.as_ref().borrow().borrow().left.is_none(),
-                        n.as_ref().borrow().borrow().right.is_none(),
+                        n.as_ref().borrow().left.is_none(),
+                        n.as_ref().borrow().right.is_none(),
                     ) {
-                        (true, true) => origin_sum - n.as_ref().borrow().borrow().val == 0,
+                        (true, true) => origin_sum - n.as_ref().borrow().val == 0,
                         (_, _) => {
                             helper(
-                                &n.as_ref().borrow().borrow().left,
-                                origin_sum - n.as_ref().borrow().borrow().val,
+                                &n.as_ref().borrow().left,
+                                origin_sum - n.as_ref().borrow().val,
                             ) || helper(
-                                &n.as_ref().borrow().borrow().right,
-                                origin_sum - n.as_ref().borrow().borrow().val,
+                                &n.as_ref().borrow().right,
+                                origin_sum - n.as_ref().borrow().val,
                             )
                         }
                     }
