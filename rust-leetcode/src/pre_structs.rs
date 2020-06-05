@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::fmt::{Debug, Display};
 use std::rc::Rc;
 
 pub(crate) struct Solution;
@@ -124,4 +125,10 @@ pub fn get_test_tree_4() -> Option<Rc<RefCell<TreeNode>>> {
     })));
 
     root1
+}
+
+pub fn print_vec<T: Display>(nums: Vec<T>) {
+    for e in nums.iter() {
+        println!("{}", e);
+    }
 }

@@ -20,12 +20,12 @@ Leetcode Rust 实现
 * [111 二叉树的最小深度](src/leetcode_111.rs)
 * [112 路径总和](src/leetcode_112.rs)
 * [687 最长同值路径](src/leetcode_687.rs)
+* [257 二叉树的所有路径](src/leetcode_257.rs)
 
 ### unsafe写法
 
 * [617 合并二叉树](src/leetcode_617.rs)
 * [100 相同的树](src/leetcode_100.rs)
-
 
 ## 链表&栈&队列
 
