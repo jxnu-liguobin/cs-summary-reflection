@@ -3,7 +3,7 @@ Leetcode Rust 实现
 
 超简单的算法题目，主要为了熟悉rust语法。源码在Solution.rs，并包含部分测试（均AC，90%是双100）
 
-根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Java，并在java-leetcode项目下实现。
+根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Scala/Java，并在scala/java-leetcode项目下实现。
 
 无注明，默认是LeetCode系列
 

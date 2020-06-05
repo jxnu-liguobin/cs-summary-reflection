@@ -4,7 +4,40 @@
 
 补充后期Scala实现的LeetCode，此处只有Scala实现的（不同时期写法不同）
 
-根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Java，并在java-leetcode项目下实现。
+根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Scala，并在scala-leetcode项目下实现。
+
+
+## 树
+
+* [树的遍历](./src/main/scala/io/github/dreamylost/BTT.scala)
+
+* [镜像二叉树非递归](./src/main/scala/io/github/dreamylost/Leetcode_Interview_27.scala)
+
+* [翻转树](./src/main/scala/io/github/dreamylost/Leetcode_226_Tree.scala)
+
+* [判断子树](./src/main/scala/io/github/dreamylost/Leetcode_572_Tree.scala)
+
+* [合并二叉树](./src/main/scala/io/github/dreamylost/Leetcode_617_Tree.scala)
+
+* [树的对称](./src/main/scala/io/github/dreamylost/Leetcode_101_Tree.scala)
+
+* [树的高度](./src/main/scala/io/github/dreamylost/Leetcode_104_Tree.scala)
+
+* [判断平衡树](./src/main/scala/io/github/dreamylost/Leetcode_110_Tree.scala)  
+
+* [二叉树的层平均值](./src/main/scala/io/github/dreamylost/Leetcode_637_Tree.scala)  
+
+* [找出二叉树中第二小的节点](./src/main/scala/io/github/dreamylost/Leetcode_671_Tree.scala)
+
+* [N叉树的后序遍历](./src/main/scala/io/github/dreamylost/LeetCode_590.scala)
+
+* [N叉树的前序遍历](./src/main/scala/io/github/dreamylost/Leetcode_589.scala)
+
+* [N叉树的最大深度](./src/main/scala/io/github/dreamylost/Leetcode_559.scala)
+
+* [二叉搜索树的最近公共祖先](./src/main/scala/io/github/dreamylost/Leetcode_235.scala)
+
+## 其他
 
 * [爬楼梯](./src/main/scala/io/github/dreamylost/Leetcode_70.scala)
 
@@ -12,11 +45,7 @@
 
 * [比特位计数](./src/main/scala/io/github/dreamylost/CountBits.scala)
 
-* [树的遍历](./src/main/scala/io/github/dreamylost/BTT.scala)
-
 * [打家劫舍](./src/main/scala/io/github/dreamylost/Leetcdoe_198.scala)
-
-* [镜像二叉树非递归](./src/main/scala/io/github/dreamylost/Leetcode_Interview_27.scala)
 
 * [反转数字](./src/main/scala/io/github/dreamylost/Leetcode_7.scala)
 
@@ -44,12 +73,6 @@
 
 * [从有序链表中删除重复节点](./src/main/scala/io/github/dreamylost/Leetcode_83_ListNode.scala)
 
-* [树的对称](./src/main/scala/io/github/dreamylost/Leetcode_101_Tree.scala)
-
-* [树的高度](./src/main/scala/io/github/dreamylost/Leetcode_104_Tree.scala)
-
-* [判断平衡树](./src/main/scala/io/github/dreamylost/Leetcode_110_Tree.scala)
-
 * [最小路径](./src/main/scala/io/github/dreamylost/Leetcode_111_Tree.scala)
 
 * [判断路径和是否等于一个数](./src/main/scala/io/github/dreamylost/Leetcode_112_Tree.scala)
@@ -57,8 +80,6 @@
 * [相交链表](./src/main/scala/io/github/dreamylost/Leetcode_160_ListNode.scala)
 
 * [链表反转](./src/main/scala/io/github/dreamylost/Leetcode_206_ListNode.scala)
-
-* [翻转树](./src/main/scala/io/github/dreamylost/Leetcode_226_Tree.scala)
 
 * [搜索二维矩阵II](./src/main/scala/io/github/dreamylost/Leetcode_240_Array.scala)
 
@@ -78,15 +99,7 @@
 
 * [嵌套数组](./src/main/scala/io/github/dreamylost/Leetcode_565_Array.scala)
 
-* [判断子树](./src/main/scala/io/github/dreamylost/Leetcode_572_Tree.scala)
-
-* [合并二叉树](./src/main/scala/io/github/dreamylost/Leetcode_617_Tree.scala)  
-
-* [二叉树的层平均值](./src/main/scala/io/github/dreamylost/Leetcode_637_Tree.scala)  
-
 * [数组相邻差值的个数](./src/main/scala/io/github/dreamylost/Leetcode_667_Array.scala)
-
-* [找出二叉树中第二小的节点](./src/main/scala/io/github/dreamylost/Leetcode_671_Tree.scala)
 
 * [数组的度](./src/main/scala/io/github/dreamylost/Leetcode_697_Array.scala)
 
@@ -107,9 +120,3 @@
 * [区域和检索](./src/main/scala/io/github/dreamylost/NumArray.scala)
 
 * [机器人能否返回原点](./src/main/scala/io/github/dreamylost/Leetcode_657.scala)
-
-* [N叉树的后序遍历](./src/main/scala/io/github/dreamylost/LeetCode_590.scala)
-
-* [N叉树的前序遍历](./src/main/scala/io/github/dreamylost/Leetcode_589.scala)
-
-* [N叉树的最大深度](./src/main/scala/io/github/dreamylost/Leetcode_559.scala)

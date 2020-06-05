@@ -26,7 +26,7 @@ object Leetcode_110_Tree extends App {
     val r = maxDepth(root.right)
     if (Math.abs(l - r) > 1)
       result = false
-    return 1 + math.max(l, r)
+    1 + math.max(l, r)
   }
 
 }

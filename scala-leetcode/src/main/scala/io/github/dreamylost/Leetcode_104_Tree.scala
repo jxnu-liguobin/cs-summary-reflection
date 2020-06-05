@@ -11,7 +11,7 @@ object Leetcode_104_Tree extends App {
 
   def maxDepth(root: TreeNode): Int = {
     if (root == null) return 0
-    return math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    math.max(maxDepth(root.left), maxDepth(root.right)) + 1
   }
 
 }

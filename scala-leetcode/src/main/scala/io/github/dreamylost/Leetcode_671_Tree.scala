@@ -24,6 +24,6 @@ object Leetcode_671_Tree extends App {
     if (rightVal == root.value) rightVal = findSecondMinimumValue(root.right)
     if (leftVal != -1 && rightVal != -1) return Math.min(leftVal, rightVal)
     if (leftVal != -1) return leftVal
-    return rightVal
+    rightVal
   }
 }
