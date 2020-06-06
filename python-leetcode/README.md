@@ -40,6 +40,7 @@
 26. [二叉树中第二小的节点](./solution/tree/leetcode_671_.py)
 27. [另一个树的子树](./solution/tree/leetcode_572_.py)
 28. [二叉搜索树中的众数](./solution/tree/leetcode_501_.py)
+29. [最长同值路径](./solution/tree/leetcode_687_.py)
 
 
 
