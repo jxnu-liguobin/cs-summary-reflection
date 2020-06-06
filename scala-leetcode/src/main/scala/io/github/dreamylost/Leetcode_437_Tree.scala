@@ -26,11 +26,12 @@ object Leetcode_437_Tree extends App {
 
   /**
     * 路径不一定以 root 开头，也不一定以 leaf 结尾，但是必须连续。
+    * 664 ms,12.50%
+    * 51.4 MB,100.00%
     */
   def pathSum(root: TreeNode, sum: Int): Int = {
     if (root == null) return 0
-    val ret = pathSumStartWithRoot(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum)
-    ret
+    pathSumStartWithRoot(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum)
   }
 
   /**
