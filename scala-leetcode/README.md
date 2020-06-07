@@ -27,6 +27,7 @@ Leetcode Scala 实现
 * [间隔遍历](./src/main/scala/io/github/dreamylost/Leetcode_337_Tree.scala)
 * [两节点的最长路径](./src/main/scala/io/github/dreamylost/Leetcode_543_Tree.scala)
 * [路径总和 III](./src/main/scala/io/github/dreamylost/Leetcode_437_Tree.scala)
+* [二叉搜索树中的众数](./src/main/scala/io/github/dreamylost/Leetcode_501.scala)
 
 ## 链表
 
