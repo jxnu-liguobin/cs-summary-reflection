@@ -1,11 +1,11 @@
 package io.github.dreamylost
 
 /**
-  *
+ *
  * @author 梦境迷离 dreamylost
-  * @since 2020-06-07
-  * @version v1.0
-  */
+ * @since 2020-06-07
+ * @version v1.0
+ */
 object TreeNodeData {
 
   def treeData3(): TreeNode = {
@@ -22,4 +22,12 @@ object TreeNodeData {
     root
   }
 
+  def treeData3_1(): TreeNode = {
+    val root = new TreeNode(1)
+    val r1 = new TreeNode(5)
+    val l1 = new TreeNode(3)
+    root.right = r1
+    r1.left = l1
+    root
+  }
 }
