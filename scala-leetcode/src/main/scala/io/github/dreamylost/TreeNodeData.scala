@@ -22,6 +22,15 @@ object TreeNodeData {
     root
   }
 
+  def treeData3_1(): TreeNode = {
+    val root = new TreeNode(1)
+    val r1 = new TreeNode(5)
+    val l1 = new TreeNode(3)
+    root.right = r1
+    r1.left = l1
+    root
+  }
+
   def treeData3_3(): TreeNode = {
     val root = new TreeNode(5)
     val r1 = new TreeNode(5)
@@ -30,5 +39,4 @@ object TreeNodeData {
     root.left = l1
     root
   }
-
 }
