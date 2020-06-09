@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # coding=utf-8
 """
-二叉树中第二小的节点
+671.二叉树中第二小的节点
 """
 from solution import TreeNode
 

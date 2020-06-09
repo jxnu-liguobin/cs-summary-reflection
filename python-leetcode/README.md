@@ -42,6 +42,7 @@
 28. [二叉搜索树中的众数](./solution/tree/leetcode_501_.py)
 29. [最长同值路径](./solution/tree/leetcode_687_.py)
 30. [找出克隆二叉树中的相同节点](./solution/tree/leetcode_1379_.py)
+31. [最大二叉树](./solution/tree/leetcode_654_.py)
 
 
 
