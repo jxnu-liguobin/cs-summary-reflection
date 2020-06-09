@@ -22,4 +22,13 @@ object TreeNodeData {
     root
   }
 
+  def treeData3_3(): TreeNode = {
+    val root = new TreeNode(5)
+    val r1 = new TreeNode(5)
+    val l1 = new TreeNode(6)
+    root.right = r1
+    root.left = l1
+    root
+  }
+
 }
