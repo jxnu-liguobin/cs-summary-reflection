@@ -42,17 +42,15 @@ Return false
 object Leetcode_572_Tree extends App {
 
   def isSubtree(s: TreeNode, t: TreeNode): Boolean = {
+    if (t == null) return true
     if (s == null) return false
     isSubtreeWithRoot(s, t) || isSubtreeWithRoot(s.left, t) || isSubtreeWithRoot(s.right, t)
   }
 
   private def isSubtreeWithRoot(s: TreeNode, t: TreeNode): Boolean = {
-
     if (s == null && t == null) return true
     if (s == null || t == null) return false
-    if (s.value != t.value) return false
-    isSubtreeWithRoot(s.left, t.left) && isSubtreeWithRoot(s.right, t.right)
-
+    s.value == t.value && isSubtreeWithRoot(s.left, t.left) && isSubtreeWithRoot(s.right, t.right)
   }
 
 }
