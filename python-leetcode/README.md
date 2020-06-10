@@ -43,6 +43,8 @@
 29. [最长同值路径](./solution/tree/leetcode_687_.py)
 30. [找出克隆二叉树中的相同节点](./solution/tree/leetcode_1379_.py)
 31. [最大二叉树](./solution/tree/leetcode_654_.py)
+32. [层数最深叶子节点的和](./solution/tree/leetcode_1302_.py)
+33. [祖父节点值为偶数的节点和](./solution/tree/leetcode_1315_.py)
 
 
 
