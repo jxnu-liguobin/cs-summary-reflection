@@ -42,4 +42,4 @@ Scala程序员、函数式/反应式爱好者
 
 公众号 ScalaCoder（佛系更新，目前博客优先）
 
-<img src="./docs/public/image/qrcode.jpg" alt="ScalaCoder" width="300" height="350"/>
+<img src="./docs/public/image/qrcode.jpg" alt="ScalaCoder" width="300" height="300"/>
