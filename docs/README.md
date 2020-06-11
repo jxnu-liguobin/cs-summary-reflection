@@ -53,7 +53,7 @@ Live2D来自于[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/
 * 服务端开发、Scala开发
 * 来自江西 现居北京
 
-<img src="./public/image/fubaoqun.JPG" alt="福报群655462259" width="300" height="380"/> <img src="./public/image/fbqun.JPG" alt="函数式群892402908" width="300" height="380"/>
+<img src="./public/image/fubaoqun.JPG" alt="福报群655462259" width="300" height="420"/> <img src="./public/image/fbqun.JPG" alt="函数式群892402908" width="300" height="420"/>
 
 ## 联系方式
 
