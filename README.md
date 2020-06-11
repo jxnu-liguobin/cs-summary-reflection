@@ -38,4 +38,8 @@ Scala程序员、函数式/反应式爱好者
 
 [Apache License](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/LICENSE) © 梦境迷离
 
-<img src="./docs/public/image/my_chat.JPG" alt="邮箱dreamylost@outlook.com" width="300" height="380"/>
+<img src="./docs/public/image/my_chat.JPG" alt="邮箱dreamylost@outlook.com" width="300" height="380"/> 
+
+公众号 ScalaCoder（佛系更新，目前博客优先）
+
+<img src="./docs/public/image/qrcode.jpg" alt="ScalaCoder" width="300" height="380"/>
