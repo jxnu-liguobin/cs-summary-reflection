@@ -45,6 +45,8 @@
 31. [最大二叉树](./solution/tree/leetcode_654_.py)
 32. [层数最深叶子节点的和](./solution/tree/leetcode_1302_.py)
 33. [祖父节点值为偶数的节点和](./solution/tree/leetcode_1315_.py)
+34. [两棵二叉搜索树中的所有元素](./solution/tree/leetcode_1305_.py)
+35. [二叉树剪枝](./solution/tree/leetcode_814_.py)
 
 
 
