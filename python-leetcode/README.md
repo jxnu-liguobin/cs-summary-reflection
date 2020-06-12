@@ -47,6 +47,8 @@
 33. [祖父节点值为偶数的节点和](./solution/tree/leetcode_1315_.py)
 34. [两棵二叉搜索树中的所有元素](./solution/tree/leetcode_1305_.py)
 35. [二叉树剪枝](./solution/tree/leetcode_814_.py)
+36. [二叉搜索树中的插入操作](./solution/tree/leetcode_701_.py)
+37. [二叉搜索树迭代器](./solution/tree/leetcode_173_.py)
 
 
 
