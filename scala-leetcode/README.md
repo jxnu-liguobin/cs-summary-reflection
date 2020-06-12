@@ -30,6 +30,7 @@ Leetcode Scala 实现
 * [二叉搜索树中的众数](./src/main/scala/io/github/dreamylost/Leetcode_501.scala)
 * [二叉搜索树的最小绝对差](./src/main/scala/io/github/dreamylost/Leetcode_530.scala)
 * [二叉树的堂兄弟节点](./src/main/scala/io/github/dreamylost/Leetcode_993.scala)
+* [把二叉搜索树转换为累加树](./src/main/scala/io/github/dreamylost/Leetcode_538.scala)
 
 ## 链表
 
