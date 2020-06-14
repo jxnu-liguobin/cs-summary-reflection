@@ -49,6 +49,8 @@
 35. [二叉树剪枝](./solution/tree/leetcode_814_.py)
 36. [二叉搜索树中的插入操作](./solution/tree/leetcode_701_.py)
 37. [二叉搜索树迭代器](./solution/tree/leetcode_173_.py)
+38. [二叉树的中序遍历](./solution/tree/leetcode_94_.py)
+39. [先序遍历构造二叉树](./solution/tree/leetcode_1008_.py)
 
 
 
