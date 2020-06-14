@@ -11,14 +11,16 @@ description: Scala的宏编程
 
 # Scala 泛型
 
+一般是定义类型的时候使用
+
 - 上界 <:
 - 下界 >:
-- 视界 <%     允许使用宽松的通过隐式转化的方式关联
+- 视界 <%     对于`[A <% T]`必须使用隐式转换将有界类型A转换为有界类型T
 - 边界 :
 - 协变 +T
 - 逆变 -T
 
-演变的其他限定
+演变的其他限定（一般是匹配类型时使用）
 
 - <:<
 - =:=
@@ -26,6 +28,14 @@ description: Scala的宏编程
 
 对于A和B这两种类型，如果编译器可以找到A <:< B类型的隐式值，则它知道A符合B（是B的子类型）。
 同样，如果编译器可以找到A =:= B类型的隐式值，那么它知道A和B的类型相同。它们在编码通用类型约束时很有用。
+
+[What's the difference between A <: B and +B in Scala?](https://stackoverflow.com/questions/4531455/whats-the-difference-between-ab-and-b-in-scala)
+
+[<:<、=:=、<%<](https://www.scala-lang.org/old/node/10632)
+
+[ProgrammingInScala.pdf，从第61页开始](https://cs.uwaterloo.ca/~brecht/courses/702/Possible-Readings/scala/ProgrammingInScala.pdf)
+
+[What are Scala context and view bounds?](https://stackoverflow.com/questions/4465948/what-are-scala-context-and-view-bounds)
 
 示例如下
 
