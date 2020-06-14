@@ -109,12 +109,6 @@ define int main() {
 
 准引用是一种简洁的表示法，使您可以轻松地操作Scala AST 语法树。
 
-## 关于 Context
-
-- Context 封装了一个编译时Universe (scala.reflect.macros.Universe)
-- Context 同时也有一个 macroApplication，它提供了一个对宏展开处完整的AST
-- 类型检查，编译警告、报错等
-
 ## 黑盒和白盒
 
 一般来讲，黑盒（blackbox.Context）会比白盒（whitebox.Context）有更严格的类型检查
@@ -124,8 +118,8 @@ define int main() {
 黑盒宏的使用，会有四点限制，主要方面是
 
 - 类型检查
-- 类型推到
-- 隐式推到
+- 类型推导
+- 隐式推导
 - 模式匹配
 
 具体看官网 [blackbox-whitebox](https://docs.scala-lang.org/overviews/macros/blackbox-whitebox.html)
@@ -210,13 +204,13 @@ object Macros {
 * (s: c.Expr[String])
 * (tag: c.WeakTypeTag[T])
 
-## c.Expr
+### c.Expr
 
 这是Macros的表达式包装器，里面放置着类型String，为什么不能直接传String呢？
 当然是不可以了，因为宏的入参只接受Expr，调用宏传入的参数也会默认转为Expr。
 这里要注意, 这个`(s: c.Expr[String])`的入参名必须等于`hello2[T](s: String)`的入参名。
 
-## WeakTypeTag[T]
+### WeakTypeTag[T]
 
 有时我们无法为泛型提供边界，就需要使用WeakTypeTag，此时无法使用TypeTag和ClassTag。但是应尽可能的提供更加具体的类型给WeakTypeTag。
 
@@ -224,7 +218,13 @@ object Macros {
 
 [manifests](https://docs.scala-lang.org/overviews/reflection/typetags-manifests.html)
 
-# 关于 Universe
+## 关于 Context
+
+- Context 封装了一个编译时 Universe （scala.reflect.macros.Universe）
+- Context 同时也有一个 macroApplication，它提供了一个对宏展开处完整的AST
+- 类型检查，编译警告、报错等
+
+## 关于 Universe
 
 - scala.reflect.api.Universe 提供了一个用来 Scala 反射的完整的操作集合，比如查看类型的成员，或反射出子类型
     - scala.reflect.api.JavaUniverse 是一个用在 JVM 实例上的对 Scala 反射的一个实现
@@ -239,7 +239,7 @@ object Macros {
     - FlagSet represent sets of flags that apply to symbols and definition trees
     - Constants 编译时常量相关
 
-想要了解 Universe 最好是应用Scala反射接口，如使用Scala注解。
+想要了解 Universe 最好是应用Scala反射接口，如使用Scala反射操作Scala注解，了解Scala和Java反射。
 
 # 关于 Scala AST
 
