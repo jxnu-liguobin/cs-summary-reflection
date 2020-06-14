@@ -4,7 +4,8 @@ package io.github.dreamylost
 
 import java.util.{ Queue => _ }
 
-import scala.collection.mutable
+import scala.collection.immutable.Queue
+import scala.collection.immutable.Stack
 
 /**
   * 二叉树的遍历
@@ -37,34 +38,36 @@ object BTT extends App {
   }
 
   //前，144. Binary Tree Preorder Traversal (Medium)
-  def preorderTraversal(root: TreeNode): mutable.Seq[Int] = {
-    val ret = mutable.Seq[Int]()
-    val stack = mutable.Stack[TreeNode]()
-    stack.push(root)
+  def preorderTraversal(root: TreeNode): Seq[Int] = {
+    var ret = Seq[Int]()
+    var stack = Stack[TreeNode]()
+    stack = stack.push(root)
     while (stack.nonEmpty) {
-      val node = stack.pop()
+      val (node, s) = stack.pop2
+      stack = s
       if (node != null) {
-        ret.:+(node.value)
-        stack.push(node.right) // 先右后左，保证左子树先遍历
-        stack.push(node.left)
+        ret = ret ++ Seq(node.value)
+        stack = stack.push(node.right) // 先右后左，保证左子树先遍历
+        stack = stack.push(node.left)
       }
     }
     ret
   }
 
   //中， 94. Binary Tree Inorder Traversal (Medium)
-  def inorderTraversal(root: TreeNode): mutable.Seq[Int] = {
-    val ret = mutable.Seq[Int]()
-    val stack = mutable.Stack[TreeNode]()
+  def inorderTraversal(root: TreeNode): Seq[Int] = {
+    var ret = Seq[Int]()
+    var stack = Stack[TreeNode]()
     if (root == null) return ret
     var cur = root
     while (cur != null || stack.nonEmpty) {
       while (cur != null) {
-        stack.push(cur)
+        stack = stack.push(cur)
         cur = cur.left
       }
-      val node = stack.pop()
-      ret.:+(node.value)
+      val (node, s) = stack.pop2
+      stack = s
+      ret = ret ++ Seq(node.value)
       cur = node.right
     }
     ret
@@ -75,34 +78,36 @@ object BTT extends App {
     * 前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
     */
   //后，145. Binary Tree Postorder Traversal (Medium)
-  def postorderTraversal(root: TreeNode): mutable.Seq[Int] = {
-    val ret = mutable.Seq[Int]()
-    val stack = mutable.Stack[TreeNode]()
-    stack.push(root)
+  def postorderTraversal(root: TreeNode): Seq[Int] = {
+    var ret = Seq[Int]()
+    var stack = Stack[TreeNode]()
+    stack = stack.push(root)
     while (stack.nonEmpty) {
-      val node = stack.pop()
+      val (node, s) = stack.pop2
+      stack = s
       if (node != null) {
-        ret.:+(node.value)
-        stack.push(node.left) // 先右后左，保证左子树先遍历
-        stack.push(node.right)
+        ret = ret ++ Seq(node.value)
+        stack = stack.push(node.left) // 先右后左，保证左子树先遍历
+        stack = stack.push(node.right)
       }
     }
     ret.reverse
   }
 
   //层序
-  def levelTraverse(root: TreeNode): mutable.Seq[Int] = {
-    if (root == null) return mutable.Seq()
-    val list = mutable.Seq[Int]();
+  def levelTraverse(root: TreeNode): Seq[Int] = {
+    if (root == null) return Seq()
+    var list = Seq[Int]()
     //Scala的Seq将是Java的List，Scala的List将是Java的LinkedList。
-    val queue = mutable.Queue[TreeNode]() //层序遍历时保存结点的队列，可以省略new或者省略()
-    queue.enqueue(root)
+    var queue = Queue[TreeNode]() //层序遍历时保存结点的队列，可以省略new或者省略()
+    queue = queue.enqueue(root)
     //初始化
     while (queue.nonEmpty) {
-      val node = queue.dequeue
-      list.:+(node.value)
-      if (node.left != null) queue.enqueue(node.left)
-      if (node.right != null) queue.enqueue(node.right)
+      val (node, q) = queue.dequeue
+      queue = q
+      list = list ++ Seq(node.value)
+      if (node.left != null) queue = queue.enqueue(node.left)
+      if (node.right != null) queue = queue.enqueue(node.right)
     }
 
     list

@@ -32,6 +32,7 @@ Leetcode Scala 实现
 * [二叉树的堂兄弟节点](./src/main/scala/io/github/dreamylost/Leetcode_993.scala)
 * [把二叉搜索树转换为累加树](./src/main/scala/io/github/dreamylost/Leetcode_538.scala)
 * [二叉树的坡度](./src/main/scala/io/github/dreamylost/Leetcode_563.scala)
+* [根据二叉树创建字符串](./src/main/scala/io/github/dreamylost/Leetcode_606.scala)
 
 ## 链表
 
