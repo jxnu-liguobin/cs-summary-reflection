@@ -53,6 +53,8 @@
 39. [先序遍历构造二叉树](./solution/tree/leetcode_1008_.py)
 40. [二叉搜索树中第K小的元素](./solution/tree/leetcode_230_.py)
 41. [删除给定值的叶子节点](./solution/tree/leetcode_1325_.py)
+42. [找树左下角的值](./solution/tree/leetcode_513_.py)
+43. [完全二叉树的节点个数](./solution/tree/leetcode_222_.py)
 
 
 
