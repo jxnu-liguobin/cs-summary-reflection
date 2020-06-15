@@ -4,6 +4,7 @@ package io.github.dreamylost
 
 import java.util.{ Queue => _ }
 
+//过期，以后使用List
 import scala.collection.immutable.Queue
 import scala.collection.immutable.Stack
 

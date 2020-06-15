@@ -33,6 +33,7 @@ Leetcode Scala 实现
 * [把二叉搜索树转换为累加树](./src/main/scala/io/github/dreamylost/Leetcode_538.scala)
 * [二叉树的坡度](./src/main/scala/io/github/dreamylost/Leetcode_563.scala)
 * [根据二叉树创建字符串](./src/main/scala/io/github/dreamylost/Leetcode_606.scala)
+* [两数之和 IV - 输入 BST](./src/main/scala/io/github/dreamylost/Leetcode_653.scala)
 
 ## 链表
 
