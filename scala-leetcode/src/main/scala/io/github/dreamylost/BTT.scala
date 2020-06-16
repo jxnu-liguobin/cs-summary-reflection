@@ -114,4 +114,18 @@ object BTT extends App {
     list
   }
 
+  //根据中序的有序数组构造二叉树
+  def buildSearchTree(values: Seq[Int], l: Int, r: Int): TreeNode = {
+    if (l > r) {
+      return null
+    }
+    if (l == r) {
+      new TreeNode(values(l))
+    }
+    val mid = l + (r - l) / 2
+    val root = new TreeNode(values(mid))
+    root.left = buildSearchTree(values, l, mid - 1)
+    root.right = buildSearchTree(values, mid + 1, r)
+    root
+  }
 }

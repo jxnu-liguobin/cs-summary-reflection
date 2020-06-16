@@ -34,6 +34,7 @@ Leetcode Scala 实现
 * [二叉树的坡度](./src/main/scala/io/github/dreamylost/Leetcode_563.scala)
 * [根据二叉树创建字符串](./src/main/scala/io/github/dreamylost/Leetcode_606.scala)
 * [两数之和 IV - 输入 BST](./src/main/scala/io/github/dreamylost/Leetcode_653.scala)
+* [修剪二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_669.scala)
 
 ## 链表
 

@@ -8,6 +8,12 @@ public class TreeNode {
 
     public int value = 0;
     public TreeNode left = null;
+
+    @Override
+    public String toString() {
+        return "TreeNode{" + "value=" + value + ", left=" + left + ", right=" + right + '}';
+    }
+
     public TreeNode right = null;
 
     public TreeNode(int val) {
