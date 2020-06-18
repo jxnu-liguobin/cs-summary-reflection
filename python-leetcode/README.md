@@ -56,6 +56,7 @@
 42. [找树左下角的值](./solution/tree/leetcode_513_.py)
 43. [完全二叉树的节点个数](./solution/tree/leetcode_222_.py)
 44. [二叉树展开为链表](./solution/tree/leetcode_114_.py)
+45. [从中序与后序遍历序列构造二叉树](./solution/tree/leetcode_106_.py)
 
 
 
