@@ -47,7 +47,6 @@ object Leetcode_993 extends App {
             queue.enqueue(node.left)
             queue.enqueue(node.right)
           }
-          println(curLevel)
         }
         if (curLevel.contains(x) && curLevel.contains(y)) {
           val xI = curLevel.indexOf(x)

@@ -36,6 +36,7 @@ Leetcode Scala 实现
 * [两数之和 IV - 输入 BST](./src/main/scala/io/github/dreamylost/Leetcode_653.scala)
 * [修剪二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_669.scala)
 * [二叉搜索树中的搜索](./src/main/scala/io/github/dreamylost/Leetcode_700.scala)
+* [二叉搜索树节点最小距离](./src/main/scala/io/github/dreamylost/Leetcode_783.scala)
 
 ## 链表
 
