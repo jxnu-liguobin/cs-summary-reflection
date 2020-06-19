@@ -1,9 +1,9 @@
----
+# 算法-Java
 
-早期学习时写的LeetCode、编程之美、剑指offer等（非全）
+1. 格式参考 **输出二叉树中所有从根到叶子的路径**
+1. 提交前务必执行 bash build_before_commit.sh 格式化代码
+2. Java 8 以上，14以下
 
-根据LeetCode题目是否支持选择语言。
+## 二叉树
 
-> Rust -> Scala -> Java
-
-根据优先级，当LeetCode题目本身不支持（或不方便实现，比如Rust TreeNode）才会选择Java，并在java-leetcode项目下实现。
+* [输出二叉树中所有从根到叶子的路径](./src/main/java/io/github/dreamylost/Leetcode_257_DFS.java)
