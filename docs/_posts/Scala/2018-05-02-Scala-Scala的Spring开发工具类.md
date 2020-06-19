@@ -1,5 +1,5 @@
 ---
-title: Scala Spring开发工具类
+title: Scala的Spring开发工具类
 categories:
 - Scala
 tag: [工具类-不再更新]

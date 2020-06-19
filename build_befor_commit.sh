@@ -41,3 +41,6 @@ do
 		fi
 	fi
 done
+
+# create article list
+bash generate_art_list.sh > article_list.md

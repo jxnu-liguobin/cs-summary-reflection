@@ -11,7 +11,8 @@ Scala程序员、函数式/反应式爱好者
 
 ## Contents
 
-- 博客 [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485) 
+- [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
+    - [GitHub在线阅读](./article_list.md)
 - Scala/Java/Rust学习与笔记
 - LeetCode
     - Scala
