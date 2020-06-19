@@ -37,6 +37,7 @@ Leetcode Scala 实现
 * [修剪二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_669.scala)
 * [二叉搜索树中的搜索](./src/main/scala/io/github/dreamylost/Leetcode_700.scala)
 * [二叉搜索树节点最小距离](./src/main/scala/io/github/dreamylost/Leetcode_783.scala)
+* [检查平衡性](./src/main/scala/io/github/dreamylost/Leetcode_Interview_0404.scala)
 
 ## 链表
 
