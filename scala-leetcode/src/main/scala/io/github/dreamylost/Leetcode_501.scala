@@ -55,7 +55,7 @@ object Leetcode_501 extends App {
     var ret = Array[Int]()
 
     def inOrder(root: TreeNode): Unit = {
-      if (root == null) return;
+      if (root == null) return
       inOrder(root.left)
       if (preNode != null && preNode.value == root.value) {
         curCount += 1

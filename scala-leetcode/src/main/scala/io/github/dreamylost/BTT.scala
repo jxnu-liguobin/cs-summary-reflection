@@ -39,34 +39,36 @@ object BTT extends App {
   }
 
   //前，144. Binary Tree Preorder Traversal (Medium)
+  @unchecked
   def preorderTraversal(root: TreeNode): Seq[Int] = {
     var ret = Seq[Int]()
-    var stack = Stack[TreeNode]()
-    stack = stack.push(root)
+    var stack = List[TreeNode]()
+    stack = root :: stack
     while (stack.nonEmpty) {
-      val (node, s) = stack.pop2
+      val (node, s) = stack.head -> stack.tail
       stack = s
       if (node != null) {
         ret = ret ++ Seq(node.value)
-        stack = stack.push(node.right) // 先右后左，保证左子树先遍历
-        stack = stack.push(node.left)
+        stack = node.right :: stack // 先右后左，保证左子树先遍历
+        stack = node.left :: stack
       }
     }
     ret
   }
 
   //中， 94. Binary Tree Inorder Traversal (Medium)
+  @unchecked
   def inorderTraversal(root: TreeNode): Seq[Int] = {
     var ret = Seq[Int]()
-    var stack = Stack[TreeNode]()
+    var stack = List[TreeNode]()
     if (root == null) return ret
     var cur = root
     while (cur != null || stack.nonEmpty) {
       while (cur != null) {
-        stack = stack.push(cur)
+        stack = cur :: stack
         cur = cur.left
       }
-      val (node, s) = stack.pop2
+      val (node, s) = stack.head -> stack.tail
       stack = s
       ret = ret ++ Seq(node.value)
       cur = node.right
@@ -79,17 +81,18 @@ object BTT extends App {
     * 前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
     */
   //后，145. Binary Tree Postorder Traversal (Medium)
+  @unchecked
   def postorderTraversal(root: TreeNode): Seq[Int] = {
     var ret = Seq[Int]()
-    var stack = Stack[TreeNode]()
-    stack = stack.push(root)
+    var stack = List[TreeNode]()
+    stack = root :: stack
     while (stack.nonEmpty) {
-      val (node, s) = stack.pop2
+      val (node, s) = stack.head -> stack.tail
       stack = s
       if (node != null) {
         ret = ret ++ Seq(node.value)
-        stack = stack.push(node.left) // 先右后左，保证左子树先遍历
-        stack = stack.push(node.right)
+        stack = node.left :: stack // 先右后左，保证左子树先遍历
+        stack = node.right :: stack
       }
     }
     ret.reverse
