@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -v
 
-enable_language=("java","rust","scala", "python")
+enable_language=("java","rust","scala","python","c++")
 root_path=`pwd`
 
 # auto compile java and scala
@@ -31,6 +31,8 @@ do
 			# compile python
 			"python")
 			echo "############ [ TODO ]";;
+	    "c++")
+	    echo "############ [ TODO ]";;
 			*)
 			echo "| exclude $sub_module";;
 			esac

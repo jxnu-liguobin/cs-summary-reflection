@@ -18,7 +18,7 @@ package io.github.dreamylost
   * @time 2019-08-14
   * @version v2.0
   */
-class Leetcode_1_Array {
+object Leetcode_1_Array {
 
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {
     import scala.collection.mutable

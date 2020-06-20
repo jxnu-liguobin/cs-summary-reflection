@@ -39,6 +39,7 @@ Leetcode Scala 实现
 * [二叉搜索树节点最小距离](./src/main/scala/io/github/dreamylost/Leetcode_783.scala)
 * [检查平衡性](./src/main/scala/io/github/dreamylost/Leetcode_Interview_0404.scala)
 * [叶子相似的树](./src/main/scala/io/github/dreamylost/Leetcode_872.scala)
+* [递增顺序查找树](./src/main/scala/io/github/dreamylost/Leetcode_897.scala)
 
 ## 链表
 

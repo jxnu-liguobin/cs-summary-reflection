@@ -8,7 +8,7 @@ subprojects {
     apply plugin: 'scala'
     apply plugin: 'com.diffplug.gradle.spotless'
 
-    group = 'io.github'
+    group = 'io.github.dreamylost'
     version = '2.0.0'
 
     description = "Recording Learning, Work, Interview, Summary and Reflection"
