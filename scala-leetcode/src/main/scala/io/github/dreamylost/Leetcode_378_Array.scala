@@ -1,5 +1,7 @@
 package io.github.dreamylost
 
+import scala.collection.mutable
+
 /**
   * 有序矩阵的 Kth Element
   *
@@ -12,16 +14,14 @@ package io.github.dreamylost
   * ],
   * k = 8,
   * return 13.
-  * @author 梦境迷离
+  *
+ * @author 梦境迷离
   * @time 2018年7月18日
   * @version v1.0
   */
 object Leetcode_378_Array extends App { //自带main方法
 
-  /**
-    * 函数的定义必须在调用之前
-    */
-  val kthSmallest = (matrix: Array[Array[Int]], k: Int) => {
+  def kthSmallest(matrix: Array[Array[Int]], k: Int): Int = {
     val m = matrix.length
     val n = matrix(0).length
     var lo = matrix(0)(0)
@@ -38,6 +38,25 @@ object Leetcode_378_Array extends App { //自带main方法
       else hi = mid - 1
     }
     lo
+  }
+
+  /**
+    * 800 ms,33.33%
+    * 61 MB,100.00%
+    *
+   * @param matrix
+    * @param k
+    * @return
+    */
+  def kthSmallest2(matrix: Array[Array[Int]], k: Int): Int = {
+    val queue = new mutable.PriorityQueue[Int]()
+    matrix.indices.foreach(i =>
+      matrix.indices.foreach(j => {
+        queue.enqueue(matrix(i)(j))
+        if (queue.size > k) queue.dequeue
+      })
+    )
+    queue.head
   }
 
   val nums = Array(Array(1, 5, 9), Array(10, 11, 13), Array(12, 13, 15))

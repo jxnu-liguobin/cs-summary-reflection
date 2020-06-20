@@ -28,34 +28,34 @@ object LeetCode_590 extends App {
 
   //使用不可变的,leetcode中编译不过，版本问题，2.11.0后为过期
   def postorder2(root: Node): List[Int] = {
-    import scala.collection.immutable.Stack
     var ret = List[Int]()
-    var stack = Stack[Node]()
-    stack = stack.push(root)
+    var stack = List[Node]()
+    stack = root :: stack
     while (stack.nonEmpty) {
-      val (head, tail) = stack.pop2
+      val (head, tail) = stack.head -> stack.tail
       stack = tail
       ret = ret.:+(head.value)
       if (head.children.nonEmpty) {
         //根+先左后右，出来的顺序就是根+先右后左。翻转后就是左右根
-        head.children.foreach(e => stack = stack.push(e))
+        head.children.foreach(e => stack = e :: stack)
       }
     }
     ret.reverse
   }
 
   def postorder(root: Node): List[Int] = {
-    import scala.collection.mutable
     var ret = List[Int]()
-    val stack = mutable.Stack[Node]()
-    stack.push(root)
+    var stack = List[Node]()
+    stack = root :: stack
     while (stack.nonEmpty) {
-      val node = stack.pop()
+      //头出头进，模拟栈的先进后出
+      val (node, tail) = stack.head -> stack.tail
+      stack = tail
       if (node != null) {
         ret = ret ++ Seq(node.value)
         if (node.children.nonEmpty) {
           //先左后右，出来的顺序就是根先右后左。翻转后就是左右根
-          node.children.foreach(stack.push)
+          node.children.foreach(_ :: stack)
         }
       }
     }

@@ -20,8 +20,6 @@ class NumArray(_nums: Array[Int]) {
 }
 
 object Start extends App {
-  override def main(args: Array[String]) {
-    val ret = new NumArray(Array(-2, 0, 3, -5, 2, -1)).sumRange(0, 2)
-    print(ret)
-  }
+  val ret = new NumArray(Array(-2, 0, 3, -5, 2, -1)).sumRange(0, 2)
+  print(ret)
 }

@@ -68,7 +68,6 @@ Leetcode Scala 实现
 * [搜索二维矩阵II](./src/main/scala/io/github/dreamylost/Leetcode_240_Array.scala)
 * [找出数组中重复的数](./src/main/scala/io/github/dreamylost/Leetcode_287_Array.scala)
 * [有序矩阵的 Kth Element](./src/main/scala/io/github/dreamylost/Leetcode_378_Array.scala)
-* [有序矩阵的 Kth Element by Queue](./src/main/scala/io/github/dreamylost/Leetcode_378_Array_Queue.scala)
 * [嵌套数组](./src/main/scala/io/github/dreamylost/Leetcode_565_Array.scala)
 * [数组相邻差值的个数](./src/main/scala/io/github/dreamylost/Leetcode_667_Array.scala)
 * [数组的度](./src/main/scala/io/github/dreamylost/Leetcode_697_Array.scala)
