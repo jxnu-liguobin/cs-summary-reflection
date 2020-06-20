@@ -118,6 +118,14 @@
 
 [Scala的类型系统和泛型](./docs/_posts/Scala/2020-06-17-Scala-Scala的类型系统和泛型.md)
 
+## Shapeless
+
+[什么是泛型编程](./docs/_posts/Shapeless/2020-06-20-Shapeless-什么是泛型编程.md)
+
+[代数数据类型和泛型表示](./docs/_posts/Shapeless/2020-06-20-Shapeless-代数数据类型和泛型表示.md)
+
+[自动派生类型类实例](./docs/_posts/Shapeless/2020-06-20-Shapeless-自动派生类型类实例.md)
+
 ## 其他
 
 [ASM与CGLIB的简单使用](./docs/_posts/其他/2018-11-11-其他-ASM与CGLIB的简单使用.md)
