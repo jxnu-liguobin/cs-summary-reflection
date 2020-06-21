@@ -59,6 +59,7 @@
 45. [从中序与后序遍历序列构造二叉树](./solution/tree/leetcode_106_.py)
 46. [从前序与中序遍历序列构造二叉树](./solution/tree/leetcode_105_.py)
 47. [二叉树的前序遍历](./solution/tree/leetcode_144_.py)
+48. [N叉树的层序遍历](./solution/tree/leetcode_429_.py)
 
 
 
