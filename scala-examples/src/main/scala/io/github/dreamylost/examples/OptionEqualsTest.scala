@@ -1,8 +1,7 @@
 package io.github.dreamylost.examples
 
 /**
-  *
- * @author liguobin@growingio.com
+  * @author liguobin@growingio.com
   * @version 1.0,2019/10/15
   */
 object OptionEqualsTest extends App {

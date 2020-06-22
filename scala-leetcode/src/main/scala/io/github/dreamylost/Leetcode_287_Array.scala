@@ -3,11 +3,11 @@ package io.github.dreamylost
 /**
   * 找出数组中重复的数，数组值在 [1, n] 之间
   *
- * 287. Find the Duplicate Number (Medium)
+  * 287. Find the Duplicate Number (Medium)
   *
- * 要求不能修改数组，也不能使用额外的空间。
+  * 要求不能修改数组，也不能使用额外的空间。
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月16日
   * @version v1.0
   */
@@ -44,9 +44,9 @@ object Leetcode_287_Array {
   /**
     * 双指针解法，类似于有环链表中找出环的入口
     *
-     * 有环找入口：慢指针走过的路程是：
+    * 有环找入口：慢指针走过的路程是：
     *
-     * S_slow = |OA| +|AB| = x + y.
+    * S_slow = |OA| +|AB| = x + y.
     * 快指针走过的路程是：
     * S_fast =  |OA| + |AB| + |BA| + |AB| = x + y + z + y.
     * 又因为快指针的速度是慢指针的两倍，所以在相同时间内快指针走过的路程是慢指针的两倍，所以

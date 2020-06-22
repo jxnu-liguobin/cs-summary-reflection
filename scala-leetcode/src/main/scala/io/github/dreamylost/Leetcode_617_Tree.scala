@@ -3,19 +3,19 @@ package io.github.dreamylost
 /**
   * 617. Merge Two Binary Trees (Easy)
   * Input:
-       Tree 1                     Tree 2
-          1                         2
-         / \                       / \
-        3   2                     1   3
-       /                           \   \
-      5                             4   7
-Output:
-Merged tree:
-         3
-        / \
-       4   5
-      / \   \
-     5   4   7
+  *       Tree 1                     Tree 2
+  *          1                         2
+  *         / \                       / \
+  *        3   2                     1   3
+  *       /                           \   \
+  *      5                             4   7
+  * Output:
+  * Merged tree:
+  *         3
+  *        / \
+  *       4   5
+  *      / \   \
+  *     5   4   7
   * @author 梦境迷离
   * @time 2018年7月29日
   * @version v1.0

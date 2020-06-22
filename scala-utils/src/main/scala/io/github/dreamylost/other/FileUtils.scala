@@ -10,7 +10,7 @@ import scala.util.control.Exception.ignoring
 /**
   * 文件处理工具
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @version 1.0, 2019-07-15
   */
 object FileUtils {
@@ -24,7 +24,7 @@ object FileUtils {
 
   /** 使用贷出模式的调用方不需要处理关闭资源等操作
     *
-   * @param resource 资源
+    * @param resource 资源
     * @param f        处理函数
     * @tparam R 资源类型
     * @tparam T 返回类型
@@ -42,7 +42,7 @@ object FileUtils {
 
   /** 不忽略异常
     *
-   * @param resource 资源
+    * @param resource 资源
     * @param f        处理函数
     * @tparam R 资源类型
     * @tparam T 返回类型
@@ -60,7 +60,7 @@ object FileUtils {
 
   /** 基于Future的贷出模式
     *
-   * @param resource 资源
+    * @param resource 资源
     * @param f        处理函数
     * @param ec       线程上下文
     * @tparam R 资源类型
@@ -76,7 +76,7 @@ object FileUtils {
   /** 文件写入指定内容
     * 字符流
     *
-   * @param file    文件对象
+    * @param file    文件对象
     * @param content 待写入内容
     */
   def writer(file: File, content: String): Unit = {
@@ -88,7 +88,7 @@ object FileUtils {
   /** 文件写入指定内容
     * 字节流
     *
-   * @param file    文件目录
+    * @param file    文件目录
     * @param content 待写入字节数组
     */
   def writer(file: String, content: Array[Byte]): Unit = {
@@ -100,7 +100,7 @@ object FileUtils {
   /** 文件读取为字节数组并转化为字符
     * 缓冲流
     *
-   * @param file    文件对象
+    * @param file    文件对象
     * @param charset 期望编码
     * @return 字符串
     */
@@ -115,7 +115,7 @@ object FileUtils {
   /** 文件读取并转化为字符
     * 缓冲流
     *
-   * @param file    文件名
+    * @param file    文件名
     * @param charset 期望编码
     * @return 字符串
     */
@@ -130,7 +130,7 @@ object FileUtils {
   /** 文件读取并转化为字节数组
     * 缓冲流
     *
-   * @param file 文件对象
+    * @param file 文件对象
     * @return 字节数组
     */
   def reader(file: File): Array[Byte] = {

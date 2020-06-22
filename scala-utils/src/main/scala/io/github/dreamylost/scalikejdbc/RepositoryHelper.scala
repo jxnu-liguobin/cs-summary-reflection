@@ -10,7 +10,7 @@ import scalikejdbc.TypeBinder
 /**
   * 使得scalikejdbc的类型支持pgsql的json
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2019-12-07
   * @version v1.0
   */

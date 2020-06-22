@@ -14,7 +14,7 @@ import java.util.TimeZone
 /**
   * 日期处理工具
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @version 1.0, 2019-07-14
   */
 object DateUtils {
@@ -47,7 +47,7 @@ object DateUtils {
   /**
     * 时区默认北京的部分解析器
     *
-   * @param timeZone
+    * @param timeZone
     */
   private def partSimpleDateFormat(timeZone: TimeZone = default_zone): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(patternPart)
@@ -58,7 +58,7 @@ object DateUtils {
   /**
     * LocalDateTime的精确匹配解析器
     *
-   * @param local 默认China
+    * @param local 默认China
     */
   private def allDateTimeFormatter(implicit local: Locale) =
     DateTimeFormatter.ofPattern(patternAll, local)
@@ -66,7 +66,7 @@ object DateUtils {
   /**
     * LocalDateTime的完全匹配解析器（不含秒后的）
     *
-   * @param local 默认China
+    * @param local 默认China
     */
   private def completeDateTimeFormatter(implicit local: Locale) =
     DateTimeFormatter.ofPattern(patternComplete, local)
@@ -74,7 +74,7 @@ object DateUtils {
   /**
     * 时区默认北京的完整解析器
     *
-   * @param timeZone
+    * @param timeZone
     */
   private def completeSimpleDateFormat(timeZone: TimeZone = default_zone): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(patternComplete)
@@ -85,7 +85,7 @@ object DateUtils {
   /**
     * 时区默认北京的精确解析器
     *
-   * @param timeZone
+    * @param timeZone
     */
   private def allSimpleDateFormat(timeZone: TimeZone = default_zone): SimpleDateFormat = {
     val sdf = new SimpleDateFormat(patternAll)
@@ -96,7 +96,7 @@ object DateUtils {
   /**
     * 时区默认北京的自定义解析器
     *
-   * @param timeZone
+    * @param timeZone
     * @param pattern
     * @return
     */
@@ -119,7 +119,7 @@ object DateUtils {
   /**
     * 获取特定格式的当前时间
     *
-   * @param pattern 自定义格式
+    * @param pattern 自定义格式
     */
   def formatCurrentDate(pattern: String) = simpleDateFormat(pattern = pattern).format(new Date)
 
@@ -141,7 +141,7 @@ object DateUtils {
   /**
     * 获取当前时间戳的 yyyy-MM-dd HH:mm:ss 表示
     *
-   * @param timeStamp 时间戳
+    * @param timeStamp 时间戳
     */
   def completeFormatTimeStamp(timeStamp: Long) =
     completeSimpleDateFormat().format(new Date(timeStamp))
@@ -149,7 +149,7 @@ object DateUtils {
   /**
     * 使用自定义的格式串，格式化指定的日期
     *
-   * @param date    日期
+    * @param date    日期
     * @param pattern 日期格式
     */
   def formatDate(date: Date, pattern: String) = simpleDateFormat(pattern = pattern).format(date)
@@ -157,7 +157,7 @@ object DateUtils {
   /**
     * 使用自定义的格式串，格式化指定的日期字符串
     *
-   * @param dateStr
+    * @param dateStr
     * @param pattern
     */
   def parseDate(dateStr: String, pattern: String) =
@@ -166,21 +166,21 @@ object DateUtils {
   /**
     * 用 yyyy-MM-dd HH:mm:ss 格式化指定的日期
     *
-   * @param date 时间对象
+    * @param date 时间对象
     */
   def completeFormatDate(date: Date) = completeSimpleDateFormat().format(date)
 
   /**
     * 从日期字符串解析出完整的日期（有时分秒）
     *
-   * @param dateStr 时间字符串
+    * @param dateStr 时间字符串
     */
   def completeParseDate(dateStr: String) = completeSimpleDateFormat().parse(dateStr)
 
   /**
     * 从日期字符串仅解析出日期（无时分秒）
     *
-   * @param dateStr 日期字符串
+    * @param dateStr 日期字符串
     */
   def partParseDate(dateStr: String) = partSimpleDateFormat().parse(dateStr)
 
@@ -192,21 +192,21 @@ object DateUtils {
   /**
     * 精确解析时间字符串（毫秒级）
     *
-   * @param dateStr 包含毫秒的时间字符串
+    * @param dateStr 包含毫秒的时间字符串
     */
   def allParseDate(dateStr: String) = allSimpleDateFormat().parse(dateStr)
 
   /**
     * 用 yyyy-MM-dd HH:mm:ss sss 格式化指定的日期
     *
-   * @param date 包含毫秒的时间
+    * @param date 包含毫秒的时间
     */
   def allFormatDate(date: Date) = allSimpleDateFormat().format(date)
 
   /**
     * 获取当前时间戳的 yyyy-MM-dd HH:mm:ss SSS 表示
     *
-   * @param timeStamp 时间戳
+    * @param timeStamp 时间戳
     */
   def allFormatTimeStamp(timeStamp: Long) = allSimpleDateFormat().format(new Date(timeStamp))
 
@@ -237,7 +237,7 @@ object DateUtils {
   /**
     * 获取前/后n天日期
     *
-   * @param daysAgo 为负数时表示前n天
+    * @param daysAgo 为负数时表示前n天
     * @return 基于北京时区的前/后n天的日期字符串
     */
   def daysAgo(daysAgo: Int): String = {
@@ -250,7 +250,7 @@ object DateUtils {
   /**
     * 将LocalDateTime转换成Date
     *
-   * @param localDateTime
+    * @param localDateTime
     */
   implicit def localDateTimeToDate(
       localDateTime: LocalDateTime
@@ -262,7 +262,7 @@ object DateUtils {
   /**
     * 将Date转换成LocalDateTime
     *
-   * @param date
+    * @param date
     */
   implicit def dateToLocalDateTime(date: Date)(implicit zoneId: ZoneId = default_zoneId) = {
     val instant = date.toInstant
@@ -273,7 +273,7 @@ object DateUtils {
     * 将LocalDateTime转化为Long类型
     * 精确时间 毫秒
     *
-   * @param localDateTime
+    * @param localDateTime
     * @param zoneId
     */
   implicit def localDateTimeToLong(
@@ -288,9 +288,9 @@ object DateUtils {
   /**
     * 将Long类型转化为LocalDateTime
     *
-   * 精确时间 999毫秒
+    * 精确时间 999毫秒
     *
-   * @param timestamp
+    * @param timestamp
     * @param zoneId
     */
   implicit def longToLocalDateTime(
@@ -307,7 +307,7 @@ object DateUtils {
   /**
     * 将LocalDateTime对象转化为精确的时间字符串
     *
-   * @param localDateTime
+    * @param localDateTime
     */
   implicit def localDateTimeToString(
       localDateTime: Option[LocalDateTime]
@@ -321,7 +321,7 @@ object DateUtils {
   /**
     * 将LocalDateTime对象转化为完整的时间字符串，无秒之后的
     *
-   * @param localDateTime
+    * @param localDateTime
     */
   implicit def localDateTimeToStringNoMS(
       localDateTime: Option[LocalDateTime]

@@ -3,13 +3,13 @@ package io.github.dreamylost
 /**
   * 563. 二叉树的坡度
   *
- * 给定一个二叉树，计算整个树的坡度。
+  * 给定一个二叉树，计算整个树的坡度。
   *
- * 一个树的节点的坡度定义即为，该节点左子树的结点之和和右子树结点之和的差的绝对值。空结点的的坡度是0。
+  * 一个树的节点的坡度定义即为，该节点左子树的结点之和和右子树结点之和的差的绝对值。空结点的的坡度是0。
   *
- * 整个树的坡度就是其所有节点的坡度之和。
+  * 整个树的坡度就是其所有节点的坡度之和。
   *
- * @author 梦境迷离 dreamylost
+  * @author 梦境迷离 dreamylost
   * @since 2020-06-13
   * @version v1.0
   */
@@ -40,7 +40,7 @@ object Leetcode_563 extends App {
     * 972 ms,100.00%
     * 52.9 MB,100.00%
     *
-   * @param root
+    * @param root
     * @return
     */
   def findTilt(root: TreeNode): Int = {
@@ -56,7 +56,7 @@ object Leetcode_563 extends App {
     * 668 ms,100.00%
     * 52 MB,100.00%
     *
-   * @param root
+    * @param root
     * @return
     */
   def findTilt2(root: TreeNode): Int = {

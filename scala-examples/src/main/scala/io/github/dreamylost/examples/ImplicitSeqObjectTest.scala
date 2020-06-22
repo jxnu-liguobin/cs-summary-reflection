@@ -3,8 +3,7 @@ package io.github.dreamylost.examples
 import play.api.libs.json._
 
 /**
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-09-30
   * @version v1.0
   */

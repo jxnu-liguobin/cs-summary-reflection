@@ -3,11 +3,11 @@ package io.github.dreamylost
 /**
   * 965. 单值二叉树
   *
- * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。
+  * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。
   *
- * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。
+  * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。
   *
- * @author 梦境迷离 dreamylost
+  * @author 梦境迷离 dreamylost
   * @since 2020-06-21
   * @version v1.0
   */
@@ -21,7 +21,7 @@ object Leetcode_965 extends App {
     * 540 ms,100.00%
     * 50.8 MB,100.00%
     *
-   * @param root
+    * @param root
     * @return
     */
   def isUnivalTree(root: TreeNode): Boolean = {

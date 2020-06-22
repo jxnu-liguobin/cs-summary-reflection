@@ -3,7 +3,7 @@ package io.github.dreamylost
 /**
   * 589. N叉树的前序遍历
   *
- * @author liguobin@growingio.com
+  * @author liguobin@growingio.com
   * @version 1.0,2020/4/9
   */
 object Leetcode_589 extends App {

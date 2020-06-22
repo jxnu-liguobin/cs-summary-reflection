@@ -3,17 +3,17 @@ package io.github.dreamylost
 /**
   * 间隔遍历
   *
-   	 3
-    / \
-   2   3
-    \   \
-     3   1
+  *     3
+  *    / \
+  *   2   3
+  *    \   \
+  *     3   1
   *
- * 337. House Robber III (Medium)
+  * 337. House Robber III (Medium)
   *
- * Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
+  * Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年8月10日
   * @version v1.0
   */

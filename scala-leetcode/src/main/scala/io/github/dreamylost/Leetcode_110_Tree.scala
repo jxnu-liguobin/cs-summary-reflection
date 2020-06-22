@@ -3,9 +3,9 @@ package io.github.dreamylost
 /**
   * 判断平衡树
   *
- * 110. Balanced Binary Tree (Easy)
+  * 110. Balanced Binary Tree (Easy)
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月28日
   * @version v1.0
   */

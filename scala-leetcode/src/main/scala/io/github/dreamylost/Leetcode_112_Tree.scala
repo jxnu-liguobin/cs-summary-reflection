@@ -2,18 +2,18 @@ package io.github.dreamylost
 
 /**
   * 判断路径和是否等于一个数
-  *Leetcdoe : 112. Path Sum (Easy)
-  *Given the below binary tree and sum = 22,
-                  5
-                 / \
-                4   8
-               /   / \
-              11  13  4
-             /  \      \
-            7    2      1
-  *return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+  * Leetcdoe : 112. Path Sum (Easy)
+  * Given the below binary tree and sum = 22,
+  *                  5
+  *                 / \
+  *                4   8
+  *               /   / \
+  *              11  13  4
+  *             /  \      \
+  *            7    2      1
+  * return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月30日
   * @version v1.0
   */

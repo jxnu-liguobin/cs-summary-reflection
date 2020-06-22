@@ -3,15 +3,15 @@ package io.github.dreamylost
 /**
   * 树的对称
   *
- * 101. Symmetric Tree (Easy)
+  * 101. Symmetric Tree (Easy)
   *
- * 1
+  * 1
   * / \
   * 2   2
   * / \ / \
   * 3  4 4  3
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月18日
   * @version v1.0
   */

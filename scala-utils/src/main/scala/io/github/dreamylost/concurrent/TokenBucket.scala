@@ -7,7 +7,7 @@ import scala.concurrent.Future
 /**
   * 简单令牌桶实现
   *
- * @param capacity           - 令牌容量
+  * @param capacity           - 令牌容量
   * @param nanosBetweenTokens - 令牌生成间隔时间
   * @author liguobin@growingio.com
   * @version 1.0,2020/3/23

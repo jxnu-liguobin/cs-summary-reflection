@@ -11,7 +11,7 @@ object StringUtils {
 
   /** 获取Get的查询参数集
     *
-   * @param queryParams ?后面的查询参数
+    * @param queryParams ?后面的查询参数
     * @return
     */
   @deprecated
@@ -36,7 +36,7 @@ object StringUtils {
 
   /** 获取指定的value
     *
-   * @param queryParams ?后面的查询参数
+    * @param queryParams ?后面的查询参数
     * @param key         GET的参数key
     * @return
     */

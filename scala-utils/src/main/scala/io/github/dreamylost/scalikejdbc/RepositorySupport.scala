@@ -19,7 +19,7 @@ import scala.concurrent.Future
 /**
   * scalikejdbc 数据库连接池支持
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2019-08-18
   * @version v1.0
   */

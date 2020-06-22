@@ -1,8 +1,7 @@
 package io.github.dreamylost.json
 
 /**
-  *
- * @author liguobin@growingio.com
+  * @author liguobin@growingio.com
   * @version 1.0,2020/4/30
   */
 object JacksonScalaSupportSpec extends App {

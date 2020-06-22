@@ -9,7 +9,7 @@ import scala.concurrent.duration._
 /**
   * 异步请求记录
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-08-24
   * @version v1.0
   */
@@ -24,7 +24,7 @@ trait PerformanceRecord extends LazyLogging {
       * }
       * a.elapsed("a future")
       *
-     * @param invokeTag
+      * @param invokeTag
       * @return
       */
     def elapsed(invokeTag: String): Future[T] = {

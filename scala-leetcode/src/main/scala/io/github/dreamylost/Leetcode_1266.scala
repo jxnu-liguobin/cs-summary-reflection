@@ -4,7 +4,7 @@ package io.github.dreamylost
   * 平面上有 n 个点，点的位置用整数坐标表示 points[i] = [xi, yi]。请你计算访问所有这些点需要的最小时间（以秒为单位）。
   * 切比雪夫距离
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2020-01-09
   * @version v1.0
   */

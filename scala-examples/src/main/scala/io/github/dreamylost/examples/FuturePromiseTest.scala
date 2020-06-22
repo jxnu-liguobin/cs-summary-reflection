@@ -8,8 +8,7 @@ import scala.concurrent.Promise
 import scala.util.Success
 
 /**
-  *
- * @author liguobin@growingio.com
+  * @author liguobin@growingio.com
   * @version 1.0,2019/11/8
   */
 object FuturePromiseTest extends App {

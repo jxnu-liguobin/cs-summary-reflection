@@ -6,8 +6,7 @@ import play.api.libs.json.JsValue
 import scala.collection.mutable
 
 /**
-  *
- * @author liguobin@growingio.com
+  * @author liguobin@growingio.com
   * @version 1.0,2020/2/28
   */
 object JsonUtils {
@@ -35,7 +34,7 @@ object JsonUtils {
       * 3. 有子结构则递归判断
       * 4. 最终检验是否有标记在queue，无则相等
       *
-     * @param source
+      * @param source
       * @param target
       */
     def compare(source: JsObject, target: JsObject)(d: Int): (Int, Boolean) = {

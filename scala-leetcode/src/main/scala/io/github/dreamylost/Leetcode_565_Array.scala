@@ -1,21 +1,20 @@
 package io.github.dreamylost
 
 /**
+  * 嵌套数组
   *
- * 嵌套数组
+  * 565. Array Nesting (Medium)
   *
- * 565. Array Nesting (Medium)
-  *
- * Input: A = [5,4,0,3,1,6,2]
+  * Input: A = [5,4,0,3,1,6,2]
   * Output: 4
   * Explanation:
   * A[0] = 5, A[1] = 4, A[2] = 0, A[3] = 3, A[4] = 1, A[5] = 6, A[6] = 2.
   *
- * One of the longest S[K]:
+  * One of the longest S[K]:
   * S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
   * 题目描述：S[i] 表示一个集合，集合的第一个元素是 A[i]，第二个元素是 A[A[i]]，如此嵌套下去。求最大的 S[i]。
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月19日
   * @version v1.0
   */

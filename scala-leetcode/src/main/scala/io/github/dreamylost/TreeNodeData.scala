@@ -1,8 +1,7 @@
 package io.github.dreamylost
 
 /**
-  *
- * @author 梦境迷离 dreamylost
+  * @author 梦境迷离 dreamylost
   * @since 2020-06-07
   * @version v1.0
   */

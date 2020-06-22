@@ -74,7 +74,7 @@ subprojects {
 project(':scala-leetcode') {
     spotless {
         scala {
-            scalafmt('2.5.2').configFile('.scalafmt.conf')
+            scalafmt('2.6.1').configFile('.scalafmt.conf')
         }
     }
 }
@@ -82,7 +82,7 @@ project(':scala-leetcode') {
 project(':scala-utils') {
     spotless {
         scala {
-            scalafmt('2.5.2').configFile('.scalafmt.conf')
+            scalafmt('2.6.1').configFile('.scalafmt.conf')
         }
     }
 }
@@ -90,7 +90,7 @@ project(':scala-utils') {
 project(':scala-examples') {
     spotless {
         scala {
-            scalafmt('2.5.2').configFile('.scalafmt.conf')
+            scalafmt('2.6.1').configFile('.scalafmt.conf')
         }
     }
 }

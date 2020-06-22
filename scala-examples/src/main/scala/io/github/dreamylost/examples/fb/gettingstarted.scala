@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 /**
   * 第二章
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @version 1.0, 2019-04-19
   */
 object gettingstarted extends App {
@@ -19,7 +19,7 @@ object gettingstarted extends App {
   /**
     * 2.1：写一个递归函数，获取第n个斐波那契数，前两个是0,1
     *
-   * @param n
+    * @param n
     * @return
     */
   def fib(n: Int): Int = {
@@ -27,7 +27,7 @@ object gettingstarted extends App {
     /**
       * 使用局部尾递归函数而不是循环
       *
-     * @param n    第几个斐波那契数
+      * @param n    第几个斐波那契数
       * @param ret1 第n个值
       * @param ret2 第n与第n+1的和
       * @return
@@ -44,7 +44,7 @@ object gettingstarted extends App {
   /**
     * 2.2：实现isSorted方法，检测Array[A]是否按照给定的比较函数排序
     *
-   * @param as      数组
+    * @param as      数组
     * @param ordered 排序需要的比较方式，是个函数
     * @tparam A 泛型类型，测试一律使用Int
     * @return
@@ -63,13 +63,13 @@ object gettingstarted extends App {
   /**
     * 2.3：柯里化
     *
-   * 2个参数转换为只有1个参数的部分应用函数
+    * 2个参数转换为只有1个参数的部分应用函数
     * 满足编译通过即可
     *
-   * 部分应用表示函数被应用的参数不是它所需要的完整的参数
+    * 部分应用表示函数被应用的参数不是它所需要的完整的参数
     * 因为=>是右结合的，A=>(B=>C)后面的括号可去掉
     *
-   * @param f
+    * @param f
     * @tparam A
     * @tparam B
     * @tparam C
@@ -78,11 +78,11 @@ object gettingstarted extends App {
   def curry[A, B, C](f: (A, B) => C): A => (B => C) = (a: A) => ((b: B) => f(a, b))
 
   /**
-    *2.4：反柯里化
+    * 2.4：反柯里化
     *
-   * 与柯里化相反。
+    * 与柯里化相反。
     *
-   * @param f
+    * @param f
     * @tparam A
     * @tparam B
     * @tparam C
@@ -93,9 +93,9 @@ object gettingstarted extends App {
   /**
     * 2.5：实现高阶函数，组合两个函数为一个函数
     *
-   * 使用compose方法是作弊
+    * 使用compose方法是作弊
     *
-   * @param f
+    * @param f
     * @param g
     * @tparam A
     * @tparam B

@@ -16,8 +16,7 @@ import scala.concurrent.Future
 import scala.concurrent.Future.successful
 
 /**
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-09-04
   * @version v1.0
   */

@@ -5,9 +5,9 @@ import scala.collection.mutable
 /**
   * 501. 二叉搜索树中的众数
   *
- * 给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。
+  * 给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。
   *
- * @author 梦境迷离 dreamylost
+  * @author 梦境迷离 dreamylost
   * @since 2020-06-07
   * @version v1.0
   */
@@ -18,7 +18,7 @@ object Leetcode_501 extends App {
     * 3336 ms,50.00%
     * 54 MB,100.00%
     *
-   * @param root
+    * @param root
     * @return
     */
   def findMode(root: TreeNode): Array[Int] = {
@@ -45,7 +45,7 @@ object Leetcode_501 extends App {
     * 768 ms,100.00%
     * 52.9 MB,100.00%
     *
-   * @param root
+    * @param root
     * @return
     */
   def findMode2(root: TreeNode): Array[Int] = {

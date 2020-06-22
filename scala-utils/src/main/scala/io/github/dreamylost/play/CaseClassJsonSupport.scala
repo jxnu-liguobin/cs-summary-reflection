@@ -8,7 +8,7 @@ import play.api.mvc.Codec
 /**
   * 有Writes隐式对象参数的的entity类，使用隐式对象转化为Writeable可以被写入到response
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-11-23
   * @version v1.0
   */

@@ -3,9 +3,9 @@ package io.github.dreamylost
 /**
   * 数组相邻差值的个数
   *
- * 667. Beautiful Arrangement II (Medium)
+  * 667. Beautiful Arrangement II (Medium)
   *
- * Input: n = 3, k = 2
+  * Input: n = 3, k = 2
   * Output: [1, 3, 2]
   * Explanation: The [1, 3, 2] has three different positive integers ranging from 1 to 3,
   * and the [2, 1] has exactly 2 distinct integers: 1 and 2.

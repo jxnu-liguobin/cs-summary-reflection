@@ -5,7 +5,7 @@ import scala.collection.mutable
 /**
   * 集合工具
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-09-04
   * @version v1.0
   */
@@ -16,7 +16,7 @@ object CollectionUtils {
     /**
       * seq 去重
       *
-     * @param f
+      * @param f
       * @tparam B
       * @return
       */
@@ -36,7 +36,7 @@ object CollectionUtils {
     /**
       * seq 取交集
       *
-     * @param those
+      * @param those
       * @param distinctBy
       * @tparam B
       * @return

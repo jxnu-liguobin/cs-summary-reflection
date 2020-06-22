@@ -49,7 +49,7 @@ object laziness extends App {
     /**
       * 只是为了方便测试，自己加的toString方法
       *
-     * @return
+      * @return
       */
     override def toString: String = {
       toList.toString()
@@ -65,7 +65,7 @@ object laziness extends App {
     /**
       * 5.1：将流转化为List
       *
-     * @return
+      * @return
       */
     def toList: List[A] = {
       //类似头插法构造list，()用于强制求值
@@ -82,7 +82,7 @@ object laziness extends App {
     /**
       * 5.2-1：返回stream中前n个元素
       *
-     * @param n
+      * @param n
       * @return
       */
     def take(n: Int): Stream[A] =
@@ -95,7 +95,7 @@ object laziness extends App {
     /**
       * 5.2-2：返回stream中第n个元素之后的所有元素
       *
-     * @param n
+      * @param n
       * @return
       */
     @annotation.tailrec
@@ -108,7 +108,7 @@ object laziness extends App {
     /**
       * 5.3：返回stream中从起始元素连续满足给定断言的所有元素
       *
-     * @param p
+      * @param p
       * @return
       */
     def takeWhile(p: A => Boolean): Stream[A] =
@@ -141,7 +141,7 @@ object laziness extends App {
     /**
       * 5.4：检查stream中所有元素是否与给定的断言匹配，遇到不匹配的值就终止遍历
       *
-     * @param p
+      * @param p
       * @return
       */
     def forAll(p: A => Boolean): Boolean = {
@@ -152,7 +152,7 @@ object laziness extends App {
     /**
       * 5.5：使用foldRight实现
       *
-     * @param p
+      * @param p
       * @return
       */
     def takeWhile2(p: A => Boolean): Stream[A] = {
@@ -163,7 +163,7 @@ object laziness extends App {
     /**
       * 5.6：使用foldRight实现
       *
-     * @return
+      * @return
       */
     def headOption2: Option[A] = {
       //起始值是None，类型是Option
@@ -173,7 +173,7 @@ object laziness extends App {
     /**
       * 5.7-1：使用foldRight实现
       *
-     * @param f
+      * @param f
       * @tparam B
       * @return
       */
@@ -184,7 +184,7 @@ object laziness extends App {
     /**
       * 5.7-2：使用foldRight实现
       *
-     * @param f
+      * @param f
       * @return
       */
     def filter(f: A => Boolean): Stream[A] = {
@@ -194,7 +194,7 @@ object laziness extends App {
     /**
       * 5.7-3：使用foldRight实现
       *
-     * @param s
+      * @param s
       * @tparam B
       * @return
       */
@@ -205,7 +205,7 @@ object laziness extends App {
     /**
       * 5.7-4：使用foldRight实现
       *
-     * @param f
+      * @param f
       * @tparam B
       * @return
       */
@@ -221,7 +221,7 @@ object laziness extends App {
     /**
       * 5.13-1：使用unfold实现map
       *
-     * @param f
+      * @param f
       * @tparam B
       * @return
       */
@@ -235,7 +235,7 @@ object laziness extends App {
     /**
       * 5.13-2：使用unfold实现take
       *
-     * @param n
+      * @param n
       * @return
       */
     def takeWithUnfold(n: Int): Stream[A] = {
@@ -249,7 +249,7 @@ object laziness extends App {
     /**
       * 5.13-3：使用unfold实现takeWhile
       *
-     * @param f
+      * @param f
       * @return
       */
     def takeWhileWithUnfold(f: A => Boolean): Stream[A] = {
@@ -262,7 +262,7 @@ object laziness extends App {
     /**
       * 封装了zipWith
       *
-     * @param s2
+      * @param s2
       * @tparam B
       * @return
       */
@@ -273,11 +273,11 @@ object laziness extends App {
     /**
       * 5.13-4：使用unfold实现zipWith
       *
-     * 接收一个stream，对两个stream的对应元素使用f函数进行处理，构造出新的stream
+      * 接收一个stream，对两个stream的对应元素使用f函数进行处理，构造出新的stream
       * zip函数将传进来的两个参数中相应位置上的元素组成一个pair数组
       * 如果其中一个参数元素比较长，那么多余的参数会被删掉。
       *
-     * @param s2
+      * @param s2
       * @param f
       * @tparam B
       * @tparam C
@@ -293,10 +293,10 @@ object laziness extends App {
     /**
       * 5.13-5：使用unfold实现zipAll
       *
-     * zipAll应该继续遍历只要stream还有更多元素
+      * zipAll应该继续遍历只要stream还有更多元素
       * 和zip函数类似，区别：如果其中一个元素个数比较少，那么将用默认的元素填充(None)
       *
-     * @param s2
+      * @param s2
       * @tparam B
       * @return
       */
@@ -319,11 +319,11 @@ object laziness extends App {
     /**
       * 5.14：使用已经存在的函数实现。
       *
-     * 检查一个stream是否是另一个stream的前缀
+      * 检查一个stream是否是另一个stream的前缀
       *
-     * Example：Stream(1,2,3).startsWith(Stream(1,2))  return true
+      * Example：Stream(1,2,3).startsWith(Stream(1,2))  return true
       *
-     * @param s
+      * @param s
       * @tparam A
       * @return
       */
@@ -336,9 +336,9 @@ object laziness extends App {
     /**
       * 5.15：使用unfold实现tails
       *
-     * Example：Stream(1,2,3).tails   return  Stream(Stream(1,2,3),Stream(2,3),Stream(3),Stream())
+      * Example：Stream(1,2,3).tails   return  Stream(Stream(1,2,3),Stream(2,3),Stream(3),Stream())
       *
-     * @return
+      * @return
       */
     def tails: Stream[Stream[A]] = {
       unfold(this) {
@@ -358,11 +358,11 @@ object laziness extends App {
     /**
       * 5.16：泛化tails函数，类似foldRight返回一个中间结果的stream
       *
-     * Example：Stream(1,2,3).scanRight(0)(_ + _).toList   return List(6,5,3,0)
+      * Example：Stream(1,2,3).scanRight(0)(_ + _).toList   return List(6,5,3,0)
       *
-     * 难  看答案吧
+      * 难  看答案吧
       *
-     * @param z
+      * @param z
       * @param f
       * @tparam B
       * @return
@@ -411,7 +411,7 @@ object laziness extends App {
     /**
       * 5.8：根据给定值返回无限流
       *
-     * @param a
+      * @param a
       * @tparam A
       * @return
       */
@@ -425,7 +425,7 @@ object laziness extends App {
       * 5.9：写一个函数生成一个整数无限流，从N开始，然后N+1,N+2,N+3... Scala的Int是有符号32位整型
       * stream从某点开始从正数变为负数，并且40亿后会重复发生
       *
-     * @param n
+      * @param n
       * @return
       */
     def from(n: Int): Stream[Int] = {
@@ -449,13 +449,13 @@ object laziness extends App {
       * 5.11：写一个更加通用的构造流的函数，它接收一个起始状态，以及一个在生成的Stream中用于产生下一状态和下一个值的函数
       * 注：fold 可以根据数据源和条件，由包含多个元素的序列产生一个结果；而 unfold 方向相反，它根据条件由源产生了更多的结果
       *
-     * 它有两个优点：
+      * 它有两个优点：
       * 1.消除了while循环语句
       * 2.消除了不必要的变量声明
       *
-     * 具体参考答案，这个地方不太好理解，而且不好测无限流
+      * 具体参考答案，这个地方不太好理解，而且不好测无限流
       *
-     * @param z 初始化值
+      * @param z 初始化值
       * @param f 传入S类型参数，产生下一值的函数
       * @tparam A 产生值的类型
       * @tparam S 初始值的类型
@@ -483,7 +483,7 @@ object laziness extends App {
     /**
       * 5.12-2：使用unfold实现from
       *
-     * @param n
+      * @param n
       * @return
       */
     def fromWithUnfold(n: Int) = {
@@ -493,7 +493,7 @@ object laziness extends App {
     /**
       * 5.12-3：使用unfold实现constant
       *
-     * @param a
+      * @param a
       * @tparam A
       * @return
       */
@@ -504,7 +504,7 @@ object laziness extends App {
     /**
       * 5.12-4：使用unfold实现ones
       *
-     * @return
+      * @return
       */
     def onesWithUnfold = {
       unfold(1)(_ => Some((1, 1)))

@@ -1,12 +1,11 @@
 package io.github.dreamylost
 
 /**
+  * 归并两个有序的链表
   *
- * 归并两个有序的链表
+  * 21. Merge Two Sorted Lists (Easy)
   *
- * 21. Merge Two Sorted Lists (Easy)
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月25日
   * @version v1.0
   */

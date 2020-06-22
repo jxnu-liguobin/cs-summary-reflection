@@ -18,7 +18,7 @@ import scala.concurrent.Future
 /**
   * 请求超时action
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-08-24
   * @version v1.0
   */
@@ -34,7 +34,7 @@ class TimeoutAction @Inject() (
     *   timeoutAction andThen other actions
     * }}}
     *
-   * @param request
+    * @param request
     * @param block
     * @tparam A
     * @return

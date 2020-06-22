@@ -3,12 +3,12 @@ package io.github.dreamylost
 /**
   * 从有序链表中删除重复节点
   *
- * 83. Remove Duplicates from Sorted List (Easy)
+  * 83. Remove Duplicates from Sorted List (Easy)
   *
- * Given 1->1->2, return 1->2.
+  * Given 1->1->2, return 1->2.
   * Given 1->1->2->3->3, return 1->2->3.
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月25日
   * @version v1.0
   */

@@ -5,14 +5,14 @@ import scala.collection.mutable.HashMap
 /**
   * 数组的度
   *
- * 697. Degree of an Array (Easy)
+  * 697. Degree of an Array (Easy)
   *
- * Input: [1,2,2,3,1,4,2]
+  * Input: [1,2,2,3,1,4,2]
   * Output: 6
   * 题目描述：数组的度定义为元素出现的最高频率，例如上面的数组度为 3。
   * 要求找到一个最小的子数组，这个子数组的度和原数组一样。
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月20日
   * @version v1.0
   */

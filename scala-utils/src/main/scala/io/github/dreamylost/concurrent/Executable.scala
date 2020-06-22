@@ -7,7 +7,7 @@ import scala.util.control.NonFatal
 /**
   * 带错误捕获的线程执行器
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2019-08-18
   * @version v1.0
   */

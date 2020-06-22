@@ -3,14 +3,13 @@ package io.github.dreamylost
 import scala.language.implicitConversions
 
 /**
+  * 链表反转
   *
- * 链表反转
+  * 206. Reverse Linked List (Easy)
   *
- * 206. Reverse Linked List (Easy)
+  * 递归
   *
- * 递归
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月23日
   * @version v1.0
   */

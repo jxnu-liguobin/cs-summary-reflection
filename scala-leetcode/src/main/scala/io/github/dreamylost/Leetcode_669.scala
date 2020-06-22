@@ -3,10 +3,10 @@ package io.github.dreamylost
 /**
   * 669. 修剪二叉搜索树
   *
- * 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R>=L) 。
+  * 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R>=L) 。
   * 你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。
   *
- * @author 梦境迷离 dreamylost
+  * @author 梦境迷离 dreamylost
   * @since 2020-06-16
   * @version v1.0
   */
@@ -25,7 +25,7 @@ object Leetcode_669 extends App {
     *       2.递归修剪左子树。
     *       3.递归修建右子树。
     *
-   * @param root
+    * @param root
     * @param L
     * @param R
     * @return

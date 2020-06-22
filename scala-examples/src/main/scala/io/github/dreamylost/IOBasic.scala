@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * 从文件读取行，文件写入使用Java IO
   *
- * 从命令行运行不用加包名
+  * 从命令行运行不用加包名
   * scala IOBasic.scala IOBasic.scala 后面一个是参数
   */
 object IOBasic {
@@ -31,8 +31,7 @@ object IOBasic {
   }
 
   /**
-    *
-   * 计算字符数
+    * 计算字符数
     */
   def widthOfLength(s: String) = s.length.toString.length
 
@@ -66,7 +65,7 @@ object Test10 extends App {
 /**
   * 从控制台读取
   *
- * Java的Scanner也可以
+  * Java的Scanner也可以
   */
 object Test11 extends App {
   //控制台交互

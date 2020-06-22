@@ -16,7 +16,7 @@ import scala.reflect.runtime.universe._
 /**
   * case class 解码器
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2020-04-30
   * @version v1.0
   */
@@ -42,7 +42,7 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
   /**
     * 对象转Java的零值
     *
-   * @param typ
+    * @param typ
     * @return
     */
   private def zeroValue(typ: Type): AnyRef = {
@@ -59,7 +59,7 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
   /**
     * 反序列化
     *
-   * @param jp
+    * @param jp
     * @param ctxt
     * @throws
     * @return
@@ -90,10 +90,9 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
 }
 
 /**
+  * scala java 类型映射
   *
- * scala java 类型映射
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2020-04-30
   * @version v1.0
   */

@@ -3,7 +3,7 @@ package io.github.dreamylost.examples.fb
 /**
   * 第四章
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @version 1.0, 2019-05-01
   */
 object errorhandling extends App {
@@ -106,7 +106,7 @@ object errorhandling extends App {
     /**
       * 4.2：根据flatMap实现方差函数
       *
-     * @param xs
+      * @param xs
       * @return
       */
     def variance(xs: Seq[Double]): Option[Double] = {
@@ -117,7 +117,7 @@ object errorhandling extends App {
     /**
       * 4.3：使用一个二元函数组合两个Option值
       *
-     * @param a
+      * @param a
       * @param b
       * @param f
       * @tparam A
@@ -142,7 +142,7 @@ object errorhandling extends App {
     /**
       * 4.4：将Option列表结合为一个Option
       *
-     * @param a
+      * @param a
       * @tparam A
       * @return
       */
@@ -174,7 +174,7 @@ object errorhandling extends App {
     /**
       * 4.5：使用map和sequence函数，只遍历一次列表
       *
-     * @param a
+      * @param a
       * @tparam A
       * @return
       */

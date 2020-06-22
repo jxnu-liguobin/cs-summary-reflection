@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 /**
   * 第三章
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @version 1.0, 2019-04-19
   */
 object datastructures extends App {
@@ -75,7 +75,7 @@ object datastructures extends App {
     /**
       * 书上原定义方法
       *
-     * @param ints
+      * @param ints
       * @return
       */
     def sum(ints: List[Int]): Int =
@@ -87,7 +87,7 @@ object datastructures extends App {
     /**
       * 书上原定义方法
       *
-     * @param ds
+      * @param ds
       * @return
       */
     def product(ds: List[Double]): Double =
@@ -100,7 +100,7 @@ object datastructures extends App {
     /**
       * 书上原定义方法
       *
-     * @param as
+      * @param as
       * @tparam A
       * @return
       */
@@ -112,10 +112,10 @@ object datastructures extends App {
     /**
       * 3.1：List 数据构造器的模式匹配
       *
-     * 引申：注意是右结合，调用顺序是反的。目前使用的Scala2.12
+      * 引申：注意是右结合，调用顺序是反的。目前使用的Scala2.12
       * ::  {{{1 :: List(2, 3) = List(2, 3).::(1) = List(1, 2, 3)}}}
       *
-     * ::: {{{List(1, 2) ::: List(3, 4) = List(3, 4).:::(List(1, 2)) = List(1, 2, 3, 4)}}}
+      * ::: {{{List(1, 2) ::: List(3, 4) = List(3, 4).:::(List(1, 2)) = List(1, 2, 3, 4)}}}
       */
     val x = List(1, 2, 3, 4, 5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x
@@ -128,7 +128,7 @@ object datastructures extends App {
     /**
       * 3.2：实现tail函数，删除一个List的第一个元素.时间开销是常量级，如果是Nil，在实现的时候有什么不同的选择？
       *
-     * @param list
+      * @param list
       * @tparam A
       * @return
       */
@@ -142,7 +142,7 @@ object datastructures extends App {
     /**
       * 3.3：使用与3.1相同思路实现用一个不同的值替代列表中第一个元素
       *
-     * @param list
+      * @param list
       * @param a
       * @tparam A
       * @return
@@ -157,7 +157,7 @@ object datastructures extends App {
     /**
       * 3.4：把tail泛化为drop函数，用于从列表中删除前n个元素。时间开销与drop的元素个数成正比（不能复制列表）
       *
-     * @param list
+      * @param list
       * @param n
       * @tparam A
       * @return
@@ -180,7 +180,7 @@ object datastructures extends App {
     /**
       * 3.5：删除列表中前缀符合判断的元素
       *
-     * @param list
+      * @param list
       * @param f
       * @tparam A
       * @return
@@ -195,9 +195,9 @@ object datastructures extends App {
     /**
       * 3.5：改进高阶函数的类型推导，调用时不需要再使用声明第二个参数的类型
       *
-     * 因为参数组里的类型信息会从第一个参数传递到第二个参数，因为第一个参数类型是Int，第二个也为Int
+      * 因为参数组里的类型信息会从第一个参数传递到第二个参数，因为第一个参数类型是Int，第二个也为Int
       *
-     * @param list
+      * @param list
       * @param f
       * @tparam A
       * @return
@@ -212,7 +212,7 @@ object datastructures extends App {
     /**
       * 书上原定义方法
       *
-     * @param a1 被解开，并放在a2的前面
+      * @param a1 被解开，并放在a2的前面
       * @param a2
       * @tparam A
       * @return
@@ -227,7 +227,7 @@ object datastructures extends App {
     /**
       * 3.6：返回除最后一个元素之外的所有元素
       *
-     * @param list
+      * @param list
       * @tparam A
       * @return
       */
@@ -242,9 +242,9 @@ object datastructures extends App {
     /**
       * 书上原定义方法
       *
-     * 右折叠简单运用
+      * 右折叠简单运用
       *
-     * @param as
+      * @param as
       * @param z 起始值
       * @param f 独立出来，让类型系统推出f的输入类型
       * @tparam A 元素类型
@@ -279,7 +279,7 @@ object datastructures extends App {
     /**
       * 3.9：使用foldRight计算LIst的长度
       *
-     * @param as
+      * @param as
       * @tparam A
       * @return
       */
@@ -291,7 +291,7 @@ object datastructures extends App {
     /**
       * 3.10：使用尾递归实现，防止List太大造成StackOverflow
       *
-     * @param as
+      * @param as
       * @param z
       * @param f
       * @tparam A
@@ -308,7 +308,7 @@ object datastructures extends App {
     /**
       * 3.11-1：使用foldLeft实现
       *
-     * @param ns
+      * @param ns
       * @return
       */
     def sum3(ns: List[Int]): Int = {
@@ -318,7 +318,7 @@ object datastructures extends App {
     /**
       * 3.11-2：使用foldLeft实现
       *
-     * @param ns
+      * @param ns
       * @return
       */
     def product3(ns: List[Double]): Double = {
@@ -328,7 +328,7 @@ object datastructures extends App {
     /**
       * 3.11-3：使用foldLeft实现
       *
-     * @param as
+      * @param as
       * @tparam A
       * @return
       */
@@ -340,7 +340,7 @@ object datastructures extends App {
     /**
       * 3.12：反转列表。使用一个折叠实现
       *
-     * @param list
+      * @param list
       * @tparam A
       * @return
       */
@@ -368,7 +368,7 @@ object datastructures extends App {
     /**
       * 3.14：根据foldLeft或者foldRight实现append函数
       *
-     * @param l
+      * @param l
       * @param r
       * @tparam A
       * @return
@@ -381,7 +381,7 @@ object datastructures extends App {
     /**
       * 3.15：写一个函数将一组列表连接成一个单个列表。它的运行效率应该随着所有列表的总长度线性增长，试着用我们定义过的函数。
       *
-     * @param l
+      * @param l
       * @tparam A
       * @return
       */
@@ -393,7 +393,7 @@ object datastructures extends App {
     /**
       * 3.16：对列表中每个元素进行加1操作
       *
-     * @param list
+      * @param list
       * @return
       */
     def add1(list: List[Int]): List[Int] = {
@@ -404,7 +404,7 @@ object datastructures extends App {
     /**
       * 3.17：将列表的每个元素改为String类型
       *
-     * @param list
+      * @param list
       * @return
       */
     def doubleToString(list: List[Double]): List[String] = {
@@ -414,7 +414,7 @@ object datastructures extends App {
     /**
       * 3.18：对列表中的每个元素进行修改，并维持列表结构
       *
-     * @param as
+      * @param as
       * @param f
       * @tparam A
       * @tparam B
@@ -428,7 +428,7 @@ object datastructures extends App {
     /**
       * 3.19：从列表中删除不满足断言的元素，并用它删除一个List[Int]中所有奇数
       *
-     * @param as
+      * @param as
       * @param f
       * @tparam A
       * @return
@@ -440,7 +440,7 @@ object datastructures extends App {
     /**
       * 3.20：与map相似，但是传入的f函数是返回列表，这个f返回的列表会被塞到flatMap最终返回的列表中
       *
-     * @param as
+      * @param as
       * @param f
       * @tparam A
       * @tparam B
@@ -453,7 +453,7 @@ object datastructures extends App {
     /**
       * 3.21：使用flatMap实现filter
       *
-     * @param as
+      * @param as
       * @param f
       * @tparam A
       * @return
@@ -465,7 +465,7 @@ object datastructures extends App {
     /**
       * 3.22： 接收两个列表，对相应元素相加构造出新的列表
       *
-     * @param a
+      * @param a
       * @param b
       * @return
       */
@@ -480,7 +480,7 @@ object datastructures extends App {
     /**
       * 3.23：与上面相同，进行泛化
       *
-     * @param a
+      * @param a
       * @param f
       * @tparam A
       * @return
@@ -495,7 +495,7 @@ object datastructures extends App {
     /**
       * 3.24：检查一个List子序列是否包含另一个List
       *
-     * @param sup
+      * @param sup
       * @param sub
       * @tparam A
       * @return
@@ -512,7 +512,7 @@ object datastructures extends App {
     /**
       * 判断sub的元素是否均存在于sup
       *
-     * @param sup
+      * @param sup
       * @param sub
       * @tparam A
       * @return
@@ -546,7 +546,7 @@ object datastructures extends App {
     /**
       * 3.25：统计树的节点数
       *
-     * @param t
+      * @param t
       * @tparam A
       * @return
       */
@@ -560,7 +560,7 @@ object datastructures extends App {
     /**
       * 3.26：获取Tree中最大的元素值
       *
-     * @param t
+      * @param t
       * @return
       */
     def maximum(t: Tree[Int]): Int =
@@ -572,7 +572,7 @@ object datastructures extends App {
     /**
       * 3.27：计算根节点到叶子的最大深度
       *
-     * @param t
+      * @param t
       * @tparam A
       * @return
       */
@@ -587,7 +587,7 @@ object datastructures extends App {
     /**
       * 3.28：类似List中map
       *
-     * @param t
+      * @param t
       * @tparam A
       * @tparam B
       * @return
@@ -601,9 +601,9 @@ object datastructures extends App {
     /**
       * 3.29 泛化上面三个函数，进一步抽象三个函数
       *
-     * 与List类似，使用折叠
+      * 与List类似，使用折叠
       *
-     * @param t 需要操作的二叉树
+      * @param t 需要操作的二叉树
       * @param f 入参是树的元素类型A，返回参数是具体操作函数g的参数类型B
       * @param g 具体操作函数
       * @tparam A

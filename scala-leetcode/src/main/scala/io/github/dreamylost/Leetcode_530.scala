@@ -3,9 +3,9 @@ package io.github.dreamylost
 /**
   * 530. 二叉搜索树的最小绝对差
   *
- * 给你一棵所有节点为非负值的二叉搜索树，请你计算树中任意两节点的差的绝对值的最小值。
+  * 给你一棵所有节点为非负值的二叉搜索树，请你计算树中任意两节点的差的绝对值的最小值。
   *
- * @author 梦境迷离 dreamylost
+  * @author 梦境迷离 dreamylost
   * @since 2020-06-08
   * @version v1.0
   */
@@ -19,7 +19,7 @@ object Leetcode_530 extends App {
     * 52.9 MB,100.00%
     * 的用户
     *
-   * @param root
+    * @param root
     * @return
     */
   def getMinimumDifference(root: TreeNode): Int = {

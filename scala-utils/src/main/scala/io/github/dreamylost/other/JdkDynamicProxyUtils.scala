@@ -10,7 +10,7 @@ import sun.misc.ProxyGenerator
 /**
   * Scala JDK代理
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @version 1.0, 2019-07-20
   */
 object JdkDynamicProxyUtils {
@@ -18,13 +18,13 @@ object JdkDynamicProxyUtils {
   /**
     * 获取代理对象
     *
-   * {{{
+    * {{{
     *    val real = new RealSubject
     *    val prxoy = getProxy(real, classOf[Subject])
     *    prxoy.doSomething()
     * }}}
     *
-   * @param `object` 需要被代理的对象
+    * @param `object` 需要被代理的对象
     * @param clazz    需要被代理对象所实现的接口
     * @tparam T 需要被代理类的类型
     */
@@ -48,7 +48,7 @@ object JdkDynamicProxyUtils {
     *   createProxyClassFile("./", "RealSubject", classOf[Subject])
     * }}}
     *
-   * @param path  写入文件保存的路径
+    * @param path  写入文件保存的路径
     * @param name  写入保存后的class名称
     * @param clazz 需要被代理类的接口class
     * @tparam T
@@ -99,23 +99,23 @@ object JdkDynamicProxyUtils {
     * // (powered by Fernflower decompiler)
     * //
     *
-   * import cn.edu.jxnu.other.DynamicProxyScala.Subject;
+    * import cn.edu.jxnu.other.DynamicProxyScala.Subject;
     * import java.lang.reflect.InvocationHandler;
     * import java.lang.reflect.Method;
     * import java.lang.reflect.Proxy;
     * import java.lang.reflect.UndeclaredThrowableException;
     *
-   * public final class RealSubject extends Proxy implements Subject {
+    * public final class RealSubject extends Proxy implements Subject {
     *     private static Method m1;
     *     private static Method m3;
     *     private static Method m2;
     *     private static Method m0;
     *
-   *     public RealSubject(InvocationHandler var1) throws  {
+    *     public RealSubject(InvocationHandler var1) throws  {
     *         super(var1);
     *     }
     *
-   *     public final boolean equals(Object var1) throws  {
+    *     public final boolean equals(Object var1) throws  {
     *         try {
     *             return (Boolean)super.h.invoke(this, m1, new Object[]{var1});
     *         } catch (RuntimeException | Error var3) {
@@ -125,7 +125,7 @@ object JdkDynamicProxyUtils {
     *         }
     *     }
     *
-   *     public final void doSomething() throws  {
+    *     public final void doSomething() throws  {
     *         try {
     *             super.h.invoke(this, m3, (Object[])null);
     *         } catch (RuntimeException | Error var2) {
@@ -135,7 +135,7 @@ object JdkDynamicProxyUtils {
     *         }
     *     }
     *
-   *     public final String toString() throws  {
+    *     public final String toString() throws  {
     *         try {
     *             return (String)super.h.invoke(this, m2, (Object[])null);
     *         } catch (RuntimeException | Error var2) {
@@ -145,7 +145,7 @@ object JdkDynamicProxyUtils {
     *         }
     *     }
     *
-   *     public final int hashCode() throws  {
+    *     public final int hashCode() throws  {
     *         try {
     *             return (Integer)super.h.invoke(this, m0, (Object[])null);
     *         } catch (RuntimeException | Error var2) {
@@ -155,7 +155,7 @@ object JdkDynamicProxyUtils {
     *         }
     *     }
     *
-   *     static {
+    *     static {
     *         try {
     *             m1 = Class.forName("java.lang.Object").getMethod("equals", Class.forName("java.lang.Object"));
     *             m3 = Class.forName("cn.edu.jxnu.other.DynamicProxyScala$Subject").getMethod("doSomething");

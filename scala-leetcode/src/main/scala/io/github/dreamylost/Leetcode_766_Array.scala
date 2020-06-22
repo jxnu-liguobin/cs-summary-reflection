@@ -3,13 +3,13 @@ package io.github.dreamylost
 /**
   * 对角元素相等的矩阵
   *
- * 766. Toeplitz Matrix (Easy)
+  * 766. Toeplitz Matrix (Easy)
   *
- * 1234
+  * 1234
   * 5123
   * 9512
   *
- * In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]",
+  * In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]",
   * and in each diagonal all elements are the same, so the answer is True.
   * @author 梦境迷离
   * @time 2018年7月23日

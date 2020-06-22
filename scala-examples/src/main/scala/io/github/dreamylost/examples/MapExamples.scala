@@ -1,8 +1,7 @@
 package io.github.dreamylost.examples
 
 /**
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-12-27
   * @version v1.0
   */
@@ -20,14 +19,13 @@ object MapExamples extends App {
 
   /** *
     *
-   * 左折叠源码
+    * 左折叠源码
     * def foldLeft[B](z: B)(op: (B, A) => B): B = {
     * var result = z
     * this foreach (x => result = op(result, x))
     * result
     * }
     *
-   *
     * 可见this为空时，不会执行foreach，直接返回z（即默认值）
     * 否则每次都执行传进的op函数，并返回result，随着result不断更新，最终得到一个折叠后的值。具体操作依赖于op函数。
     * 折叠函数是一个抽象的高阶函数，作用强大。由此可见result定义为var也有其意义的，如果为val就不能每次遍历时更新result。

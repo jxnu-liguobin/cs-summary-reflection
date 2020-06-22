@@ -6,7 +6,7 @@ import scala.concurrent.Future
 /**
   * 消除嵌套的Seq[Future]
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-09-04
   * @version v1.0
   */
@@ -16,7 +16,7 @@ object LiftedUtil {
     * use for  Seq[Future[Option[T]]] => Future[Seq[T]]
     * }}}
     *
-   * @param futures
+    * @param futures
     * @tparam T
     * @return
     */

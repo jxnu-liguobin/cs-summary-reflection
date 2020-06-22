@@ -1,8 +1,7 @@
 package io.github.dreamylost.other
 
 /**
-  *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-09-04
   * @version v1.0
   */
@@ -33,7 +32,7 @@ object IPAddressUtil {
   /**
     * if ip is IPV6 or private ipV4, It's invalid
     *
-   * @param ipAddress ip 地址
+    * @param ipAddress ip 地址
     * @return
     */
   def isValidIP(ipAddress: String): Boolean = {
@@ -56,8 +55,7 @@ object IPAddressUtil {
   }
 
   /**
-    *
-   * @param ipAddress ip地址字符串
+    * @param ipAddress ip地址字符串
     * @return
     */
   def getIPNum(ipAddress: String): Long = {

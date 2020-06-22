@@ -1,10 +1,9 @@
 package io.github.dreamylost
 
 /**
-  *
- * 链表是空节点，或者有一个值和一个指向下一个链表的指针，因此很多链表问题可以用递归来处理。
+  * 链表是空节点，或者有一个值和一个指向下一个链表的指针，因此很多链表问题可以用递归来处理。
   * 找出两个链表的交点
-  *160. Intersection of Two Linked Lists (Easy)
+  * 160. Intersection of Two Linked Lists (Easy)
   * *
   * A:          a1 → a2
   * ↘
@@ -13,7 +12,7 @@ package io.github.dreamylost
   * B:    b1 → b2 → b3
   * 要求：时间复杂度为 O(N)，空间复杂度为 O(1)
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月23日
   * @version v1.0
   */

@@ -3,13 +3,13 @@ package io.github.dreamylost
 /**
   * 240. Search a 2D Matrix II (Medium)
   *
- * [
+  * [
   * [ 1,  5,  9],
   * [10, 11, 13],
   * [12, 13, 15]
   * ]
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月17日
   * @version v1.0
   */
@@ -25,7 +25,7 @@ object Leetcode_240_Array {
   /**
     * Scala创建二维数组
     *
-     * var index = new Array[ArrayBuffer[Int]](10)
+    * var index = new Array[ArrayBuffer[Int]](10)
     * for(i <- 0 until index.length){
     * index(i) = new ArrayBuffer[Int]()
     * }

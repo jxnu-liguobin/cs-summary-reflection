@@ -12,7 +12,7 @@ import scala.collection.convert.ImplicitConversionsToScala
 /**
   * doobie 自定义类型映射 隐式对象
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @since 2019-08-18
   * @version v1.0
   */

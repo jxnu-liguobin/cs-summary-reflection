@@ -5,15 +5,15 @@ package io.github.dreamylost
   * 543. Diameter of Binary Tree (Easy)
   * Input:
   *
- *  1
+  *  1
   * / \
   * 2  3
   * / \
   * 4   5
   *
- * Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
+  * Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月28日
   * @version v1.0
   */
@@ -26,7 +26,7 @@ object Leetcode_543_Tree extends App {
     * 624 ms,66.67%
     * 51.9 MB,100.00%
     *
-   * @param root
+    * @param root
     * @return
     */
   def diameterOfBinaryTree(root: TreeNode): Int = {

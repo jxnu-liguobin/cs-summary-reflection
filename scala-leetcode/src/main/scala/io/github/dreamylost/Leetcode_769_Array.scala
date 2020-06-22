@@ -4,7 +4,7 @@ package io.github.dreamylost
   * 给定数组arr那是[0, 1, ..., arr.length - 1]，我们将数组拆分成一定数量的“块”(分区)，并对每个块进行单独排序。连接它们之后，结果等于排序数组。
   * 我们能做多少块？
   *
- * @author 梦境迷离
+  * @author 梦境迷离
   * @time 2018年7月19日
   * @version v1.0
   */
