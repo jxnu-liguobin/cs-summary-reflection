@@ -18,7 +18,7 @@
 4.  [二叉搜索树中的搜索](./solution/tree/leetcode_700_.py)
 5.  [N叉树的后续遍历](./solution/tree/leetcode_590_.py)
 6.  [二叉树的层次遍历](./solution/tree/leetcode_32_.py)
-7.  [递增顺序查找二叉树](./solution/tree/leetcode_897_.py)
+7.  [递增顺序查找二叉树](./solution/tree/leetcode_897_.py)F
 8.  [单值二叉树](./solution/tree/leetcode_965_.py)
 9.  [二叉树的层次遍历II](./solution/tree/leetcode_107_.py)
 10. [二叉树层的平均值](./solution/tree/leetcode_637_.py)
@@ -60,6 +60,7 @@
 46. [从前序与中序遍历序列构造二叉树](./solution/tree/leetcode_105_.py)
 47. [二叉树的前序遍历](./solution/tree/leetcode_144_.py)
 48. [N叉树的层序遍历](./solution/tree/leetcode_429_.py)
+49. [验证二叉搜索树](./solution/tree/leetcode_98_.py)
 
 
 
