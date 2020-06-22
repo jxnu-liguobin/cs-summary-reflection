@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost.tooffer;
 
 /** 输入一个链表，反转链表后，输出新链表的表头。 */

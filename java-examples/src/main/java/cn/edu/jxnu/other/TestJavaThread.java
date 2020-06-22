@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package cn.edu.jxnu.other;
 
 import java.util.concurrent.Callable;

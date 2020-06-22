@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost.tooffer;
 
 /** 请实现两个函数，分别用来序列化和反序列化二叉树 */

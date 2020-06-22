@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost.tooffer;
 
 /** 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。 */

@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package cn.edu.jxnu.examples.design.visitor;
 
 /** 根据传来的参数判断使用哪一个方法，重载 */

@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost;
 /**
  * Leetcode : 79. Word Search (Medium) For example, Given board = [ ['A','B','C','E'],

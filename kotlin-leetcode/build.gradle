@@ -1,0 +1,43 @@
+version = '0.0.1'
+group = 'io.github.dreamylost'
+
+apply plugin: 'java'
+
+configurations {
+    ktlint
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'src/main/kotlin']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java', 'src/test/kotlin']
+        }
+    }
+}
+
+dependencies {
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.3.72'
+    ktlint "com.pinterest:ktlint:0.37.2"
+
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "src/main/kotlin/**/*.kt"
+}
+
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/main/kotlin/**/*.kt"
+}

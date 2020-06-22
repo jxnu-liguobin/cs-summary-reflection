@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package cn.edu.jxnu.examples.design;
 /**
  * Copyright © 2018 梦境迷离. All rights reserved.

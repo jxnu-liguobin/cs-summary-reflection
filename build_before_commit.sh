@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -v
 
-enable_language=("java","rust","scala","python","c++")
+enable_language=("java","rust","scala","python","c++", "kotlin")
 root_path=`pwd`
 
 # auto compile java and scala

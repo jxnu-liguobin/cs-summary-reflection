@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost.tooffer;
 
 /** 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。 [1,2,3,4,5,6,7,8] [2,3,4,5,6,7,8,9] */

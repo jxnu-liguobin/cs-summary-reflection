@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package cn.edu.jxnu.examples.concurrent;
 
 /** 线程实例对象的属性值 */

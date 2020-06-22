@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package cn.edu.jxnu.examples.lambda;
 
 /** 马 接口可以拥有默认方法， 可以包含若干个实例方法 */

@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package cn.edu.jxnu.examples.concurrent;
 
 /** 继承 Thread 类创建线程对象 */
