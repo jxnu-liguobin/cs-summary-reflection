@@ -42,6 +42,7 @@ Leetcode Scala 实现
 * [递增顺序查找树](./src/main/scala/io/github/dreamylost/Leetcode_897.scala)
 * [单值二叉树](./src/main/scala/io/github/dreamylost/Leetcode_965.scala)
 * [对称的二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_28.scala)
+* [平衡二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_55_2.scala)
 
 ## 链表
 
