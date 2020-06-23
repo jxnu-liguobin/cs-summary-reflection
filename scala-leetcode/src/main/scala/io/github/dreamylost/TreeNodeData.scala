@@ -68,6 +68,16 @@ object TreeNodeData {
     root
   }
 
+  //10 11
+  def treeData3_6(): TreeNode = {
+    val root = new TreeNode(1)
+    val r1 = new TreeNode(1)
+    val l1 = new TreeNode(0)
+    root.right = r1
+    root.left = l1
+    root
+  }
+
   def treeData5_1(): TreeNode = {
     val n1 = new TreeNode(1)
     val n2 = new TreeNode(2)

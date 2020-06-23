@@ -43,6 +43,7 @@ Leetcode Scala 实现
 * [单值二叉树](./src/main/scala/io/github/dreamylost/Leetcode_965.scala)
 * [对称的二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_28.scala)
 * [平衡二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_55_2.scala)
+* [从根到叶的二进制数之和](./src/main/scala/io/github/dreamylost/Leetcode_1022.scala)
 
 ## 链表
 
