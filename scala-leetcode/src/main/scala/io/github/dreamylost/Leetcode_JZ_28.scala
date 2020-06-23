@@ -7,7 +7,7 @@ package io.github.dreamylost
   *
   * 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
   *
-  * @author liguobin@growingio.com
+  * @author 梦境迷离
   * @version 1.0,2020/6/22
   */
 object Leetcode_JZ_28 {

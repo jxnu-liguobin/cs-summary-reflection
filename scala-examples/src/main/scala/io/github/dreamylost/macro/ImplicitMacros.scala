@@ -7,7 +7,7 @@ import io.github.dreamylost.`macro`.ImplicitMacros.Showable
   * Scala 隐式宏
   *
   * @see https://docs.scala-lang.org/overviews/macros/implicits.html
-  * @author liguobin@growingio.com
+  * @author 梦境迷离
   * @version 1.0,2020/3/17
   */
 object ImplicitMacros {

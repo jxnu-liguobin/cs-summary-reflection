@@ -1,7 +1,7 @@
 package io.github.dreamylost
 
 /**
-  *  @author liguobin@growingio.com
+  *  @author 梦境迷离
   *  @version 1.0,2020/3/12
   */
 object Leetcode_1281 extends App {

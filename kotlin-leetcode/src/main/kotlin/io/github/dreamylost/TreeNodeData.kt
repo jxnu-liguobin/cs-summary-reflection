@@ -3,7 +3,7 @@ package io.github.dreamylost
 
 /**
  * kotlin 测试数据
- * @author liguobin@growingio.com
+ * @author 梦境迷离
  * @version 1.0,2020/6/22
  */
 object TreeNodeData {

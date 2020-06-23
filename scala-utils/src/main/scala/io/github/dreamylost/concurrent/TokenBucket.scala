@@ -9,7 +9,7 @@ import scala.concurrent.Future
   *
   * @param capacity           - 令牌容量
   * @param nanosBetweenTokens - 令牌生成间隔时间
-  * @author liguobin@growingio.com
+  * @author 梦境迷离
   * @version 1.0,2020/3/23
   */
 abstract class TokenBucket(capacity: Long, nanosBetweenTokens: Long) {

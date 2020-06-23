@@ -6,7 +6,7 @@ import play.api.libs.json.JsValue
 import scala.collection.mutable
 
 /**
-  * @author liguobin@growingio.com
+  * @author 梦境迷离
   * @version 1.0,2020/2/28
   */
 object JsonUtils {

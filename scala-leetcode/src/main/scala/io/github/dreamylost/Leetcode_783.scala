@@ -5,7 +5,7 @@ package io.github.dreamylost
   *
   * 给定一个二叉搜索树的根节点 root，返回树中任意两节点的差的最小值。
   *
-  * @author liguobin@growingio.com
+  * @author 梦境迷离
   * @version 1.0,2020/6/18
   */
 object Leetcode_783 extends App {

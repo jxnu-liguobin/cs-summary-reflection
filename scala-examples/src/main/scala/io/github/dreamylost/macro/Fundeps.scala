@@ -2,7 +2,7 @@ package io.github.dreamylost.`macro`
 
 /**
   * @see https://docs.scala-lang.org/overviews/macros/implicits.html#fundep-materialization
-  * @author liguobin@growingio.com
+  * @author 梦境迷离
   * @version 1.0,2020/3/17
   */
 object Fundeps {
