@@ -13,12 +13,14 @@ Scala程序员、函数式/反应式爱好者
 
 - [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
     - [GitHub在线阅读](./article_list.md)
-- Scala/Java/Rust学习与笔记
-- LeetCode
+- Scala、Java、Rust等学习与笔记
+- LeetCode实现
     - Scala
     - Rust
     - Java
     - Python
+    - C++
+    - Kotlin
     
 ## Environment
 
@@ -27,12 +29,17 @@ Scala程序员、函数式/反应式爱好者
 - Python 3.0+  
 - Rust 1.4+  
 - Kotlin 1.3+  
+- C++ 11
 
 ## Contributors
 
 [@jxnu-liguobin](https://github.com/jxnu-liguobin)
 
 [@tomsajkdhsakjd](https://github.com/tomsajkdhsakjd)
+
+[@ruierruier](https://github.com/ruierruier)
+
+[@CCCCmaster](https://github.com/CCCCmaster)
 
 [@ThomasPerkins1123](https://github.com/ThomasPerkins1123)
 
