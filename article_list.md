@@ -126,6 +126,10 @@
 
 [自动派生类型类实例](./docs/_posts/Shapeless/2020-06-20-Shapeless-自动派生类型类实例.md)
 
+[在隐式派生过程中访问名称](./docs/_posts/Shapeless/2020-06-24-Shapeless-在隐式派生过程中访问名称.md)
+
+[处理类型和隐式值](./docs/_posts/Shapeless/2020-06-24-Shapeless-处理类型和隐式值.md)
+
 ## 其他
 
 [ASM与CGLIB的简单使用](./docs/_posts/其他/2018-11-11-其他-ASM与CGLIB的简单使用.md)

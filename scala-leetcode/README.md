@@ -4,6 +4,7 @@ Leetcode Scala 实现
 1. 早期学习时写的
 2. 后期工作时写的(不同时期写法不同)
 3. 按数据结构划分
+4. @unchecked 表示最优解仍不能AC，与极端case有关
 
 ## 树
 
@@ -44,6 +45,7 @@ Leetcode Scala 实现
 * [对称的二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_28.scala)
 * [平衡二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_55_2.scala)
 * [从根到叶的二进制数之和](./src/main/scala/io/github/dreamylost/Leetcode_1022.scala)
+* [BiNode @unchecked](./src/main/scala/io/github/dreamylost/Leetcode_Interview_17_12.scala)
 
 ## 链表
 
