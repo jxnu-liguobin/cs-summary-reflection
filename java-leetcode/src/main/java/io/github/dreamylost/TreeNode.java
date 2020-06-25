@@ -7,11 +7,11 @@ package io.github.dreamylost;
  */
 public class TreeNode {
 
-    public int value = 0;
+    public int val = 0;
     public TreeNode left = null;
     public TreeNode right = null;
 
     public TreeNode(int val) {
-        this.value = val;
+        this.val = val;
     }
 }

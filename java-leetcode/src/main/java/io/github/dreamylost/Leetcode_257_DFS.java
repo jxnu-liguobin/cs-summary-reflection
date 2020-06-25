@@ -28,10 +28,10 @@ public class Leetcode_257_DFS {
     private void dfs(TreeNode root, String prefix, List<String> ret) {
         if (root == null) return;
         if (root.left == null && root.right == null) {
-            ret.add(prefix + root.value);
+            ret.add(prefix + root.val);
             return;
         }
-        prefix += (root.value + "->");
+        prefix += (root.val + "->");
         dfs(root.left, prefix, ret);
         dfs(root.right, prefix, ret);
     }
