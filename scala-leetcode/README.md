@@ -46,6 +46,7 @@ Leetcode Scala 实现
 * [平衡二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_55_2.scala)
 * [从根到叶的二进制数之和](./src/main/scala/io/github/dreamylost/Leetcode_1022.scala)
 * [BiNode @unchecked](./src/main/scala/io/github/dreamylost/Leetcode_Interview_17_12.scala)
+* [二叉树的中序遍历 非递归](./src/main/scala/io/github/dreamylost/Leetcode_94.scala)
 
 ## 链表
 

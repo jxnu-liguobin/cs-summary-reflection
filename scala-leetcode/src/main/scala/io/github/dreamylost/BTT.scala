@@ -6,7 +6,6 @@ import java.util.{ Queue => _ }
 
 //过期，以后使用List
 import scala.collection.immutable.Queue
-import scala.collection.immutable.Stack
 
 /**
   * 二叉树的遍历
@@ -52,26 +51,6 @@ object BTT extends App {
         stack = node.right :: stack // 先右后左，保证左子树先遍历
         stack = node.left :: stack
       }
-    }
-    ret
-  }
-
-  //中， 94. Binary Tree Inorder Traversal (Medium)
-  @unchecked
-  def inorderTraversal(root: TreeNode): Seq[Int] = {
-    var ret = Seq[Int]()
-    var stack = List[TreeNode]()
-    if (root == null) return ret
-    var cur = root
-    while (cur != null || stack.nonEmpty) {
-      while (cur != null) {
-        stack = cur :: stack
-        cur = cur.left
-      }
-      val (node, s) = stack.head -> stack.tail
-      stack = s
-      ret = ret ++ Seq(node.value)
-      cur = node.right
     }
     ret
   }
