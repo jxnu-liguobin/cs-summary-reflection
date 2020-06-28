@@ -65,6 +65,7 @@
 51. [二叉树的锯齿形层次遍历](./solution/tree/leetcode_103_.py)
 52. [二叉搜索树的范围和](./solution/tree/leetcode_938_.py)
 53. [路径总和 II](./solution/tree/leetcode_113_.py)
+54. [填充每个节点的下一个右侧节点指针](./solution/tree/leetcode_116_.py)
 
 
 
