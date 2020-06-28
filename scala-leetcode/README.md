@@ -48,6 +48,7 @@ Leetcode Scala 实现
 * [BiNode @unchecked](./src/main/scala/io/github/dreamylost/Leetcode_Interview_17_12.scala)
 * [二叉树的中序遍历 非递归](./src/main/scala/io/github/dreamylost/Leetcode_94.scala)
 * [不同的二叉搜索树 II](./src/main/scala/io/github/dreamylost/Leetcode_95.scala)
+* [不同的二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_96.scala)
 
 ## 链表
 
