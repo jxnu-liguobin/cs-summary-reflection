@@ -1,7 +1,26 @@
 version = '0.0.1'
 group = 'io.github.dreamylost'
 
-apply plugin: 'java'
+buildscript {
+    ext.kotlin_version = '1.3.72'
+
+    //编译插件的依赖仓库
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+    }
+
+    //gradle的kotlin插件
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
 
 configurations {
     ktlint
@@ -17,6 +36,16 @@ sourceSets {
         java {
             srcDirs = ['src/test/java', 'src/test/kotlin']
         }
+    }
+}
+
+//项目本身的依赖仓库
+repositories {
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
     }
 }
 
