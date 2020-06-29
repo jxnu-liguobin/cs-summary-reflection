@@ -49,6 +49,7 @@ Leetcode Scala 实现
 * [二叉树的中序遍历 非递归](./src/main/scala/io/github/dreamylost/Leetcode_94.scala)
 * [不同的二叉搜索树 II](./src/main/scala/io/github/dreamylost/Leetcode_95.scala)
 * [不同的二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_96.scala)
+* [验证二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_98.scala)
 
 ## 链表
 
