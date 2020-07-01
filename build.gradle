@@ -42,6 +42,8 @@ subprojects {
             }
             java {
                 srcDirs = ['src/test/java']
+                //排除旧的单元测试类
+                exclude 'io/github/dreamylost/practice/test/**'
             }
         }
     }
