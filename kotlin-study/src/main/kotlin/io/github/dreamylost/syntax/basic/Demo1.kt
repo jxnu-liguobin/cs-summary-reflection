@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost.syntax.basic
 
 /**
@@ -134,13 +135,13 @@ fun main() {
     /**when 表达式*/
     fun describe(obj: Any): String =
             // 与Scala object match {case }相似，Scala的match还可以支持正则，解构等等，kotlin目前还不够了解
-            when (obj) {
-                1 -> "One"
-                "Hello" -> "Greeting"
-                is Long -> "Long"
-                !is String -> "Not a string"
-                else -> "Unknown"
-            }
+        when (obj) {
+            1 -> "One"
+            "Hello" -> "Greeting"
+            is Long -> "Long"
+            !is String -> "Not a string"
+            else -> "Unknown"
+        }
 
     /**使用区间（range）*/
     val X = 10
@@ -213,8 +214,8 @@ interface RectangleProperties {
 
 class Rectangle(
         // 构造函数有2个可变属性，
-        var height: Double,
-        var length: Double
+  var height: Double,
+  var length: Double
 ) : RectangleProperties, Shape(listOf(height, length, height, length)) {
     // 继承使用: 逗号隔开，只允许一个抽象类，JVM平台目前Java Scala Kotlin等都不支持多继承（类）
     override val isSquare: Boolean get() = length == height
@@ -223,9 +224,9 @@ class Rectangle(
 }
 
 class Triangle(
-        var sideA: Double,
-        var sideB: Double,
-        var sideC: Double
+  var sideA: Double,
+  var sideB: Double,
+  var sideC: Double
 ) : Shape(listOf(sideA, sideB, sideC)) {
     override fun calculateArea(): Double {
         val s = perimeter / 2

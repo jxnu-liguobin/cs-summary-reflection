@@ -52,6 +52,7 @@ Leetcode Scala 实现
 * [验证二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_98.scala)
 * [二叉树的层序遍历](./src/main/scala/io/github/dreamylost/Leetcode_102.scala)
 * [二叉树的锯齿形层次遍历](./src/main/scala/io/github/dreamylost/Leetcode_103.scala)
+* [从前序与中序遍历序列构造二叉树](./src/main/scala/io/github/dreamylost/Leetcode_105.scala)
 
 ## 链表
 
