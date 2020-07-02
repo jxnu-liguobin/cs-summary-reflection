@@ -42,10 +42,10 @@ sourceSets {
 //项目本身的依赖仓库
 repositories {
     maven {
-        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        url 'https://maven.aliyun.com/nexus/content/groups/public/'
     }
     maven {
-        url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
     }
 }
 
