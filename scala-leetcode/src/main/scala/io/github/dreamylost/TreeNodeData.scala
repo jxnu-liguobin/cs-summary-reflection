@@ -92,4 +92,29 @@ object TreeNodeData {
 
     n1
   }
+
+  def treeData11(): TreeNode = {
+    val treeNode5 = new TreeNode(5)
+    val treeNode4 = new TreeNode(4)
+    val treeNode8 = new TreeNode(8)
+    val treeNode11 = new TreeNode(11)
+    val treeNode13 = new TreeNode(13)
+    val treeNode4_ = new TreeNode(4)
+    val treeNode7 = new TreeNode(7)
+    val treeNode2 = new TreeNode(2)
+    val treeNode5_ = new TreeNode(5)
+    val treeNode1 = new TreeNode(1)
+
+    treeNode5.left = treeNode4
+    treeNode5.right = treeNode8
+    treeNode4.left = treeNode11
+    treeNode11.left = treeNode7
+    treeNode11.right = treeNode2
+    treeNode8.left = treeNode13
+    treeNode8.right = treeNode4_
+    treeNode4_.left = treeNode5_
+    treeNode4_.right = treeNode1
+
+    treeNode5
+  }
 }
