@@ -49,6 +49,13 @@ Leetcode Scala 实现
 * [二叉树的中序遍历 非递归](./src/main/scala/io/github/dreamylost/Leetcode_94.scala)
 * [不同的二叉搜索树 II](./src/main/scala/io/github/dreamylost/Leetcode_95.scala)
 * [不同的二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_96.scala)
+* [验证二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_98.scala)
+* [二叉树的层序遍历](./src/main/scala/io/github/dreamylost/Leetcode_102.scala)
+* [二叉树的锯齿形层次遍历](./src/main/scala/io/github/dreamylost/Leetcode_103.scala)
+* [从前序与中序遍历序列构造二叉树](./src/main/scala/io/github/dreamylost/Leetcode_105.scala)
+* [合法二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_Interview_0405.scala)
+* [从中序与后续遍历序列构造二叉树](./src/main/scala/io/github/dreamylost/Leetcode_106.scala)
+* [路径总和 II](./src/main/scala/io/github/dreamylost/Leetcode_113.scala)
 
 ## 链表
 

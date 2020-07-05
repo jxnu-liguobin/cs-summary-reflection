@@ -118,6 +118,8 @@
 
 [Scala的类型系统和泛型](./docs/_posts/Scala/2020-06-17-Scala-Scala的类型系统和泛型.md)
 
+[](./docs/_posts/Scala/2020-07-05-Scala的implicit和implicitly.md)
+
 ## Shapeless
 
 [什么是泛型编程](./docs/_posts/Shapeless/2020-06-20-Shapeless-什么是泛型编程.md)
@@ -126,9 +128,15 @@
 
 [自动派生类型类实例](./docs/_posts/Shapeless/2020-06-20-Shapeless-自动派生类型类实例.md)
 
-[在隐式派生过程中访问名称](./docs/_posts/Shapeless/2020-06-24-Shapeless-在隐式派生过程中访问名称.md)
-
 [处理类型和隐式值](./docs/_posts/Shapeless/2020-06-24-Shapeless-处理类型和隐式值.md)
+
+[在隐式派生过程中访问名称](./docs/_posts/Shapeless/2020-06-25-Shapeless-在隐式派生过程中访问名称.md)
+
+[对HList和Coproduct进行操作](./docs/_posts/Shapeless/2020-07-05-Shapeless-对HList和Coproduct进行操作.md)
+
+[对HList进行函数化操作](./docs/_posts/Shapeless/2020-07-05-Shapeless-对HList进行函数化操作.md)
+
+[类型计数](./docs/_posts/Shapeless/2020-07-05-Shapeless-类型计数.md)
 
 ## 其他
 

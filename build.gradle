@@ -42,6 +42,8 @@ subprojects {
             }
             java {
                 srcDirs = ['src/test/java']
+                //排除旧的单元测试类
+                exclude 'io/github/dreamylost/practice/test/**'
             }
         }
     }
@@ -101,6 +103,15 @@ project(':scala-examples') {
 }
 
 project(':kotlin-leetcode') {
+    spotless {
+        kotlin {
+            ktlint().userData(['indent_size': '2', 'continuation_indent_size' : '2'])
+            licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */'
+        }
+    }
+}
+
+project(':kotlin-study') {
     spotless {
         kotlin {
             ktlint().userData(['indent_size': '2', 'continuation_indent_size' : '2'])

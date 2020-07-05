@@ -24,7 +24,7 @@ object Leetcode_112_Tree extends App {
       return false
     if (root.left == null && root.right == null && root.value == sum)
       return true
-    return hasPathSum(root.left, sum - root.value) || hasPathSum(root.right, sum - root.value)
+    hasPathSum(root.left, sum - root.value) || hasPathSum(root.right, sum - root.value)
   }
 
 }
