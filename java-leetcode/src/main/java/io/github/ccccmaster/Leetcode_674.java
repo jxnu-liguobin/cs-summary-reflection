@@ -1,15 +1,16 @@
+/* All Contributors (C) 2020 */
 package io.github.ccccmaster;
 
 /**
- * Leetcode_674_LongestContinuousIncreasingSubsequence
- * 简单 练手
+ * 最长连续递增序列 简单 练手
+ *
  * @author chenyu
  * @date 2020-07-05.
  */
-public class Leetcode_674_LongestContinuousIncreasingSubsequence {
+public class Leetcode_674 {
 
     public int findLengthOfLCIS(int[] nums) {
-        if (nums == null || nums.length ==0) {
+        if (nums == null || nums.length == 0) {
             return 0;
         }
         int maxLen = 1;

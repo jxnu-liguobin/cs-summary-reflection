@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package io.github.dreamylost;
 /**
  * Backtracking 回溯属于 DF，它不是用在遍历图的节点上，而是用于求解 排列组合 问题，例如有 { 'a','b','c' } 三个字符，求解所有由这三个字符排列得到的字符串。

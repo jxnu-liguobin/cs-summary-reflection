@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package io.github.dreamylost.tooffer;
 
 /** 统计一个数字在排序数组中出现的次数。 */

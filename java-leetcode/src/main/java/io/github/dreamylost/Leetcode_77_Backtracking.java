@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package io.github.dreamylost;
 /**
  * 1~n，K位数的组合[1到4之间的数字组成的两位数的组合] If n = 4 and k = 2, a solution is: [ [2,4], [3,4], [2,3], [1,2],

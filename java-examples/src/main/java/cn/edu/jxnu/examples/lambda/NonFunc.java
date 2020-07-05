@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package cn.edu.jxnu.examples.lambda;
 
 /** 在Object中实现的方法都不能视为抽象方法 */

@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package io.github.dreamylost.tooffer;
 
 /** 操作给定的二叉树，将其变换为源二叉树的镜像。 */

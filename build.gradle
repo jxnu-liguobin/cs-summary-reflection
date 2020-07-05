@@ -57,7 +57,7 @@ subprojects {
         compile group: 'junit', name: 'junit', version: '4.12'
         compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.8'
         compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.12.8'
-        compile group: 'com.diffplug.spotless', name: 'spotless-plugin-gradle', version: '3.30.0'
+        compile group: 'com.diffplug.spotless', name: 'spotless-plugin-gradle', version: '4.5.0'
     }
 
     [compileJava, compileScala, compileTestScala, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
@@ -69,7 +69,7 @@ subprojects {
     spotless {
         java {
             googleJavaFormat('1.1').aosp()
-            licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */'
+            licenseHeader '/* All Contributors (C) $YEAR */'
         }
     }
 }
@@ -82,6 +82,7 @@ project(':scala-leetcode') {
     spotless {
         scala {
             scalafmt('2.6.1').configFile('.scalafmt.conf')
+            licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
         }
     }
 }
@@ -90,6 +91,7 @@ project(':scala-utils') {
     spotless {
         scala {
             scalafmt('2.6.1').configFile('.scalafmt.conf')
+            licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
         }
     }
 }
@@ -98,6 +100,7 @@ project(':scala-examples') {
     spotless {
         scala {
             scalafmt('2.6.1').configFile('.scalafmt.conf')
+            licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
         }
     }
 }

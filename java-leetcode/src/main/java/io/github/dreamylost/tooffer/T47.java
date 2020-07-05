@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package io.github.dreamylost.tooffer;
 
 /** 求1+2+3+...+n，要求不能使用乘除法、 for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 */

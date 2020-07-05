@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package io.github.dreamylost.practice; // package cn.edu.jxnu.practice;
 //
 // import java.util.ArrayList;

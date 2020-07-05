@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* All Contributors (C) 2020 */
 package cn.edu.jxnu.examples.proxy;
 
 import java.lang.reflect.Method;

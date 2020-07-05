@@ -1,12 +1,13 @@
+/* All Contributors (C) 2020 */
 package io.github.ccccmaster;
 
 /**
- * Offer_53_QueShiDeShuziLcof
+ * 0～n-1中缺失的数字
  *
  * @author chenyu
  * @date 2020-07-05.
  */
-public class Offer_53_QueShiDeShuziLcof {
+public class Leetcode_JZ_53 {
 
     public int missingNumber(int[] nums) {
         for (int i = 0; i < nums.length; i++) {

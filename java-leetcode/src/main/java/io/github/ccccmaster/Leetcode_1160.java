@@ -1,14 +1,13 @@
+/* All Contributors (C) 2020 */
 package io.github.ccccmaster;
 
 /**
- * Leetcode_1160_FindWordsThatCanBeFormedByCharacters
- * 26个桶 记录chars对应数字
- * 为每个单词建桶 记录char对应数量
- * 某个单词所有字符数 <= chars中数量 即可组成
+ * 拼写单词 26个桶 记录chars对应数字 为每个单词建桶 记录char对应数量 某个单词所有字符数 <= chars中数量 即可组成
+ *
  * @author chenyu
  * @date 2020-07-05.
  */
-public class Leetcode_1160_FindWordsThatCanBeFormedByCharacters {
+public class Leetcode_1160 {
 
     public int countCharacters(String[] words, String chars) {
         int[] index = new int[26];
