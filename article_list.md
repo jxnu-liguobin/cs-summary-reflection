@@ -118,6 +118,8 @@
 
 [Scala的类型系统和泛型](./docs/_posts/Scala/2020-06-17-Scala-Scala的类型系统和泛型.md)
 
+[](./docs/_posts/Scala/2020-07-05-Scala的implicit和implicitly.md)
+
 ## Shapeless
 
 [什么是泛型编程](./docs/_posts/Shapeless/2020-06-20-Shapeless-什么是泛型编程.md)
