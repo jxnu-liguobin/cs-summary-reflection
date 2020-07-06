@@ -56,6 +56,7 @@ Leetcode Scala 实现
 * [合法二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_Interview_0405.scala)
 * [从中序与后续遍历序列构造二叉树](./src/main/scala/io/github/dreamylost/Leetcode_106.scala)
 * [路径总和 II](./src/main/scala/io/github/dreamylost/Leetcode_113.scala)
+* [二叉树展开为链表](./src/main/scala/io/github/dreamylost/Leetcode_114.scala)
 
 ## 链表
 
