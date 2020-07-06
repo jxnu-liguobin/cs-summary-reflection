@@ -68,6 +68,7 @@
 54. [填充每个节点的下一个右侧节点指针](./solution/tree/leetcode_116_.py)
 55. [填充每个节点的下一个右侧节点指针 II](./solution/tree/leetcode_117_.py)
 56. [路径总和](./solution/tree/leetcode_112_.py)
+57. [求根到叶子节点数字之和](./solution/tree/leetcode_129_.py)
 
 
 
