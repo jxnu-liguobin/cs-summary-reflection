@@ -57,6 +57,7 @@ Leetcode Scala 实现
 * [从中序与后续遍历序列构造二叉树](./src/main/scala/io/github/dreamylost/Leetcode_106.scala)
 * [路径总和 II](./src/main/scala/io/github/dreamylost/Leetcode_113.scala)
 * [二叉树展开为链表](./src/main/scala/io/github/dreamylost/Leetcode_114.scala)
+* [在二叉树中分配硬币](./src/main/scala/io/github/dreamylost/Leetcode_979.scala)
 
 ## 链表
 
