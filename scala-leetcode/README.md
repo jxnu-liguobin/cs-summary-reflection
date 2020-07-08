@@ -58,6 +58,7 @@ Leetcode Scala 实现
 * [路径总和 II](./src/main/scala/io/github/dreamylost/Leetcode_113.scala)
 * [二叉树展开为链表](./src/main/scala/io/github/dreamylost/Leetcode_114.scala)
 * [在二叉树中分配硬币](./src/main/scala/io/github/dreamylost/Leetcode_979.scala)
+* [从叶结点开始的最小字符串](./src/main/scala/io/github/dreamylost/Leetcode_988.scala)
 
 ## 链表
 
