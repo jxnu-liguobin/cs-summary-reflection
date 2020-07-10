@@ -60,6 +60,7 @@ Leetcode Scala 实现
 * [在二叉树中分配硬币](./src/main/scala/io/github/dreamylost/Leetcode_979.scala)
 * [从叶结点开始的最小字符串](./src/main/scala/io/github/dreamylost/Leetcode_988.scala)
 * [按垂序遍历返回其结点值](./src/main/scala/io/github/dreamylost/Leetcode_987.scala)
+* [最大二叉树 II](./src/main/scala/io/github/dreamylost/Leetcode_998.scala)
 
 ## 链表
 
