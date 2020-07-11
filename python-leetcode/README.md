@@ -70,6 +70,7 @@
 56. [路径总和](./solution/tree/leetcode_112_.py)
 57. [求根到叶子节点数字之和](./solution/tree/leetcode_129_.py)
 58. [N叉树的最大深度](./solution/tree/leetcode_559_.py)
+59. [在每个树行中找最大值](./solution/tree/leetcode_515_.py)
 
 
 
