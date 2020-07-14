@@ -94,6 +94,25 @@ object TreeNodeData {
     n1
   }
 
+  def treeData6_1(): TreeNode = {
+    val n1 = new TreeNode(1)
+    val n2 = new TreeNode(2)
+    val n3 = new TreeNode(3)
+    val n4 = new TreeNode(4)
+    val n5 = new TreeNode(5)
+    val n6 = new TreeNode(6)
+
+    n1.left = n2
+    n1.right = n3
+
+    n2.left = n4
+    n2.right = n5
+
+    n3.left = n6
+
+    n1
+  }
+
   def treeData11(): TreeNode = {
     val treeNode5 = new TreeNode(5)
     val treeNode4 = new TreeNode(4)
