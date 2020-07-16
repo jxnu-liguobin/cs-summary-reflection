@@ -65,6 +65,7 @@ Leetcode Scala 实现
 * [填充每个节点的下一个右侧节点指针](./src/main/scala/io/github/dreamylost/Leetcode_116.scala)
 * [填充每个节点的下一个右侧节点指针 II](./src/main/scala/io/github/dreamylost/Leetcode_117.scala)
 * [分裂二叉树的最大乘积](./src/main/scala/io/github/dreamylost/Leetcode_1339.scala)
+* [求根到叶子节点数字之和](./src/main/scala/io/github/dreamylost/Leetcode_129.scala)
 
 ## 链表
 
