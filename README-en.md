@@ -27,8 +27,8 @@ and can freely submit the code (unlimited language, get more information from [i
 
 ### Other contents
     
-- [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
-    - [GitHub在线阅读](./article_list.md)
+- [blog](https://dreamylost.cn) | [CSDN blog](https://blog.csdn.net/qq_34446485)
+    - [read on line](./article_list.md)
     
 ### Language environment of this repository
 
