@@ -1,4 +1,4 @@
-[<img align="right" width="30%" height="30%" src="https://github.com/jxnu-liguobin/cs-summary-reflection/tree/master/docs/public/image/scala-icon.png">](https://dreamylost.cn/)
+<img align="right" width="30%" height="30%" src="./docs/public/image/scala-icon.png" alt="https://dreamylost.cn">
 
 ![Build](https://github.com/jxnu-liguobin/cs-summary-reflection/workflows/Build/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jxnu-liguobin_cs-summary-reflection&metric=alert_status)](https://sonarcloud.io/dashboard?id=jxnu-liguobin_cs-summary-reflection)
