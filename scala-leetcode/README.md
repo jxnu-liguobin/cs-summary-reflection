@@ -9,7 +9,7 @@ Leetcode Scala 实现
 ## 树
 
 * [树的遍历](./src/main/scala/io/github/dreamylost/BTT.scala)
-* [镜像二叉树非递归](./src/main/scala/io/github/dreamylost/Leetcode_Interview_27.scala)
+* [镜像二叉树 迭代](./src/main/scala/io/github/dreamylost/Leetcode_Interview_27.scala)
 * [翻转树](./src/main/scala/io/github/dreamylost/Leetcode_226_Tree.scala)
 * [判断子树](./src/main/scala/io/github/dreamylost/Leetcode_572_Tree.scala)
 * [合并二叉树](./src/main/scala/io/github/dreamylost/Leetcode_617_Tree.scala)
@@ -46,7 +46,7 @@ Leetcode Scala 实现
 * [平衡二叉树](./src/main/scala/io/github/dreamylost/Leetcode_JZ_55_2.scala)
 * [从根到叶的二进制数之和](./src/main/scala/io/github/dreamylost/Leetcode_1022.scala)
 * [BiNode @unchecked](./src/main/scala/io/github/dreamylost/Leetcode_Interview_17_12.scala)
-* [二叉树的中序遍历 非递归](./src/main/scala/io/github/dreamylost/Leetcode_94.scala)
+* [二叉树的中序遍历 迭代](./src/main/scala/io/github/dreamylost/Leetcode_94.scala)
 * [不同的二叉搜索树 II](./src/main/scala/io/github/dreamylost/Leetcode_95.scala)
 * [不同的二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_96.scala)
 * [验证二叉搜索树](./src/main/scala/io/github/dreamylost/Leetcode_98.scala)
@@ -66,6 +66,7 @@ Leetcode Scala 实现
 * [填充每个节点的下一个右侧节点指针 II](./src/main/scala/io/github/dreamylost/Leetcode_117.scala)
 * [分裂二叉树的最大乘积](./src/main/scala/io/github/dreamylost/Leetcode_1339.scala)
 * [求根到叶子节点数字之和](./src/main/scala/io/github/dreamylost/Leetcode_129.scala)
+* [二叉树的前序遍历 迭代](./src/main/scala/io/github/dreamylost/Leetcode_129.scala)
 
 ## 链表
 
