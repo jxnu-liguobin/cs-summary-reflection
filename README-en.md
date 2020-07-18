@@ -1,14 +1,16 @@
-
-[![](https://img.shields.io/github/contributors/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
+![Build](https://github.com/jxnu-liguobin/cs-summary-reflection/workflows/Build/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jxnu-liguobin_cs-summary-reflection&metric=alert_status)](https://sonarcloud.io/dashboard?id=jxnu-liguobin_cs-summary-reflection)
 [![](https://img.shields.io/github/languages/count/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/github/languages/top/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/lgtm/alerts/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://dreamylost.cn)
 [![](https://img.shields.io/lgtm/grade/python/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://dreamylost.cn)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jxnu-liguobin/cs-summary-reflection/context:java)
 [![](https://img.shields.io/github/commit-activity/m/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
+[![](https://img.shields.io/github/contributors-anon/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 ![](https://img.shields.io/badge/QQ%20Group-655462259-blue.svg?style=social&logo=tencent-qq)
 
-中文 | [English](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/README-en.md)
+[中文](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/README.md) | English
 
 # Leetcode teamed up
 
@@ -36,18 +38,6 @@ and can freely submit the code (unlimited language, get more information from [i
 - Rust 1.4+  
 - Kotlin 1.3+  
 - C++ 11
-
-### Contributors
-
-[@jxnu-liguobin](https://github.com/jxnu-liguobin)
-
-[@tomsajkdhsakjd](https://github.com/tomsajkdhsakjd)
-
-[@ruierruier](https://github.com/ruierruier)
-
-[@CCCCmaster](https://github.com/CCCCmaster)
-
-[@ThomasPerkins1123](https://github.com/ThomasPerkins1123)
 
 ### License
 
