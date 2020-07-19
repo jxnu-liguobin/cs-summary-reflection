@@ -4,6 +4,8 @@
 """
 429. N叉树的层序遍历
 """
+from typing import List
+
 from solution import Node
 
 

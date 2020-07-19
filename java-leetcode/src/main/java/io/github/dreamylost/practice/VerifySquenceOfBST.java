@@ -7,7 +7,7 @@ package io.github.dreamylost.practice;
  */
 public class VerifySquenceOfBST {
     public boolean verifySquenceOfBST(int[] sequence) {
-        if (sequence.length == 0 || sequence == null) {
+        if (sequence == null || sequence.length == 0) {
             return false;
         }
         return isBST(sequence, 0, sequence.length - 1);

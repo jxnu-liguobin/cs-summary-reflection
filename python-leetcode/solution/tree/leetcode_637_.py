@@ -4,13 +4,15 @@
 """
 637. 二叉树的层平均值
 """
+from typing import List
+
 from solution import TreeNode
 
 
 class Solution:
     def averageOfLevels(self, root: TreeNode) -> List[float]:
         res = []
-        average=[]
+        average = []
 
         def helper(root: TreeNode, k: int):
             if not root:
@@ -23,5 +25,5 @@ class Solution:
 
         helper(root, 0)
         for li in res:
-            average.append(sum(li)/len(li))
+            average.append(sum(li) / len(li))
         return average

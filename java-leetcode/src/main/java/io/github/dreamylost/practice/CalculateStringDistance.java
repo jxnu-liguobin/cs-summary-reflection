@@ -11,8 +11,8 @@ package io.github.dreamylost.practice;
  * <p>School: jxnu
  *
  * @author Mr.Li
- * @date 2018-2-15
  * @version 1.0
+ * @date 2018-2-15
  */
 public class CalculateStringDistance {
 
@@ -41,6 +41,7 @@ public class CalculateStringDistance {
         }
         if (pBBegin > pBEnd) {
             if (pABegin > pAEnd) {
+                //lgtm [java/constant-comparison
                 return 0;
             } else {
                 return pAEnd - pABegin + 1;

@@ -27,7 +27,7 @@ public class MoreThanHalfNum {
     }
 
     private static int find(int[] arr, int N) {
-        if (arr.length == 0 || arr == null) return Integer.MAX_VALUE;
+        if (arr == null || arr.length == 0) return Integer.MAX_VALUE;
         int result = 0;
         int times;
         for (int i = times = 0; i < N; i++) {

@@ -77,6 +77,7 @@ public class ConnectionPoolTest {
                     if (connection != null) {
                         try {
                             connection.createStatement();
+                            // lgtm [java/database-resource-leak
                             connection.commit();
                         } catch (SQLException e) {
                             // TODO 自动生成的 catch 块
