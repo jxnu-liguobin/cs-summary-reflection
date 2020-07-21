@@ -21,4 +21,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: bash build_before_commit.sh
+      run: gradle -s build

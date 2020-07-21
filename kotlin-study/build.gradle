@@ -6,11 +6,9 @@ buildscript {
 
     //编译插件的依赖仓库
     repositories {
-        mavenCentral {
-            url 'https://maven.aliyun.com/nexus/content/groups/public/'
-        }
-        jcenter {
-            url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
+        maven {
+            name "aliyunmaven"
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
         }
     }
 
@@ -41,11 +39,9 @@ sourceSets {
 
 //项目本身的依赖仓库
 repositories {
-    mavenCentral {
-        url 'https://maven.aliyun.com/nexus/content/groups/public/'
-    }
-    jcenter {
-        url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
+    maven {
+        name "aliyunmaven"
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
     }
 }
 
