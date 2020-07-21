@@ -24,39 +24,35 @@ public class Main12 {
             System.out.println("源文件不存在！");
             System.exit(1);
         }
-        BufferedReader br =
-                new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
-        char[] buf = new char[1024]; // 设置一个1024字符的缓冲区
-        StringBuffer stringBuffer = new StringBuffer();
-        try {
-            while (br.read(buf) > 0) {
-                stringBuffer.append(buf);
+        try (BufferedReader br =
+                new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"))) {
+            char[] buf = new char[1024]; // 设置一个1024字符的缓冲区
+            StringBuilder stringBuffer = new StringBuilder();
+            try {
+                while (br.read(buf) > 0) {
+                    stringBuffer.append(buf);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return stringBuffer.toString();
         }
-        try {
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return stringBuffer.toString();
     }
 
     /**
-     * @description 复制的路径，和文件字节流
      * @param path
-     * @param bytes
+     * @param result
      * @throws IOException
+     * @description 复制的路径，和文件字节流
      */
     public static void writeToFile(String path, String result) throws IOException {
         File f = new File(path);
-        PrintWriter outPrintWriter =
+        try (PrintWriter outPrintWriter =
                 new PrintWriter(
                         new BufferedWriter(
-                                new OutputStreamWriter(new FileOutputStream(f), "UTF-8")));
-        outPrintWriter.write(result);
-        outPrintWriter.flush(); // 迫使缓冲区被输出
-        outPrintWriter.close();
+                                new OutputStreamWriter(new FileOutputStream(f), "UTF-8")))) {
+            outPrintWriter.write(result);
+            outPrintWriter.flush(); // 迫使缓冲区被输出
+        }
     }
 }

@@ -34,15 +34,10 @@ public class SearchMinInArray {
             if (array[i] > array[i + 1]) {
                 /* 临界处 */
                 return array[i + 1];
-
-            } else {
-                if (i == array.length - 1) {
-                    return array[0];
-                }
             }
         }
 
-        return 0;
+        return array[0];
     }
 
     /**

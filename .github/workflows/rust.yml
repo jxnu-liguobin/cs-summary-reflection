@@ -1,0 +1,96 @@
+name: Build rust language module
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+      # Run build
+    - name: cargo-make
+      run: cargo install --force cargo-make
+
+    - name: build rust-datastructure
+      working-directory: rust-datastructure
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-datastructure
+      working-directory: rust-datastructure
+      run: cargo make test
+
+
+    - name: build rust-leetcode
+      working-directory: rust-leetcode
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-leetcode
+      working-directory: rust-leetcode
+      run: cargo make test
+
+
+    - name: build rust-examples
+      working-directory: rust-examples
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-examples
+      working-directory: rust-examples
+      run: cargo make test
+
+
+    - name: build rust-http
+      working-directory: rust-http
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-http
+      working-directory: rust-http
+      run: cargo make test
+
+
+    - name: build rust-exercise
+      working-directory: rust-exercise
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-exercise
+      working-directory: rust-exercise
+      run: cargo make test
+
+
+    - name: build rust-oop
+      working-directory: rust-oop
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-oop
+      working-directory: rust-oop
+      run: cargo make test
+
+
+    - name: build rust-minigrep
+      working-directory: rust-minigrep
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-minigrep
+      working-directory: rust-minigrep
+      run: cargo make test

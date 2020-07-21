@@ -14,27 +14,27 @@
 [![](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 ![](https://img.shields.io/badge/QQ%20Group-655462259-blue.svg?style=social&logo=tencent-qq)
 
-中文 | [English](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/README-en.md)
+[中文](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/README.md) | English
 
-# Leetcode 组队刷题
+# Leetcode teamed up
 
-### 报名途径
+### Registration route
 
-提交 issue 或 [博客留言](https://dreamylost.cn)
+Just create a issue or leave a message at the end of the [dreamylost's blog](https://dreamylost.cn)
 
-### 参与方式
+### Way of participation
 
-　每位参与的小伙伴，都会获得代码仓库的 Collaborator 权限，可以自由地提交代码（不限制语种，方式参见 [issue #23](https://github.com/jxnu-liguobin/cs-summary-reflection/issues/23)），通过 issue 认领。
+　Each participating partner will get the Collaborator permission of the code repository,
+and can freely submit the code (unlimited language, get more information from [issue #23](https://github.com/jxnu-liguobin/cs-summary-reflection/issues/23)), claim through issue.
 
-  如果可以的话，最好使用当前语言最常见的格式化工具进行格式化后，再提交。
-  没有频率限制，一般至多一天一道。
+  If you can, it's best to use the most common formatting tools in the current language to format and then submit.
 
-### 其他内容
-
-- [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
-    - [GitHub在线阅读](./article_list.md)
+### Other contents
     
-### 环境
+- [blog](https://dreamylost.cn) | [CSDN blog](https://blog.csdn.net/qq_34446485)
+    - [read on line](./article_list.md)
+    
+### Language environment of this repository
 
 - Scala 2.12.8+
 - Java 1.8+
@@ -45,10 +45,4 @@
 
 ### License
 
-[Apache License](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/LICENSE) © 梦境迷离
-
-<img src="./docs/public/image/my_chat.JPG" alt="邮箱dreamylost@outlook.com" width="300" height="380"/> 
-
-公众号 ScalaCoder（佛系更新，目前博客优先）
-
-<img src="./docs/public/image/qrcode.jpg" alt="ScalaCoder" width="300" height="300"/>
+[Apache License](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/LICENSE) © dreamylost

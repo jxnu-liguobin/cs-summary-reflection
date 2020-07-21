@@ -17,6 +17,3 @@ class Solution:
             root.right = self.insertIntoBST(root.right, val)
 
         return root
-
-        helper(root)
-        return res

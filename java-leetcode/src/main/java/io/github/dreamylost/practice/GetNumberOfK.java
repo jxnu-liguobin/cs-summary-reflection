@@ -74,7 +74,7 @@ public class GetNumberOfK {
             }
         } else if (midNum > k) {
             end = middIndex - 1;
-        } else if (midNum < k) {
+        } else {
             start = middIndex + 1;
         }
         return getFirst(array, start, end, k);
@@ -105,7 +105,7 @@ public class GetNumberOfK {
             }
         } else if (midNum > k) {
             end = middIndex - 1;
-        } else if (midNum < k) {
+        } else {
             start = middIndex + 1;
         }
 

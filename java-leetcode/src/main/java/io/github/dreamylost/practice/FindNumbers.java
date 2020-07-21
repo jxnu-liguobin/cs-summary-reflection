@@ -25,7 +25,7 @@ public class FindNumbers {
     public java.util.ArrayList<Integer> FindNumbersWithSum(int[] array, int sum) {
 
         java.util.ArrayList<Integer> list = new java.util.ArrayList<>();
-        if (array.length == 0 || array == null) return list;
+        if (array == null || array.length == 0) return list;
         int len = array.length;
         int end = len - 1;
         int begin = 0;

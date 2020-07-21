@@ -18,7 +18,7 @@ public class IsHasSubtree {
         }
         boolean result = false;
         // 当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false
-        if (root2 != null && root1 != null) {
+        if (root1 != null) {
             // 如果找到了对应Tree2的根节点的点
             if (root1.val == root2.val) {
                 // 以这个根节点为为起点判断是否包含Tree2

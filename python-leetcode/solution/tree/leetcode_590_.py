@@ -4,6 +4,8 @@
 """
 590. N叉树的后续遍历
 """
+from typing import List
+
 from solution import Node
 
 
@@ -17,6 +19,7 @@ class Solution:
             for child in root.children:
                 postHelper(child)
                 result.append(child.val)
+
         if not root:
             return result
         postHelper(root)

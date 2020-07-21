@@ -33,7 +33,7 @@ public class Duplicate {
     // in the array number
     // otherwise false
     public boolean duplicate(int numbers[], int length, int[] duplication) {
-        if (numbers == null || numbers.length < 1 || duplication.length < 1 || duplication == null)
+        if (numbers == null || numbers.length < 1 || duplication == null || duplication.length < 1)
             return false;
         Map<Integer, Integer> map = new HashMap<Integer, Integer>(length);
         for (int i = 0; i < length; i++) {

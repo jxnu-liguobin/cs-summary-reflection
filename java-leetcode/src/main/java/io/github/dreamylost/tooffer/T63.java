@@ -40,7 +40,7 @@ public class T63 {
         }
         if (list.size() % 2 == 0) {
             int i = list.size() / 2;
-            Double a = (double) (list.get(i - 1) + list.get(i));
+            double a = list.get(i - 1) + list.get(i);
             return a / 2;
         }
         list.get(0);

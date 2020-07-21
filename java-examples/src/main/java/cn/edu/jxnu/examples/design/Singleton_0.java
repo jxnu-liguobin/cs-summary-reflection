@@ -68,7 +68,8 @@ enum Singleton_3 {
 
 // thread safe
 class Singleton_4 {
-    private static Singleton_4 instance = new Singleton_4();
+
+    private static volatile Singleton_4 instance = new Singleton_4();
 
     private Singleton_4() {}
 

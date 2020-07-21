@@ -50,6 +50,7 @@ public class AIOEchoServer {
                         } finally {
                             try {
                                 server.accept(null, this);
+                                assert writeResult != null;
                                 writeResult.get();
                                 result.close();
                             } catch (Exception e) {

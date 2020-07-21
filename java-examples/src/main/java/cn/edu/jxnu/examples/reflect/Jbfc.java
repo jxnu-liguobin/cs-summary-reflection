@@ -30,11 +30,12 @@ public class Jbfc {
                 verbose = true;
             } else {
                 fileName = args[i];
-                className = args[i + 1];
+                if (i + 1 < args.length) className = args[i + 1];
                 break;
             }
         }
 
+        assert fileName != null;
         FileReader r = new FileReader(fileName);
 
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);

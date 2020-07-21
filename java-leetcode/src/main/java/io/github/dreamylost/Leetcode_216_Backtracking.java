@@ -31,7 +31,7 @@ public class Leetcode_216_Backtracking {
                 x -> {
                     String result =
                             x.stream()
-                                    .map(j -> j.toString())
+                                    .map(Object::toString)
                                     .collect(Collectors.joining(",", "[", "],"));
                     stringBuilder.append(result);
                 });
@@ -72,25 +72,21 @@ public class Leetcode_216_Backtracking {
             ret2.add(path2);
         }
         ret.addAll(ret2);
-        Collections.sort(
-                ret,
-                new Comparator<List<Integer>>() {
-                    @Override
-                    public int compare(List<Integer> o1, List<Integer> o2) {
-                        if (o1.get(0) > o2.get(0)) {
+        ret.sort(
+                (o1, o2) -> {
+                    if (o1.get(0) > o2.get(0)) {
+                        return 1;
+                    }
+                    if (o1.get(0).equals(o2.get(0))) {
+                        if (o1.get(1) > o2.get(1)) {
                             return 1;
                         }
-                        if (o1.get(0) == o2.get(0)) {
-                            if (o1.get(1) > o2.get(1)) {
-                                return 1;
-                            }
-                            if (o1.get(1) == o2.get(1)) {
-                                return 0;
-                            }
-                            return -1;
+                        if (o1.get(1).equals(o2.get(1))) {
+                            return 0;
                         }
                         return -1;
                     }
+                    return -1;
                 });
         return ret;
     }

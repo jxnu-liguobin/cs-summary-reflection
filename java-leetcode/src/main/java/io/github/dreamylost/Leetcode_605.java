@@ -11,6 +11,14 @@ package io.github.dreamylost;
  * @time 2018年4月1日
  */
 public class Leetcode_605 {
+
+    /**
+     * 1 ms,100.00% 41.4 MB,8.33%
+     *
+     * @param flowerbed
+     * @param n
+     * @return
+     */
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
         int cnt = 0;
         for (int i = 0; i < flowerbed.length; i++) {
@@ -31,7 +39,7 @@ public class Leetcode_605 {
                 next = 0;
             } else {
                 // 保存后面一个元素
-                i = flowerbed[i + 1];
+                next = flowerbed[i + 1];
             }
             if (pre == 0 && next == 0) {
                 cnt++;

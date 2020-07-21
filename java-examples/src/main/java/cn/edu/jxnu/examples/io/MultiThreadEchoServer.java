@@ -64,6 +64,7 @@ public class MultiThreadEchoServer {
         }
         while (true) {
             try {
+                assert echoServer != null;
                 clientSocket = echoServer.accept();
                 System.out.println(clientSocket.getRemoteSocketAddress() + " connect!");
                 tp.execute(new HandleMsg(clientSocket));
