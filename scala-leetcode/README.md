@@ -67,6 +67,7 @@ Leetcode Scala 实现
 * [分裂二叉树的最大乘积](./src/main/scala/io/github/dreamylost/Leetcode_1339.scala)
 * [求根到叶子节点数字之和](./src/main/scala/io/github/dreamylost/Leetcode_129.scala)
 * [二叉树的前序遍历 迭代](./src/main/scala/io/github/dreamylost/Leetcode_129.scala)
+* [二叉搜索树迭代器](./src/main/scala/io/github/dreamylost/Leetcode_173.scala)
 
 ## 链表
 
