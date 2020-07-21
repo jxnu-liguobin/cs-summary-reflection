@@ -1,120 +1,105 @@
-name: linux
-on: [push, pull_request]
+name: Build rust language module
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    name: (${{ matrix.target }}, ${{ matrix.channel }}, ${{ matrix.cfg-release-channel }})
-    strategy:
-      # https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions#usage-limits
-      # There's a limit of 60 concurrent jobs across all repos in the rust-lang organization.
-      # In order to prevent overusing too much of that 60 limit, we throttle the
-      # number of rustfmt jobs that will run concurrently.
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        target: [
-          x86_64-unknown-linux-gnu,
-        ]
-        channel: [ nightly ]
-        cfg-release-channel: [
-          beta,
-          nightly,
-        ]
+  build:
 
-    env:
-      CFG_RELEASE_CHANNEL: ${{ matrix.cfg-release-channel }}
-      CFG_RELEASE: ${{ matrix.cfg-release-channel }}
+    runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+    - name: checkout
+      uses: actions/checkout@v2
 
-        # Run build
-      - name: setup
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: ${{ matrix.channel }}-${{ matrix.target }}
-          target: ${{ matrix.target }}
-          override: true
-          profile: minimal
-          default: true
+      # Run build
+    - name: setup
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{ matrix.channel }}-${{ matrix.target }}
+        target: ${{ matrix.target }}
+        override: true
+        profile: minimal
+        default: true
 
-      - name: cargo-make
-        run: cargo install --force cargo-make
+    - name: cargo-make
+      run: cargo install --force cargo-make
 
-      - name: build rust-datastructure
-        working-directory: rust-datastructure
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-datastructure
-        working-directory: rust-datastructure
-        run: cargo make test
-
-
-      - name: build rust-leetcode
-        working-directory: rust-leetcode
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-leetcode
-        working-directory: rust-leetcode
-        run: cargo make test
+    - name: build rust-datastructure
+      working-directory: rust-datastructure
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-datastructure
+      working-directory: rust-datastructure
+      run: cargo make test
 
 
-      - name: build rust-examples
-        working-directory: rust-examples
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-examples
-        working-directory: rust-examples
-        run: cargo make test
+    - name: build rust-leetcode
+      working-directory: rust-leetcode
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-leetcode
+      working-directory: rust-leetcode
+      run: cargo make test
 
 
-      - name: build rust-http
-        working-directory: rust-http
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-http
-        working-directory: rust-http
-        run: cargo make test
+    - name: build rust-examples
+      working-directory: rust-examples
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-examples
+      working-directory: rust-examples
+      run: cargo make test
 
 
-      - name: build rust-exercise
-        working-directory: rust-exercise
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-exercise
-        working-directory: rust-exercise
-        run: cargo make test
+    - name: build rust-http
+      working-directory: rust-http
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-http
+      working-directory: rust-http
+      run: cargo make test
 
 
-      - name: build rust-oop
-        working-directory: rust-oop
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-oop
-        working-directory: rust-oop
-        run: cargo make test
+    - name: build rust-exercise
+      working-directory: rust-exercise
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-exercise
+      working-directory: rust-exercise
+      run: cargo make test
 
 
-      - name: build rust-minigrep
-        working-directory: rust-minigrep
-        run: |
-          rustc -Vv
-          cargo -V
-          cargo make build
-      - name: test rust-minigrep
-        working-directory: rust-minigrep
-        run: cargo make test
+    - name: build rust-oop
+      working-directory: rust-oop
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-oop
+      working-directory: rust-oop
+      run: cargo make test
+
+
+    - name: build rust-minigrep
+      working-directory: rust-minigrep
+      run: |
+        rustc -Vv
+        cargo -V
+        cargo make build
+    - name: test rust-minigrep
+      working-directory: rust-minigrep
+      run: cargo make test
