@@ -64,8 +64,6 @@ fn cfg() {
         println!("You are *not* running linux!");
     }
 
-    are_you_on_linux2();
-
     println!("Are you sure?");
     if cfg!(target_os = "linux") {
         //target_os由rustc隐式提供，但是自定义条件条件必须使用--cfg标志传递给rustc

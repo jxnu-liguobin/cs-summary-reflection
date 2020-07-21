@@ -16,15 +16,6 @@ jobs:
       uses: actions/checkout@v2
 
       # Run build
-    - name: setup
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: ${{ matrix.channel }}-${{ matrix.target }}
-        target: ${{ matrix.target }}
-        override: true
-        profile: minimal
-        default: true
-
     - name: cargo-make
       run: cargo install --force cargo-make
 
