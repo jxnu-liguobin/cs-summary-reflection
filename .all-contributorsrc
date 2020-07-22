@@ -1,5 +1,8 @@
 {
-  "files": ["README.md", "README-en.md"],
+  "files": [
+    "README.md",
+    "README-en.md"
+  ],
   "imageSize": 100,
   "contributorsPerLine": 7,
   "contributorsSortAlphabetically": false,
@@ -12,6 +15,21 @@
       "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
     }
   },
-  "skipCi": "true",
-  "contributors": []
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "jxnu-liguobin",
+      "name": "梦境迷离",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/29496873?v=4",
+      "profile": "https://dreamylost.cn",
+      "contributions": [
+        "infra",
+        "test"
+      ]
+    }
+  ],
+  "projectName": "cs-summary-reflection",
+  "projectOwner": "jxnu-liguobin",
+  "repoType": "github",
+  "repoHost": "https://github.com"
 }
