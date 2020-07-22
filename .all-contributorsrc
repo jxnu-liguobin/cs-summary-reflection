@@ -26,6 +26,15 @@
         "infra",
         "test"
       ]
+    },
+    {
+      "login": "ThomasPerkins1123",
+      "name": "ThomasPerkins1123",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25691261?v=4",
+      "profile": "https://github.com/ThomasPerkins1123",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "projectName": "cs-summary-reflection",
