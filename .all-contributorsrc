@@ -28,7 +28,15 @@
       ]
     },
     {
-      "login": "CCCCmaster",
+      "login": "LaoZhangCoder",
+      "name": "laozhang",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28627858?v=4",
+      "profile": "https://github.com/LaoZhangCoder",
+      "contributions": [
+        "code"
+      ]
+    },
+    { "login": "CCCCmaster",
       "name": "CCCCmaster",
       "avatar_url": "https://avatars3.githubusercontent.com/u/25200717?v=4",
       "profile": "https://github.com/CCCCmaster",
