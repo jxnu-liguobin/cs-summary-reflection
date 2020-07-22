@@ -34,9 +34,9 @@
       "profile": "https://github.com/ThomasPerkins1123",
       "contributions": [
         "test"
-        ]
-      } 
-     ,{
+      ]
+    },
+    {
       "login": "LaoZhangCoder",
       "name": "laozhang",
       "avatar_url": "https://avatars3.githubusercontent.com/u/28627858?v=4",
@@ -45,7 +45,8 @@
         "code"
       ]
     },
-    { "login": "CCCCmaster",
+    {
+      "login": "CCCCmaster",
       "name": "CCCCmaster",
       "avatar_url": "https://avatars3.githubusercontent.com/u/25200717?v=4",
       "profile": "https://github.com/CCCCmaster",
@@ -57,5 +58,6 @@
   "projectName": "cs-summary-reflection",
   "projectOwner": "jxnu-liguobin",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "commitConvention": "none"
 }
