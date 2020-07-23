@@ -47,8 +47,7 @@ public class FindTheNumber {
             int hit = 0;
             int hit1 = -1;
             int hit2 = -1;
-            for (int j = 0; j < rg.length && (hit <= 2); j++) {
-                //lgtm [java/constant-comparison
+            for (int j = 0; j < rg.length && (hit <= 2); j++) { //lgtm [java/constant-comparison
                 // hit==2表示这个条件只能被满足两次，也就是说对于一个i，在rg数组的30个数中，
                 // 这个i能被其它28个数整除，而不能被其中两个数整除。
                 if ((i % rg[j]) != 0) {

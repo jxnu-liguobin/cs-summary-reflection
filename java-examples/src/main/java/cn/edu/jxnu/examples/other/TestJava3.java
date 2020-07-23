@@ -11,9 +11,9 @@ public class TestJava3 {
 
     public static void main(String[] args) {
         A a = new A();
-        System.out.println(a instanceof B); // true a与父类
-        System.out.println(a instanceof C); // true a与父接口
-        System.out.println(a instanceof D); // false a与子类
+        System.out.println(a instanceof B); // true a与父类 lgtm [java/useless-type-test]
+        System.out.println(a instanceof C); // true a与父接口 lgtm [java/useless-type-test]
+        System.out.println(a instanceof D); // false a与子类 lgtm [java/useless-type-test]
     }
 }
 

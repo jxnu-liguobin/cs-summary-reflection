@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -v
 # if donnot have all environments, format only your module which edit
-enable_language=("java","rust","scala","python","c++","kotlin")
+enable_language=("java","rust","scala","python","c++","kotlin","ruby")
 root_path=`pwd`
 
 # auto compile java and scala
@@ -31,6 +31,8 @@ do
 			"python")
 			echo "############ [ TODO ]";;
 	    "c++")
+	    echo "############ [ TODO ]";;
+	    "ruby")
 	    echo "############ [ TODO ]";;
 			*)
 			echo "| exclude $sub_module";;

@@ -54,7 +54,6 @@ object LoopBasic {
 
   def loopTest(list: List[Int]): Unit = {
     println("函数式遍历")
-    //list.foreach(args => print(args + " "))
     list.foreach(println)
     println()
     println("================================")

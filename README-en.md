@@ -46,6 +46,7 @@ and can freely submit the code (unlimited language, get more information from [i
 - Rust 1.4+  
 - Kotlin 1.3+  
 - C++ 11
+- Ruby 2.5+
 
 ### Contributors
 

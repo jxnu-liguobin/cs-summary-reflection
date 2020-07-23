@@ -1,4 +1,4 @@
-name: Build rust language module
+name: Build rust language modules
 
 on:
   push:
