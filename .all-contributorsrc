@@ -53,6 +53,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "poorguy",
+      "name": "poorguy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/624653?v=4",
+      "profile": "https://github.com/poorguy",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "cs-summary-reflection",
