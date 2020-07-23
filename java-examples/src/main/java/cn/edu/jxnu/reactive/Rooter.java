@@ -23,7 +23,7 @@ public class Rooter {
         return value;
     }
 
-    // 一旦value有值，只会直接反回，不会重复计算
+    // 一旦value有值，只会直接返回，不会重复计算
     public double getRoot() {
         // 可变性不可能从外部被观察到
         if (root == null) {
