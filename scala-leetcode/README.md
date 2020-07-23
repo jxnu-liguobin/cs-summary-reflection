@@ -69,6 +69,7 @@ Leetcode Scala 实现
 * [二叉树的前序遍历 迭代](./src/main/scala/io/github/dreamylost/Leetcode_129.scala)
 * [二叉搜索树迭代器](./src/main/scala/io/github/dreamylost/Leetcode_173.scala)
 * [二叉树最大宽度](./src/main/scala/io/github/dreamylost/Leetcode_662.scala)
+* [二叉树的右视图](./src/main/scala/io/github/dreamylost/Leetcode_199.scala)
 
 ## 链表
 
