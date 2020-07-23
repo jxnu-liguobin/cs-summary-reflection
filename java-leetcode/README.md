@@ -21,4 +21,4 @@
 3. [0～n-1中缺失的数字](./src/main/java/io/github/ccccmaster/Leetcode_JZ_53.java)
 
 ## author: poorguy
-1. [Binary Search](/src/main/java/io/github/poorguy/BinarySearch.java)
+1. [Binary Search](./src/main/java/io/github/poorguy/BinarySearch.java)
