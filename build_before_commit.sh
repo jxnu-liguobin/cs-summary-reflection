@@ -1,13 +1,12 @@
 #!/bin/bash
 # set -v
 # if donnot have all environments, format only your module which edit
-enable_language=("java","rust","scala","python","c++","kotlin")
+enable_language=("java","rust","scala","python","c++","kotlin","ruby")
 root_path=`pwd`
 
 # auto compile java and scala
 `gradle -s build > java_scala_compile.log`
 `gradle -s spotlessApply >> java_scala_compile.log`
-`gradle -s build >> java_scala_compile.log`
 
 for sub_module in $(ls $root_path)
 do
@@ -32,6 +31,8 @@ do
 			"python")
 			echo "############ [ TODO ]";;
 	    "c++")
+	    echo "############ [ TODO ]";;
+	    "ruby")
 	    echo "############ [ TODO ]";;
 			*)
 			echo "| exclude $sub_module";;

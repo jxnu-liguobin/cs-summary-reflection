@@ -171,8 +171,7 @@ object Function3 extends App {
   prt(arr: _*) //OK，告诉编译器将arr的每个元素作为参数传进去，而不是将arr作为一个整体
 
   //带名字参数,字面量/匿名函数不能使用带名参数
-  val su = (x: Int, y: Int) => x + y
-  //    val suu = su(y = 1, x = 2)
+  val su = (x: Int, y: Int) => x + y //    val suu = su(y = 1, x = 2)
 
   def sum(x: Int, y: Int) = x + y
 

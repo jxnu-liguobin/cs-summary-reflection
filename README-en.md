@@ -28,6 +28,10 @@ Just create a issue or leave a message at the end of the [dreamylost's blog](htt
 and can freely submit the code (unlimited language, get more information from [issue #23](https://github.com/jxnu-liguobin/cs-summary-reflection/issues/23)), claim through issue.
 
   If you can, it's best to use the most common formatting tools in the current language to format and then submit.
+  
+* If you use  a JVM language, please use gradle as the build tool and execute `gradle -s spotlessapply` before submitting code
+* If you use Rust, please execute `cargo fmt --all` before submitting the code
+* If you use a Script language, please do the format consciously, do not make requirements
 
 ### Other contents
     
@@ -42,6 +46,26 @@ and can freely submit the code (unlimited language, get more information from [i
 - Rust 1.4+  
 - Kotlin 1.3+  
 - C++ 11
+- Ruby 2.5+
+
+### Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://dreamylost.cn"><img src="https://avatars3.githubusercontent.com/u/29496873?v=4?s=100" width="100px;" alt=""/><br /><sub><b>梦境迷离</b></sub></a><br /><a href="#infra-jxnu-liguobin" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=jxnu-liguobin" title="Tests">⚠️</a> <a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=jxnu-liguobin" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ThomasPerkins1123"><img src="https://avatars3.githubusercontent.com/u/25691261?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ThomasPerkins1123</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=ThomasPerkins1123" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/LaoZhangCoder"><img src="https://avatars3.githubusercontent.com/u/28627858?v=4?s=100" width="100px;" alt=""/><br /><sub><b>laozhang</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=LaoZhangCoder" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/CCCCmaster"><img src="https://avatars3.githubusercontent.com/u/25200717?v=4?s=100" width="100px;" alt=""/><br /><sub><b>CCCCmaster</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=CCCCmaster" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/poorguy"><img src="https://avatars1.githubusercontent.com/u/624653?v=4?s=100" width="100px;" alt=""/><br /><sub><b>poorguy</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=poorguy" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ### License
 

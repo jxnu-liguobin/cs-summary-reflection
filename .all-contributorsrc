@@ -1,0 +1,72 @@
+{
+  "files": [
+    "README.md",
+    "README-en.md"
+  ],
+  "imageSize": 100,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
+  "types": {
+    "custom": {
+      "symbol": "🔭",
+      "description": "A custom contribution type.",
+      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
+    }
+  },
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "jxnu-liguobin",
+      "name": "梦境迷离",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/29496873?v=4",
+      "profile": "https://dreamylost.cn",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "ThomasPerkins1123",
+      "name": "ThomasPerkins1123",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25691261?v=4",
+      "profile": "https://github.com/ThomasPerkins1123",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "LaoZhangCoder",
+      "name": "laozhang",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28627858?v=4",
+      "profile": "https://github.com/LaoZhangCoder",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "CCCCmaster",
+      "name": "CCCCmaster",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25200717?v=4",
+      "profile": "https://github.com/CCCCmaster",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "poorguy",
+      "name": "poorguy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/624653?v=4",
+      "profile": "https://github.com/poorguy",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "projectName": "cs-summary-reflection",
+  "projectOwner": "jxnu-liguobin",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "commitConvention": "none"
+}

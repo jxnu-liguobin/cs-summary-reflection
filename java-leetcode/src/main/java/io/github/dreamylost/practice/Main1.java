@@ -40,7 +40,7 @@ public class Main1 {
 
     /**
      * @description 数组逆转
-     * @param arr
+     * @param t
      * @param begin
      * @param end
      * @return

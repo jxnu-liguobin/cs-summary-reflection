@@ -16,10 +16,6 @@ object IOBasic {
   val liness = Source.fromFile(file).getLines().toList
 
   def main(args: Array[String]): Unit = {
-    //        for (line <- Source.fromFile(file).getLines()) {
-    //            println(line.length + " " + line)
-    //        }
-
     //格式化打印
     val maxWidth = widthOfLength(longestLine)
 

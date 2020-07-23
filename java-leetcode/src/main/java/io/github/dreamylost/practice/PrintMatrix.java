@@ -29,7 +29,7 @@ public class PrintMatrix {
 
     /**
      * @description 打印
-     * @param list
+     * @param arr
      * @param col
      */
     public void show(int[][] arr, int col) {
