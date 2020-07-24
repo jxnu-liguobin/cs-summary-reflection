@@ -6,7 +6,9 @@ Leetcode Scala 实现
 3. 按数据结构划分
 4. @unchecked 表示最优解仍不能AC，与极端case有关
 
-## 树
+## author: dreamylost
+
+### 树
 
 * [树的遍历](./src/main/scala/io/github/dreamylost/BTT.scala)
 * [镜像二叉树 迭代](./src/main/scala/io/github/dreamylost/Leetcode_Interview_27.scala)
@@ -71,14 +73,14 @@ Leetcode Scala 实现
 * [二叉树最大宽度](./src/main/scala/io/github/dreamylost/Leetcode_662.scala)
 * [二叉树的右视图](./src/main/scala/io/github/dreamylost/Leetcode_199.scala)
 
-## 链表
+### 链表
 
 * [归并两个有序的链表](./src/main/scala/io/github/dreamylost/Leetcode_21_ListNode.scala)
 * [从有序链表中删除重复节点](./src/main/scala/io/github/dreamylost/Leetcode_83_ListNode.scala)
 * [相交链表](./src/main/scala/io/github/dreamylost/Leetcode_160_ListNode.scala)
 * [链表反转](./src/main/scala/io/github/dreamylost/Leetcode_206_ListNode.scala)
 
-## 其他
+### 其他
 
 * [爬楼梯](./src/main/scala/io/github/dreamylost/Leetcode_70.scala)
 * [最大面值（LintCode 669）](./src/main/scala/io/github/dreamylost/CoinChange.scala)
