@@ -3,17 +3,15 @@
 
 [english](./CONTRIBUTING-en.md)
 
-多人同时使用一种语言时（是否存在多人使用一种语言，可根据 issue 的 assiginess 来判断）
+本库没有的语言，自己提PR新建子模块，参考`python-leetcode`新建模块，该操作不允许直接push，请尽可能的支持 `GitHub action workflows`（不会就忽略）
 
-- 每个人为自己建一个package，用以区分不同人，参考 `java-leetcode`，第一次以PR形式提交，merge后你将获得Collaborator权限
-- 每个人在自己package中新建一个`packageName.md`，增加题目索引再链接到当前项目的README.md
-
-本库没有的语言，自己提PR新建子模块，参考`java-leetcode`新建模块，该操作不允许直接push，请尽可能的支持 `GitHub action workflows`（不会就忽略）
+- 在子模块下每个人为自己建一个package，用以区分不同人，参考 `java-leetcode`，第一次以PR形式提交，merge后你将获得Collaborator权限
+- 在子模块下每个人在自己package中新建一个`packageName.md`，增加题目索引再链接到当前项目的README.md
 
 如果你要创建新的语言的子模块，应该以下面的python-leetcode项目为例
 
 ```
-python-leetcode
+python-leetcode  当然，前面可能还有通用包名io.github.xxx
     /laozhang             每个人的包
        /leetcode_12.py    每个人刷的题，这里还能创建自己的子包，区分专题
        /laozhang.md       每个人的题目索引
