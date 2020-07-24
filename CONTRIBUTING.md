@@ -32,9 +32,9 @@ python-leetcode
 
 ## 要求
 
-* 使用非脚本语言时，必须本地编译通过，JVM平台统一使用 gradle spotlessApply 格式化代码，脚本语言不作要求
+* 使用非脚本语言时，必须本地编译通过，JVM平台统一使用`gradle spotlessApply`格式化代码，脚本语言不作要求
 * 没有通过GitHub action workflows的代码，请立刻回滚！（目前本库只支持对JVM语言和Rust的检查）
 * 没有通过sonarcloud的，请立刻回滚！
 * 没有通过lgtm的，请抽空解决即可
-* 解决冲突: 只允许 append 不能 delete
-* 默认Java代码的版权是: all Collaborator
+* 解决冲突: 只允许append不能delete
+* 默认Java代码的版权是: `all Collaborator`

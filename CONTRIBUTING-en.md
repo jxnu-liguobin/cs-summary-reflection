@@ -32,9 +32,9 @@ edit `python-leetcode/README.md`, let's make `packageName.md` linked to `python-
 
 ## requirement
 
-* When non script language is used, it must be compiled locally. The JVM platform uses gradle spotlessApply to format the code, which is not required by script language
+* When non script language is used, it must be compiled locally. The JVM platform uses `gradle spotlessApply` to format the code, which is not required by script language
 * No code passed GitHub action workflow, please roll back immediately! (at present, this repository only supports checking JVM language and Rust)
 * If it doesn't pass sonarcloud, please roll back immediately!
 * If it fails to pass lgtm, please take time to solve it
 * Conflict resolution: only append is allowed, not delete
-* The copyright of the default java code is: all collaborator
+* The copyright of the default java code is: `all collaborator`
