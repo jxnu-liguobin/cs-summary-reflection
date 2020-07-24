@@ -22,6 +22,8 @@
 
 提交 issue 或 [博客留言](https://dreamylost.cn)
 
+详情请参见 [CONTRIBUTING](./CONTRIBUTING.md)
+
 ### 参与方式
 
 　每位参与的小伙伴，都会获得代码仓库的 Collaborator 权限，可以自由地提交代码（不限制语种，方式参见 [issue #23](https://github.com/jxnu-liguobin/cs-summary-reflection/issues/23)），通过 issue 认领。

@@ -22,6 +22,8 @@
 
 Just create a issue or leave a message at the end of the [dreamylost's blog](https://dreamylost.cn)
 
+For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
+
 ### Way of participation
 
 　Each participating partner will get the Collaborator permission of the code repository,
