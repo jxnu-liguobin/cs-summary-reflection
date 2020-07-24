@@ -12,8 +12,8 @@ package io.github.dreamylost
   */
 object Leetcode_113 extends App {
 
-  val ret = pathSum(TreeNodeData.treeData11(), 22)
-  val ret2 = pathSum2(TreeNodeData.treeData11(), 22)
+  val ret = pathSum(TreeNodeData.treeData10(), 22)
+  val ret2 = pathSum2(TreeNodeData.treeData10(), 22)
   println(ret)
   println(ret2)
 

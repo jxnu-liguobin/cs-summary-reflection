@@ -38,12 +38,12 @@ subprojects {
         //测试的执行可能有问题，可以用IDEA rebuild单独的子模块，再执行脚本build
         test {
             scala {
-                srcDirs = ['src/test/scala']
+                srcDirs = ['src/test/scala', 'src/test/java']
             }
             java {
-                srcDirs = ['src/test/java']
+//                srcDirs = ['src/test/java']
                 //排除旧的单元测试类
-                exclude 'io/github/dreamylost/practice/test/**'
+//                exclude 'io/github/dreamylost/practice/test/**'
             }
         }
     }

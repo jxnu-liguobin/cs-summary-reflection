@@ -10,7 +10,7 @@ package io.github.dreamylost
   */
 object Leetcode_987 extends App {
 
-  val ret = verticalTraversal(TreeNodeData.treeData11())
+  val ret = verticalTraversal(TreeNodeData.treeData10())
   println(ret)
 
   /**
