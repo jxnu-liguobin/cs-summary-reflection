@@ -1,6 +1,5 @@
 # 算法 Kotlin
 
-## 二叉树
+## author
 
-* [对称的二叉树](./src/main/kotlin/io/github/dreamylost/Leetcode_JZ_28.kt)
-
+[dreamylost](./src/main/kotlin/io/github/dreamylost/dreamylost.md)

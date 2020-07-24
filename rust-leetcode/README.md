@@ -3,7 +3,7 @@ Leetcode Rust 实现
 
 超简单的算法题目，主要为了熟悉rust语法。源码在old_solutions.rs(未使用单测的)或leetcode-*.rs(使用了rust单测的)，70%~90%是双100。
 
-# author: dreamylost between 2020-03-08 and 2020-06-05
+# author: dreamylost
 
 ## 树
 
