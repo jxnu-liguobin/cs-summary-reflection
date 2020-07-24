@@ -5,20 +5,11 @@
 3. Java 8 以上，14以下
 4. 下面列举的不完整，只是最新的
 
-##  author: dreamylost
+## author
 
-### 二叉树
+[dreamylost](./src/main/java/io/github/dreamylost/dreamylost.md)
 
-1. [输出二叉树中所有从根到叶子的路径](./src/main/java/io/github/dreamylost/Leetcode_257_DFS.java)
-2. [BiNode](./src/main/java/io/github/dreamylost/Leetcode_Interview_17_12.java)
-3. [二叉搜索树的最近公共祖先](./src/main/java/io/github/dreamylost/Leetcode_JZ_68_1.java)
-4. [二叉树的最近公共祖先](./src/main/java/io/github/dreamylost/Leetcode_JZ_68_2.java)
+[ccccmaster](./src/main/java/io/github/ccccmaster/ccccmaster.md)
 
-##  author: ccccmaster
+[poorguy](./src/main/java/io/github/poorguy/poorguy.md)
 
-1. [最长连续递增序列](./src/main/java/io/github/ccccmaster/Leetcode_674.java)
-2. [拼写单词](./src/main/java/io/github/ccccmaster/Leetcode_1160.java)
-3. [0～n-1中缺失的数字](./src/main/java/io/github/ccccmaster/Leetcode_JZ_53.java)
-
-## author: poorguy
-1. [Binary Search](./src/main/java/io/github/poorguy/BinarySearch.java)
