@@ -5,4 +5,5 @@
 所有代码来自Kotlin官网。
 
 [基本语法](./src/main/kotlin/io/github/dreamylost/syntax/basic/Demo1.kt)
+
 [习惯用法](./src/main/kotlin/io/github/dreamylost/syntax/idiom/Demo1.kt)

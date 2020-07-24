@@ -112,6 +112,9 @@ fun main() {
 
     // TODO()：将代码标记为不完整，相当于Scala的 ??? 方法
     fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
+
+    println(Resource.name)
+    println(Resource.getN())
 }
 
 // 创建 DTOs（POJOs/POCOs）
@@ -127,9 +130,13 @@ fun foo(a: Int = 0, b: String = "") {
     println("$a,$b") // 字符串差值，Scala多个前缀 s"$a,%b"
 }
 
-// 创建单例
+// 创建单例，与Scala一样，都是object，但Scala的object与类同名时，自动成为其伴生对象，一般定义在一个文件中
 object Resource {
     val name = "Name"
+    // 不能使用getName，签名冲突，name已经有隐式的get方法
+    fun getN(): String {
+        return name
+    }
 }
 
 // 返回 when 表达式
