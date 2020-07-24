@@ -4,7 +4,7 @@ package io.github.dreamylost.syntax.basic
 /**
  * kotlin入门语法
  *
- * @author liguobin@growingio.com
+ * @author 梦境迷离
  * @version 1.0,2020/7/2
  */
 fun main() {
