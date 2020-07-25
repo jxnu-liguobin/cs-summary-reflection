@@ -22,8 +22,6 @@
 
 Just create a issue or leave a message at the end of the [dreamylost's blog](https://dreamylost.cn)
 
-For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
-
 ### Way of participation
 
 　Each participating partner will get the Collaborator permission of the code repository,
@@ -34,6 +32,8 @@ and can freely submit the code (unlimited language, get more information from [i
 * If you use  a JVM language, please use gradle as the build tool and execute `gradle -s spotlessapply` before submitting code
 * If you use Rust, please execute `cargo fmt --all` before submitting the code
 * If you use a Script language, please do the format consciously, do not make requirements
+
+For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
 
 ### Other contents
     

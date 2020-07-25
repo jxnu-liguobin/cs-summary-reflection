@@ -4,7 +4,7 @@ To be a collaborator
 If there is no language in this repository. Please submit PR to create a new sub module like follow example. 
 Direct push is not allowed for creating a new module. And you should support `GitHub action workflows` as much as possible. 
 
-* Each person creates a package for himself to distinguish different people(if sub module has exists). Refer to `java-leetcode`. 
+* Each person creates a package for himself to distinguish different people(if sub module has exists). 
 For the first time, please submit by PR, you can obtain the permission of collaborator after this PR is merged.
 * Everyone creates a new one in their own package named `packageName.md` in sub module, add the index and then link it to the current sub module README.md, refer to `python-leetcode`.
 
@@ -35,4 +35,4 @@ edit `python-leetcode/README.md`, let's make `packageName.md` linked to `python-
 * If it doesn't pass sonarcloud, please roll back immediately!
 * If it fails to pass lgtm, please take time to solve it
 * Conflict resolution: only append is allowed, not delete
-* The copyright of the default java code is: `all collaborator`
+* The copyright of the default java code is: `all collaborators`
