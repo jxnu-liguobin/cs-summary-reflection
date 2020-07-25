@@ -63,6 +63,7 @@
 * [二叉树最大宽度](./Leetcode_662.scala)
 * [二叉树的右视图](./Leetcode_199.scala)
 * [完全二叉树的节点个数](./Leetcode_222.scala)
+* [二叉搜索树中第K小的元素](./Leetcode_230.scala)
 
 ### 链表
 
