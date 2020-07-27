@@ -54,7 +54,9 @@ subprojects {
      * sbt有点慢，所以用了gradle，其他sbt项目不好继承进来，PS：降低编译速度
      */
     dependencies {
+        //because some test write in src/main/java
         compile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
         compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.8'
         compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.12.8'
         compile group: 'com.diffplug.spotless', name: 'spotless-plugin-gradle', version: '4.5.0'

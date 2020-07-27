@@ -7,5 +7,4 @@ dependencies {
     compile group: 'org.ow2.asm', name: 'asm-all', version: '5.1'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.29'
     compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.15'
-    testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
 }
