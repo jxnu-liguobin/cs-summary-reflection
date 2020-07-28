@@ -19,6 +19,8 @@
 
 # Leetcode 组队刷题
 
+同样支持 LintCode、牛客网、九章算法
+
 ### 报名途径
 
 提交 issue 或 [博客留言](https://dreamylost.cn)

@@ -19,6 +19,8 @@
 
 # Leetcode teamed up
 
+It also supports LintCode, nowcoder and Jiuzhang algorithm
+
 ### Registration route
 
 Just create a issue or leave a message at the end of the [dreamylost's blog](https://dreamylost.cn)
