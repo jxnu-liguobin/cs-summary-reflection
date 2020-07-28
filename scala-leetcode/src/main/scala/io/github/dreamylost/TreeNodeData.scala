@@ -159,4 +159,28 @@ object TreeNodeData {
     n1
   }
 
+  def treeData8_1(): TreeNode = {
+    val treeNode1 = new TreeNode(1)
+    val treeNode2 = new TreeNode(2)
+    val treeNode3 = new TreeNode(3)
+    val treeNode4 = new TreeNode(4)
+    val treeNode5 = new TreeNode(5)
+    val treeNode6 = new TreeNode(6)
+    val treeNode7 = new TreeNode(7)
+    val treeNode8 = new TreeNode(8)
+
+    treeNode1.left = treeNode2
+    treeNode1.right = treeNode3
+
+    treeNode2.left = treeNode4
+    treeNode2.right = treeNode5
+
+    treeNode4.left = treeNode7
+
+    treeNode3.right = treeNode6
+    treeNode6.right = treeNode8
+
+    treeNode1
+  }
+
 }
