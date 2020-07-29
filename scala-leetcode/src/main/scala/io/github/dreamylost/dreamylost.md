@@ -17,7 +17,7 @@
 * [统计左叶子节点的和](./Leetcode_404_Tree.scala)
 * [最小路径](./Leetcode_111_Tree.scala)
 * [判断路径和是否等于一个数](./Leetcode_112_Tree.scala)
-* [间隔遍历](./Leetcode_337_Tree.scala)
+* [间隔遍历/打家劫舍 III](./Leetcode_337_Tree.scala)
 * [两节点的最长路径](./Leetcode_543_Tree.scala)
 * [路径总和 III](./Leetcode_437_Tree.scala)
 * [二叉搜索树中的众数](./Leetcode_501.scala)
