@@ -24,28 +24,31 @@ object Leetcode_337_Tree {
     * 对于一个以 root 为根节点的二叉树而言，如果尝试偷取 root 节点，那么势必不能偷取其左右子节点，然后继续尝试偷取其左右子节点的左右子节点。
     * 如果不偷取该节点，那么只能尝试偷取其左右子节点比较两种方式的结果，谁大取谁。
     *
-    * 3768 ms,8.33%
-    * fold 4848ms
-    * 54.9 MB,100.00%
+    * 732 ms,33.33%
+    * 53.7 MB,100.00%
+    * 记忆优化
     *
     * @param root
     * @return
     */
   def rob(root: TreeNode): Int = {
-    if (root == null) return 0
-    val memory = new scala.collection.mutable.HashMap[TreeNode, Int]()
-    if (memory.contains(root)) return memory(root)
-    var ccVal = root.value
-    if (root.left != null) ccVal += rob(root.left.left) + rob(root.left.right)
-    if (root.right != null) ccVal += rob(root.right.left) + rob(root.right.right)
-    val cVal = rob(root.left) + rob(root.right)
-    memory.put(root, ccVal)
-    math.max(cVal, ccVal)
+    var memory = Map[TreeNode, Int]()
+
+    def helper(r: TreeNode): Int = {
+      if (r == null) return 0
+      if (memory.contains(r)) return memory(r)
+      var ccVal = r.value //孙子
+      if (r.left != null) ccVal += helper(r.left.left) + helper(r.left.right)
+      if (r.right != null) ccVal += helper(r.right.left) + helper(r.right.right)
+      val result = math.max(helper(r.left) + helper(r.right), ccVal)
+      memory = memory.+(r -> result)
+      result
+    }
+
+    helper(root)
   }
 
   /**
-    * 上面Map来解决重复子问题，竟然还慢
-    *
     * 1372 ms,33.33%
     * 52.2 MB,100.00%
     *
