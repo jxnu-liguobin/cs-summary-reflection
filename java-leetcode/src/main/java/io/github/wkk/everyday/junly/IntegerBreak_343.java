@@ -1,7 +1,10 @@
 /* All Contributors (C) 2020 */
 package io.github.wkk.everyday.junly;
 
-/** @Time: 2020/7/30上午8:52 @Author: kongwiki @Email: kongwiki@163.com */
+/**
+ * @since 2020/7/30上午8:52
+ * @author kongwiki kongwiki@163.com
+ */
 public class IntegerBreak_343 {
     public int integerBreak(int n) {
         int division = 3;
