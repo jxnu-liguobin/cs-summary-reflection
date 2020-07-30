@@ -65,6 +65,7 @@ For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
     <td align="center"><a href="https://github.com/LaoZhangCoder"><img src="https://avatars3.githubusercontent.com/u/28627858?v=4?s=100" width="100px;" alt=""/><br /><sub><b>laozhang</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=LaoZhangCoder" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/CCCCmaster"><img src="https://avatars3.githubusercontent.com/u/25200717?v=4?s=100" width="100px;" alt=""/><br /><sub><b>CCCCmaster</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=CCCCmaster" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/poorguy"><img src="https://avatars1.githubusercontent.com/u/624653?v=4?s=100" width="100px;" alt=""/><br /><sub><b>poorguy</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=poorguy" title="Code">💻</a></td>
+    <td align="center"><a href="https://kongwiki.me/"><img src="https://avatars0.githubusercontent.com/u/19886738?v=4?s=100" width="100px;" alt=""/><br /><sub><b>weikunkun</b></sub></a><br /><a href="https://github.com/jxnu-liguobin/cs-summary-reflection/commits?author=KongWiki" title="Code">💻</a></td>
   </tr>
 </table>
 

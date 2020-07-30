@@ -62,6 +62,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "KongWiki",
+      "name": "weikunkun",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19886738?v=4",
+      "profile": "https://kongwiki.me/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "cs-summary-reflection",
