@@ -35,4 +35,4 @@ python-leetcode  当然，前面可能还有通用包名io.github.xxx
 * 没有通过sonarcloud的，请立刻回滚！
 * 没有通过lgtm的，请抽空解决即可
 * 解决冲突: 只允许append不能delete
-* 默认Java代码的版权是: `all Collaborators`
+* 默认的授权许可: `Apache-2.0 All Collaborators`

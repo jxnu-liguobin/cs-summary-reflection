@@ -35,7 +35,7 @@ public class AddMinFunctionForStack3 {
 
     public void pop() {
         Integer top = top();
-        //因为top返回了int，所以不会为null，改成返回Integer
+        // 因为top返回了int，所以不会为null，改成返回Integer
         if (top != null) {
             elements[size - 1] = null;
         }

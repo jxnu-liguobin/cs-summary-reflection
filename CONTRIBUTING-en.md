@@ -35,4 +35,4 @@ edit `python-leetcode/README.md`, let's make `packageName.md` linked to `python-
 * If it doesn't pass sonarcloud, please roll back immediately!
 * If it fails to pass lgtm, please take time to solve it
 * Conflict resolution: only append is allowed, not delete
-* The copyright of the default java code is: `all collaborators`
+* The copyright of the default is : `Apache-2.0 All collaborators`

@@ -40,7 +40,7 @@ public class CalculateStringDistance {
             }
         }
         if (pBBegin > pBEnd) {
-            if (pABegin > pAEnd) { //lgtm [java/constant-comparison
+            if (pABegin > pAEnd) { // lgtm [java/constant-comparison
                 return 0;
             } else {
                 return pAEnd - pABegin + 1;

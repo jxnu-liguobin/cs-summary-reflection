@@ -23,7 +23,7 @@ public class ReOrderArray {
             while (i < a.length && !isEven(a[i])) i++;
             j = i + 1; // 从第一个偶数后面找奇数
             while (j < a.length && isEven(a[j])) j++;
-            if (j < a.length && i < a.length) { //lgtm [java/constant-comparison]
+            if (j < a.length && i < a.length) { // lgtm [java/constant-comparison]
                 int tmp = a[j];
                 for (int j2 = j - 1; j2 >= i; j2--) {
                     a[j2 + 1] = a[j2];

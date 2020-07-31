@@ -23,7 +23,7 @@ public class BinarySearch {
                 right = middle - 1;
                 middle = (left + right) / 2;
             } else if (target > nums[middle]) {
-                //这种写法像是补丁。是根据测试用例凑出来的，非常不好
+                // 这种写法像是补丁。是根据测试用例凑出来的，非常不好
                 if (middle + 1 >= nums.length) {
                     return -1;
                 }

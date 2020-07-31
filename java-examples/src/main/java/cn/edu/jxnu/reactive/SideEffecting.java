@@ -22,18 +22,18 @@ public class SideEffecting implements Serializable, Cloneable {
         this.count = count;
     }
 
-    //1.修改外部变量
+    // 1.修改外部变量
     public int next() {
         this.count += Math.incrementExact(this.count);
         return this.count;
     }
 
-    //2.I/O
+    // 2.I/O
     public void writeFile() {
         File file = new File("sideEffect.txt");
     }
 
-    //3.改变参数
+    // 3.改变参数
     public void addInList(List<Integer> countList) {
         if (countList != null) {
             countList.add(1);

@@ -71,7 +71,8 @@ subprojects {
      */
     spotless {
         java {
-            googleJavaFormat('1.1').aosp()
+            removeUnusedImports()
+            googleJavaFormat('1.6').aosp()
             licenseHeader '/* All Contributors (C) $YEAR */'
         }
     }
@@ -85,7 +86,7 @@ project(':scala-leetcode') {
     spotless {
         scala {
             scalafmt('2.6.1').configFile('.scalafmt.conf')
-            licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
+            licenseHeader '/* Licensed under Apache-2.0 (C) All Contributors */', 'package '
         }
     }
 }
