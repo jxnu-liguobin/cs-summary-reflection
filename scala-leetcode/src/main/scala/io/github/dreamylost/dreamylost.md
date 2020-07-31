@@ -66,6 +66,7 @@
 * [二叉搜索树中第K小的元素](./Leetcode_230.scala)
 * [二叉树的最近公共祖先](./Leetcode_236.scala)
 * [层数最深叶子节点的和](./Leetcode_1302.scala)
+* [N叉树的层序遍历](./Leetcode_429.scala)
 
 ### 链表
 
