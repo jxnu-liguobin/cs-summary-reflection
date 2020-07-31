@@ -28,7 +28,7 @@ Just create a issue or leave a message at the end of the [dreamylost's blog](htt
 ### Way of participation
 
 　Each participating partner will get the Collaborator permission of the code repository,
-and can freely submit the code (unlimited language, get more information from [issue #23](https://github.com/jxnu-liguobin/cs-summary-reflection/issues/23)), claim through issue.
+and can freely submit the code (unlimited language, claim through issue.
 
   If you can, it's best to use the most common formatting tools in the current language to format and then submit.
   

@@ -27,7 +27,7 @@
 
 ### 参与方式
 
-　每位参与的小伙伴，都会获得代码仓库的 Collaborator 权限，可以自由地提交代码（不限制语种，方式参见 [issue #23](https://github.com/jxnu-liguobin/cs-summary-reflection/issues/23)），通过 issue 认领。
+　每位参与的小伙伴，都会获得代码仓库的 Collaborator 权限，可以自由地提交代码（不限制语种），通过 issue 认领。
 
   如果可以的话，最好使用当前语言最常见的格式化工具进行格式化后，再提交。
   没有频率限制，一般一天一道。
