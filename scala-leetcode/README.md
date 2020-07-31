@@ -9,3 +9,5 @@ Leetcode Scala 实现
 ## author
 
 [dreamylost](./src/main/scala/io/github/dreamylost/dreamylost.md)
+
+[sweeneycai](./src/main/scala/io/github/sweeneycai/sweeneycai.md)
