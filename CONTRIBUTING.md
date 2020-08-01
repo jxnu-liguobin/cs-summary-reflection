@@ -8,6 +8,8 @@
 - 在子模块下每个人为自己建一个package，用以区分不同人。第一次以PR形式提交，merge后你将获得Collaborator权限
 - 在子模块下每个人在自己package中新建一个`packageName.md`，增加题目索引再链接到当前项目的README.md
 
+> 获得Collaborator权限后，请谨慎使用`git push`，每次push之前，首先拉取远程最新代码，在本地解决冲突（冲突时一定要将别人的提交保留好）。
+
 如果你要创建新的语言的子模块，应该以下面的python-leetcode项目为例
 
 ```

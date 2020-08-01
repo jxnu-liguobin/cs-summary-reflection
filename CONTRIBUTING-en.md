@@ -8,7 +8,9 @@ Direct push is not allowed for creating a new module. And you should support `Gi
 For the first time, please submit by PR, you can obtain the permission of collaborator after this PR is merged.
 * Everyone creates a new one in their own package named `packageName.md` in sub module, add the index and then link it to the current sub module README.md, refer to `python-leetcode`.
 
-this is a python sub module, if you want to create a new module that the language you use is not exists you should look at this structure.
+> After obtaining the permission of collaborator, please use `git push` cautiously. Before each push, first pull the latest remote code and resolve the conflict locally (be sure to keep others' commit well in case of conflict).
+
+This is a python sub module, if you want to create a new module that the language you use is not exists you should look at this structure.
 
 ```
 python-leetcode
