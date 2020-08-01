@@ -21,7 +21,7 @@ object Leetcode_1008 extends App {
   /**
     * 已知前序序列，找到第一个不满足左子树的节点，作用相当于在中序序列中构造二叉搜索树时计算的mid
     * 548 ms,100.00%
-    * 51 MB,100.00%
+    * 50.6 MB,100.00%
     *
     * @param preorder
     * @return
@@ -33,7 +33,7 @@ object Leetcode_1008 extends App {
       }
       val root = new TreeNode(values(l))
       var index = l
-      while (index <= r && preorder(index) <= preorder(l)) index += 1
+      while (index <= r && values(index) <= root.value) index += 1
       //head已经被使用
       root.left = buildSearchTree(values, l + 1, index - 1)
       root.right = buildSearchTree(values, index, r)

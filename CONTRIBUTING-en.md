@@ -36,3 +36,5 @@ edit `python-leetcode/README.md`, let's make `packageName.md` linked to `python-
 * If it fails to pass lgtm, please take time to solve it
 * Conflict resolution: only append is allowed, not delete
 * The copyright of the default is : `Apache-2.0 All collaborators`
+
+> If the data structure definition already exists, you can try to use the existing one.
