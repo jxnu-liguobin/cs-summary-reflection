@@ -22,13 +22,6 @@ object TreeNodeData {
     root
   }
 
-  def treeData2(): TreeNode = {
-    val root = new TreeNode(2)
-    val node1 = new TreeNode(1)
-    root.left = node1
-    root
-  }
-
   def treeData3_1(): TreeNode = {
     val root = new TreeNode(1)
     val r1 = new TreeNode(5)
