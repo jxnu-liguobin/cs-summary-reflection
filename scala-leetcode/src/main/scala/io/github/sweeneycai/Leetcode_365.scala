@@ -1,6 +1,8 @@
 /* Licensed under Apache-2.0 (C) All Contributors */
 package io.github.sweeneycai
 
+import scala.annotation.tailrec
+
 /**
   * 365. 水壶问题(Medium)
   * 有两个容量分别为 x升 和 y升 的水壶以及无限多的水。能否通过使用这两个水壶，从而可以得到恰好 z升 的水？
@@ -17,6 +19,10 @@ package io.github.sweeneycai
   * @since 2020-3-23
   */
 object Leetcode_365 extends App {
+
+  /**
+    * Martin 在 Coursera 课程上讲解的函数式解法，在 Leetcode 提交会超出内存限制，但仍具有学习意义
+    */
   def canMeasureWater(x: Int, y: Int, z: Int): Boolean = {
     val game = new Pouring(Vector(x, y))
     // 使用`take(1)`在找到一个符合条件的路径之后就停止计算
@@ -93,6 +99,38 @@ object Leetcode_365 extends App {
         if (path.endState contains target) || path.endState.sum == target
       } yield path
     }
+  }
+
+  /**
+    * 官解Scala版，双百
+    */
+  def canMeasureWater2(x: Int, y: Int, z: Int): Boolean = {
+    @tailrec
+    def helper(possible: Vector[(Int, Int)], visited: Set[(Int, Int)]): Boolean = {
+      if (possible.exists(contains)) true
+      else if (possible.isEmpty) false
+      else {
+        val next = possible.flatMap(moves).filter(!visited.contains(_))
+        println(next)
+        helper(next, visited ++ next)
+      }
+    }
+
+    def contains(tuple: (Int, Int)): Boolean =
+      tuple._1 == z || tuple._2 == z || tuple._1 + tuple._2 == z
+
+    def moves(tuple: (Int, Int)): Vector[(Int, Int)] = {
+      val fromAToB = math.min(tuple._1, y - tuple._2)
+      val fromBToA = math.min(tuple._2, x - tuple._1)
+      Vector[(Int, Int)]()
+        .+:(0 -> tuple._2)
+        .+:(tuple._1 -> 0)
+        .+:(tuple._1 -> y)
+        .+:(x -> tuple._2)
+        .+:((tuple._1 - fromAToB, tuple._2 + fromAToB))
+        .+:((tuple._1 + fromBToA, tuple._2 - fromBToA))
+    }
+    helper(Vector(0 -> 0), Set())
   }
 
   val pouring = new Pouring(Vector(3, 5))
