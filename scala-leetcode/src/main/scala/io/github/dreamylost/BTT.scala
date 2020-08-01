@@ -103,7 +103,7 @@ object BTT extends App {
       return null
     }
     if (l == r) {
-      new TreeNode(values(l))
+      return new TreeNode(values(l))
     }
     val mid = l + (r - l) / 2
     val root = new TreeNode(values(mid))
