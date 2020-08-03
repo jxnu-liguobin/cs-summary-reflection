@@ -69,6 +69,7 @@
 * [N叉树的层序遍历](./Leetcode_429.scala)
 * [序列化和反序列化二叉搜索树](./Leetcode_449.scala)
 * [删除二叉搜索树中的节点](./Leetcode_450.scala)
+* [出现次数最多的子树元素和](./Leetcode_508.scala)
 
 ### 链表
 
