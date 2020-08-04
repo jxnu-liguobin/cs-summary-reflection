@@ -3,7 +3,7 @@ Leetcode Rust 实现
 
 超简单的算法题目，主要为了熟悉rust语法。源码在old_solutions.rs(未使用单测的)或leetcode-*.rs(使用了rust单测的)，70%~90%是双100。
 
-# author: dreamylost
+若有其他人想贡献Rust的LeetCode，请参照现有格式新增文件（同时将文件导入到`main.rs`）。如果题目已经存在，可以在`leetcode_xx.rs`中添加第二个方法实现。
 
 ## 树
 
@@ -24,6 +24,7 @@ Leetcode Rust 实现
 
 * [617 合并二叉树](src/leetcode_617.rs)
 * [100 相同的树](src/leetcode_100.rs)
+* [1367 二叉树中的列表](src/leetcode_1367.rs)
 
 ## 链表&栈&队列
 
