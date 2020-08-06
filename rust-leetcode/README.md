@@ -19,6 +19,7 @@ Leetcode Rust 实现
 * [112 路径总和](src/leetcode_112.rs)
 * [687 最长同值路径](src/leetcode_687.rs)
 * [257 二叉树的所有路径](src/leetcode_257.rs)
+* [1443 收集树上所有苹果的最少时间](src/leetcode_1443.rs)
 
 ### unsafe写法
 
