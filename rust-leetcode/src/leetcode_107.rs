@@ -10,6 +10,9 @@ use crate::pre_structs::{Solution, TreeNode};
 /// 例如：
 /// 给定二叉树 [3,9,20,null,null,15,7],
 impl Solution {
+    //应该用513那种层序
+    //0 ms,100.00%
+    //2.2 MB,33.33%
     pub fn level_order_bottom(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut ret = Vec::new();
         let mut node_level = VecDeque::new();
@@ -20,12 +23,12 @@ impl Solution {
             let curr_node = node_level.pop_front();
             if let Some(node) = curr_node {
                 if let Some(n) = node {
-                    level.push(n.try_borrow().unwrap().val);
-                    if n.try_borrow().unwrap().left.is_some() {
-                        node_level.push_back(n.try_borrow().unwrap().left.clone());
+                    level.push(n.as_ref().borrow().val);
+                    if n.as_ref().borrow().left.is_some() {
+                        node_level.push_back(n.as_ref().borrow().left.clone());
                     }
-                    if n.try_borrow().unwrap().right.is_some() {
-                        node_level.push_back(n.try_borrow().unwrap().right.clone());
+                    if n.as_ref().borrow().right.is_some() {
+                        node_level.push_back(n.as_ref().borrow().right.clone());
                     }
                     if let Some(f) = flag.borrow() {
                         if f.as_ptr() == n.as_ptr() {
