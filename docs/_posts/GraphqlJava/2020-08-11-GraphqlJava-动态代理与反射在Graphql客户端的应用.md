@@ -152,8 +152,7 @@ class QueryResolverImpl extends QueryResolver {
 ## 动态代理 & 反射
 
 首先，我们当然需要创建一个代理对象，我们定义一个 Java 类，叫做 ResolverImplClient
-```
-
+```java
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
 
@@ -249,8 +248,7 @@ final public class ResolverImplClient {
 
 知道如何构造代理对象，我们还需要定义处理函数，在 Java 中，我们只需要实现 InvocationHandler 接口（JDK动态代理）
 
-```
-
+```java
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
 
@@ -419,7 +417,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
 如果我们不递归调用子类型的 projection，无法返回嵌套结构。在 graphql 中，想要返回该数据中的字段的字段，则需要提供字段本身的详细结构。
 
 如果我们不递归，friends 就不知道返回哪些数据，此时可以干脆去掉 friends()（此时返回结构中就没有 friends 的内容了），也可以向最上面普通方式一样：
-```
+```scala
 val characterResponseProjection = new CharacterResponseProjection().id().name().typename()
       .friends(new CharacterResponseProjection().id().name().typename()).appearsIn() //向 friends 传入 CharacterResponseProjection 查询 friends 的详细内容。
 ```
