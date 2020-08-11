@@ -6,8 +6,8 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=jxnu-liguobin_cs-summary-reflection&metric=security_rating)](https://sonarcloud.io/dashboard?id=jxnu-liguobin_cs-summary-reflection)
 [![](https://img.shields.io/github/languages/count/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/github/languages/top/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
-[![](https://img.shields.io/lgtm/alerts/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://dreamylost.cn)
-[![](https://img.shields.io/lgtm/grade/python/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://dreamylost.cn)
+[![](https://img.shields.io/lgtm/alerts/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jxnu-liguobin/cs-summary-reflection/alerts/?mode=list)
+[![](https://img.shields.io/lgtm/grade/python/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jxnu-liguobin/cs-summary-reflection/context:python)
 [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/jxnu-liguobin/cs-summary-reflection.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jxnu-liguobin/cs-summary-reflection/context:java)
 [![](https://img.shields.io/github/commit-activity/m/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/github/contributors-anon/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
@@ -15,7 +15,7 @@
 ![](https://img.shields.io/badge/QQ%20Group-655462259-blue.svg?style=social&logo=tencent-qq)
 [![Gitter](https://badges.gitter.im/jxnu-liguobin/cs-summary-reflection.svg)](https://gitter.im/jxnu-liguobin/cs-summary-reflection?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-[中文](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/README.md) | English
+[中文](./README.md) | English
 
 # Leetcode teamed up
 

@@ -9,7 +9,9 @@
 4. [207. 课程表](./everyday/aug/CourseSchedule.java)
 5. [337. 打家劫舍III](./everyday/aug/HouseRobberIII.java)
 6. [336. 回文对](./everyday/aug/PalindromePairs.java)
-
+7. [100. 相同的树](./everyday/aug/SameTree.java)
+8. [99. 恢复二叉搜索树](./everyday/aug/RecoverBinarySearchTree.java)
+9. [93. 复原IP地址](./everyday/aug/RestoreIPAddresses.java)
 ## 哈希表
 1. [1. 两数之和](./TwoSum.java)
 
