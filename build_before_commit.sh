@@ -5,7 +5,7 @@ enable_language=("java","rust","scala","python","c++","kotlin","ruby")
 root_path=`pwd`
 
 # auto compile java and scala
-`gradle -w clean build > java_scala_compile.log 2>&1`
+`gradle -w build > java_scala_compile.log 2>&1`
 `gradle -q spotlessApply >> java_scala_compile.log 2>&1`
 
 for sub_module in $(ls $root_path)
