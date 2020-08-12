@@ -54,6 +54,8 @@
 
 [Defer](./docs/_posts/GraphqlJava/2020-04-10-GraphqlJava-Defer.md)
 
+[动态代理与反射在Graphql客户端的应用](./docs/_posts/GraphqlJava/2020-08-11-GraphqlJava-动态代理与反射在Graphql客户端的应用.md)
+
 ## Java源码
 
 [ArrayList](./docs/_posts/Java源码/2018-08-12-Java源码-ArrayList.md)
