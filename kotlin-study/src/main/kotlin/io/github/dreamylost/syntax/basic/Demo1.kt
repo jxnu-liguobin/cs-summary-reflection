@@ -134,7 +134,7 @@ fun main() {
 
     /**when 表达式*/
     fun describe(obj: Any): String =
-            // 与Scala object match {case }相似，Scala的match还可以支持正则，解构等等，kotlin目前还不够了解
+        // 与Scala object match {case }相似，Scala的match还可以支持正则，解构等等，kotlin目前还不够了解
         when (obj) {
             1 -> "One"
             "Hello" -> "Greeting"
@@ -148,6 +148,7 @@ fun main() {
     val y = 9
     // 使用 in 运算符来检测某个数字是否在指定区间内：
     if (X in 1..y + 1) { // 与rust比较像，但rust支持 1..y 1..=y 后者包括y本身，而Scala可以使用until和to，后者包括右边界等价rust的..=
+        // kotlin的..左右都是闭区间
         println("fits in range")
     }
 
@@ -213,7 +214,7 @@ interface RectangleProperties {
 }
 
 class Rectangle(
-        // 构造函数有2个可变属性，
+    // 构造函数有2个可变属性，
   var height: Double,
   var length: Double
 ) : RectangleProperties, Shape(listOf(height, length, height, length)) {

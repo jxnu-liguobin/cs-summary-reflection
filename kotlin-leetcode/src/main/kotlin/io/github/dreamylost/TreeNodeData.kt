@@ -16,4 +16,22 @@ object TreeNodeData {
         root.right = r
         return root
     }
+
+    fun treeNode_6(): TreeNode {
+        val n1 = TreeNode(1)
+        val n2 = TreeNode(2)
+        val n3 = TreeNode(3)
+        val n4 = TreeNode(4)
+        val n5 = TreeNode(5)
+        val n6 = TreeNode(6)
+
+        n4.left = n2
+        n4.left = n6
+
+        n2.left = n3
+        n2.right = n1
+
+        n6.left = n5
+        return n4
+    }
 }

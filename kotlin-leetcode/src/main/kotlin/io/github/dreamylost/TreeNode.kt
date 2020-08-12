@@ -6,7 +6,7 @@ package io.github.dreamylost
  * @author 梦境迷离
  * @version 1.0,2020/6/22
  */
-class TreeNode(var `val`: Int) {
+data class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
 }
