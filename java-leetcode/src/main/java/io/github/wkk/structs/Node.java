@@ -1,26 +1,29 @@
 /* All Contributors (C) 2020 */
 package io.github.wkk.structs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author kongwiki@163.com
- * @since 2020/8/3上午9:29
+ * @since 2020/8/12上午10:19
  */
 public class Node {
     public int val;
-    public Node left;
-    public Node right;
-    public Node next;
+    public List<Node> neighbors;
 
-    public Node() {}
+    public Node() {
+        val = 0;
+        neighbors = new ArrayList<Node>();
+    }
 
     public Node(int _val) {
         val = _val;
+        neighbors = new ArrayList<Node>();
     }
 
-    public Node(int _val, Node _left, Node _right, Node _next) {
+    public Node(int _val, ArrayList<Node> _neighbors) {
         val = _val;
-        left = _left;
-        right = _right;
-        next = _next;
+        neighbors = _neighbors;
     }
 }
