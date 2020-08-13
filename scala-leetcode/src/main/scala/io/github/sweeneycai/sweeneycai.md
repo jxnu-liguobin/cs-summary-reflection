@@ -13,8 +13,13 @@
 - [130. 被围绕的区域](./Leetcode_130.scala)
 - [365.水壶问题](./Leetcode_365.scala)
 
+### 动态规划
+
+- [198. 打家劫舍](./Leetcode_198.scala)
+
 ### 其他
 
 - [5. 最长回文子串](./Leetcode_5.scala)
+- [43. 字符串相乘](./Leetcode_43.scala)
 - [415.字符串相加](./Leetcode_415.scala)
 - [696. 计数二进制子串](./Leetcode_696.scala)
