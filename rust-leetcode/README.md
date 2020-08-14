@@ -22,6 +22,7 @@ Leetcode Rust 实现
 * [1443 收集树上所有苹果的最少时间](src/leetcode_1443.rs)
 * [515 在每个树行中找最大值](src/leetcode_515.rs)
 * [1145 二叉树着色游戏](src/leetcode_1145.rs)
+* [面试题 04.12. 求和路径](src/interview_04_12.rs)
 
 ### unsafe写法
 
