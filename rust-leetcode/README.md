@@ -23,6 +23,7 @@ Leetcode Rust 实现
 * [515 在每个树行中找最大值](src/leetcode_515.rs)
 * [1145 二叉树着色游戏](src/leetcode_1145.rs)
 * [面试题 04.12. 求和路径](src/interview_04_12.rs)
+* [面试题 04.10. 检查子树](src/interview_04_10.rs)
 
 ### unsafe写法
 
