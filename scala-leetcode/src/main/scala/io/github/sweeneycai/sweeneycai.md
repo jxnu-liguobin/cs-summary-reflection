@@ -2,6 +2,11 @@
 
 - [707.设计链表](./Leetcode_707.scala)
 
+### 双指针
+
+- [11. 盛最多水的容器 (Medium)](Leetcode_11.scala)
+- [15.三数之和 (medium)](Leetcode_15.scala)
+
 ### 树
 
 - [99.恢复二叉搜索树](./Leetcode_99.scala)
