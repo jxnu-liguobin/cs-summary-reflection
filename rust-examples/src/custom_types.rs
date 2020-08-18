@@ -130,7 +130,7 @@ fn enums() {
     //与Scala相同
     type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
 
-    let x = Operations::Add;
+    let _x = Operations::Add;
 
     impl VeryVerboseEnumOfThingsToDoWithNumbers {
         //最常见的位置使用self别名的impl块

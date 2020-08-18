@@ -1,7 +1,7 @@
 use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::cmp::max;
-use std::ops::Deref;
+
 use std::rc::Rc;
 
 use crate::pre_structs::{Solution, TreeNode};
@@ -27,7 +27,7 @@ impl Solution {
             );
             if (l - r).abs() > 1 {
                 //本地函数不能捕获外部变量
-                let mut t = ret.borrow_mut();
+                let t = ret.borrow_mut();
                 *t = false;
             }
             return 1 + max(l, r);
@@ -56,7 +56,7 @@ impl Solution {
                 None => (true, 0),
             }
         }
-        let (ans, h) = dfs(&root);
+        let (ans, _h) = dfs(&root);
         ans
     }
 }

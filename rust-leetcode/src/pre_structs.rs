@@ -38,8 +38,8 @@ impl ListNode {
 }
 
 pub fn get_test_list_1() -> Option<Box<ListNode>> {
-    let mut node2 = Some(Box::new(ListNode::new(9)));
-    let mut node1 = Some(Box::new(ListNode {
+    let node2 = Some(Box::new(ListNode::new(9)));
+    let node1 = Some(Box::new(ListNode {
         val: 3,
         next: node2,
     }));

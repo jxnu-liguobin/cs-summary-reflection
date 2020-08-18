@@ -1,4 +1,4 @@
-use std::borrow::{Borrow, BorrowMut};
+use std::borrow::Borrow;
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -63,8 +63,8 @@ mod test {
             right: e2,
         })));
 
-        let mut root1 = root1.clone();
-        let mut root2 = root1.clone();
+        let root1 = root1.clone();
+        let root2 = root1.clone();
         let ret = Solution::is_same_tree(root1, root2);
         assert!(ret)
     }

@@ -1,7 +1,5 @@
-use core::result;
-use std::process::id;
 use std::sync::{mpsc, Arc, Mutex};
-use std::{fmt, thread};
+use std::thread;
 
 ///定义线程交互消息
 enum Message {

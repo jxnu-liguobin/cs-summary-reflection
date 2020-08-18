@@ -43,7 +43,6 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use crate::pre_structs::Solution;
 
     #[test]
     fn count_and_say() {}

@@ -1,6 +1,5 @@
 use std::env;
-use std::error::Error;
-use std::fs;
+
 use std::process;
 
 use rust_minigrep::{run, Config};
@@ -46,8 +45,6 @@ fn parse_config(args: &[String]) -> (&str, &str) {
 #[cfg(test)]
 mod tests {
     use rust_minigrep::{search, search_case_insensitive};
-
-    use super::*;
 
     #[test]
     fn one_result() {

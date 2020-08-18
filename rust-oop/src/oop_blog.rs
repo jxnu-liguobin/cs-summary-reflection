@@ -62,7 +62,7 @@ pub mod blog_lib {
         //审批博客文章
         fn approve(self: Box<Self>) -> Box<dyn State>;
 
-        fn content<'a>(&self, post: &'a Post) -> &'a str {
+        fn content<'a>(&self, _post: &'a Post) -> &'a str {
             ""
         }
     }

@@ -50,7 +50,7 @@ pub fn fib_2(n: i32) -> i32 {
     if n == 0 || n == 1 {
         n
     } else {
-        for number in 2..(n + 1) {
+        for _number in 2..(n + 1) {
             c = a + b;
             a = b;
             b = c;

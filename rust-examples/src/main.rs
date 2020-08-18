@@ -1,6 +1,3 @@
-use std::fmt;
-use std::fmt::{Display, Error, Formatter};
-
 use crate::closures::*;
 use crate::conversion::*;
 use crate::custom_types::*;
@@ -11,9 +8,8 @@ use crate::generics::*;
 use crate::misc::*;
 use crate::modules::*;
 use crate::primitives::*;
-use crate::traits::*;
+
 use crate::types::*;
-use crate::variable_bindings::*;
 
 pub mod closures;
 pub mod conversion;

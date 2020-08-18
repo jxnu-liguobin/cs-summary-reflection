@@ -18,7 +18,7 @@ impl Solution {
             }
         });
         while min_length > 0 {
-            let mut sub_word = &min_word[0..min_length];
+            let sub_word = &min_word[0..min_length];
             let mut is_max = true;
             for w in strs.iter() {
                 if w.starts_with(sub_word) == false {
@@ -44,7 +44,7 @@ impl Solution {
         }
         //选取第一个单词w，对w的长度从大到小进行切片，将切片与所有单词进行匹配
         result = strs[0].clone();
-        for (index, word) in strs.iter().enumerate() {
+        for (_index, word) in strs.iter().enumerate() {
             while !word.starts_with(result.as_str()) {
                 result = result[0..result.len() - 1].to_owned();
                 if result.len() == 0 {
@@ -58,7 +58,7 @@ impl Solution {
     //4 ms, 2.1 MB
     pub fn longest_common_prefix3(strs: Vec<String>) -> String {
         let strs = &strs;
-        let mut result: String = "".to_owned();
+        let result: String = "".to_owned();
         if strs.is_empty() {
             return result;
         }
@@ -66,7 +66,7 @@ impl Solution {
         let word = &strs[0].clone();
         let init_word: Vec<char> = word.chars().collect();
         for i in 0..init_word.len() {
-            let mut c: char = init_word[i];
+            let c: char = init_word[i];
             for j in 1..strs.len() {
                 let cs: Vec<char> = strs[j].chars().collect();
                 if i < cs.len() && c != cs[i] || i == cs.len() {

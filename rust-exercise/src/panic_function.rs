@@ -1,4 +1,3 @@
-use std::error::Error;
 use std::fs::File;
 use std::io::{ErrorKind, Read};
 use std::{fs, io};
@@ -6,7 +5,7 @@ use std::{fs, io};
 ///恐慌使用（error）
 pub fn panic_function() {
     let f = File::open("hello.txt");
-    let f = match f {
+    let _f = match f {
         Ok(file) => file,
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create("hello.txt") {
@@ -19,7 +18,7 @@ pub fn panic_function() {
 
     ///使用闭包简化代码
     //展开一个结果，得到一个[`Ok`]的内容。如果值是一个[`Err`]，则用它的值调用'op'。
-    let f = File::open("hello.txt").unwrap_or_else(|error| {
+    let _f = File::open("hello.txt").unwrap_or_else(|error| {
         if error.kind() == ErrorKind::NotFound {
             File::create("hello.txt").unwrap_or_else(|error| {
                 panic!("Problem creating the file: {:?}", error);
@@ -30,9 +29,9 @@ pub fn panic_function() {
     });
 
     ///如果Result值为Ok变体，unwrap则将在中返回该值Ok。如果Result是Err变体，unwrap将为panic!我们调用宏。
-    let f = File::open("hello.txt").unwrap();
+    let _f = File::open("hello.txt").unwrap();
     //一样，但是是自己传递错误信息给panic!宏
-    let f = File::open("hello.txt").expect("Failed to open hello.txt");
+    let _f = File::open("hello.txt").expect("Failed to open hello.txt");
 
     ///将错误返回到调用代码的函数
     fn read_username_from_file() -> Result<String, io::Error> {

@@ -85,7 +85,7 @@ mod test {
     use std::cell::RefCell;
     use std::rc::Rc;
 
-    use crate::pre_structs::{ListNode, Solution, TreeNode};
+    use crate::pre_structs::{Solution, TreeNode};
 
     #[test]
     fn level_order_bottom() {

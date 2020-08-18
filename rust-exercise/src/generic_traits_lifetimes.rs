@@ -60,17 +60,17 @@ fn struct_generic() {
         y: T,
     }
 
-    let integer = Point { x: 5, y: 10 };
-    let float = Point { x: 1.0, y: 4.0 };
+    let _integer = Point { x: 5, y: 10 };
+    let _float = Point { x: 1.0, y: 4.0 };
 
     struct Point2<T, U> {
         x: T,
         //x/y类型不同
         y: U,
     }
-    let both_integer = Point2 { x: 5, y: 10 };
-    let both_float = Point2 { x: 1.0, y: 4.0 };
-    let integer_and_float = Point2 { x: 5, y: 4.0 };
+    let _both_integer = Point2 { x: 5, y: 10 };
+    let _both_float = Point2 { x: 1.0, y: 4.0 };
+    let _integer_and_float = Point2 { x: 5, y: 4.0 };
 }
 
 ///在枚举和方法中定义
@@ -179,12 +179,12 @@ pub fn trait_function() {
     }
 
     ///使用impl Summary作为参数会更加方便，此时只要求item1和item2参数实现了Summary，而不要求他们类型完全一致
-    pub fn notify3(item1: impl Summary, item2: impl Summary) {
+    pub fn notify3(item1: impl Summary, _item2: impl Summary) {
         println!("Breaking news! {}", item1.summarize());
     }
 
     ///需要强制让item1和item2的类型是一致的，则必须要使用特质绑定
-    pub fn notify4<T: Summary>(item1: T, item2: T) {
+    pub fn notify4<T: Summary>(item1: T, _item2: T) {
         println!("Breaking news! {}", item1.summarize());
     }
 
@@ -199,11 +199,11 @@ pub fn trait_function() {
     }
 
     ///这样写太麻烦
-    fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
+    fn some_function<T: Display + Clone, U: Clone + Debug>(_t: T, _u: U) -> i32 {
         1
     }
     //简化
-    fn some_function2<T, U>(t: T, u: U) -> i32
+    fn some_function2<T, U>(_t: T, _u: U) -> i32
     where
         T: Display + Clone,
         U: Clone + Debug,

@@ -27,9 +27,9 @@ impl Solution {
                 return;
             }
         }
-        let mut p = "".to_owned();
+        let p = "".to_owned();
         let mut ps = Vec::new();
-        let mut ps = &mut ps;
+        let ps = &mut ps;
         dfs(&root, p, ps);
         ps.to_vec()
     }
@@ -37,10 +37,8 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use std::cell::RefCell;
-    use std::rc::Rc;
 
-    use crate::pre_structs::{get_test_tree_2, get_test_tree_5, print_vec, Solution};
+    use crate::pre_structs::{get_test_tree_5, print_vec, Solution};
 
     #[test]
     fn binary_tree_paths() {

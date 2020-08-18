@@ -1,5 +1,3 @@
-use std::fmt::Display;
-
 ///泛型
 pub fn generics() {
     struct A;

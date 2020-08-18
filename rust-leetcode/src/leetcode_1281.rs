@@ -7,7 +7,7 @@ impl Solution {
         let mut muti = 1;
         let mut sum = 0;
         while num != 0 {
-            let mut tmp = num % 10;
+            let tmp = num % 10;
             muti *= tmp;
             sum += tmp;
             num /= 10;

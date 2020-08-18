@@ -101,8 +101,8 @@ pub fn match_syntax() {
     }
 
     let five = Some(5);
-    let six = plus_one(five);
-    let none = plus_one(None);
+    let _six = plus_one(five);
+    let _none = plus_one(None);
 
     ///使用占位符，编译通过
     let some_u8_value = 0u8;

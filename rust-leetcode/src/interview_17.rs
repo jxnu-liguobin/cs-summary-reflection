@@ -5,7 +5,7 @@ impl Solution {
     //8ms
     pub fn print_numbers(n: i32) -> Vec<i32> {
         let mut max_num = String::new();
-        for i in 1..=n {
+        for _i in 1..=n {
             max_num.push('9')
         }
         let mut ret = Vec::new();

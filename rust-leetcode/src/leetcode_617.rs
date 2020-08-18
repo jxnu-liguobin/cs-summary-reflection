@@ -45,7 +45,7 @@ impl Solution {
         fn merge(t1: &mut Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) {
             if let Some(mut n1) = t1.as_ref() {
                 if let Some(n2) = t2 {
-                    let mut n1 = n1.borrow_mut();
+                    let n1 = n1.borrow_mut();
                     let n2: &RefCell<TreeNode> = n2.borrow();
                     unsafe {
                         (*n1.as_ptr()).val += (*n2.as_ptr()).val;

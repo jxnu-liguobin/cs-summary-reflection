@@ -13,7 +13,7 @@ impl Solution {
         let mut cur = &mut result_head;
         let mut l1 = l1;
         let mut l2 = l2;
-        let mut next = true;
+        let _next = true;
         while l1.is_some() || l2.is_some() {
             //take去除值，并保留为None
             match (l1.take(), l2.take()) {

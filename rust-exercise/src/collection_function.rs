@@ -19,7 +19,7 @@ pub fn collection_function() {
     //let does_not_exist = &v[100];//恐慌，编译时直接退出程序
     ///当将get方法传递给向量之外的索引时，它将返回None且不会出现惊慌。如果在正常情况下偶尔访问超出向量范围的元素，则可以使用此方法。
     ///您的代码将需要具有处理Some(＆element)或None的逻辑，
-    let does_not_exist = v.get(100);
+    let _does_not_exist = v.get(100);
     ///当程序具有有效的引用时，借位检查器将执行所有权和借用规则
     let mut v = vec![1, 2, 3, 4, 5];
     let first = v[0]; //使用引用&v[0]将会报错
@@ -46,7 +46,7 @@ pub fn collection_function() {
     ///Rust需要知道在编译时向量中将包含哪些类型，因此Rust确切知道要存储每个元素需要多少内存。第二个优点是，我们可以明确说明此向量允许哪些类型。
     ///如果Rust允许向量保留任何类型，则一个或多个类型可能会导致对向量元素执行的操作出错。使用枚举加上match表达式意味着Rust将确保在编译时处理所有可能的情况
     ///在编写程序时，如果您不知道该程序在运行时会存储到向量中的所有可能类型，则枚举技术将不起作用。相反，您可以使用trait对象
-    let row = vec![
+    let _row = vec![
         SpreadsheetCell::Int(3),
         SpreadsheetCell::Text(String::from("blue")),
         SpreadsheetCell::Float(10.12),
@@ -67,17 +67,17 @@ pub fn collection_function() {
     let s = String::from("initial contents"); //从字符串文字(字符串常量 切片 &str类型)创建字符串(对象/String类型)
     println!("{}", s);
     //其他编码的文字
-    let hello = String::from("السلام عليكم");
-    let hello = String::from("Dobrý den");
-    let hello = String::from("Hello");
-    let hello = String::from("שָׁלוֹם");
-    let hello = String::from("नमस्ते");
-    let hello = String::from("こんにちは");
-    let hello = String::from("안녕하세요");
-    let hello = String::from("你好");
-    let hello = String::from("Olá");
-    let hello = String::from("Здравствуйте");
-    let hello = String::from("Hola");
+    let _hello = String::from("السلام عليكم");
+    let _hello = String::from("Dobrý den");
+    let _hello = String::from("Hello");
+    let _hello = String::from("שָׁלוֹם");
+    let _hello = String::from("नमस्ते");
+    let _hello = String::from("こんにちは");
+    let _hello = String::from("안녕하세요");
+    let _hello = String::from("你好");
+    let _hello = String::from("Olá");
+    let _hello = String::from("Здравствуйте");
+    let _hello = String::from("Hola");
 
     ///修改字符串，使用push_str方法将字符串切片附加到String
     let mut s = String::from("foo");
@@ -92,14 +92,14 @@ pub fn collection_function() {
     ///合并字符串
     let s1 = String::from("Hello, ");
     let s2 = String::from("world!");
-    let s3 = s1 + &s2; //s1被移动，之后无法再次使用
-                       //+ 方法 使用add方法 fn add(self, s: &str) -> String {
-                       //所以+组合字符串第二个参数必须是 &str的，但是这是因为编译器将&String转化为&str了。
+    let _s3 = s1 + &s2; //s1被移动，之后无法再次使用
+                        //+ 方法 使用add方法 fn add(self, s: &str) -> String {
+                        //所以+组合字符串第二个参数必须是 &str的，但是这是因为编译器将&String转化为&str了。
     let s1 = String::from("tic");
     let s2 = String::from("tac");
     let s3 = String::from("toe");
     ///如果需要连接多个字符串，则+运算符的行为会变得笨拙：
-    let s = s1 + "-" + &s2 + "-" + &s3;
+    let _s = s1 + "-" + &s2 + "-" + &s3;
 
     ///对于更复杂的字符串组合，我们可以使用format! 宏
     let s1 = String::from("tic");
@@ -117,7 +117,7 @@ pub fn collection_function() {
     println!("{}", len);
     ///当问到字符串有多长时，您可能会说12。但是，Rust的答案是24：这就是在UTF-8中编码“Здравствуйте”所需的字节数，因为该字符串中的每个Unicode标量值都占用2个字节的存储空间。
     ///因此，字符串字节的索引并不总是与有效的Unicode标量值相关。为了演示，请考虑以下无效的Rust代码：
-    let hello = "Здравствуйте";
+    let _hello = "Здравствуйте";
     //let answer = &hello[0];//编译报错
     ///Rust不允许我们索引到String中以获取字符的最后一个原因是索引操作总是需要恒定的时间（O(1)）。
     ///但是用String不能保证性能，因为Rust必须从头到尾遍历所有内容以确定有多少个有效字符。
@@ -146,7 +146,7 @@ pub fn collection_function() {
     map.insert(field_name, field_value); //此时field_name和field_value无效,已经被移动到map中
     ///获取key对应的value
     let team_name = String::from("Blue");
-    let score = scores.get(&team_name);
+    let _score = scores.get(&team_name);
     ///编译map
     for (key, value) in &scores {
         println!("{}: {}", key, value);

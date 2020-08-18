@@ -10,7 +10,6 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use crate::pre_structs::Solution;
 
     #[test]
     fn length_of_last_word() {}

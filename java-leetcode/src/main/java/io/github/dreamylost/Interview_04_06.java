@@ -28,8 +28,8 @@ public class Interview_04_06 {
         System.out.println(ret.val);
     }
 
-    //3 ms,100.00%
-    //40.2 MB,89.85%
+    // 3 ms,100.00%
+    // 40.2 MB,89.85%
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         if (root == null) {
             return null;

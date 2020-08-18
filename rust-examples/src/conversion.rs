@@ -2,7 +2,7 @@
 pub fn conversion() {
     //FROM
     let my_str = "hello";
-    let my_string = String::from(my_str);
+    let _my_string = String::from(my_str);
 
     #[derive(Debug)]
     struct Number {

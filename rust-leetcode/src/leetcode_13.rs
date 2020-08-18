@@ -51,7 +51,7 @@ impl Solution {
             .for_each(|(first, second)| {
                 let a = roman_to_int_char(first).unwrap();
                 let b = roman_to_int_char(second).unwrap();
-                v += (if a < b { -1 * a } else { a });
+                v += if a < b { -1 * a } else { a };
             });
         v += roman_to_int_char(s.chars().last().unwrap()).unwrap();
 
@@ -69,7 +69,7 @@ impl Solution {
             ('D', 500),
             ('M', 1000),
         ];
-        let mut hash: HashMap<char, i32> = tr.iter().cloned().collect();
+        let hash: HashMap<char, i32> = tr.iter().cloned().collect();
         let chars: Vec<char> = s.chars().collect();
         let mut ans = 0;
         let n = chars.len();

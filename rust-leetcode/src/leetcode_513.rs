@@ -56,7 +56,7 @@ impl Solution {
         let mut ret: Option<Rc<RefCell<TreeNode>>> = None;
         while !node_level.is_empty() {
             //题目要求树不能为空，队列元素都是非空
-            let mut node = node_level.pop_front().unwrap();
+            let node = node_level.pop_front().unwrap();
             ret = node.clone();
             if let Some(node) = node {
                 if node.borrow().right.is_some() {

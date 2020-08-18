@@ -38,7 +38,7 @@ pub fn struct_data_type() {
     }
 
     //创建一个新的结构体user2，并使用user1的某些值
-    let user2 = User {
+    let _user2 = User {
         email: String::from("another@example.com"),
         username: String::from("anotherusername567"),
         active: user1.active,
@@ -46,7 +46,7 @@ pub fn struct_data_type() {
     };
 
     //更好的方式是使用 ..语法，其余字段应与给定实例（user1）中的字段具有相同的值
-    let user2 = User {
+    let _user2 = User {
         email: String::from("another@example.com"),
         username: String::from("anotherusername567"),
         ..user1
@@ -56,8 +56,8 @@ pub fn struct_data_type() {
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
 
-    let black = Color(0, 0, 0);
-    let origin = Point(0, 0, 0);
+    let _black = Color(0, 0, 0);
+    let _origin = Point(0, 0, 0);
 
     //此结构体存储切片。而上面的结构体存储的是String类型，下面代码编译会报错，因为使用切片时需要指定生命周期。与使用String拥有所有权不同,&str没有获取所有权而只是借用
     //    struct User2 {

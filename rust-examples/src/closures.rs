@@ -226,7 +226,7 @@ fn diverging_functions() {
     fn some_fn() {
         ()
     }
-    let a: () = some_fn();
+    let _a: () = some_fn();
     println!("This function returns and you can see this line.");
     //该函数永远不会将控制流返回给调用者。直接抛出恐慌
     //let x= panic!("This call never returns.");

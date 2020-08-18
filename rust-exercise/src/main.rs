@@ -1,22 +1,13 @@
 ///标准库的比较，Ordering枚举包含Less， Greater和Equal
-use std::cmp::Ordering;
-use std::error::Error;
-use std::fs;
-use std::fs::File;
+
 ///导入标准库的输入输出库
-use std::io;
-use std::io::ErrorKind;
-use std::io::Read;
-use std::ops::{Range, RangeBounds};
 
 ///引入rand库的Rng特质
-use rand::Rng;
-
 use closures_syntax::*;
 use collection_function::*;
 use control_function::*;
 use enum_data_type::*;
-use example_guessing_game::example_guessing_game;
+
 use generic_traits_lifetimes::*;
 use iterator_demonstration::*;
 use macro_syntax::*;

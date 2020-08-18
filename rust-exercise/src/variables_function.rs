@@ -21,8 +21,8 @@ pub fn variables_function() {
     ///但是对于mut则不能，spaces虽然是可变的，但是类型是字符串类型的
     //let mut spaces = "   ";
     //spaces = spaces.len();
-    let i = 5;
-    let i = x + 1;
+    let _i = 5;
+    let _i = x + 1;
     let i = x * 2;
 
     println!("The value of x is: {}", i);
@@ -37,21 +37,21 @@ pub fn try_change_function() {
     change(&mut s);
 
     let mut s = String::from("hello");
-    let r1 = &mut s;
+    let _r1 = &mut s;
     //let r2 = &mut s;//可变引用只能被出借一次，这里将会编译报错
     //println!("{}, {}", r1, r2);
 
     let mut s = String::from("hello");
     {
-        let r1 = &mut s;
+        let _r1 = &mut s;
     } // r1在这里超出范围，因此我们可以毫无问题地进行新引用。
-    let r2 = &mut s; //正常使用，虽然上面已经用过s
+    let _r2 = &mut s; //正常使用，虽然上面已经用过s
 
-    let mut s = String::from("hello");
-    let r1 = &s; // 没问题，与上面两次mut出借不一样，这里是没有mut，所以对于不可变引用，可以使用多次次，且不可在拥有不可变引用时同时拥有可变引用
-    let r2 = &s; // 没问题
-                 //let r3 = &mut s;    // 有问题，不可变在后面却是可变，不允许，编译报错
-                 //println!("{}, {}, and {}", r1, r2, r3);
+    let s = String::from("hello");
+    let _r1 = &s; // 没问题，与上面两次mut出借不一样，这里是没有mut，所以对于不可变引用，可以使用多次次，且不可在拥有不可变引用时同时拥有可变引用
+    let _r2 = &s; // 没问题
+                  //let r3 = &mut s;    // 有问题，不可变在后面却是可变，不允许，编译报错
+                  //println!("{}, {}, and {}", r1, r2, r3);
 
     let mut s = String::from("hello");
 
@@ -68,7 +68,7 @@ pub fn expr_function() {
     //赋值需要返回值，rust语句没有返回值，不同于其他语言赋值可以连用
     // let x = (let y = 6);
 
-    let x = 5;
+    let _x = 5;
 
     let y = {
         let x = 3;

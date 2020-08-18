@@ -4,62 +4,62 @@ pub fn simple_array_data_type() {
     ///在u8(0-255)类型下，256变为0，257变为1，依此类推
 
     ///默认浮点类型是f64，相当于Java double，IEEE754标准
-    let x = 2.0; // f64
+    let _x = 2.0; // f64
 
-    let y: f32 = 3.0; // f32
+    let _y: f32 = 3.0; // f32
 
     ///数值运算，与其他语言相同，类型可以自动推断，不用指定类型
     // addition
-    let sum = 5 + 10;
+    let _sum = 5 + 10;
 
     // subtraction
-    let difference = 95.5 - 4.3;
+    let _difference = 95.5 - 4.3;
 
     // multiplication
-    let product = 4 * 30;
+    let _product = 4 * 30;
 
     // division
-    let quotient = 56.7 / 32.2;
+    let _quotient = 56.7 / 32.2;
 
     // remainder
-    let remainder = 43 % 5;
+    let _remainder = 43 % 5;
 
-    let t = true;
+    let _t = true;
     ///显示指定类型
-    let f: bool = false;
+    let _f: bool = false;
 
     ///字符类型，Unicode，4bytes
-    let c = 'z';
-    let z = 'ℤ';
-    let heart_eyed_cat = '😻';
+    let _c = 'z';
+    let _z = 'ℤ';
+    let _heart_eyed_cat = '😻';
 
     ///元组类型，与Scala基本相同，可以推断出类型
-    let tup: (i32, f64, u8) = (500, 6.4, 1);
+    let _tup: (i32, f64, u8) = (500, 6.4, 1);
     let tup = (500, 6.4, 1);
     ///提取出元组的每个值
-    let (x, y, z) = tup;
+    let (_x, y, _z) = tup;
     println!("The value of y is: {}", y);
 
     ///使用 .获取元组的值，从0下标开始
-    let five_hundred = tup.0;
-    let six_point_four = tup.1;
-    let one = tup.2;
+    let _five_hundred = tup.0;
+    let _six_point_four = tup.1;
+    let _one = tup.2;
 
     ///数组类型，一般在只有固定元素个数的时候使用
-    let array = [1, 2, 3, 4, 5];
+    let _array = [1, 2, 3, 4, 5];
 
     ///初始化数组的第二种方法
-    let a: [i32; 5] = [1, 2, 3, 4, 5];
+    let _a: [i32; 5] = [1, 2, 3, 4, 5];
 
     ///等价于let a = [3, 3, 3, 3, 3];，意为5个3构成的数组
     let a = [3; 5];
 
     ///访问数组，同样是从0下标开始
-    let first = a[0];
-    let second = a[1];
+    let _first = a[0];
+    let _second = a[1];
 
     ///Rust通过立即退出而不是允许内存访问并继续操作来保护您免受此类错误的侵害
-    let element = a[0]; //若下标大于数组索引则运行时检查并报错退出"error: index out of bounds: the len is 5 but the index is 10"
+    let _element = a[0]; //若下标大于数组索引则运行时检查并报错退出"error: index out of bounds: the len is 5 but the index is 10"
 }
 
 ///rust String比较复杂

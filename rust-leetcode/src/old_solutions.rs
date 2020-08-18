@@ -1,10 +1,9 @@
 use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::cmp::max;
-use std::collections::{HashMap, HashSet, LinkedList, VecDeque};
-use std::ops::{AddAssign, Deref, Index};
+use std::collections::{HashMap, HashSet, VecDeque};
+use std::ops::Index;
 use std::rc::Rc;
-use std::str::Chars;
 
 use pre_structs::*;
 
@@ -59,7 +58,7 @@ fn interview_27() {
         pub fn mirror_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
             fn mirror(root: &mut Option<Rc<RefCell<TreeNode>>>) {
                 if let Some(node) = root {
-                    let mut n = node.borrow_mut();
+                    let n = node.borrow_mut();
                     unsafe {
                         //FUCK YOU
                         let lt = std::mem::replace(&mut (*n.as_ptr()).left, None);
@@ -289,7 +288,7 @@ fn leetcode_1281() {
             let mut muti = 1;
             let mut sum = 0;
             while num != 0 {
-                let mut tmp = num % 10;
+                let tmp = num % 10;
                 muti *= tmp;
                 sum += tmp;
                 num /= 10;
@@ -369,7 +368,7 @@ fn leetcode_1313() {
     impl Solution {
         pub fn decompress_rl_elist(nums: Vec<i32>) -> Vec<i32> {
             let mut rets = Vec::new();
-            for (index, e) in nums.iter().enumerate() {
+            for (index, _e) in nums.iter().enumerate() {
                 if index & 1 == 0 {
                     let mut freq = nums[index];
                     let value = nums[index + 1];
@@ -403,7 +402,7 @@ fn interview_17() {
         //8ms
         pub fn print_numbers(n: i32) -> Vec<i32> {
             let mut max_num = String::new();
-            for i in 1..=n {
+            for _i in 1..=n {
                 max_num.push('9')
             }
             let mut ret = Vec::new();
@@ -459,7 +458,7 @@ fn interview_05() {
     println!("interview_05");
     impl Solution {
         pub fn replace_space(s: String) -> String {
-            let mut str = s;
+            let str = s;
             str.replace(" ", "%20")
         }
     }
@@ -746,7 +745,7 @@ fn leetcode_617() {
             fn merge(t1: &mut Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) {
                 if let Some(mut n1) = t1.as_ref() {
                     if let Some(n2) = t2 {
-                        let mut n1 = n1.borrow_mut();
+                        let n1 = n1.borrow_mut();
                         let n2: &RefCell<TreeNode> = n2.borrow();
                         unsafe {
                             (*n1.as_ptr()).val += (*n2.as_ptr()).val;
@@ -892,7 +891,7 @@ fn leetcode_832() {
         pub fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
             let ret: Vec<Vec<i32>> = a
                 .iter()
-                .map(|mut row| -> Vec<i32> {
+                .map(|row| -> Vec<i32> {
                     let mut new_row: Vec<i32> = row
                         .iter()
                         .map(|x| -> i32 {
@@ -933,7 +932,7 @@ fn interview_25() {
             let mut cur = &mut result_head;
             let mut l1 = l1;
             let mut l2 = l2;
-            let mut next = true;
+            let _next = true;
             while l1.is_some() || l2.is_some() {
                 //take去除值，并保留为None
                 match (l1.take(), l2.take()) {
@@ -1182,7 +1181,7 @@ fn leetcode_1385() {
         //暴力解
         pub fn find_the_distance_value(arr1: Vec<i32>, arr2: Vec<i32>, d: i32) -> i32 {
             let mut c = 0;
-            let ret = arr1.iter().for_each(|&x| {
+            let _ret = arr1.iter().for_each(|&x| {
                 let mut flag = false;
                 arr2.iter().for_each(|&y| {
                     if !flag && (x - y).abs() > d {
@@ -1354,7 +1353,7 @@ fn leetcode_977() {
             let mut a = a;
             a[0] = a[0] * a[0];
             for i in 1..a.len() {
-                let mut tmp = a[i] * a[i];
+                let tmp = a[i] * a[i];
                 let mut j = i;
                 while j > 0 && a[j - 1] > tmp {
                     a[j] = a[j - 1];
@@ -1368,7 +1367,7 @@ fn leetcode_977() {
         //12ms,2.2MB
         pub fn sorted_squares2(a: Vec<i32>) -> Vec<i32> {
             let mut ret = a;
-            for (i, n) in ret.iter_mut().enumerate() {
+            for (_i, n) in ret.iter_mut().enumerate() {
                 *n = *n * *n;
             }
             ret.sort();
@@ -1844,7 +1843,7 @@ fn leetcode_9() {
             //直接to_string后index需要8ms
             //let mut nums: Vec<char> = x.to_string().chars().map(|x| x.to_owned() ).collect();
             //nums[i] != nums[j] 需要16ms
-            let mut nums = x.to_string();
+            let nums = x.to_string();
             let mut i = 0;
             let mut j = nums.len() - 1;
             while i < j {
@@ -1913,7 +1912,7 @@ fn leetcode_13() {
                 .for_each(|(first, second)| {
                     let a = roman_to_int_char(first).unwrap();
                     let b = roman_to_int_char(second).unwrap();
-                    v += (if a < b { -1 * a } else { a });
+                    v += if a < b { -1 * a } else { a };
                 });
             v += roman_to_int_char(s.chars().last().unwrap()).unwrap();
 
@@ -1931,7 +1930,7 @@ fn leetcode_13() {
                 ('D', 500),
                 ('M', 1000),
             ];
-            let mut hash: HashMap<char, i32> = tr.iter().cloned().collect();
+            let hash: HashMap<char, i32> = tr.iter().cloned().collect();
             let chars: Vec<char> = s.chars().collect();
             let mut ans = 0;
             let n = chars.len();
@@ -2060,7 +2059,7 @@ fn leetcode_14() {
                 }
             });
             while min_length > 0 {
-                let mut sub_word = &min_word[0..min_length];
+                let sub_word = &min_word[0..min_length];
                 let mut is_max = true;
                 for w in strs.iter() {
                     if w.starts_with(sub_word) == false {
@@ -2086,7 +2085,7 @@ fn leetcode_14() {
             }
             //选取第一个单词w，对w的长度从大到小进行切片，将切片与所有单词进行匹配
             result = strs[0].clone();
-            for (index, word) in strs.iter().enumerate() {
+            for (_index, word) in strs.iter().enumerate() {
                 while !word.starts_with(result.as_str()) {
                     result = result[0..result.len() - 1].to_owned();
                     if result.len() == 0 {
@@ -2100,7 +2099,7 @@ fn leetcode_14() {
         //4 ms, 2.1 MB
         pub fn longest_common_prefix3(strs: Vec<String>) -> String {
             let strs = &strs;
-            let mut result: String = "".to_owned();
+            let result: String = "".to_owned();
             if strs.is_empty() {
                 return result;
             }
@@ -2108,7 +2107,7 @@ fn leetcode_14() {
             let word = &strs[0].clone();
             let init_word: Vec<char> = word.chars().collect();
             for i in 0..init_word.len() {
-                let mut c: char = init_word[i];
+                let c: char = init_word[i];
                 for j in 1..strs.len() {
                     let cs: Vec<char> = strs[j].chars().collect();
                     if i < cs.len() && c != cs[i] || i == cs.len() {
@@ -2181,7 +2180,7 @@ fn leetcode_35() {
     println!("leetcode_35");
     impl Solution {
         pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
-            let mut nums = nums;
+            let nums = nums;
             //找到知己反回索引，没有找到则返回该元素插入后保持数组仍然有序的索引位置，主要用于有序的数组/向量
             let ret = match nums.binary_search(&target) {
                 Ok(found_index) => found_index,

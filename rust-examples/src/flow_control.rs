@@ -349,7 +349,7 @@ fn if_let() {
         println!("c is {}", value);
     }
 
-    if let Foo::Qux(value @ 100) = c {
+    if let Foo::Qux(_value @ 100) = c {
         println!("c is one hundred");
     }
 

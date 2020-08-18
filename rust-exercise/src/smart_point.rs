@@ -22,7 +22,7 @@ pub fn box_function() {
         Nil,
     }
     use List::{Cons, Nil};
-    let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
+    let _list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
 
     ///使用Deref特质将智能指针视为常规引用
     //定义自己的智能指针
@@ -73,10 +73,10 @@ pub fn box_function() {
             println!("Dropping CustomSmartPointer with data `{}`!", self.data);
         }
     }
-    let c = CustomSmartPointer {
+    let _c = CustomSmartPointer {
         data: String::from("my stuff"),
     };
-    let d = CustomSmartPointer {
+    let _d = CustomSmartPointer {
         data: String::from("other stuff"),
     };
     println!("CustomSmartPointers created.");
@@ -96,10 +96,10 @@ pub fn box_function() {
     use ListRc::*;
     let a = Rc::new(ConsRc(5, Rc::new(ConsRc(10, Rc::new(NilRc)))));
     println!("count after creating a = {}", Rc::strong_count(&a)); //引用计数=1
-    let b = ConsRc(3, Rc::clone(&a)); //clone无额外性能开销，实际仅增加了引用计数而不是真的深拷贝数据
+    let _b = ConsRc(3, Rc::clone(&a)); //clone无额外性能开销，实际仅增加了引用计数而不是真的深拷贝数据
     println!("count after creating b = {}", Rc::strong_count(&a)); //引用计数=2
     {
-        let c = ConsRc(4, Rc::clone(&a));
+        let _c = ConsRc(4, Rc::clone(&a));
         println!("count after creating c = {}", Rc::strong_count(&a)); //引用计数=3
     } //超出范围了，引用计数变为2
     println!("count after c goes out of scope = {}", Rc::strong_count(&a)); //Weak 弱引用计数

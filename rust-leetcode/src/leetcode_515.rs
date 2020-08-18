@@ -20,7 +20,7 @@ impl Solution {
         let mut max_val = i32::min_value();
         while !node_level.is_empty() {
             let size = node_level.len();
-            for i in 0..size {
+            for _i in 0..size {
                 let curr_node = node_level.pop_front();
                 if let Some(node) = curr_node {
                     //应该尽量避免使用unwrap

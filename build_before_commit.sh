@@ -22,12 +22,12 @@ do
 				echo "############ [ not enable $lang language in this project ]"
 				break
 			fi
-			# compile rust and fmt code
+			# compile rust and fmt code, remove unused
 			case "$lang" in
 			"rust")
 			echo "################# [ compile $sub_module ]"
-			`cd $sub_module;cargo build >/dev/null 2>&1;cargo fmt --all; cd .. `;;
-			# compile python
+			`cd $sub_module;cargo build >/dev/null 2>&1;cargo fmt --all; cargo fix --allow-dirty >/dev/null 2>&1;cd .. `;;
+			# fmt python
 			"python")
 			echo "############ [ TODO ]";;
 	    "c++")

@@ -101,14 +101,14 @@ pub fn closures_syntax() {
     fn add_one_v1(x: u32) -> u32 {
         x + 1
     } //显示函数定义
-    let add_one_v2 = |x: u32| -> u32 { x + 1 }; //完整注释的闭包定义
-    let add_one_v3 = |x: u32| x + 1; //删除类型，没有使用该闭包时不加u32会报错
-    let add_one_v4 = |x: u32| x + 1; //删除括号，没有使用该闭包时不加u32会报错
+    let _add_one_v2 = |x: u32| -> u32 { x + 1 }; //完整注释的闭包定义
+    let _add_one_v3 = |x: u32| x + 1; //删除类型，没有使用该闭包时不加u32会报错
+    let _add_one_v4 = |x: u32| x + 1; //删除括号，没有使用该闭包时不加u32会报错
 
     ///两次使用闭包传入了不同类型参数，将会报错
     ///如果尝试对同一闭包使用其他不同类型，则会收到类型错误。
     let example_closure = |x| x;
-    let s = example_closure(String::from("hello"));
+    let _s = example_closure(String::from("hello"));
     //let n = example_closure(5);
 
     //捕获非传入参数x
@@ -166,7 +166,7 @@ where
 fn call_with_different_values() {
     let mut c = Cacher::new(|a| a);
 
-    let v1 = c.value(1);
+    let _v1 = c.value(1);
     //失败
     let v2 = c.value(2);
 

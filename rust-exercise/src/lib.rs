@@ -84,8 +84,8 @@ pub fn eat_at_restaurant2() {
     //下面编译不过，seasonal_fruit是私有的
     //meal.seasonal_fruit = String::from("blueberries");
     //使用公开的枚举类型
-    let order1 = back_of_house::Appetizer::Soup;
-    let order2 = back_of_house::Appetizer::Salad;
+    let _order1 = back_of_house::Appetizer::Soup;
+    let _order2 = back_of_house::Appetizer::Salad;
 
     //使用use导入模块，可以省略模块前缀，使代码简洁
     front_of_house::hosting::add_to_waitlist_host(); //front_of_house :: hosting 二级包

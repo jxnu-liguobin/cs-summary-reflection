@@ -5,7 +5,7 @@ impl Solution {
     pub fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let ret: Vec<Vec<i32>> = a
             .iter()
-            .map(|mut row| -> Vec<i32> {
+            .map(|row| -> Vec<i32> {
                 let mut new_row: Vec<i32> = row
                     .iter()
                     .map(|x| -> i32 {

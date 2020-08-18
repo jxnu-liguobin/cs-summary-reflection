@@ -1,8 +1,8 @@
-use std::borrow::{Borrow, BorrowMut};
+use std::borrow::Borrow;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use crate::pre_structs::{print_vec, ListNode, Solution, TreeNode};
+use crate::pre_structs::{ListNode, Solution, TreeNode};
 
 ///1367. 二叉树中的列表
 impl Solution {
@@ -29,7 +29,7 @@ impl Solution {
                 return;
             }
         }
-        let mut p = "".to_owned();
+        let p = "".to_owned();
         let mut ps = Vec::new();
         dfs_get_paths(&root, p, &mut ps);
         let mut target: String = String::new();

@@ -15,7 +15,7 @@ pub fn variable_bindings() {
     //通过在变量名前面加下划线来消音
     let _unused_variable = 3u32;
 
-    let noisy_unused_variable = 2u32;
+    let _noisy_unused_variable = 2u32;
 
     //可变
     let _immutable_binding = 1;

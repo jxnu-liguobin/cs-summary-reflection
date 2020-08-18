@@ -1,6 +1,6 @@
 use std::borrow::Borrow;
 use std::cell::RefCell;
-use std::cmp::max;
+
 use std::rc::Rc;
 
 use crate::pre_structs::{Solution, TreeNode};
@@ -62,10 +62,8 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use std::cell::RefCell;
-    use std::rc::Rc;
 
-    use crate::pre_structs::{get_test_tree_4, Solution, TreeNode};
+    use crate::pre_structs::{get_test_tree_4, Solution};
 
     #[test]
     fn longest_univalue_path() {

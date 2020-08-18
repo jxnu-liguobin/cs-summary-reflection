@@ -38,12 +38,8 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use std::cell::RefCell;
-    use std::rc::Rc;
 
-    use crate::pre_structs::{
-        get_test_tree_2, get_test_tree_3, get_test_tree_5, Solution, TreeNode,
-    };
+    use crate::pre_structs::{get_test_tree_2, get_test_tree_3, get_test_tree_5, Solution};
 
     #[test]
     fn has_path_sum() {

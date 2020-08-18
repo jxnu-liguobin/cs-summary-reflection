@@ -13,7 +13,7 @@ impl Solution {
         let mut i = 0;
         let mut j = 1;
         let mut cur = 1;
-        for m in 2..=n {
+        for _m in 2..=n {
             cur = i + j;
             if cur >= 1000000007 {
                 cur -= 1000000007
@@ -45,7 +45,7 @@ impl Solution {
         }
         let mut i = 0;
         let mut j = 1;
-        for m in 1..n {
+        for _m in 1..n {
             //向后移动i j时，利用 j=i+j,i=(i+j)-i,少个变量
             j = i + j;
             i = j - i;

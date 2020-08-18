@@ -1,6 +1,6 @@
-use std::borrow::{Borrow, BorrowMut};
+use std::borrow::Borrow;
 use std::cell::RefCell;
-use std::cmp::{max, min};
+use std::cmp::min;
 use std::rc::Rc;
 
 use crate::pre_structs::{Solution, TreeNode};
@@ -41,12 +41,8 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use std::cell::RefCell;
-    use std::rc::Rc;
 
-    use crate::pre_structs::{
-        get_test_tree_2, get_test_tree_3, get_test_tree_5, Solution, TreeNode,
-    };
+    use crate::pre_structs::{get_test_tree_2, get_test_tree_3, get_test_tree_5, Solution};
 
     #[test]
     fn min_depth() {

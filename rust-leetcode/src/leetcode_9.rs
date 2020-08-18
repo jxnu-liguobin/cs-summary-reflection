@@ -24,7 +24,7 @@ impl Solution {
         //直接to_string后index需要8ms
         //let mut nums: Vec<char> = x.to_string().chars().map(|x| x.to_owned() ).collect();
         //nums[i] != nums[j] 需要16ms
-        let mut nums = x.to_string();
+        let nums = x.to_string();
         let mut i = 0;
         let mut j = nums.len() - 1;
         while i < j {

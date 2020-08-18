@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 use crate::pre_structs::Solution;
 
 ///204. 计数质数
@@ -7,7 +5,7 @@ impl Solution {
     //772MS,2.1MB
     pub fn count_primes(n: i32) -> i32 {
         fn is_primes(num: i32) -> bool {
-            let mut cnt = 0;
+            let _cnt = 0;
             if num < 2 {
                 return false;
             }
