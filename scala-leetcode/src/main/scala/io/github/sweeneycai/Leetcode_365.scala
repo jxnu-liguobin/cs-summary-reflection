@@ -4,7 +4,7 @@ package io.github.sweeneycai
 import scala.annotation.tailrec
 
 /**
-  * 365. 水壶问题(Medium)
+  * 365. 水壶问题 (Medium)
   * 有两个容量分别为 x升 和 y升 的水壶以及无限多的水。能否通过使用这两个水壶，从而可以得到恰好 z升 的水？
   *
   * 如果可以，最后请用以上水壶中的一或两个来盛放取得的 z升 水。
