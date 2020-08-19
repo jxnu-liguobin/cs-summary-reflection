@@ -15,6 +15,13 @@
 10. [696. 计数二进制子串](./everyday/aug/CountBinarySubstrings.java)
 11. [130. 被围绕的区域](./everyday/aug/SurroundedRegions.java)
 12. [133. 克隆图](./everyday/aug/CloneGraph.java)
+13. [43. 字符串相乘](./everyday/aug/MultiplyStrings.java)
+14. [20. 有效括号匹配](./everyday/aug/ValidParentheses.java)
+15. [546. 移除盒子](./everyday/aug/RemoveBoxes.java)
+16. [733. 图像渲染](./everyday/aug/FloodFill.java)
+17. [110. 平衡二叉树](./everyday/aug/BalancedBinaryTree.java)
+18. [109. 有序链表转换二叉搜索树](./everyday/aug/ConvertSortedListToBinarySearchTree.java)
+19. [647. 回文子串](./everyday/aug/PalindromicSubstrings.java)
 ## 哈希表
 1. [1. 两数之和](./TwoSum.java)
 
