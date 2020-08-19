@@ -2,7 +2,7 @@
 package io.github.dreamylost
 
 /**
-  * 树的高度
+  * 二叉树的最大深度
   * 104. Maximum Depth of Binary Tree (Easy)
   *
   * @time 2018年7月28日

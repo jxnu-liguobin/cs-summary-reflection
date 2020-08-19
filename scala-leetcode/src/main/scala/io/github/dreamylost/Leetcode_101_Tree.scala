@@ -2,7 +2,7 @@
 package io.github.dreamylost
 
 /**
-  * 树的对称
+  * 对称二叉树
   *
   * 101. Symmetric Tree (Easy)
   *

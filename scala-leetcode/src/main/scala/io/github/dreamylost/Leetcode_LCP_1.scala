@@ -8,7 +8,7 @@ package io.github.dreamylost
   * @since 2020-03-13
   * @version v1.0
   */
-object Leetcode_LCP_1_1 extends App {
+object Leetcode_LCP_1 extends App {
 
   println(game(Array(1, 2, 3), Array(1, 2, 3)))
 
