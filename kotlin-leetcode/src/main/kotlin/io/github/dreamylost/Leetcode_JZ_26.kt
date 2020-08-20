@@ -17,14 +17,14 @@ object Leetcode_JZ_26 {
      */
     fun isSubStructure(A: TreeNode?, B: TreeNode?): Boolean {
         if (A == null || B == null) return false
-        return isSubTree(A, B) || isSubStructure(A?.left, B) || isSubStructure(A?.right, B)
+        return isSubTree(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B)
     }
 
     private fun isSubTree(a: TreeNode?, b: TreeNode?): Boolean {
         if (b == null) return true
         if (a == null) return false
         if (a.`val` != b.`val`) return false
-        return isSubTree(a?.left, b?.left) && isSubTree(a?.right, b?.right)
+        return isSubTree(a.left, b.left) && isSubTree(a.right, b.right)
     }
 
     @JvmStatic
