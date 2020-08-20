@@ -19,6 +19,13 @@ object Leetcode_697_Array extends App {
 
   print(findShortestSubArray(Array(1, 2, 2, 3, 1, 4, 2)))
 
+  /**
+    * 752 ms,100.00%
+    * 55.3 MB,100.00%
+    *
+    * @param nums
+    * @return
+    */
   def findShortestSubArray(nums: Array[Int]): Int = {
     import scala.collection.mutable
     val map = new mutable.HashMap[Integer, Array[Int]]

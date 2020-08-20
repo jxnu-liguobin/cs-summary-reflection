@@ -4,12 +4,10 @@ package io.github.dreamylost
 /**
   * 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。
   *
-  * @title: CountBits
-  * @description:
   * @author 梦境迷离
   * @date 2018-08-27
   */
-object CountBits extends App {
+object Leetcode_338 extends App {
 
   val ret = countBits(85723)
   for (i <- ret) {
@@ -17,6 +15,8 @@ object CountBits extends App {
   }
 
   /**
+    * 524 ms,80.00%
+    * 49.8 MB,100.00%
     * f[1] = (f[0]==0) + (1%1==1) = 1
     * f[11] = (f[1]==1) + (11%1==1)  = 2
     * f[110] = (f[11]==2) + (110%1==0) = 2

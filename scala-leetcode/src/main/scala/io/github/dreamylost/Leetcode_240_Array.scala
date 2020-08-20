@@ -24,9 +24,8 @@ object Leetcode_240_Array {
   }
 
   /**
-    * Scala创建二维数组
-    *
-    * var index = new Array[ArrayBuffer[Int]](10)
+    * 704 ms,100.00%
+    * 59.7 MB,100.00%
     * for(i <- 0 until index.length){
     * index(i) = new ArrayBuffer[Int]()
     * }
