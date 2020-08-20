@@ -14,73 +14,73 @@ package io.github.dreamylost
  *  @version 1.0
  */
 object Leetcode_623 {
-    // 236 ms ,100.00%
-    // 36.3 MB ,100.00%
-    fun addOneRow(root: TreeNode?, v: Int, d: Int): TreeNode? {
-        if (root == null) return null
-        if (d == 1) {
-            val addNode = TreeNode(v)
-            addNode.left = root.left
-            addNode.right = root.right
-            return addNode
-        }
-        val queue: java.util.LinkedList<TreeNode> = java.util.LinkedList()
-        queue.addLast(root)
-        var curDepth = 2
-        while (!queue.isEmpty()) {
-            if (curDepth == d) {
-                for (p in queue) {
-                    val pLeft = TreeNode(v)
-                    val pRight = TreeNode(v)
-                    pLeft.left = p.left
-                    p.left = pLeft
-                    pRight.right = p.right
-                    p.right = pRight
-                }
-                return root
-            } else {
-                val size = queue.size
-                for (i in 0 until size) {
-                    val node = queue.pollFirst()
-                    if (node.left != null) {
-                        queue.addLast(node.left)
-                    }
-                    if (node.right != null) {
-                        queue.addLast(node.right)
-                    }
-                }
-                curDepth++
-            }
+  // 236 ms ,100.00%
+  // 36.3 MB ,100.00%
+  fun addOneRow(root: TreeNode?, v: Int, d: Int): TreeNode? {
+    if (root == null) return null
+    if (d == 1) {
+      val addNode = TreeNode(v)
+      addNode.left = root.left
+      addNode.right = root.right
+      return addNode
+    }
+    val queue: java.util.LinkedList<TreeNode> = java.util.LinkedList()
+    queue.addLast(root)
+    var curDepth = 2
+    while (!queue.isEmpty()) {
+      if (curDepth == d) {
+        for (p in queue) {
+          val pLeft = TreeNode(v)
+          val pRight = TreeNode(v)
+          pLeft.left = p.left
+          p.left = pLeft
+          pRight.right = p.right
+          p.right = pRight
         }
         return root
-    }
-
-    // 244 ms ,100.00%
-    // 37.7 MB ,100.00%
-    fun addOneRow2(root: TreeNode?, v: Int, d: Int): TreeNode? {
-        if (root == null) return null
-        if (d == 1) {
-            val t = TreeNode(v)
-            t.left = root
-            return t
+      } else {
+        val size = queue.size
+        for (i in 0 until size) {
+          val node = queue.pollFirst()
+          if (node.left != null) {
+            queue.addLast(node.left)
+          }
+          if (node.right != null) {
+            queue.addLast(node.right)
+          }
         }
-        if (d == 2) {
-            val l = TreeNode(v)
-            val r = TreeNode(v)
-            l.left = root.left
-            r.right = root.right
-            root.left = l
-            root.right = r
-            return root
-        }
-        root.left = addOneRow(root.left, v, d - 1)
-        root.right = addOneRow(root.right, v, d - 1)
-        return root
+        curDepth++
+      }
     }
+    return root
+  }
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val ret = addOneRow(TreeNodeData.treeNode_6(), 1, 2)
-        print(ret)
+  // 244 ms ,100.00%
+  // 37.7 MB ,100.00%
+  fun addOneRow2(root: TreeNode?, v: Int, d: Int): TreeNode? {
+    if (root == null) return null
+    if (d == 1) {
+      val t = TreeNode(v)
+      t.left = root
+      return t
     }
+    if (d == 2) {
+      val l = TreeNode(v)
+      val r = TreeNode(v)
+      l.left = root.left
+      r.right = root.right
+      root.left = l
+      root.right = r
+      return root
+    }
+    root.left = addOneRow(root.left, v, d - 1)
+    root.right = addOneRow(root.right, v, d - 1)
+    return root
+  }
+
+  @JvmStatic
+  fun main(args: Array<String>) {
+    val ret = addOneRow(TreeNodeData.treeNode_6(), 1, 2)
+    print(ret)
+  }
 }

@@ -1,6 +1,8 @@
 /* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost
 
+import java.util.*
+
 /**
  * 剑指 Offer 32 - III. 从上到下打印二叉树 III
  *
@@ -11,40 +13,40 @@ package io.github.dreamylost
  */
 object Leetcode_JZ_32_2 {
 
-    // 236 ms ,78.57%
-    // 34.6 MB ,85.71%
-    fun levelOrder(root: TreeNode?): List<List<Int>> {
-        if (root == null) return emptyList()
-        val ret = mutableListOf<List<Int>>()
-        val queue = java.util.LinkedList<TreeNode>()
-        queue.addLast(root)
-        var level = 0
-        while (!queue.isEmpty()) {
-            val size = queue.size
-            level++
-            val levelNode = java.util.LinkedList<Int>()
-            for (i in 0 until size) {
-                val node = queue.pollFirst()
-                if (node != null) {
-                    // 使用数组会导致头插法比较慢
-                    // 这样占内存大一点，但是速度和直接翻转差不多
-                    if (level.and(1) == 0) {
-                        levelNode.addFirst(node.`val`)
-                    } else {
-                        levelNode.addLast(node.`val`)
-                    }
-                }
-                if (node?.left != null) queue.addLast(node.left)
-                if (node?.right != null) queue.addLast(node.right)
-            }
-            ret.add(levelNode)
+  // 236 ms ,78.57%
+  // 34.6 MB ,85.71%
+  fun levelOrder(root: TreeNode?): List<List<Int>> {
+    if (root == null) return emptyList()
+    val ret = mutableListOf<List<Int>>()
+    val queue = LinkedList<TreeNode>()
+    queue.addLast(root)
+    var level = 0
+    while (!queue.isEmpty()) {
+      val size = queue.size
+      level++
+      val levelNode = LinkedList<Int>()
+      for (i in 0 until size) {
+        val node = queue.pollFirst()
+        if (node != null) {
+          // 使用数组会导致头插法比较慢
+          // 这样占内存大一点，但是速度和直接翻转差不多
+          if (level.and(1) == 0) {
+            levelNode.addFirst(node.`val`)
+          } else {
+            levelNode.addLast(node.`val`)
+          }
         }
-        return ret
+        if (node?.left != null) queue.addLast(node.left)
+        if (node?.right != null) queue.addLast(node.right)
+      }
+      ret.add(levelNode)
     }
+    return ret
+  }
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val ret = levelOrder(TreeNodeData.treeNode_10())
-        println(ret)
-    }
+  @JvmStatic
+  fun main(args: Array<String>) {
+    val ret = levelOrder(TreeNodeData.treeNode_10())
+    println(ret)
+  }
 }

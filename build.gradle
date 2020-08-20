@@ -112,7 +112,7 @@ project(':scala-examples') {
 project(':kotlin-leetcode') {
     spotless {
         kotlin {
-            ktlint().userData(['indent_size': '2', 'continuation_indent_size' : '2'])
+            ktlint('0.37.2').userData(['indent_size': '2', 'continuation_indent_size': '2', 'disabled_rules': 'no-wildcard-imports'])
             licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */'
         }
     }
@@ -121,7 +121,7 @@ project(':kotlin-leetcode') {
 project(':kotlin-study') {
     spotless {
         kotlin {
-            ktlint().userData(['indent_size': '2', 'continuation_indent_size' : '2'])
+            ktlint('0.37.2').userData(['indent_size': '4', 'continuation_indent_size': '2', 'disabled_rules': 'no-wildcard-imports'])
             licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */'
         }
     }

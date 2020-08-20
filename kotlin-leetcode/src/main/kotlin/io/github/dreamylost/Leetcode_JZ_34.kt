@@ -10,32 +10,32 @@ package io.github.dreamylost
  */
 object Leetcode_JZ_34 {
 
-    // 280 ms ,40.00%
-    // 38.4 MB ,33.33%
-    fun pathSum(root: TreeNode?, sum: Int): List<List<Int>> {
-        if (root == null) return emptyList()
-        val ret = mutableListOf<List<Int>>()
+  // 280 ms ,40.00%
+  // 38.4 MB ,33.33%
+  fun pathSum(root: TreeNode?, sum: Int): List<List<Int>> {
+    if (root == null) return emptyList()
+    val ret = mutableListOf<List<Int>>()
 
-        fun helper(root: TreeNode?, sum: Int, mutableList: MutableList<Int>): Int {
-            if (root == null) return -1
-            val tmp = sum - root.`val`
-            mutableList.add(root.`val`)
-            if (tmp == 0 && root.left == null && root.right == null) {
-                ret.add(ArrayList(mutableList))
-            } else {
-                helper(root.left, tmp, mutableList)
-                helper(root.right, tmp, mutableList)
-            }
-            return mutableList.removeAt(mutableList.size - 1)
-        }
-
-        helper(root, sum, ArrayList())
-        return ret
+    fun helper(root: TreeNode?, sum: Int, mutableList: MutableList<Int>): Int {
+      if (root == null) return -1
+      val tmp = sum - root.`val`
+      mutableList.add(root.`val`)
+      if (tmp == 0 && root.left == null && root.right == null) {
+        ret.add(ArrayList(mutableList))
+      } else {
+        helper(root.left, tmp, mutableList)
+        helper(root.right, tmp, mutableList)
+      }
+      return mutableList.removeAt(mutableList.size - 1)
     }
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val ret = pathSum(TreeNodeData.treeNode_10(), 22)
-        print(ret)
-    }
+    helper(root, sum, ArrayList())
+    return ret
+  }
+
+  @JvmStatic
+  fun main(args: Array<String>) {
+    val ret = pathSum(TreeNodeData.treeNode_10(), 22)
+    print(ret)
+  }
 }
