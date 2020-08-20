@@ -7,5 +7,5 @@ package io.github.dreamylost
  * @version 1.0,2020/6/22
  */
 fun main() {
-  println("hello world")
+    println("hello world")
 }

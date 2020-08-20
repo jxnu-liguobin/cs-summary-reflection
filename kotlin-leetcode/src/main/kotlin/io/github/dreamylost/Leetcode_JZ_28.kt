@@ -10,28 +10,28 @@ package io.github.dreamylost
  */
 object Leetcode_JZ_28 {
 
-  // 256 ms,17.65%
-  // 35.5 MB,100.00%
-  fun isSymmetric(root: TreeNode?): Boolean {
-    fun helper(l: TreeNode?, r: TreeNode?): Boolean {
-      if (l == null && r == null) {
-        return true
-      }
-      if (l == null || r == null) {
-        return false
-      }
-      if (l.`val` != r.`val`) {
-        return false
-      }
-      return helper(l.left, r.right) && helper(l.right, r.left)
+    // 256 ms,17.65%
+    // 35.5 MB,100.00%
+    fun isSymmetric(root: TreeNode?): Boolean {
+        fun helper(l: TreeNode?, r: TreeNode?): Boolean {
+            if (l == null && r == null) {
+                return true
+            }
+            if (l == null || r == null) {
+                return false
+            }
+            if (l.`val` != r.`val`) {
+                return false
+            }
+            return helper(l.left, r.right) && helper(l.right, r.left)
+        }
+        if (root == null) return true
+        return helper(root.left, root.right)
     }
-    if (root == null) return true
-    return helper(root.left, root.right)
-  }
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val ret = isSymmetric(TreeNodeData.treeNode_3())
-    print(ret)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val ret = isSymmetric(TreeNodeData.treeNode_3())
+        print(ret)
+    }
 }

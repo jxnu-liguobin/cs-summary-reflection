@@ -7,6 +7,6 @@ package io.github.dreamylost
  * @version 1.0,2020/6/22
  */
 data class TreeNode(var `val`: Int) {
-  var left: TreeNode? = null
-  var right: TreeNode? = null
+    var left: TreeNode? = null
+    var right: TreeNode? = null
 }

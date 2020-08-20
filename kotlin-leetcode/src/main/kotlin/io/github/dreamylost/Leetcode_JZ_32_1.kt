@@ -11,29 +11,29 @@ package io.github.dreamylost
  */
 object Leetcode_JZ_32_1 {
 
-  /**
-   * 236 ms,11.11%
-   * 35.7 MB,16.67%
-   */
-  fun levelOrder(root: TreeNode?): IntArray {
-    if (root == null) return emptyArray<Int>().toIntArray()
-    val ret = arrayListOf<Int>()
-    val queue = java.util.LinkedList<TreeNode>()
-    queue.addLast(root)
-    while (!queue.isEmpty()) {
-      val node = queue.pollFirst()
-      ret.add(node.`val`)
-      if (node?.left != null) queue.addLast(node.left)
-      if (node?.right != null) queue.addLast(node.right)
+    /**
+     * 236 ms,11.11%
+     * 35.7 MB,16.67%
+     */
+    fun levelOrder(root: TreeNode?): IntArray {
+        if (root == null) return emptyArray<Int>().toIntArray()
+        val ret = arrayListOf<Int>()
+        val queue = java.util.LinkedList<TreeNode>()
+        queue.addLast(root)
+        while (!queue.isEmpty()) {
+            val node = queue.pollFirst()
+            ret.add(node.`val`)
+            if (node?.left != null) queue.addLast(node.left)
+            if (node?.right != null) queue.addLast(node.right)
+        }
+        return ret.toIntArray()
     }
-    return ret.toIntArray()
-  }
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val ret = levelOrder(TreeNodeData.treeNode_10())
-    for (i in ret) {
-      println(i)
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val ret = levelOrder(TreeNodeData.treeNode_10())
+        for (i in ret) {
+            println(i)
+        }
     }
-  }
 }
