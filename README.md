@@ -12,7 +12,7 @@
 [![](https://img.shields.io/github/commit-activity/m/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/github/contributors-anon/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
 [![](https://img.shields.io/github/license/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
-![](https://img.shields.io/badge/QQ%20Group-655462259-blue.svg?style=social&logo=tencent-qq)
+![](https://img.shields.io/badge/QQ%20Group-759823513-blue.svg?style=social&logo=tencent-qq)
 [![Gitter](https://badges.gitter.im/jxnu-liguobin/cs-summary-reflection.svg)](https://gitter.im/jxnu-liguobin/cs-summary-reflection?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 中文 | [English](./README-en.md)
