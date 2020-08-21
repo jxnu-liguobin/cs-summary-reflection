@@ -1,10 +1,10 @@
-Order by Join time
-#### Scala
+#### Order by Join time
+#### 1.Scala
 dreamylost:=> 100
 
 sweeneycai:=> 19
 
-#### Java (match *.Java)
+#### 2.Java (match *.Java)
 dreamylost:=> 324
 
 ccccmaster:=> 3
@@ -13,12 +13,12 @@ poorguy:=> 1
 
 wkk:=> 25
 
-#### Rust
+#### 3.Rust
 dreamylost:=> 93
 
-#### Kotlin
+#### 4.Kotlin
 dreamylost:=> 6
 
-#### Python
+#### 5.Python
 laozhang:=> 59
 
