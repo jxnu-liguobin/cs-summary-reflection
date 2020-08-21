@@ -17,7 +17,7 @@ wkk:=> 25
 dreamylost:=> 93
 
 #### 4.Kotlin
-dreamylost:=> 6
+dreamylost:=> 7
 
 #### 5.Python
 laozhang:=> 59

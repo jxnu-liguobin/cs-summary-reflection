@@ -6,3 +6,4 @@
 * [剑指 Offer 32 - III. 从上到下打印二叉树 III](Leetcode_JZ_32_3.kt) Medium
 * [剑指 Offer 32 - I. 从上到下打印二叉树](./Leetcode_JZ_32_1.kt) Medium
 * [剑指 Offer 28. 对称的二叉树](./Leetcode_JZ_26.kt) Medium
+* [剑指 Offer 07. 重建二叉树](./Leetcode_JZ_7.kt) Medium
