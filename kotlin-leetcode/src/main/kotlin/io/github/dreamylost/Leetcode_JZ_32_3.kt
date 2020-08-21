@@ -11,7 +11,7 @@ import java.util.*
  * @author 梦境迷离
  * @version 1.0,2020/8/19
  */
-object Leetcode_JZ_32_2 {
+object Leetcode_JZ_32_3 {
 
     // 236 ms ,78.57%
     // 34.6 MB ,85.71%
