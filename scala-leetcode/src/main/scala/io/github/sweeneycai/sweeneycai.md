@@ -1,5 +1,6 @@
 ### 链表
 
+- [19. 删除链表的倒数第N个节点 (Medium)](Leetcode_19.scala)
 - [707. 设计链表 (Medium)](./Leetcode_707.scala)
 
 ### 双指针
@@ -28,6 +29,7 @@
 ### 其他
 
 - [5. 最长回文子串 (Medium)](./Leetcode_5.scala)
+- [31. 下一个排列 (Medium)](Leetcode_31.scala)
 - [43. 字符串相乘 (Medium)](./Leetcode_43.scala)
 - [415. 字符串相加(Easy)](./Leetcode_415.scala)
 - [647. 回文子串 (Medium)](Leetcode_647.scala)
