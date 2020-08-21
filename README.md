@@ -17,9 +17,13 @@
 
 中文 | [English](./README-en.md)
 
-# Leetcode 组队刷题
+## Leetcode 组队刷题
 
 同样支持 LintCode、牛客网、九章算法
+
+### 进度
+
+[按人统计](countByAuthors.md)
 
 ### 报名途径
 

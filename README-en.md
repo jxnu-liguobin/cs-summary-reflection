@@ -17,9 +17,13 @@
 
 [中文](./README.md) | English
 
-# Leetcode teamed up
+## Leetcode teamed up
 
 It also supports LintCode, nowcoder and Jiuzhang algorithm
+
+### Progress
+
+[Count by Authors](countByAuthors.md)
 
 ### Registration route
 
