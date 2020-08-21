@@ -215,8 +215,8 @@ interface RectangleProperties {
 
 class Rectangle(
     // 构造函数有2个可变属性，
-  var height: Double,
-  var length: Double
+    var height: Double,
+    var length: Double
 ) : RectangleProperties, Shape(listOf(height, length, height, length)) {
     // 继承使用: 逗号隔开，只允许一个抽象类，JVM平台目前Java Scala Kotlin等都不支持多继承（类）
     override val isSquare: Boolean get() = length == height
@@ -225,9 +225,9 @@ class Rectangle(
 }
 
 class Triangle(
-  var sideA: Double,
-  var sideB: Double,
-  var sideC: Double
+    var sideA: Double,
+    var sideB: Double,
+    var sideC: Double
 ) : Shape(listOf(sideA, sideB, sideC)) {
     override fun calculateArea(): Double {
         val s = perimeter / 2

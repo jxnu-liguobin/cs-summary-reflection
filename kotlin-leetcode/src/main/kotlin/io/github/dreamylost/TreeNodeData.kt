@@ -55,4 +55,25 @@ object TreeNodeData {
         n11.right = n2
         return n5
     }
+
+    fun treeNode_5_1(): TreeNode {
+        val n1 = TreeNode(1)
+        val n2 = TreeNode(2)
+        val n3 = TreeNode(3)
+        val n4 = TreeNode(4)
+        val n5 = TreeNode(5)
+
+        n3.left = n4
+        n3.right = n5
+        n4.left = n1
+        n4.right = n2
+        return n3
+    }
+
+    fun treeNode_2_1(): TreeNode {
+        val n1 = TreeNode(1)
+        val n4 = TreeNode(4)
+        n4.left = n1
+        return n4
+    }
 }

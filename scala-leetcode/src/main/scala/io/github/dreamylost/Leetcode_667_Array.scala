@@ -4,12 +4,10 @@ package io.github.dreamylost
 /**
   * 数组相邻差值的个数
   *
-  * 667. Beautiful Arrangement II (Medium)
+  * 给定两个整数 n 和 k，你需要实现一个数组，这个数组包含从 1 到 n 的 n 个不同整数，同时满足以下条件：
+  * ① 如果这个数组是 [a1, a2, a3, ... , an] ，那么数组 [|a1 - a2|, |a2 - a3|, |a3 - a4|, ... , |an-1 - an|] 中应该有且仅有 k 个不同整数；.
+  * ② 如果存在多种答案，你只需实现并返回其中任意一种.
   *
-  * Input: n = 3, k = 2
-  * Output: [1, 3, 2]
-  * Explanation: The [1, 3, 2] has three different positive integers ranging from 1 to 3,
-  * and the [2, 1] has exactly 2 distinct integers: 1 and 2.
   * @author 梦境迷离
   * @time 2018年7月19日
   * @version v1.0
@@ -17,8 +15,8 @@ package io.github.dreamylost
 object Leetcode_667_Array extends App {
 
   /**
-    * 题目描述：数组元素为 1~n 的整数，要求构建数组，使得相邻元素的差值不相同的个数为 k。
-    * 让前 k+1 个元素构建出 k 个不相同的差值，序列为：1 k+1 2 k 3 k-1 ... k/2 k/2+1.
+    * 492 ms,100.00%
+    * 49.4 MB,100.00%
     */
   def constructArray(n: Int, k: Int): Array[Int] = {
     val ret = new Array[Int](n)

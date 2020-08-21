@@ -2,7 +2,7 @@
 package io.github.dreamylost
 
 /**
-  * 对角元素相等的矩阵
+  * 对角元素相等的矩阵（托普利茨矩阵）
   *
   * 766. Toeplitz Matrix (Easy)
   *
@@ -24,14 +24,21 @@ object Leetcode_766_Array extends App {
   val nums = Array(n1, n2, n3)
   print(isToeplitzMatrix(nums))
 
+  /**
+    * 652 ms,100.00%
+    * 52.4 MB,100.00%
+    *
+    * @param matrix
+    * @return
+    */
   def isToeplitzMatrix(matrix: Array[Array[Int]]): Boolean = {
-    for (i ← 0 until matrix(0).length) {
+    for (i ← matrix(0).indices) {
       if (!check(matrix, matrix(0)(i), 0, i)) {
         return false
       }
     }
 
-    for (i ← 0 until matrix.length) {
+    for (i ← matrix.indices) {
       if (!check(matrix, matrix(i)(0), i, 0)) {
         return false
       }

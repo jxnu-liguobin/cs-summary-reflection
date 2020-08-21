@@ -1,6 +1,8 @@
 /* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost
 
+import java.util.*
+
 /**
  * 剑指 Offer 32 - III. 从上到下打印二叉树 III
  *
@@ -16,13 +18,13 @@ object Leetcode_JZ_32_2 {
     fun levelOrder(root: TreeNode?): List<List<Int>> {
         if (root == null) return emptyList()
         val ret = mutableListOf<List<Int>>()
-        val queue = java.util.LinkedList<TreeNode>()
+        val queue = LinkedList<TreeNode>()
         queue.addLast(root)
         var level = 0
         while (!queue.isEmpty()) {
             val size = queue.size
             level++
-            val levelNode = java.util.LinkedList<Int>()
+            val levelNode = LinkedList<Int>()
             for (i in 0 until size) {
                 val node = queue.pollFirst()
                 if (node != null) {

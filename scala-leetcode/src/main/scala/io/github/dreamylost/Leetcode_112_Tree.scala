@@ -2,7 +2,7 @@
 package io.github.dreamylost
 
 /**
-  * 判断路径和是否等于一个数
+  * 路径总和
   * Leetcdoe : 112. Path Sum (Easy)
   * Given the below binary tree and sum = 22,
   *                  5

@@ -2,7 +2,7 @@
 package io.github.dreamylost
 
 /**
-  * 判断平衡树
+  * 平衡二叉树
   *
   * 110. Balanced Binary Tree (Easy)
   *

@@ -4,7 +4,7 @@ package io.github.dreamylost
 import scala.collection.mutable
 
 /**
-  * 有序矩阵的 Kth Element
+  * 有序矩阵中第K小的元素
   *
   * 378. Kth Smallest Element in a Sorted Matrix ((Medium))
   *

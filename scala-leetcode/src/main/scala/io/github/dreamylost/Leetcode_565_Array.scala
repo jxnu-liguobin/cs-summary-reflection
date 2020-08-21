@@ -23,12 +23,19 @@ object Leetcode_565_Array extends App {
 
   print(arrayNesting2(Array(5, 4, 0, 3, 1, 6, 2)))
 
+  /**
+    * 640 ms,100.00%
+    * 54 MB,100.00%
+    *
+    * @param nums
+    * @return
+    */
   def arrayNesting(nums: Array[Int]): Int = {
     var max = 0
-    for (i <- 0 until nums.length) {
+    for (i <- nums.indices) {
       var cnt = 0
       var j = i
-      while ((nums(j) != -1)) {
+      while (nums(j) != -1) {
         cnt += 1
         val t = nums(j)
         // 标记该位置已经被访问
@@ -37,7 +44,7 @@ object Leetcode_565_Array extends App {
       }
       max = math.max(max, cnt)
     }
-    return max
+    max
   }
 
   /**
@@ -48,16 +55,16 @@ object Leetcode_565_Array extends App {
     val cArr = new Array[Int](nums.length)
     val visited = new Array[Boolean](nums.length)
     var max = 0
-    for (i <- 0 until nums.length) {
+    for (i <- nums.indices) {
       dfs(i, nums, cArr, visited)
       max = Math.max(max, cArr(i))
     }
-    return max
+    max
   }
 
   def dfs(i: Int, nums: Array[Int], cArr: Array[Int], visited: Array[Boolean]) {
     if (cArr(i) > 0 || visited(i)) return
-    var next = nums(i)
+    val next = nums(i)
     if (cArr(next) > 0) {
       cArr(i) = cArr(next) + 1
       return
