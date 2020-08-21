@@ -1,18 +1,20 @@
+/* Licensed under Apache-2.0 (C) All Contributors */
 package io.github.sweeneycai
 
 import scala.annotation.tailrec
 
 /**
- * 647. 回文子串 (Medium)
- *
- * 给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
- *
- * 具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。
- */
+  * 647. 回文子串 (Medium)
+  *
+  * 给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
+  *
+  * 具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。
+  */
 object Leetcode_647 extends App {
+
   /**
-   * 该题和求最长回文字串有异曲同工之妙，最佳解法是中间搜索
-   */
+    * 该题和求最长回文字串有异曲同工之妙，最佳解法是中间搜索
+    */
   def countSubstrings(s: String): Int = {
     var res = 0
 

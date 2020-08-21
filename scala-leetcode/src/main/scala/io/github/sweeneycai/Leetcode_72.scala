@@ -1,27 +1,29 @@
+/* Licensed under Apache-2.0 (C) All Contributors */
 package io.github.sweeneycai
 
 /**
- * 72. 编辑距离 (Hard)
- *
- * 给你两个单词word1 和word2，请你计算出将word1转换成word2 所使用的最少操作数。
- *
- * 你可以对一个单词进行如下三种操作：
- *
- * 插入一个字符
- * 删除一个字符
- * 替换一个字符
- */
+  * 72. 编辑距离 (Hard)
+  *
+  * 给你两个单词word1 和word2，请你计算出将word1转换成word2 所使用的最少操作数。
+  *
+  * 你可以对一个单词进行如下三种操作：
+  *
+  * 插入一个字符
+  * 删除一个字符
+  * 替换一个字符
+  */
 object Leetcode_72 extends App {
+
   /**
-   * dp 经典问题
-   * 设 dp(i)(j) 代表从状态i到状态j所需要的步数，显而易见，
-   * dp(i)(0) = i, dp(j)(0) = j
-   * 而对于dp(i)(j)则有不同的选择：
-   *
-   * - 从 dp(i)(j-1) 转移过来，即 word2 添加一个字符
-   * - 从 dp(i-1)(j) 转移过来，即 word1 添加一个字符
-   * - 从 dp(i-1)(j-1) 转移过来，这个时候分两种情况进行讨论
-   */
+    * dp 经典问题
+    * 设 dp(i)(j) 代表从状态i到状态j所需要的步数，显而易见，
+    * dp(i)(0) = i, dp(j)(0) = j
+    * 而对于dp(i)(j)则有不同的选择：
+    *
+    * - 从 dp(i)(j-1) 转移过来，即 word2 添加一个字符
+    * - 从 dp(i-1)(j) 转移过来，即 word1 添加一个字符
+    * - 从 dp(i-1)(j-1) 转移过来，这个时候分两种情况进行讨论
+    */
   def minDistance(word1: String, word2: String): Int = {
     val n = word1.length
     val m = word2.length
@@ -46,4 +48,3 @@ object Leetcode_72 extends App {
 
   println(minDistance("horse", "ros"))
 }
-
