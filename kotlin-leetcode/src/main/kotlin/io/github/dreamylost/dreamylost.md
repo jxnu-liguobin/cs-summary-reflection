@@ -8,3 +8,4 @@
 * [剑指 Offer 28. 对称的二叉树](./Leetcode_JZ_26.kt) Medium
 * [剑指 Offer 07. 重建二叉树](./Leetcode_JZ_7.kt) Medium
 * [652. 寻找重复的子树](./Leetcode_652.kt) Medium
+* [654. 最大二叉树](./Leetcode_654.kt) Medium
