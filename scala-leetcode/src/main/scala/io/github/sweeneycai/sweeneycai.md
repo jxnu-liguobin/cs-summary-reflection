@@ -1,7 +1,15 @@
+### 位运算
+
+- [201. 数字范围按位与 (Medium)](Leetcode_201.scala)
+
 ### 链表
 
 - [19. 删除链表的倒数第N个节点 (Medium)](Leetcode_19.scala)
 - [707. 设计链表 (Medium)](./Leetcode_707.scala)
+
+### 二分查找
+
+- [34. 在排序数组中查找元素的第一个和最后一个位置 (Medium)](Leetcode_34.scala)
 
 ### 双指针
 
@@ -19,6 +27,11 @@
 - [130. 被围绕的区域 (Medium)](./Leetcode_130.scala)
 - [365. 水壶问题 (Medium)](./Leetcode_365.scala)
 
+### 回溯与剪枝
+
+- [22. 括号生成 (Medium)](Leetcode_22.scala)
+- [39. 组合总和 (Medium)](Leetcode_39.scala)
+
 ### 动态规划
 
 - [42. 接雨水 (Hard)](Leetcode_42.scala)
@@ -32,6 +45,8 @@
 - [31. 下一个排列 (Medium)](Leetcode_31.scala)
 - [43. 字符串相乘 (Medium)](./Leetcode_43.scala)
 - [415. 字符串相加(Easy)](./Leetcode_415.scala)
+- [448. 找到所有数组中消失的数字 (Easy)](Leetcode_448.scala)
+- [459. 重复的子字符串 (Easy)]()
 - [647. 回文子串 (Medium)](Leetcode_647.scala)
 - [696. 计数二进制子串 (Easy)](./Leetcode_696.scala)
 - [滴滴面试题-打印斐波那契矩阵](Didi_interview_1.scala)
