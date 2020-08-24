@@ -6,6 +6,11 @@ package io.github.dreamylost
  * @author 梦境迷离
  * @version 1.0,2020/6/22
  */
-fun main() {
-    println("hello world")
+class HelloKotlin {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            println("hello world")
+        }
+    }
 }

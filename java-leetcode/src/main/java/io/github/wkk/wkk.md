@@ -22,6 +22,10 @@
 17. [110. 平衡二叉树](./everyday/aug/BalancedBinaryTree.java)
 18. [109. 有序链表转换二叉搜索树](./everyday/aug/ConvertSortedListToBinarySearchTree.java)
 19. [647. 回文子串](./everyday/aug/PalindromicSubstrings.java)
+20. [529. 扫雷游戏](./everyday/aug/Minesweeper.java)
+21. [111. 二叉树的最小深度](./everyday/aug/MinimumDepthOfBinaryTree.java)
+22. [679. 24点游戏](./everyday/aug/TwentyFourGame.java)
+23. [201. 数字范围按位与]()
 ## 哈希表
 1. [1. 两数之和](./TwoSum.java)
 

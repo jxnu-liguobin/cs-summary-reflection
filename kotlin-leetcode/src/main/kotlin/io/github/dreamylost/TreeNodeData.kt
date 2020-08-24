@@ -76,4 +76,17 @@ object TreeNodeData {
         n4.left = n1
         return n4
     }
+
+    fun treeNode7_1(): TreeNode {
+        val n1 = TreeNode(1)
+        val n2 = TreeNode(2)
+        val n3 = TreeNode(3)
+        n1.left = n2
+        n1.right = n3
+        n2.left = TreeNode(4)
+        n3.left = TreeNode(2)
+        n3.right = TreeNode(4)
+        n3.left!!.left = TreeNode(4)
+        return n3
+    }
 }
