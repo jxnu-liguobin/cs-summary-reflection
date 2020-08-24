@@ -77,6 +77,13 @@ object TreeNodeData {
         return n4
     }
 
+    fun treeNode_2_2(): TreeNode {
+        val n1 = TreeNode(1)
+        val n2 = TreeNode(2)
+        n1.left = n2
+        return n1
+    }
+
     fun treeNode7_1(): TreeNode {
         val n1 = TreeNode(1)
         val n2 = TreeNode(2)

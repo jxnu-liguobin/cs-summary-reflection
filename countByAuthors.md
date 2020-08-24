@@ -11,13 +11,13 @@ ccccmaster:=> 3
 
 poorguy:=> 1
 
-wkk:=> 25
+wkk:=> 29
 
 #### 3.Rust
 dreamylost:=> 93
 
 #### 4.Kotlin
-dreamylost:=> 9
+dreamylost:=> 10
 
 #### 5.Python
 laozhang:=> 59
