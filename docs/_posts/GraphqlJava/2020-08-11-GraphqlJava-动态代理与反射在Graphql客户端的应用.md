@@ -250,14 +250,15 @@ final public class ResolverImplClient {
 
 ```java
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
+import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseField;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
+
 
 /**
  * dynamic proxy for create request
@@ -360,53 +361,54 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
 
     private Object proxyInvoke(Method method, Object[] args) {
         int i = 0;
+        Field field = null;
+        List<GraphQLResponseField> fields = null;
         String entityClazzName;
-        try {
-            //对于集合类型，目前只处理了 List，我们需要拿到它的泛型参数，才能正确反序列化。所以使用 `method.getGenericReturnType()` 获取 resolver 接口的方法的返回类型。
-            //如果返回类型是一个 参数化类型，我们还需要继续获取其中的值。`Type[] parameterizedType = ((ParameterizedType) type).getActualTypeArguments();` 帮助我们获取该类型的参数化类型的列表，
-            //由于我们只处理 List 类型，很显然，它只有一个参数化类型，所以我们使用 `entityClazzName = parameterizedType[0].getTypeName();`。
-            //而当 resolver 接口的方法的返回类型是一个普通 entity 时，我们只需要直接获取它的类名即可。
-            //使用 `type.getTypeName();`
-            Type type = method.getGenericReturnType();
-            if (type instanceof ParameterizedType) {
-                Type[] parameterizedType = ((ParameterizedType) type).getActualTypeArguments();
-                entityClazzName = parameterizedType[0].getTypeName();
-            } else {
-                entityClazzName = type.getTypeName();
-            }
-            List<Parameter> parameters = Arrays.stream(method.getParameters()).collect(Collectors.toList());
+        //对于集合类型，目前只处理了 List，我们需要拿到它的泛型参数，才能正确反序列化。所以使用 `method.getGenericReturnType()` 获取 resolver 接口的方法的返回类型。
+        //如果返回类型是一个 参数化类型，我们还需要继续获取其中的值。`Type[] parameterizedType = ((ParameterizedType) type).getActualTypeArguments();` 帮助我们获取该类型的参数化类型的列表，
+        //由于我们只处理 List 类型，很显然，它只有一个参数化类型，所以我们使用 `entityClazzName = parameterizedType[0].getTypeName();`。
+        //而当 resolver 接口的方法的返回类型是一个普通 entity 时，我们只需要直接获取它的类名即可。
+        //使用 `type.getTypeName();`
+        Type type = method.getGenericReturnType();
+        if (type instanceof ParameterizedType) {
+            Type[] parameterizedType = ((ParameterizedType) type).getActualTypeArguments();
+            entityClazzName = parameterizedType[0].getTypeName();
+        } else {
+            entityClazzName = type.getTypeName();
+        }
+        List<Parameter> parameters = Arrays.stream(method.getParameters()).collect(Collectors.toList());
 
-            //if this method have no parameter, then do not need invoke on request instance
-            //other wise, we need append parameters to request field which use hashmap store params
-            if (!parameters.isEmpty()) {
-                Field input = request.getClass().getDeclaredField("input");
-                input.setAccessible(true);
-                Map<String, Object> params = new LinkedHashMap<>();
+        //if this method have no parameter, then do not need invoke on request instance
+        //other wise, we need append parameters to request field which use hashmap store params
+         if (!parameters.isEmpty()) {
                 for (Parameter parameter : parameters) {
                     Object argsCopy = args[i++];
-                    //我们使用反射获取参数名称，同时更改 request 的 input 字段值，达到了等同调用 set 方法的目的。（因为set方法最终也是将参数和参数值放到 input 中）
-                    //因为我们必须在反射时动态获取参数值，所以我们应该使用 java8的编译参数 -parameters，以便字节码中保留参数名称，否则参数名都是 var0 var1，没办法获取真实的参数名
-                    params.put(parameter.getName(), argsCopy);
-                    System.out.println("request parameter <" + parameter.getName() + "> and parameter type <" + parameter.getType().getName() + ">");
+                    //我们必须在反射时动态获取参数名称，所以我们应该使用java8的编译参数 -parameters，以便字节码中保留参数名称，否则参数名都是 var0 var1，没办法获取真实的参数名
+                    request.getInput().put(parameter.getName(), argsCopy);
                 }
+         }
 
-                input.set(request, params);
-                input.setAccessible(false);
-            }
-
-            //newInstance GraphQLResponseProjection and GraphQLOperationRequest
-            //获取自己定义的方法，因为很显然，projection 是提供本 response 的字段选择功能，而父类继承过来的方法，我们根本不需要。
-            for (Method parentMethod : projection.getClass().getDeclaredMethods()) {
-                invokeOnProjection(projection, parentMethod, 1);
-            }
-
-            return executeByHttp(entityClazzName, request, projection);
-
-        } catch (IllegalAccessException | NoSuchFieldException e) {
+        try {
+            field = projection.getClass().getSuperclass().getDeclaredField("fields");
+            field.setAccessible(true);
+            fields = (List<GraphQLResponseField>) field.get(projection);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
+        } finally {
+            if (field != null) {
+                field.setAccessible(false);
+            }
         }
 
-        return null;
+        //if fields not null, use it directly, because user want to select fields
+        if (projection != null && (fields == null || fields.isEmpty())) {
+        //获取自己定义的方法，因为很显然，projection 是提供本 response 的字段选择功能，而父类继承过来的方法，我们根本不需要。
+            for (Method m : projection.getClass().getDeclaredMethods()) {
+                invokeOnProjection(projection, m, 1);
+            }
+        }
+
+        return executeByHttp(entityClazzName, request, projection);
     }
 }
 ```
@@ -447,6 +449,8 @@ public class HumanResolverJavaApp {
         //Set your own request and resolver for each request
         try {
             System.out.println("======human========");
+            //默认返回所有projection的字段，如果需要自己选择怎么办？使用：new HumanQueryRequest().id().name()，就可以只返回id和name字段的数据了。
+            //此时最大嵌套递归深度不生效
             HumanDO humanDO = humanInvokerBuilder.setRequest(new HumanQueryRequest()).build(HumanQueryResolver.class).human("1001");
             assert humanDO.getEmail() == "dreamylost@outlook.com";
             System.out.println(humanDO);
@@ -483,6 +487,8 @@ object HumanResolverScalaApp extends App {
 
   //Set your own request and resolver for each request
   println("======human========")
+  //默认返回所有projection的字段，如果需要自己选择怎么办？使用：new HumanQueryRequest().id().name()，就可以只返回id和name字段的数据了。
+  //此时最大嵌套递归深度不生效
   val human = humanInvokerBuilder.setRequest(new HumanQueryRequest).build(classOf[HumanQueryResolver]).human("1001")
   println(human)
 
