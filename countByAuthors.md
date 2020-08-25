@@ -2,7 +2,7 @@
 #### 1.Scala
 dreamylost:=> 100
 
-sweeneycai:=> 19
+sweeneycai:=> 25
 
 #### 2.Java (match *.Java)
 dreamylost:=> 324
@@ -17,7 +17,7 @@ wkk:=> 29
 dreamylost:=> 93
 
 #### 4.Kotlin
-dreamylost:=> 10
+dreamylost:=> 11
 
 #### 5.Python
 laozhang:=> 59

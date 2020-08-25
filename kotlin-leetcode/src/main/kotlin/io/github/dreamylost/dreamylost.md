@@ -10,3 +10,4 @@
 * [652. 寻找重复的子树](./Leetcode_652.kt) Medium
 * [654. 最大二叉树](./Leetcode_654.kt) Medium
 * [655. 输出二叉树](./Leetcode_655.kt) Medium
+* [684. 冗余连接](./Leetcode_684.kt) Medium
