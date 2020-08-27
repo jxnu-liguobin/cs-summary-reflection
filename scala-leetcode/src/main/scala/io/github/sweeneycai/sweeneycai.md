@@ -1,3 +1,7 @@
+### 基本算法
+
+- [快速排序](QuickSort.scala)
+
 ### 位运算
 
 - [201. 数字范围按位与 (Medium)](Leetcode_201.scala)
@@ -44,6 +48,8 @@
 - [5. 最长回文子串 (Medium)](./Leetcode_5.scala)
 - [31. 下一个排列 (Medium)](Leetcode_31.scala)
 - [43. 字符串相乘 (Medium)](./Leetcode_43.scala)
+- [49. 字母异位词分组 (Medium)](Leetcode_49.scala)
+- [55. 跳跃游戏 (Medium)](Leetcode_55.scala)
 - [415. 字符串相加(Easy)](./Leetcode_415.scala)
 - [448. 找到所有数组中消失的数字 (Easy)](Leetcode_448.scala)
 - [459. 重复的子字符串 (Easy)]()
