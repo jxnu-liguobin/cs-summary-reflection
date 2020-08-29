@@ -13,7 +13,7 @@ class Leetcode_701 {
     companion object {
 
         /**
-         * 416 ms,23.08%
+         * 368 ms,23.08%
          * 35.4 MB,100.00%
          */
         fun insertIntoBST(root: TreeNode?, `val`: Int): TreeNode? {
