@@ -29,6 +29,7 @@
 - [17. 电话号码的字母组合 (Medium)](./Leetcode_17.scala)
 - [93. 复原IP地址 (Medium)](./Leetcode_93.scala)
 - [130. 被围绕的区域 (Medium)](./Leetcode_130.scala)
+- [332. 重新安排行程 (Medium)](Leetcode_332.scala)
 - [365. 水壶问题 (Medium)](./Leetcode_365.scala)
 
 ### 回溯与剪枝
@@ -38,13 +39,17 @@
 
 ### 动态规划
 
+- [32. 最长有效括号 (Hard)](Leetcode_32.scala)
 - [42. 接雨水 (Hard)](Leetcode_42.scala)
+- [62. 不同路径 (Medium)](Leetcode_62.scala)
 - [64. 最小路径和 (Medium)](./Leetcode_64.scala)
 - [72. 编辑距离 (Hard)](Leetcode_72.scala)
 - [198. 打家劫舍 (Easy)](./Leetcode_198.scala)
+- [322. 零钱兑换 (Medium)](Leetcode_322.scala)
 
 ### 其他
 
+- [剑指 Offer 41. 数据流中的中位数 (Hard)](Lcof_41.scala)
 - [5. 最长回文子串 (Medium)](./Leetcode_5.scala)
 - [31. 下一个排列 (Medium)](Leetcode_31.scala)
 - [43. 字符串相乘 (Medium)](./Leetcode_43.scala)
