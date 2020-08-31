@@ -14,3 +14,4 @@
 * [701. 二叉搜索树中的插入操作](./Leetcode_701.kt) Medium
 * [814. 二叉树剪枝](./Leetcode_814.kt) Medium
 * [863. 二叉树中所有距离为 K 的结点](./Leetcode_863.kt) Medium
+* [889. 根据前序和后序遍历构造二叉树](./Leetcode_889.kt) Medium
