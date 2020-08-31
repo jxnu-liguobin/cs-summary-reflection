@@ -33,6 +33,11 @@
 |24. |[459. 重复的子字符串](./everyday/aug/RepeatedSubstringPattern.java)| 简单 |
 |25. |[491. 递增子序列](./everyday/aug/IncreasingSubsequences.java)| 中等 |
 |26. |[17. 电话号码的字母组合](./everyday/aug/LetterCombinationsOfAPhoneNumber.java)| 中等 |
+|27. |[332. 重新安排行程](./everyday/aug/ReconstructItinerary.java)| 中等 |
+|28. |[657. 机器人能否返回原点](./everyday/aug/RobotReturnToOrigin.java)| 简单 |
+|29. |[214. 最短回文串](./everyday/aug/ShortestPalindrome.java)| 困难 |
+|30. |[557. 反转字符串中的单词](./everyday/aug/ReverseWordsInAStringIII.java)| 简单 |
+|31. |[841. 钥匙和房间](./everyday/aug/KeysAndRooms.java)| 中等 |
 ## 哈希表
 |  | 题目 | 难度 |
 |:----:|:----:|:----:|
