@@ -71,7 +71,7 @@ object BTT extends App {
       stack = s
       if (node != null) {
         ret = ret ++ Seq(node.value)
-        stack = node.left :: stack // 先右后左，保证左子树先遍历
+        stack = node.left :: stack // 先左后右，保证右子树先遍历
         stack = node.right :: stack
       }
     }
