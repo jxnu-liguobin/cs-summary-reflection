@@ -156,6 +156,8 @@
 
 [本地端口映射到k8s](./docs/_posts/其他/2019-11-25-其他-本地端口映射到k8s.md)
 
+[javap和ASM](./docs/_posts/其他/2020-09-03-其他-javap和ASM.md)
+
 ## 常用命令
 
 [Git相关命令](./docs/_posts/常用命令/2018-11-11-常用命令-Git相关命令.md)
