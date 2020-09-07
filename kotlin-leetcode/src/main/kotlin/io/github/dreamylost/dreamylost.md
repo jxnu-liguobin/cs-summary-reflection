@@ -17,3 +17,4 @@
 * [889. 根据前序和后序遍历构造二叉树](./Leetcode_889.kt) Medium
 * [145. 二叉树的后序遍历](./Leetcode_145.kt) Medium
 * [894. 所有可能的满二叉树](./Leetcode_894.kt) Medium
+* [1123. 最深叶节点的最近公共祖先](./Leetcode_1123.kt) Medium
