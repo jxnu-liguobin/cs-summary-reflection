@@ -28,10 +28,12 @@
 ### 深度优先搜索
 
 - [17. 电话号码的字母组合 (Medium)](Leetcode_17.scala)
+- [78. 子集 (Medium)](Leetcode_78.scala)
 - [93. 复原IP地址 (Medium)](Leetcode_93.scala)
 - [130. 被围绕的区域 (Medium)](Leetcode_130.scala)
 - [332. 重新安排行程 (Medium)](Leetcode_332.scala)
 - [365. 水壶问题 (Medium)](Leetcode_365.scala)
+- [841. 钥匙和房间 (Medium)](Leetcode_841.scala)
 
 ### 回溯与剪枝
 
@@ -61,4 +63,5 @@
 - [459. 重复的子字符串 (Easy)]()
 - [647. 回文子串 (Medium)](Leetcode_647.scala)
 - [696. 计数二进制子串 (Easy)](Leetcode_696.scala)
+- [1502. 判断能否形成等差数列 (Medium)](Leetcode_1502.scala)
 - [滴滴面试题-打印斐波那契矩阵](Didi_interview_1.scala)

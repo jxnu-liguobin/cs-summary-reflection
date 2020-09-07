@@ -18,3 +18,4 @@
 * [145. 二叉树的后序遍历](./Leetcode_145.kt) Medium
 * [894. 所有可能的满二叉树](./Leetcode_894.kt) Medium
 * [1123. 最深叶节点的最近公共祖先](./Leetcode_1123.kt) Medium
+* [1261. 在受污染的二叉树中查找元素](./Leetcode_1261.kt) Medium
