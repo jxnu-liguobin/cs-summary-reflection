@@ -23,3 +23,4 @@
 * [951. 翻转等价二叉树](./Leetcode_951.kt) Medium
 * [919. 完全二叉树插入器](./Leetcode_919.kt) Medium
 * [1104. 二叉树寻路](./Leetcode_1104.kt) Medium
+* [1026. 节点与其祖先之间的最大差值](./Leetcode_1026.kt) Medium
