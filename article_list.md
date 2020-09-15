@@ -64,6 +64,8 @@
 
 [HashMap](./docs/_posts/Java源码/2018-08-12-Java源码-HashMap.md)
 
+[HashMap2](./docs/_posts/Java源码/2018-08-12-Java源码-HashMap2.md)
+
 [Hashtable](./docs/_posts/Java源码/2018-08-12-Java源码-Hashtable.md)
 
 [LinkedBlockingQueue](./docs/_posts/Java源码/2018-08-12-Java源码-LinkedBlockingQueue.md)
