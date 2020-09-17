@@ -25,3 +25,4 @@
 * [1104. 二叉树寻路](./Leetcode_1104.kt) Medium
 * [1026. 节点与其祖先之间的最大差值](./Leetcode_1026.kt) Medium
 * [1325. 删除给定值的叶子节点](./Leetcode_1325.kt) Medium
+* [1315. 祖父节点值为偶数的节点和](./Leetcode_1315.kt) Medium
