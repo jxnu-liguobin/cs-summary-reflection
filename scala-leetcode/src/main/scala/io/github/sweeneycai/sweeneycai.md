@@ -23,6 +23,7 @@
 
 ### 树
 
+- [98. 验证二叉搜索树 (Medium)](Leetcode_98.scala)
 - [99. 恢复二叉搜索树 (Hard)](Leetcode_99.scala)
 
 ### 深度优先搜索
@@ -47,6 +48,7 @@
 - [62. 不同路径 (Medium)](Leetcode_62.scala)
 - [64. 最小路径和 (Medium)](Leetcode_64.scala)
 - [72. 编辑距离 (Hard)](Leetcode_72.scala)
+- [96. 不同的二叉搜索树 (Medium)](Leetcode_96.scala)
 - [198. 打家劫舍 (Easy)](Leetcode_198.scala)
 - [322. 零钱兑换 (Medium)](Leetcode_322.scala)
 
