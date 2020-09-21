@@ -25,6 +25,7 @@
 
 - [98. 验证二叉搜索树 (Medium)](Leetcode_98.scala)
 - [99. 恢复二叉搜索树 (Hard)](Leetcode_99.scala)
+- [538. 把二叉搜索树转换为累加树 (Easy)](Leetcode_538.scala)
 
 ### 深度优先搜索
 
