@@ -28,3 +28,4 @@
 * [1315. 祖父节点值为偶数的节点和](./Leetcode_1315.kt) Medium
 * [1110. 删点成林](./Leetcode_1110.kt) Medium
 * [1448. 统计二叉树中好节点的数目](./Leetcode_1448.kt) Medium
+* [1530. 好叶子节点对的数量](./Leetcode_1530.kt) Medium
