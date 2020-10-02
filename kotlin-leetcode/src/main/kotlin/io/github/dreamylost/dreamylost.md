@@ -30,3 +30,4 @@
 * [1448. 统计二叉树中好节点的数目](./Leetcode_1448.kt) Medium
 * [1530. 好叶子节点对的数量](./Leetcode_1530.kt) Medium
 * [865. 具有所有最深结点的最小子树](./Leetcode_865.kt) Medium
+* [1161. 最大层内元素和](./Leetcode_1161.kt) Medium
