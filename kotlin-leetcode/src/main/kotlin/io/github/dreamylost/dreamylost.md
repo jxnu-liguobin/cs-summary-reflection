@@ -32,3 +32,4 @@
 * [865. 具有所有最深结点的最小子树](./Leetcode_865.kt) Medium
 * [1161. 最大层内元素和](./Leetcode_1161.kt) Medium
 * [958. 二叉树的完全性检验](./Leetcode_958.kt) Medium
+* [1457. 二叉树中的伪回文路径](./Leetcode_1457.kt) Medium
