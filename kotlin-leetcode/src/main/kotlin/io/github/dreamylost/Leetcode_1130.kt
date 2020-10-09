@@ -16,7 +16,7 @@ import kotlin.math.min
  * @author 梦境迷离
  * @version 1.0,2020/9/29
  */
-class Leetcodee_1130 {
+class Leetcode_1130 {
     companion object {
 
         /**
