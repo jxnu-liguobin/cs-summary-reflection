@@ -35,3 +35,4 @@
 * [958. 二叉树的完全性检验](./Leetcode_958.kt) Medium
 * [1457. 二叉树中的伪回文路径](./Leetcode_1457.kt) Medium
 * [971. 翻转二叉树以匹配先序遍历](./Leetcode_971.kt) Medium
+* [1372. 二叉树中的最长交错路径](./Leetcode_1372.kt) Medium
