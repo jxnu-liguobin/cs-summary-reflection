@@ -36,3 +36,4 @@
 * [1457. 二叉树中的伪回文路径](./Leetcode_1457.kt) Medium
 * [971. 翻转二叉树以匹配先序遍历](./Leetcode_971.kt) Medium
 * [1372. 二叉树中的最长交错路径](./Leetcode_1372.kt) Medium
+* [1466. 重新规划路线](./Leetcode_1466.kt) Medium
