@@ -1,3 +1,4 @@
+/* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost
 
 import scala.util.control.Breaks._
@@ -23,7 +24,8 @@ trait SkippableList[E] {
   def search(value: E): Node
 }
 
-class SkipList[E](val level: Int = 5, isPrint: Boolean = true)(implicit ordering: Ordering[E]) extends SkippableList[E] {
+class SkipList[E](val level: Int = 5, isPrint: Boolean = true)(implicit ordering: Ordering[E])
+    extends SkippableList[E] {
 
   final private val head = new SkipNode[E](null.asInstanceOf[E])
   final private val rand = new Random
@@ -73,7 +75,8 @@ class SkipList[E](val level: Int = 5, isPrint: Boolean = true)(implicit ordering
         }
 
         currentLevel -= 1
-      })
+      }
+    )
     result
   }
 
@@ -121,7 +124,8 @@ class SkipList[E](val level: Int = 5, isPrint: Boolean = true)(implicit ordering
             break()
           }
           current = current.getNext(level)
-        })
+        }
+      )
       result
     }
 
@@ -142,8 +146,10 @@ class SkipList[E](val level: Int = 5, isPrint: Boolean = true)(implicit ordering
         return
       }
       // 待插入节点大于当前节点以及它的下个节点
-      while (current.getNext(level) != null && ordering.compare(current.value, insertNode.value) < 1 &&
-        ordering.compare(current.getNext(level).value, insertNode.value) < 1) {
+      while (
+        current.getNext(level) != null && ordering.compare(current.value, insertNode.value) < 1 &&
+        ordering.compare(current.getNext(level).value, insertNode.value) < 1
+      ) {
         current = current.getNext(level)
       }
       val successor = current.getNext(level)
