@@ -1,7 +1,7 @@
 ---
 title: Java垃圾收集中如何使用Verbose
 categories:
-- 复习整理
+- Java虚拟机
 tags: [Java底层]
 ---
 

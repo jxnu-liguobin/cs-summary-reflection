@@ -1,7 +1,7 @@
 ---
 title: ProtocolBuffer的原理
 categories:
-- 复习整理
+- 其他
 tags: [Java中间件]
 ---
 

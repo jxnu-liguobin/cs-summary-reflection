@@ -1,7 +1,7 @@
 ---
 title: DVM和JVM有什么区别
 categories:
-- 复习整理
+- Java虚拟机
 tags: [Java底层]
 ---
 

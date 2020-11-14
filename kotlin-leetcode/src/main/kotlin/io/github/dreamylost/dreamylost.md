@@ -38,3 +38,7 @@
 * [1372. 二叉树中的最长交错路径](./Leetcode_1372.kt) Medium
 * [1466. 重新规划路线](./Leetcode_1466.kt) Medium
 * [1609. 奇偶树](./Leetcode_1609.kt) Medium
+
+### 每日一题
+
+* [1122. 数组的相对排序](./Leetcode_1122.kt) Easy

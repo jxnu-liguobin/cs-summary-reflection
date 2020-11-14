@@ -1,7 +1,7 @@
 ---
 title: Consul和Raft介绍
 categories:
-- 复习整理
+- 其他
 tags: [consul]
 description: 介绍Consul与Raft以及Consul和其他常见软件的对比。
 ---

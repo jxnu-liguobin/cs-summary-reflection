@@ -88,23 +88,23 @@
 
 [虚拟机相关使用测试代码](./docs/_posts/Java虚拟机/2018-11-11-Java虚拟机-虚拟机相关使用测试代码.md)
 
-[Java内存模型2](./docs/_posts/Java虚拟机/2020-10-14-复习整理-Java内存模型2.md)
+[Java内存模型2](./docs/_posts/Java虚拟机/2020-10-14-Java虚拟机-Java内存模型2.md)
 
-[Java对象的内存布局](./docs/_posts/Java虚拟机/2020-10-14-复习整理-Java对象的内存布局.md)
+[Java对象的内存布局](./docs/_posts/Java虚拟机/2020-10-14-Java虚拟机-Java对象的内存布局.md)
 
-[DVM和JVM有什么区别](./docs/_posts/Java虚拟机/2020-10-16-复习整理-DVM和JVM有什么区别.md)
+[DVM和JVM有什么区别](./docs/_posts/Java虚拟机/2020-10-16-Java虚拟机-DVM和JVM有什么区别.md)
 
-[JVM中的方法内联](./docs/_posts/Java虚拟机/2020-10-16-复习整理-JVM中的方法内联.md)
+[JVM中的方法内联](./docs/_posts/Java虚拟机/2020-10-16-Java虚拟机-JVM中的方法内联.md)
 
-[ZGC简介](./docs/_posts/Java虚拟机/2020-10-16-复习整理-ZGC简介.md)
+[ZGC简介](./docs/_posts/Java虚拟机/2020-10-16-Java虚拟机-ZGC简介.md)
 
-[最重要的JVM参数指南](./docs/_posts/Java虚拟机/2020-10-16-复习整理-最重要的JVM参数指南.md)
+[最重要的JVM参数指南](./docs/_posts/Java虚拟机/2020-10-16-Java虚拟机-最重要的JVM参数指南.md)
 
-[Java中的永久代与元空间](./docs/_posts/Java虚拟机/2020-10-19-复习整理-Java中的永久代与元空间.md)
+[Java中的永久代与元空间](./docs/_posts/Java虚拟机/2020-10-19-Java虚拟机-Java中的永久代与元空间.md)
 
-[Java垃圾收集中如何使用Verbose](./docs/_posts/Java虚拟机/2020-10-19-复习整理-Java垃圾收集中如何使用Verbose.md)
+[Java垃圾收集中如何使用Verbose](./docs/_posts/Java虚拟机/2020-10-19-Java虚拟机-Java垃圾收集中如何使用Verbose.md)
 
-[常见的垃圾收集器](./docs/_posts/Java虚拟机/2020-10-26-复习整理-常见的垃圾收集器.md)
+[常见的垃圾收集器](./docs/_posts/Java虚拟机/2020-10-26-Java虚拟机-常见的垃圾收集器.md)
 
 ## Rust
 
@@ -140,9 +140,9 @@
 
 [Scala的类型系统和泛型](./docs/_posts/Scala/2020-06-17-Scala-Scala的类型系统和泛型.md)
 
-[](./docs/_posts/Scala/2020-07-05-Scala的implicit和implicitly.md)
+[Scala的implicit和implicitly](./docs/_posts/Scala/2020-07-05-Scala-Scala的implicit和implicitly.md)
 
-[Scala所有集合对比](./docs/_posts/Scala/2020-10-17-复习整理-Scala所有集合对比.md)
+[Scala所有集合对比](./docs/_posts/Scala/2020-10-17-Scala-Scala所有集合对比.md)
 
 ## Shapeless
 
@@ -180,11 +180,11 @@
 
 [javap和ASM](./docs/_posts/其他/2020-09-03-其他-javap和ASM.md)
 
-[Consul和Raft介绍](./docs/_posts/其他/2020-10-27-复习整理-Consul和Raft介绍.md)
+[Consul和Raft介绍](./docs/_posts/其他/2020-10-27-其他-Consul和Raft介绍.md)
 
-[Consul领导选举](./docs/_posts/其他/2020-10-27-复习整理-Consul领导选举.md)
+[Consul领导选举](./docs/_posts/其他/2020-10-27-其他-Consul领导选举.md)
 
-[ProtocolBuffer的原理](./docs/_posts/其他/2020-10-28-复习整理-ProtocolBuffer的原理.md)
+[ProtocolBuffer的原理](./docs/_posts/其他/2020-10-28-其他-ProtocolBuffer的原理.md)
 
 ## 常用命令
 
@@ -214,13 +214,13 @@
 
 [StampedLock的实现分析](./docs/_posts/并发/2018-11-11-并发-StampedLock的实现分析.md)
 
-[Volatile](./docs/_posts/并发/2020-10-12-复习整理-Volatile.md)
+[Volatile](./docs/_posts/并发/2020-10-12-并发-Volatile.md)
 
-[线程池](./docs/_posts/并发/2020-10-13-复习整理-线程池.md)
+[线程池](./docs/_posts/并发/2020-10-13-并发-线程池.md)
 
-[ReentrantReadWriteLock](./docs/_posts/并发/2020-10-20-复习整理-ReentrantReadWriteLock.md)
+[ReentrantReadWriteLock](./docs/_posts/并发/2020-10-20-并发-ReentrantReadWriteLock.md)
 
-[并发中的ABA问题](./docs/_posts/并发/2020-11-05-复习整理-并发中的ABA问题.md)
+[并发中的ABA问题](./docs/_posts/并发/2020-11-05-并发-并发中的ABA问题.md)
 
 ## 操作系统
 
@@ -257,6 +257,8 @@
 [应届入职一年总结](./docs/_posts/随笔/2020-06-05-随笔-应届入职一年总结.md)
 
 [SQL优化记录](./docs/_posts/随笔/2020-11-13-随笔-SQL优化记录.md)
+
+[快速动态切换JDK版本](./docs/_posts/随笔/2020-11-14-随笔-快速动态切换JDK版本.md)
 
 ## 面试
 

@@ -1,7 +1,7 @@
 ---
 title: ReentrantReadWriteLock
 categories:
-- 复习整理
+- 并发
 tags: [Java并发]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Scala所有集合对比
 categories:
-- 复习整理
+- Scala
 tags: [Scala]
 ---
 

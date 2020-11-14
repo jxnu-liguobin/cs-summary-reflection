@@ -49,8 +49,8 @@ For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
     
 ### Language environment of this repository
 
-- Scala 2.12.8+
-- Java 1.8+
+- Scala 2.12.12
+- Java 1.8
 - Python 3.0+  
 - Rust 1.4+  
 - Kotlin 1.3+  
