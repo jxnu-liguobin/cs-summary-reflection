@@ -46,6 +46,8 @@
 
 - [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
     - [GitHub在线阅读](./article_list.md)
+- GrowingIO服务端Scala技术栈思维导图（2020-11-16 非100%完整）
+    - ![](TechnologyStack-2020-11-16.png)
     
 ### 环境
 
