@@ -1,13 +1,12 @@
-buildscript {
-    repositories {
-        maven {
-            name "aliyunmaven"
-            url "https://maven.aliyun.com/nexus/content/groups/public/"
-        }
-        google() //其他仓库可能出现找不到
-        mavenCentral()
-    }
-}
+//buildscript {
+//    repositories {
+//        maven {
+//            name "aliyunmaven"
+//            url "https://maven.aliyun.com/nexus/content/groups/public/"
+//        }
+//        google() //其他仓库可能出现找不到
+//    }
+//}
 plugins {
     id "com.diffplug.gradle.spotless" version "3.30.0"
 }
