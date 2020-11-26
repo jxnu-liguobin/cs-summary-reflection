@@ -1,16 +1,4 @@
-plugins {
-    id 'java'
-}
-
 group 'io.github.dreamylost.utils'
 version '0.0.1'
 
 sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
