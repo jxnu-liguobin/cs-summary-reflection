@@ -63,7 +63,7 @@ class Leetcode_164 {
                     max = anArr
                 }
             }
-            // 分别针对1，10，100...排序
+            // 分别针对数值的个位、十位、百分位等进行排序
             var exp = 1
             while (max / exp > 0) {
                 // 存储待排元素的临时数组

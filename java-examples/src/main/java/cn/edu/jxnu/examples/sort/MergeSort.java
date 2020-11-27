@@ -4,22 +4,23 @@ package cn.edu.jxnu.examples.sort;
 /**
  * 归并 最坏时间复杂度O(NlogN) 分治
  *
- * @time 2018年3月24日16:07:22
+ * @author 梦境迷离
+ * @since 2020年11月27日
  */
-public class MergeSort extends Constant {
+public class MergeSort extends Constant<Integer> {
 
     public static void main(String[] args) throws Exception {
-        Constant.printResult(new MergeSort().sort(Constant.array, Constant.len));
+        new MergeSort().sort(Constant.array, Constant.len);
     }
 
     @Override
-    public Object[] sort(Object[] array, int len) {
-        Object[] t = new Object[len];
+    public void sort(Integer[] array, int len) throws Exception {
+        Integer[] t = new Integer[len];
         mSort(array, t, 0, len - 1);
-        return array;
+        super.printResult(array);
     }
 
-    public void mSort(Object[] arr, Object[] temp, int left, int right) {
+    private void mSort(Integer[] arr, Integer[] temp, int left, int right) {
         int center;
         if (left < right) {
             center = (left + right) / 2;
@@ -34,14 +35,15 @@ public class MergeSort extends Constant {
         }
     }
 
-    private void merge(Object[] arr, Object[] tempArray, int leftPos, int rightPos, int rightEnd) {
+    private void merge(
+            Integer[] arr, Integer[] tempArray, int leftPos, int rightPos, int rightEnd) {
         int i, leftEnd, numElements, tempPos;
         leftEnd = rightPos - 1;
         tempPos = leftPos;
         numElements = rightEnd - leftPos + 1;
         // 主循环
         while (leftPos <= leftEnd && rightPos <= rightEnd)
-            if ((int) arr[leftPos] <= (int) arr[rightPos]) tempArray[tempPos++] = arr[leftPos++];
+            if (arr[leftPos] <= arr[rightPos]) tempArray[tempPos++] = arr[leftPos++];
             else tempArray[tempPos++] = arr[rightPos++];
         // 复制第一个数组的剩余数据
         while (leftPos <= leftEnd) tempArray[tempPos++] = arr[leftPos++];
