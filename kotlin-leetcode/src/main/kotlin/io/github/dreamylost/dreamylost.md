@@ -46,3 +46,4 @@
 * [1030. 距离顺序排列矩阵单元格](./Leetcode_1030.kt) Easy
 * [148. 排序链表](./Leetcode_148.kt) Medium
 * [164. 最大间距](./Leetcode_148.kt) Hard
+* [976. 三角形的最大周长](./Leetcode_976.kt) Easy

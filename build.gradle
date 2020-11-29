@@ -1,16 +1,16 @@
-//buildscript {
-//    repositories {
-//        maven {
-//            name "aliyunmaven"
-//            url "https://maven.aliyun.com/nexus/content/groups/public/"
-//        }
-//        google() //其他仓库可能出现找不到
-//    }
-//}
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
 plugins {
     id "com.diffplug.gradle.spotless" version "3.30.0"
 }
-subprojects {
+
+allprojects {
 
     apply plugin: 'java'
     apply plugin: 'maven'
@@ -25,17 +25,18 @@ subprojects {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
-
     repositories {
-        //强制HTTPS了
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        //存在域名的别名解析，解析到域名archiva-maven-storage-prod.oss-cn-beijing.aliyuncs.com上会找不到域名。
+//        maven {
+//            name "aliyunmaven"
+//            url "https://maven.aliyun.com/repository/public"
+//        }
+//        maven {
+//            name "aliyungoogle"
+//            url "https://maven.aliyun.com/repository/google"
+//        }
         google()
-        maven {
-            name "aliyunmaven"
-            url "https://maven.aliyun.com/nexus/content/groups/public/"
-        }
+        jcenter()
         mavenCentral()
     }
 
