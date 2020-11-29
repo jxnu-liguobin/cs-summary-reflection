@@ -1,7 +1,9 @@
 buildscript {
     repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
         google()
-        jcenter()
         mavenCentral()
     }
 }
@@ -26,7 +28,7 @@ allprojects {
     targetCompatibility = 1.8
 
     repositories {
-        //存在域名的别名解析，解析到域名archiva-maven-storage-prod.oss-cn-beijing.aliyuncs.com上会找不到域名。
+        //新版的阿里云存在域名的别名解析，解析到域名archiva-maven-storage-prod.oss-cn-beijing.aliyuncs.com上会找不到域名。
 //        maven {
 //            name "aliyunmaven"
 //            url "https://maven.aliyun.com/repository/public"
@@ -35,32 +37,28 @@ allprojects {
 //            name "aliyungoogle"
 //            url "https://maven.aliyun.com/repository/google"
 //        }
+        maven {
+            name "aliyunmaven"
+            url "https://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        maven {
+            name "spring"
+            url "http://repo.spring.io/libs-milestone/"
+        }
         google()
-        jcenter()
         mavenCentral()
     }
 
     //TODO  这个配置导致项目的层级是有问题的
     sourceSets {
         main {
-            scala {
-                srcDirs = ['src/main/java', 'src/main/scala']
-            }
-            java {
-                srcDirs = []
-            }
+            scala.srcDirs = ['src/main/java', 'src/main/scala']
+            java.srcDirs = []
         }
 
         //测试的执行可能有问题，可以用IDEA rebuild单独的子模块，再执行脚本build
         test {
-            scala {
-                srcDirs = ['src/test/scala', 'src/test/java']
-            }
-            java {
-//                srcDirs = ['src/test/java']
-                //排除旧的单元测试类
-//                exclude 'io/github/dreamylost/practice/test/**'
-            }
+            scala.srcDirs = ['src/test/scala', 'src/test/java']
         }
     }
 
