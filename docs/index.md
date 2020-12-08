@@ -7,11 +7,8 @@ title: 梦境亦是美，醒来亦是空
 {% for post in site.posts limit:5 %}
 
 - [{{ post.title }}]({{ post.url }}), *{{ post.date | date_to_string }}*
-
 {% if post.description %}
-
-  > {{ post.description }}
-
+    - {{ post.description }}
 {% endif %}
 
 {% endfor %}
@@ -25,11 +22,8 @@ title: 梦境亦是美，醒来亦是空
 {% for post in site.tags[tag] %}
 
 - [{{ post.title }}]({{ post.url }})
-
 {% if post.description %}
-
-  > {{ post.description }}
-
+    - {{ post.description }}
 {% endif %}
 
 {% endfor %}
