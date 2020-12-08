@@ -141,3 +141,9 @@ pub fn print_vec<T: Display>(nums: Vec<T>) {
         println!("{}", e);
     }
 }
+
+pub fn print_vec_without_enter<T: Display>(nums: Vec<T>) {
+    for e in nums.iter() {
+        print!("{}", e);
+    }
+}

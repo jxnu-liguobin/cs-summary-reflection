@@ -105,3 +105,4 @@ Leetcode Rust 实现
 * [840 矩阵中的幻方](src/leetcode_840.rs) Easy
 * [581 最短无序连续子数组](src/leetcode_581.rs) Easy
 * [321. 拼接最大数](src/leetcode_321.rs) Hard
+* [118. 杨辉三角](src/leetcode_118.rs) Hard
