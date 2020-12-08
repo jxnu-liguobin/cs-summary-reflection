@@ -24,7 +24,7 @@ title: 归档
     {% assign nyear = post.next.date | date: '%Y' %}
     {% if year != nyear %}  
       
-#### {{ post.date | date: '%Y' }}（{{ counts[i] }}）
+### {{ post.date | date: '%Y' }}（{{ counts[i] }}）
 
 {:.archive-title}
         {% assign i = i | plus: 1 %}
@@ -37,7 +37,7 @@ title: 归档
     {% endif %}
 {% else %}
 {% assign currentDay = post.date | date: '%m-%d' %}
-- {{ post.date | date: '%m-%d' }}
+**{{ post.date | date: '%m-%d' }}**
 - <small>[{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}</small>
 {% if post.description %}
     - <small>{{ post.description }}</small>
