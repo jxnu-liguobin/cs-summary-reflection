@@ -54,6 +54,7 @@ function loadStyle(url) {
 
       {% if site.PrismJS.plugins.autoloader.enable %}
       loadJs('{{ site.PrismJS.plugins.autoloader.src }}').then(function () {
+        Prism.highlightAll();
         Prism.plugins.autoloader.languages_path = '{{ site.PrismJS.plugins.autoloader.languages_path }}';
       })
       {% endif %}
@@ -64,11 +65,8 @@ function loadStyle(url) {
           loadStyle('{{ site.PrismJS.plugins.toolbar.stylesheet }}');
           {% if site.PrismJS.plugins.toolbar.select_code.enable %}
           Prism.plugins.toolbar.registerButton('select-code', function (env) {
-          Prism.highlightAll();
             var button = document.createElement('button');
-            if (env.language != 'text') {
-                button.innerHTML = '{{ site.PrismJS.plugins.toolbar.select_code.alert }}' + env.language;
-            }
+            button.innerHTML = '{{ site.PrismJS.plugins.toolbar.select_code.alert }}' + env.language;
             button.addEventListener('click', function () {
               // Source: http://stackoverflow.com/a/11128179/2757940
               if (document.body.createTextRange) { // ms
