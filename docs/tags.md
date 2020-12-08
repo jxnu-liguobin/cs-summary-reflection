@@ -7,11 +7,9 @@ title: 标签
 ##### {{ tag[0] }}
 
 {% for post in tag[1] %}
-
- - [{{ post.title }}]({{ post.url }}) <small>{{ post.date | date_to_string }}</small>
- 
+ - [{{ post.title }}]({{ post.url }}), <small>{{ post.date | date_to_string }}</small>
 {% if post.description %}
-    - {{ post.description }}
+    - <small>{{ post.description }}</small>
 {% endif %}
 
 {% endfor %}

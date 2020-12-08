@@ -7,9 +7,9 @@ title: 分类
 ##### {{ category[0] }}
 
 {% for post in category[1] %}
-- [{{ post.title }}]({{ post.url }}) <small>{{ post.date | date_to_string }}</small>
+- [{{ post.title }}]({{ post.url }}), <small>{{ post.date | date_to_string }}</small>
 {% if post.description %}
-    - {{ post.description }}
+    - <small>{{ post.description }}</small>
 {% endif %}
 
 {% endfor %}

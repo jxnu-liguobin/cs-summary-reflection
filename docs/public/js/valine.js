@@ -3,8 +3,6 @@ layout: null
 ---
   (function () {
     document.write('<div id="valine"></div>');
-    //    加载评论时，强制高亮刷新
-    Prism.highlightAll();
     var loadJs = (function () {
       var script = document.createElement('script');
       if (script.readyState) {

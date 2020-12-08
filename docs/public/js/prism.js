@@ -42,6 +42,8 @@ function loadStyle(url) {
   })();
   loadJs('{{ site.PrismJS.src }}')
     .then(function () {
+        //强制高亮刷新
+      Prism.highlightAll();
       loadStyle('{{ site.PrismJS.stylesheet }}');
       {% if site.PrismJS.plugins.line_numbers.enable %}
       loadStyle('{{ site.PrismJS.plugins.line_numbers.stylesheet }}');
