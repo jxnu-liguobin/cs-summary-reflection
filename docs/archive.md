@@ -31,13 +31,14 @@ title: 归档
     {% endif %}
 {% assign currentDay = '01-01' %}
 {% if currentDay == post.date | date: '%m-%d' %}
--                                 <small>[{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}</small>
+- <small>[{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}</small>
     {% if post.description %}
     - <small>{{ post.description }}</small>
     {% endif %}
 {% else %}
 {% assign currentDay = post.date | date: '%m-%d' %}
-- {{ post.date | date: '%m-%d' }}, <small>[{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}</small>
+- {{ post.date | date: '%m-%d' }}
+- <small>[{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}</small>
 {% if post.description %}
     - <small>{{ post.description }}</small>
 {% endif %}
