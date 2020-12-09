@@ -19,11 +19,11 @@
 
 ### 报名途径
 
-提交 issue 或 [博客留言](https://dreamylost.cn)
+[Discussions](https://github.com/jxnu-liguobin/cs-summary-reflection/discussions) 或 [博客留言](https://dreamylost.cn)
 
 ### 参与方式
 
-　每位参与的小伙伴，都会获得代码仓库的 Collaborator 权限，可以自由地提交代码（不限制语种），通过 issue 认领。
+　每位参与的小伙伴，都会获得代码仓库的 Collaborator 权限，可以自由地提交代码（不限制语种），通过 Discussions 认领。
 
   如果可以的话，最好使用当前语言最常见的格式化工具进行格式化后，再提交。
   没有频率限制，一般一天一道。
@@ -38,7 +38,8 @@
 
 - [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
     - [GitHub在线阅读](./article_list.md)
-- GrowingIO服务端Scala技术栈思维导图（2020-11-16 非100%完整）
+- [Jekyll博客模板](https://github.com/jxnu-liguobin/jekyll-blog-dremylost)    
+- 服务端Scala技术栈参考
     - ![](TechnologyStack-2020-11-16.png)
     
 ### 环境

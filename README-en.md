@@ -19,12 +19,12 @@ It also supports LintCode, nowcoder and Jiuzhang algorithm
 
 ### Registration route
 
-Just create a issue or leave a message at the end of the [dreamylost's blog](https://dreamylost.cn)
+Just create a [discussion](https://github.com/jxnu-liguobin/cs-summary-reflection/discussions) or leave a message at the end of the [dreamylost's blog](https://dreamylost.cn)
 
 ### Way of participation
 
 　Each participating partner will get the Collaborator permission of the code repository,
-and can freely submit the code (unlimited language, claim through issue.
+and can freely submit the code (unlimited language, claim through Discussions.
 
   If you can, it's best to use the most common formatting tools in the current language to format and then submit.
   
