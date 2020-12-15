@@ -81,6 +81,7 @@ pub mod leetcode_686;
 pub mod leetcode_687;
 pub mod leetcode_709;
 pub mod leetcode_728;
+pub mod leetcode_738;
 pub mod leetcode_804;
 pub mod leetcode_83;
 pub mod leetcode_832;

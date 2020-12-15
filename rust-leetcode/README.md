@@ -107,3 +107,4 @@ Leetcode Rust 实现
 * [321. 拼接最大数](src/leetcode_321.rs) Hard
 * [118. 杨辉三角](src/leetcode_118.rs) Hard
 * [860. 柠檬水找零](src/leetcode_118.rs) Easy
+* [738. 单调递增的数字](src/leetcode_738.rs) Easy
