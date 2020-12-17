@@ -366,7 +366,7 @@ def initialized: Receive = {
 
 actor生命周期：
 
-![生命周期](../public/image/actor1.png)
+![生命周期](../../public/image/actor1.png)
 
 ### actor与异常
 

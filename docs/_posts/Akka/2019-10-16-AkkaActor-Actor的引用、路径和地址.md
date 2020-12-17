@@ -9,7 +9,7 @@ description: 本章描述了如何在可能的分布式actor系统中识别和�
 * 目录
 {:toc}
 
-![actor系统在网络中的调用示意图](../public/image/actor-site-1.png)
+![actor系统在网络中的调用示意图](../../public/image/actor-site-1.png)
 
 上面的图片显示了actor系统中最重要的实体之间的关系，请阅读详细信息。
 
@@ -161,7 +161,7 @@ Second: Actor[akka://testSystem/user/first-actor/second-actor#-1544706041] //sec
 而新actor的主管将是远程actor的引用（代表触发其创建的该actor）。在这种情况下，context.parent（主管引用）和context.path.parent（actor路径中的父节点）并不表示相同的actor。
 但是，在监控程序中查找子节点的名称会在远程节点上找到，从而保持逻辑结构，例如，当发送到未解析到的actor引用时。
 
-![actor本地与远程的交互](../public/image/actor-local-remote.png)
+![actor本地与远程的交互](../../public/image/actor-local-remote.png)
 
 ### 地址部分是用来做什么的
 

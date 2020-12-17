@@ -28,12 +28,12 @@ FSM：表示有限个状态以及在这些状态之间的转移和动作等行�
 
 接受器/识别器  强调结果，只有0，1两种状态，常用于词法分析。
 
-![](../public/image/fsm-1.png)
+![](../../public/image/fsm-1.png)
 
 变换器  强调动作条件与状态变更，常用于控制应用。
 常分为两种类型：Moore（输出只依赖于状态）、Mealy（输出依赖于输入和状态）
 
-![](../public/image/fsm-2.png)
+![](../../public/image/fsm-2.png)
 
 ## Actor的作用
 
@@ -60,11 +60,11 @@ ActorSelection与对象性能模型，是不兼容的
 
 介绍关系  向第三方ActorC发送消息，介绍子ActorB，并保存C的引用，可以下次使用
 
-![](../public/image/actor-model-1.png)
+![](../../public/image/actor-model-1.png)
 
 父子关系  创建Actor1，就获得了子Actor1引用
 
-![](../public/image/actor-model-2.png)
+![](../../public/image/actor-model-2.png)
 
 # Akka Actor 基本使用
 
@@ -78,7 +78,7 @@ ActorSelection与对象性能模型，是不兼容的
 
 示例：实现一个Actor
 
-![](../public/image/actor-create.png)
+![](../../public/image/actor-create.png)
 
 消息发送
  - ! 意思是“触发和遗忘”，例如异步发送消息并立即返回。又称tell
@@ -86,11 +86,11 @@ ActorSelection与对象性能模型，是不兼容的
  - tell发送消息：sender() ! x
 示例：ask发送消息，并获得返回结果：
 
-![](../public/image/actor-msg.png)
+![](../../public/image/actor-msg.png)
 
 ask模式实现：
 
-![](../public/image/actor-msg-2.png)
+![](../../public/image/actor-msg-2.png)
 
 通过隐式参数构造AskableActorRef对象，
 并调用tell填充promise，返回promise.future
@@ -110,7 +110,7 @@ ask模式实现：
 - Stop 停止Actor
 - Escalate 上升/提升
 
-![](../public/image/actor-exception.png)
+![](../../public/image/actor-exception.png)
 
 ## 停止和终止
 
@@ -123,7 +123,7 @@ ask模式实现：
 
 示例：注册关闭任务
 
-![](../public/image/actor-stop.png)
+![](../../public/image/actor-stop.png)
 
 ## 消息转变
 
@@ -133,11 +133,11 @@ become的主要用途：
 
 示例：转变Receive（改变Actor的行为）
    
-![](../public/image/actor-become-1.png)
+![](../../public/image/actor-become-1.png)
 
 示例：推到栈顶
    
-![](../public/image/actor-become-1.png)
+![](../../public/image/actor-become-1.png)
 
 discardOld=true时表示替换当前行为
 
@@ -149,7 +149,7 @@ discardOld=true时表示替换当前行为
 
 示例：储藏暂时不需处理的消息
 
-![](../public/image/actor-stash.png)
+![](../../public/image/actor-stash.png)
 
 收到消息时先储藏，等待收到open消息时再取出所有消息进行处理，类似Git的 git stash和git stash apply命令。由于
 消息接收模式变了，所以需要become/unbecome，Stash本质是存到scala.collection.immutable.Vector[Envelope]中.
@@ -163,7 +163,7 @@ unStallAll使用了反转，最先Stash的会最快出来并进入邮箱，所�
 
 示例：要么是生产者要么是消费者的处理
 
-![](../public/image/actor-partial.png)
+![](../../public/image/actor-partial.png)
 
 1. 生产者有自己的拓展的行为
 2. 消费者也有自己的拓展的行为
@@ -186,7 +186,7 @@ unStallAll使用了反转，最先Stash的会最快出来并进入邮箱，所�
 * 消息排序是什么？
 * 失败的通信怎么处理？
 
-![](../public/image/actor-rules.png)
+![](../../public/image/actor-rules.png)
 
 ### 本地消息的发送规则
 
@@ -202,7 +202,7 @@ Akka Persistence 模块
 
 使用方法：配置文件application.conf 如下图：远程Actor的配置
 
-![](../public/image/actor-remote-2.png)
+![](../../public/image/actor-remote-2.png)
 
 上述分别配置了下面内容：
 - actor类型是远程的
@@ -214,11 +214,11 @@ Akka Persistence 模块
 - 支持使用ActorSelection查找远程Actor
 - 支持直接创建Actor，如下图：Actor部署配置
 
-![](../public/image/actor-remote-3.png)
+![](../../public/image/actor-remote-3.png)
 
 像创建本地Actor一样，使用Props创建一个actorRef，这里实际是告诉远程系统实例化该Actor而不是自己创建。
 
-![](../public/image/actor-remote-1.png)
+![](../../public/image/actor-remote-1.png)
 
 新的远程实现基于Aeron（UDP）和Akka Streams TCP/TLS而不是Netty TCP。
 
@@ -232,7 +232,7 @@ Akka Persistence 模块
 
 如下图：
 
-![](../public/image/actor-supervise.png)
+![](../../public/image/actor-supervise.png)
 
 ## 用于监督的高级别Actor
 

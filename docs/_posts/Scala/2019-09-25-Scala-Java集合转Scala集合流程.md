@@ -41,5 +41,5 @@ object JavaCollectionTest extends App {
 
 下面这张图简单描述了asScala的调用流程：
 
-![asScala](../public/image/asScala方法原理.png)
+![asScala](../../public/image/asScala方法原理.png)
 
