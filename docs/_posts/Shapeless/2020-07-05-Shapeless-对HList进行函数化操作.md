@@ -21,13 +21,13 @@ description: Scala的泛型编程库Shapeless的入门教程-7
 
 我们通过学习map方法的原理来引出多态函数。图7.1展示了普通list对象的映射操作。如果我们有一个List\[A\]对象，并提供一个“A=&gt;B”的函数，据此可得List\[B\]对象。
 
-![&#x56FE;7.1 &#x666E;&#x901A;list&#x5BF9;&#x8C61;&#x7684;map&#x64CD;&#x4F5C;&#xFF08;&#x5355;&#x4E00;&#x6620;&#x5C04;&#xFF09;](http://images2015.cnblogs.com/blog/704456/201701/704456-20170131231437089-532586052.png)
+![shapeless-1](../../public/image/shapeless-1.png)
 
 HList对象元素的异构类型导致这一方式不能正常运行，Scala函数修复了输入和输出类型使得map的结果的每一个元素都必须拥有相同的类型。
 
 理想情况下我们需要一个像图7.2中的map操作，它判断每一个输入的类型并决定每一个输出的类型，最终得到一个封闭的、能保持HList异构本质的组合变换。
 
-![&#x56FE;7.2 &#x5F02;&#x6784;list&#x5BF9;&#x8C61;&#x7684;map&#x64CD;&#x4F5C;&#xFF08;&#x591A;&#x6001;&#x6620;&#x5C04;&#xFF09;](http://images2015.cnblogs.com/blog/704456/201701/704456-20170131231445870-282014479.png)
+![shapeless-1](../../public/image/shapeless-1.png)
 
 不幸的是我们不能使用Scala函数来实现这种操作，需要一些新的方式，这种方式就是多态函数。
 
