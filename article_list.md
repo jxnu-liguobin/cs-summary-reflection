@@ -106,6 +106,10 @@
 
 [常见的垃圾收集器](./docs/_posts/Java虚拟机/2020-10-26-Java虚拟机-常见的垃圾收集器.md)
 
+## Redis
+
+[Redis集群方式优缺点](./docs/_posts/Redis/2020-12-17-Redis-Redis集群方式优缺点.md)
+
 ## Rust
 
 [所有权](./docs/_posts/Rust/2020-01-14-Rust-所有权.md)

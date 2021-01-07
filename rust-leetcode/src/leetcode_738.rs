@@ -24,7 +24,7 @@ impl Solution {
 
 #[cfg(test)]
 mod test {
-    use crate::pre_structs::{Solution};
+    use crate::pre_structs::Solution;
 
     #[test]
     fn monotone_increasing_digits() {

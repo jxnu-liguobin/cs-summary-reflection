@@ -163,7 +163,7 @@ define int main() {
 
 ```scala
   import scala.language.experimental.macros
-  import scala.reflect.macros.blackbox
+  import scala.reflect.macros.whitebox
 
   object MacrosWhitebox {
     def hello: Unit = macro helloImpl
