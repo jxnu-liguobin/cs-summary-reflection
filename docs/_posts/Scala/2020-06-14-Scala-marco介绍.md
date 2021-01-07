@@ -126,37 +126,53 @@ define int main() {
 具体看官网 [blackbox-whitebox](https://docs.scala-lang.org/overviews/macros/blackbox-whitebox.html)
 
 ```scala
-import scala.reflect.macros.blackbox
+  import scala.language.experimental.macros
+  import scala.reflect.macros.blackbox
 
-object Macros {
+  object MacrosBlackbox {
+
     def hello: Unit = macro helloImpl
 
     def helloImpl(c: blackbox.Context): c.Expr[Unit] = {
-        import c.universe._
-        c.Expr {
-              Apply(
-                    Ident(TermName("println")),
-                    List(Literal(Constant("hello!")))
-              )
-        }
+      import c.universe._
+      c.Expr {
+        Apply(
+          Ident(TermName("println")),
+          List(Literal(Constant("hello!")))
+        )
+      }
     }
-}
+  }
+```
+使用差值器（`q`）
+```scala
+  import scala.language.experimental.macros
+  import scala.reflect.macros.blackbox
+
+  object HelloQ {
+    def hello(msg: String): Unit = macro helloImpl
+
+    def helloImpl(c: blackbox.Context)(msg: c.Expr[String]): c.Expr[Unit] = {
+      import c.universe._
+      c.Expr(q"""println("hello!")""")
+    }
+  }
 ```
 
 ### 白盒例子
 
 ```scala
-import scala.reflect.macros.blackbox
+  import scala.language.experimental.macros
+  import scala.reflect.macros.blackbox
 
-object Macros {
+  object MacrosWhitebox {
     def hello: Unit = macro helloImpl
 
-    def helloImpl(c: blackbox.Context): c.Tree = {
+    def helloImpl(c: whitebox.Context): c.Tree = {
       import c.universe._
-      //可见写起来黑盒也更方便
-      c.Expr(q"""println("hello!")""")
+      q"""println("hello!")"""
     }
-}
+  }
 ```
 
 了解了Macros的两种规范之后，我们再来看看它的两种用法，一种和C的风格很像，只是在编译期将宏展开，减少了方法调用消耗。 
