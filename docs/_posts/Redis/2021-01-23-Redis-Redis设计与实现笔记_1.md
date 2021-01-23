@@ -34,7 +34,7 @@ tags: [Redis数据结构]
 - 结构体 
     - adlist.h/list
     - adlist.h/listNode
-    ```
+    ```c
     typedef struct list {
        listNode *head; // 链表头指针
        listNode *tail; // 链表头尾指针
@@ -64,7 +64,7 @@ tags: [Redis数据结构]
     - dict.h/dictht 哈希表
     - dict.h/dictEntry 哈希表的节点
     - dict.h/dictType 用于设置哈希表节点的类型的结构
-    ```
+    ```c
     typedef struct dictEntry {
        void *key; //哈希表的键值对中的键
        union { //哈希表的值，联合：同一时刻只能有一个成员允许含有一个值
@@ -133,7 +133,7 @@ tags: [Redis数据结构]
 - 结构体 
     - server.h/zskiplist 3.0及以下版本在redis.h中
     - server.h/zskiplistNode
-    ```
+    ```c
     /* ZSETs use a specialized version of Skiplists */
     typedef struct zskiplistNode {
       robj *obj; //成员对象
@@ -162,7 +162,7 @@ tags: [Redis数据结构]
 
 - 结构体
     - intset.h/intset
-    ```
+    ```c
     typedef struct intset {
       uint32_t encoding; //编码方式
       uint32_t length; //集合包含的元素数量
@@ -205,7 +205,7 @@ tags: [Redis数据结构]
 
 - 结构体
     - server.h/redisObject 3.0及以下版本在redis.h中
-    ```
+    ```c
     typedef struct redisObject {
       unsigned type:4; //对象类型
       unsigned encoding:4; //编码
