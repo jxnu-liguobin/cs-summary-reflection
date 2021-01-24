@@ -209,7 +209,7 @@ typedef struct intset {
 typedef struct redisObject {
   unsigned type:4; //对象类型
   unsigned encoding:4; //编码
-  unsigned lru:LRU_BITS; /* lru time (relative to server.lruclock) */ //记录LRU/LFU信息
+  unsigned lru:LRU_BITS; /* lru time (relative to server.lruclock) */ //记录LRU/LFU信息，与maxmemory选项和回收内存有关
   int refcount; //引用计数
   void *ptr; //指向底层实现数据结构的指针
 } robj;
@@ -228,4 +228,4 @@ typedef struct redisObject {
 - 服务器在执行某些命令之前，会先检查给定键的类型能否执行指定的命令（检查键的值对象的类型）
 - Redis的对象系统使用带有引用计数实现的内存回收机制，当一个对象不再被使用，对象所占用的内存会被自动释放
 - Redis会共享0~9999的字符串的对象
-- 对象会记录自己的最后一次被访问的时间，这个时间可以用于计算对象的空转时间
+- 对象会记录自己的最后一次被访问的时间，这个时间可以用于计算对象的空转时间（空转时间=当前时间-lru属性的时间）
