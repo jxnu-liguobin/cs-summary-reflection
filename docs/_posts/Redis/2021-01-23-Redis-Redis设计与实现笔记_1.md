@@ -197,7 +197,7 @@ typedef struct intset {
 - 压缩列表的节点
     - previous_entry_length 记录前一个节点的长度，可以为1或5，单位字节
         - 前一节点的长度小于254字节，previous_entry_length属性需要用1字节长空间来保存这个值
-        - 前一节点的长度大于254字节，previous_entry_length属性需要用5字节长空间来保存这个值
+        - 前一节点的长度大于等于254字节，previous_entry_length属性需要用5字节长空间来保存这个值
     - encoding 记录了节点的content属性保存的数据的类型和长度，可以为1，2，5，单位字节（整数仅使用1字节，整数编码6种，字节数组编码3种，最高两位总是作为编码的类型）
     - content 节点的值，可以为整数或字节数组，值的类型和长度由encoding属性决定
     
