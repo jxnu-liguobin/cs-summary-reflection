@@ -12,13 +12,14 @@ tags: [Redis数据结构]
 
 - 结构体 使用redis3.0源码，之后的源码由于考虑到内存对齐，结构体有多个。下面其他数据结构都是使用3.0的源码。
     - sds.h/sdshdr
-```c
-struct sdshdr {
-   unsigned int len; //记录buf中已经使用的数量，为sds保存的字符串的长度
-   unsigned int free; //记录buf中未使用的数量
-   char buf[]; //保存字符串
-};
-```
+    
+    ```c
+    struct sdshdr {
+       unsigned int len; //记录buf中已经使用的数量，为sds保存的字符串的长度
+       unsigned int free; //记录buf中未使用的数量
+       char buf[]; //保存字符串
+    };
+    ```
 - 使用场景
     当Redis需要的不仅是一个字符串字面量，而是一个可以被修改的字符串值时，使用sds表示字符串值
 - 常数时间复杂度获取字符串长度
@@ -34,22 +35,23 @@ struct sdshdr {
 - 结构体 
     - adlist.h/list
     - adlist.h/listNode
-```c
-typedef struct list {
-   listNode *head; // 链表头指针
-   listNode *tail; // 链表头尾指针
-   void *(*dup)(void *ptr); //节点复制函数
-   void (*free)(void *ptr); //节点释放函数
-   int (*match)(void *ptr, void *key); //节点对比函数，这三个函数用于为节点值设定特定类型的函数来实现保存不同类型的值。多态
-   unsigned long len; //链表包含的节点数量
-} list;
-
-typedef struct listNode {
-   struct listNode *prev; //链表前置节点指针
-   struct listNode *next; //链表后缀节点指针
-   void *value; //链表的值
-} listNode;
-```
+    
+    ```c
+    typedef struct list {
+       listNode *head; // 链表头指针
+       listNode *tail; // 链表头尾指针
+       void *(*dup)(void *ptr); //节点复制函数
+       void (*free)(void *ptr); //节点释放函数
+       int (*match)(void *ptr, void *key); //节点对比函数，这三个函数用于为节点值设定特定类型的函数来实现保存不同类型的值。多态
+       unsigned long len; //链表包含的节点数量
+    } list;
+    
+    typedef struct listNode {
+       struct listNode *prev; //链表前置节点指针
+       struct listNode *next; //链表后缀节点指针
+       void *value; //链表的值
+    } listNode;
+    ```
 - 使用场景
     - 列表键包含数量比较多的元素，或列表中包含的元素都是长度比较长的字符串，使用链表作为列表键的底层实现
 - 双端链表，可以快速获取前置和后置节点，时间复杂度为O(1)
@@ -64,44 +66,45 @@ typedef struct listNode {
     - dict.h/dictht 哈希表
     - dict.h/dictEntry 哈希表的节点
     - dict.h/dictType 用于设置哈希表节点的类型的结构
-```c
-typedef struct dictEntry {
-   void *key; //哈希表的键值对中的键
-   union { //哈希表的值，联合：同一时刻只能有一个成员允许含有一个值
-       void *val;
-       uint64_t u64;
-       int64_t s64;
-       double d;
-   } v;
-   struct dictEntry *next; //指向下一个哈希表节点，形成链表
-} dictEntry;
-
-typedef struct dictType {
-   unsigned int (*hashFunction)(const void *key); //哈希函数
-   void *(*keyDup)(void *privdata, const void *key); //键复制函数
-   void *(*valDup)(void *privdata, const void *obj); //值复制函数
-   int (*keyCompare)(void *privdata, const void *key1, const void *key2); //键对比函数
-   void (*keyDestructor)(void *privdata, void *key); //键析构函数
-   void (*valDestructor)(void *privdata, void *obj); //值析构函数
-} dictType;
-
-/* This is our hash table structure. Every dictionary has two of this as we
- * implement incremental rehashing, for the old to the new table. */
-typedef struct dictht {
-    dictEntry **table; //哈希表数组
-    unsigned long size; //哈希表大小
-    unsigned long sizemask; //哈希表大小掩码，用于计算索引，总是为size-1
-    unsigned long used; //记录哈希表已有节点的数量
-} dictht;
-
-typedef struct dict {
-    dictType *type; //类型特点函数
-    void *privdata; //私有数据
-    dictht ht[2]; //2个哈希表，一个用于重哈希
-    long rehashidx; /* rehashing not in progress if rehashidx == -1 */ //rehash索引
-    int iterators; /* number of iterators currently running */
-} dict
-```    
+    
+    ```c
+    typedef struct dictEntry {
+       void *key; //哈希表的键值对中的键
+       union { //哈希表的值，联合：同一时刻只能有一个成员允许含有一个值
+           void *val;
+           uint64_t u64;
+           int64_t s64;
+           double d;
+       } v;
+       struct dictEntry *next; //指向下一个哈希表节点，形成链表
+    } dictEntry;
+    
+    typedef struct dictType {
+       unsigned int (*hashFunction)(const void *key); //哈希函数
+       void *(*keyDup)(void *privdata, const void *key); //键复制函数
+       void *(*valDup)(void *privdata, const void *obj); //值复制函数
+       int (*keyCompare)(void *privdata, const void *key1, const void *key2); //键对比函数
+       void (*keyDestructor)(void *privdata, void *key); //键析构函数
+       void (*valDestructor)(void *privdata, void *obj); //值析构函数
+    } dictType;
+    
+    /* This is our hash table structure. Every dictionary has two of this as we
+     * implement incremental rehashing, for the old to the new table. */
+    typedef struct dictht {
+        dictEntry **table; //哈希表数组
+        unsigned long size; //哈希表大小
+        unsigned long sizemask; //哈希表大小掩码，用于计算索引，总是为size-1
+        unsigned long used; //记录哈希表已有节点的数量
+    } dictht;
+    
+    typedef struct dict {
+        dictType *type; //类型特点函数
+        void *privdata; //私有数据
+        dictht ht[2]; //2个哈希表，一个用于重哈希
+        long rehashidx; /* rehashing not in progress if rehashidx == -1 */ //rehash索引
+        int iterators; /* number of iterators currently running */
+    } dict
+    ```    
 - 使用场景
     - 哈希键包含的键值对比较多，或键值对中的元素的都是比较长的字符串，使用字典作为哈希键的底层实现
     - Redis数据库
@@ -133,24 +136,25 @@ typedef struct dict {
 - 结构体 
     - server.h/zskiplist 3.0及以下版本在redis.h中
     - server.h/zskiplistNode
-```c
-/* ZSETs use a specialized version of Skiplists */
-typedef struct zskiplistNode {
-  robj *obj; //成员对象
-  double score; //分值
-  struct zskiplistNode *backward; //后退指针
-  struct zskiplistLevel { //跳跃表的层
-      struct zskiplistNode *forward; //前进指针
-      unsigned int span; //跨度
-  } level[];
-} zskiplistNode;
-
-typedef struct zskiplist {
-  struct zskiplistNode *header, *tail; //表头和表尾节点
-  unsigned long length; //表中节点的数量
-  int level; //表中层数最大的节点的层数
-} zskiplist;
-```    
+    
+    ```c
+    /* ZSETs use a specialized version of Skiplists */
+    typedef struct zskiplistNode {
+      robj *obj; //成员对象
+      double score; //分值
+      struct zskiplistNode *backward; //后退指针
+      struct zskiplistLevel { //跳跃表的层
+          struct zskiplistNode *forward; //前进指针
+          unsigned int span; //跨度
+      } level[];
+    } zskiplistNode;
+    
+    typedef struct zskiplist {
+      struct zskiplistNode *header, *tail; //表头和表尾节点
+      unsigned long length; //表中节点的数量
+      int level; //表中层数最大的节点的层数
+    } zskiplist;
+    ```    
 - 使用场景
     - 有序集合包含的元素比较多，或有序集合中元素的成员是比较长的字符串（即zskiplistNode的obj属性），使用跳跃表作为有序集合的底层实现
 - Redis的跳跃表由zskiplist和zskiplistNode两个结构组成，其中zskiplist用于保存跳跃表信息（表头、表尾、长度），而zskiplistNode则用于表示跳跃表节点
@@ -162,13 +166,14 @@ typedef struct zskiplist {
 
 - 结构体
     - intset.h/intset
-```c
-typedef struct intset {
-  uint32_t encoding; //编码方式
-  uint32_t length; //集合包含的元素数量
-  int8_t contents[]; //保存元素的数组，取决于encoding的值，会升级
-} intset;
-```
+    
+    ```c
+    typedef struct intset {
+      uint32_t encoding; //编码方式
+      uint32_t length; //集合包含的元素数量
+      int8_t contents[]; //保存元素的数组，取决于encoding的值，会升级
+    } intset;
+    ```
 - 使用场景
     - 当集合只包含整数值的元素，并且这个集合元素的数量不多时，使用整数集合作为集合键的底层实现
 - 整数集合底层实现为数组，这个数组以有序，无重复的方式保存元素，在有需要时会根据添加的元素的类型，改变这个数组的类型
@@ -205,15 +210,16 @@ typedef struct intset {
 
 - 结构体
     - server.h/redisObject 3.0及以下版本在redis.h中
-```c
-typedef struct redisObject {
-  unsigned type:4; //对象类型
-  unsigned encoding:4; //编码
-  unsigned lru:LRU_BITS; /* lru time (relative to server.lruclock) */ //记录LRU/LFU信息，与maxmemory选项和回收内存有关
-  int refcount; //引用计数
-  void *ptr; //指向底层实现数据结构的指针
-} robj;
-```
+    
+    ```c
+    typedef struct redisObject {
+      unsigned type:4; //对象类型
+      unsigned encoding:4; //编码
+      unsigned lru:LRU_BITS; /* lru time (relative to server.lruclock) */ //记录LRU/LFU信息，与maxmemory选项和回收内存有关
+      int refcount; //引用计数
+      void *ptr; //指向底层实现数据结构的指针
+    } robj;
+    ```
 - 与保存数据相关的三个属性    
     - type Redis对象底层使用的数据结构类型
         - 字符串对象（整数值、embstr编码的sds、sds）  
