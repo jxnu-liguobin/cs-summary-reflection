@@ -39,7 +39,7 @@ tags: [Redis数据结构]
     ```c
     typedef struct list {
        listNode *head; // 链表头指针
-       listNode *tail; // 链表头尾指针
+       listNode *tail; // 链表尾指针
        void *(*dup)(void *ptr); //节点复制函数
        void (*free)(void *ptr); //节点释放函数
        int (*match)(void *ptr, void *key); //节点对比函数，这三个函数用于为节点值设定特定类型的函数来实现保存不同类型的值。多态
