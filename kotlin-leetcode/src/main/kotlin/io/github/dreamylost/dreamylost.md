@@ -47,3 +47,4 @@
 * [148. 排序链表](./Leetcode_148.kt) Medium
 * [164. 最大间距](./Leetcode_148.kt) Hard
 * [976. 三角形的最大周长](./Leetcode_976.kt) Easy
+* [724. 寻找数组的中心索引](./Leetcode_724.kt) Easy
