@@ -1,11 +1,11 @@
+/* All Contributors (C) 2021 */
 package io.github.poorguy.explore.learn.linkedlist;
 
 class ListNode {
     int val;
     ListNode next;
 
-    public ListNode() {
-    }
+    public ListNode() {}
 
     ListNode(int x) {
         val = x;

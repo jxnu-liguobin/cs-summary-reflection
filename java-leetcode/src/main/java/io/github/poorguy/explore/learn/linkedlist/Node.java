@@ -1,3 +1,4 @@
+/* All Contributors (C) 2021 */
 package io.github.poorguy.explore.learn.linkedlist;
 
 class Node {
@@ -7,8 +8,7 @@ class Node {
     public Node child;
     Node random;
 
-    public Node() {
-    }
+    public Node() {}
 
     public Node(int val) {
         this.val = val;
