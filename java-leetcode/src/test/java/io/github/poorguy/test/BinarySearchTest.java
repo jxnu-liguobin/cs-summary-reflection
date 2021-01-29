@@ -1,7 +1,7 @@
 /* All Contributors (C) 2020 */
 package io.github.poorguy.test;
 
-import io.github.poorguy.BinarySearch;
+import io.github.poorguy.explore.learn.binarysearch.BinarySearch;
 import org.junit.Assert;
 import org.junit.Test;
 
