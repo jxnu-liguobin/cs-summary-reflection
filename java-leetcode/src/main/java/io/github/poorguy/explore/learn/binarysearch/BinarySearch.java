@@ -1,5 +1,5 @@
 /* All Contributors (C) 2020 */
-package io.github.poorguy;
+package io.github.poorguy.explore.learn.binarysearch;
 
 /**
  * Given a sorted (in ascending order) integer array nums of n elements and a target value, write a
