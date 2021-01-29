@@ -110,3 +110,4 @@
 * [最小路径和](./Leetcode_64.scala) Medium
 * [区域和检索 - 数组不可变](Leetcode_303.scala) Easy
 * [机器人能否返回原点](./Leetcode_657.scala) Easy
+* [等价多米诺骨牌对的数量](./Leetcode_1128.scala) Easy
