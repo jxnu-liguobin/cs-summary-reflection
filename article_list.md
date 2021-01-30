@@ -240,6 +240,8 @@
 
 [SQL常用语句积累](./docs/_posts/数据库/2019-10-09-数据库-SQL常用语句积累.md)
 
+[SQL优化事项](./docs/_posts/数据库/2021-01-29-数据库-SQL优化事项.md)
+
 ## 消息队列
 
 [RabbitMQ总结收集](./docs/_posts/消息队列/2018-11-11-消息队列-RabbitMQ总结收集.md)

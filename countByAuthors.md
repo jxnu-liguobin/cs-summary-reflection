@@ -9,7 +9,7 @@ dreamylost:=> 325
 
 ccccmaster:=> 3
 
-poorguy:=> 1
+poorguy:=> 47
 
 wkk:=> 37
 
@@ -17,7 +17,7 @@ wkk:=> 37
 dreamylost:=> 97
 
 #### 4.Kotlin
-dreamylost:=> 45
+dreamylost:=> 47
 
 #### 5.Python
 laozhang:=> 59
