@@ -49,3 +49,7 @@
 * [976. 三角形的最大周长](./Leetcode_976.kt) Easy
 * [1579. 保证图可完全遍历](./Leetcode_1579.kt) Hard
 * [778. 水位上升的泳池中游泳](./Leetcode_778.kt) Hard
+
+### LeetCode 热题 HOT 100
+
+* [136. 只出现一次的数字](./Leetcode_136.kt) Easy
