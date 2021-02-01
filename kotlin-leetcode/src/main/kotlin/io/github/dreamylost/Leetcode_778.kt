@@ -15,43 +15,6 @@ import kotlin.math.max
  * @version 1.0
  */
 object Leetcode_778 {
-    internal class UnionFind(
-        var size: Int
-    ) {
-        private var maxCount: Int = 0
-        private var parent: IntArray = IntArray(size + 1) { i -> i }
-        private var rank: IntArray = IntArray(size + 1) { 1 }
-        fun find(index: Int): Int {
-            if (index != parent[index]) {
-                parent[index] = find(parent[index])
-            }
-            return parent[index]
-        }
-
-        fun union(index1: Int, index2: Int): Boolean {
-            val root1 = find(index1)
-            val root2 = find(index2)
-            if (root1 == root2) {
-                maxCount++
-                return true
-            }
-            when {
-                rank[root1] > rank[root2] -> {
-                    parent[root2] = root1
-                    rank[root1] = rank[root1] + rank[root2]
-                }
-                rank[root1] < rank[root2] -> {
-                    parent[root1] = root2
-                    rank[root2] = rank[root2] + rank[root1]
-                }
-                else -> {
-                    parent[root2] = root1
-                    rank[root1] = rank[root1] + rank[root2]
-                }
-            }
-            return false
-        }
-    }
 
     /**
      * 312 ms,50.00%

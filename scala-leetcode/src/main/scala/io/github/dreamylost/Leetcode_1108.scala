@@ -10,9 +10,7 @@ package io.github.dreamylost
   * @since 2020-01-06
   * @version v1.0
   */
-object Leetcode_1108 extends App {
-
-  println(defangIPaddr("255.100.50.0"))
+object Leetcode_1108 {
 
   def defangIPaddr(address: String): String = {
     address.flatMap(c => if (c == '.') List('[', '.', ']') else List(c))
