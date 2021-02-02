@@ -21,6 +21,7 @@ pub mod generics;
 pub mod misc;
 pub mod modules;
 pub mod primitives;
+pub mod test_cynic;
 pub mod traits;
 pub mod types;
 pub mod variable_bindings;
