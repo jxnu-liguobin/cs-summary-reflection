@@ -12,31 +12,21 @@ package io.github.poorguy.explore.learn.binarysearch;
  */
 public class BinarySearch {
     public static int search(int[] nums, int target) {
-        if (nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return -1;
         }
         int left = 0;
-        int right = nums.length;
-        int middle = (left + right) / 2;
-        while (left < right) {
-            if (target < nums[middle]) {
-                right = middle - 1;
-                middle = (left + right) / 2;
-            } else if (target > nums[middle]) {
-                // 这种写法像是补丁。是根据测试用例凑出来的，非常不好
-                if (middle + 1 >= nums.length) {
-                    return -1;
-                }
-                left = middle + 1;
-                middle = (left + right) / 2;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
             } else {
-                return middle;
+                left = mid + 1;
             }
         }
-        if (nums[left] == target) {
-            return left;
-        } else {
-            return -1;
-        }
+        return -1;
     }
 }
