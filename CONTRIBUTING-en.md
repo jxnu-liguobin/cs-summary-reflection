@@ -1,8 +1,8 @@
 To be a collaborator
 ---
 
-If there is no language in this repository. Please submit PR to create a new sub module like follow example. 
-Direct push is not allowed for creating a new module. And you should support `GitHub action workflows` as much as possible. 
+Please submit a PR to create a new sub module like the following example when there is no language in this repository. 
+Direct push is not allowed for creating a new module. You should support `GitHub action workflows` as much as possible. 
 
 * Each person creates a package for himself to distinguish different people(if sub module has exists). 
 For the first time, please submit by PR, you can obtain the permission of collaborator after this PR is merged.

@@ -34,11 +34,6 @@ and can freely submit the code (unlimited language, claim through Discussions.
 
 For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
 
-### Other contents
-    
-- [blog](https://dreamylost.cn) | [CSDN blog](https://blog.csdn.net/qq_34446485)
-    - [read on line](./article_list.md)
-    
 ### Language environment of this repository
 
 - Scala 2.12.12

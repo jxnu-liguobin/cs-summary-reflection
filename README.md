@@ -39,8 +39,6 @@
 - [博客](https://dreamylost.cn) | [CSDN博客](https://blog.csdn.net/qq_34446485)
     - [GitHub在线阅读](./article_list.md)
 - [Jekyll博客模板](https://github.com/jxnu-liguobin/jekyll-blog-dremylost)    
-- 服务端Scala技术栈参考
-    - ![](TechnologyStack-2020-11-16.png)
     
 ### 环境
 
