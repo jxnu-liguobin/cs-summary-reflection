@@ -53,3 +53,4 @@
 ### LeetCode 热题 HOT 100
 
 * [136. 只出现一次的数字](./Leetcode_136.kt) Easy
+* [169. 多数元素](./Leetcode_169.kt) Easy
