@@ -1,8 +1,9 @@
 use std::{io::Write, process::Stdio};
 
 use cynic_codegen::query_dsl;
-use insta::_macro_support::assert_snapshot;
+use insta::assert_snapshot;
 use rstest::rstest;
+use std::path::PathBuf;
 
 #[rstest]
 fn snapshot_query_dsl() {
