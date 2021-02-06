@@ -1,8 +1,5 @@
 use std::{io::Write, process::Stdio};
 
-
-
-
 use rstest::rstest;
 
 #[rstest]
