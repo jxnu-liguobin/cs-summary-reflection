@@ -26,7 +26,7 @@ do
 			case "$lang" in
 			"rust")
 			echo "################# [ compile $sub_module ]"
-			`cd $sub_module;cargo build >/dev/null 2>&1;cargo fmt --all; cargo fix --allow-dirty >/dev/null 2>&1;cd .. `;;
+			`cd $sub_module;cargo build >/dev/null 2>&1;cargo fmt --all >/dev/null 2>&1;cd .. `;;
 			# fmt python
 			"python")
 			echo "############ [ TODO ]";;

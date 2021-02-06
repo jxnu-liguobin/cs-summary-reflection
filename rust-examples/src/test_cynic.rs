@@ -1,12 +1,14 @@
 use std::{io::Write, process::Stdio};
 
+use cynic_codegen::query_dsl;
+use insta::_macro_support::assert_snapshot;
 use rstest::rstest;
 
 #[rstest]
 fn snapshot_query_dsl() {
     let schema_path = PathBuf::from("./schemas/").join("book.graphql");
 
-    let tokens = query_dsl_from_schema(QueryDslParams {
+    let tokens = query_dsl::query_dsl_from_schema(query_dsl::QueryDslParams {
         schema_filename: schema_path.to_str().unwrap().to_string(),
     })
     .unwrap();
