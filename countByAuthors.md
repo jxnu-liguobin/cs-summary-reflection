@@ -14,7 +14,7 @@ poorguy:=> 98
 wkk:=> 37
 
 #### 3.Rust
-dreamylost:=> 97
+dreamylost:=> 98
 
 #### 4.Kotlin
 dreamylost:=> 50
