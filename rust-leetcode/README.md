@@ -109,3 +109,4 @@ Leetcode Rust 实现
 * [860. 柠檬水找零](src/leetcode_118.rs) Easy
 * [738. 单调递增的数字](src/leetcode_738.rs) Easy
 * [448. 找到所有数组中消失的数字](src/leetcode_448.rs) Easy
+* [1480. 一维数组的动态和](src/leetcode_1180.rs) Easy
