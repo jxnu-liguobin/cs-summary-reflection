@@ -9,15 +9,15 @@ dreamylost:=> 325
 
 ccccmaster:=> 3
 
-poorguy:=> 73
+poorguy:=> 98
 
 wkk:=> 37
 
 #### 3.Rust
-dreamylost:=> 97
+dreamylost:=> 99
 
 #### 4.Kotlin
-dreamylost:=> 48
+dreamylost:=> 50
 
 #### 5.Python
 laozhang:=> 59

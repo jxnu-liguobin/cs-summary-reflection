@@ -491,7 +491,7 @@ fn leetcode_1221() {
         pub fn balanced_string_split2(s: String) -> i32 {
             s.chars()
                 .scan(0, |acc, e| {
-                    *acc = if let 'R' = e { (*acc + 1) } else { (*acc - 1) };
+                    *acc = if let 'R' = e { *acc + 1 } else { *acc - 1 };
                     Some(*acc)
                 })
                 .filter(|&e| e == 0)
