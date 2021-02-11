@@ -9,12 +9,12 @@ dreamylost:=> 325
 
 ccccmaster:=> 3
 
-poorguy:=> 98
+poorguy:=> 100
 
 wkk:=> 37
 
 #### 3.Rust
-dreamylost:=> 99
+dreamylost:=> 100
 
 #### 4.Kotlin
 dreamylost:=> 50
