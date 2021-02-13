@@ -5,14 +5,15 @@ Leetcode Rust 实现
 
 若有其他人想贡献Rust的LeetCode，请参照现有格式新增文件（同时将文件导入到`main.rs`）。如果题目已经存在，可以在`leetcode_xx.rs`中添加第二个方法实现。
 
-## 树
+### 数据结构专题
+
+**树**
 
 * [面试题 55 - I 二叉树的深度](src/interview_55_1.rs) Easy
 * [面试题 04.02 最小高度树](src/interview_04_02.rs) Easy
 * [938 二叉搜索树的范围和](src/leetcode_938.rs) Easy
 * [面试题 54 二叉搜索树的第k大节点](src/interview_54.rs) Easy
 * [面试题 32 - II. 从上到下打印二叉树 II](src/interview_32_2.rs) Easy
-* [101 对称二叉树](src/leetcode_101.rs) Easy
 * [107 二叉树的层次遍历 II](src/leetcode_107.rs) Easy
 * [110 平衡二叉树](src/leetcode_110.rs) Easy
 * [111 二叉树的最小深度](src/leetcode_111.rs) Easy
@@ -25,14 +26,10 @@ Leetcode Rust 实现
 * [面试题 04.12. 求和路径](src/interview_04_12.rs) Medium
 * [面试题 04.10. 检查子树](src/interview_04_10.rs) Medium
 * [面试题 04.03. 特定深度节点链表](src/interview_04_03.rs) Medium
+* [100 相同的树 unsafe](src/leetcode_100.rs) Easy
+* [1367 二叉树中的列表 unsafe](src/leetcode_1367.rs) Medium
 
-### unsafe写法
-
-* [617 合并二叉树](src/leetcode_617.rs) Easy
-* [100 相同的树](src/leetcode_100.rs) Easy
-* [1367 二叉树中的列表](src/leetcode_1367.rs) Medium
-
-## 链表&栈&队列
+**链表&栈&队列**
 
 * [面试题 22 链表中倒数第k个节点](src/interview_22.rs) Easy
 * [面试题 06 从尾到头打印链表](src/interview_06.rs) Easy
@@ -43,11 +40,10 @@ Leetcode Rust 实现
 * [面试题 02.02 返回倒数第 k 个节点值](src/interview_02_02.rs) Easy
 * [面试题 03.04 化栈为队](src/interview_03_04.rs) Easy
 * [面试题 09 用两个栈实现队列](src/interview_09.rs) Easy
-* [20 有效的括号](src/leetcode_20.rs) Easy
 * [1021 删除最外层的括号](src/leetcode_1021.rs) Easy
 * [933 最近的请求次数](src/leetcode_933.rs) Easy
 
-## 其他
+**其他**
 
 * [1351 统计有序矩阵中的负数](src/leetcode_1351.rs) Easy
 * [1380 矩阵中的幸运数](src/leetcode_1380.rs) Easy
@@ -66,7 +62,6 @@ Leetcode Rust 实现
 * [1221 分割平衡字符串](src/leetcode_1221.rs) Easy
 * [1252 奇数值单元格的数目](src/leetcode_1252.rs) Easy
 * [1323 6 和 9 组成的最大数字](src/leetcode_1323.rs) Easy
-* [461 汉明距离](src/leetcode_461.rs) Easy
 * [709 转换成小写字母](src/leetcode_709.rs) Easy
 * [1304 和为零的N个唯一整数](src/leetcode_1304.rs) Easy
 * [804 唯一摩尔斯密码词](src/leetcode_804.rs) Easy
@@ -103,7 +98,6 @@ Leetcode Rust 实现
 * [面试题 08.01 三步问题](src/interview_08_01.rs) Easy
 * [532 数组中的K-diff数对](src/leetcode_532.rs) Easy
 * [840 矩阵中的幻方](src/leetcode_840.rs) Easy
-* [581 最短无序连续子数组](src/leetcode_581.rs) Easy
 * [321. 拼接最大数](src/leetcode_321.rs) Hard
 * [118. 杨辉三角](src/leetcode_118.rs) Hard
 * [860. 柠檬水找零](src/leetcode_118.rs) Easy
@@ -111,3 +105,12 @@ Leetcode Rust 实现
 * [448. 找到所有数组中消失的数字](src/leetcode_448.rs) Easy
 * [1480. 一维数组的动态和](src/leetcode_1180.rs) Easy
 * [703. 数据流中的第 K 大元素](src/leetcode_703.rs) Easy
+
+
+### LeetCode 热题 HOT 100
+
+* [617 合并二叉树 unsafe](src/leetcode_617.rs) Easy
+* [461 汉明距离](src/leetcode_461.rs) Easy
+* [101 对称二叉树](src/leetcode_101.rs) Easy
+* [20 有效的括号](src/leetcode_20.rs) Easy
+* [581 最短无序连续子数组](src/leetcode_581.rs) Easy
