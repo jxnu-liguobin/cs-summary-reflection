@@ -75,7 +75,7 @@
 
 * [归并两个有序的链表](./Leetcode_21_ListNode.scala) Easy
 * [从有序链表中删除重复节点](./Leetcode_83_ListNode.scala) Easy
-* [相交链表](./Leetcode_160_ListNode.scala) Easy
+* [相交链表](./Leetcode_160.scala) Easy
 * [链表反转](./Leetcode_206_ListNode.scala) Easy
 
 ### 其他
