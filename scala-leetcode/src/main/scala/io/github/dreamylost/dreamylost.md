@@ -113,3 +113,4 @@
 * [搜索二维矩阵 II](./Leetcode_240_Array.scala) Medium
 * [两数相加](./Leetcode_2_ListNode.scala) Medium  
 * [验证二叉搜索树](./Leetcode_98.scala) Medium
+* [最小栈](./Leetcode_155.scala) Easy
