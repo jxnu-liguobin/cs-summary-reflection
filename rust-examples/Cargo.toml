@@ -1,14 +1,24 @@
 [package]
 name = "rust-examples"
 version = "0.1.0"
-authors = ["梦境迷离 <liguobin@growingio.com>"]
+authors = ["梦境迷离 <dreamylost@outlook.com>"]
 edition = "2018"
 #build = "build.rs" 构建前操作
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cynic = { version = "0.11.1", features = ["surf"] }
-cynic-codegen = { version = "0.11.1"}
+cynic = { version = "0.11.1", features = ["surf", "reqwest-blocking"] }
+cynic-codegen = { version = "0.11.1" }
+serde_json = { version = "1.0", optional = true }
+
+# Reqwest example requirements
+reqwest = { version = "0.11", features = ["json", "blocking"] }
+tokio = { version = "1.1", features = ["macros"] }
+
+# Surf example requirements
 surf = "2.0.0"
-insta = "0.16.0"
+async-std = "1.6.5"
+
+
 rstest = "0.6.3"
+insta = "0.16.0"
