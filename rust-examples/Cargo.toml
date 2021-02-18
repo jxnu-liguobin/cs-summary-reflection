@@ -12,7 +12,7 @@ cynic-codegen = { version = "0.11.1" }
 serde_json = { version = "1.0", optional = true }
 
 # Reqwest example requirements
-reqwest = { version = "0.11", features = ["json", "blocking"] }
+reqwest = { version = "0.10", features = ["json", "blocking"] }
 tokio = { version = "1.1", features = ["macros"] }
 
 # Surf example requirements

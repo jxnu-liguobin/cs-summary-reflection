@@ -81,16 +81,16 @@ pub fn cynic_starwars1() {
 }
 
 pub fn cynic_starwars2() {
-    // fn run_query() -> cynic::GraphQLResponse<FilmDirectorQuery> {
-    //     use cynic::http::ReqwestBlockingExt;
-    //
-    //     let query = build_query();
-    //
-    //     reqwest::blocking::Client::new()
-    //         .post("https://swapi-graphql.netlify.app/.netlify/functions/index")
-    //         .run_graphql(query)
-    //         .unwrap()
-    // }
+    fn run_query() -> cynic::GraphQLResponse<FilmDirectorQuery> {
+        use cynic::http::ReqwestBlockingExt;
+
+        let query = build_query();
+
+        reqwest::blocking::Client::new()
+            .post("https://swapi-graphql.netlify.app/.netlify/functions/index")
+            .run_graphql(query)
+            .unwrap()
+    }
 
     fn build_query() -> cynic::Operation<'static, FilmDirectorQuery> {
         use cynic::QueryBuilder;
@@ -100,6 +100,6 @@ pub fn cynic_starwars2() {
         })
     }
 
-    // let result = run_query();
-    // println!("{:?}", result);
+    let result = run_query();
+    println!("{:?}", result);
 }
