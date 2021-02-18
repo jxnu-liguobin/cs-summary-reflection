@@ -2,7 +2,7 @@
 title: Redis设计与实现笔记_2
 categories:
 - Redis
-  tags: [单机数据库实现]
+tags: [单机数据库实现]
 ---
 
 * 目录 
