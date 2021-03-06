@@ -30,8 +30,8 @@ object Leetcode_378_Array extends App { //自带main方法
     while (lo <= hi) {
       val mid = lo + (hi - lo) / 2
       var cnt = 0
-      for (i ← 0 until m) {
-        for (j ← 0 until n if matrix(i)(j) <= mid) {
+      for (i <- 0 until m) {
+        for (j <- 0 until n if matrix(i)(j) <= mid) {
           cnt += 1 //scala没++  --
         }
       }

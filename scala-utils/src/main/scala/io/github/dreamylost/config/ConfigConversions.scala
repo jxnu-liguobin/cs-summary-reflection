@@ -35,19 +35,19 @@ object ConfigConversions {
     implicit def getBooleanOpt(path: String): Option[Boolean] = getOpt(config.getBoolean(path))
 
     implicit def getStringSeqOpt(path: String): Option[Seq[String]] =
-      getOpt(config.getStringList(path).asScala)
+      getOpt(config.getStringList(path).asScala.toSeq)
 
     implicit def getIntSeqOpt(path: String): Option[Seq[Int]] =
-      getOpt(config.getIntList(path).asScala.map(_.intValue()))
+      getOpt(config.getIntList(path).asScala.map(_.intValue()).toSeq)
 
     implicit def getDurationOpt(path: String): Option[Duration] =
       getOpt(config.getDuration(path)).map(d => d.toNanos.nanos)
 
     implicit def getLongSeqOpt(path: String): Option[Seq[Long]] =
-      getOpt(config.getLongList(path).asScala.map(_.longValue()))
+      getOpt(config.getLongList(path).asScala.map(_.longValue()).toSeq)
 
     implicit def getDoubleSeqOpt(path: String): Option[Seq[Double]] =
-      getOpt(config.getDoubleList(path).asScala.map(_.doubleValue()))
+      getOpt(config.getDoubleList(path).asScala.map(_.doubleValue()).toSeq)
 
     private[this] def getOpt[T](f: => T): Option[T] = {
       Try(f) match {

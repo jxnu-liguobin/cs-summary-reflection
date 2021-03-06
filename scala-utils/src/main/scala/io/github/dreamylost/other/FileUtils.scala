@@ -108,7 +108,7 @@ object FileUtils {
   def reader(file: File, charset: String): String = {
     //buffer默认8192
     val array: Array[Byte] = using(new BufferedInputStream(new FileInputStream(file))) { bf =>
-      Stream.continually(bf.read).takeWhile(-1 !=).map(_.toByte).toArray
+      Stream.continually(bf.read).takeWhile(_ != -1).map(_.toByte).toArray
     }
     new String(array, charset)
   }
@@ -137,7 +137,7 @@ object FileUtils {
   def reader(file: File): Array[Byte] = {
     //buffer默认8192
     using(new BufferedInputStream(new FileInputStream(file))) { bf =>
-      Stream.continually(bf.read).takeWhile(-1 !=).map(_.toByte).toArray
+      Stream.continually(bf.read).takeWhile(_ != -1).map(_.toByte).toArray
     }
   }
 }

@@ -20,10 +20,10 @@ abstract class AbstractModuleSupport extends AbstractModule {
   private[this] final val CLASS_PATH = ClassPath.from(this.getClass.getClassLoader)
 
   def bindComponents(packageName: String): Unit = {
-    CLASS_PATH.getTopLevelClasses(packageName).asScala.foreach { classInfo ⇒
+    CLASS_PATH.getTopLevelClasses(packageName).asScala.foreach { classInfo =>
       val clazz = classInfo.load()
       val interfaces = clazz.getInterfaces
-      val interfaceOpt = interfaces.find { irfe ⇒
+      val interfaceOpt = interfaces.find { irfe =>
         clazz.getSimpleName.contains(irfe.getSimpleName) && clazz.getPackage.getName
           .contains(irfe.getPackage.getName)
       }
