@@ -6,6 +6,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Await
 import scala.concurrent.Future
 import scala.concurrent.Promise
+import scala.util.Failure
 import scala.util.Success
 
 /**
@@ -35,7 +36,7 @@ object FuturePromiseTest extends App {
     val producer = Future {
       val r = produceNumber()
       println(r)
-      p success r
+      p.success(r)
     }
 
     val consumer = Future {
@@ -43,6 +44,7 @@ object FuturePromiseTest extends App {
         case Success(_) =>
           val r = consumerNumber()
           println(r)
+        case Failure(exception) =>
       }
     }
 

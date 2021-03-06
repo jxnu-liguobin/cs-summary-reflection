@@ -1,8 +1,6 @@
 /* Licensed under Apache-2.0 (C) All Contributors */
 package io.github.sweeneycai
 
-import scala.collection.mutable
-
 /**
   * 32. 最长有效括号 (Hard)
   *
@@ -20,15 +18,17 @@ object Leetcode_32 extends App {
     * 需要注意的是，由于括号列表可能第一个括号就是闭括号，因此我们预先放入 -1 。
     */
   def longestValidParentheses1(s: String): Int = {
-    val stack: mutable.Stack[Int] = mutable.Stack(-1)
+    var stack = List(-1)
     var res = 0
     for (i <- s.indices) {
       if (s.charAt(i) == '(')
-        stack.push(i)
+        stack = List(i) ++ stack
       else {
-        stack.pop()
-        if (stack.isEmpty) stack.push(i)
-        res = math.max(res, i - stack.top)
+        stack = stack.tail
+        if (stack.isEmpty) stack = List(i) ++ stack
+        val top = stack.head
+        stack = stack.tail
+        res = math.max(res, i - top)
       }
     }
     res

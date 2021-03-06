@@ -49,7 +49,7 @@ class Construction4 @SerialVersionUID(1L) (override val var1: String, override v
   //    （3）当你在某个类或者trait X 里面看到super.method的时候，你想知道实际被执行的是哪个类或者trait里的method：
   //    你首先要知道这个super所指向的对象的“实际类型”，然后做线性化，然后，从线性化得到的“链”里，从X开始往左边找（不包括X本身），首先找到的那个method就是实际被执行的方法。
   //    需要注意的是上述是针对特质，抽象类仍然是单继承
-  def this() {
+  def this() = { //2.13.5 必须加等号
     this(null, null) //使用空构造，也需要调用主构造并传入null，因为默认自己写了有参的主构造，就不再提供无参主构造
     super.print("hello world") //排除自身从左开始就是：Construction3类
   }

@@ -21,7 +21,7 @@ object ScalaRDD extends App {
     */
 
   //1，对数据进行合并的实现 union ++
-  val data: Array[(String, Double)] = d1 union d2 ++ d3
+  val data: Array[(String, Double)] = (d1 concat d2 ++ d3)
   println("=========================union===========================")
   data.foreach(println)
 
@@ -39,7 +39,7 @@ object ScalaRDD extends App {
 
   println("=========================mapValues===========================")
   //1.利用mapvalues算子，分别统计总的温度，以及月份的次数，然后求得平均温度
-  grouped
+  grouped.view
     .mapValues(t => {
       val totalSum = t.map(_._2).sum
       val len = t.length
@@ -49,7 +49,7 @@ object ScalaRDD extends App {
 
   println("=========================foldLeft===========================")
   //2.利用foldLeft来实现，需要注意的是，因为初始值类型是Double，而元素类型是元组类型，所以这里不能用fold实现
-  grouped
+  grouped.view
     .mapValues(t => {
       val sum = t.foldLeft(0d)(_ + _._2)
       sum / t.length
@@ -59,7 +59,7 @@ object ScalaRDD extends App {
   println("=========================reduceLeft===========================")
   //3.利用reduce或者reduceLeft 实现。因为reduce和reduceLeft的特性，这里的元素是元组类型，要求返回值类型也得是元组类型。
   //所以，需要组装成元组，再取第二个元素。即为温度总值。然后再除以长度，得到结果值。
-  grouped
+  grouped.view
     .mapValues(t => {
       t.reduceLeft((a, b) => ("", a._2 + b._2))._2 / t.length
     })
@@ -67,9 +67,10 @@ object ScalaRDD extends App {
 
   println("=========================aggregate===========================")
   //4.利用aggregate实现。同样需要传递一个Double类型的初始值，然后进行统计计算。
-  grouped
+  grouped.view
     .mapValues(t => {
-      t.aggregate(0d)(_ + _._2, _ + _) / t.length
+      // method aggregate in trait IterableOnceOps is deprecated (since 2.13.0): `aggregate` is not relevant for sequential collections. Use `foldLeft(z)(seqop)` instead.
+      t.foldLeft(0d)((b, seqop) => b + seqop._2) / t.length
     })
     .foreach(println)
 

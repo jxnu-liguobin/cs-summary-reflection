@@ -10,7 +10,7 @@ object MapExamples extends App {
   val paramsFilterWithValues = Map("a" -> Seq("b"))
   val userFilterWithValues = Map[String, Seq[String]]("a" -> Seq("cc"), "b" -> Seq("qw"))
   //使用foldLeft合并两个Map
-  val mergeMap = (userFilterWithValues foldLeft paramsFilterWithValues)((map, kv) ⇒ {
+  val mergeMap = (userFilterWithValues foldLeft paramsFilterWithValues)((map, kv) => {
     //    第一个参数userFilterWithValues，迭代值
     //    第二个参数是paramsFilterWithValues，是默认值，Map类型
     map + (kv._1 -> (kv._2 ++ map.getOrElse(kv._1, Seq.empty[String])))

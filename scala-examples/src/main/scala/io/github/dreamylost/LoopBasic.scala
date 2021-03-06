@@ -24,20 +24,20 @@ object LoopBasic {
 
     println("//差集")
     for (i <- list.diff(list2)) { //--
-      print(i + " ")
+      print(s"$i ")
     }
     println()
 
     println("//交集")
     for (i <- list.intersect(list2)) { //&
-      print(i + " ")
+      print(s"$i ")
     }
     println()
 
     println("//并集")
-    for (i <- list.union(list2).distinct) {
+    for (i <- list.concat(list2).distinct) {
       //  ++  | distinct去重
-      print(i + " ")
+      print(s"$i ")
     }
     println()
 
@@ -63,7 +63,7 @@ object LoopBasic {
     println("breakable语句块来实现break操作")
     breakable {
       for (elem <- list)
-        if (elem < 0) break else println(elem)
+        if (elem < 0) break() else println(elem)
     }
   }
 
@@ -79,7 +79,7 @@ object LoopBasic {
     println("breakable语句块来实现continue操作")
     for (elem <- list)
       breakable {
-        if (elem < 0) break else println(elem)
+        if (elem < 0) break() else println(elem)
       }
   }
 
@@ -93,7 +93,7 @@ object LoopBasic {
     println("递归函数重写循环")
 
     def next(i: Int): Unit = {
-      if (i >= list.size) Unit
+      if (i >= list.size) ()
       else if (list(i) < 0) next(i + 1)
       else println(list(i))
       next(i + 1)
@@ -104,7 +104,10 @@ object LoopBasic {
 
   //Scala赋值语句返回的不是赋值的那个值而是（）
   var line = ""
-  while ((line = readLine()) != "") {
+  while ({
+    line = scala.io.StdIn.readLine()
+    line
+  } != "") {
     //这样永远是（）！=“”
     println(line)
   }

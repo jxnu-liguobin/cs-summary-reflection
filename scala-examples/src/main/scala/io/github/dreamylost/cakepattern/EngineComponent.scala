@@ -52,12 +52,12 @@ trait CarComponent {
   val car: Car
 
   protected class HondaCar extends Car {
-    override def drive() {
+    override def drive() = {
       engine.start()
       println("Vroom vroom")
     }
 
-    override def park() {
+    override def park() = {
       println("HondaCar")
     }
   }

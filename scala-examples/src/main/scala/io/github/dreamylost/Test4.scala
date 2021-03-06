@@ -11,7 +11,7 @@ object Test4 extends App {
     Console println i //省略括号需要显示的给出方法调用的目标对象才有效，此时println是操作符
   //实际上在Scala中任何操作符都是一种方法调用，而任何方法也可以是操作符，但是在多参数的情况下，操作符表示法必须用括号:strings indexOf ('a',startIndex)
   val s = "hello"
-  s toLowerCase; //无参，无副作用不用括号,使用后缀需要隔断，用分号
+  s.toLowerCase; //无参，无副作用不用括号,使用后缀需要隔断，用分号,2.13.5禁止
   println() //有副作用用括号
   var num = -1 //-是前缀操作符，实际也是方法调用 可用的前缀操作符：！ + - ~  都是一元的
   var num2 = 1.unary_- // unary_是混合操作符 yield在Scala是关键字，需要使用反引号`yield`，其他如match类似

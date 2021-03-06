@@ -16,7 +16,7 @@ object Test8 extends App {
   println(set1.contains("hhh"))
   println("===============Set遍历=============")
   set1.foreach(print) //遍历
-  println
+  println()
   println("================Map集===========")
   //创建并初始化可变的Map
   val map = collection.mutable.Map[String, String]()
@@ -27,18 +27,18 @@ object Test8 extends App {
   println(map("b"))
   println("=============单独获取key、value============")
   //获取key
-  val keys = map.map(_._1) //前面一个占位符表示map的任意元素，后面一个表示任意元素的第一个元素，即 key
+  val keys = map.keys //前面一个占位符表示map的任意元素，后面一个表示任意元素的第一个元素，即 key
   keys.foreach(print)
-  println
+  println()
   //获取value
-  val valus = map.map(_._2) //类似
+  val valus = map.values //类似
   valus.foreach(print)
-  println
+  println()
   println("===========将两个list转化为一个map===============")
   //反向操作可以使用zip，其中一个list作为key，另一个作为value
   val list = List(1, 2, 3, 4)
   //以少的为基准，不够舍弃
   val scores = list.zip(valus).toMap //list作为key,values作为value
-  scores foreach { case (k, v) => println(k + v) }
+  scores foreach { case (k, v) => println(s"$k$v") }
 
 }

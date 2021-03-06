@@ -16,9 +16,9 @@ class Rantional(val n: Int, val d: Int) {
 
   //    println(n + "/" + d) //构造对象时执行
   //重写非抽象方法，必须加override
-  override def toString: String = n + "/" + d
+  override def toString: String = s"$n/$d" //2.13 数字不能和字符串相加
 
-  def this(n: Int) {
+  def this(n: Int) = { //2.13.5 必须加等号
     this(n, 1)
   }
 
@@ -49,7 +49,7 @@ object TestRantional extends App {
   println(ret1) // 输出1/4
   println("================重载方法===============")
   println(ret.test("name"))
-  println(ret.test)
+  println(ret.test())
   println("================隐式转换===============")
   val n = new Rantional(2, 2)
   println(n * 3) // 输出2*3/2*3 //这里不需要隐式转换等同 n.*(3)
@@ -168,6 +168,7 @@ object Function3 extends App {
 
   val arr = Array("hello", "world")
   //    prt(arr)//编译报错
+//  prt(arr: _*) //OK，告诉编译器将arr的每个元素作为参数传进去，而不是将arr作为一个整体
   prt(arr: _*) //OK，告诉编译器将arr的每个元素作为参数传进去，而不是将arr作为一个整体
 
   //带名字参数,字面量/匿名函数不能使用带名参数

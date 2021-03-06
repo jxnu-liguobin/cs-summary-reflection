@@ -13,7 +13,8 @@ package io.github.dreamylost
 object Leetcode_1108 {
 
   def defangIPaddr(address: String): String = {
-    address.flatMap(c => if (c == '.') List('[', '.', ']') else List(c))
+    val cs = address.flatMap(c => if (c == '.') List('[', '.', ']') else List(c))
+    cs.mkString
     //    address.replace(".","[.]") //有点丢人，不好意思用
   }
 }
