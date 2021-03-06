@@ -36,12 +36,11 @@ For details, please see [CONTRIBUTING](./CONTRIBUTING-en.md)
 
 ### Language environment of this repository
 
-- Scala 2.12.12
+- Scala 2.13.5
 - Java 1.8
-- Python 3.0+  
-- Rust 1.4+  
-- Kotlin 1.3+  
-- C++ 11
+- Python 3.0+
+- Rust 1.50.0
+- Kotlin 1.4+
 - Ruby 2.5+
 
 ### Contributors
