@@ -54,7 +54,7 @@ allprojects {
     //TODO  这个配置导致项目的层级是有问题的
     sourceSets {
         main {
-            scala.srcDirs = ['src/main/java', 'src/main/scala']
+            scala.srcDirs += ['src/main/java', 'src/main/scala']
             java.srcDirs = []
         }
 
@@ -101,7 +101,7 @@ allprojects {
 project(':scala-leetcode') {
     spotless {
         scala {
-            scalafmt('2.6.1').configFile('.scalafmt.conf')
+            scalafmt('2.6.1').configFile('../.scalafmt.conf')
             licenseHeader '/* Licensed under Apache-2.0 (C) All Contributors */', 'package '
         }
     }
@@ -110,7 +110,7 @@ project(':scala-leetcode') {
 project(':scala-utils') {
     spotless {
         scala {
-            scalafmt('2.6.1').configFile('.scalafmt.conf')
+            scalafmt('2.6.1').configFile('../.scalafmt.conf')
             licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
         }
     }
@@ -119,7 +119,7 @@ project(':scala-utils') {
 project(':scala-examples') {
     spotless {
         scala {
-            scalafmt('2.6.1').configFile('.scalafmt.conf')
+            scalafmt('2.6.1').configFile('../.scalafmt.conf')
             licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
         }
     }
