@@ -42,7 +42,7 @@ class TimeoutAction @Inject() (
     */
   override def invokeBlock[A](
       request: Request[A],
-      block: Request[A] ⇒ Future[Result]
+      block: Request[A] => Future[Result]
   ): Future[Result] = {
     val timeout = configuration
       .getOptional[Duration]("api.timeout")

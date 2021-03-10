@@ -41,5 +41,5 @@ object MainObject1 extends App {
     println("方法调用6 =>>>>>> " + default6)
   }
 
-  getData
+  getData()
 }

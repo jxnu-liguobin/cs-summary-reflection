@@ -27,7 +27,7 @@ import scala.concurrent.Future
 trait RepositorySupport extends LazyLogging {
 
   //使用贷出模式借贷资源，无需关闭资源
-  def readOnly[A](execution: DBSession ⇒ A): Future[A] =
+  def readOnly[A](execution: DBSession => A): Future[A] =
     concurrent.Future {
       using(getDB) { db: DB =>
         db.readOnly((session: DBSession) => execution(session))
@@ -35,7 +35,7 @@ trait RepositorySupport extends LazyLogging {
     }
 
   //事务和Future支持
-  def localTx[A](execution: DBSession ⇒ A): Future[A] =
+  def localTx[A](execution: DBSession => A): Future[A] =
     concurrent.Future {
       using(getDB) { db: DB =>
         db.localTx((session: DBSession) => execution(session))
@@ -43,7 +43,7 @@ trait RepositorySupport extends LazyLogging {
     }
 
   @deprecated
-  def localTxWithoutFuture[A](execution: DBSession ⇒ A): A =
+  def localTxWithoutFuture[A](execution: DBSession => A): A =
     using(getDB) { db: DB =>
       db.localTx((session: DBSession) => execution(session))
     }

@@ -112,6 +112,8 @@
 
 [Redis设计与实现笔记_1](./docs/_posts/Redis/2021-01-23-Redis-Redis设计与实现笔记_1.md)
 
+[Redis设计与实现笔记_2](./docs/_posts/Redis/2021-02-06-Redis-Redis设计与实现笔记_2.md)
+
 ## Rust
 
 [所有权](./docs/_posts/Rust/2020-01-14-Rust-所有权.md)

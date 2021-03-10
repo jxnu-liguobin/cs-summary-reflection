@@ -15,7 +15,7 @@ import scala.reflect.runtime.universe
   */
 object ScalaReflectDemoTest extends App {
 
-  def method() {
+  def method() = {
     //使用Scala的反射API对象方法
     val classMirror = universe.runtimeMirror(getClass.getClassLoader)
     val classTest = classMirror.reflect(
@@ -28,7 +28,7 @@ object ScalaReflectDemoTest extends App {
     println(ret)
   }
 
-  def staticMethod() {
+  def staticMethod() = {
     //使用Scala的反射API对象的静态方法
     val classMirror = universe.runtimeMirror(getClass.getClassLoader) //获取运行时类镜像
     val classTest = classMirror.staticModule(

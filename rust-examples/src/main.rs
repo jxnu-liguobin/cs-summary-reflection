@@ -9,6 +9,7 @@ use crate::misc::*;
 use crate::modules::*;
 use crate::primitives::*;
 
+use crate::test_cynic_starwars::*;
 use crate::types::*;
 
 pub mod closures;
@@ -22,6 +23,7 @@ pub mod misc;
 pub mod modules;
 pub mod primitives;
 pub mod test_cynic;
+pub mod test_cynic_starwars;
 pub mod traits;
 pub mod types;
 pub mod variable_bindings;
@@ -40,4 +42,7 @@ fn main() {
     generics();
     traits::traits();
     misc();
+    cynic_starwars1();
+    // cynic_starwars2();
+    cynic_cynic_starwars_schema();
 }

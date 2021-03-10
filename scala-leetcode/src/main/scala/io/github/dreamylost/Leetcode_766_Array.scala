@@ -32,13 +32,13 @@ object Leetcode_766_Array extends App {
     * @return
     */
   def isToeplitzMatrix(matrix: Array[Array[Int]]): Boolean = {
-    for (i ← matrix(0).indices) {
+    for (i <- matrix(0).indices) {
       if (!check(matrix, matrix(0)(i), 0, i)) {
         return false
       }
     }
 
-    for (i ← matrix.indices) {
+    for (i <- matrix.indices) {
       if (!check(matrix, matrix(i)(0), i, 0)) {
         return false
       }

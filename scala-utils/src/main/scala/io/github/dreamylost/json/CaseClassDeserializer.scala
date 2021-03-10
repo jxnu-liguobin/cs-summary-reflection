@@ -48,12 +48,12 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
     */
   private def zeroValue(typ: Type): AnyRef = {
     typ match {
-      case t if numberTypes.contains(t) ⇒ 0.asInstanceOf[AnyRef]
-      case t if t =:= typeOf[Boolean] ⇒ Boolean.box(false)
-      case t if t <:< typeOf[Option[_]] ⇒ None
-      case t if t <:< typeOf[collection.Map[_, _]] ⇒ collection.Map.empty
-      case t if t <:< typeOf[Iterable[_]] ⇒ Nil
-      case _ ⇒ null
+      case t if numberTypes.contains(t) => 0.asInstanceOf[AnyRef]
+      case t if t =:= typeOf[Boolean] => Boolean.box(false)
+      case t if t <:< typeOf[Option[_]] => None
+      case t if t <:< typeOf[collection.Map[_, _]] => collection.Map.empty
+      case t if t <:< typeOf[Iterable[_]] => Nil
+      case _ => null
     }
   }
 
@@ -71,7 +71,7 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
     val mapper: ObjectMapper with CaseClassObjectMapper =
       jp.getCodec.asInstanceOf[ObjectMapper with CaseClassObjectMapper]
     val params: Array[AnyRef] = fieldsWithIndex.map {
-      case (field, index) ⇒
+      case (field, index) =>
         val fieldName = field.name.toString.trim
         if (node.hasNonNull(fieldName)) {
           // 在 json 里存在该字段

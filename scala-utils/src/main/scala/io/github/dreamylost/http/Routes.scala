@@ -45,7 +45,7 @@ object Routes {
   ): Set[String] = {
     handlers.map { routing =>
       val pattern = routing.pattern.getOrElse(routing.route)
-      val router = versioning.fold(pattern)(version ⇒ Paths.get("/", version, pattern).toString)
+      val router = versioning.fold(pattern)(version => Paths.get("/", version, pattern).toString)
       router.replaceAll("\\{\\w+\\}", """([\\\\w|-]+)""")
     }
   }

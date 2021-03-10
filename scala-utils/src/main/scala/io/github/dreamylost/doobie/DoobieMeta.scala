@@ -1,7 +1,7 @@
 /* Licensed under Apache-2.0 @梦境迷离 */
 package io.github.dreamylost.doobie
 
-import doobie.util.Meta
+import doobie._
 import org.postgresql.util.HStoreConverter
 import org.postgresql.util.PGobject
 import play.api.libs.json.JsValue

@@ -17,7 +17,7 @@ fn snapshot_query_dsl() {
     assert_snapshot!(format_code(format!("{}", tokens)));
 }
 
-fn format_code(input: String) -> String {
+pub fn format_code(input: String) -> String {
     let mut cmd = std::process::Command::new("rustfmt")
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())

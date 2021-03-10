@@ -24,7 +24,7 @@ object Leetcode_287_Array {
   /**
     * 二分查找解法：
     */
-  val findDuplicate = (nums: Array[Int]) ⇒ {
+  val findDuplicate = (nums: Array[Int]) => {
     var l = 1
     var h = nums.length - 1
     while (l <= h) {

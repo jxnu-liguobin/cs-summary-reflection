@@ -9,6 +9,6 @@ package io.github.dreamylost
   */
 object MainObject2 extends App {
 
-  MainObject1.getData
+  MainObject1.getData()
 
 }

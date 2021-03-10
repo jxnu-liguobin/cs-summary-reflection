@@ -18,12 +18,12 @@ object ObjectUtils {
     * @return
     */
   def properties(obj: Any, excludes: String*): Map[String, Any] = {
-    val fields = obj.getClass.getDeclaredFields.map { field ⇒
+    val fields = obj.getClass.getDeclaredFields.map { field =>
       field.setAccessible(true)
-      field.getName → field.get(obj)
+      field.getName -> field.get(obj)
     }.toMap
     if (excludes.nonEmpty) {
-      fields.filterNot(entry ⇒ excludes.contains(entry._1))
+      fields.filterNot(entry => excludes.contains(entry._1))
     } else {
       fields
     }

@@ -2,7 +2,6 @@
 package io.github.sweeneycai
 
 import io.github.dreamylost.TreeNode
-import scala.collection.mutable
 
 /**
   * 99. 恢复二叉搜索树 (Hard)
@@ -16,17 +15,18 @@ object Leetcode_99 extends App {
     * 非递归版本
     */
   def recoverTree(root: TreeNode): Unit = {
-    val stack: mutable.Stack[TreeNode] = mutable.Stack()
+    var stack = List[TreeNode]()
     var pre = new TreeNode(Int.MinValue)
     var bigger: TreeNode = null
     var lower: TreeNode = null
     var cur = root
     while (stack.nonEmpty || cur != null) {
       if (cur != null) {
-        stack.push(cur)
+        stack = List(cur) ++ stack
         cur = cur.left
       } else {
-        cur = stack.pop()
+        cur = stack.head
+        stack = stack.tail
         if (cur.value < pre.value && bigger == null) {
           bigger = pre
           lower = cur

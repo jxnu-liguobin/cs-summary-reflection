@@ -23,7 +23,7 @@ object Executions {
       new ForkJoinPool(
         Runtime.getRuntime.availableProcessors() * 2,
         ForkJoinPool.defaultForkJoinWorkerThreadFactory,
-        (t: Thread, e: Throwable) ⇒ logger.error(e.getLocalizedMessage, e),
+        (t: Thread, e: Throwable) => logger.error(e.getLocalizedMessage, e),
         true
       )
     )
