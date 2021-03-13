@@ -51,21 +51,14 @@ allprojects {
         mavenCentral()
     }
 
-    //TODO  这个配置导致项目的层级是有问题的
-    sourceSets {
-        main {
-            scala.srcDirs += ['src/main/java', 'src/main/scala']
-            java.srcDirs = []
-        }
-
+        //TODO  这个配置导致项目的层级是有问题的
+        sourceSets.main.scala.srcDirs = ['src/main/java', 'src/main/scala']
+        sourceSets.main.java.srcDirs = []
         //测试的执行可能有问题，可以用IDEA rebuild单独的子模块，再执行脚本build
-        test {
-            scala.srcDirs = ['src/test/scala', 'src/test/java']
-        }
-    }
+        sourceSets.test.scala.srcDirs = ['src/test/scala', 'src/test/java']
 
     /**
-     * 所有项目共用Scala2.12.8
+     * 所有项目共用Scala2.13.5
      *
      * sbt有点慢，所以用了gradle，其他sbt项目不好继承进来，PS：降低编译速度
      */
