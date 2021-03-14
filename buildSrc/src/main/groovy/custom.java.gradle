@@ -1,0 +1,7 @@
+spotless {
+    java {
+        removeUnusedImports()
+        googleJavaFormat('1.6').aosp()
+        licenseHeader '/* All Contributors (C) $YEAR */'
+    }
+}

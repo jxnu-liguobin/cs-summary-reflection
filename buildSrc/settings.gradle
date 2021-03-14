@@ -1,0 +1,17 @@
+dependencyResolutionManagement {
+    repositories {
+        mavenLocal()
+        maven {
+            name "aliyunmaven"
+            url "https://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        maven {
+            name "spring"
+            url "http://repo.spring.io/libs-milestone/"
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        google()
+    }
+}
+rootProject.name = 'buildSrc'

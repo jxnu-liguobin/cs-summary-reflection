@@ -24,9 +24,9 @@ class Leetcode_654 {
             if (nums.isEmpty()) {
                 return null
             }
-            val max = nums.max()
+            val max = nums.maxOrNull()
             val index = max!!.let { nums.indexOf(max) }
-            val root = max.let { TreeNode(it) }
+            val root = TreeNode(max)
             root.left = constructMaximumBinaryTree(nums.sliceArray(0 until index))
             root.right = constructMaximumBinaryTree(nums.sliceArray(index + 1 until nums.size))
             return root

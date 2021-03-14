@@ -1,4 +1,4 @@
-/* Licensed under Apache-2.0 @梦境迷离 */
+/* Licensed under Apache-2.0 (C) All Contributors */
 package io.github.dreamylost.cache
 
 import java.{ util => ju }

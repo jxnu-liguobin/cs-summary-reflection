@@ -33,21 +33,21 @@ class Leetcode_148 {
         }
 
         private fun mergeList(l: ListNode?, r: ListNode?): ListNode? {
-            var l = l
-            var r = r
+            var left = l
+            var right = r
             val tmpHead: ListNode? = ListNode(Int.MIN_VALUE)
             var p = tmpHead
-            while (l != null && r != null) {
-                if (l.`val` < r.`val`) {
-                    p?.next = l
-                    l = l.next
+            while (left != null && right != null) {
+                if (left.`val` < right.`val`) {
+                    p?.next = left
+                    left = left.next
                 } else {
-                    p?.next = r
-                    r = r.next
+                    p?.next = right
+                    right = right.next
                 }
                 p = p?.next
             }
-            p?.next = l ?: r
+            p?.next = left ?: right
             return tmpHead?.next
         }
 

@@ -1,4 +1,4 @@
-/* All Contributors (C) 2020 */
+/* All Contributors (C) 2021 */
 package io.github.poorguy.explore.learn.binarysearch;
 
 /**

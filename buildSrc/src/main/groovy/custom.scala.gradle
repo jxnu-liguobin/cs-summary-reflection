@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'scala'
+}
+
+sourceSets {
+    main {
+        scala.srcDirs = ['src/main/scala', 'src/main/java']
+    }
+
+    //测试的执行可能有问题，可以用IDEA rebuild单独的子模块，再执行脚本build
+    test {
+        scala.srcDirs = ['src/test/java', 'src/test/scala']
+    }
+}
+
+dependencies {
+    implementation group: 'org.scala-lang', name: 'scala-library', version: '2.13.5'
+    implementation group: 'org.scala-lang', name: 'scala-reflect', version: '2.13.5'
+}
+
+[compileScala, compileTestScala]*.options*.encoding = 'UTF-8'
+
+spotless {
+    scala {
+        scalafmt('2.6.1').configFile("${rootProject.rootDir}/.scalafmt.conf")
+        licenseHeader '/* Licensed under Apache-2.0 (C) All Contributors */', 'package '
+    }
+}
