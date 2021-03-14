@@ -9,7 +9,7 @@ dreamylost:=> 325
 
 ccccmaster:=> 3
 
-poorguy:=> 100
+poorguy:=> 110
 
 wkk:=> 37
 

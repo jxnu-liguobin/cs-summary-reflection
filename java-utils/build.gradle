@@ -2,11 +2,6 @@ plugins{
     id 'custom.java'
 }
 
-group 'io.github.dreamylost.utils'
-version '0.0.1'
-
-sourceCompatibility = 1.8
-
 dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'

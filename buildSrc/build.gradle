@@ -1,20 +1,8 @@
 plugins {
     id 'groovy-gradle-plugin' //In order for precompiled script plugins to be discovered
 }
-
-repositories {
-    mavenLocal()
-
-    maven {
-        name "aliyunmaven"
-        url "https://maven.aliyun.com/nexus/content/groups/public/"
-    }
-    maven {
-        name "spring"
-        url "http://repo.spring.io/libs-milestone/"
-    }
-    google()
-    gradlePluginPortal() //added as a repository for plugin dependencies
-    mavenCentral()
+// add dependencies for custom.*.gradle
+dependencies {
+    implementation('org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.4.31')
 }
 

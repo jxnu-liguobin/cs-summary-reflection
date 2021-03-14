@@ -27,8 +27,8 @@ allprojects {
 
     description = "Recording Learning, Work, Interview, Summary and Reflection"
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 
     repositories {
         //新版的阿里云存在域名的别名解析，解析到域名archiva-maven-storage-prod.oss-cn-beijing.aliyuncs.com上会找不到域名。
@@ -56,11 +56,6 @@ allprojects {
         mavenCentral()
     }
 
-    /**
-     * 所有项目共用Scala2.12.8
-     *
-     * sbt有点慢，所以用了gradle，其他sbt项目不好继承进来，PS：降低编译速度
-     */
     dependencies {
         //because some test write in src/main/java
         compile group: 'junit', name: 'junit', version: '4.12'
