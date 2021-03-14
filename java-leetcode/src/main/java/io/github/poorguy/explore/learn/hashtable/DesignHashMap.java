@@ -165,8 +165,8 @@ public class DesignHashMap {
                     map.put(params[i][0], params[i][1]);
                     break;
                 case "get":
-                    Integer val = map.get(params[i][0]);
-                    if (!val.equals(expectedResult[i])) {
+                    int val = map.get(params[i][0]); // get method return a int type
+                    if (!Integer.valueOf(val).equals(expectedResult[i])) {
                         System.out.println(i + " ");
                     }
                     break;
