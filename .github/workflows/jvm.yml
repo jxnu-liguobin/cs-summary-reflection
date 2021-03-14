@@ -27,3 +27,5 @@ jobs:
         key: gradle
     - name: Build with Gradle
       run: gradle -s build
+    - name: Code style Check
+      run: gradle spotlessCheck
