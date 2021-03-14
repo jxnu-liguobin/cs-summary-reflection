@@ -1,3 +1,7 @@
+plugins{
+    id 'custom.java'
+}
+
 group 'io.github.dreamylost.utils'
 version '0.0.1'
 

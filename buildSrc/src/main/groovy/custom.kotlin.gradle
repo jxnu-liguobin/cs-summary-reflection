@@ -1,0 +1,63 @@
+version = '0.0.1'
+ext {
+    kotlin_version = '1.4.31'
+}
+
+buildscript {
+    def kotlin_version='1.4.31'
+    //gradle的kotlin插件
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+configurations {
+    ktlint
+}
+
+sourceSets {
+    main {
+        kotlin {
+            srcDirs += 'src/main/kotlin'
+        }
+    }
+    test {
+        kotlin {
+            srcDirs += 'src/test/kotlin'
+        }
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin.kotlin-stdlib:$kotlin_version"
+    ktlint "com.pinterest:ktlint:0.37.2"
+}
+
+task "getConfig"{
+    print(project.getConfigurations())
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "src/main/kotlin/**/*.kt"
+}
+
+//check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/main/kotlin/**/*.kt"
+}
+
+spotless {
+    kotlin {
+        ktlint('0.37.2').userData(['indent_size': '4', 'continuation_indent_size': '2', 'disabled_rules': 'no-wildcard-imports'])
+        licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */'
+    }
+}

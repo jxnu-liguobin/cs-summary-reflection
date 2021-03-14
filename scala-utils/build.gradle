@@ -1,3 +1,11 @@
+plugins{
+    id 'custom.scala'
+}
+spotless {
+    scala {
+        licenseHeader '/* Licensed under Apache-2.0 @梦境迷离 */', 'package '
+    }
+}
 dependencies {
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
     compile group: 'com.typesafe.scala-logging', name: 'scala-logging_2.13', version: '3.9.2'
@@ -13,5 +21,4 @@ dependencies {
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-scala_2.13', version: '2.12.2'
     compile group: 'org.tpolecat', name: 'doobie-core_2.13', version: '0.10.0'
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
-
 }

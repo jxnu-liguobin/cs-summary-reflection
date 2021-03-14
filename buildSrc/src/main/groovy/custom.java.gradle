@@ -1,0 +1,18 @@
+sourceSets {
+    main {
+        java.srcDirs = ['src/main/java']
+    }
+
+    //测试的执行可能有问题，可以用IDEA rebuild单独的子模块，再执行脚本build
+    test {
+        java.srcDirs = ['src/test/java']
+    }
+}
+
+spotless {
+    java {
+        removeUnusedImports()
+        googleJavaFormat('1.6').aosp()
+        licenseHeader '/* All Contributors (C) $YEAR */'
+    }
+}

@@ -1,0 +1,8 @@
+plugins{
+    id 'custom.scala'
+}
+spotless {
+    scala {
+        licenseHeader '/* Licensed under Apache-2.0 (C) All Contributors */', 'package '
+    }
+}
