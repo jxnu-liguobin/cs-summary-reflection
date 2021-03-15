@@ -1,6 +1,11 @@
 /* All Contributors (C) 2021 */
 package io.github.poorguy.explore.learn.hashtable;
 
+import com.google.gson.Gson;
+import io.github.poorguy.util.LeetcodeRunner;
+import java.util.ArrayList;
+import java.util.List;
+
 public class DesignHashMap {
     private class Node {
         int key;
@@ -26,14 +31,9 @@ public class DesignHashMap {
 
     /** value will always be non-negative. */
     public void put(int key, int value) {
-        int exist = get(key);
-        if (exist != -1) {
-            Node pointer = list[indexOf(key)];
-            while (pointer != null && pointer.key != key) {
-                pointer = pointer.next;
-            }
-            assert pointer != null;
-            pointer.value = value;
+        Node node = findNode(indexOf(key), key);
+        if (node != null) {
+            node.value = value;
             return;
         }
 
@@ -41,18 +41,7 @@ public class DesignHashMap {
         if (size + 1 > list.length * DEFAULT_LOAD_FACTOR) {
             expend();
         }
-
-        int index = indexOf(key);
-        Node node = list[index];
-        if (node == null) {
-            list[index] = new Node(key, value, null);
-        } else {
-            Node pointer = node;
-            while (pointer.next != null) {
-                pointer = pointer.next;
-            }
-            pointer.next = new Node(key, value, null);
-        }
+        addNode(this.list, indexOf(key), new Node(key, value, null));
         size++;
     }
 
@@ -61,40 +50,24 @@ public class DesignHashMap {
      * for the key
      */
     public int get(int key) {
-        int index = indexOf(key);
-        Node pointer = list[index];
-        while (pointer != null && pointer.key != key) {
-            pointer = pointer.next;
-        }
-
-        if (pointer == null) {
-            return -1;
-        }
-        return pointer.value;
+        Node node = findNode(indexOf(key), key);
+        return node == null ? -1 : node.value;
     }
 
     /** Removes the mapping of the specified value key if this map contains a mapping for the key */
     public void remove(int key) {
         int index = indexOf(key);
-        Node pointer = list[index];
-        if (pointer == null) {
-            return;
-        }
-        Node next = pointer.next;
-        if (next == null && pointer.key == key) {
-            list[index] = null;
-            size--;
-            return;
-        }
-        while (next != null) {
-            if (next.key == key) {
-                pointer.next = next.next;
+        Node pointer = new Node(-1, -1, list[index]);
+        Node head = pointer;
+        while (pointer.next != null) {
+            if (pointer.next.key == key) {
+                pointer.next = pointer.next.next;
                 size--;
-                return;
+                break;
             }
             pointer = pointer.next;
-            next = next.next;
         }
+        this.list[index] = head.next;
     }
 
     private int indexOf(int key) {
@@ -108,69 +81,71 @@ public class DesignHashMap {
     private void expend() {
         Node[] newList = new Node[list.length * 2];
         for (Node node : list) {
-            if (node != null) {
-                int newIndex = indexOf(node.key, newList.length);
-                newList[newIndex] = node;
-                Node pointer = node;
-                while (pointer.next != null) {
-                    pointer = pointer.next;
-                    int newIndex2 = indexOf(pointer.key, newList.length);
-                    newList[newIndex2] = pointer;
-                }
+            if (node == null) {
+                continue;
+            }
+
+            List<Node> nodeToAdd = new ArrayList<>();
+            Node pointer = node;
+            while (pointer != null) {
+                Node next = pointer.next;
+                pointer.next = null;
+                nodeToAdd.add(pointer);
+                pointer = next;
+            }
+            for (Node toAdd : nodeToAdd) {
+                int index = indexOf(toAdd.key, newList.length);
+                addNode(newList, index, toAdd);
             }
         }
         this.list = newList;
     }
 
-    public static void main(String[] args) {
-        DesignHashMap map = new DesignHashMap();
-        String[] methods = {
-            "remove", "put", "remove", "remove", "get", "remove", "put", "get", "remove", "put",
-            "put", "put", "put", "put", "put", "put", "put", "put", "put", "put", "remove", "put",
-            "put", "get", "put", "get", "put", "put", "get", "put", "remove", "remove", "put",
-            "put", "get", "remove", "put", "put", "put", "get", "put", "put", "remove", "put",
-            "remove", "remove", "remove", "put", "remove", "get", "put", "put", "put", "put",
-            "remove", "put", "get", "put", "put", "get", "put", "remove", "get", "get", "remove",
-            "put", "put", "put", "put", "put", "put", "get", "get", "remove", "put", "put", "put",
-            "put", "get", "remove", "put", "put", "put", "put", "put", "put", "put", "put", "put",
-            "put", "remove", "remove", "get", "remove", "put", "put", "remove", "get", "put", "put"
-        };
-        int[][] params = {
-            {27}, {65, 65}, {19}, {0}, {18}, {3}, {42, 0}, {19}, {42}, {17, 90}, {31, 76}, {48, 71},
-            {5, 50}, {7, 68}, {73, 74}, {85, 18}, {74, 95}, {84, 82}, {59, 29}, {71, 71}, {42},
-            {51, 40}, {33, 76}, {17}, {89, 95}, {95}, {30, 31}, {37, 99}, {51}, {95, 35}, {65},
-            {81}, {61, 46}, {50, 33}, {59}, {5}, {75, 89}, {80, 17}, {35, 94}, {80}, {19, 68},
-            {13, 17}, {70}, {28, 35}, {99}, {37}, {13}, {90, 83}, {41}, {50}, {29, 98}, {54, 72},
-            {6, 8}, {51, 88}, {13}, {8, 22}, {85}, {31, 22}, {60, 9}, {96}, {6, 35}, {54}, {15},
-            {28}, {51}, {80, 69}, {58, 92}, {13, 12}, {91, 56}, {83, 52}, {8, 48}, {62}, {54}, {25},
-            {36, 4}, {67, 68}, {83, 36}, {47, 58}, {82}, {36}, {30, 85}, {33, 87}, {42, 18},
-            {68, 83}, {50, 53}, {32, 78}, {48, 90}, {97, 95}, {13, 8}, {15, 7}, {5}, {42}, {20},
-            {65}, {57, 9}, {2, 41}, {6}, {33}, {16, 44}, {95, 30}
-        };
-        Integer[] expectedResult = {
-            null, null, null, null, -1, null, null, -1, null, null, null, null, null, null, null,
-            null, null, null, null, null, null, null, null, 90, null, -1, null, null, 40, null,
-            null, null, null, null, 29, null, null, null, null, 17, null, null, null, null, null,
-            null, null, null, null, 33, null, null, null, null, null, null, 18, null, null, -1,
-            null, null, -1, 35, null, null, null, null, null, null, null, -1, -1, null, null, null,
-            null, null, -1, null, null, null, null, null, null, null, null, null, null, null, null,
-            null, -1, null, null, null, null, 87, null, null
-        };
-        for (int i = 0; i < methods.length; i++) {
-            switch (methods[i]) {
-                case "remove":
-                    map.remove(params[i][0]);
-                    break;
-                case "put":
-                    map.put(params[i][0], params[i][1]);
-                    break;
-                case "get":
-                    int val = map.get(params[i][0]); // get method return a int type
-                    if (!Integer.valueOf(val).equals(expectedResult[i])) {
-                        System.out.println(i + " ");
-                    }
-                    break;
-            }
+    private void addNode(Node[] list, int index, Node node) {
+        if (list[index] == null) {
+            list[index] = node;
+        } else {
+            addNode(list[index], node);
         }
+    }
+
+    private void addNode(Node before, Node toAdd) {
+        if (before.next == null) {
+            before.next = toAdd;
+        } else {
+            addNode(before.next, toAdd);
+        }
+    }
+
+    private Node findNode(int index, int key) {
+        return findNode(this.list[index], key);
+    }
+
+    private Node findNode(Node node, int key) {
+        if (node == null) {
+            return null;
+        }
+
+        if (node.key == key) {
+            return node;
+        } else {
+            return findNode(node.next, key);
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        String functionStrings =
+                "[\"DesignHashMap\",\"put\",\"put\",\"put\",\"get\",\"put\",\"put\",\"remove\",\"put\",\"remove\",\"put\",\"remove\",\"put\",\"put\",\"get\",\"put\",\"put\",\"put\",\"put\",\"put\",\"put\",\"put\",\"put\",\"get\",\"put\",\"put\",\"put\",\"put\",\"get\",\"put\",\"put\",\"remove\",\"put\",\"remove\",\"get\",\"remove\",\"put\",\"get\",\"put\",\"put\",\"remove\",\"put\",\"put\",\"get\",\"get\",\"put\",\"put\",\"remove\",\"put\",\"put\",\"remove\",\"put\",\"get\",\"put\",\"put\",\"put\",\"put\",\"put\",\"get\",\"put\",\"put\",\"remove\",\"get\",\"remove\",\"put\",\"put\",\"put\",\"put\",\"remove\",\"get\",\"put\",\"put\",\"remove\",\"put\",\"put\",\"put\",\"get\",\"put\",\"put\",\"put\",\"put\",\"get\",\"put\",\"put\",\"put\",\"put\",\"get\",\"remove\",\"remove\",\"put\",\"put\",\"remove\",\"get\",\"put\",\"get\",\"remove\",\"remove\",\"put\",\"put\",\"put\",\"put\"]";
+        String paramStrings =
+                "[[],[74,64],[20,48],[2,48],[2],[99,78],[29,66],[99],[43,38],[28],[63,9],[2],[88,26],[50,28],[43],[7,7],[31,84],[23,77],[53,60],[71,49],[28,23],[19,74],[98,72],[71],[77,45],[25,67],[68,44],[68,88],[48],[8,21],[35,86],[43],[52,89],[63],[63],[23],[72,91],[28],[26,10],[12,25],[92],[34,61],[76,99],[98],[68],[28,60],[60,16],[34],[30,98],[50,79],[50],[26,25],[2],[26,73],[47,52],[49,13],[28,95],[77,64],[5],[83,75],[25,10],[44],[36],[68],[35,53],[25,59],[60,9],[19,46],[5],[29],[11,32],[31,24],[16],[72,78],[88,63],[43,69],[69],[56,4],[89,28],[26,58],[28,22],[62],[76,57],[64,73],[93,94],[17,82],[81],[86],[70],[83,36],[50,80],[17],[63],[93,10],[17],[74],[54],[39,11],[98,34],[46,58],[68,0]]";
+        String expectedString =
+                "[null,null,null,null,48,null,null,null,null,null,null,null,null,null,38,null,null,null,null,null,null,null,null,49,null,null,null,null,-1,null,null,null,null,null,-1,null,null,23,null,null,null,null,null,72,88,null,null,null,null,null,null,null,-1,null,null,null,null,null,-1,null,null,null,-1,null,null,null,null,null,null,66,null,null,null,null,null,null,-1,null,null,null,null,-1,null,null,null,null,-1,null,null,null,null,null,-1,null,-1,null,null,null,null,null,null]";
+        Gson gson = new Gson();
+        String[] functionNames = gson.fromJson(functionStrings, String[].class);
+        Integer[][] params = gson.fromJson(paramStrings, Integer[][].class);
+        Integer[] expected = gson.fromJson(expectedString, Integer[].class);
+
+        LeetcodeRunner<DesignHashMap> runner = new LeetcodeRunner<>();
+        runner.run(DesignHashMap.class, functionNames, params, expected);
     }
 }
