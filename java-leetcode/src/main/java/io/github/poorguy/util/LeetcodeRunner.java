@@ -21,7 +21,17 @@ public class LeetcodeRunner<
     public Object[] resultFlag = null;
     public Object[][] result = null;
 
-    public Invoker run(
+    /**
+     * 默认实现，其他类似结构的run可以参照该方法
+     *
+     * @param invokerClass
+     * @param functionNamesJSON
+     * @param paramsJSON
+     * @param expectedJSON
+     * @return
+     * @throws Exception
+     */
+    public Invoker hashMapRun(
             Class<Invoker> invokerClass,
             @NotNull String functionNamesJSON,
             @NotNull String paramsJSON,
@@ -33,10 +43,10 @@ public class LeetcodeRunner<
                 gson.fromJson(paramsJSON, new TypeToken<List<List<Integer>>>() {}.getType());
         List<Integer> expected =
                 gson.fromJson(expectedJSON, new TypeToken<List<Integer>>() {}.getType());
-        LeetcodeRunner defaultRunner =
+        LeetcodeRunner hashMapRunner =
                 new LeetcodeRunner<
                         DesignHashMap, List<String>, List<List<Integer>>, List<Integer>>();
-        Invoker res = (Invoker) defaultRunner.run(invokerClass, functionNames, params, expected);
+        Invoker res = (Invoker) hashMapRunner.run(invokerClass, functionNames, params, expected);
         return res;
     }
 

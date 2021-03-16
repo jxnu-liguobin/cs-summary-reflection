@@ -141,6 +141,6 @@ public class DesignHashMap {
                 "[null,null,null,null,48,null,null,null,null,null,null,null,null,null,38,null,null,null,null,null,null,null,null,49,null,null,null,null,-1,null,null,null,null,null,-1,null,null,23,null,null,null,null,null,72,88,null,null,null,null,null,null,null,-1,null,null,null,null,null,-1,null,null,null,-1,null,null,null,null,null,null,66,null,null,null,null,null,null,-1,null,null,null,null,-1,null,null,null,null,-1,null,null,null,null,null,-1,null,-1,null,null,null,null,null,null]";
         LeetcodeRunner<DesignHashMap, List<String>, List<List<Integer>>, List<Integer>> runner =
                 new LeetcodeRunner<>();
-        runner.run(DesignHashMap.class, functionStrings, paramStrings, expectedString);
+        runner.hashMapRun(DesignHashMap.class, functionStrings, paramStrings, expectedString);
     }
 }
