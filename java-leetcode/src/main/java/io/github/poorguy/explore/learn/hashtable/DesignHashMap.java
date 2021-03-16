@@ -1,7 +1,6 @@
 /* All Contributors (C) 2021 */
 package io.github.poorguy.explore.learn.hashtable;
 
-import com.google.gson.Gson;
 import io.github.poorguy.util.LeetcodeRunner;
 import java.util.ArrayList;
 import java.util.List;
@@ -140,12 +139,8 @@ public class DesignHashMap {
                 "[[],[74,64],[20,48],[2,48],[2],[99,78],[29,66],[99],[43,38],[28],[63,9],[2],[88,26],[50,28],[43],[7,7],[31,84],[23,77],[53,60],[71,49],[28,23],[19,74],[98,72],[71],[77,45],[25,67],[68,44],[68,88],[48],[8,21],[35,86],[43],[52,89],[63],[63],[23],[72,91],[28],[26,10],[12,25],[92],[34,61],[76,99],[98],[68],[28,60],[60,16],[34],[30,98],[50,79],[50],[26,25],[2],[26,73],[47,52],[49,13],[28,95],[77,64],[5],[83,75],[25,10],[44],[36],[68],[35,53],[25,59],[60,9],[19,46],[5],[29],[11,32],[31,24],[16],[72,78],[88,63],[43,69],[69],[56,4],[89,28],[26,58],[28,22],[62],[76,57],[64,73],[93,94],[17,82],[81],[86],[70],[83,36],[50,80],[17],[63],[93,10],[17],[74],[54],[39,11],[98,34],[46,58],[68,0]]";
         String expectedString =
                 "[null,null,null,null,48,null,null,null,null,null,null,null,null,null,38,null,null,null,null,null,null,null,null,49,null,null,null,null,-1,null,null,null,null,null,-1,null,null,23,null,null,null,null,null,72,88,null,null,null,null,null,null,null,-1,null,null,null,null,null,-1,null,null,null,-1,null,null,null,null,null,null,66,null,null,null,null,null,null,-1,null,null,null,null,-1,null,null,null,null,-1,null,null,null,null,null,-1,null,-1,null,null,null,null,null,null]";
-        Gson gson = new Gson();
-        String[] functionNames = gson.fromJson(functionStrings, String[].class);
-        Integer[][] params = gson.fromJson(paramStrings, Integer[][].class);
-        Integer[] expected = gson.fromJson(expectedString, Integer[].class);
-
-        LeetcodeRunner<DesignHashMap> runner = new LeetcodeRunner<>();
-        runner.run(DesignHashMap.class, functionNames, params, expected);
+        LeetcodeRunner<DesignHashMap, List<String>, List<List<Integer>>, List<Integer>> runner =
+                new LeetcodeRunner<>();
+        runner.hashMapRun(DesignHashMap.class, functionStrings, paramStrings, expectedString);
     }
 }
