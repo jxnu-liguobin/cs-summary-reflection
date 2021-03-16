@@ -1,13 +1,9 @@
 plugins {
-    id 'java'
     id 'scala'
 }
 
 sourceSets {
-    main {
-        scala.srcDirs = ['src/main/scala', 'src/main/java']
-    }
-
+    main.scala.srcDirs = ['src/main/scala', 'src/main/java']
     //测试的执行可能有问题，可以用IDEA rebuild单独的子模块，再执行脚本build
     test {
         scala.srcDirs = ['src/test/java', 'src/test/scala']
