@@ -12,11 +12,14 @@ object TestArrayApply extends App {
     //scala2.13.x bug #12201，字节码未使用基本类型数组优化
     val i = Array[Double](1)
     val j = Array[Double](1.0)
+    val k = Array[Unit](())
+
   }
 
   class True {
     val x = Array(1.0)
     val y: Array[Double] = Array(1)
+    val k:Array[Unit] = Array(())
   }
 
   //False的常量池：
