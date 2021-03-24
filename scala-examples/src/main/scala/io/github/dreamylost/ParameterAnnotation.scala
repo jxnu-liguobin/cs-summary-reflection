@@ -1,9 +1,9 @@
+/* Licensed under Apache-2.0 (C) All Contributors */
 package io.github.dreamylost
 
 import javax.annotation.Nonnull
 
 /**
-  *
   * @author 梦境迷离
   * @since 2021/3/21
   * @version 1.0

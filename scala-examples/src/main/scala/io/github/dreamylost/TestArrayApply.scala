@@ -19,7 +19,7 @@ object TestArrayApply extends App {
   class True {
     val x = Array(1.0)
     val y: Array[Double] = Array(1)
-    val k:Array[Unit] = Array(())
+    val k: Array[Unit] = Array(())
   }
 
   //False的常量池：
