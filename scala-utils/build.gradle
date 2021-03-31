@@ -2,7 +2,7 @@ plugins{
     id 'custom.scala'
 }
 dependencies {
-    compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.15'
     compile group: 'com.typesafe.scala-logging', name: 'scala-logging_2.13', version: '3.9.2'
     compile group: 'com.typesafe.play', name: 'play-json_2.13', version: '2.7.4'
     compile group: 'com.typesafe.play', name: 'play_2.13', version: '2.7.9'
