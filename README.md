@@ -1,4 +1,4 @@
-<img align="right" width="30%" height="30%" src="./docs/public/image/scala-icon.png" alt="https://dreamylost.cn">
+<img align="right" width="30%" height="30%" src="./scala-icon.png" alt="https://dreamylost.cn">
 
 ![Build](https://github.com/jxnu-liguobin/cs-summary-reflection/workflows/Build/badge.svg)
 [![](https://img.shields.io/github/commit-activity/m/jxnu-liguobin/cs-summary-reflection)](https://dreamylost.cn)
