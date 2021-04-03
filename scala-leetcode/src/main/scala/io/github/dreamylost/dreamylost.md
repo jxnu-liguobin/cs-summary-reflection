@@ -117,3 +117,5 @@
 * [杨辉三角 II](./Leetcode_119.scala) Easy
 * [子集](./Leetcode_78.scala) Medium
 * [全排列](./Leetcode_46.scala) Medium
+* [括号生成](./Leetcode_22.scala) Medium
+* [组合总和](./Leetcode_39.scala) Medium
