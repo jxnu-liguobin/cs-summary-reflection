@@ -2,10 +2,10 @@
 package io.github.dreamylost
 
 /**
-  * P138 例子
-  *
-  * 函数式输出乘法表
-  */
+ * P138 例子
+ *
+ * 函数式输出乘法表
+ */
 object PrintMultiTable extends App {
 
   val ret = multiTable()

@@ -4,14 +4,14 @@ package io.github.sweeneycai
 import scala.collection.mutable
 
 /**
-  * 剑指 Offer 41. 数据流中的中位数 (Hard)
-  *
-  * 如何得到一个数据流中的中位数？
-  * 如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。
-  * 如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。
-  *
-  * @see <a href="https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/">leetcode-cn.com</a>
-  */
+ * 剑指 Offer 41. 数据流中的中位数 (Hard)
+ *
+ * 如何得到一个数据流中的中位数？
+ * 如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。
+ * 如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。
+ *
+ * @see <a href="https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/">leetcode-cn.com</a>
+ */
 class MedianFinder() {
 
   /** initialize your data structure here. */
@@ -26,14 +26,14 @@ class MedianFinder() {
   def addNum(num: Int) {
 
     /**
-      * 长度相等，我们要向小根堆中添加元素，要添加的元素必须是较大的一半，因此
-      * 我们先添加到大根堆中，然后再把大根堆中的最大元素添加到小根堆中。
-      *
-      * 长度不相等，我们要向大根堆中添加元素，要添加的元素必须是较小的一半，因此我们先将元素
-      * 添加至小根堆，再从中取出最小的元素。
-      *
-      * 这样可以保证大根堆和小根堆的堆顶拥有着数据流中间的两个元素。
-      */
+     * 长度相等，我们要向小根堆中添加元素，要添加的元素必须是较大的一半，因此
+     * 我们先添加到大根堆中，然后再把大根堆中的最大元素添加到小根堆中。
+     *
+     * 长度不相等，我们要向大根堆中添加元素，要添加的元素必须是较小的一半，因此我们先将元素
+     * 添加至小根堆，再从中取出最小的元素。
+     *
+     * 这样可以保证大根堆和小根堆的堆顶拥有着数据流中间的两个元素。
+     */
     if (minHeap.length == maxHeap.length) {
       maxHeap.enqueue(num)
       minHeap.enqueue(maxHeap.dequeue())

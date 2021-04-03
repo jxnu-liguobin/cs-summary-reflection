@@ -4,14 +4,14 @@ package io.github.sweeneycai
 import scala.collection.mutable.ListBuffer
 
 /**
-  * 22. 括号生成 (Medium)
-  * 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
-  */
+ * 22. 括号生成 (Medium)
+ * 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+ */
 object Leetcode_22 extends App {
 
   /**
-    * 深度优先搜索
-    */
+   * 深度优先搜索
+   */
   def generateParenthesis(n: Int): List[String] = {
     val listBuffer: ListBuffer[String] = ListBuffer.empty
 
@@ -33,8 +33,8 @@ object Leetcode_22 extends App {
   }
 
   /**
-    * 官解的回溯解法
-    */
+   * 官解的回溯解法
+   */
   def backtrackSolution(n: Int): List[String] = {
     val listBuffer: ListBuffer[String] = ListBuffer.empty
 

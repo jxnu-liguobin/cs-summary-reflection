@@ -11,12 +11,12 @@ import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
 import io.github.dreamylost.json.JacksonScalaSupportSpec.Filter
 
 /**
-  * json序列化工具 Scala支持
-  *
-  * @author 梦境迷离
-  * @since 2019-08-26
-  * @version v1.0
-  */
+ * json序列化工具 Scala支持
+ *
+ * @author 梦境迷离
+ * @since 2019-08-26
+ * @version v1.0
+ */
 object JacksonScalaSupport {
 
   lazy val mapper: ObjectMapper = {

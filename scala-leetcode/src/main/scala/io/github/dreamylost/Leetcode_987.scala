@@ -2,27 +2,27 @@
 package io.github.dreamylost
 
 /**
-  * 给定二叉树，按垂序遍历返回其结点值。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-09
-  * @version v1.0
-  */
+ * 给定二叉树，按垂序遍历返回其结点值。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-09
+ * @version v1.0
+ */
 object Leetcode_987 extends App {
 
   val ret = verticalTraversal(TreeNodeData.treeData10())
   println(ret)
 
   /**
-    * 616 ms,100.00%
-    * 51.2 MB,100.00%
-    *
-    * 1.计算坐标
-    * 2.排序
-    *
-    * @param root
-    * @return
-    */
+   * 616 ms,100.00%
+   * 51.2 MB,100.00%
+   *
+   * 1.计算坐标
+   * 2.排序
+   *
+   * @param root
+   * @return
+   */
   def verticalTraversal(root: TreeNode): List[List[Int]] = {
     var locations = List.empty[Location]
     class Location(var x: Int, var y: Int, var value: Int)

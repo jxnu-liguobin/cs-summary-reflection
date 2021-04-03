@@ -4,12 +4,12 @@ package io.github.dreamylost
 import com.google.gson.annotations.Expose
 
 /**
-  * n叉树结构
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-12
-  * @version v1.0
-  */
+ * n叉树结构
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-12
+ * @version v1.0
+ */
 class Node(var _value: Int) extends PrintlnSupport {
 
   @Expose var value: Int = _value

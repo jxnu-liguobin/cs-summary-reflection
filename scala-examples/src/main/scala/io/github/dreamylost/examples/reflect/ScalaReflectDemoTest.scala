@@ -4,15 +4,15 @@ package io.github.dreamylost.examples.reflect
 import scala.reflect.runtime.universe
 
 /**
-  * 在Scala类上使用Java反射可能会返回令人惊讶或错误的结果
-  *
-  * 在Scala中最好使用Scala的反射api
-  *
-  * @see https://docs.scala-lang.org/overviews/reflection/overview.html
-  * @author 梦境迷离
-  * @since 2020-03-07
-  * @version v1.0
-  */
+ * 在Scala类上使用Java反射可能会返回令人惊讶或错误的结果
+ *
+ * 在Scala中最好使用Scala的反射api
+ *
+ * @see https://docs.scala-lang.org/overviews/reflection/overview.html
+ * @author 梦境迷离
+ * @since 2020-03-07
+ * @version v1.0
+ */
 object ScalaReflectDemoTest extends App {
 
   def method() = {

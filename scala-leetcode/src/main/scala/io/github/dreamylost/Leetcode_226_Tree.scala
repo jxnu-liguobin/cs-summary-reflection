@@ -2,12 +2,12 @@
 package io.github.dreamylost
 
 /**
-  * 翻转树
-  * 226. Invert Binary Tree (Easy)
-  * @author 梦境迷离
-  * @time 2018年7月29日
-  * @version v1.0
-  */
+ * 翻转树
+ * 226. Invert Binary Tree (Easy)
+ * @author 梦境迷离
+ * @time 2018年7月29日
+ * @version v1.0
+ */
 object Leetcode_226_Tree extends App {
 
   def invertTree(root: TreeNode): TreeNode = {

@@ -4,15 +4,15 @@ package io.github.sweeneycai
 import io.github.dreamylost.ListNode
 
 /**
-  * 19. 删除链表的倒数第N个节点 (Medium)
-  *
-  * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
-  */
+ * 19. 删除链表的倒数第N个节点 (Medium)
+ *
+ * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+ */
 object Leetcode_19 extends App {
 
   /**
-    * 一趟扫描实现
-    */
+   * 一趟扫描实现
+   */
   def removeNthFromEnd(head: ListNode, n: Int): ListNode = {
     if (head == null) null
     else {

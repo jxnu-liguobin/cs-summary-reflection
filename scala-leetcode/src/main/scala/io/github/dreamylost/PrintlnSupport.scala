@@ -5,10 +5,10 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 
 /**
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-12
-  * @version v1.0
-  */
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-12
+ * @version v1.0
+ */
 trait PrintlnSupport {
 
   private val gson: Gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create

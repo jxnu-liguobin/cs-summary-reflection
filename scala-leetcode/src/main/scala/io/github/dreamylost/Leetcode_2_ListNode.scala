@@ -15,10 +15,10 @@ package io.github.dreamylost
 //
 //
 /**
-  * @author 梦境迷离
-  * @time 2019-08-14
-  * @version v2.0
-  */
+ * @author 梦境迷离
+ * @time 2019-08-14
+ * @version v2.0
+ */
 object Leetcode_2_ListNode {
 
   def addTwoNumbers(l1: ListNode, l2: ListNode): ListNode = {

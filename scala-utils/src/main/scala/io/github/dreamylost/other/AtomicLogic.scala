@@ -4,11 +4,11 @@ package io.github.dreamylost.other
 import java.util.concurrent.atomic.AtomicReference
 
 /**
-  * @see [[https://github.com/jxnu-liguobin]]
-  * @author 梦境迷离
-  * @since 2020-10-18
-  * @version 1.0
-  */
+ * @see [[https://github.com/jxnu-liguobin]]
+ * @author 梦境迷离
+ * @since 2020-10-18
+ * @version 1.0
+ */
 @unchecked
 object AtomicLogic {
 

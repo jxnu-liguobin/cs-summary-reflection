@@ -9,8 +9,8 @@ import java.util.{ Queue => _ }
 import scala.collection.immutable.Queue
 
 /**
-  * 二叉树的遍历
-  */
+ * 二叉树的遍历
+ */
 object BTT extends App {
 
   //前
@@ -57,9 +57,9 @@ object BTT extends App {
   }
 
   /**
-    * [因为是栈，先左子树出栈，后右子树出栈]
-    * 前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
-    */
+   * [因为是栈，先左子树出栈，后右子树出栈]
+   * 前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
+   */
   //后，145. Binary Tree Postorder Traversal (Medium)
   @unchecked
   def postorderTraversal(root: TreeNode): Seq[Int] = {

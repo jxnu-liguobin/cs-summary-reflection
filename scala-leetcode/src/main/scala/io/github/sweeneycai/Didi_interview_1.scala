@@ -2,15 +2,15 @@
 package io.github.sweeneycai
 
 /**
-  * 给定一个数 n ，返回一个 n * n 的矩阵。
-  * 要求该矩阵从中心开始，逆时针填充斐波那契数列。
-  *
-  * 如： n = 3
-  * 返回矩阵：
-  * [34, 21, 13]
-  * [1, 1, 8]
-  * [2, 3, 5]
-  */
+ * 给定一个数 n ，返回一个 n * n 的矩阵。
+ * 要求该矩阵从中心开始，逆时针填充斐波那契数列。
+ *
+ * 如： n = 3
+ * 返回矩阵：
+ * [34, 21, 13]
+ * [1, 1, 8]
+ * [2, 3, 5]
+ */
 object Didi_interview_1 extends App {
   def genFibs(n: Int): Array[Int] = {
     val array: Array[Int] = new Array[Int](n)

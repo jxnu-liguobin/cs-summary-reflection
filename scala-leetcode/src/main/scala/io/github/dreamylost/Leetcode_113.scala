@@ -2,14 +2,14 @@
 package io.github.dreamylost
 
 /**
-  * 113. 路径总和 II
-  *
-  * 给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-05
-  * @version v1.0
-  */
+ * 113. 路径总和 II
+ *
+ * 给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-05
+ * @version v1.0
+ */
 object Leetcode_113 extends App {
 
   val ret = pathSum(TreeNodeData.treeData10(), 22)
@@ -18,15 +18,15 @@ object Leetcode_113 extends App {
   println(ret2)
 
   /**
-    * 暴力，记录所有的路径，在过滤
-    *
-    * 812 ms,20.00%
-    * 60.9 MB,100.00%
-    *
-    * @param root
-    * @param sum
-    * @return
-    */
+   * 暴力，记录所有的路径，在过滤
+   *
+   * 812 ms,20.00%
+   * 60.9 MB,100.00%
+   *
+   * @param root
+   * @param sum
+   * @return
+   */
   def pathSum(root: TreeNode, sum: Int): List[List[Int]] = {
     var ret = List[List[Int]]()
 
@@ -46,15 +46,15 @@ object Leetcode_113 extends App {
   }
 
   /**
-    * 使用回溯
-    *
-    * 660 ms,100.00%
-    * 53.6 MB,100.00%
-    *
-    * @param root
-    * @param sum
-    * @return
-    */
+   * 使用回溯
+   *
+   * 660 ms,100.00%
+   * 53.6 MB,100.00%
+   *
+   * @param root
+   * @param sum
+   * @return
+   */
   def pathSum2(root: TreeNode, sum: Int): List[List[Int]] = {
     var ret = List[List[Int]]()
 

@@ -2,15 +2,15 @@
 package io.github.dreamylost
 
 /**
-  * 429. N叉树的层序遍历
-  *
-  * 给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
-  *
-  * @see https://github.com/jxnu-liguobin
-  * @author 梦境迷离
-  * @since 2020-07-30
-  * @version 1.0
-  */
+ * 429. N叉树的层序遍历
+ *
+ * 给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
+ *
+ * @see https://github.com/jxnu-liguobin
+ * @author 梦境迷离
+ * @since 2020-07-30
+ * @version 1.0
+ */
 object Leetcode_429 extends App {
 
   val ret = levelOrder(Node.getNode5_1())
@@ -39,11 +39,11 @@ object Leetcode_429 extends App {
   }
 
   /**
-    * 976 ms,100.00%
-    * 53.5 MB,100.00%
-    * @param root
-    * @return
-    */
+   * 976 ms,100.00%
+   * 53.5 MB,100.00%
+   * @param root
+   * @return
+   */
   def levelOrder(root: Node): List[List[Int]] = {
     if (root == null) return List.empty[List[Int]]
     import scala.collection.mutable

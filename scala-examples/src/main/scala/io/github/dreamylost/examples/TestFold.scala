@@ -6,9 +6,9 @@ import scala.concurrent.Future
 import scala.concurrent.duration.Duration
 
 /**
-  * @author 梦境迷离
-  * @version 1.0,2020/3/25
-  */
+ * @author 梦境迷离
+ * @version 1.0,2020/3/25
+ */
 object TestFold extends App {
 
   val d = Option(111)

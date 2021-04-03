@@ -2,27 +2,27 @@
 package io.github.dreamylost
 
 /**
-  * 897. 递增顺序查找树
-  *
-  * 给你一个树，请你 按中序遍历 重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-06-20
-  * @version v1.0
-  */
+ * 897. 递增顺序查找树
+ *
+ * 给你一个树，请你 按中序遍历 重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-06-20
+ * @version v1.0
+ */
 object Leetcode_897 extends App {
 
   val ret = increasingBST(TreeNodeData.treeData3_5())
   println(ret)
 
   /**
-    * 暴力
-    * 544 ms,100.00%
-    * 50.9 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 暴力
+   * 544 ms,100.00%
+   * 50.9 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def increasingBST(root: TreeNode): TreeNode = {
     var values = Seq[Int]()
 
@@ -44,13 +44,13 @@ object Leetcode_897 extends App {
   }
 
   /**
-    * 中序记录前缀节点
-    * 544 ms,100.00%
-    * 50.7 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 中序记录前缀节点
+   * 544 ms,100.00%
+   * 50.7 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def increasingBST2(root: TreeNode): TreeNode = {
     var preNode: TreeNode = null
 

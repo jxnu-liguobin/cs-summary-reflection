@@ -19,14 +19,14 @@ import scala.concurrent.Future
 import scala.runtime.BoxedUnit
 
 /**
-  * undertow restful处理器接口
-  *
-  * crud处理器混入该特质
-  *
-  * @author 梦境迷离
-  * @time 2019-08-18
-  * @version v1.0
-  */
+ * undertow restful处理器接口
+ *
+ * crud处理器混入该特质
+ *
+ * @author 梦境迷离
+ * @time 2019-08-18
+ * @version v1.0
+ */
 trait RestfulHandler extends HttpHandler with Executable with LazyLogging {
 
   private[this] lazy val contentType = "application/json;charset=utf-8"

@@ -2,18 +2,18 @@
 package io.github.sweeneycai
 
 /**
-  * 42. 接雨水 (Hard)
-  *
-  * 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，
-  * 计算按此排列的柱子，下雨之后能接多少雨水。
-  */
+ * 42. 接雨水 (Hard)
+ *
+ * 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，
+ * 计算按此排列的柱子，下雨之后能接多少雨水。
+ */
 object Leetcode_42 extends App {
 
   /**
-    * 遍历两次，求出每个节点当前左边的最大值和右边的最大值，每个节点的储水量为：
-    * f(n) = min(leftMax, rightMax) - h(n)
-    * 最后遍历一次即可。
-    */
+   * 遍历两次，求出每个节点当前左边的最大值和右边的最大值，每个节点的储水量为：
+   * f(n) = min(leftMax, rightMax) - h(n)
+   * 最后遍历一次即可。
+   */
   def trap(height: Array[Int]): Int = {
     if (height.isEmpty) return 0
     // 该点左边节点的最大值

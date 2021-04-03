@@ -4,9 +4,9 @@ package io.github.dreamylost.cakepattern
 import io.github.dreamylost.cakepattern.FuelType.FuelType
 
 /**
-  * @author 梦境迷离
-  * @version 1.0,2020/6/10
-  */
+ * @author 梦境迷离
+ * @version 1.0,2020/6/10
+ */
 trait EngineComponent {
 
   trait Engine {

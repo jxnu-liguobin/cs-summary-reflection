@@ -4,11 +4,11 @@ package io.github.dreamylost.examples.fb
 import scala.annotation.tailrec
 
 /**
-  * 第三章
-  *
-  * @author 梦境迷离
-  * @version 1.0, 2019-04-19
-  */
+ * 第三章
+ *
+ * @author 梦境迷离
+ * @version 1.0, 2019-04-19
+ */
 object datastructures extends App {
 
   import List._
@@ -74,11 +74,11 @@ object datastructures extends App {
   object List {
 
     /**
-      * 书上原定义方法
-      *
-      * @param ints
-      * @return
-      */
+     * 书上原定义方法
+     *
+     * @param ints
+     * @return
+     */
     def sum(ints: List[Int]): Int =
       ints match {
         case Nil => 0
@@ -86,11 +86,11 @@ object datastructures extends App {
       }
 
     /**
-      * 书上原定义方法
-      *
-      * @param ds
-      * @return
-      */
+     * 书上原定义方法
+     *
+     * @param ds
+     * @return
+     */
     def product(ds: List[Double]): Double =
       ds match {
         case Nil => 1.0
@@ -99,25 +99,25 @@ object datastructures extends App {
       }
 
     /**
-      * 书上原定义方法
-      *
-      * @param as
-      * @tparam A
-      * @return
-      */
+     * 书上原定义方法
+     *
+     * @param as
+     * @tparam A
+     * @return
+     */
     def apply[A](as: A*): List[A] = {
       if (as.isEmpty) Nil
       else Cons(as.head, apply(as.tail: _*)) //注意这里是用: _*，表示将集合作为可变参数传递，而不是集合整体
     }
 
     /**
-      * 3.1：List 数据构造器的模式匹配
-      *
-      * 引申：注意是右结合，调用顺序是反的。目前使用的Scala2.12
-      * ::  {{{1 :: List(2, 3) = List(2, 3).::(1) = List(1, 2, 3)}}}
-      *
-      * ::: {{{List(1, 2) ::: List(3, 4) = List(3, 4).:::(List(1, 2)) = List(1, 2, 3, 4)}}}
-      */
+     * 3.1：List 数据构造器的模式匹配
+     *
+     * 引申：注意是右结合，调用顺序是反的。目前使用的Scala2.12
+     * ::  {{{1 :: List(2, 3) = List(2, 3).::(1) = List(1, 2, 3)}}}
+     *
+     * ::: {{{List(1, 2) ::: List(3, 4) = List(3, 4).:::(List(1, 2)) = List(1, 2, 3, 4)}}}
+     */
     val x = List(1, 2, 3, 4, 5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x
       case Nil => 42
@@ -127,12 +127,12 @@ object datastructures extends App {
     }
 
     /**
-      * 3.2：实现tail函数，删除一个List的第一个元素.时间开销是常量级，如果是Nil，在实现的时候有什么不同的选择？
-      *
-      * @param list
-      * @tparam A
-      * @return
-      */
+     * 3.2：实现tail函数，删除一个List的第一个元素.时间开销是常量级，如果是Nil，在实现的时候有什么不同的选择？
+     *
+     * @param list
+     * @tparam A
+     * @return
+     */
     def tail[A](list: List[A]): List[A] = {
       list match {
         case Nil => sys.error("空列表的尾无法获取")
@@ -141,13 +141,13 @@ object datastructures extends App {
     }
 
     /**
-      * 3.3：使用与3.1相同思路实现用一个不同的值替代列表中第一个元素
-      *
-      * @param list
-      * @param a
-      * @tparam A
-      * @return
-      */
+     * 3.3：使用与3.1相同思路实现用一个不同的值替代列表中第一个元素
+     *
+     * @param list
+     * @param a
+     * @tparam A
+     * @return
+     */
     def setHead[A](list: List[A], a: A): List[A] = {
       list match {
         case Nil => sys.error("空列表的尾无法操作")
@@ -156,13 +156,13 @@ object datastructures extends App {
     }
 
     /**
-      * 3.4：把tail泛化为drop函数，用于从列表中删除前n个元素。时间开销与drop的元素个数成正比（不能复制列表）
-      *
-      * @param list
-      * @param n
-      * @tparam A
-      * @return
-      */
+     * 3.4：把tail泛化为drop函数，用于从列表中删除前n个元素。时间开销与drop的元素个数成正比（不能复制列表）
+     *
+     * @param list
+     * @param n
+     * @tparam A
+     * @return
+     */
     def drop[A](list: List[A], n: Int): List[A] = {
       //使用了临时变量，不好
       //            var ll = list
@@ -179,13 +179,13 @@ object datastructures extends App {
     }
 
     /**
-      * 3.5：删除列表中前缀符合判断的元素
-      *
-      * @param list
-      * @param f
-      * @tparam A
-      * @return
-      */
+     * 3.5：删除列表中前缀符合判断的元素
+     *
+     * @param list
+     * @param f
+     * @tparam A
+     * @return
+     */
     def dropWhile[A](list: List[A], f: A => Boolean): List[A] = {
       list match {
         case Cons(h, t) if f(h) => dropWhile(t, f) //转化为对每个头元素进行判断
@@ -194,15 +194,15 @@ object datastructures extends App {
     }
 
     /**
-      * 3.5：改进高阶函数的类型推导，调用时不需要再使用声明第二个参数的类型
-      *
-      * 因为参数组里的类型信息会从第一个参数传递到第二个参数，因为第一个参数类型是Int，第二个也为Int
-      *
-      * @param list
-      * @param f
-      * @tparam A
-      * @return
-      */
+     * 3.5：改进高阶函数的类型推导，调用时不需要再使用声明第二个参数的类型
+     *
+     * 因为参数组里的类型信息会从第一个参数传递到第二个参数，因为第一个参数类型是Int，第二个也为Int
+     *
+     * @param list
+     * @param f
+     * @tparam A
+     * @return
+     */
     def dropWhile2[A](list: List[A])(f: A => Boolean): List[A] = {
       list match {
         case Cons(h, t) if f(h) => dropWhile(t, f) //转化为对每个头元素进行判断
@@ -211,13 +211,13 @@ object datastructures extends App {
     }
 
     /**
-      * 书上原定义方法
-      *
-      * @param a1 被解开，并放在a2的前面
-      * @param a2
-      * @tparam A
-      * @return
-      */
+     * 书上原定义方法
+     *
+     * @param a1 被解开，并放在a2的前面
+     * @param a2
+     * @tparam A
+     * @return
+     */
     def append[A](a1: List[A], a2: List[A]): List[A] = {
       a1 match {
         case Nil => a2
@@ -226,12 +226,12 @@ object datastructures extends App {
     }
 
     /**
-      * 3.6：返回除最后一个元素之外的所有元素
-      *
-      * @param list
-      * @tparam A
-      * @return
-      */
+     * 3.6：返回除最后一个元素之外的所有元素
+     *
+     * @param list
+     * @tparam A
+     * @return
+     */
     def init[A](list: List[A]): List[A] = {
       list match {
         case Nil => sys.error("空列表的尾无法操作")
@@ -241,17 +241,17 @@ object datastructures extends App {
     }
 
     /**
-      * 书上原定义方法
-      *
-      * 右折叠简单运用
-      *
-      * @param as
-      * @param z 起始值
-      * @param f 独立出来，让类型系统推出f的输入类型
-      * @tparam A 元素类型
-      * @tparam B 起始值类型
-      * @return
-      */
+     * 书上原定义方法
+     *
+     * 右折叠简单运用
+     *
+     * @param as
+     * @param z 起始值
+     * @param f 独立出来，让类型系统推出f的输入类型
+     * @tparam A 元素类型
+     * @tparam B 起始值类型
+     * @return
+     */
     def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = {
       as match {
         case Nil => z
@@ -278,27 +278,27 @@ object datastructures extends App {
     Cons(1, Cons(2, Cons(3, Nil)))
 
     /**
-      * 3.9：使用foldRight计算LIst的长度
-      *
-      * @param as
-      * @tparam A
-      * @return
-      */
+     * 3.9：使用foldRight计算LIst的长度
+     *
+     * @param as
+     * @tparam A
+     * @return
+     */
     def length[A](as: List[A]): Int = {
       //每存在一个元素对acc进行加1，右折叠从1开始
       foldRight(as, 1)((_, acc) => acc + 1)
     }
 
     /**
-      * 3.10：使用尾递归实现，防止List太大造成StackOverflow
-      *
-      * @param as
-      * @param z
-      * @param f
-      * @tparam A
-      * @tparam B
-      * @return
-      */
+     * 3.10：使用尾递归实现，防止List太大造成StackOverflow
+     *
+     * @param as
+     * @param z
+     * @param f
+     * @tparam A
+     * @tparam B
+     * @return
+     */
     def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = {
       as match {
         case Nil => z
@@ -307,44 +307,44 @@ object datastructures extends App {
     }
 
     /**
-      * 3.11-1：使用foldLeft实现
-      *
-      * @param ns
-      * @return
-      */
+     * 3.11-1：使用foldLeft实现
+     *
+     * @param ns
+     * @return
+     */
     def sum3(ns: List[Int]): Int = {
       foldLeft(ns, 0)(_ + _)
     }
 
     /**
-      * 3.11-2：使用foldLeft实现
-      *
-      * @param ns
-      * @return
-      */
+     * 3.11-2：使用foldLeft实现
+     *
+     * @param ns
+     * @return
+     */
     def product3(ns: List[Double]): Double = {
       foldLeft(ns, 1.0)(_ * _)
     }
 
     /**
-      * 3.11-3：使用foldLeft实现
-      *
-      * @param as
-      * @tparam A
-      * @return
-      */
+     * 3.11-3：使用foldLeft实现
+     *
+     * @param as
+     * @tparam A
+     * @return
+     */
     def length3[A](as: List[A]): Int = {
       //左折叠从0开始，第一个参数是B，第二个才是A，acc是长度计算，_是元素
       foldLeft(as, 0)((acc, _) => acc + 1)
     }
 
     /**
-      * 3.12：反转列表。使用一个折叠实现
-      *
-      * @param list
-      * @tparam A
-      * @return
-      */
+     * 3.12：反转列表。使用一个折叠实现
+     *
+     * @param list
+     * @tparam A
+     * @return
+     */
     def reverse[A](list: List[A]): List[A] = {
       //默认传入空列表，elements参数是返回类型，h参数是A元素。相当于每次做链接的头插入操作
       foldLeft(list, List[A]())((elements, h) => Cons(h, elements))
@@ -367,109 +367,109 @@ object datastructures extends App {
     }
 
     /**
-      * 3.14：根据foldLeft或者foldRight实现append函数
-      *
-      * @param l
-      * @param r
-      * @tparam A
-      * @return
-      */
+     * 3.14：根据foldLeft或者foldRight实现append函数
+     *
+     * @param l
+     * @param r
+     * @tparam A
+     * @return
+     */
     def appendViaFoldRight[A](l: List[A], r: List[A]): List[A] = {
       //列表，初始值r，拼接方法是构造函数
       foldRight(l, r)(Cons(_, _))
     }
 
     /**
-      * 3.15：写一个函数将一组列表连接成一个单个列表。它的运行效率应该随着所有列表的总长度线性增长，试着用我们定义过的函数。
-      *
-      * @param l
-      * @tparam A
-      * @return
-      */
+     * 3.15：写一个函数将一组列表连接成一个单个列表。它的运行效率应该随着所有列表的总长度线性增长，试着用我们定义过的函数。
+     *
+     * @param l
+     * @tparam A
+     * @return
+     */
     def concat[A](l: List[List[A]]): List[A] = {
       //列表集，初始值列表Nil，拼接函数append
       foldRight(l, Nil: List[A])(append)
     }
 
     /**
-      * 3.16：对列表中每个元素进行加1操作
-      *
-      * @param list
-      * @return
-      */
+     * 3.16：对列表中每个元素进行加1操作
+     *
+     * @param list
+     * @return
+     */
     def add1(list: List[Int]): List[Int] = {
       //列表、初始值Nil、操作函数（List的尾部一定是Nil，用右折叠，第一个元素是已知）
       foldRight(list, Nil: List[Int])((h, t) => Cons(h + 1, t))
     }
 
     /**
-      * 3.17：将列表的每个元素改为String类型
-      *
-      * @param list
-      * @return
-      */
+     * 3.17：将列表的每个元素改为String类型
+     *
+     * @param list
+     * @return
+     */
     def doubleToString(list: List[Double]): List[String] = {
       foldRight(list, Nil: List[String])((h, t) => Cons(h.toString, t))
     }
 
     /**
-      * 3.18：对列表中的每个元素进行修改，并维持列表结构
-      *
-      * @param as
-      * @param f
-      * @tparam A
-      * @tparam B
-      * @return
-      */
+     * 3.18：对列表中的每个元素进行修改，并维持列表结构
+     *
+     * @param as
+     * @param f
+     * @tparam A
+     * @tparam B
+     * @return
+     */
     def map[A, B](as: List[A])(f: A => B): List[B] = {
       //            foldRightViaFoldLeft(as, Nil:List[B])((h,t) => Cons(f(h),t))
       foldRight(as, Nil: List[B])((h, t) => Cons(f(h), t))
     }
 
     /**
-      * 3.19：从列表中删除不满足断言的元素，并用它删除一个List[Int]中所有奇数
-      *
-      * @param as
-      * @param f
-      * @tparam A
-      * @return
-      */
+     * 3.19：从列表中删除不满足断言的元素，并用它删除一个List[Int]中所有奇数
+     *
+     * @param as
+     * @param f
+     * @tparam A
+     * @return
+     */
     def filter[A](as: List[A])(f: A => Boolean): List[A] = {
       foldRight(as, Nil: List[A])((h, t) => if (f(h)) Cons(h, t) else t)
     }
 
     /**
-      * 3.20：与map相似，但是传入的f函数是返回列表，这个f返回的列表会被塞到flatMap最终返回的列表中
-      *
-      * @param as
-      * @param f
-      * @tparam A
-      * @tparam B
-      * @return
-      */
+     * 3.20：与map相似，但是传入的f函数是返回列表，这个f返回的列表会被塞到flatMap最终返回的列表中
+     *
+     * @param as
+     * @param f
+     * @tparam A
+     * @tparam B
+     * @return
+     */
     def flatMap[A, B](as: List[A])(f: A => List[B]): List[B] = {
       concat(map(as)(f))
     }
 
     /**
-      * 3.21：使用flatMap实现filter
-      *
-      * @param as
-      * @param f
-      * @tparam A
-      * @return
-      */
+     * 3.21：使用flatMap实现filter
+     *
+     * @param as
+     * @param f
+     * @tparam A
+     * @return
+     */
     def filterByFlatMap[A](as: List[A])(f: A => Boolean): List[A] = {
       flatMap(as)(a => if (f(a)) List(a) else Nil)
     }
 
     /**
-      * 3.22： 接收两个列表，对相应元素相加构造出新的列表
-      *
-      * @param a
-      * @param b
-      * @return
-      */
+     * 3.22： 接收两个列表，对相应元素相加构造出新的列表
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     def addPairwise(a: List[Int], b: List[Int]): List[Int] = {
       (a, b) match {
         case (Nil, _) => Nil
@@ -479,13 +479,13 @@ object datastructures extends App {
     }
 
     /**
-      * 3.23：与上面相同，进行泛化
-      *
-      * @param a
-      * @param f
-      * @tparam A
-      * @return
-      */
+     * 3.23：与上面相同，进行泛化
+     *
+     * @param a
+     * @param f
+     * @tparam A
+     * @return
+     */
     def zipWith[A, B, C](a: List[A], b: List[B])(f: (A, B) => C): List[C] =
       (a, b) match {
         case (Nil, _) => Nil
@@ -494,13 +494,13 @@ object datastructures extends App {
       }
 
     /**
-      * 3.24：检查一个List子序列是否包含另一个List
-      *
-      * @param sup
-      * @param sub
-      * @tparam A
-      * @return
-      */
+     * 3.24：检查一个List子序列是否包含另一个List
+     *
+     * @param sup
+     * @param sub
+     * @tparam A
+     * @return
+     */
     @tailrec
     def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean =
       sup match {
@@ -511,13 +511,13 @@ object datastructures extends App {
       }
 
     /**
-      * 判断sub的元素是否均存在于sup
-      *
-      * @param sup
-      * @param sub
-      * @tparam A
-      * @return
-      */
+     * 判断sub的元素是否均存在于sup
+     *
+     * @param sup
+     * @param sub
+     * @tparam A
+     * @return
+     */
     @tailrec
     def startsWith[A](sup: List[A], sub: List[A]): Boolean = {
       (sup, sub) match {
@@ -545,12 +545,12 @@ object datastructures extends App {
   object Tree {
 
     /**
-      * 3.25：统计树的节点数
-      *
-      * @param t
-      * @tparam A
-      * @return
-      */
+     * 3.25：统计树的节点数
+     *
+     * @param t
+     * @tparam A
+     * @return
+     */
     def size[A](t: Tree[A]): Int =
       t match {
         case Leaf(_) => 1
@@ -559,11 +559,11 @@ object datastructures extends App {
       }
 
     /**
-      * 3.26：获取Tree中最大的元素值
-      *
-      * @param t
-      * @return
-      */
+     * 3.26：获取Tree中最大的元素值
+     *
+     * @param t
+     * @return
+     */
     def maximum(t: Tree[Int]): Int =
       t match {
         case Leaf(l) => l
@@ -571,12 +571,12 @@ object datastructures extends App {
       }
 
     /**
-      * 3.27：计算根节点到叶子的最大深度
-      *
-      * @param t
-      * @tparam A
-      * @return
-      */
+     * 3.27：计算根节点到叶子的最大深度
+     *
+     * @param t
+     * @tparam A
+     * @return
+     */
     def depth[A](t: Tree[A]): Int =
       t match {
         //叶子深度为-
@@ -586,13 +586,13 @@ object datastructures extends App {
       }
 
     /**
-      * 3.28：类似List中map
-      *
-      * @param t
-      * @tparam A
-      * @tparam B
-      * @return
-      */
+     * 3.28：类似List中map
+     *
+     * @param t
+     * @tparam A
+     * @tparam B
+     * @return
+     */
     def map[A, B](t: Tree[A])(f: A => B): Tree[B] =
       t match {
         case Leaf(n) => Leaf(f(n))
@@ -600,17 +600,17 @@ object datastructures extends App {
       }
 
     /**
-      * 3.29 泛化上面三个函数，进一步抽象三个函数
-      *
-      * 与List类似，使用折叠
-      *
-      * @param t 需要操作的二叉树
-      * @param f 入参是树的元素类型A，返回参数是具体操作函数g的参数类型B
-      * @param g 具体操作函数
-      * @tparam A
-      * @tparam B
-      * @return
-      */
+     * 3.29 泛化上面三个函数，进一步抽象三个函数
+     *
+     * 与List类似，使用折叠
+     *
+     * @param t 需要操作的二叉树
+     * @param f 入参是树的元素类型A，返回参数是具体操作函数g的参数类型B
+     * @param g 具体操作函数
+     * @tparam A
+     * @tparam B
+     * @return
+     */
     def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B =
       t match {
         case Leaf(a) => f(a)

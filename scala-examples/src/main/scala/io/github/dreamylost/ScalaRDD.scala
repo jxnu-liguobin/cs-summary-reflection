@@ -4,21 +4,21 @@ package io.github.dreamylost
 object ScalaRDD extends App {
 
   /**
-    * 参考https://blog.csdn.net/qq_21439395/article/details/81023400
-    */
+   * 参考https://blog.csdn.net/qq_21439395/article/details/81023400
+   */
   val d1 = Array(("bj", 28.1), ("sh", 28.7), ("gz", 32.0), ("sz", 33.1))
   val d2 = Array(("bj", 27.3), ("sh", 30.1), ("gz", 33.3))
   val d3 = Array(("bj", 28.2), ("sh", 29.1), ("gz", 32.0), ("sz", 30.5))
 
   /**
-    * 思路：
-    *
-    * 1，对数据进行合并
-    *
-    * 2，按照城市进行分组
-    *
-    * 3，分组后进行聚合统计
-    */
+   * 思路：
+   *
+   * 1，对数据进行合并
+   *
+   * 2，按照城市进行分组
+   *
+   * 3，分组后进行聚合统计
+   */
 
   //1，对数据进行合并的实现 union ++
   val data: Array[(String, Double)] = (d1 concat d2 ++ d3)
@@ -31,8 +31,8 @@ object ScalaRDD extends App {
   grouped.foreach {
     case (city, data) => {
       println(city)
-      data.foreach {
-        case (x, y) => println(x, y)
+      data.foreach { case (x, y) =>
+        println(x, y)
       }
     }
   }

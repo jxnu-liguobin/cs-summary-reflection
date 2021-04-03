@@ -2,29 +2,29 @@
 package io.github.dreamylost
 
 /**
-  * 662. 二叉树最大宽度
-  *
-  * 给定一个二叉树，编写一个函数来获取这个树的最大宽度。树的宽度是所有层中的最大宽度。这个二叉树与满二叉树（full binary tree）结构相同，但一些节点为空。
-  *
-  * 每一层的宽度被定义为两个端点（该层最左和最右的非空节点，两端点间的null节点也计入长度）之间的长度。
-  *
-  * @see https://github.com/jxnu-liguobin/cs-summary-reflection
-  * @author 梦境迷离
-  * @version 1.0,2020/7/22
-  */
+ * 662. 二叉树最大宽度
+ *
+ * 给定一个二叉树，编写一个函数来获取这个树的最大宽度。树的宽度是所有层中的最大宽度。这个二叉树与满二叉树（full binary tree）结构相同，但一些节点为空。
+ *
+ * 每一层的宽度被定义为两个端点（该层最左和最右的非空节点，两端点间的null节点也计入长度）之间的长度。
+ *
+ * @see https://github.com/jxnu-liguobin/cs-summary-reflection
+ * @author 梦境迷离
+ * @version 1.0,2020/7/22
+ */
 object Leetcode_662 extends App {
 
   val ret = widthOfBinaryTree(TreeNodeData.treeData3())
   println(ret)
 
   /**
-    * 层序遍历，记录每个节点的索引
-    * 600 ms,100.00%
-    * 51.6 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 层序遍历，记录每个节点的索引
+   * 600 ms,100.00%
+   * 51.6 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def widthOfBinaryTree(root: TreeNode): Int = {
     if (root == null) return 0
     if (root.left == null && root.right == null) return 1

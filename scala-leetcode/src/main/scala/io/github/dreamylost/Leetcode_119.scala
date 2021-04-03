@@ -2,12 +2,12 @@
 package io.github.dreamylost
 
 /**
-  * 119. 杨辉三角 II
-  * 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
-  * @author 梦境迷离
-  * @since 2021/3/7
-  * @version 1.0
-  */
+ * 119. 杨辉三角 II
+ * 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
+ * @author 梦境迷离
+ * @since 2021/3/7
+ * @version 1.0
+ */
 object Leetcode_119 extends App {
 
   //468 ms,84.62%

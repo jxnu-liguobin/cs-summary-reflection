@@ -2,11 +2,11 @@
 package io.github.dreamylost.examples.fb
 
 /**
-  * 第四章
-  *
-  * @author 梦境迷离
-  * @version 1.0, 2019-05-01
-  */
+ * 第四章
+ *
+ * @author 梦境迷离
+ * @version 1.0, 2019-05-01
+ */
 object errorhandling extends App {
 
   //    Console println Option.failingFn(1)
@@ -105,27 +105,27 @@ object errorhandling extends App {
     }
 
     /**
-      * 4.2：根据flatMap实现方差函数
-      *
-      * @param xs
-      * @return
-      */
+     * 4.2：根据flatMap实现方差函数
+     *
+     * @param xs
+     * @return
+     */
     def variance(xs: Seq[Double]): Option[Double] = {
       //方差：对每个元素求math.pow(x-m,2)的累加和并/元素个数，标准差再开2次根号
       mean(xs) flatMap (m => mean(xs.map(x => math.pow(x - m, 2))))
     }
 
     /**
-      * 4.3：使用一个二元函数组合两个Option值
-      *
-      * @param a
-      * @param b
-      * @param f
-      * @tparam A
-      * @tparam B
-      * @tparam C
-      * @return
-      */
+     * 4.3：使用一个二元函数组合两个Option值
+     *
+     * @param a
+     * @param b
+     * @param f
+     * @tparam A
+     * @tparam B
+     * @tparam C
+     * @return
+     */
     def map2[A, B, C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] = {
       a flatMap { aa =>
         b map (bb => f(aa, bb))
@@ -141,12 +141,12 @@ object errorhandling extends App {
     }
 
     /**
-      * 4.4：将Option列表结合为一个Option
-      *
-      * @param a
-      * @tparam A
-      * @return
-      */
+     * 4.4：将Option列表结合为一个Option
+     *
+     * @param a
+     * @tparam A
+     * @return
+     */
     def sequence[A](a: List[Option[A]]): Option[List[A]] = {
       a match {
         case Nil => Some(Nil)
@@ -173,12 +173,12 @@ object errorhandling extends App {
     }
 
     /**
-      * 4.5：使用map和sequence函数，只遍历一次列表
-      *
-      * @param a
-      * @tparam A
-      * @return
-      */
+     * 4.5：使用map和sequence函数，只遍历一次列表
+     *
+     * @param a
+     * @tparam A
+     * @return
+     */
     def sequenceViaTraverse[A](a: List[Option[A]]): Option[List[A]] = {
       traverse(a)(x => x)
     }

@@ -19,7 +19,7 @@ dependencies {
 
 spotless {
     scala {
-        scalafmt('2.6.1').configFile("${rootProject.rootDir}/.scalafmt.conf")
+        scalafmt('2.7.5').configFile("${rootProject.rootDir}/.scalafmt.conf")
         licenseHeader '/* Licensed under Apache-2.0 (C) All Contributors */', 'package '
     }
 }

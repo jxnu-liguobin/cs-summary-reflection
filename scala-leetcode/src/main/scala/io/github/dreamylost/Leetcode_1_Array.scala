@@ -14,10 +14,10 @@ package io.github.dreamylost
 //
 //
 /**
-  * @author 梦境迷离
-  * @time 2019-08-14
-  * @version v2.0
-  */
+ * @author 梦境迷离
+ * @time 2019-08-14
+ * @version v2.0
+ */
 object Leetcode_1_Array {
 
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {

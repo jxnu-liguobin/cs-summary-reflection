@@ -5,16 +5,17 @@ import scala.collection.mutable
 import scala.util.Try
 
 /**
-  * @author 梦境迷离
-  * @version 1.0, 2019-07-15
-  */
+ * @author 梦境迷离
+ * @version 1.0, 2019-07-15
+ */
 object StringUtils {
 
-  /** 获取Get的查询参数集
-    *
-    * @param queryParams ?后面的查询参数
-    * @return
-    */
+  /**
+   * 获取Get的查询参数集
+   *
+   * @param queryParams ?后面的查询参数
+   * @return
+   */
   @deprecated
   def query(queryParams: String): mutable.HashMap[String, String] = {
     val map = mutable.HashMap[String, String]() //可变 Map
@@ -35,12 +36,13 @@ object StringUtils {
     }
   }
 
-  /** 获取指定的value
-    *
-    * @param queryParams ?后面的查询参数
-    * @param key         GET的参数key
-    * @return
-    */
+  /**
+   * 获取指定的value
+   *
+   * @param queryParams ?后面的查询参数
+   * @param key         GET的参数key
+   * @return
+   */
   def query(queryParams: String, key: String): String = {
     //不用Option
     query(queryParams).getOrElse(key, null)

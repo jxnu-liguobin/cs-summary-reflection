@@ -4,17 +4,17 @@ package io.github.sweeneycai
 import scala.collection.mutable.ListBuffer
 
 /**
-  * 93. 复原IP地址 (Medium)
-  *
-  * 给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。
-  * 有效的 IP 地址正好由四个整数（每个整数位于 0 到 255 之间组成），整数之间用 '.' 分隔。
-  */
+ * 93. 复原IP地址 (Medium)
+ *
+ * 给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。
+ * 有效的 IP 地址正好由四个整数（每个整数位于 0 到 255 之间组成），整数之间用 '.' 分隔。
+ */
 object Leetcode_93 {
 
   /**
-    * 简单的深度优先搜索，在 2.13.x 中`Stream`可以使用`LazyList`代替
-    * 注意考虑'0'作为开头时的特殊情况
-    */
+   * 简单的深度优先搜索，在 2.13.x 中`Stream`可以使用`LazyList`代替
+   * 注意考虑'0'作为开头时的特殊情况
+   */
   def restoreIpAddresses(s: String): List[String] = {
     if (s.length > 12 || s.length < 4) List.empty[String]
     else {

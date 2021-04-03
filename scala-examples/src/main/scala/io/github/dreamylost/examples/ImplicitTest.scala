@@ -4,34 +4,34 @@ package io.github.dreamylost.examples
 import java.util.Locale
 
 /**
-  * 隐式参数和隐式方法
-  *
-  * 两者之间在功能上没有差异
-  *
-  * 隐式参数不会直接在当前的方法体中使用，而是传递给另一个具有相同隐式参数列表的函数
-  * 隐式参数是Scala关键字支持的
-  *
-  * 隐式方法通常用于检查类型的隐式值是否可用，并在这种情况下返回它。
-  * 隐式方法是标准库实现的，使用了内联函数
-  *
-  * 若想使用隐式参数，一般使用implicitly
-  * 若只是需要隐式参数，为了满足调用参数列表的语义，而不在方法内使用隐式参数本身，一般使用implicit
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-05
-  * @version v1.0
-  */
+ * 隐式参数和隐式方法
+ *
+ * 两者之间在功能上没有差异
+ *
+ * 隐式参数不会直接在当前的方法体中使用，而是传递给另一个具有相同隐式参数列表的函数
+ * 隐式参数是Scala关键字支持的
+ *
+ * 隐式方法通常用于检查类型的隐式值是否可用，并在这种情况下返回它。
+ * 隐式方法是标准库实现的，使用了内联函数
+ *
+ * 若想使用隐式参数，一般使用implicitly
+ * 若只是需要隐式参数，为了满足调用参数列表的语义，而不在方法内使用隐式参数本身，一般使用implicit
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-05
+ * @version v1.0
+ */
 object ImplicitTest extends App {
 
   /**
-    * 隐式参数最常用的用途之一：通过柯里化给已知方法增加第二个参数列表，而不影响方法原有参数列表，并且将具体参数与拓展参数分开
-    * 国际化在这里是一个后加的参数，且是隐式的。test1函数的调用方可以继续像之前没有locale参数一样，使用test1函数，只需要在方法调用前准备好可用的隐式参数。
-    * 当然因为是柯里化的，调用方也可选择显示的传递locale参数，一般不需这样，除非当多个隐式参数可用时，为了消除歧义可能需要这样。
-    * 在这里，国际化语言一般从每个用户请求中解析，仅有一个。
-    *
-    * @param x
-    * @param locale
-    */
+   * 隐式参数最常用的用途之一：通过柯里化给已知方法增加第二个参数列表，而不影响方法原有参数列表，并且将具体参数与拓展参数分开
+   * 国际化在这里是一个后加的参数，且是隐式的。test1函数的调用方可以继续像之前没有locale参数一样，使用test1函数，只需要在方法调用前准备好可用的隐式参数。
+   * 当然因为是柯里化的，调用方也可选择显示的传递locale参数，一般不需这样，除非当多个隐式参数可用时，为了消除歧义可能需要这样。
+   * 在这里，国际化语言一般从每个用户请求中解析，仅有一个。
+   *
+   * @param x
+   * @param locale
+   */
   def test1(x: String)(implicit locale: Locale): Unit = {
     def test1Helper(args: String)(implicit locale: Locale): Unit = {
       println(s"args=$args, locale=$locale")
@@ -197,11 +197,12 @@ object ImplicitTest2 extends App {
   println(ret6)
 }
 
-/** 输出
-  * Person(name=bob, age=25)
-  * Person2(name=bob, age=25)
-  * Person3(name=bob, age=25)
-  * Person4(name=bob, age=25)
-  * Person5(name=bob, age=25)
-  * Person6(name=hello implicit 6 bob, age=hello implicit 6 25)
-  */
+/**
+ * 输出
+ * Person(name=bob, age=25)
+ * Person2(name=bob, age=25)
+ * Person3(name=bob, age=25)
+ * Person4(name=bob, age=25)
+ * Person5(name=bob, age=25)
+ * Person6(name=hello implicit 6 bob, age=hello implicit 6 25)
+ */

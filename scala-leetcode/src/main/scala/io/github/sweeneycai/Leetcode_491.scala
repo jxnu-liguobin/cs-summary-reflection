@@ -4,10 +4,10 @@ package io.github.sweeneycai
 import scala.collection.mutable.ListBuffer
 
 /**
-  * 491. 递增子序列 (Medium)
-  *
-  * 给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。
-  */
+ * 491. 递增子序列 (Medium)
+ *
+ * 给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。
+ */
 object Leetcode_491 extends App {
   // 递归枚举
   def findSubsequences(nums: Array[Int]): List[List[Int]] = {

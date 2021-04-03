@@ -17,12 +17,12 @@ import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 
 /**
-  * 请求超时action
-  *
-  * @author 梦境迷离
-  * @since 2019-08-24
-  * @version v1.0
-  */
+ * 请求超时action
+ *
+ * @author 梦境迷离
+ * @since 2019-08-24
+ * @version v1.0
+ */
 class TimeoutAction @Inject() (
     parser: BodyParsers.Default,
     actorSystem: ActorSystem,
@@ -31,15 +31,15 @@ class TimeoutAction @Inject() (
     extends ActionBuilderImpl(parser) {
 
   /**
-    * {{{
-    *   timeoutAction andThen other actions
-    * }}}
-    *
-    * @param request
-    * @param block
-    * @tparam A
-    * @return
-    */
+   * {{{
+   *   timeoutAction andThen other actions
+   * }}}
+   *
+   * @param request
+   * @param block
+   * @tparam A
+   * @return
+   */
   override def invokeBlock[A](
       request: Request[A],
       block: Request[A] => Future[Result]

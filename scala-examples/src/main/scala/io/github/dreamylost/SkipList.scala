@@ -5,12 +5,12 @@ import scala.util.control.Breaks._
 import scala.util.Random
 
 /**
-  * 固定层级的Scala跳表实现
-  *
-  * @see https://stackoverflow.com/questions/6864278/does-java-have-a-skip-list-implementation
-  * @author 梦境迷离
-  * @version 1.0, 2020-11-03
-  */
+ * 固定层级的Scala跳表实现
+ *
+ * @see https://stackoverflow.com/questions/6864278/does-java-have-a-skip-list-implementation
+ * @author 梦境迷离
+ * @version 1.0, 2020-11-03
+ */
 trait SkippableList[E] {
 
   type Node

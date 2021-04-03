@@ -4,10 +4,10 @@ package io.github.dreamylost.examples
 import play.api.libs.json._
 
 /**
-  * @author 梦境迷离
-  * @since 2019-09-30
-  * @version v1.0
-  */
+ * @author 梦境迷离
+ * @since 2019-09-30
+ * @version v1.0
+ */
 object ImplicitSeqObjectTest extends App {
 
   //需要显示指定自己需要的特别序列化方式
@@ -17,12 +17,12 @@ object ImplicitSeqObjectTest extends App {
   )
 
   /**
-    * RESULT:
-    * {{{
-    *  {"name":"name1"}
-    * [{"name":"name2"},{"name":"name1"}]
-    * }}}
-    */
+   * RESULT:
+   * {{{
+   *  {"name":"name1"}
+   * [{"name":"name2"},{"name":"name1"}]
+   * }}}
+   */
 
 }
 

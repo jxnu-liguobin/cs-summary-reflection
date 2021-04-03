@@ -2,9 +2,9 @@
 package io.github.dreamylost
 
 /**
-  * @author 梦境迷离
-  * @version 1.0,2020/3/13
-  */
+ * @author 梦境迷离
+ * @version 1.0,2020/3/13
+ */
 object OutPrivateClass extends App {
 
   private val name: String = "hello"

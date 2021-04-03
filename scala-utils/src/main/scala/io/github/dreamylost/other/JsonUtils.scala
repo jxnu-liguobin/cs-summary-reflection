@@ -7,14 +7,14 @@ import play.api.libs.json.JsValue
 import scala.collection.mutable
 
 /**
-  * @author 梦境迷离
-  * @version 1.0,2020/2/28
-  */
+ * @author 梦境迷离
+ * @version 1.0,2020/2/28
+ */
 object JsonUtils {
 
   /**
-    * 比较两个json对象的结构是否相等，以及返回错误所在的层级
-    */
+   * 比较两个json对象的结构是否相等，以及返回错误所在的层级
+   */
   def compareJsonSchema(source: JsObject, target: JsObject) = {
     //标记递归状态
     val exit = mutable.Queue[Boolean]()
@@ -29,15 +29,15 @@ object JsonUtils {
     }
 
     /**
-      * 排除不等情况并存到queue中
-      * 1. key数量不同
-      * 2. key值不同
-      * 3. 有子结构则递归判断
-      * 4. 最终检验是否有标记在queue，无则相等
-      *
-      * @param source
-      * @param target
-      */
+     * 排除不等情况并存到queue中
+     * 1. key数量不同
+     * 2. key值不同
+     * 3. 有子结构则递归判断
+     * 4. 最终检验是否有标记在queue，无则相等
+     *
+     * @param source
+     * @param target
+     */
     def compare(source: JsObject, target: JsObject)(d: Int): (Int, Boolean) = {
       depth = d + 1
       val toMapJsValue = (jsObj: JsObject) =>

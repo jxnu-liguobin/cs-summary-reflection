@@ -2,14 +2,14 @@
 package io.github.dreamylost
 
 /**
-  * 1128. 等价多米诺骨牌对的数量
-  * 形式上，dominoes[i] = [a, b] 和 dominoes[j] = [c, d] 等价的前提是 a==c 且 b==d，或是 a==d 且 b==c。
-  * 输入：dominoes = [[1,2],[2,1],[3,4],[5,6]]
-  * 输出：1
-  *
-  * @author 梦境迷离
-  * @version 1.0,2021/1/26
-  */
+ * 1128. 等价多米诺骨牌对的数量
+ * 形式上，dominoes[i] = [a, b] 和 dominoes[j] = [c, d] 等价的前提是 a==c 且 b==d，或是 a==d 且 b==c。
+ * 输入：dominoes = [[1,2],[2,1],[3,4],[5,6]]
+ * 输出：1
+ *
+ * @author 梦境迷离
+ * @version 1.0,2021/1/26
+ */
 object Leetcode_1128 extends App {
   def numEquivDominoPairs(dominoes: Array[Array[Int]]): Int = {
     import scala.collection.mutable

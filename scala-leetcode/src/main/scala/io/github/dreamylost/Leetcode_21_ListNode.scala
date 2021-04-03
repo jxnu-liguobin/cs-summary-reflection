@@ -2,14 +2,14 @@
 package io.github.dreamylost
 
 /**
-  * 归并两个有序的链表
-  *
-  * 21. Merge Two Sorted Lists (Easy)
-  *
-  * @author 梦境迷离
-  * @time 2018年7月25日
-  * @version v1.0
-  */
+ * 归并两个有序的链表
+ *
+ * 21. Merge Two Sorted Lists (Easy)
+ *
+ * @author 梦境迷离
+ * @time 2018年7月25日
+ * @version v1.0
+ */
 object Leetcode_21_ListNode extends App {
 
   var listA = ListNodeConstants.getOrderListA

@@ -5,11 +5,11 @@ import scala.io.Source
 import scala.util.Using
 
 /**
-  * 从文件读取行，文件写入使用Java IO
-  *
-  * 从命令行运行不用加包名
-  * scala IOBasic.scala IOBasic.scala 后面一个是参数
-  */
+ * 从文件读取行，文件写入使用Java IO
+ *
+ * 从命令行运行不用加包名
+ * scala IOBasic.scala IOBasic.scala 后面一个是参数
+ */
 object IOBasic {
 
   val file = "README.md"
@@ -32,18 +32,18 @@ object IOBasic {
   }
 
   /**
-    * 计算字符数
-    */
+   * 计算字符数
+   */
   def widthOfLength(s: String) = s.length.toString.length
 
   /**
-    * 计算最大长度 函数式方法
-    */
+   * 计算最大长度 函数式方法
+   */
   val longestLine = lines.reduceLeft((a, b) => if (a.length > b.length) a else b)
 
   /**
-    * 计算最大长度 普通函数
-    */
+   * 计算最大长度 普通函数
+   */
   def longestLine2() = { //2.13.5 必须加等号
 
     var maxWidth = 0
@@ -55,8 +55,8 @@ object IOBasic {
 }
 
 /**
-  * 从网络读取
-  */
+ * 从网络读取
+ */
 object Test10 extends App {
   val webFile = Source.fromURL("http://www.baidu.com")
   webFile.foreach(print)
@@ -64,10 +64,10 @@ object Test10 extends App {
 }
 
 /**
-  * 从控制台读取
-  *
-  * Java的Scanner也可以
-  */
+ * 从控制台读取
+ *
+ * Java的Scanner也可以
+ */
 object Test11 extends App {
   //控制台交互
   print("Please enter your input:")

@@ -2,9 +2,9 @@
 package io.github.dreamylost
 
 /**
-  * @author 梦境迷离
-  * @version 1.0, 2019-06-20
-  */
+ * @author 梦境迷离
+ * @version 1.0, 2019-06-20
+ */
 object MainObject1 extends App {
 
   //lazy var 是不允许的，

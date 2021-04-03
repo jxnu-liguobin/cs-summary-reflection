@@ -10,12 +10,12 @@ import scala.util.Failure
 import scala.util.Success
 
 /**
-  * 简单限流器：任意period时间内请求数不能大于requests
-  *
-  * @author 梦境迷离
-  * @since 2020-03-22
-  * @version v1.0
-  */
+ * 简单限流器：任意period时间内请求数不能大于requests
+ *
+ * @author 梦境迷离
+ * @since 2020-03-22
+ * @version v1.0
+ */
 class RateLimiter(requests: Int, period: FiniteDuration) {
 
   private val startTimes = {

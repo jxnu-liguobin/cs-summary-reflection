@@ -6,13 +6,13 @@ import java.util.concurrent.TimeUnit
 import scala.concurrent.Future
 
 /**
-  * 简单令牌桶实现
-  *
-  * @param capacity           - 令牌容量
-  * @param nanosBetweenTokens - 令牌生成间隔时间
-  * @author 梦境迷离
-  * @version 1.0,2020/3/23
-  */
+ * 简单令牌桶实现
+ *
+ * @param capacity           - 令牌容量
+ * @param nanosBetweenTokens - 令牌生成间隔时间
+ * @author 梦境迷离
+ * @version 1.0,2020/3/23
+ */
 abstract class TokenBucket(capacity: Long, nanosBetweenTokens: Long) {
   require(capacity >= 0, "Capacity must be non negative.")
   require(nanosBetweenTokens > 0, "Time between tokens must be larger than zero nanoseconds.")
@@ -23,8 +23,8 @@ abstract class TokenBucket(capacity: Long, nanosBetweenTokens: Long) {
   private[this] var lastUpdate: Long = _
 
   /**
-    * 令牌桶初始化方法
-    */
+   * 令牌桶初始化方法
+   */
   def init(): Unit = {
     //初始化可用令牌数就是最大容量
     availableTokens = capacity
@@ -33,8 +33,8 @@ abstract class TokenBucket(capacity: Long, nanosBetweenTokens: Long) {
   }
 
   /**
-    * 以纳米为单位的当前时间。返回值是单调递增的，与wall-clock没有关系
-    */
+   * 以纳米为单位的当前时间。返回值是单调递增的，与wall-clock没有关系
+   */
   def currentTime: Long
 
   /*
@@ -94,8 +94,8 @@ abstract class TokenBucket(capacity: Long, nanosBetweenTokens: Long) {
 }
 
 /**
-  * 令牌桶默认实现，使用`System.nanoTime`作为时间源
-  */
+ * 令牌桶默认实现，使用`System.nanoTime`作为时间源
+ */
 final class NanoTimeTokenBucket(_cap: Long, _period: Long) extends TokenBucket(_cap, _period) {
 
   override def currentTime: Long = System.nanoTime()

@@ -12,21 +12,21 @@ import play.api.libs.json.Json
 import scala.collection.mutable
 
 /**
-  * 自定义隐式转化
-  *
-  * @author 梦境迷离
-  * @since 2019-08-26
-  * @version v1.0
-  */
+ * 自定义隐式转化
+ *
+ * @author 梦境迷离
+ * @since 2019-08-26
+ * @version v1.0
+ */
 object CustomConversions {
 
   /**
-    * {{{
-    *   Json.obj().removeNull
-    * }}}
-    *
-    * @param jsValue
-    */
+   * {{{
+   *   Json.obj().removeNull
+   * }}}
+   *
+   * @param jsValue
+   */
   implicit class filterJsonWrapper(jsValue: JsObject) {
     //去除json中的空值，并保证顺序
     def removeNull = {

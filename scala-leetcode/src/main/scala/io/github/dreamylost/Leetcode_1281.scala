@@ -2,9 +2,9 @@
 package io.github.dreamylost
 
 /**
-  *  @author 梦境迷离
-  *  @version 1.0,2020/3/12
-  */
+ *  @author 梦境迷离
+ *  @version 1.0,2020/3/12
+ */
 object Leetcode_1281 extends App {
   def subtractProductAndSum(n: Int): Int = {
     val f = n.toString.toCharArray.map(c => Integer.parseInt(c + ""))

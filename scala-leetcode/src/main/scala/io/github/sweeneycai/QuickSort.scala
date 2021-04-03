@@ -4,10 +4,10 @@ package io.github.sweeneycai
 import scala.util.Random
 
 /**
-  * 快速排序 -- 三数取中法递归实现（面试推荐写法）
-  *
-  * 可以避免排序时出现一边倒的情况。
-  */
+ * 快速排序 -- 三数取中法递归实现（面试推荐写法）
+ *
+ * 可以避免排序时出现一边倒的情况。
+ */
 object QuickSort extends App {
   def quickSort(nums: Array[Int]): Array[Int] = {
     if (nums.length < 2) nums

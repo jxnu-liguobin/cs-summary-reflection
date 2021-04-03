@@ -2,9 +2,9 @@
 package io.github.sweeneycai
 
 /**
-  * 707. 设计链表 (Medium)
-  * 题目要点：单链表实现比较简单，代码中尽量不要使用`null`。
-  */
+ * 707. 设计链表 (Medium)
+ * 题目要点：单链表实现比较简单，代码中尽量不要使用`null`。
+ */
 object Leetcode_707 {
 
   class MyLinkedList() {

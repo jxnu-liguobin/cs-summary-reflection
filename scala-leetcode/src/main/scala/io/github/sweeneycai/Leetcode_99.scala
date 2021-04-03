@@ -4,16 +4,16 @@ package io.github.sweeneycai
 import io.github.dreamylost.TreeNode
 
 /**
-  * 99. 恢复二叉搜索树 (Hard)
-  * 二叉搜索树中的两个节点被错误地交换。
-  *
-  * 在不改变其结构的情况下，恢复这棵树。
-  */
+ * 99. 恢复二叉搜索树 (Hard)
+ * 二叉搜索树中的两个节点被错误地交换。
+ *
+ * 在不改变其结构的情况下，恢复这棵树。
+ */
 object Leetcode_99 extends App {
 
   /**
-    * 非递归版本
-    */
+   * 非递归版本
+   */
   def recoverTree(root: TreeNode): Unit = {
     var stack = List[TreeNode]()
     var pre = new TreeNode(Int.MinValue)
@@ -45,8 +45,8 @@ object Leetcode_99 extends App {
   }
 
   /**
-    * 递归版本
-    */
+   * 递归版本
+   */
   def recoverTreeWithRecur(root: TreeNode): Unit = {
     if (root == null) return
     var pre = new TreeNode(Int.MinValue)

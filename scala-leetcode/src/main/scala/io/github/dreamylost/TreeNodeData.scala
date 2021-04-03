@@ -2,10 +2,10 @@
 package io.github.dreamylost
 
 /**
-  * @author 梦境迷离 dreamylost
-  * @since 2020-06-07
-  * @version v1.0
-  */
+ * @author 梦境迷离 dreamylost
+ * @since 2020-06-07
+ * @version v1.0
+ */
 object TreeNodeData {
 
   def treeData3(): TreeNode = {

@@ -4,31 +4,31 @@ package io.github.sweeneycai
 import scala.collection.mutable
 
 /**
-  * 841. 钥匙和房间 (Medium)
-  *
-  * 有 N 个房间，开始时你位于 0 号房间。每个房间有不同的号码：0，1，2，...，N-1，
-  * 并且房间里可能有一些钥匙能使你进入下一个房间。
-  *
-  * 在形式上，对于每个房间 i 都有一个钥匙列表 rooms[i]，
-  * 每个钥匙 rooms[i][j] 由 [0,1，...，N-1] 中的一个整数表示，
-  * 其中 N = rooms.length。 钥匙 rooms[i][j] = v 可以打开编号为 v 的房间。
-  *
-  * 最初，除 0 号房间外的其余所有房间都被锁住。
-  *
-  * 你可以自由地在房间之间来回走动。
-  *
-  * 如果能进入每个房间返回 true，否则返回 false。
-  *
-  * @see <a href="https://leetcode-cn.com/problems/keys-and-rooms/">leetcode-cn.com</a>
-  */
+ * 841. 钥匙和房间 (Medium)
+ *
+ * 有 N 个房间，开始时你位于 0 号房间。每个房间有不同的号码：0，1，2，...，N-1，
+ * 并且房间里可能有一些钥匙能使你进入下一个房间。
+ *
+ * 在形式上，对于每个房间 i 都有一个钥匙列表 rooms[i]，
+ * 每个钥匙 rooms[i][j] 由 [0,1，...，N-1] 中的一个整数表示，
+ * 其中 N = rooms.length。 钥匙 rooms[i][j] = v 可以打开编号为 v 的房间。
+ *
+ * 最初，除 0 号房间外的其余所有房间都被锁住。
+ *
+ * 你可以自由地在房间之间来回走动。
+ *
+ * 如果能进入每个房间返回 true，否则返回 false。
+ *
+ * @see <a href="https://leetcode-cn.com/problems/keys-and-rooms/">leetcode-cn.com</a>
+ */
 object Leetcode_841 extends App {
 
   /**
-    * 深度优先搜索典型题目，注意退出条件：
-    *
-    * - 搜索过集合长度和房间数相等时就退出
-    * - 当前搜索的房间中所有钥匙都在结果集中就退出
-    */
+   * 深度优先搜索典型题目，注意退出条件：
+   *
+   * - 搜索过集合长度和房间数相等时就退出
+   * - 当前搜索的房间中所有钥匙都在结果集中就退出
+   */
   def canVisitAllRooms(rooms: List[List[Int]]): Boolean = {
     val visited: mutable.Set[Int] = mutable.Set(0)
 

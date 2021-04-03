@@ -2,18 +2,18 @@
 package io.github.dreamylost
 
 /**
-  * 240. Search a 2D Matrix II (Medium)
-  *
-  * [
-  * [ 1,  5,  9],
-  * [10, 11, 13],
-  * [12, 13, 15]
-  * ]
-  *
-  * @author 梦境迷离
-  * @time 2018年7月17日
-  * @version v1.0
-  */
+ * 240. Search a 2D Matrix II (Medium)
+ *
+ * [
+ * [ 1,  5,  9],
+ * [10, 11, 13],
+ * [12, 13, 15]
+ * ]
+ *
+ * @author 梦境迷离
+ * @time 2018年7月17日
+ * @version v1.0
+ */
 object Leetcode_240_Array {
 
   def main(args: Array[String]) {
@@ -24,12 +24,12 @@ object Leetcode_240_Array {
   }
 
   /**
-    * 704 ms,100.00%
-    * 59.7 MB,100.00%
-    * for(i <- 0 until index.length){
-    * index(i) = new ArrayBuffer[Int]()
-    * }
-    */
+   * 704 ms,100.00%
+   * 59.7 MB,100.00%
+   * for(i <- 0 until index.length){
+   * index(i) = new ArrayBuffer[Int]()
+   * }
+   */
   def searchMatrix(matrix: Array[Array[Int]], target: Int): Boolean = {
     if (matrix == null || matrix.length == 0 || matrix(0).length == 0)
       return false

@@ -7,12 +7,12 @@ import play.api.libs.json.Writes
 import play.api.mvc.Codec
 
 /**
-  * 有Writes隐式对象参数的的entity类，使用隐式对象转化为Writeable可以被写入到response
-  *
-  * @author 梦境迷离
-  * @since 2019-11-23
-  * @version v1.0
-  */
+ * 有Writes隐式对象参数的的entity类，使用隐式对象转化为Writeable可以被写入到response
+ *
+ * @author 梦境迷离
+ * @since 2019-11-23
+ * @version v1.0
+ */
 trait CaseClassJsonSupport {
 
   implicit def writeableOf_caseClass[T <: Product](implicit

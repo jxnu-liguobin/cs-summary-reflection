@@ -15,17 +15,17 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import scala.reflect.runtime.universe._
 
 /**
-  * case class 解码器
-  *
-  * @author 梦境迷离
-  * @since 2020-04-30
-  * @version v1.0
-  */
+ * case class 解码器
+ *
+ * @author 梦境迷离
+ * @since 2020-04-30
+ * @version v1.0
+ */
 class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T].runtimeClass) {
 
   /**
-    * 构造函数、方法、字段、字段索引、基本类型
-    */
+   * 构造函数、方法、字段、字段索引、基本类型
+   */
   private val constructor: Constructor[_] = handledType().getConstructors.head
   private val methods: Array[Method] = handledType().getMethods
   private val fields: Array[Symbol] = typeOf[T].members.filter(!_.isMethod).toArray.reverse
@@ -41,11 +41,11 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
   )
 
   /**
-    * 对象转Java的零值
-    *
-    * @param typ
-    * @return
-    */
+   * 对象转Java的零值
+   *
+   * @param typ
+   * @return
+   */
   private def zeroValue(typ: Type): AnyRef = {
     typ match {
       case t if numberTypes.contains(t) => 0.asInstanceOf[AnyRef]
@@ -58,45 +58,44 @@ class CaseClassDeserializer[T: Manifest]() extends StdDeserializer[T](manifest[T
   }
 
   /**
-    * 反序列化
-    *
-    * @param jp
-    * @param ctxt
-    * @throws
-    * @return
-    */
+   * 反序列化
+   *
+   * @param jp
+   * @param ctxt
+   * @throws
+   * @return
+   */
   @throws[JsonProcessingException]
   override def deserialize(jp: JsonParser, ctxt: DeserializationContext): T = {
     val node: ObjectNode = jp.getCodec.readTree(jp)
     val mapper: ObjectMapper with CaseClassObjectMapper =
       jp.getCodec.asInstanceOf[ObjectMapper with CaseClassObjectMapper]
-    val params: Array[AnyRef] = fieldsWithIndex.map {
-      case (field, index) =>
-        val fieldName = field.name.toString.trim
-        if (node.hasNonNull(fieldName)) {
-          // 在 json 里存在该字段
-          val javaType = mapper.constructType(field.typeSignature)
-          val subJsonParser = mapper.treeAsTokens(node.get(fieldName))
-          mapper.readValue(subJsonParser, javaType).asInstanceOf[AnyRef]
-        } else {
-          // 在 json 里不存在该字段
-          // 获取拿到 case class 默认值的方法的 methodName
-          val methodName = "$lessinit$greater$default$" + (index + 1)
-          // 没有默认值时用零值替代
-          methods.find(_.getName == methodName).fold(zeroValue(field.typeSignature))(_.invoke(null))
-        }
+    val params: Array[AnyRef] = fieldsWithIndex.map { case (field, index) =>
+      val fieldName = field.name.toString.trim
+      if (node.hasNonNull(fieldName)) {
+        // 在 json 里存在该字段
+        val javaType = mapper.constructType(field.typeSignature)
+        val subJsonParser = mapper.treeAsTokens(node.get(fieldName))
+        mapper.readValue(subJsonParser, javaType).asInstanceOf[AnyRef]
+      } else {
+        // 在 json 里不存在该字段
+        // 获取拿到 case class 默认值的方法的 methodName
+        val methodName = "$lessinit$greater$default$" + (index + 1)
+        // 没有默认值时用零值替代
+        methods.find(_.getName == methodName).fold(zeroValue(field.typeSignature))(_.invoke(null))
+      }
     }
     constructor.newInstance(params: _*).asInstanceOf[T]
   }
 }
 
 /**
-  * scala java 类型映射
-  *
-  * @author 梦境迷离
-  * @since 2020-04-30
-  * @version v1.0
-  */
+ * scala java 类型映射
+ *
+ * @author 梦境迷离
+ * @since 2020-04-30
+ * @version v1.0
+ */
 trait CaseClassObjectMapper {
   self: ObjectMapper =>
 

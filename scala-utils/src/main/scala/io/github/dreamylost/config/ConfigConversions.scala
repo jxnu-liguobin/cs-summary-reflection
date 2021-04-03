@@ -12,12 +12,12 @@ import scala.util.Success
 import scala.util.Try
 
 /**
-  * 将typesafe config组件获取的值转化为Option值
-  *
-  * @author 梦境迷离
-  * @time 2019-08-18
-  * @version v1.0
-  */
+ * 将typesafe config组件获取的值转化为Option值
+ *
+ * @author 梦境迷离
+ * @time 2019-08-18
+ * @version v1.0
+ */
 object ConfigConversions {
 
   implicit class ConfigWrapper(config: Config) {

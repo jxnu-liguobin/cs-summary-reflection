@@ -18,12 +18,12 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 /**
-  * scalikejdbc 数据库连接池支持
-  *
-  * @author 梦境迷离
-  * @time 2019-08-18
-  * @version v1.0
-  */
+ * scalikejdbc 数据库连接池支持
+ *
+ * @author 梦境迷离
+ * @time 2019-08-18
+ * @version v1.0
+ */
 trait RepositorySupport extends LazyLogging {
 
   //使用贷出模式借贷资源，无需关闭资源
@@ -62,8 +62,8 @@ trait RepositorySupport extends LazyLogging {
 }
 
 /**
-  * 数据库连接池，启动服务时需要执行init方法初始化数据库
-  */
+ * 数据库连接池，启动服务时需要执行init方法初始化数据库
+ */
 object RepositorySupport extends RepositorySupport {
 
   private final lazy val defaultConfig = ConfigFactory.load("application.conf")

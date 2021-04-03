@@ -2,10 +2,10 @@
 package io.github.dreamylost.`macro`
 
 /**
-  * @see https://docs.scala-lang.org/overviews/macros/implicits.html#fundep-materialization
-  * @author 梦境迷离
-  * @version 1.0,2020/3/17
-  */
+ * @see https://docs.scala-lang.org/overviews/macros/implicits.html#fundep-materialization
+ * @author 梦境迷离
+ * @version 1.0,2020/3/17
+ */
 object Fundeps {
 
   trait Iso[T, U] {

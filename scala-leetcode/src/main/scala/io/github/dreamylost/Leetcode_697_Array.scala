@@ -2,30 +2,30 @@
 package io.github.dreamylost
 
 /**
-  * 数组的度
-  *
-  * 697. Degree of an Array (Easy)
-  *
-  * Input: [1,2,2,3,1,4,2]
-  * Output: 6
-  * 题目描述：数组的度定义为元素出现的最高频率，例如上面的数组度为 3。
-  * 要求找到一个最小的子数组，这个子数组的度和原数组一样。
-  *
-  * @author 梦境迷离
-  * @time 2018年7月20日
-  * @version v1.0
-  */
+ * 数组的度
+ *
+ * 697. Degree of an Array (Easy)
+ *
+ * Input: [1,2,2,3,1,4,2]
+ * Output: 6
+ * 题目描述：数组的度定义为元素出现的最高频率，例如上面的数组度为 3。
+ * 要求找到一个最小的子数组，这个子数组的度和原数组一样。
+ *
+ * @author 梦境迷离
+ * @time 2018年7月20日
+ * @version v1.0
+ */
 object Leetcode_697_Array extends App {
 
   print(findShortestSubArray(Array(1, 2, 2, 3, 1, 4, 2)))
 
   /**
-    * 752 ms,100.00%
-    * 55.3 MB,100.00%
-    *
-    * @param nums
-    * @return
-    */
+   * 752 ms,100.00%
+   * 55.3 MB,100.00%
+   *
+   * @param nums
+   * @return
+   */
   def findShortestSubArray(nums: Array[Int]): Int = {
     import scala.collection.mutable
     val map = new mutable.HashMap[Integer, Array[Int]]

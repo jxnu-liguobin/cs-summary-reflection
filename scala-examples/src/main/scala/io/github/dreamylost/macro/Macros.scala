@@ -8,8 +8,8 @@ import scala.reflect.macros.whitebox
 import scala.reflect.macros.whitebox.Context
 
 /**
-  * Scala宏编程，优化日志
-  */
+ * Scala宏编程，优化日志
+ */
 object Macros {
 
   implicit class LoggerEx(logger: Logger) {
@@ -41,20 +41,20 @@ object Macros {
 
   ///不能在定义宏实现的同一编译运行中使用宏实现
   /**
-    * {{{
-    *     object TestMacros extends App {
-    *
-    *     //可以直接在sbt中 set scalacOption := Seq(“-Ymacro-debug-lite”)开启选项，查看生成的代码
-    *     class LogTest {
-    *
-    *       val logger = LoggerFactory.getLogger(getClass)
-    *       //隐式支持了
-    *       logger.DEBUG1(s"Hello, today is ${new java.util.Date}")
-    *       logger.DEBUG2(s"Hello, today is ${new java.util.Date}", new Exception("test"))
-    *     }
-    *
-    *   }
-    * }}}
-    */
+   * {{{
+   *     object TestMacros extends App {
+   *
+   *     //可以直接在sbt中 set scalacOption := Seq(“-Ymacro-debug-lite”)开启选项，查看生成的代码
+   *     class LogTest {
+   *
+   *       val logger = LoggerFactory.getLogger(getClass)
+   *       //隐式支持了
+   *       logger.DEBUG1(s"Hello, today is ${new java.util.Date}")
+   *       logger.DEBUG2(s"Hello, today is ${new java.util.Date}", new Exception("test"))
+   *     }
+   *
+   *   }
+   * }}}
+   */
 
 }

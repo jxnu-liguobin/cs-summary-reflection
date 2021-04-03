@@ -2,11 +2,11 @@
 package io.github.sweeneycai
 
 /**
-  * 415. 字符串相加(Easy)
-  * 给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
-  * 注意：
-  * 不能使用任何內建`BigInteger`库，也不能直接将输入的字符串转换为整数形式
-  */
+ * 415. 字符串相加(Easy)
+ * 给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
+ * 注意：
+ * 不能使用任何內建`BigInteger`库，也不能直接将输入的字符串转换为整数形式
+ */
 object Leetcode_415 extends App {
   def addStrings(num1: String, num2: String): String = {
     var i = num1.length - 1

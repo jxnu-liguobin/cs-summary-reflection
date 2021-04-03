@@ -10,12 +10,12 @@ import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContextExecutor
 
 /**
-  * 线程池，可替换默认的Implicits.global
-  *
-  * @author 梦境迷离
-  * @since 2019-08-24
-  * @version v1.0
-  */
+ * 线程池，可替换默认的Implicits.global
+ *
+ * @author 梦境迷离
+ * @since 2019-08-24
+ * @version v1.0
+ */
 object Executions {
 
   object Implicits extends LazyLogging {

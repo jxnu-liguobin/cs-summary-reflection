@@ -2,12 +2,12 @@
 package io.github.dreamylost
 
 /**
-  * 53. 最大子序和
-  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
-  *
-  * @author 梦境迷离
-  * @date 2018-08-26
-  */
+ * 53. 最大子序和
+ * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+ *
+ * @author 梦境迷离
+ * @date 2018-08-26
+ */
 object Leetcode_53 extends App {
 
   //  val ret = maxSubArray(Array(-2, 1, -3, 4, -1, 2, 1, -5, 4))
@@ -24,8 +24,8 @@ object Leetcode_53 extends App {
   }
 
   /**
-    * 子数组之和的最大值
-    */
+   * 子数组之和的最大值
+   */
   def maxSubArray(nums: Array[Int]): Int = {
 
     var nStart = nums(nums.length - 1)
@@ -38,8 +38,8 @@ object Leetcode_53 extends App {
   }
 
   /**
-    * 数组最大递增子序列
-    */
+   * 数组最大递增子序列
+   */
   def lis(nums: Array[Int]): Int = {
 
     val lis = new Array[Int](nums.length) //new不可以省略，这里是new对象，而不是使用已有数据构造数组

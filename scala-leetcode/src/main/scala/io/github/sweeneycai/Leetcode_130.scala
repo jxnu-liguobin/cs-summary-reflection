@@ -2,18 +2,18 @@
 package io.github.sweeneycai
 
 /**
-  * 130. 被围绕的区域 (Medium)
-  *
-  * 给定一个二维的矩阵，包含 'X' 和 'O'（字母 O）。
-  *
-  * 找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
-  */
+ * 130. 被围绕的区域 (Medium)
+ *
+ * 给定一个二维的矩阵，包含 'X' 和 'O'（字母 O）。
+ *
+ * 找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
+ */
 object Leetcode_130 extends App {
 
   /**
-    * 典型的深度优先搜索题目。可以从矩阵四周查找所有有关联的 'O' ，然后
-    * 再修改矩阵内部所有孤立的 'O' 。
-    */
+   * 典型的深度优先搜索题目。可以从矩阵四周查找所有有关联的 'O' ，然后
+   * 再修改矩阵内部所有孤立的 'O' 。
+   */
   def solve(board: Array[Array[Char]]): Unit = {
     if (board.isEmpty) return
     val L = board.length

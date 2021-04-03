@@ -2,27 +2,27 @@
 package io.github.dreamylost
 
 /**
-  * 1302. 层数最深叶子节点的和
-  *
-  * 给你一棵二叉树，请你返回层数最深的叶子节点的和。
-  *
-  * @see https://github.com/jxnu-liguobin
-  * @author 梦境迷离
-  * @since 2020-07-28
-  * @version 1.0
-  */
+ * 1302. 层数最深叶子节点的和
+ *
+ * 给你一棵二叉树，请你返回层数最深的叶子节点的和。
+ *
+ * @see https://github.com/jxnu-liguobin
+ * @author 梦境迷离
+ * @since 2020-07-28
+ * @version 1.0
+ */
 object Leetcode_1302 extends App {
 
   val ret = deepestLeavesSum(TreeNodeData.treeData8_1())
   assert(ret == 15)
 
   /**
-    * 976 ms,100.00%
-    * 59.2 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 976 ms,100.00%
+   * 59.2 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def deepestLeavesSum(root: TreeNode): Int = {
     import scala.collection.mutable
     import scala.collection.mutable.ListBuffer

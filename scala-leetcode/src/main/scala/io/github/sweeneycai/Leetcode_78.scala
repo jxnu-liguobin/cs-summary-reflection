@@ -4,19 +4,19 @@ package io.github.sweeneycai
 import scala.collection.mutable.ListBuffer
 
 /**
-  * 78. 子集 (Medium)
-  *
-  * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
-  *
-  * 此题可参考：491. 递增子序列 (Medium)
-  *
-  * @see <a href="https://leetcode-cn.com/problems/subsets/">leetcode-cn.com</a>
-  */
+ * 78. 子集 (Medium)
+ *
+ * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+ *
+ * 此题可参考：491. 递增子序列 (Medium)
+ *
+ * @see <a href="https://leetcode-cn.com/problems/subsets/">leetcode-cn.com</a>
+ */
 object Leetcode_78 extends App {
 
   /**
-    * nums 中不包含重复元素，则不需要剪枝判断
-    */
+   * nums 中不包含重复元素，则不需要剪枝判断
+   */
   def subsets1(nums: Array[Int]): List[List[Int]] = {
     val sorted = nums.sorted
     val res: ListBuffer[List[Int]] = ListBuffer(List())
@@ -31,8 +31,8 @@ object Leetcode_78 extends App {
   }
 
   /**
-    * nums 中包含重复元素，则需要剪枝判断。
-    */
+   * nums 中包含重复元素，则需要剪枝判断。
+   */
   def subsets2(nums: Array[Int]): List[List[Int]] = {
     val sorted = nums.sorted
     val res: ListBuffer[List[Int]] = ListBuffer.empty

@@ -2,9 +2,9 @@
 package io.github.dreamylost.`macro`
 
 /**
-  * @author liguobin@growingio.com
-  * @version 1.0,2021/1/7
-  */
+ * @author liguobin@growingio.com
+ * @version 1.0,2021/1/7
+ */
 object Macros2 extends App {
 
   import scala.language.experimental.macros

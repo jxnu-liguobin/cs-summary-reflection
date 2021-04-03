@@ -2,12 +2,12 @@
 package io.github.sweeneycai
 
 /**
-  * 34. 在排序数组中查找元素的第一个和最后一个位置 (Medium)
-  *
-  * 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
-  *
-  * 你的算法时间复杂度必须是O(log n) 级别。
-  */
+ * 34. 在排序数组中查找元素的第一个和最后一个位置 (Medium)
+ *
+ * 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+ *
+ * 你的算法时间复杂度必须是O(log n) 级别。
+ */
 object Leetcode_34 extends App {
   def searchRange(nums: Array[Int], target: Int): Array[Int] = {
     // 二分查找思想

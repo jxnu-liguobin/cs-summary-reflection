@@ -10,9 +10,9 @@ import scala.util.Failure
 import scala.util.Success
 
 /**
-  * @author 梦境迷离
-  * @version 1.0,2019/11/8
-  */
+ * @author 梦境迷离
+ * @version 1.0,2019/11/8
+ */
 object FuturePromiseTest extends App {
 
   var i = 0

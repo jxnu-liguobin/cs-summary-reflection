@@ -2,14 +2,14 @@
 package io.github.dreamylost
 
 /**
-  * 538. 把二叉搜索树转换为累加树
-  *
-  * 给定一个二叉搜索树（Binary Search Tree），把它转换成为累加树（Greater Tree)，使得每个节点的值是原来的节点值加上所有大于它的节点值之和。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-06-12
-  * @version v1.0
-  */
+ * 538. 把二叉搜索树转换为累加树
+ *
+ * 给定一个二叉搜索树（Binary Search Tree），把它转换成为累加树（Greater Tree)，使得每个节点的值是原来的节点值加上所有大于它的节点值之和。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-06-12
+ * @version v1.0
+ */
 object Leetcode_538 extends App {
 
   val ret = convertBST2(TreeNodeData.treeData3_4())
@@ -18,13 +18,13 @@ object Leetcode_538 extends App {
   println(ret.right.value)
 
   /**
-    * 3292 ms,10.00%
-    * 59.7 MB,100.00%
-    * 函数式写法，仅供参考，很慢
-    *
-    * @param root
-    * @return
-    */
+   * 3292 ms,10.00%
+   * 59.7 MB,100.00%
+   * 函数式写法，仅供参考，很慢
+   *
+   * @param root
+   * @return
+   */
   def convertBST(root: TreeNode): TreeNode = {
     var values = Seq[Int]()
 
@@ -52,15 +52,15 @@ object Leetcode_538 extends App {
   }
 
   /**
-    * 反过来遍历搜索树，将已遍历的节点的和加到当前节点值上
-    *
-    * 快一倍
-    * 1740 ms,20.00%
-    * 59 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 反过来遍历搜索树，将已遍历的节点的和加到当前节点值上
+   *
+   * 快一倍
+   * 1740 ms,20.00%
+   * 59 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def convertBST2(root: TreeNode): TreeNode = {
     var num = 0
 

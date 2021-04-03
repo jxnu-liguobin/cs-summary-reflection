@@ -2,14 +2,14 @@
 package io.github.dreamylost
 
 /**
-  * 函数式对象即是：没有任何可变属性的对象
-  * ============================方法重载、重写、前置条件检查、隐式转换==============================
-  *
-  * n:分子
-  * d:分母
-  *
-  * @see 《Scala编程》 P97
-  */
+ * 函数式对象即是：没有任何可变属性的对象
+ * ============================方法重载、重写、前置条件检查、隐式转换==============================
+ *
+ * n:分子
+ * d:分母
+ *
+ * @see 《Scala编程》 P97
+ */
 class Rantional(val n: Int, val d: Int) {
   //给构造方法加前置条件
   require(d != 0)
@@ -60,28 +60,28 @@ object TestRantional extends App {
   println(3.*(n)) //等同new Rantional(3,1)*Rantional(2,2)
 
   /**
-    * 隐式类
-    * 在scala2.10后提供了隐式类，可以使用implicit声明类，但是需要注意以下几点：
-    * 1.其所带的构造参数有且只能有一个
-    * 2.隐式类必须被定义在类，伴生对象和包对象里
-    * 3.隐式类不能是case class（case class在定义会自动生成伴生对象与2矛盾）
-    * 4.作用域内不能有与之相同名称的标示符
-    *
-    * 转换前提
-    * 1.不存在二义性（如例1）
-    * 2.隐式操作不能嵌套使用，即一次编译只隐式转换一次(One-at-a-time Rule)
-    * Scala不会把 x + y 转换成 convert1(convert2(x)) + y
-    * 3.代码能够在不使用隐式转换的前提下能编译通过，就不会进行隐式转换。
-    *
-    * @param name
-    */
+   * 隐式类
+   * 在scala2.10后提供了隐式类，可以使用implicit声明类，但是需要注意以下几点：
+   * 1.其所带的构造参数有且只能有一个
+   * 2.隐式类必须被定义在类，伴生对象和包对象里
+   * 3.隐式类不能是case class（case class在定义会自动生成伴生对象与2矛盾）
+   * 4.作用域内不能有与之相同名称的标示符
+   *
+   * 转换前提
+   * 1.不存在二义性（如例1）
+   * 2.隐式操作不能嵌套使用，即一次编译只隐式转换一次(One-at-a-time Rule)
+   * Scala不会把 x + y 转换成 convert1(convert2(x)) + y
+   * 3.代码能够在不使用隐式转换的前提下能编译通过，就不会进行隐式转换。
+   *
+   * @param name
+   */
   implicit class implicitClass(val name: String) //隐式类必须用要有一个有一个参的主构造方法
 
 }
 
 /**
-  * 函数字面量与部分应用函数
-  */
+ * 函数字面量与部分应用函数
+ */
 object Function extends App {
 
   //函数字面量，一等函数
@@ -126,10 +126,10 @@ object Function extends App {
 }
 
 /**
-  * 其他函数特性
-  *
-  * 闭包
-  */
+ * 其他函数特性
+ *
+ * 闭包
+ */
 object Function2 extends App {
 
   val m = 1
@@ -155,10 +155,10 @@ object Function2 extends App {
 }
 
 /**
-  * 其他函数特性
-  *
-  * 重复参数，带名参数，缺省参数
-  */
+ * 其他函数特性
+ *
+ * 重复参数，带名参数，缺省参数
+ */
 object Function3 extends App {
 
   //重复参数
@@ -184,11 +184,11 @@ object Function3 extends App {
 }
 
 /**
-  * 定义自己的值类型
-  *
-  * @author 梦境迷离
-  * @time 2019-01-23
-  */
+ * 定义自己的值类型
+ *
+ * @author 梦境迷离
+ * @time 2019-01-23
+ */
 class Dollars(val amount: Int) extends AnyVal {
 
   override def toString: String = "$" + amount
@@ -197,10 +197,10 @@ class Dollars(val amount: Int) extends AnyVal {
 
 //有多个字符串类型的参数，在传参的顺序不正确的时候编译器不会给出提示，如果使用值类型，编译器会给出编译错误
 /**
-  * 控制抽象
-  * 柯里化与贷出模式
-  * 传名参数
-  */
+ * 控制抽象
+ * 柯里化与贷出模式
+ * 传名参数
+ */
 object Function4 extends App {
 
   import java.io.File

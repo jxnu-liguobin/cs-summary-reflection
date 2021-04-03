@@ -2,25 +2,25 @@
 package io.github.dreamylost
 
 /**
-  * 199. 二叉树的右视图
-  *
-  * @see https://github.com/jxnu-liguobin
-  * @author dreamylost
-  * @since 2020-07-23
-  * @version v1.0
-  */
+ * 199. 二叉树的右视图
+ *
+ * @see https://github.com/jxnu-liguobin
+ * @author dreamylost
+ * @since 2020-07-23
+ * @version v1.0
+ */
 object Leetcode_199 extends App {
 
   val ret = rightSideView(TreeNodeData.treeData3_5())
   println(ret)
 
   /**
-    * 568 ms,88.89%
-    * 53.4 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 568 ms,88.89%
+   * 53.4 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def rightSideView(root: TreeNode): List[Int] = {
     if (root == null) return Nil
     if (root.left == null && root.right == null) return List(root.value)

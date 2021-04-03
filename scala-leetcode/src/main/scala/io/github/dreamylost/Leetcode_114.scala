@@ -2,23 +2,23 @@
 package io.github.dreamylost
 
 /**
-  * 114. 二叉树展开为链表
-  *
-  * 给定一个二叉树，原地将它展开为一个单链表。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-06
-  * @version v1.0
-  */
+ * 114. 二叉树展开为链表
+ *
+ * 给定一个二叉树，原地将它展开为一个单链表。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-06
+ * @version v1.0
+ */
 object Leetcode_114 extends App {
 
   /**
-    * 超时。。。
-    * 右子树->左子树->根节点
-    *
-    * @see Leetcode_Interview_17_12 也是超时
-    * @param root
-    */
+   * 超时。。。
+   * 右子树->左子树->根节点
+   *
+   * @see Leetcode_Interview_17_12 也是超时
+   * @param root
+   */
   def flatten(root: TreeNode): Unit = {
     if (root == null) return
     flatten(root.right)
@@ -33,12 +33,12 @@ object Leetcode_114 extends App {
   }
 
   /**
-    * 用临时变量，没超时。Leetcode_Interview_17_12 convertBiNode2 超时了
-    * 580 ms,50.00%
-    * 51.2 MB,100.00%
-    *
-    * @param r
-    */
+   * 用临时变量，没超时。Leetcode_Interview_17_12 convertBiNode2 超时了
+   * 580 ms,50.00%
+   * 51.2 MB,100.00%
+   *
+   * @param r
+   */
   def flatten_(r: TreeNode): Unit = {
     var pre: TreeNode = null
 
@@ -58,11 +58,11 @@ object Leetcode_114 extends App {
   }
 
   /**
-    * 584 ms,50.00%
-    * 51 MB,100.00%
-    *
-    * @param root
-    */
+   * 584 ms,50.00%
+   * 51 MB,100.00%
+   *
+   * @param root
+   */
   def flatten2(root: TreeNode) = {
     var head = root
     while (head != null) {

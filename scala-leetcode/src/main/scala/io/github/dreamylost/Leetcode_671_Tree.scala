@@ -2,26 +2,26 @@
 package io.github.dreamylost
 
 /**
-  * 找出二叉树中第二小的节点
-  *
-  * 671. Second Minimum Node In a Binary Tree (Easy)
-  * 给定一个非空的特殊二叉树，由具有非负值的节点组成，其中该树中的每个节点都有两个或零个子节点。如果节点有两个子节点，那么该节点的值是其两个子节点之间的较小值。
-  * 如果不存在这样的第二最小值，则输出-1代替。
-  *
-  * @author 梦境迷离 https://github.com/jxnu-liguobin
-  * @time 2018年8月10日
-  * @version v1.0
-  */
+ * 找出二叉树中第二小的节点
+ *
+ * 671. Second Minimum Node In a Binary Tree (Easy)
+ * 给定一个非空的特殊二叉树，由具有非负值的节点组成，其中该树中的每个节点都有两个或零个子节点。如果节点有两个子节点，那么该节点的值是其两个子节点之间的较小值。
+ * 如果不存在这样的第二最小值，则输出-1代替。
+ *
+ * @author 梦境迷离 https://github.com/jxnu-liguobin
+ * @time 2018年8月10日
+ * @version v1.0
+ */
 object Leetcode_671_Tree extends App {
 
   /**
-    * 如果节点n的值大于min，则以n为子树的节点值至少大于等于min，故以n为子树的节点不存在第二小值
-    * 528 ms,80.00%
-    * 50.3 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 如果节点n的值大于min，则以n为子树的节点值至少大于等于min，故以n为子树的节点不存在第二小值
+   * 528 ms,80.00%
+   * 50.3 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def findSecondMinimumValue(root: TreeNode): Int = {
     if (root == null || (root.left == null && root.right == null)) return -1
     var leftVal = root.left.value
@@ -38,13 +38,13 @@ object Leetcode_671_Tree extends App {
   println(ret)
 
   /**
-    * 暴力
-    * 532 ms,60.00%
-    * 50.7 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 暴力
+   * 532 ms,60.00%
+   * 50.7 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def findSecondMinimumValue2(root: TreeNode): Int = {
     import scala.collection.SortedSet
     var values = Seq[Int]()

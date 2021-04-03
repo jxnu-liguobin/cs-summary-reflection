@@ -2,20 +2,20 @@
 package io.github.dreamylost
 
 /**
-  * 对角元素相等的矩阵（托普利茨矩阵）
-  *
-  * 766. Toeplitz Matrix (Easy)
-  *
-  * 1234
-  * 5123
-  * 9512
-  *
-  * In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]",
-  * and in each diagonal all elements are the same, so the answer is True.
-  * @author 梦境迷离
-  * @time 2018年7月23日
-  * @version v1.0
-  */
+ * 对角元素相等的矩阵（托普利茨矩阵）
+ *
+ * 766. Toeplitz Matrix (Easy)
+ *
+ * 1234
+ * 5123
+ * 9512
+ *
+ * In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]",
+ * and in each diagonal all elements are the same, so the answer is True.
+ * @author 梦境迷离
+ * @time 2018年7月23日
+ * @version v1.0
+ */
 object Leetcode_766_Array extends App {
 
   val n1 = Array(1, 2, 3, 4)
@@ -25,12 +25,12 @@ object Leetcode_766_Array extends App {
   print(isToeplitzMatrix(nums))
 
   /**
-    * 652 ms,100.00%
-    * 52.4 MB,100.00%
-    *
-    * @param matrix
-    * @return
-    */
+   * 652 ms,100.00%
+   * 52.4 MB,100.00%
+   *
+   * @param matrix
+   * @return
+   */
   def isToeplitzMatrix(matrix: Array[Array[Int]]): Boolean = {
     for (i <- matrix(0).indices) {
       if (!check(matrix, matrix(0)(i), 0, i)) {

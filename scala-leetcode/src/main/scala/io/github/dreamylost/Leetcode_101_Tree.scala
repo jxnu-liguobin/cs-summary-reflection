@@ -2,20 +2,20 @@
 package io.github.dreamylost
 
 /**
-  * 对称二叉树
-  *
-  * 101. Symmetric Tree (Easy)
-  *
-  * 1
-  * / \
-  * 2   2
-  * / \ / \
-  * 3  4 4  3
-  *
-  * @author 梦境迷离
-  * @time 2018年7月18日
-  * @version v1.0
-  */
+ * 对称二叉树
+ *
+ * 101. Symmetric Tree (Easy)
+ *
+ * 1
+ * / \
+ * 2   2
+ * / \ / \
+ * 3  4 4  3
+ *
+ * @author 梦境迷离
+ * @time 2018年7月18日
+ * @version v1.0
+ */
 object Leetcode_101_Tree extends App {
 
   def isSymmetric(root: TreeNode): Boolean = {

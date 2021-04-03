@@ -2,10 +2,10 @@
 package io.github.dreamylost
 
 /**
-  * @author 梦境迷离
-  * @since 2021/3/18
-  * @version 1.0
-  */
+ * @author 梦境迷离
+ * @since 2021/3/18
+ * @version 1.0
+ */
 object TestArrayApply extends App {
 
   class False {

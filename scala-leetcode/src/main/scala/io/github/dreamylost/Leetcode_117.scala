@@ -2,32 +2,32 @@
 package io.github.dreamylost
 
 /**
-  * 117. 填充每个节点的下一个右侧节点指针 II
-  *
-  * 填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。
-  *
-  * 初始状态下，所有 next 指针都被设置为 NULL。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-13
-  * @version v1.0
-  */
+ * 117. 填充每个节点的下一个右侧节点指针 II
+ *
+ * 填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。
+ *
+ * 初始状态下，所有 next 指针都被设置为 NULL。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-13
+ * @version v1.0
+ */
 object Leetcode_117 extends App {
 
   val ret = connect(Node.getNode_7())
   println(ret)
 
   /**
-    * 层序遍历链接每一层
-    *
-    * 递归与116类似，区别：不是完全二叉树
-    *
-    * 636 ms,20.00%
-    * 52.9 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 层序遍历链接每一层
+   *
+   * 递归与116类似，区别：不是完全二叉树
+   *
+   * 636 ms,20.00%
+   * 52.9 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def connect(root: Node): Node = {
     if (root == null) return null
     var queue = Seq[Node]()
@@ -51,14 +51,14 @@ object Leetcode_117 extends App {
   }
 
   /**
-    * 不使用队列，把每层都看成列表
-    *
-    * 556 ms,80.00%
-    * 53.2 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 不使用队列，把每层都看成列表
+   *
+   * 556 ms,80.00%
+   * 53.2 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def connect2(root: Node) = {
     var head: Node = root
     while (head != null) {

@@ -8,26 +8,26 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 
 /**
-  * 异步请求记录
-  *
-  * @author 梦境迷离
-  * @since 2019-08-24
-  * @version v1.0
-  */
+ * 异步请求记录
+ *
+ * @author 梦境迷离
+ * @since 2019-08-24
+ * @version v1.0
+ */
 trait PerformanceRecord extends LazyLogging {
   private val durationLimit = 100.millisecond.toMillis
 
   implicit class FutureWrapper[T](f: Future[T]) {
 
     /**
-      * val a = Future {
-      *   Thread.sleep(1000)
-      * }
-      * a.elapsed("a future")
-      *
-      * @param invokeTag
-      * @return
-      */
+     * val a = Future {
+     *   Thread.sleep(1000)
+     * }
+     * a.elapsed("a future")
+     *
+     * @param invokeTag
+     * @return
+     */
     def elapsed(invokeTag: String): Future[T] = {
       val begin = System.currentTimeMillis()
       f.map { result =>

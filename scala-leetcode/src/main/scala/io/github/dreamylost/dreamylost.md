@@ -116,3 +116,4 @@
 * [最小栈](./Leetcode_155.scala) Easy
 * [杨辉三角 II](./Leetcode_119.scala) Easy
 * [子集](./Leetcode_78.scala) Medium
+* [全排列](./Leetcode_46.scala) Medium

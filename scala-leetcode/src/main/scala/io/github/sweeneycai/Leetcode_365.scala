@@ -4,25 +4,25 @@ package io.github.sweeneycai
 import scala.annotation.tailrec
 
 /**
-  * 365. 水壶问题 (Medium)
-  * 有两个容量分别为 x升 和 y升 的水壶以及无限多的水。能否通过使用这两个水壶，从而可以得到恰好 z升 的水？
-  *
-  * 如果可以，最后请用以上水壶中的一或两个来盛放取得的 z升 水。
-  *
-  * 允许的操作：
-  *
-  * 装满任意一个水壶
-  * 清空任意一个水壶
-  * 从一个水壶向另外一个水壶倒水，直到装满或者倒空
-  *
-  * @author sweeneycai
-  * @since 2020-3-23
-  */
+ * 365. 水壶问题 (Medium)
+ * 有两个容量分别为 x升 和 y升 的水壶以及无限多的水。能否通过使用这两个水壶，从而可以得到恰好 z升 的水？
+ *
+ * 如果可以，最后请用以上水壶中的一或两个来盛放取得的 z升 水。
+ *
+ * 允许的操作：
+ *
+ * 装满任意一个水壶
+ * 清空任意一个水壶
+ * 从一个水壶向另外一个水壶倒水，直到装满或者倒空
+ *
+ * @author sweeneycai
+ * @since 2020-3-23
+ */
 object Leetcode_365 extends App {
 
   /**
-    * Martin 在 Coursera 课程上讲解的函数式解法，在 Leetcode 提交会超出内存限制，但仍具有学习意义
-    */
+   * Martin 在 Coursera 课程上讲解的函数式解法，在 Leetcode 提交会超出内存限制，但仍具有学习意义
+   */
   def canMeasureWater(x: Int, y: Int, z: Int): Boolean = {
     val game = new Pouring(Vector(x, y))
     // 使用`take(1)`在找到一个符合条件的路径之后就停止计算
@@ -102,8 +102,8 @@ object Leetcode_365 extends App {
   }
 
   /**
-    * 官解Scala版，双百
-    */
+   * 官解Scala版，双百
+   */
   def canMeasureWater2(x: Int, y: Int, z: Int): Boolean = {
     @tailrec
     def helper(possible: Vector[(Int, Int)], visited: Set[(Int, Int)]): Boolean = {

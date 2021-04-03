@@ -9,23 +9,23 @@ import play.api.libs.json.JsValue
 import play.api.libs.json.Json
 
 /**
-  * 编解码工具
-  *
-  * @author 梦境迷离
-  * @version 1.0, 2019-07-15
-  */
+ * 编解码工具
+ *
+ * @author 梦境迷离
+ * @version 1.0, 2019-07-15
+ */
 object ImplicitUtils {
 
   /**
-    * Play 表单类型映射，使用
-    * {{{
-    *    val userForm = Form(
-    *    mapping(
-    *      "name" -> json
-    *    )(User.apply)(User.unapply) //可选的optional(json)
-    *  )
-    * }}}
-    */
+   * Play 表单类型映射，使用
+   * {{{
+   *    val userForm = Form(
+   *    mapping(
+   *      "name" -> json
+   *    )(User.apply)(User.unapply) //可选的optional(json)
+   *  )
+   * }}}
+   */
   val json = of[JsValue]
 
   implicit def JsValueFormat: Formatter[JsValue] =

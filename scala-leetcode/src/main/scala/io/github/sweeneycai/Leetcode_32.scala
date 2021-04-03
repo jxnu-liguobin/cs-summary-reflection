@@ -2,21 +2,21 @@
 package io.github.sweeneycai
 
 /**
-  * 32. 最长有效括号 (Hard)
-  *
-  * 给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。
-  *
-  * @see <a href="https://leetcode-cn.com/problems/longest-valid-parentheses/">leetcode-cn.com</a>
-  */
+ * 32. 最长有效括号 (Hard)
+ *
+ * 给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。
+ *
+ * @see <a href="https://leetcode-cn.com/problems/longest-valid-parentheses/">leetcode-cn.com</a>
+ */
 object Leetcode_32 extends App {
 
   /**
-    * 方法一：使用栈
-    * 遇见 ')' 时要将元素出栈，如果当前栈为空，那么将当前节点下标放入栈中，
-    * 这样就能保证栈底的元素一个闭括号，以此记录有效括号序列的长度。
-    *
-    * 需要注意的是，由于括号列表可能第一个括号就是闭括号，因此我们预先放入 -1 。
-    */
+   * 方法一：使用栈
+   * 遇见 ')' 时要将元素出栈，如果当前栈为空，那么将当前节点下标放入栈中，
+   * 这样就能保证栈底的元素一个闭括号，以此记录有效括号序列的长度。
+   *
+   * 需要注意的是，由于括号列表可能第一个括号就是闭括号，因此我们预先放入 -1 。
+   */
   def longestValidParentheses1(s: String): Int = {
     var stack = List(-1)
     var res = 0
@@ -35,8 +35,8 @@ object Leetcode_32 extends App {
   }
 
   /**
-    * 方法二：动态规划
-    */
+   * 方法二：动态规划
+   */
   def longestValidParentheses2(s: String): Int = {
     var max = 0
     // 初始化 dp ，'(' 处一定是0

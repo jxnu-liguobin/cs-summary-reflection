@@ -2,16 +2,16 @@
 package io.github.dreamylost
 
 /**
-  * 173. 二叉搜索树迭代器
-  *
-  * 实现一个二叉搜索树迭代器。你将使用二叉搜索树的根节点初始化迭代器。
-  *
-  * 调用 next() 将返回二叉搜索树中的下一个最小的数。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-07-21
-  * @version v1.0
-  */
+ * 173. 二叉搜索树迭代器
+ *
+ * 实现一个二叉搜索树迭代器。你将使用二叉搜索树的根节点初始化迭代器。
+ *
+ * 调用 next() 将返回二叉搜索树中的下一个最小的数。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-07-21
+ * @version v1.0
+ */
 object Leetcode_173 extends App {
 
   var obj = new BSTIterator(TreeNodeData.treeData3_5())
@@ -21,12 +21,12 @@ object Leetcode_173 extends App {
   println(param_2)
 
   /**
-    * 中序入栈，每次弹出栈顶的并添加右子树
-    * 1096 ms,100.00%
-    * 67.7 MB,100.00%
-    *
-    * @param _root
-    */
+   * 中序入栈，每次弹出栈顶的并添加右子树
+   * 1096 ms,100.00%
+   * 67.7 MB,100.00%
+   *
+   * @param _root
+   */
   class BSTIterator(_root: TreeNode) {
 
     var stack = List.empty[TreeNode]

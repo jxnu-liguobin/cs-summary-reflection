@@ -2,18 +2,18 @@
 package io.github.sweeneycai
 
 /**
-  * 64. 最小路径和 (Medium)
-  *
-  * 给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
-  *
-  * 说明：每次只能向下或者向右移动一步。
-  */
+ * 64. 最小路径和 (Medium)
+ *
+ * 给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+ *
+ * 说明：每次只能向下或者向右移动一步。
+ */
 object Leetcode_64 {
 
   /**
-    * 递推公式：
-    * f(i)(j) = grid(i)(j) + min(grid(i - 1)(j), grid(i)(j - 1))
-    */
+   * 递推公式：
+   * f(i)(j) = grid(i)(j) + min(grid(i - 1)(j), grid(i)(j - 1))
+   */
   def minPathSum(grid: Array[Array[Int]]): Int = {
     if (grid.isEmpty) return 0
     val copy = grid.clone() // 不修改原数组

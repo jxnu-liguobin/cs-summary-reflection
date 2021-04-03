@@ -2,11 +2,11 @@
 package io.github.dreamylost
 
 /**
-  * 746. Min Cost Climbing Stairs
-  *
-  * @date: 2018-08-20
-  * @author: liguobin
-  */
+ * 746. Min Cost Climbing Stairs
+ *
+ * @date: 2018-08-20
+ * @author: liguobin
+ */
 object Leetcode_746 extends App {
 
   val ret = minCostClimbingStairs(Array(1, 100, 1, 1, 1, 100, 1, 1, 100, 1))

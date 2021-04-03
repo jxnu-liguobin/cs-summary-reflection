@@ -4,24 +4,24 @@ package io.github.dreamylost
 import scala.collection.mutable
 
 /**
-  * 501. 二叉搜索树中的众数
-  *
-  * 给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。
-  *
-  * @author 梦境迷离 dreamylost
-  * @since 2020-06-07
-  * @version v1.0
-  */
+ * 501. 二叉搜索树中的众数
+ *
+ * 给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。
+ *
+ * @author 梦境迷离 dreamylost
+ * @since 2020-06-07
+ * @version v1.0
+ */
 object Leetcode_501 extends App {
 
   /**
-    * 没有利用到搜索树的特性
-    * 3336 ms,50.00%
-    * 54 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 没有利用到搜索树的特性
+   * 3336 ms,50.00%
+   * 54 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def findMode(root: TreeNode): Array[Int] = {
     lazy val map: mutable.Map[Int, Int] = new mutable.HashMap[Int, Int]()
 
@@ -42,13 +42,13 @@ object Leetcode_501 extends App {
   }
 
   /**
-    * 中序遍历，利用有序特性
-    * 768 ms,100.00%
-    * 52.9 MB,100.00%
-    *
-    * @param root
-    * @return
-    */
+   * 中序遍历，利用有序特性
+   * 768 ms,100.00%
+   * 52.9 MB,100.00%
+   *
+   * @param root
+   * @return
+   */
   def findMode2(root: TreeNode): Array[Int] = {
     var preNode: TreeNode = null
     var curCount = 0

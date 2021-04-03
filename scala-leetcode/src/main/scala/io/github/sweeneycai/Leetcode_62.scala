@@ -2,22 +2,22 @@
 package io.github.sweeneycai
 
 /**
-  * 62. 不同路径 (Medium)
-  *
-  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
-  *
-  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
-  *
-  * 问总共有多少条不同的路径？
-  *
-  * @see <a href="https://leetcode-cn.com/problems/unique-paths">leetcode-cn.com</a>
-  */
+ * 62. 不同路径 (Medium)
+ *
+ * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+ *
+ * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
+ *
+ * 问总共有多少条不同的路径？
+ *
+ * @see <a href="https://leetcode-cn.com/problems/unique-paths">leetcode-cn.com</a>
+ */
 object Leetcode_62 extends App {
 
   /**
-    * 原始dp，空间复杂度为 m * n
-    * 执行用时 520 ms，内存消耗 49.2 MB
-    */
+   * 原始dp，空间复杂度为 m * n
+   * 执行用时 520 ms，内存消耗 49.2 MB
+   */
   def uniquePaths1(m: Int, n: Int): Int = {
     val array: Array[Array[Int]] = Array.ofDim(m, n)
     for (i <- array.indices) {
@@ -32,9 +32,9 @@ object Leetcode_62 extends App {
   }
 
   /**
-    * 优化一，使用两个数组，记录处理行的状态，空间复杂度为 2 * n
-    * 执行用时 476 ms，内存消耗 48.9 MB
-    */
+   * 优化一，使用两个数组，记录处理行的状态，空间复杂度为 2 * n
+   * 执行用时 476 ms，内存消耗 48.9 MB
+   */
   def uniquePaths2(m: Int, n: Int): Int = {
     var pre = new Array[Int](n)
     val cur = new Array[Int](n)
@@ -53,9 +53,9 @@ object Leetcode_62 extends App {
   }
 
   /**
-    *  优化3，使用单数组，空间复杂度 n
-    *  执行用时 456 ms，内存消耗 48.8 MB
-    */
+   *  优化3，使用单数组，空间复杂度 n
+   *  执行用时 456 ms，内存消耗 48.8 MB
+   */
   def uniquePaths3(m: Int, n: Int): Int = {
     val cur = new Array[Int](n)
     for (i <- cur.indices) {

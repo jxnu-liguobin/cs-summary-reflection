@@ -4,22 +4,22 @@ package io.github.dreamylost
 import scala.collection.mutable
 
 /**
-  * 有序矩阵中第K小的元素
-  *
-  * 378. Kth Smallest Element in a Sorted Matrix ((Medium))
-  *
-  * matrix = [
-  * [ 1,  5,  9],
-  * [10, 11, 13],
-  * [12, 13, 15]
-  * ],
-  * k = 8,
-  * return 13.
-  *
-  * @author 梦境迷离
-  * @time 2018年7月18日
-  * @version v1.0
-  */
+ * 有序矩阵中第K小的元素
+ *
+ * 378. Kth Smallest Element in a Sorted Matrix ((Medium))
+ *
+ * matrix = [
+ * [ 1,  5,  9],
+ * [10, 11, 13],
+ * [12, 13, 15]
+ * ],
+ * k = 8,
+ * return 13.
+ *
+ * @author 梦境迷离
+ * @time 2018年7月18日
+ * @version v1.0
+ */
 object Leetcode_378_Array extends App { //自带main方法
 
   def kthSmallest(matrix: Array[Array[Int]], k: Int): Int = {
@@ -42,13 +42,13 @@ object Leetcode_378_Array extends App { //自带main方法
   }
 
   /**
-    * 800 ms,33.33%
-    * 61 MB,100.00%
-    *
-    * @param matrix
-    * @param k
-    * @return
-    */
+   * 800 ms,33.33%
+   * 61 MB,100.00%
+   *
+   * @param matrix
+   * @param k
+   * @return
+   */
   def kthSmallest2(matrix: Array[Array[Int]], k: Int): Int = {
     val queue = new mutable.PriorityQueue[Int]()
     matrix.indices.foreach(i =>

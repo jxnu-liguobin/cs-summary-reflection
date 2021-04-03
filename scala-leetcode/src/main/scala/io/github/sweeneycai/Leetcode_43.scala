@@ -4,10 +4,10 @@ package io.github.sweeneycai
 import scala.annotation.tailrec
 
 /**
-  * 43. 字符串相乘 (Medium)
-  *
-  * 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
-  */
+ * 43. 字符串相乘 (Medium)
+ *
+ * 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
+ */
 object Leetcode_43 extends App {
 
   @tailrec
@@ -35,10 +35,10 @@ object Leetcode_43 extends App {
   }
 
   /**
-    * 一位数与多位数相乘。
-    *
-    * @param offset 扩展为原来的 offset * 10 倍
-    */
+   * 一位数与多位数相乘。
+   *
+   * @param offset 扩展为原来的 offset * 10 倍
+   */
   def multiOne(num: Int, string: String, offset: Int): String = {
     if (num == 0) "0"
     else {
@@ -55,8 +55,8 @@ object Leetcode_43 extends App {
   }
 
   /**
-    * 两个字符串相加
-    */
+   * 两个字符串相加
+   */
   @tailrec
   def multiply(num1: String, num2: String): String = {
     if (num1 == "" || num2 == "") ""

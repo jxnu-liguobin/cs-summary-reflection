@@ -2,11 +2,11 @@
 package io.github.dreamylost
 
 /**
-  * 590. N叉树的后序遍历
-  *
-  * @author 梦境迷离
-  * @version 1.0,2020/4/7
-  */
+ * 590. N叉树的后序遍历
+ *
+ * @author 梦境迷离
+ * @version 1.0,2020/4/7
+ */
 object LeetCode_590 extends App {
 
   val node5 = new Node(5)

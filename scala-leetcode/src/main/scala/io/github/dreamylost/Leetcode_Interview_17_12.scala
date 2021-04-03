@@ -2,16 +2,16 @@
 package io.github.dreamylost
 
 /**
-  * 面试题 17.12. BiNode
-  *
-  * 二叉树数据结构TreeNode可用来表示单向链表（其中left置空，right为下一个链表节点）。
-  * 实现一个方法，把二叉搜索树转换为单向链表，要求值的顺序保持不变，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。
-  *
-  * 返回转换后的单向链表的头节点。
-  *
-  * @author 梦境迷离
-  * @version 1.0,2020/6/24
-  */
+ * 面试题 17.12. BiNode
+ *
+ * 二叉树数据结构TreeNode可用来表示单向链表（其中left置空，right为下一个链表节点）。
+ * 实现一个方法，把二叉搜索树转换为单向链表，要求值的顺序保持不变，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。
+ *
+ * 返回转换后的单向链表的头节点。
+ *
+ * @author 梦境迷离
+ * @version 1.0,2020/6/24
+ */
 object Leetcode_Interview_17_12 extends App {
 
   val ret = convertBiNode(TreeNodeData.treeData3_5())
@@ -20,12 +20,12 @@ object Leetcode_Interview_17_12 extends App {
   println(ret2)
 
   /**
-    * 使用java集合模拟栈，也超内存
-    * 33 / 34 个通过测试用例
-    *
-    * @param root
-    * @return
-    */
+   * 使用java集合模拟栈，也超内存
+   * 33 / 34 个通过测试用例
+   *
+   * @param root
+   * @return
+   */
   def convertBiNode(root: TreeNode): TreeNode = {
     import java.util
     val head = new TreeNode(Int.MinValue)
@@ -49,12 +49,12 @@ object Leetcode_Interview_17_12 extends App {
   }
 
   /**
-    * 使用函数式栈，超内存
-    * 33 / 34 个通过测试用例
-    *
-    * @param root
-    * @return
-    */
+   * 使用函数式栈，超内存
+   * 33 / 34 个通过测试用例
+   *
+   * @param root
+   * @return
+   */
   def convertBiNode_(root: TreeNode): TreeNode = {
     val head = new TreeNode(Int.MinValue)
     var preNode = head
@@ -78,12 +78,12 @@ object Leetcode_Interview_17_12 extends App {
   }
 
   /**
-    * 使用递归
-    * 33 / 34 个通过测试用例，最后超过内存限制了。。
-    *
-    * @param root
-    * @return
-    */
+   * 使用递归
+   * 33 / 34 个通过测试用例，最后超过内存限制了。。
+   *
+   * @param root
+   * @return
+   */
   @unchecked
   def convertBiNode2(root: TreeNode): TreeNode = {
     val head = new TreeNode(Int.MinValue)

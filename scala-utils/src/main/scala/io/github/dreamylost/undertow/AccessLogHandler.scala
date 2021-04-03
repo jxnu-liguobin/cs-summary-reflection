@@ -14,12 +14,12 @@ import io.undertow.server.HttpServerExchange
 import io.undertow.util.HeaderValues
 
 /**
-  * undertow 访问日志处理器
-  *
-  * @author 梦境迷离
-  * @time 2019-08-18
-  * @version v1.0
-  */
+ * undertow 访问日志处理器
+ *
+ * @author 梦境迷离
+ * @time 2019-08-18
+ * @version v1.0
+ */
 class AccessLogHandler(next: HttpHandler, service: Option[String]) extends HttpHandler {
 
   private[this] val logger: Logger = Logger("access")

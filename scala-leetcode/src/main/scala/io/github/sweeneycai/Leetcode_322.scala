@@ -4,20 +4,20 @@ package io.github.sweeneycai
 import scala.collection.mutable
 
 /**
-  * 322. 零钱兑换 (Medium)
-  *
-  * 给定不同面额的硬币 coins 和一个总金额 amount。
-  * 编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
-  * 如果没有任何一种硬币组合能组成总金额，返回 -1。
-  *
-  * @see <a href="https://leetcode-cn.com/problems/coin-change/">leetcode-cn.com</a>
-  */
+ * 322. 零钱兑换 (Medium)
+ *
+ * 给定不同面额的硬币 coins 和一个总金额 amount。
+ * 编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
+ * 如果没有任何一种硬币组合能组成总金额，返回 -1。
+ *
+ * @see <a href="https://leetcode-cn.com/problems/coin-change/">leetcode-cn.com</a>
+ */
 object Leetcode_322 extends App {
 
   /**
-    * 未优化的递归解法
-    * 超出内存限制
-    */
+   * 未优化的递归解法
+   * 超出内存限制
+   */
   def coinChange1(coins: Array[Int], amount: Int): Int = {
     def dp(n: Int): Int = {
       if (n == 0) 0
@@ -39,9 +39,9 @@ object Leetcode_322 extends App {
   }
 
   /**
-    * 自顶向下的记忆递归解法
-    * 820 ms, 51.1 MB
-    */
+   * 自顶向下的记忆递归解法
+   * 820 ms, 51.1 MB
+   */
   def coinChange2(coins: Array[Int], amount: Int): Int = {
     // 将查找过的元素记录下来
     val lookup: mutable.HashMap[Int, Int] = mutable.HashMap.empty
@@ -71,14 +71,14 @@ object Leetcode_322 extends App {
   }
 
   /**
-    * 自底向上的动态规划
-    * 628 ms, 51.1 MB
-    *
-    * 最优子结构：每一个amount对应的最小零钱数
-    * dp方程：dp[i] = min(dp[i], dp[i-coin] + 1)
-    * 即 零钱数 11 的状态可以由 10 的状态加一得到，
-    * 穷举coins即可得到最优解。
-    */
+   * 自底向上的动态规划
+   * 628 ms, 51.1 MB
+   *
+   * 最优子结构：每一个amount对应的最小零钱数
+   * dp方程：dp[i] = min(dp[i], dp[i-coin] + 1)
+   * 即 零钱数 11 的状态可以由 10 的状态加一得到，
+   * 穷举coins即可得到最优解。
+   */
   def coinChange3(coins: Array[Int], amount: Int): Int = {
     val dp: Array[Int] = Array.fill(amount + 1)(amount + 1)
     dp(0) = 0
