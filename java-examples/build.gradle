@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.0'
+    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.8'
     compile group: 'org.javatuples', name: 'javatuples', version: '1.2'
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
