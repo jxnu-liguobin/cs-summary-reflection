@@ -8,7 +8,7 @@ dependencies {
     compile group: 'com.typesafe.play', name: 'play_2.13', version: '2.8.7'
     compile group: 'com.typesafe.play', name: 'play-ws_2.13', version: '2.8.7'
     compile group: 'com.typesafe.play', name: 'play-akka-http-server_2.13', version: '2.7.9'
-    compile group: 'com.typesafe.play', name: 'play-ahc-ws_2.13', version: '2.7.9'
+    compile group: 'com.typesafe.play', name: 'play-ahc-ws_2.13', version: '2.8.7'
     compile group: 'com.google.inject', name: 'guice', version: '5.0.1'
     compile group: 'io.undertow', name: 'undertow-core', version: '2.0.24.Final'
     compile group: 'org.scalikejdbc', name: 'scalikejdbc_2.13', version: '3.5.0'
