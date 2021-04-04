@@ -27,5 +27,10 @@ jobs:
         key: gradle
     - name: Build with Gradle
       run: gradle -s build
+
+    - name: Build Scala3
+      working-directory: scala3-examples
+      run: sbt compile
+
     - name: Code style Check
       run: gradle spotlessCheck

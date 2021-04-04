@@ -16,3 +16,4 @@ tmp/
 node_modules/
 *.lock
 *.bak
+sbt.json
