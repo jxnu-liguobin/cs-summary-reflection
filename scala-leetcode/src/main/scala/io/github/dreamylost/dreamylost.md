@@ -120,3 +120,4 @@
 * [括号生成](./Leetcode_22.scala) Medium
 * [组合总和](./Leetcode_39.scala) Medium
 * [电话号码的字母组合](./Leetcode_17.scala) Medium
+* [单词搜索](./Leetcode_79.scala) Medium
