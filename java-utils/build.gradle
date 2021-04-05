@@ -6,5 +6,5 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
-    compile group: 'org.springframework', name: 'spring-web', version: '5.3.1'
+    compile group: 'org.springframework', name: 'spring-web', version: '5.3.5'
 }
