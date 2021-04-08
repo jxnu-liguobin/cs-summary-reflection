@@ -15,5 +15,5 @@ dependencies {
     compile group: 'com.zaxxer', name: 'HikariCP', version: '4.0.3'
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-scala_2.13', version: '2.12.2'
     compile group: 'org.tpolecat', name: 'doobie-core_2.13', version: '0.12.1'
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.19'
 }
