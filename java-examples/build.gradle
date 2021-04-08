@@ -5,9 +5,9 @@ plugins {
 dependencies {
     compile group: 'org.apache.commons', name: 'commons-csv', version: '1.8'
     compile group: 'org.javatuples', name: 'javatuples', version: '1.2'
-    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+    compile group: 'redis.clients', name: 'jedis', version: '3.5.2'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.15'
-    compile group: 'org.ow2.asm', name: 'asm-all', version: '5.1'
+    compile group: 'org.ow2.asm', name: 'asm-all', version: '6.0_BETA'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.75'
-    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.15'
+    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.21'
 }
