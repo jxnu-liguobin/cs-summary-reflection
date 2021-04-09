@@ -20,9 +20,9 @@ object CodeGeneratorSpec extends App {
     "classSuffix",
     "codePath"
   )
-  println(codeGenerator.classSuffix == "classSuffix") //true
-  println(codeGenerator.codePath == "codePath") //true
-  println(codeGenerator.templateName == "template/name.ftl") //true
+  println(codeGenerator.classSuffix)
+  println(codeGenerator.codePath)
+  println(codeGenerator.templateName)
   println(codeGenerator.getClass.getCanonicalName) //null, 因为是匿名类
   println(codeGenerator.getClass.getSimpleName) //u0022GeneratorName$u0022$1
   println(
@@ -38,8 +38,16 @@ object CodeGeneratorSpec extends App {
     reify(codeGenerator.getClass)
   ) //Expr[Class[_ <: io.github.dreamylost.macro.CodeGenerator]](CodeGeneratorSpec.this.codeGenerator.getClass())
 
-  //编译错误
-//  val codeGeneratorObjectType = CodeGenerateBuilder[CodeGenerator]("GeneratorName", "template/name.ftl", "classSuffix", "codePath", "")
-//  println(codeGeneratorObjectType)
+  //单例对象
+  val codeGeneratorObjectType = CodeGenerateBuilder[CodeGenerator](
+    "GeneratorName",
+    "template/name.ftl",
+    "classSuffix",
+    "codePath",
+    ""
+  )
+  println(codeGeneratorObjectType.classSuffix)
+  println(codeGeneratorObjectType.codePath)
+  println(codeGeneratorObjectType.templateName)
 
 }

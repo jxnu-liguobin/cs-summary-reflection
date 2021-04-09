@@ -48,6 +48,7 @@ object CodeGenerateBuilder {
 
   import scala.language.experimental.macros
   import scala.reflect.macros.blackbox
+  import scala.reflect.macros.whitebox
 
   /**
    * @param name        Generator的名称，主要用于根据类名进行后续判断
@@ -62,7 +63,7 @@ object CodeGenerateBuilder {
       template: String,
       classSuffix: String,
       codePath: String
-  ): G = macro applyImpl
+  ): G = macro applyImpl[G]
 
   //该宏生成一个单例对象，注意：孤独的object不是伴生对象。添加一个参数是为了重载apply。
   def apply[G <: CodeGenerator](
@@ -71,10 +72,10 @@ object CodeGenerateBuilder {
       classSuffix: String,
       codePath: String,
       args: String
-  ): Any = macro applyImpl2
+  ): G = macro applyImpl2
 
-  //黑盒使用c.Expr[T]可以携带参数类型，会更好。
-  def applyImpl2(c: scala.reflect.macros.whitebox.Context)(
+  //黑盒使用c.Expr[T]可以携带参数类型有助于类型推导，会更好。白盒不需要类型推断
+  def applyImpl2(c: whitebox.Context)(
       name: c.Tree,
       template: c.Tree,
       classSuffix: c.Tree,
@@ -83,7 +84,8 @@ object CodeGenerateBuilder {
   ): c.universe.Tree = {
     import c.universe._
     val Literal(Constant(sEname: String)) = name
-    val ret = q"""
+    val ret =
+      q"""
       import io.github.dreamylost.`macro`.CodeGenerator._
       import io.github.dreamylost.`macro`.{ Helper, CodeGenerator}
       
@@ -111,20 +113,21 @@ object CodeGenerateBuilder {
           handleSourceResult(args)
         }
     }
+    ${TermName(sEname)}
     """
-    tq"$ret.type"
+    ret
   }
 
-  //expr携带类型，黑盒使用expr好点
-  def applyImpl(c: blackbox.Context)(
+  def applyImpl[G: c.WeakTypeTag](c: blackbox.Context)(
       name: c.Expr[String],
       template: c.Expr[String],
       classSuffix: c.Expr[String],
       codePath: c.Expr[String]
-  ): c.universe.Tree = {
+  ): c.Expr[G] = {
     import c.universe._
     val className = TypeName(name.tree.toString())
-    q"""
+    val ret =
+      q"""
       import io.github.dreamylost.`macro`.CodeGenerator._
       import io.github.dreamylost.`macro`.{ Helper, CodeGenerator}
       
@@ -152,8 +155,9 @@ object CodeGenerateBuilder {
           handleSourceResult(args)
         }
     }
-    new $className 
+      new $className
     """
+    c.Expr[G](ret)
   }
 
 }
