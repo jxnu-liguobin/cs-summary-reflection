@@ -1,14 +1,44 @@
 /* All Contributors (C) 2021 */
 package io.github.poorguy.explore.learn.queuestack;
 
+import io.github.poorguy.tag.DFS;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/** Using bfs or dfs will be better */
-class NumberOfIslands {
+class NumberOfIslands implements DFS {
     public int numIslands(char[][] grid) {
+        return dfs(grid);
+    }
+
+    private int dfs(char[][] grid) {
+        int count = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                count += dfs(grid, i, j);
+            }
+        }
+        return count;
+    }
+
+    private int dfs(char[][] grid, int row, int col) {
+        if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length) {
+            return 0;
+        }
+        if (grid[row][col] == '1') {
+            grid[row][col] = '0';
+            dfs(grid, row - 1, col);
+            dfs(grid, row + 1, col);
+            dfs(grid, row, col + 1);
+            dfs(grid, row, col - 1);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    private int union(char[][] grid) {
         List<Set<String>> resultList = new ArrayList<>();
         for (int row = 0; row < grid.length; row++) {
             for (int line = 0; line < grid[0].length; line++) {
