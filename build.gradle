@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath "com.diffplug.spotless:spotless-plugin-gradle:5.11.1"
+        classpath "com.github.jxnu-liguobin:leetcode-helper:0.1.4"
     }
 }
 
@@ -14,6 +15,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'maven'
     apply plugin: 'com.diffplug.spotless'
+    apply plugin: 'com.github.jxnu-liguobin.leetcode-helper'
 
     group = 'io.github.dreamylost'
     version = '2.0.1'
@@ -49,4 +51,15 @@ subprojects {
     build.dependsOn 'spotlessCheck'
 
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    //使用： gradle scala-leetcode:leetcodeCodegenService -Pq=top-k-frequent-elements
+    //参数说明：gradle任务必须指定模块，否则会每个子模块都执行一次。
+    task leetcodeCodegenService(type: com.github.dreamylost.task.LeetcodeGradleTask) {
+        questionTitle = rootProject.getProperties().get("q").toString()
+        generatedLanguage = com.github.dreamylost.GeneratedLanguage.Scala
+        String s = rootProject.getProperties().get("p").toString()
+        packageName = s == null ? "io.github.dreamylost" : s
+        prefix = "Leetcode_"
+        serverConfig = com.github.dreamylost.invoker.ServerConfig.defaultConfig()
+    }
 }
