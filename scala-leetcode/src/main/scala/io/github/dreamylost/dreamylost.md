@@ -123,3 +123,4 @@
 * [单词搜索](./Leetcode_79.scala) Medium
 * [每日温度](./Leetcode_739.scala) Medium
 * [回文子串](./Leetcode_647.scala) Medium
+* [前 K 个高频元素](./Leetcode_347.scala) Medium
