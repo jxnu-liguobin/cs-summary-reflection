@@ -1,11 +1,11 @@
 /* All Contributors (C) 2021 */
 package io.github.dreamylost.compiler;
 
+import java.security.SecureClassLoader;
 import javax.tools.FileObject;
 import javax.tools.ForwardingJavaFileManager;
 import javax.tools.JavaFileManager;
 import javax.tools.JavaFileObject;
-import java.security.SecureClassLoader;
 
 /**
  * 输出字节码到JavaClassFile
