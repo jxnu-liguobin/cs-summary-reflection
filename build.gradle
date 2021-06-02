@@ -32,12 +32,12 @@ subprojects {
         jcenter()
         // 先从url中下载jar若没有找到，则在artifactUrls中寻找
         maven {
-            url "http://maven.aliyun.com/nexus/content/groups/public/"
-            artifactUrls "http://central.maven.org/maven2/"
+            url "https://maven.aliyun.com/nexus/content/groups/public/"
+            artifactUrls "https://central.maven.org/maven2/"
         }
         maven {
             name "spring"
-            url "http://repo.spring.io/libs-milestone/"
+            url "https://repo.spring.io/libs-milestone/"
         }
         google()
         mavenCentral()
