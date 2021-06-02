@@ -13,7 +13,6 @@ buildscript {
 subprojects {
 
     apply plugin: 'java'
-    apply plugin: 'maven'
     apply plugin: 'com.diffplug.spotless'
     apply plugin: 'com.github.jxnu-liguobin.leetcode-helper'
 
