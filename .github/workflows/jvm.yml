@@ -20,17 +20,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Gradle cache
-      uses: actions/cache@v1
-      with:
-        path: ~/.gradle
-        key: gradle
     - name: Build with Gradle
-      run: gradle -s build
+      run: ./gradlew -s build
 
     - name: Build Scala3
       working-directory: scala3-examples
       run: sbt compile
 
     - name: Code style Check
-      run: gradle spotlessCheck
+      run: ./gradlew spotlessCheck
