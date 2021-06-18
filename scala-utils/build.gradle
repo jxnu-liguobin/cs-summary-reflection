@@ -4,7 +4,7 @@ plugins{
 dependencies {
     implementation 'commons-codec:commons-codec:1.15'
     implementation 'com.typesafe.scala-logging:scala-logging_2.13:3.9.3'
-    implementation 'com.typesafe.play:play-json_2.13:2.7.4'
+    implementation 'com.typesafe.play:play-json_2.13:2.9.2'
     implementation 'com.typesafe.play:play_2.13:2.8.8'
     implementation 'com.typesafe.play:play-ws_2.13:2.8.7'
     implementation 'com.typesafe.play:play-akka-http-server_2.13:2.8.8'
@@ -15,5 +15,5 @@ dependencies {
     implementation 'com.zaxxer:HikariCP:4.0.3'
     implementation 'com.fasterxml.jackson.module:jackson-module-scala_2.13:2.12.2'
     implementation 'org.tpolecat:doobie-core_2.13:0.12.1'
-    implementation 'org.postgresql:postgresql:42.2.5'
+    implementation 'org.postgresql:postgresql:42.2.22'
 }
