@@ -5,9 +5,9 @@ plugins {
 dependencies {
     implementation 'org.apache.commons:commons-csv:1.8'
     implementation 'org.javatuples:javatuples:1.2'
-    implementation 'redis.clients:jedis:3.6.0'
+    implementation 'redis.clients:jedis:3.6.1'
     implementation 'commons-codec:commons-codec:1.15'
     implementation 'org.ow2.asm:asm-all:6.0_BETA'
-    implementation 'com.alibaba:fastjson:1.2.75'
+    implementation 'com.alibaba:fastjson:1.2.76'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 }
