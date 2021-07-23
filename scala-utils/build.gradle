@@ -12,7 +12,7 @@ dependencies {
     implementation 'com.google.inject:guice:5.0.1'
     implementation 'io.undertow:undertow-core:2.2.8.Final'
     implementation 'org.scalikejdbc:scalikejdbc_2.13:3.5.0'
-    implementation 'com.zaxxer:HikariCP:4.0.3'
+    implementation 'com.zaxxer:HikariCP:5.0.0'
     implementation 'com.fasterxml.jackson.module:jackson-module-scala_2.13:2.12.4'
     implementation 'org.tpolecat:doobie-core_2.13:0.13.4'
     implementation 'org.postgresql:postgresql:42.2.23'
