@@ -10,7 +10,7 @@ dependencies {
     implementation 'com.typesafe.play:play-akka-http-server_2.13:2.8.8'
     implementation 'com.typesafe.play:play-ahc-ws_2.13:2.8.8'
     implementation 'com.google.inject:guice:5.0.1'
-    implementation 'io.undertow:undertow-core:2.2.8.Final'
+    implementation 'io.undertow:undertow-core:2.2.9.Final'
     implementation 'org.scalikejdbc:scalikejdbc_2.13:3.5.0'
     implementation 'com.zaxxer:HikariCP:5.0.0'
     implementation 'com.fasterxml.jackson.module:jackson-module-scala_2.13:2.12.4'
