@@ -5,7 +5,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.diffplug.spotless:spotless-plugin-gradle:5.14.2"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:5.17.0"
         classpath "com.github.jxnu-liguobin:leetcode-helper:0.1.4"
     }
 }
