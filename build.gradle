@@ -62,3 +62,10 @@ subprojects {
         serverConfig = com.github.dreamylost.invoker.ServerConfig.defaultConfig()
     }
 }
+
+allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        options.fork = true
+    }
+
+}
