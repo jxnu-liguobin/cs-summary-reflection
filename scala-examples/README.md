@@ -147,10 +147,10 @@ Scala 有函数和方法，二者在语义上的区别很小。Scala 方法是�
 此图由playscala.cn作者作，并授权使用
 
 Scala基本语法图解
-![Scala基本语法图解](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/public/image/Scala%E8%AF%AD%E6%B3%95%E5%9B%BE%E8%A7%A3.png)
+![Scala基本语法图解](https://github.com/jxnu-liguobin/jxnu-liguobin.github.io/blob/master/public/image/Scala%E8%AF%AD%E6%B3%95%E5%9B%BE%E8%A7%A3.png)
 
 不可变集合继承结构
-![不可变集合继承结构](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/public/image/immutable.png)
+![不可变集合继承结构](https://github.com/jxnu-liguobin/jxnu-liguobin.github.io/blob/master/public/image/immutable.png)
 
 可变集合继承结构
-![可变集合继承结构](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/public/image/mutable.png)
+![可变集合继承结构](https://github.com/jxnu-liguobin/jxnu-liguobin.github.io/blob/master/public/image/mutable.png)

@@ -82,6 +82,7 @@
 * [机器人能否返回原点](./Leetcode_657.scala) Easy
 * [等价多米诺骨牌对的数量](./Leetcode_1128.scala) Easy
 * [从有序链表中删除重复节点](./Leetcode_83_ListNode.scala) Easy
+* [无重复字符的最长子串](./Leetcode_3.scala) Medium
 
 ### LeetCode 热题 HOT 100
 
