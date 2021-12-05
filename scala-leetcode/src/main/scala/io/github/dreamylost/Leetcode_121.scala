@@ -6,7 +6,7 @@ package io.github.dreamylost
  * 如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
  * 注意你不能在买入股票前卖出股票。
  * @author 梦境迷离
- * @time 2018年8月14日
+ * @since 2018年8月14日
  * @version v1.0
  */
 object Leetcode_121 extends App {
@@ -17,12 +17,12 @@ object Leetcode_121 extends App {
 
     if (prices.length == 0) return 0
     var max = 0
-    var temp = prices(0)
+    var minPrice = prices(0)
     for (i <- 1 until prices.length) {
-      if (temp > prices(i)) {
-        temp = prices(i)
+      if (minPrice > prices(i)) {
+        minPrice = prices(i)
       } else {
-        max = math.max(max, prices(i) - temp)
+        max = math.max(max, prices(i) - minPrice)
       }
     }
     max
