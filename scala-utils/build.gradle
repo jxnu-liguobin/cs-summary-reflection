@@ -15,5 +15,5 @@ dependencies {
     implementation 'com.zaxxer:HikariCP:5.0.0'
     implementation 'com.fasterxml.jackson.module:jackson-module-scala_2.13:2.13.1'
     implementation 'org.tpolecat:doobie-core_2.13:0.13.4'
-    implementation 'org.postgresql:postgresql:42.2.23'
+    implementation 'org.postgresql:postgresql:42.3.1'
 }
