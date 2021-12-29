@@ -4,6 +4,7 @@ package io.github.dreamylost
 //隐藏java集合
 
 import java.util.{ Queue => _ }
+import scala.collection.mutable.ListBuffer
 
 //过期，以后使用List
 import scala.collection.immutable.Queue
@@ -40,20 +41,44 @@ object BTT extends App {
 
   //前，144. Binary Tree Preorder Traversal (Medium)
   @unchecked
-  def preorderTraversal(root: TreeNode): Seq[Int] = {
-    var ret = Seq[Int]()
-    var stack = List[TreeNode]()
-    stack = root :: stack
-    while (stack.nonEmpty) {
-      val (node, s) = stack.head -> stack.tail
-      stack = s
-      if (node != null) {
-        ret = ret ++ Seq(node.value)
-        stack = node.right :: stack // 先右后左，保证左子树先遍历
-        stack = node.left :: stack
+  private def preOrder(root: TreeNode): Array[Int] = {
+    if (root == null) return Array()
+    val queue = new java.util.LinkedList[TreeNode]
+    queue.addLast(root);
+    val preRet = ListBuffer[Int]()
+    while (!queue.isEmpty()) {
+      val element = queue.removeLast()
+      if (element != null) {
+        preRet.append(element.value)
+        if (element.right != null) queue.addLast(element.right)
+        if (element.left != null) queue.addLast(element.left)
       }
     }
-    ret
+    preRet.toArray
+  }
+
+  /**
+   * 中序
+   * @param root
+   * @return
+   */
+  private def inOrder(root: TreeNode): Array[Int] = {
+    if (root == null) return Array()
+    val stack = new java.util.LinkedList[TreeNode]
+    val inRet = ListBuffer[Int]()
+    var cur = root
+    while (cur != null || !stack.isEmpty()) {
+      while (cur != null) {
+        stack.addLast(cur)
+        cur = cur.left
+      }
+      val element = stack.removeLast()
+      if (element != null) {
+        inRet.append(element.value)
+        cur = element.right
+      }
+    }
+    inRet.toArray
   }
 
   /**
@@ -61,40 +86,40 @@ object BTT extends App {
    * 前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
    */
   //后，145. Binary Tree Postorder Traversal (Medium)
-  @unchecked
-  def postorderTraversal(root: TreeNode): Seq[Int] = {
-    var ret = Seq[Int]()
-    var stack = List[TreeNode]()
-    stack = root :: stack
-    while (stack.nonEmpty) {
-      val (node, s) = stack.head -> stack.tail
-      stack = s
-      if (node != null) {
-        ret = ret ++ Seq(node.value)
-        stack = node.left :: stack // 先左后右，保证右子树先遍历
-        stack = node.right :: stack
-      }
+  private def postOrder(root: TreeNode): Array[Int] = {
+    if (root == null) return Array()
+    val stack = new java.util.LinkedList[TreeNode]
+    stack.addLast(root);
+    val preRet = ListBuffer[Int]()
+    while (!stack.isEmpty()) {
+      val element = stack.removeLast()
+      preRet.append(element.value)
+      if (element.left != null) stack.addLast(element.left)
+      if (element.right != null) stack.addLast(element.right)
     }
-    ret.reverse
+    preRet.reverse.toArray
   }
 
   //层序
-  def levelTraverse(root: TreeNode): Seq[Int] = {
-    if (root == null) return Seq()
-    var list = Seq[Int]()
-    //Scala的Seq将是Java的List，Scala的List将是Java的LinkedList。
-    var queue = Queue[TreeNode]() //层序遍历时保存结点的队列，可以省略new或者省略()
-    queue = queue.enqueue(root)
-    //初始化
+  def levelOrder(root: TreeNode): List[List[Int]] = {
+    var ret = List[List[Int]]()
+    if (root == null) return ret
+    var queue = List[TreeNode]()
+    queue = queue ::: List(root)
     while (queue.nonEmpty) {
-      val (node, q) = queue.dequeue
-      queue = q
-      list = list ++ Seq(node.value)
-      if (node.left != null) queue = queue.enqueue(node.left)
-      if (node.right != null) queue = queue.enqueue(node.right)
+      var levelValue = List.empty[Int]
+      val queueSize = queue.size
+      for (_ <- 0 until queueSize) {
+        val node = queue.head
+        queue = queue.tail
+        //注意: 对于::或:::方法，a.::(b) 等价 b::a
+        levelValue = levelValue ::: List(node.value)
+        if (node.left != null) queue = queue ::: List(node.left)
+        if (node.right != null) queue = queue ::: List(node.right)
+      }
+      ret = ret ::: List(levelValue)
     }
-
-    list
+    ret
   }
 
   //根据中序的有序数组构造二叉树
