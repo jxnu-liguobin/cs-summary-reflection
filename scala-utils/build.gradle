@@ -6,7 +6,7 @@ dependencies {
     implementation 'com.typesafe.scala-logging:scala-logging_2.13:3.9.3'
     implementation 'com.typesafe.play:play-json_2.13:2.9.2'
     implementation 'com.typesafe.play:play_2.13:2.8.11'
-    implementation 'com.typesafe.play:play-ws_2.13:2.8.8'
+    implementation 'com.typesafe.play:play-ws_2.13:2.8.11'
     implementation 'com.typesafe.play:play-akka-http-server_2.13:2.8.8'
     implementation 'com.typesafe.play:play-ahc-ws_2.13:2.8.8'
     implementation 'com.google.inject:guice:5.0.1'
