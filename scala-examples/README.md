@@ -102,7 +102,7 @@ while       with       yield
 
 Scala类型系统继承结构图
 
-![Scala类型系统继承结构图](https://github.com/jxnu-liguobin/cs-summary-reflection/blob/master/docs/public/image/scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.jpg)
+![Scala类型系统继承结构图](https://github.com/jxnu-liguobin/jxnu-liguobin.github.io/blob/master/public/image/scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.jpg)
 
 方法参数方法参数是在调用该方法时用于传递方法中的值的变量。
 方法参数只能从方法内部访问，但是如果从方法外部引用了对象，则可以从外部访问传入的对象。
